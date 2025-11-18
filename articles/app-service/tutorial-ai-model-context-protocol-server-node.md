@@ -3,11 +3,12 @@ title: Web app as MCP server in GitHub Copilot Chat agent mode (Node.js)
 description: Empower GitHub Copilot Chat with your existing Node.js web apps by integrating their capabilities as Model Context Protocol servers, enabling Copilot Chat to perform real-world tasks.
 author: cephalin
 ms.author: cephalin
-ms.date: 07/22/2025
+ms.date: 11/10/2025
 ms.topic: tutorial
 ms.custom:
   - devx-track-javascript
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ms.service: azure-app-service
 ---
 

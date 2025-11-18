@@ -3,11 +3,12 @@ title: Web app as MCP server in GitHub Copilot Chat agent mode (Python)
 description: Empower GitHub Copilot Chat with your existing Python web apps by integrating their capabilities as Model Context Protocol servers, enabling Copilot Chat to perform real-world tasks.
 author: cephalin
 ms.author: cephalin
-ms.date: 07/22/2025
+ms.date: 11/10/2025
 ms.topic: tutorial
 ms.custom:
   - devx-track-python
 ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ms.service: azure-app-service
 ---
 

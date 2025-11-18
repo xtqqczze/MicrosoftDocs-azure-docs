@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: pri-mittal
 ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 10/08/2025
+ms.date: 10/28/2025
 ms.author: primittal
 ---
 # Manage Reservations for Azure resources
@@ -80,6 +80,9 @@ If you're a billing administrator, use following steps to view and manage all re
 2. In the left menu, select **Products + services** > **Reservations**.
 3. The complete list of reservations for your EA enrollment or billing profile is shown.
 4. Billing administrators can take ownership of a reservation by selecting it and then selecting **Grant access** in the window that appears.
+
+> [!NOTE]
+> As a billing profile Owner or Contributor, you cannot grant access to reservations that reside in a different Microsoft Entra tenant (directory). The reservation Owner can either change the reservation order’s directory or add you directly to grant access.
 
 ## Change billing subscription for an Azure Reservation
 
