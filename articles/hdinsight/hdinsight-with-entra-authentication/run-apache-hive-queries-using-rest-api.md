@@ -97,7 +97,7 @@ A successful request returns a JSON object that contains:
      curl -H "Authorization: Bearer $TOKEN" -G https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/version/hive
    ```
 
-   You receive a response that's similar to the following:
+   You receive a response that's similar to the following code snippet:
 
    ```json
      {"module":"hive","version":"1.2.1000.2.6.5.3008-11"}
@@ -117,7 +117,7 @@ A successful request returns a JSON object that contains:
 
    These statements perform the following actions:
 
-   - `DROP TABLE`: If the table already exists, it's deleted.
+   - `DROP TABLE`: Deletes the table (if it already exists).
    - `CREATE EXTERNAL TABLE`: Creates a new *external* table in Hive. External tables store only the table definition in Hive. The data is left in the original location.
 
    > [!NOTE]  
@@ -144,4 +144,4 @@ See the following definitions:
 
 If the job finishes, the state should be `SUCCEEDED`.
 
- Once the state of the job changes to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file, which in this case is `/example/rest`. This address stores the output in the `example/curl` directory in the cluster's default storage.
+Once the state of the job changes to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file, which in this case is `/example/rest`. This address stores the output in the `example/curl` directory in the cluster's default storage.
