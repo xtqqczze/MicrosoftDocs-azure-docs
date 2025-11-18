@@ -1,7 +1,6 @@
 ---
 title: Deploy Docker Compose for agents to Azure Container Apps Preview
 description: Learn how to use Docker Compose for Agents on Azure Container Apps Preview.
-ms.service: container-apps
 ms.topic: how-to
 ms.date: 11/18/2025
 ms.service: azure-container-apps
