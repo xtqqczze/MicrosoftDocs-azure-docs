@@ -43,6 +43,6 @@ For step-by-step instructions, see [Manage agents in Azure API Center](register-
 
 ## View dependency maps for A2A agents (preview)
 
-API platform administrators can now create relationships feature using the dependency tracker feature. This capability allows API Center to identify the right agent to call and enable communication across agents in a enterprise. 
+API platform administrators can now create relationships feature using the dependency tracker feature. This capability allows API Center to identify the right agent to call and enable communication across agents in an enterprise. 
 
 For detailed steps, see [Track API resource dependencies in your API center](track-resource-dependencies.md).
