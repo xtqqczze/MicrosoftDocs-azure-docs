@@ -112,6 +112,8 @@ az appservice plan update -g <resourceGroupName> -n <App Service Plan Name> --as
 az appservice plan create -g asyncasp -n asyncasplinuxexample --number-of-workers 25 --sku p1v3 --async-scaling-enabled true --location northeurope
 ```
 
+---
+
 <a name="delete"></a>
 
 ## Delete an App Service plan
