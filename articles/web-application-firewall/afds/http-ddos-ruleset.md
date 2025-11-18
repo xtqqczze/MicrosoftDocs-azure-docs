@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.date: 11/18/2025
 ---
 
-# Microsoft HTTP DDoS Ruleset in Front Door WAF (preview)
+# HTTP DDoS Ruleset in Azure Front Door WAF (preview)
 
 > [!IMPORTANT]
 > The Microsoft HTTP DDoS Ruleset in the Azure Front Door Web Application Firewall (WAF) is currently in PREVIEW.
