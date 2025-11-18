@@ -56,6 +56,8 @@ To help you quickly learn the preview designer layout, this section summarizes t
 
   - In the designer upper-right corner, the new vertical ellipsis menu (**⋮**) appears next to the new **Publish** button. This menu contains other actions that appeared on the workflow sidebar and workflow toolbar.
 
+- The workflow assistant is available only in the classic designer.
+
 ## Open the workflow designer
 
 Follow these steps to open the workflow designer.
@@ -203,7 +205,7 @@ At the designer top, you can choose from the following views: **Workflow**, **Co
 
     > [!TIP]
     >
-    > **Code** view is an easy way to find and copy the workflow definition, rather than using Azure CLI or other methods.
+    > **Code** view is an easy way to find and copy the workflow definition, rather than use Azure CLI or other methods.
 
 - To view your workflow run history, chronological execution, operation status, inputs, and outputs, select **Run history**.
 
@@ -249,22 +251,29 @@ In the classic designer, you can find other actions either on the workflow toolb
 
 ### [Classic designer](#tab/classic)
 
-The workflow sidebar includes these actions under **
+The workflow sidebar includes these options under **Configuration**:
 
-- Access keys
-- Settings
-- Properties
+| Options | Description |
+|---------|-------------|
+| **Access keys** | View or regenerate workflow access keys. |
+| **Settings** | View workflow statue or change state between **Enabled** and **Disabled**. |
+| **Properties** | View workflow health, version, and other information. |
 
-The workflow toolbar includes these actions:
+The workflow toolbar includes these additional options:
 
-- Connections
-- Discard
-- Download workflow summary
-- Parameters
+| Options | Description |
+|---------|-------------|
+| **Discard** | Discard changes since the last save operation. |
+| **Parameters** | Create workflow parameters across environments. See [Create cross-environment parameters for workflow inputs](create-parameters-workflows.md). |
+| **Connections** | View connections in your workflow. |
+| **Errors** | View workflow validation errors. |
+| **AI** > **Assistant** | Open the workflow assistant. See [Get AI-powered help about Standard workflows in Azure Logic Apps](workflow-assistant-standard.md). |
+| **AI** > **Download workflow summary** | Generate a Markdown file that summaries the workflow's purpose and tasks. |
+| **Info** > **File a bug** | Create a bug in the GitHub issues for Azure Logic Apps. |
 
 ### [Preview designer](#tab/preview)
 
-The ellipsis menu (**:**) includes these actions:
+The vertical ellipsis menu (**:**) includes these additional options:
 
 - Access keys (under **Settings**)
 - Connections
