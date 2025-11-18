@@ -27,7 +27,7 @@ In this quickstart, you complete the following steps:
 
 * **Access to the approved regions**: During preview, regions for Managed Instance include: *East Asia*, *East US*, *North Europe*, and *West Central US*. More regions to follow.
 
-* [Managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity)
+* [Managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity)
 
 * [Storage account and storage container (blob)](/storage/blobs/storage-quickstart-blobs-portal.md)
 
