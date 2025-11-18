@@ -98,11 +98,11 @@ For information about scaling out an app's instance count, see [Scale instance c
 
 ## Scale an App Service Plan Asynchronously (Preview)
 
-When creating or scaling out an App Service Plan synchronously you may experience situations where you are advised to retry with lower instance counts than you originally requested, for example potentially you have asked to scale out to 15 instances but are told only 6 are available, so you must scale to 6 then wait and retry to get to your target 15 instances.
+When creating or manually scaling out an App Service Plan you may experience situations where you're advised to retry with lower instance counts than you originally requested, for example potentially you have asked to scale out to 15 instances but are told only 6 are available, so you must scale to 6 then wait and retry to get to your target 15 instances.
 
-The preview of App Service Plan Asynchronous enables you to request your target number of instances and the platform itself will take care of scaling out to the target number without you having to modify your original request and retrying.  The platform will scale to the number of available instances and then trigger the underlying platform to make additional instances available.  You can make use of this functionality during scale out operations or at plan creation time.   This functionality is supported for all Basic, Standard and Premium SKUs.  
+The preview of App Service Plan Asynchronous enables you to request your target number of instances and the platform scales out to the target number, without you having to modify your original request and retrying. The platform scales to the number of available instances and then triggers the underlying platform to make more instances available. You can make use of this functionality during scale-out operations or at plan creation time.  This functionality is supported for all Basic, Standard, and Premium pricing plans.
 
-### [Scale Out (CLI)](#tab/asyncscaleout)
+### [Scale-out (CLI)](#tab/asyncscaleout)
 ```azurecli-interactive
 az appservice plan update -g <resourceGroupName> -n <App Service Plan Name> --async-scaling-enabled true --number-of-workers <number of workers to scale out to>
 ```
