@@ -193,6 +193,14 @@ In order for export to an Azure storage account to work successfully, the [share
 - `tag`
 - `move`
 
+### Which permissions need to be granted to the storage account container shared access signature (SAS) token to allow import?
+
+For successful import operations, the shared access signature (SAS) token for the storage container should have the following permissions:
+- `read`
+- `add`
+- `create`
+- `list`
+
 ## Related content
 
 - [Azure Managed Redis service tiers](overview.md#choosing-the-right-tier)
