@@ -195,7 +195,9 @@ items:
       href: set-up-cd-deployment-center-standard.md
     - name: Deploy Standard logic apps to private storage accounts
       href: deploy-single-tenant-logic-apps-private-storage-account.md
-    - name: Export Consumption workflows to Standard logic app
+    - name: Clone Consumption to Standard - Portal
+      href: clone-consumption-logic-app-to-standard-workflow.md
+    - name: Export Consumption to Standard - Visual Studio Code
       href: export-from-consumption-to-standard-logic-app.md
   - name: Hybrid deployment for Azure Logic Apps
     items:
