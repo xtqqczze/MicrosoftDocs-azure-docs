@@ -27,11 +27,17 @@
     - name: Scalable web API
       displayName: Flex Consumption plan
       href: create-first-function-azure-developer-cli.md
+    - name: Process file uploads
+      displayName: storage, blob, Event Grid
+      href: scenario-blob-storage-events.md  
     - name: AI tools and MCP
       items:
-      - name: MCP server extension
-        displayName: AI, agent, agentic, tools
+      - name: Custom remote MCP server
+        displayName: AI, agent, agentic, tools, trigger
         href: scenario-custom-remote-mcp-server.md
+      - name: Host MCP server using SDKs
+        displayName: AI, agent, agentic, tools, MCP SDKs
+        href: scenario-host-mcp-server-sdks.md
     - name: Respond to database changes
       items:
       - name: Azure Cosmos DB (NoSQL)
@@ -40,6 +46,9 @@
       - name: Azure SQL
         displayName: data validation, database
         href: scenario-database-changes-azure-sqldb.md
+    - name: Run scheduled tasks
+      displayName: timer trigger, schedule
+      href: scenario-scheduled-tasks.md
   - name: Developer tools
     items:
     - name: Azure Developer CLI
