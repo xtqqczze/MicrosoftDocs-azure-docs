@@ -1,7 +1,7 @@
 ---
-title: Use the Microsoft Dev Box MCP Server with AI assistants
+title: Use the Microsoft Dev Box MCP Server with AI agents
 titleSuffix: Microsoft Dev Box
-description: Learn how to install and use the Microsoft Dev Box Model Context Protocol (MCP) Server to manage Dev Box resources through natural language interactions with AI assistants.
+description: Learn how to install and use the Microsoft Dev Box Model Context Protocol (MCP) Server to manage Dev Box resources through natural language interactions with AI agents.
 services: dev-box
 ms.service: dev-box
 ms.custom: devx-track-javascript
@@ -13,9 +13,9 @@ ms.date: 01/31/2025
 #Customer intent: As a developer, I want to use natural language to interact with my Dev Box resources through AI assistants, so that I can efficiently manage my dev boxes without switching contexts.
 ---
 
-# Use the Microsoft Dev Box MCP Server with AI assistants
+# Use the Microsoft Dev Box MCP Server with AI agents
 
-The Microsoft Dev Box Model Context Protocol (MCP) Server enables seamless integration between AI assistants and Microsoft Dev Box services. With this server, you can use natural language to manage your dev boxes, check their status, start and stop them, run customization tasks, and more—all through your favorite AI-powered development environment.
+The Microsoft Dev Box Model Context Protocol (MCP) Server enables seamless integration between AI agents and Microsoft Dev Box services. With this server, you can use natural language to manage your dev boxes, check their status, start and stop them, run customization tasks, and more—all through your favorite AI-powered development environment.
 
 The MCP Server provides a bridge between AI agents and the Microsoft Dev Box platform, allowing you to perform developer-focused operations through conversational interactions rather than switching between multiple interfaces.
 
@@ -25,7 +25,7 @@ The MCP Server provides a bridge between AI agents and the Microsoft Dev Box pla
 |---|---|
 | **Node.js** | Version 18.0 or higher required for running the MCP Server | [Download Node.js](https://nodejs.org/) |
 | **Microsoft Dev Box resources** | Active Dev Box dev center with project and pool access | [Create dev center](quickstart-configure-dev-box-service.md) |
-| **AI coding environment** | Compatible AI assistant with agent-mode support | See supported environments |
+| **AI coding environment** | Compatible AI agent with agent-mode support | See supported environments |
 
 ## Supported AI environments
 
@@ -40,13 +40,13 @@ The Dev Box MCP Server is compatible with multiple AI coding environments. Choos
 ### Visual Studio Code
 
 - **GitHub Copilot**: Popular choice with extensive MCP support
-- **Claude Dev**: Alternative AI assistant with Dev Box integration
+- **Claude Dev**: Alternative AI agent with Dev Box integration
 - **Installation**: Extension-based setup with JSON configuration
 
 ### Other Supported Environments
 
 - **Cursor**: AI-first code editor with built-in MCP support
-- **Claude Desktop**: Standalone application with MCP capabilities
+- **Claude Desktop**: Standalone AI agent with MCP capabilities
 - **JetBrains IDEs**: IntelliJ IDEA, WebStorm, and other JetBrains products (via plugins)
 
 ## Install the Dev Box MCP Server
@@ -116,7 +116,7 @@ If you see a list of your projects or dev boxes, the installation was successful
 
 ## Common use cases
 
-Once installed, you can use natural language to perform various Dev Box operations through your AI assistant:
+Once installed, you can use natural language to perform various Dev Box operations through your AI agent:
 
 ### Manage dev box lifecycle
 
