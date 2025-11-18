@@ -10,7 +10,7 @@ ms.custom: sfi-image-nochange
 #Customer intent: As an integration developer working with Azure Logic Apps, I want to learn how to navigate the designer and complete basic tasks for creating and managing for Standard workflows.
 ---
 
-# Navigate the Standard workflow designer for single-tenant Azure Logic Apps
+# Navigate the Standard workflow designer in single-tenant Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
