@@ -71,7 +71,7 @@ To create a Recovery Services vault with private endpoints and disable the publi
 
 1. [Create a vault in the resource group same as the datasource you want to back up](backup-create-recovery-services-vault.md#create-a-recovery-services-vault).
 
-:::image type="content" source="media/private-endpoint-vault-backup-server/image2.png" alt-text="Screenshot of Recovery Services vault creation interface in Azure portal.":::
+   :::image type="content" source="media/private-endpoint-vault-backup-server/create-vault.png" alt-text="Screenshot of Recovery Services vault creation interface in Azure portal.":::
 
 1. After the vault creates successfully, go to the **vault** > **Networking**.
 
