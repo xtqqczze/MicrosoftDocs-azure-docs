@@ -32,16 +32,17 @@ After you save the configuration, you're ready to stream large messages with Eve
 > [!IMPORTANT]
 > Large message streaming is only supported with self-serve scalable dedicated clusters built out of the latest infrastructure. The `Supportslargemessages` key reflects this capability.
 >
-> If a cluster value is false, it doesn't support large message streaming. To enable this feature, you must re-create the cluster. Streaming large messages doesn't incur any extra charges.
+> If a cluster value is false, it doesn't support streaming large messages. To enable this feature, you must re-create the cluster. Streaming large messages doesn't incur any extra charges.
 
 ## Stream large messages with Event Hubs
 
-Event Hubs allows streaming of large messages up to 20 MB, both in batches and as individual publications. You can continue to send or receive messages by using any existing Event Hubs SDK or Kafka API to stream large messages to Event Hubs. 
+Eligible self serve Event hubs dedicated clusters allow streaming of large messages up to 20 MB, both in batches and as individual publications. You can use any existing Event Hubs SDK or Kafka API to stream large messages to Event Hubs. For existing connections, restart clients or re-establish connection to stream large messages.
+
 
 For more information, see [Send events to and receive events from Event Hubs by using .NET](event-hubs-dotnet-standard-getstarted-send.md).
 
 > [!TIP]
-> Make sure to review any Event Hubs Advanced Message Queuing Protocol (AMQP) client or Kafka client configuration that might limit the maximum message size that you stream into Event Hubs. You must update client timeout to a higher value (> 60s) to stream large messages.
+> Make sure to review any Event Hubs Advanced Message Queuing Protocol (AMQP) client or Kafka client configuration that might limit the maximum message size that you stream into Event Hubs. You must update client timeout to a higher value (> 60s) to stream large message , and refine it based on your testing results to meet your workload needs.
 >
 > By default, the AMQP client prefetch count is 300. Lower this value to avoid client-side memory issues when you deal with large messages.
 
