@@ -80,7 +80,7 @@ Before you configure Windows ACLs, mount the file share with admin-level access.
 
 We recommend using the Windows permission model for SMB admin instead of using the storage account key. This feature lets you assign the built-in RBAC role [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin) to users, allowing them to take ownership of a file or directory for the purpose of configuring ACLs.
 
-The [Storage File Data SMB Admin](/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin) RBAC role includes the following three data actions:
+The [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin) RBAC role includes the following three data actions:
 
    - `Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action`
    - `Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action`
