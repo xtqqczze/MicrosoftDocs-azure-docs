@@ -30,6 +30,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     - Number of cool access volumes per subscription
     - Number of cross-region replication data protection volumes (destination volumes)
 
+* [Azure NetApp Files support in OpenShift Virtualization](/azure/openshift/howto-netapp-files) (preview)
+
+    Azure NetApp Files now enables fast virtual machine (VM) provisioning, instant cloning, and live migration in OpenShift Virtualization. It offers seamlessly scalable storage with predictable performance and enterprise data management for VM workloads from infrastructure VMs to business-critical databases. Support for Azure NetApp Files in OpenShift Virtualization is now in preview and is available in all Azure regions where Azure NetApp Files and Azure Red Hat OpenShift are offered.
 
 * [Large volumes up to 7.2 PiB with cool access](large-volumes-requirements-considerations.md#register-for-large-volumes-up-to-72-pib) (preview)
 
@@ -200,7 +203,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [New volume usage metrics:](azure-netapp-files-metrics.md#volumes) Volume Inodes Quota, Volume Inodes Total, Volume Inodes Used
 
-    Azure NetApp Files supports [new metrics](azure-netapp-files-metrics.md#volumes) to monitor consumption of [inodes (also known as maxfiles)](maxfiles-concept.md), which is the maximum number of files a volume can hold. These metrics are especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring these metrics, you can avoid running out of inodes thus keeping your storage running smoothly and making it easier to plan for future needs.
+    Azure NetApp Files supports [new metrics](azure-netapp-files-metrics.md#volumes) to monitor consumption of [inodes (also known as `maxfiles`)](maxfiles-concept.md), which is the maximum number of files a volume can hold. These metrics are especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring these metrics, you can avoid running out of inodes thus keeping your storage running smoothly and making it easier to plan for future needs.
 
 * [File access logs](manage-file-access-logs.md) (preview)
 
@@ -573,7 +576,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     * Restore change -  ability to revert volume for Azure NetApp Files
     * New global settings file (`.azacsnaprc`) to control behavior of `azacsnap`
-    * Logging enhancements for failure cases and new "mainlog" for summarized monitoring
+    * Logging enhancements for failure cases and new `mainlog` for summarized monitoring
     * Backup (`-c backup`) and Details (`-c details`) fixes
 
     Download the latest release of the installer [here](https://aka.ms/azacsnapinstaller).
@@ -1017,7 +1020,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now allows you to specify whether the root account can access the volume.
 
-* [Hide snapshot path](snapshots-edit-hide-path.md)
+* [Hide snapshot path](snapshots-manage-policy.md#edit-the-hide-snapshot-path-option)
 
     Azure NetApp Files now allows you to specify whether a user can see and access the `.snapshot` directory (NFS clients) or `~snapshot` folder (SMB clients) on a mounted volume.
 
