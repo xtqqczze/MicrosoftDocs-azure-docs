@@ -21,10 +21,9 @@ ms.custom:
 
 For an overview of options to secure access to the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md).
 
-In this article, you learn the configuration of the Microsoft Entra ID identity provider for the following scenarios that are supported by the API Management developer portal: 
+In this article, you learn the configuration of the Microsoft Entra ID identity provider for the following scenario that is supported by the API Management developer portal: 
 
 * Integration with Microsoft Entra External ID in your *workforce tenant*. For example, if your workforce tenant is for the Contoso organization, you might want to configure Google or Facebook as an external identity provider so that these external users can also sign in using their accounts. 
-* Integration with Microsoft Entra External ID in a separate *external tenant*. This configuration allows external users from that tenant to sign in to the developer portal. 
 
 [!INCLUDE [api-management-developer-portal-entra-tenants.md](../../includes/api-management-developer-portal-entra-tenants.md)]
 
@@ -34,14 +33,14 @@ In this article, you learn the configuration of the Microsoft Entra ID identity 
 
 ## Prerequisites
 
-* A Microsoft Entra ID tenant (workforce tenant) in which to enable external access, or a separate [external tenant](/entra/external-id/customers/how-to-create-external-tenant-portal)
+* A Microsoft Entra ID tenant (workforce tenant) in which to enable external access.
 * Permissions to create an application and configure user flows in the workforce tenant.
 * An API Management instance. If you don't already have one, [create an Azure API Management instance](get-started-create-service-instance.md).
 * If you created your instance in a v2 tier, enable the developer portal. For more information, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
 
 ## Add external identity provider to your tenant
 
-For some scenarios, you might want to enable an external identity provider in a workforce tenant. Configuring the external identity provider is outside the scope of this article. For more information, see [Identity providers for External ID in workforce tenant](/entra/external-id/identity-providers).
+For this scenario, enable an external identity provider in a workforce tenant. Configuring the external identity provider is outside the scope of this article. For more information, see [Identity providers for External ID in workforce tenant](/entra/external-id/identity-providers).
 
 [!INCLUDE [api-management-developer-portal-entra-app.md](../../includes/api-management-developer-portal-entra-app.md)]
 

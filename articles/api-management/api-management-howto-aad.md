@@ -6,7 +6,7 @@ description: Learn how to enable user sign-in to the API Management developer po
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/30/2025
+ms.date: 11/18/2025
 ms.author: danlep
 ms.custom:
   - engagement-fy23
@@ -21,7 +21,7 @@ ms.custom:
 
 In this article, you'll learn how to:
 > [!div class="checklist"]
-> * Enable access to the developer portal for users from Microsoft Entra ID in your organization (*workforce tenant*).
+> * Enable access to the developer portal for users from Microsoft Entra ID in your organization.
 > * Manage groups of Microsoft Entra users by adding external groups that contain the users.
 
 For an overview of options to secure the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md).
