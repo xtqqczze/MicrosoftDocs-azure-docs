@@ -119,7 +119,7 @@ Agent capabilities describe what features your A2A agent supports.
 
 ## Limitations
 
-Agent-to-Agent APIs in API Manager don't synchronize with API Center.
+Agent-to-Agent APIs in API Management don't synchronize with API Center.
 
 ## Related content
 
