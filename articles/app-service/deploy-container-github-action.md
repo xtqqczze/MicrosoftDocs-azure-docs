@@ -273,7 +273,7 @@ To deploy your image to a custom container in App Service, use the `azure/webapp
 | `publish-profile` | (Optional) Used with web apps (Windows and Linux) and web app containers (Linux). Multi-container scenario not supported. Publish profile `\*.publishsettings` file contents with web deploy secrets. |
 | `slot-name` | (Optional) Enter an existing slot other than the production slot. |
 | `package` | (Optional) Used only with web apps: Path to package or folder. `\*.zip`, `\*.war`, `\*.jar`, or a folder to deploy. |
-| `images` | (Required) Used only with web app containers: Specify the fully qualified container image name. For example, `myregistry.azurecr.io/nginx:latest` or `python:3.7.2-alpine/`. For a multi-container app, multiple container image names can be provided (multi-line separated). |
+| `images` | (Required) Used only with web app containers: Specify the fully qualified container image name. For example, `myregistry.azurecr.io/nginx:latest` or `python:3.12.12-alpine/`. For a multi-container app, multiple container image names can be provided (multi-line separated). |
 | `configuration-file` | (Optional) Used only with web app containers: Path of the Docker Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container apps. |
 | `startup-command` | (Optional) Enter the startup command. For example: `dotnet run` or `dotnet filename.dll`. |
 
