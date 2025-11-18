@@ -161,7 +161,7 @@ To validate and  integrate virtual network links for the preceding  **private DN
 
    The following screenshot shows the **Add virtual network link** pane for linking the virtual network to the DNS zone.
 
-   :::image type="content" source="media/private-endpoint-vault-backup-server/image11.png" alt-text="Screenshot of adding virtual network links to DNS zones configuration.":::
+   :::image type="content" source="media/private-endpoint-vault-backup-server/add-virtual-network-link.png" alt-text="Screenshot shows how to add virtual network links to DNS zones configuration.":::
 
 ### Configure custom DNS servers or host files
 
@@ -202,25 +202,25 @@ When using the MARS Agent to back up you're on-premises resources, make sure you
 
 1. Register your DPM\MABS Server to the vault created with private endpoints
 
-:::image type="content" source="media/private-endpoint-vault-backup-server/image13.jpeg" alt-text="Screenshot of DPM/MABS server registration to vault with private endpoints.":::
+:::image type="content" source="media/private-endpoint-vault-backup-server/register-backup-server-vault.png" alt-text="Screenshot shows the DPM/MABS server registration to vault with private endpoints." lightbox="media/private-endpoint-vault-backup-server/register-backup-server-vault.png":::
 
 1. Enabled backup on DPM\MABS Server for disk and online
 
-:::image type="content" source="media/private-endpoint-vault-backup-server/image14.jpeg" alt-text="Screenshot of backup configuration on DPM/MABS server for disk and online protection.":::
+:::image type="content" source="media/private-endpoint-vault-backup-server/backup-configuration-backup-server-protection.png" alt-text="Screenshot shows the backup configuration on DPM/MABS server for disk and online protection.":::
 
 1. Please wait for the Initial Replica to complete.
 
 1. You can wait for the online backup schedule to kick in or manually run online backups for data sources.
 
-:::image type="content" source="media/private-endpoint-vault-backup-server/image15.jpeg" alt-text="Screenshot of online backup schedule and manual backup options for data sources.":::
+:::image type="content" source="media/private-endpoint-vault-backup-server/online-backup-schedule-manual-options.png" alt-text="Screenshot shows the online backup schedule and manual backup options for data sources." lightbox="media/private-endpoint-vault-backup-server/online-backup-schedule-manual-options.png":::
 
 1. Please wait for the online backup to also complete.
 
-:::image type="content" source="media/private-endpoint-vault-backup-server/image16.jpeg" alt-text="Screenshot of online backup completion status and progress information.":::
+:::image type="content" source="media/private-endpoint-vault-backup-server/online-backup-completion-status.png" alt-text="Screenshot shows the online backup completion status and progress information." lightbox="media/private-endpoint-vault-backup-server/online-backup-completion-status.png":::
 
 1. Check on Azure Portal and you will be storage account (Blob) getting created for each data sources you protected on DPM\MABS Server.
 
-:::image type="content" source="media/private-endpoint-vault-backup-server/image17.png" alt-text="Screenshot of storage accounts created in Azure portal for protected data sources.":::
+:::image type="content" source="media/private-endpoint-vault-backup-server/storage-accounts-created.png" alt-text="Screenshot shows the created storage accounts in Azure portal for protected data sources." lightbox="media/private-endpoint-vault-backup-server/storage-accounts-created.png":::
 
 So, the DPM\MABS Server can connect to the vault using Private Endpoints and backups are working as well.
 
@@ -236,15 +236,15 @@ To delete the private endpoint from Recovery Service vault, follow these steps:
 
    After you confirm rejection, the vault starts rejecting private endpoint connections. Wait for the operation to complete. Once the operation completes the private endpoint **Connection Status** changes to **Rejected**.
 
-   :::image type="content" source="media/private-endpoint-vault-backup-server/image18.png" alt-text="Screenshot of private endpoint connection status showing rejected state.":::
+   :::image type="content" source="media/private-endpoint-vault-backup-server/private-endpoint-connection-rejected.png" alt-text="Screenshot shows the rejected status of private endpoint connection." lightbox="media/private-endpoint-vault-backup-server/private-endpoint-connection-rejected.png":::
 
 1. To confirm the deletion for the private endpoint, select the **private endpoint** > **Delete** > **Yes** .
 
-   :::image type="content" source="media/private-endpoint-vault-backup-server/image19.png" alt-text="Screenshot of private endpoint deletion confirmation dialog box.":::
+   :::image type="content" source="media/private-endpoint-vault-backup-server/private-endpoint-deletion-confirmation.png" alt-text="Screenshot shows the private endpoint deletion confirmation dialog box." lightbox="media/private-endpoint-vault-backup-server/private-endpoint-deletion-confirmation.png":::
 
 1. After the private endpoint deletion is complete, go to the **Vault** > **Settings** > **Networking** > **Public access**, and then select **Allow from all network and select apply**.
 
-   :::image type="content" source="media/private-endpoint-vault-backup-server/image20.png" alt-text="Screenshot of vault public access settings with allow from all networks option.":::
+   :::image type="content" source="media/private-endpoint-vault-backup-server/vault-public-access-settings.png" alt-text="Screenshot shows the vault public access settings with allow from all networks option." lightbox="media/private-endpoint-vault-backup-server/vault-public-access-settings.png":::
 
 ## Re-register the DPM\MABS Server with vault
 
@@ -258,18 +258,9 @@ To re-register the DPM\MABS Server with the vault, follow these steps:
 
 1. Select **Register** and wait for the registration process to complete.
 
-:::image type="content" source="media/private-endpoint-vault-backup-server/image21.png" alt-text="Screenshot of DPM/MABS server re-registration process and encryption settings.":::
+:::image type="content" source="media/private-endpoint-vault-backup-server/backup-server-reregistration.png" alt-text="Screenshot shows the backup server re-registration process and encryption settings.":::
 
-1. Please check the online recovery point and make sure it is visible on Recovery tab
 
-:::image type="content" source="media/private-endpoint-vault-backup-server/image22.jpeg" alt-text="Screenshot of online recovery points visibility verification in Recovery tab.":::
 
-1. I even tried to perform the online recovery to make sure we can recover the data from the vault successfully or not. **The online recovery was successful**
 
-:::image type="content" source="media/private-endpoint-vault-backup-server/image23.jpeg" alt-text="Screenshot of successful online recovery process completion status.":::
 
-1. Manually created local backup for the data sources on DPM\MABS Server.
-
-1. Triggered the online backup for the data sources which was also getting successful without any errors.
-
-:::image type="content" source="media/private-endpoint-vault-backup-server/image24.jpeg" alt-text="Screenshot of successful online backup completion for data sources without errors.":::
