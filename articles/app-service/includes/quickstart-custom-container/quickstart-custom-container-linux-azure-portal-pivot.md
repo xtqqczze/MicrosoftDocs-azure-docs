@@ -91,7 +91,7 @@ Make sure that you're in the cloned repository's root folder, which contains a `
 
 1. On the **Container** tab, for **Image Source**, select **Azure Container Registry**. Under **Azure Container Registry options**, set the following values:
 
-   - **Registry**: Select your Azure Container Registry.
+   - **Registry**: Select your container registry.
    - **Image**: Select **dotnetcore-docs-hello-world-linux**.
    - **Tag**: Select **latest**.
 
