@@ -243,21 +243,13 @@ In the designer upper-right corner, select **Publish**.
 
 To go back to using the classic designer, in the preview designer upper-right corner, from the vertical ellipsis menu (**⋮**), select **Revert to previous experience**.
 
-## Other actions
+## Other tasks
 
-In the classic designer, you can find other actions either on the workflow toolbar or workflow sidebar. The preview designer moves these actions into the vertical ellipsis menu (**⋮**), which you can find next to the **Publish** button in the designer's upper-right corner.
-
-:::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot show the preview designer and toolbar with vertical ellipsis menu next to the Publish button." lightbox="media/designer-overview/ellipsis.png":::
+You can perform other tasks for with the designer or your workflow. You'll find the options for these tasks in different locations, based on the classic designer or preview designer.
 
 ### [Classic designer](#tab/classic)
 
-The workflow sidebar includes these options under **Configuration**:
-
-| Options | Description |
-|---------|-------------|
-| **Access keys** | View or regenerate workflow access keys. |
-| **Settings** | View workflow state or change the state between **Enabled** and **Disabled**. |
-| **Properties** | View workflow health, version, and other information. |
+You can find other actions either on the workflow toolbar or workflow sidebar.
 
 The workflow toolbar includes these additional options:
 
@@ -271,9 +263,21 @@ The workflow toolbar includes these additional options:
 | **AI** > **Download workflow summary** | Generate a Markdown file that summaries the workflow's purpose and tasks. |
 | **Info** > **File a bug** | Create a bug in the GitHub issues for Azure Logic Apps. |
 
+The workflow sidebar includes these options under **Configuration**:
+
+| Options | Description |
+|---------|-------------|
+| **Access keys** | View or regenerate workflow access keys. |
+| **Settings** | View workflow state or change the state between **Enabled** and **Disabled**. |
+| **Properties** | View workflow health, version, and other information. |
+
 ### [Preview designer](#tab/preview)
 
-The vertical ellipsis menu (**:**) includes these additional options:
+The preview designer moves many other options into the vertical ellipsis menu (**⋮**), which you can find next to the **Publish** button in the designer's upper-right corner.
+
+:::image type="content" source="media/designer-overview/ellipsis.png" alt-text="Screenshot show the preview designer and toolbar with vertical ellipsis menu next to the Publish button." lightbox="media/designer-overview/ellipsis.png":::
+
+ The vertical ellipsis menu (**:**) includes these options:
 
 | Options | Description |
 |---------|-------------|
