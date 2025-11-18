@@ -18,9 +18,9 @@ This step-by-step troubleshooting guide can help you find and fix Microsoft Dev 
 
 | Category | Requirements |
 |---------|--------------|
-| Microsoft Dev Box | Before you can create or access a dev box, your organization must set up Microsoft Dev Box with at least one project and one dev box pool. To set up Microsoft Dev Box for an organization, see [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md).|
+| Tools | To create or access a dev box, an organization must set up Microsoft Dev Box with at least one project and one dev box pool. To set up Microsoft Dev Box for an organization, see [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md).|
+| Tools | To connect to a dev box with the Windows App, [install the Windows App](https://apps.microsoft.com/detail/9n1f85v9t8bn) on your client device. |
 | Permissions | To create or access a dev box, you need [Dev Box User](quickstart-configure-dev-box-service.md#provide-access-to-a-dev-box-project) permissions in a project that has an available dev box pool. If you don't have permissions to a project, contact your admin.|
-| Remote connection | To connect to a dev box, you must install the [Windows App](https://apps.microsoft.com/detail/9n1f85v9t8bn) on your client device. |
 
 ## Potential quick workaround
 
@@ -47,14 +47,14 @@ If the Windows App connection to the dev box hangs or fails, try the following s
 1. Sign out and then back in to the developer portal, and try connecting again.
 1. Open Task Manager and terminate any running *msrdc.exe* or *msrdcw.exe* processes. Then try connecting again.
 
-### Sign-in and authentication issues
+## Sign-in and authentication issues
 
 If you have sign-in or authentication issues despite using correct credentials, try the following steps:
 
 1. Use `dsregcmd.exe /status` to check your Microsoft Entra ID join status on your client device and on the dev box if possible. After resolving any errors with your support team, restart the machine.
 1. If you don't access your dev box for a while, Microsoft Entra ID might remove your account due to inactivity. To regain access, contact your support team.
 1. Try using `dsregcmd.exe /refreshprt` to refresh the Primary Refresh Token (PRT) for a session. Then sign out and sign back in.
-1. If you have administrative privileges, try using `dsregcmd.exe /forcerecovery` to reauthenticate and reregister, or `dsregcmd.exe /leave` to leave Microsoft Entra ID and `dsregcmd.exe /join` to rejoin. For more information, see [Troubleshoot devices by using the dsregcmd command](/entra/identity/devices/troubleshoot-device-dsregcmd).
+1. If you have administrative privileges, try using `dsregcmd.exe /forcerecovery` to reauthenticate and reregister, or `dsregcmd.exe /leave` and `dsregcmd.exe /join` to leave and rejoin Microsoft Entra ID. For more information, see [Troubleshoot devices by using the dsregcmd command](/entra/identity/devices/troubleshoot-device-dsregcmd).
 1. If you have admin privileges in the Azure portal, you might need to unsubscribe and resubscribe the dev box to the dev box pool by deleting and recreating the pool.
 
 ## Connection issues during high CPU load
@@ -90,7 +90,7 @@ Explicitly tell the client not to attempt a UDP connection.
 
 Alternatively, you can edit the registry to add the following **fClientDisableUDP** setting:
 
-Key: **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\Client**<br>Setting: **fClientDisableUDP**<br>Value: `DWORD 1`
+Key: **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\Client**<br>Setting: **fClientDisableUDP**<br>Value: **DWORD 1**
 
 You can also apply the **fClientDisableUDP** registry setting and value by running the following command in an elevated shell:
 
@@ -127,7 +127,7 @@ In the [developer portal](https://devbox.microsoft.com), select **Support** from
 
 - Select the **troubleshoot your dev box** link to troubleshoot dev box issues. For more information, see [Resolve connectivity issues with the Troubleshoot and Repair tool](how-to-troubleshoot-repair-dev-box.md).
 - Select **Copy support details** to copy details about your dev box and an **Issue ID** that you can give to your admin or support team.
-- Select the **contact Azure help + support** link to open the Azure portal **Help + support** page for your dev box project. You can then select **Troubleshoot** under **Actions** to walk through troubleshooting steps, or select **Create a support request** to walk through creating a support request.
+- Select the **contact Azure help + support** link to open the Azure portal **Help + support** page for your dev box project. On the **Help + support** page, you can select **Troubleshoot** under **Actions** to walk through troubleshooting steps, or select **Create a support request** to walk through creating a support request.
 
 If you file a support request, include:
 
