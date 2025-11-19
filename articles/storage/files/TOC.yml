@@ -302,13 +302,7 @@
   - name: Troubleshoot backing up file shares
     href: ../../backup/troubleshoot-azure-files.md?toc=/azure/storage/files/toc.json
   - name: Troubleshoot ClientOtherErrors
-    href: /troubleshoot/azure/azure-storage/files-client-other-errors?toc=/azure/storage/files/toc.json
-- name: Training
-  items:
-  - name: Configure Azure Files
-    href: /training/modules/configure-azure-files-file-sync/
-  - name: Implement a hybrid file server infrastructure
-    href: /training/modules/implement-hybrid-file-server-infrastructure/    
+    href: /troubleshoot/azure/azure-storage/files-client-other-errors?toc=/azure/storage/files/toc.json   
 - name: Reference
   items:
   - name: Azure Files FAQ
