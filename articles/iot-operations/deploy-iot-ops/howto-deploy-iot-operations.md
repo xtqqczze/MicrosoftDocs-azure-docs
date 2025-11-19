@@ -80,7 +80,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. In Azure portal it's possible to [configure cardinality and memory profile settings](../manage-mqtt-broker/howto-configure-availability-scale.md). To configure other settings including disk-backed message buffer and advanced MQTT client options, see [Azure CLI support for advanced MQTT broker configuration](https://aka.ms/aziotops-broker-config). |
    | **Data flow profile configuration** | *Optional*: Edit the default settings for data flows. For more information, see [Configure data flow profile](../connect-to-cloud/howto-configure-dataflow-profile.md). |
 
-   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-configuration.png" alt-text="A screenshot that shows the second tab for deploying Azure IoT Operations from the portal.":::
+   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-configuration.png" alt-text="A screenshot that shows the second tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-operations/deploy-configuration.png":::
 
 1. Select **Next: Dependency management**.
 
@@ -125,7 +125,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 
 1. On the **Dependency management** tab, select the **Secure settings** deployment option.
 
-   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-dependency-management-1.png" alt-text="A screenshot that shows selecting secure settings on the third tab for deploying Azure IoT Operations from the portal.":::
+   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-dependency-management-1.png" alt-text="A screenshot that shows selecting secure settings on the third tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-operations/deploy-dependency-management-1.png":::
 
 1. In the **Deployment options** section, provide the following information:
 
@@ -136,7 +136,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **User assigned managed identity for secrets** | Select an identity or select **Create new**. |
    | **User assigned managed identity for AIO components** | Select an identity or select **Create new**. Don't use the same managed identity as the one you selected for secrets. |
 
-   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-dependency-management-2.png" alt-text="A screenshot that shows configuring secure settings on the third tab for deploying Azure IoT Operations from the portal.":::
+   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-dependency-management-2.png" alt-text="A screenshot that shows configuring secure settings on the third tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-operations/deploy-dependency-management-2.png":::
 
 1. Select **Next: Automation**.
 
