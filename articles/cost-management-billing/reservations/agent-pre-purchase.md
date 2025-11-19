@@ -27,8 +27,24 @@ To buy a pre-purchase plan, you must have one of the following Azure subscriptio
 
 ## Determine the right size to buy
 
-To get started, estimate your expected Copilot and Microsoft Foundry usage for the term. This helps you determine the appropriate size for your pre-purchase plan. Each pre-purchase plan has a one-year term.
-For example, suppose you expect to consume 1,500,000 Copilot Credit with custom agents created in Microsoft Copilot Studio. Assuming the pay-as-you-go rate for Copilot Credit to be $0.01, then at the pay-as-you-go rate, this will cost $15,000. In addition, if you are using 5000 PTUs and assuming the pay-as-you-go rate for PTU to be $1, then at the pay-as-you-go rate, this will cost $5,000.By purchasing Tier 1 (20,000 CU) pre-purchase plan, let's say the cost of that tier is $19,000, it will give a 5% saving compared to the pay-as-you-go rate for the same usage.
+To get started, estimate your expected Copilot Credit and Microsoft Foundry usage for the term. This helps you determine the appropriate size for your pre-purchase plan. Each pre-purchase plan has a one-year term.
+
+**Example calculation:**
+
+Consider a hypothetical scenario where your organization plans to use:
+- **Copilot Credit**: 1,500,000 credits for custom agents in Microsoft Copilot Studio
+- **Microsoft Foundry PTUs**: 5,000 PTU hours for AI model deployments in Microsoft Foundry
+
+**Assumed pay-as-you-go rates (for illustration purposes):**
+- Copilot Credit at hypothetical $0.01 per credit = $15,000
+- PTU usage at assumed $1.00 per PTU = $5,000
+- **Total estimated pay-as-you-go cost: $20,000**
+
+**With hypothetical Tier 1 pre-purchase plan (20,000 CUs):**
+- Estimated plan cost: $19,000
+- **Potential savings: $1,000 (approximately 5% discount)**
+
+This example demonstrates how the pre-purchase plan can provide cost savings for organizations with predictable AI workload usage patterns.
 
 ## Purchase Microsoft Agent Pre-Purchase Plan commit units
 
