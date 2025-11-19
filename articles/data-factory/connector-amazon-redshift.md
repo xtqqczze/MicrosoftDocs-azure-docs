@@ -34,7 +34,7 @@ This Amazon Redshift connector is supported for the following capabilities:
 
 For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
- For version 1.0, the service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver. 
+The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver. 
 
 The Amazon Redshift connector supports retrieving data from Redshift using query or built-in Redshift UNLOAD support.
 
@@ -48,8 +48,6 @@ The connector supports the Windows versions in this [article](create-self-hosted
 If you are copying data to an on-premises data store using [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md), grant Integration Runtime (use IP address of the machine) the access to Amazon Redshift cluster. See [Authorize access to the cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) for instructions. For version 2.0, your self-hosted integration runtime version should be 5.56 or above.
 
 If you are copying data to an Azure data store, see [Azure Data Center IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) for the Compute IP address and SQL ranges used by the Azure data centers.
-
-### For version 1.0
 
 If your data store is a managed cloud data service, you can use the Azure Integration Runtime. If the access is restricted to IPs that are approved in the firewall rules, you can add [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the allowlist.
 
