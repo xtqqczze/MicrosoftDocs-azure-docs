@@ -6,7 +6,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 20/11/2024
+ms.date: 11/20/2024
 ---
 
 # Write an upstream server for Azure Web PubSub
