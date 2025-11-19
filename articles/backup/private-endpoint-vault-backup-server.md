@@ -188,7 +188,7 @@ The following table lists the Azure Private DNS zones required by Azure Backup:
 - [**Geo-code list - sample XML**](./scripts/geo-code-list.md)
 
 
-For custom DNS servers, [add the private endpoint DNS records to your DNS servers or host file ](/microsoft-365/admin/dns/create-dns-records-using-windows-based-dns?view=o365-worldwide)if Azure Private DNS zone isn’t configured. If you're using a host file for name resolution, make corresponding entries in the host file for each IP and FQDN according to the format - `\<private ip\>\<space\>\<FQDN\>`.
+For custom DNS servers, [add the private endpoint DNS records to your DNS servers or host file ](/microsoft-365/admin/dns/create-dns-records-using-windows-based-dns?view=o365-worldwide&preserve-view=true)if Azure Private DNS zone isn’t configured. If you're using a host file for name resolution, make corresponding entries in the host file for each IP and FQDN according to the format - `\<private ip\>\<space\>\<FQDN\>`.
 
  Azure Backup allocates new storage account for the vault you created with private endpoint to store the backup data. The MARS agent accesses the respective endpoints to perform backup and restore operations. Learn [how to use private endpoints for backup](/azure/backup/backup-azure-private-endpoints-configure-manage#use-private-endpoints-for-backup) to add more DNS records after registration and backup.
 
