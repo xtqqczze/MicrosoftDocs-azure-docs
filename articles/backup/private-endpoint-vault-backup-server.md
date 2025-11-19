@@ -14,7 +14,7 @@ ms.service: azure-backup
 
 This article describes how to configure private endpoints for Azure Backup when using Data Protection Manager (DPM) or Microsoft Azure Backup Server (MABS) to back up on-premises data securely.
 
-Azure Backup allows you to back up and restore your data securely from your Recovery Services vaults using [private endpoints](../private-link/private-endpoint-overview.md). Private endpoints use one or more private IP addresses from your Azure Virtual Network (VNet), effectively bringing the service into your VNet.
+Azure Backup allows you to back up and restore your data securely from your Recovery Services vaults using [private endpoints](../private-link/private-endpoint-overview.md). Private endpoints use one or more private IP addresses from your Azure Virtual Network, effectively bringing the service into your virtual network.
 
 This feature enables private endpoints for Azure Backup to maintain the security of your resources.
 
@@ -27,13 +27,13 @@ Azure Backup now provides an enhanced experience in creation and use of private 
 Before you configure private endpoints for Azure Backup, ensure that you review the following considerations:
 
 - A Recovery Services vault works with both Azure Backup and Azure Site Recovery. This article focuses on using private endpoints for Azure Backup only.
-- Create private endpoints only for new Recovery Services vaults that have no registered or protected items.
+- Create private endpoints only for new Recovery Services vaults without any registered or protected items.
 - You can't upgrade vaults that include private endpoints created in the classic experience to the new experience. Delete all existing private endpoints and then create new ones using the v2 experience.
 - A single virtual network can host private endpoints for multiple Recovery Services vaults. Likewise, one Recovery Services vault can have private endpoints across multiple virtual networks.
-- A private endpoint for a vault uses up to 10 private IPs, which may vary by location. When you use private endpoints for Azure Backup or DPM, ensure you have 10 + n IPs available (where n equals the number of data sources protected on DPM or Azure Backup Server).
+- A private endpoint for a vault uses up to 10 private IPs, which might vary by location. When you use private endpoints for Azure Backup or DPM, ensure you have `10 + n` IPs available (where n equals the number of data sources protected on DPM or Azure Backup Server).
 - DPM or MABS configured with a private endpoint can protect up to 80 data sources on a Recovery Services vault under the current configuration.
-- Private endpoints for Azure Backup don't include access to Microsoft Entra ID. Enable outbound access for IPs and FQDNs required for Microsoft Entra ID in the secured network when you back up using the MARS agent. You can also use NSG tags and Azure Firewall tags to allow access to Microsoft Entra ID.
-- If your Recovery Services vault uses a private endpoint, all backup data travels through a private IP in your Azure VNet. In this case, ExpressRoute Private Peering is required to carry backup traffic between on-premises and Azure.
+- Private endpoints for Azure Backup don't include access to Microsoft Entra ID. Enable outbound access for IPs and Fully Qualified Domain Names (FQDNs) required for Microsoft Entra ID in the secured network when you back up using the MARS agent. You can also use Network Security Group (NSG) tags and Azure Firewall tags to allow access to Microsoft Entra ID.
+- If your Recovery Services vault uses a private endpoint, all backup data travels through a private IP in your Azure virtual network. In this case, ExpressRoute Private Peering is required to carry backup traffic between on-premises and Azure.
 - You can create DNS across subscriptions.
 
 ## Difference in network connections for private endpoints
@@ -48,7 +48,7 @@ When MARS agent is installed for Recovery Services vault with private endpoint, 
 | Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` | 443 |
 | Microsoft Entra ID      | `*.login.microsoft.com` <br><br> Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | 443 <br><br> As applicable |
 
- In the domain name, `\<geo\>` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Learn about the supported geography for the following regions:
+ In the domain name, `\<geo\>` refers to the region code (for example, **`eus`** for East US and **ne** for North Europe). Learn about the supported geography for the following regions:
 
 - [**All public clouds**](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 
@@ -83,7 +83,7 @@ To create a Recovery Services vault with private endpoints and disable the publi
 
 To create private endpoints for Azure Backup, follow these steps:
 
-1. Go to the **Recovery Services vault** where you have disabled public access > **Networking** > **Private access**, and then select **+ Private endpoint**.
+1. Go to the **Recovery Services vault** where you disabled public access > **Networking** > **Private access**, and then select **+ Private endpoint**.
 
 1. On the **Create a private endpoint** pane, specify the required details for creating your private endpoint connection by following these steps.
 
@@ -95,7 +95,7 @@ To create private endpoints for Azure Backup, follow these steps:
 
       :::image type="content" source="media/private-endpoint-vault-backup-server/private-endpoint-resource-details.png" alt-text="Screenshot shows the private endpoint resource selection configuration." lightbox="media/private-endpoint-vault-backup-server/private-endpoint-resource-details.png":::
 
-   1. On the **Virtual Network** tab, specify the virtual network and subnet where you want the private endpoint to be created ( the Vnet where the VM is located).
+   1. On the **Virtual Network** tab, specify the virtual network and subnet where you want the private endpoint to be created (the virtual network where the Virtual Machine (VM) is located).
 
       :::image type="content" source="media/private-endpoint-vault-backup-server/private-endpoint-virtual-network-configuration.png" alt-text="Screenshot shows the private endpoint configuration settings for virtual network and subnet.":::
 
@@ -105,17 +105,17 @@ To create private endpoints for Azure Backup, follow these steps:
 
       :::image type="content" source="media/private-endpoint-vault-backup-server/private-endpoint-dns-configuration.png" alt-text="Screenshot shows the DNS configuration settings for private endpoint integration." lightbox="media/private-endpoint-vault-backup-server/private-endpoint-dns-configuration.png":::
 
-   1. (Optional)On the **Tags** tab, add tags for your private endpoint.
+   1. (Optional) On the **Tags** tab, add tags for your private endpoint.
 
    1. On the **Review + create** tab, review your settings. When the validation completes, select **Create** to create the private endpoint.
 
 ## Approve private endpoints for the Recovery Services vault
 
-Private endpoints are auto-approved when created by the vault owner. If you're not the owner, private endpoints require manual approval in the Azure portal.
+Private endpoints are autoapproved when created by the vault owner. If you're not the owner, private endpoints require manual approval in the Azure portal.
 
 This section describes the manual approval process of private endpoints through the Azure portal.
 
- The following screenshot shows that the owner created the private endpoint, so it's auto-approved.
+ The following screenshot shows an autoapproved private endpoint that the owner creates.
 
 :::image type="content" source="media/private-endpoint-vault-backup-server/private-endpoint-approval-status.png" alt-text="Screenshot shows the private endpoint approval status in Azure portal." lightbox="media/private-endpoint-vault-backup-server/private-endpoint-approval-status.png":::
 
@@ -129,7 +129,7 @@ To manually approve private endpoints via the Azure portal, follow these steps:
 
 ## Manage DNS records for private endpoints
 
-Private connectivity requires DNS records in private DNS zones or servers. You can integrate the private endpoint to Azure private DNS zones or configure custom DNS servers, depending on your network design.  This configuration is required for all three services - Azure Backup, Azure Blobs, and Queues.
+Private connectivity requires DNS records in private DNS zones or servers. You can integrate the private endpoint to Azure private DNS zones or configure custom DNS servers, depending on your network design. This configuration is required for all three services - Azure Backup, Azure Blobs, and Queues.
 
 ### Integrate private endpoints with Azure private DNS zones
 
@@ -143,7 +143,7 @@ If you're using proxy servers, you can bypass the proxy server or perform your b
 
 To validate and  integrate virtual network links for the preceding  **private DNS** zone  (for Backup, Blobs and Queues), follow these steps:
 
-1. On the **Recovery Services vault** where you have configured private endpoints, go to **Networking** > **Private access**, and then select the private endpoint from the list.
+1. On the **Recovery Services vault** where you configured private endpoints, go to **Networking** > **Private access**, and then select the private endpoint from the list.
 
 1. On the selected **private endpoint** pane, select **Settings** > **DNS configuration**.
 
@@ -153,7 +153,7 @@ To validate and  integrate virtual network links for the preceding  **private DN
 
 1. On the selected **virtual network link** pane, select **Virtual Network Links**
 
-   A virtual network link entry appears for which you've created the private endpoint. The following screenshot shows an example of virtual network links for all three DNS zones.
+   A virtual network link entry appears for which you created the private endpoint. The following screenshot shows an example of virtual network links for all three DNS zones.
 
    :::image type="content" source="media/private-endpoint-vault-backup-server/virtual-network-links-domain-name-server-zones.png" alt-text="Screenshot shows the virtual network links configuration in private DNS zones." lightbox="media/private-endpoint-vault-backup-server/virtual-network-links-domain-name-server-zones.png":::
 
@@ -175,7 +175,7 @@ The following table lists the Azure Private DNS zones required by Azure Backup:
 | Azure Blobs | privatelink.blob.core.windows.net |
 | Azure Queues | privatelink.queue.core.windows.net |
 
- In the zone name, `\<geo\>` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Learn about the supported geography for the following regions:
+ In the zone name, `\<geo\>` refers to the region code (for example, **`eus`** for East US and **`ne`** for North Europe). Learn about the supported geography for the following regions:
 
 - [**All public clouds**](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 
@@ -187,42 +187,32 @@ The following table lists the Azure Private DNS zones required by Azure Backup:
 
 - [**Geo-code list - sample XML**](./scripts/geo-code-list.md)
 
-- If you're using custom DNS servers or host files and don't have the Azure Private DNS zone setup, add the DNS records required by the private endpoints to your DNS servers or in the host file.
 
-> Navigate to the private endpoint you created, and then go to **DNS configuration**. Then add an entry for each FQDN and IP displayed as *Type A* records in your DNS.
->
-> If you're using a host file for name resolution, make corresponding entries in the host file for each IP and FQDN according to the format - \<private ip\>\<space\>\<FQDN\>.
+For custom DNS servers, [add the private endpoint DNS records to your DNS servers or host file ](/microsoft-365/admin/dns/create-dns-records-using-windows-based-dns?view=o365-worldwide)if Azure Private DNS zone isn’t configured. If you're using a host file for name resolution, make corresponding entries in the host file for each IP and FQDN according to the format - `\<private ip\>\<space\>\<FQDN\>`.
 
-> [!NOTE]
-> Azure Backup will allocate new storage account for your vault for the backup data, and MARS agent needs to access the respective endpoints. For more about how to add more DNS records after registration and backup, see [**how to use private endpoints for backup**](/azure/backup/backup-azure-private-endpoints-configure-manage#use-private-endpoints-for-backup).
+ Azure Backup allocates new storage account for the vault you created with private endpoint to store the backup data. The MARS agent accesses the respective endpoints to perform backup and restore operations. Learn [how to use private endpoints for backup](/azure/backup/backup-azure-private-endpoints-configure-manage#use-private-endpoints-for-backup) to add more DNS records after registration and backup.
 
 ## Back up on-premises resources using DPM/MABS with private endpoints
 
-When using the MARS Agent to back up you're on-premises resources, make sure your on-premises network (containing your resources to be backed up) is peered with the Azure VNet that contains a private endpoint for the vault, so you can use it. You can then continue to install the MARS agent and configure backup as detailed here. However, you must ensure all communication for backup happens through the peered network only.
+When you use the MARS Agent for backup, ensure your on-premises network is peered with the Azure virtual network that hosts the vault’s private endpoint. You can then continue to install the MARS agent and configure backup as detailed here. However, you must ensure all communication for backup happens through the peered network only.
 
-1. Register your DPM\MABS Server to the vault created with private endpoints
+1. [Register your DPM\MABS Server to the vault](#re-register-the-dpmmabs-server-with-vault) you created with private endpoints.
 
-:::image type="content" source="media/private-endpoint-vault-backup-server/register-backup-server-vault.png" alt-text="Screenshot shows the DPM/MABS server registration to vault with private endpoints." lightbox="media/private-endpoint-vault-backup-server/register-backup-server-vault.png":::
+   :::image type="content" source="media/private-endpoint-vault-backup-server/register-backup-server-vault.png" alt-text="Screenshot shows the DPM/MABS server registration to vault with private endpoints." lightbox="media/private-endpoint-vault-backup-server/register-backup-server-vault.png":::
 
-1. Enabled backup on DPM\MABS Server for disk and online
+1. Enable backup on DPM\MABS Server for disk and online
 
-:::image type="content" source="media/private-endpoint-vault-backup-server/backup-configuration-backup-server-protection.png" alt-text="Screenshot shows the backup configuration on DPM/MABS server for disk and online protection.":::
+   :::image type="content" source="media/private-endpoint-vault-backup-server/backup-configuration-backup-server-protection.png" alt-text="Screenshot shows the backup configuration on DPM/MABS server for disk and online protection.":::
 
-1. Please wait for the Initial Replica to complete.
+   After the registration, wait for the Initial Replica to complete. The online backup operation starts as per the schedule, or you can manually trigger backups for your data sources.
 
-1. You can wait for the online backup schedule to kick in or manually run online backups for data sources.
+   :::image type="content" source="media/private-endpoint-vault-backup-server/online-backup-schedule-manual-options.png" alt-text="Screenshot shows the online backup schedule and manual backup options for data sources." lightbox="media/private-endpoint-vault-backup-server/online-backup-schedule-manual-options.png":::
 
-:::image type="content" source="media/private-endpoint-vault-backup-server/online-backup-schedule-manual-options.png" alt-text="Screenshot shows the online backup schedule and manual backup options for data sources." lightbox="media/private-endpoint-vault-backup-server/online-backup-schedule-manual-options.png":::
+   :::image type="content" source="media/private-endpoint-vault-backup-server/online-backup-completion-status.png" alt-text="Screenshot shows the online backup completion status and progress information." lightbox="media/private-endpoint-vault-backup-server/online-backup-completion-status.png":::
 
-1. Please wait for the online backup to also complete.
+   The storage account starts creating a Blob container for each protected data source in the Azure portal. This container allows the DPM/MABS server to connect to the vault through private endpoints and perform backups.
 
-:::image type="content" source="media/private-endpoint-vault-backup-server/online-backup-completion-status.png" alt-text="Screenshot shows the online backup completion status and progress information." lightbox="media/private-endpoint-vault-backup-server/online-backup-completion-status.png":::
-
-1. Check on Azure Portal and you will be storage account (Blob) getting created for each data sources you protected on DPM\MABS Server.
-
-:::image type="content" source="media/private-endpoint-vault-backup-server/storage-accounts-created.png" alt-text="Screenshot shows the created storage accounts in Azure portal for protected data sources." lightbox="media/private-endpoint-vault-backup-server/storage-accounts-created.png":::
-
-So, the DPM\MABS Server can connect to the vault using Private Endpoints and backups are working as well.
+   :::image type="content" source="media/private-endpoint-vault-backup-server/storage-accounts-created.png" alt-text="Screenshot shows the created storage accounts in Azure portal for protected data sources." lightbox="media/private-endpoint-vault-backup-server/storage-accounts-created.png":::
 
 ## Delete private endpoints
 
@@ -254,11 +244,11 @@ To re-register the DPM\MABS Server with the vault, follow these steps:
 
 1. Sign in to the **DPM**\ **MABS** Server, and then select **Management** > **Online** > **Register**.
 
-1. On the **Register Server Wizard**, follow the onscreen instruction and provide the **same passphrase**that was used initially to register DPM\MABS Server on the **Encryption Setting** pane.
+1. On the **Register Server Wizard**, follow the onscreen instruction and provide the **same passphrase** that was used initially to register DPM\MABS Server on the **Encryption Setting** pane.
 
 1. Select **Register** and wait for the registration process to complete.
 
-:::image type="content" source="media/private-endpoint-vault-backup-server/backup-server-reregistration.png" alt-text="Screenshot shows the backup server re-registration process and encryption settings.":::
+   :::image type="content" source="media/private-endpoint-vault-backup-server/backup-server-reregistration.png" alt-text="Screenshot shows the backup server re-registration process and encryption settings.":::
 
 
 
