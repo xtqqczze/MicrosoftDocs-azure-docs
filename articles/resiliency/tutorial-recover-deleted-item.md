@@ -2,7 +2,7 @@
 title: Recover deleted item
 description: Learn how to recover deleted item
 ms.topic: tutorial
-ms.date: 11/01/2025
+ms.date: 11/19/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.service: resiliency

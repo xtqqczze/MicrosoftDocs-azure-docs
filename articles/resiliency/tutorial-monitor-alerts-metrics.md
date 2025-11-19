@@ -2,7 +2,7 @@
 title: Tutorial - Monitor alerts and metrics in Resiliency
 description: In this tutorial, learn how to monitor alerts and configure notifications for your resiliency estate using Resiliency in Azure.
 ms.topic: tutorial
-ms.date: 11/01/2025
+ms.date: 11/19/2025
 ms.service: resiliency
 ms.custom:
   - ignite-2023

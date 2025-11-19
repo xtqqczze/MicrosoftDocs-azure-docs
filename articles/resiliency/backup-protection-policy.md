@@ -2,7 +2,7 @@
 title: Create protection policy for resources
 description: In this article, you learn how to create backup and replication policies to protect your resources.
 ms.topic: how-to
-ms.date: 11/01/2025
+ms.date: 11/19/2025
 ms.service: resiliency
 ms.custom:
   - ignite-2023

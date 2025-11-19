@@ -2,7 +2,7 @@
 title: Security levels in Resiliency
 description: An overview of the levels of Security available in Resiliency.
 ms.topic: overview
-ms.date: 11/01/2025
+ms.date: 11/19/2025
 ms.service: resiliency
 ms.custom:
   - ignite-2023
