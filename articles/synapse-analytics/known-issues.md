@@ -36,12 +36,14 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse serverless SQL pool|[Storage access issues due to authorization header being too long](#storage-access-issues-due-to-authorization-header-being-too-long)|Has workaround|
 |Azure Synapse serverless SQL pool|[Querying a view shows unexpected results](#querying-a-view-shows-unexpected-results)|Has workaround|
 |Azure Synapse serverless SQL pool|[Queries longer than 7,500 characters may not appear in Log Analytics](#queries-longer-than-7500-characters-may-not-appear-in-log-analytics)|Has workaround|
+|Azure Synapse serverless SQL pool|[Proxied connections can be affected by Gateway, resulting in connection failures](#proxied-connections-may-result-in-failure-due-to-gateway)|No workaround|
 |Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) isn't getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has workaround|
 |Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has workaround|
 |Azure Synapse Workspace|[REST API PUT operations or ARM/Bicep templates to update network settings fail](#rest-api-put-operations-or-armbicep-templates-to-update-network-settings-fail)|Has workaround|
 |Azure Synapse Workspace|[Known issue incorporating square brackets [] in the value of Tags](#known-issue-incorporating-square-brackets--in-the-value-of-tags)|Has workaround|
 |Azure Synapse Workspace|[Deployment Failures in Synapse Workspace using Synapse-workspace-deployment v1.8.0 in GitHub actions with ARM templates](#deployment-failures-in-synapse-workspace-using-synapse-workspace-deployment-v180-in-github-actions-with-arm-templates)|Has workaround|
 |Azure Synapse Workspace|[No `GET` API operation dedicated to the `Microsoft.Synapse/workspaces/trustedServiceBypassEnabled` setting](#no-get-api-operation-dedicated-to-the-microsoftsynapseworkspacestrustedservicebypassenabled-setting)|Has workaround|
+|Azure Synapse Apache Spark pool|[Starting a Spark session (with custom python libraries) is taking longer than usual](#starting-a-spark-session-with-custom-python-libraries-is-taking-longer-than-usual)|Has mitigation|
 
 
 ## Azure Synapse Analytics dedicated SQL pool active known issues summary
@@ -100,6 +102,12 @@ Other option is to retry the deployment after several minutes. During the wait t
 When making a change to the [tags](../azure-resource-manager/management/tag-resources-portal.md) of a dedicated SQL pool through Azure portal or other methods, an error message can appear even though the change is made successfully.
 
 **Workaround**: You can confirm that the change to the tags was successful and ignore/suppress the error message as needed.
+
+### Proxied connections may result in failure due to gateway
+
+When establishing a connection from outside of the Azure network boundary, all connections are proxied through the gateway as per the Default [Connection policy](security/connectivity-settings.md) for Synapse Workspaces. The same is applied when utilizing Private Endpoints in Synapse workspaces. Due to this policy, this can lead to increased latency and reduced throughput when communicating with the dedicated pool and be affected by gateway outages.
+
+**Workaround**: Currently there is no workaround for scenario. 
 
 ## Azure Synapse workspace active known issues summary
 
@@ -264,6 +272,34 @@ Suggested workarounds are:
 
 - Use the `sys.dm_exec_requests_history` view in your Synapse Serverless SQL pool to access historical query execution details.
 - Refactor the query to reduce its length below 7,500 characters, if feasible.
+
+## Azure Synapse Apache Spark pool active known issues summary
+
+### Starting a Spark session (with custom python libraries) is taking longer than usual
+
+There is a known issue impacting session startup time when python libraries (requirements.txt or .whl) are attached to the spark pool. Customers will experience slow session startup times intermittently. This is impacting both Fabric and Synapse. 
+
+**Workaround**: The mitigation has been applied to following regions. With this mitigation, the session startup has been improved significantly, but might still be 1.5x slower than original baseline.
+
+|Mitigated Synapse Regions|
+|------------------------|
+|PolandCentral|
+|EastUS|   
+|EastUS2EUAP|
+|SouthEastAsia|
+|AustraliaEast|
+|WestUS2|
+|NorthEurope|
+|SwedenCentral|
+|WestUS3|
+|QatarCentral|
+|JioIndiaWest|
+|SouthIndia|
+|IsraelCentral|
+|ItalyNorth|
+|SwitzerlandWest|
+|WestEurope|
+
 
 
 ## Recently closed known issues

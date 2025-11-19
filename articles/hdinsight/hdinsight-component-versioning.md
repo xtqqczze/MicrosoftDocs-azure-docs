@@ -3,8 +3,8 @@ title: Open-source components and versions - Azure HDInsight
 description: Learn about the open-source components and versions in Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: conceptual
-author: anuj1905
-ms.author: anujsharda
+author: apurbasroy
+ms.author: apsinhar
 ms.reviewer: nijelsf
 ms.date: 11/04/2024
 ---
@@ -47,7 +47,7 @@ Support is defined as a time period that a HDInsight version supported by Micros
 
 | Action | Standard Support| Basic support | Retirement |
 | -- | -- |--|--|
-| Use existing cluster without support | Yes | Yes | Yes |
+| Use existing cluster without support | Yes | Yes | No |
 | Create Cluster | Yes | Yes | No |
 | Scale up/down cluster | Yes | Yes | No |
 | Troubleshoot runtime issues | Yes | No | No |
