@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 11/12/2025
+ms.date: 11/19/2025
 ms.author: primittal
 ---
 
@@ -40,7 +40,7 @@ Consider a hypothetical scenario where your organization plans to use:
 - PTU usage at assumed $1.00 per PTU = $5,000
 - **Total estimated pay-as-you-go cost: $20,000**
 
-**With hypothetical Tier 1 pre-purchase plan (20,000 CUs):**
+**Assuming Tier 1 pre-purchase plan (20,000 CUs):**
 - Estimated plan cost: $19,000
 - **Potential savings: $1,000 (approximately 5% discount)**
 
