@@ -128,6 +128,8 @@
           href: functions-overview.md
         - name: Create a Functions app
           href: functions-usage.md
+        - name: Create your Azure functions on Azure Container Apps
+          href: functions-container-apps.md
     - name: Use dynamic sessions
       items:
         - name: Code interpreter sessions
@@ -186,8 +188,10 @@
               href: troubleshoot-container-start-failures.md
 - name: AI integration
   items:
-    - name: AI integration
+    - name: Overview
       href: ai-integration.md
+    - name: Compose for agents
+      href: compose-agent.md
     - name: GPUs
       items:
         - name: Serverless GPUs

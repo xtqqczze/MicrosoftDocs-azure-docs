@@ -1,6 +1,5 @@
 ---
-title: HTTP DDoS Ruleset (Preview)
-titleSuffix: Azure Web Application Firewall
+title: HTTP DDoS Ruleset (Preview) - Application Gateway WAF
 description: Learn about HTTP DDoS Ruleset in Application Gateway Azure Web Application Firewall (WAF).
 author: joeolerich
 ms.author: joeolerich
@@ -9,7 +8,7 @@ ms.topic: concept-article
 ms.date: 11/18/2025
 ---
 
-# Microsoft HTTP DDoS Ruleset (preview)
+# HTTP DDoS Ruleset in Azure Application Gateway WAF (preview)
 
 > [!IMPORTANT]
 > The Microsoft HTTP DDoS Ruleset in the Azure Application Gateway Web Application Firewall (WAF) v2 is currently in PREVIEW.

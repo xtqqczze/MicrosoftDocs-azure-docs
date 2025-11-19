@@ -28,7 +28,7 @@ Azure Network Address Translation (NAT) Gateway has two stock-keeping units (SKU
 | | Port reuse timer | Supported | Supported |
 | | Protocols | TCP, UDP | TCP, UDP |
 | | Public IP version| IPv4, IPv6 | IPv4 |
-| | Attach point | Subnet, virtual network (all subnets) | Subnet |
+| | Attach point | Subnet | Subnet |
 | Scalability | Public IP Addresses | 16 IPv4 addresses, 16 IPv6 addresses | 16 IPv4 addresses |
 | | Public IP Prefixes | /28 IPv4 Prefix, /124 IPv6 Prefix | /28 IPv4 Prefix |
 | | Virtual networks | 1 | 1 |
@@ -56,10 +56,6 @@ For more information, see [Availability zones](./nat-availability-zones.md).
 
 StandardV2 NAT Gateway supports up to 100 Gbps of bandwidth and can process up to 10 million packets per second. On a per connection basis, StandardV2 NAT Gateway supports 1 Gbps per connection and 100,000 packets per second (PPS) per connection.  
 
-### Virtual network attachment 
-
-StandardV2 NAT Gateway supports subnet level attachment and also has the added capability of associating on a virtual network level. Use the source virtual network property to attach StandardV2 NAT Gateway to a virtual network. When attached at the virtual network level, all subnets within the virtual network use the NAT Gateway for outbound connectivity.
-
 ### IPv6 support
 
 StandardV2 NAT Gateway can be attached to 16 IPv6 public IPs and 16 IPv4 public IPs simultaneously in order to provide highly scalable dual-stack outbound connectivity to the internet.  
@@ -73,8 +69,6 @@ StandardV2 NAT Gateway supports flow logs through Azure Monitor. Flow logs provi
 * Requires StandardV2 SKU Public IP addresses and prefixes. Standard SKU public IPs aren’t supported. 
 
 * Standard SKU NAT Gateway can’t be upgraded to StandardV2 SKU NAT Gateway. You must deploy StandardV2 SKU NAT Gateway and replace Standard SKU NAT Gateway. 
-
-* StandardV2 NAT Gateway attached at the virtual network level is not supported by AKS workloads. To use StandardV2 NAT Gateway with AKS, attach it directly to the subnet.
 
 * Custom IP prefixes (BYOIP public IPs) aren't supported with StandardV2 NAT Gateway. Only StandardV2 SKU Azure public IPs are supported. 
 
@@ -114,7 +108,7 @@ StandardV2 NAT Gateway supports flow logs through Azure Monitor. Flow logs provi
 ## Known issues 
 * StandardV2 NAT Gateway disrupts outbound connections made with Load balancer outbound rules for IPv6 traffic only. Standard SKU NAT gateway can be used to provide outbound for IPv4 traffic while Load balancer outbound rules is used for IPv6 outbound traffic. If you see disruption to outbound connectivity for IPv6 outbound traffic with Load balancer outbound rules, remove the StandardV2 NAT Gateway from the subnet or virtual network. Use Load balancer outbound rules to provide outbound connectivity for both IPv4 and IPv6 traffic. Or use Standard SKU NAT Gateway to provide outbound connectivity for IPv4 traffic and Load balancer outbound rules for IPv6 traffic.
 
-* Attaching a StandardV2 NAT Gateway to an empty virtual network or subnet created before April 2025 without any virtual machines may cause the virtual network or subnet to go into a failed state. To return the virtual network or subnet to a successful state, remove StandardV2 NAT Gateway, create and add a virtual machine to the subnet and then reattach the StandardV2 NAT Gateway. 
+* Attaching a StandardV2 NAT Gateway to an empty subnet created before April 2025 without any virtual machines may cause the virtual network to go into a failed state. To return the virtual network to a successful state, remove StandardV2 NAT Gateway, create and add a virtual machine to the subnet and then reattach the StandardV2 NAT Gateway. 
 
 ## Standard NAT Gateway features
 

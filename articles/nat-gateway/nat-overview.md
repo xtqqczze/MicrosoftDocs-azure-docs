@@ -32,7 +32,7 @@ NAT Gateway dynamically allocates SNAT ports to automatically scale outbound con
 Azure NAT Gateway is available in two SKUs:
 * **Standard** SKU NAT Gateway is zonal (deployed to a single availability zone) and provides scalable outbound connectivity for subnets in a single virtual network.
 
-* **StandardV2** SKU NAT Gateway is **zone-redundant** with higher throughput than the Standard SKU, IPv6 support, and virtual network as well as subnet level association.
+* **StandardV2** SKU NAT Gateway is **zone-redundant** with higher throughput than the Standard SKU, IPv6 support, and flow log support.
 
 ## StandardV2 NAT Gateway
 
@@ -47,7 +47,6 @@ StandardV2 NAT Gateway provides all the same functionality of the Standard SKU N
 * **Zone-redundant** - operates across all availability zones in a region to maintain connectivity during a single zone failure.
 * **IPv6 support** - supports both IPv4 and IPv6 public IP addresses and prefixes for outbound connectivity. 
 * **Higher throughput** - each StandardV2 NAT Gateway can provide up to 100 Gbps of data throughput, compared to 50 Gbps for Standard NAT Gateway.
-* **Virtual network level association** - can be associated to an entire virtual network through the source virtual network property. When associated to a virtual network, all subnets within the virtual network use the NAT Gateway for outbound connectivity.
 * **Flow logs support** - provides IP-based traffic information to help monitor and analyze outbound traffic flows. 
 
 To learn more on how to deploy StandardV2 NAT Gateway, see [Create a StandardV2 NAT Gateway](./quickstart-create-nat-gateway-v2.md).
@@ -80,7 +79,7 @@ To learn more on how to deploy StandardV2 NAT Gateway, see [Create a StandardV2 
 ### Known issues of StandardV2 NAT Gateway
 * IPv6 outbound traffic using Load balancer outbound rules is disrupted when StandardV2 NAT Gateway is associated to a subnet. If you require both IPv4 and IPv6 outbound connectivity, use either Load balancer outbound rules for both IPv4 and IPv6 traffic or use Standard NAT Gateway for IPv4 traffic and Load balancer outbound rules for IPv6 traffic.
 
-* Attaching a StandardV2 NAT Gateway to an empty virtual network or subnet created before April 2025 without any virtual machines may cause the virtual network or subnet to go into a failed state. To return the virtual network or subnet to a successful state, remove StandardV2 NAT Gateway, create and add a virtual machine to the subnet and then reattach the StandardV2 NAT Gateway. 
+* Attaching a StandardV2 NAT Gateway to an empty subnet created before April 2025 without any virtual machines may cause the virtual network to go into a failed state. To return the virtual network to a successful state, remove StandardV2 NAT Gateway, create and add a virtual machine to the subnet and then reattach the StandardV2 NAT Gateway. 
 
 For more information about known issues and limitations of StandardV2 NAT Gateway, see [StandardV2 NAT Gateway known issues and limitations](./nat-sku.md#known-limitations).
 
