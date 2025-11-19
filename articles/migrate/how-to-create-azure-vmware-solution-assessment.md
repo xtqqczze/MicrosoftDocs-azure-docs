@@ -89,7 +89,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
 1. In **Advanced** settings, click on **Edit defaults** and ensure the **Target services** has "Azure VMware Solution (AVS)" and then click on **Edit defaults**:
 
     - In **SDDC type**, specify "New SDDC" if you are creating a new SDDC. Use "AVS SDDC expansion" if you already have an AVS SDDC with hosts deployed and want to add more VMs to the existing SDDC. When assessing for expanding an SDDC, it will not consider the available capacity in the AVS SDDC but will consider the capacity requirements for management appliances.
-    - The **Storage type** is defaulted to consider three supported storage solutions in AVS: **vSAN**, **Elastic SAN** and **Azure NetApp Files (ANF)** (Standard, Premium and Ultra tiers). Elastic SAN and ANF are external storage types in AVS that will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. **Elastic SAN** can be selected if assessment needs to be performed using vSAN & elastic SAN as the storage datastores.
+    - The **Storage type** is defaulted to consider three supported storage solutions in AVS: **vSAN**, **Elastic SAN** and **Azure NetApp Files (ANF)** (Standard, Premium and Ultra tiers). Elastic SAN and ANF are external storage types in AVS that will be used when storage is the limiting factor considering the configuration/performance of the incoming VMs. **Elastic SAN** can be selected if assessment needs to be performed using vSAN & Elastic SAN as the storage datastores.
         - When performance metrics are provided (IOPS and throughput) in settings or via data discovered using the Azure migrate appliance or in the imported CSV file, the assessment selects the tier that satisfies the performance requirements of the incoming VMs’ disks.
         - If the assessment is performed using data from an RVTools file or if the Azure Migrate appliance is unable to discover performance metrics like throughput and IOPS, **Elastic SAN** or **ANF - Standard** (the most cost-effective one among the two) is considered for assessment.
 
@@ -102,7 +102,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
     - In **IOPS per GiB**, select the expected average read and write speed per gibibyte of the external storage device. This, along with the disk capacity requirement, helps Azure Migrate determine the external storage capacity needs.
     - In **Throughput per GiB**, select the expected average amount of data transfer speed per gibibyte of the storage device. This, along with the disk capacity requirement would help Azure Migrate determine the external storage capacity requirements.
 1. In **Elastic SAN Settings**:
-    - The **Networking ingress/egress cost** is used to determine the networking cost of attaching the elastic SAN datastore to the AVS SDDC. It's defaulted to **15%**.
+    - The **Networking ingress/egress cost** is used to determine the networking cost of attaching the Elastic SAN datastore to the AVS SDDC. It's defaulted to **15%**.
 1. In **CPU Settings**:
     - In **CPU Oversubscription**, specify the ratio of virtual cores associated with one physical core in the AVS node. Oversubscription of greater than 4:1 might cause performance degradation, but can be used for web server type workloads.
     - In **CPU headroom**, specify the CPU headroom you want to reserve for planned & unplanned management operations.
