@@ -11,7 +11,12 @@ ai-usage: ai-assisted
 
 ---
 
-# Use WebAssembly (WASM) with data flow graphs
+# Use WebAssembly (WASM) with data flow graphs (preview)
+
+> [!IMPORTANT]
+> WebAssembly (WASM) with data flow graphs is in PREVIEW. This feature has limitations and isn't for production workloads.
+>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or not yet released into general availability.
 
 Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for custom data processing at the edge. You can deploy custom business logic and data transformations as part of your data flow pipelines.
 
@@ -149,7 +154,7 @@ resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: RegistryEndpoint
 metadata:
   name: <REGISTRY_ENDPOINT_NAME>
@@ -380,7 +385,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 Create a YAML file with the following configuration:
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowGraph
 metadata:
   name: <GRAPH_NAME>
@@ -514,7 +519,7 @@ The complex graph processes three data streams and combines them into enriched s
 
 For detailed information about how the complex graph definition works, its structure, and the data flow through multiple processing stages, see [Example 2: Complex graph definition](howto-configure-wasm-graph-definitions.md#example-2-complex-graph-definition).
 
-The graph uses specialized modules from the [Rust examples](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/rust/examples).
+The graph uses specialized modules from the [Rust examples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples).
 
 ### Configure the complex data flow graph
 
@@ -659,7 +664,7 @@ resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfile
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowGraph
 metadata:
   name: <COMPLEX_GRAPH_NAME>
@@ -872,7 +877,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowGraph
 metadata:
   name: my-dataflow-graph
@@ -915,7 +920,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowGraph
 metadata:
   name: my-dataflow-graph
@@ -962,7 +967,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowGraph
 metadata:
   name: my-dataflow-graph
