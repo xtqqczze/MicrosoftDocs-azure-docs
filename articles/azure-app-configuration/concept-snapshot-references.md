@@ -77,7 +77,7 @@ Snapshot reference content type: `application/json; profile="https://azconfig.io
 
 ## Key conflict resolution
 
-Referenced snapshots may contain keys that conflict with normal key-values (those outside of a snapshot). Configuration providers resolve these conflicts by using the value of the last seen key. In the case of snapshots, since they are resolved immediately upon being seen, the lexographic ordering of the snapshot reference key is an important detail when considering the ultimate value of a given key when there are conflicts.
+Referenced snapshots may contain keys that conflict with normal key-values (those outside of a snapshot). Configuration providers resolve these conflicts by using the value of the last seen key. In the case of snapshots, since they are resolved immediately upon being seen, the lexicographic ordering of the snapshot reference key is an important detail when considering the ultimate value of a given key when there are conflicts.
 
 ### Simplified example
 
@@ -103,7 +103,7 @@ value: 8000
 
 If a snapshot reference is added that points to the aforementioned snapshot, then the final effective configuration depends on the snapshot reference key's lexicographic position:
 
-| Snapshot reference key | Lexographic position vs `message`, `request-limit` | Final `message` value | Final `request-limit` value | Why |
+| Snapshot reference key | lexicographic position vs `message`, `request-limit` | Final `message` value | Final `request-limit` value | Why |
 |------------------------|-------------------------------------------------------|-----------------|-----------------------|-----|
 | `a-snapshot-reference` | Before both                                           | hello-world     | 100                   | The snapshot reference is resolved first; later normal keys override their duplicates. |
 | `my-snapshot-reference`| After `message` but before `request-limit`            | bye             | 100                   | `message` is seen first. The snapshot reference is then resolved and overrides `message`. Finally the normal `request-limit` overrides the snapshot's `request-limit` value. |
