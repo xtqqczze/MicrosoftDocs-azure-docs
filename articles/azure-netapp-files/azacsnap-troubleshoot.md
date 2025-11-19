@@ -37,29 +37,29 @@ This naming convention allows for multiple configuration files, one per database
 
 For the `-c backup` command, AzAcSnap writes to a *\*.result* file. The purpose of the *\*.result* file is to provide high-level confirmation of success/failure. If the *\*.result* file is empty, then assume failure. Any output written to the *\*.result* file is also output to the system log (for example, `/var/log/messages`) by using the `logger` command. The *\*.result* filename has the same base name as the log file to allow for matching the result file with the configuration file and the backup log file. The *\*.result* file goes into the same location as the other log files and is a simple one line output file.
 
-1. Example for successful completion:
+- Example for successful completion:
 
-   1. Output to *\*.result* file:
+   - Output to *\*.result* file:
    
       ```output
       Database # 1 (PR1) : completed ok
       ```
 
-   1. Output to `/var/log/messages`:
+   - Output to `/var/log/messages`:
 
       ```output
       Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
       ```
 
-1. Example output where a failure occurred and AzAcSnap captured the failure:
+- Example output where a failure occurred and AzAcSnap captured the failure:
 
-   1. Output to *\*.result* file:
+   - Output to *\*.result* file:
    
       ```output
       Database # 1 (PR1) : failed
       ```
 
-   1. Output to `/var/log/messages`:
+   - Output to `/var/log/messages`:
 
       ```output
       Dec 19 09:00:30 azacsnap-rhel azacsnap: Database # 1 (PR1) : failed
@@ -195,15 +195,15 @@ azacsnap -c test --test storage
 Example output from the log file:
 
 ```output
-The client '99z99z99-99z9-99z9-99z9-99z99z999999' with object id '1aa11a1a-11a1-1a11-11a1-a1a111aaaaaa' does not have authorization to perform action 'Microsoft.NetApp/netAppAccounts/read' over scope ...
+The client '00001111-aaaa-2222-bbbb-3333cccc4444' with object id 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb' does not have authorization to perform action 'Microsoft.NetApp/netAppAccounts/read' over scope ...
 ```
 
 This error can be caused by having both a System Assigned Managed Identity and User Assigned Identity in use on the Virtual Machine for authentication.
 
 To resolve this issue use one of the following solutions:
 
-1. Disable or Delete the System Assigned Managed Identity.
-1. Configure AzAcSnap to use the [Service Principal method](azacsnap-configure-storage.md?tabs=azure-netapp-files#generate-a-service-principal-file) for authentication.
+- Disable or Delete the System Assigned Managed Identity.
+- Configure AzAcSnap to use the [Service Principal method](azacsnap-configure-storage.md?tabs=azure-netapp-files#generate-a-service-principal-file) for authentication.
 
 
 #### 'Could not create StorageANF object'
@@ -243,7 +243,7 @@ azacsnap -c test --test storage
 
 ```output
 The authenticity of host '172.18.18.11 (172.18.18.11)' can't be established.
-ECDSA key fingerprint is SHA256:QxamHRn3ZKbJAKnEimQpVVCknDSO9uB4c9Qd8komDec.
+ECDSA key fingerprint is SHA256:AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
