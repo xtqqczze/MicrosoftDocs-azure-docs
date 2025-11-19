@@ -305,9 +305,7 @@
     href: /troubleshoot/azure/azure-storage/files-client-other-errors?toc=/azure/storage/files/toc.json
 - name: Training
   items:
-  - name: Introduction to Azure Files
-    href: /training/modules/introduction-to-azure-files/
-  - name: Configure Azure Files and Azure File Sync
+  - name: Configure Azure Files
     href: /training/modules/configure-azure-files-file-sync/
   - name: Implement a hybrid file server infrastructure
     href: /training/modules/implement-hybrid-file-server-infrastructure/    
