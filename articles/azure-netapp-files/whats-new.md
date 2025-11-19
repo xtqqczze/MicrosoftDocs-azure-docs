@@ -336,7 +336,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     
     This update also introduces a preview of a large volume type, starting from **one PiB** up to **two PiB**, available upon request. This **2-PiB** enhancement is subject to regional availability and capacity, ensuring that Azure NetApp Files can meet your specific needs and requirements. This feature is currently in preview. To take advantage of the 2-PiB large volume feature, contact your account team.
     
-* [Azure NetApp Files backup](backup-introduction.md) is now available in Azure US Gov regions.
+* [Azure NetApp Files backup](backup-introduction.md) is now available in Azure [US Gov regions](backup-introduction.md#supported-regions).
 
 
 * [Metrics enhancement:](azure-netapp-files-metrics.md) New performance metrics for volumes
@@ -375,6 +375,8 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     Azure NetApp Files online snapshots are enhanced with backup of snapshots. With this backup capability, you can offload (vault) your Azure NetApp Files snapshots to a Backup vault in a fast and cost-effective way, further protecting your data from accidental deletion. 
      
     Backup further extends Azure NetApp Files' built-in snapshot technology; when snapshots are vaulted to a Backup vault only changed data blocks relative to previously vaulted snapshots are copied and stored, in an efficient format. Vaulted snapshots however are still represented in full and can be restored to a new volume individually and directly, eliminating the need for an iterative full-incremental recovery process.   
+
+    This feature is now generally available in all [supported regions](backup-introduction.md#supported-regions). 
     
 ## April 2024 
 
