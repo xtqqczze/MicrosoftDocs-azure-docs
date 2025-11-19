@@ -477,7 +477,7 @@ python app.py
 
 ## Debug event handlers
 
-The tunnel lets you keep a local server private while still receiving callbacks from Azure Web PubSub. Start it alongside your upstream to inspect CloudEvents end to end. It also provide a way to eastablish a client connection to Web PubSub easily so you can try the end-to-end flow in the tunnel web page.
+The tunnel lets you keep a local server private while still receiving callbacks from Azure Web PubSub. Start it alongside your upstream to inspect CloudEvents end to end. It also provides a way to establish a client connection to Web PubSub easily so you can try the end-to-end flow in the tunnel web page.
 
 > [!TIP]
 > See [Azure Web PubSub local tunnel tool](./howto-web-pubsub-tunnel-tool.md) for installation, authentication, and troubleshooting guidance.
