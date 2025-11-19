@@ -65,7 +65,7 @@ You might also consider the following alternative solutions:
 
 ### Will Azure Spring Apps allow new customers to sign up?
 
-Azure Spring Apps isn't accepting new customers since March 17, 2025. Existing customers can continue using the service, including creating, updating or deleting instances within the same tenant, until the plans are phased out on March 31, 2028.
+Azure Spring Apps isn't accepting new customers since March 17, 2025. Existing customers can continue using the service, including creating, updating or deleting instances within the same tenant in 2025 or within the same subscription, until the plans are phased out on March 31, 2028.
 
 ### How do you distinguish between new and existing customers for Azure Spring Apps?
 
