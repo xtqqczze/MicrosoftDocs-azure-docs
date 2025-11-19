@@ -34,7 +34,9 @@ The **AllowedCopyScope** property of a storage account is used to specify the en
 - **Microsoft Entra ID**: Permits copying only from accounts within the same Microsoft Entra tenant as the destination account.
 - **PrivateLink**:  Permits copying only from storage accounts that have private links to the same virtual network as the destination account.
 
-The setting applies to [Copy Blob](/rest/api/storageservices/copy-blob) and [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operations.
+This setting applies to [Put Block From Url](/rest/api/storageservices/put-block-from-url?tabs=microsoft-entra-id), [Append Block From Url](/rest/api/storageservices/append-block-from-url?tabs=microsoft-entra-id), [Put Blob From Url](/rest/api/storageservices/put-blob-from-url?tabs=microsoft-entra-id), [Put Page From Url](/rest/api/storageservices/put-page-from-url?tabs=microsoft-entra-id), [Copy Blob](/rest/api/storageservices/copy-blob), [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url), [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob?tabs=microsoft-entra-id), [Put Range From Url](/rest/api/storageservices/put-range-from-url), and [Copy File](/rest/api/storageservices/copy-file) operations that require the x-ms-copy-source request header. Solutions such as [AzCopy](/azure/storage/common/storage-use-azcopy-v10) that rely on these APIs will be impacted by this setting. Please review the APIs associated with other features and services to ensure compatibility.
+
+The error “The copy operation is not within the allowed copy scope” indicates that the attempted copy operation falls outside the permitted scope for your account. Should you encounter the error “This request is not authorized to perform this operation” please verify whether permitted scope or a related firewall rule is denying the request.
 
 When the source of a copy request does not meet the requirements specified by this setting, the request fails with HTTP status code 403 (Forbidden).
 
