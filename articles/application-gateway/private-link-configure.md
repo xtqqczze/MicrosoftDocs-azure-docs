@@ -52,11 +52,11 @@ To enable Private Link configuration, you must create a dedicated subnet that's 
 > [!IMPORTANT]
 > The combined length of the Application Gateway name and Private Link configuration name must not exceed 70 characters to avoid deployment failures.
 
-To create a dedicated subnet for Private Link, see [Add, change, or delete a virtual network subnet](/virtual-network/virtual-network-manage-subnet#add-a-subnet).
+To create a dedicated subnet for Private Link, see [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet).
 
 ## Disable network policies on the Private Link subnet
 
-To allow Private Link connectivity, you must [disable the Private Link Service Network Policies](/private-link/disable-private-endpoint-network-policy#disable-network-policy) on the subnet designated for Private Link IP configurations.
+To allow Private Link connectivity, you must [disable the Private Link Service Network Policies](../private-link/disable-private-endpoint-network-policy.md#disable-network-policy) on the subnet designated for Private Link IP configurations.
 
 To disable network policies, follow these steps:
 1. Navigate to the [Azure portal](https://portal.azure.com).
@@ -283,7 +283,7 @@ For comprehensive Azure CLI command reference for Application Gateway Private Li
 
 To learn more about Azure Private Link and related services:
 
-- [What is Azure Private Link?](/private-link/private-link-overview)
+- [What is Azure Private Link?](../private-link/private-link-overview)
 - [Application Gateway Private Link overview](private-link.md)
-- [Private Link service overview](/private-link/private-link-service-overview)
-- [Private endpoints overview](/private-link/private-endpoint-overview)
+- [Private Link service overview](../private-link/private-link-service-overview.md)
+- [Private endpoints overview](../private-link/private-endpoint-overview.md)
