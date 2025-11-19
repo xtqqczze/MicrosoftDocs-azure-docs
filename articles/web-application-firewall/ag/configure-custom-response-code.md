@@ -15,6 +15,10 @@ By default, when Azure Web Application Firewall (WAF) on Azure Application Gatew
 
 This article shows you how to configure a custom response page when Azure Application Gateway's Web Application Firewall (WAF) blocks a request using the Azure portal. You can also configure custom responses using the [Azure CLI](/cli/azure/network/application-gateway/waf-policy/policy-setting) or [PowerShell](/powershell/module/az.network/new-azapplicationgatewayfirewallpolicysetting).
 
+> [!IMPORTANT]
+> Custom response in Azure Application Gateway Web Application Firewall (WAF) is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Configure a custom response status code and message
 
 To customize the response status code and body, take the following steps:
