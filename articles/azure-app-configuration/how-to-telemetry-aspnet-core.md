@@ -86,7 +86,7 @@ Now you'll add a custom event to track when users like a quote. You'll create a 
     }
     ```
 
-1. In *Index.cshtml*, add a antiforgerytoken before the script tag.
+1. In *Index.cshtml*, add an antiforgerytoken before the script tag.
 
     ```html
     <form method="post" style="display:none;">
