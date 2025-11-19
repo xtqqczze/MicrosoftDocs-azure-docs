@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 11/19/2025
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 # Customer intent: As a .NET developer, I want to optimize data transfer performance using the Azure Storage client library, so that I can enhance speed, reduce memory usage, and ensure reliable uploads and downloads for my applications.

@@ -1,12 +1,12 @@
 ---
 title: Performance checklist for developers (Azure Blob Storage)
 titleSuffix: Azure Storage
-description: A comprehensive checklist of recommendations to optimize code for efficient data transfer blobs to, from, or between Azure Blob Storage accounts. Use this checklist to reduce latency and maximize throughput.
+description: Essential performance optimization checklist for developers building custom applications with Azure Blob Storage. Learn proven practices for parallel transfers, retry policies, server-side operations, caching, and batch uploads to maximize throughput and reduce latency.
 services: storage
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: concept-article
-ms.date: 11/06/2025
+ms.date: 11/19/2025
 ms.author: normesta
 
 # Customer intent: As a developer, I want a checklist of proven practices for optimizing Blob storage performance, so that I can ensure my application scales efficiently and meets performance targets while avoiding throttling and errors.

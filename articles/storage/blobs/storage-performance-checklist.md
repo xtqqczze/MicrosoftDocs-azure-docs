@@ -1,13 +1,13 @@
 ---
 title: Performance checklist for Azure Blob Storage
 titleSuffix: Azure Storage
-description: A comprehensive checklist of recommendations that reduce latency and maximize throughput when transferring objects to, from, and between Azure Blob Storage. 
+description: Essential performance optimization checklist for Azure Blob Storage covering storage account configuration, data placement, transfer tools, block blob optimization, partition naming, and network throughput to reduce latency and maximize performance.
 services: storage
 author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: concept-article
-ms.date: 11/05/2025
+ms.date: 11/19/2025
 ms.author: normesta
 
 # Customer intent: As a developer or system administrator, I want a comprehensive checklist of performance optimization techniques for Azure Blob Storage, so that I can reduce latency, maximize throughput, choose the right storage options and tools, and align with Azure Storage targets to prevent throttling.

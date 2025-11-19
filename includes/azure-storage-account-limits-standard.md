@@ -5,7 +5,7 @@ title: include file
  author: normesta
  ms.service: azure-storage
  ms.topic: include
- ms.date: 11/12/2025
+ ms.date: 11/19/2025
  ms.author: normesta
  ms.custom: include file, references_regions
 ---

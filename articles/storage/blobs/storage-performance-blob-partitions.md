@@ -1,17 +1,17 @@
 ---
 title: Optimize blob partitions (Azure Blob Storage)
 titleSuffix: Azure Storage
-description: Learn how to partition Blob Storage
+description: Improve Azure Blob Storage performance for small block uploads by using efficient blob naming schemes.
 services: storage
 author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: concept-article
-ms.date: 10/30/2025
+ms.date: 11/19/2025
 ms.author: normesta
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
-# Customer intent: As a developer, I want a checklist of proven practices for optimizing Blob storage performance, so that I can ensure my application scales efficiently and meets performance targets while avoiding throttling and errors.
+# Customer intent: As a developer, I want to understand how blob naming schemes affect partition performance when uploading small blocks to Azure Blob Storage and implement efficient naming strategies for optimal load distribution.
 ---
 
 # Optimize blob partitions
