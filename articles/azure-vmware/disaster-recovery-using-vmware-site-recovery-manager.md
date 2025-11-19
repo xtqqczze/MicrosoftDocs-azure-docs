@@ -21,7 +21,7 @@ VMware vSphere Replication is VMware's hypervisor-based replication technology f
 
 > [!NOTE]
 > The current version of VMware Live Site Recovery in Azure VMware Solution is 9.0.2.1.
-> VMware Live Site Recovery – External Datastore support status, see [What's new](https://learn.microsoft.com/en-us/azure/azure-vmware/azure-vmware-solution-platform-updates#november-2025)
+> VMware Live Site Recovery – External Datastore support status, see [What's new](/azure/azure-vmware/azure-vmware-solution-platform-updates#november-2025)
 
 ## Supported scenarios
 
