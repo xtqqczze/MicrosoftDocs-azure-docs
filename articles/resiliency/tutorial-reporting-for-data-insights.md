@@ -3,7 +3,7 @@ title: Tutorial - Set up and view reports in Resiliency
 description: This tutorial describes how to set up and view reports in Resiliency.
 ms.topic: tutorial
 ms.date: 11/01/2025
-ms.service: azure-business-continuity-center
+ms.service: resiliency
 ms.custom:
   - ignite-2023
   - ignite-2024

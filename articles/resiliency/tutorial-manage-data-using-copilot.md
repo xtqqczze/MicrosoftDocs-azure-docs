@@ -3,7 +3,7 @@ title: Tutorial - Manage your resiliency estate efficiently using Resiliency in 
 description: In this tutorial, learn how to manage your resiliency estate efficiently using Resiliency Copilot
 ms.topic: how-to
 ms.date: 11/01/2025
-ms.service: azure-business-continuity-center
+ms.service: resiliency
 ms.custom:
   - ignite-2024
 author: AbhishekMallick-MS

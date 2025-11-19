@@ -3,7 +3,7 @@ title: Tutorial - Monitor protection summary
 description: In this tutorial, learn how to monitor protection estate using Resiliency in Azure.
 ms.topic: tutorial
 ms.date: 11/01/2025
-ms.service: azure-business-continuity-center
+ms.service: resiliency
 ms.custom:
   - ignite-2023
   - ignite-2024

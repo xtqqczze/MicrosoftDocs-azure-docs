@@ -7,7 +7,7 @@ ms.custom:
   - references_regions
   - ignite-2023
   - ignite-2024
-ms.service: azure-business-continuity-center
+ms.service: resiliency
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ---

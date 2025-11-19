@@ -3,7 +3,7 @@ title: Manage vault lifecycle used for Azure Backup and Azure Site Recovery
 description: In this article, you learn how to manage the lifecycle of the vaults (Recovery Services and Backup vault) used for Azure Backup and/or Azure Site Recovery.
 ms.topic: how-to
 ms.date: 11/01/2025
-ms.service: azure-business-continuity-center
+ms.service: resiliency
 ms.custom:
   - ignite-2023
   - ignite-2024

@@ -3,7 +3,7 @@ title: Tutorial - Reconfigure backup for data sources in an alternate vault usin
 description: Learn how to reconfigure backup in an alternate vault for your datasources - Azure Virtual Machine (VM), Azure Files, SQL databases in Azure VM, SAP HANA database in Azure VM.
 ms.topic: tutorial
 ms.date: 11/01/2025
-ms.service: azure-business-continuity-center
+ms.service: resiliency
 ms.custom:
   - ignite-2023
   - ignite-2024
