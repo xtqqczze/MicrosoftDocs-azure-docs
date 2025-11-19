@@ -2,7 +2,6 @@
 title: Deploy Start/Stop VMs v2 to an Azure subscription
 description: This article tells how to deploy the Start/Stop VMs v2 feature for your Azure VMs in your Azure subscription.
 services: azure-functions
-ms.subservice: start-stop-vms
 ms.date: 06/08/2022
 ms.topic: how-to
 ms.custom: subject-rbac-steps

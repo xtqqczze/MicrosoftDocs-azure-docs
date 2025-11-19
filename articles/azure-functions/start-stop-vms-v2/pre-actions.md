@@ -2,7 +2,6 @@
 title: Adding preactions to schedules in Start/Stop VMs v2 (Azure)
 description: This article shows you how to add a preaction to your Start/Stop VMs v2 schedules.
 services: azure-functions
-ms.subservice: start-stop-vms
 ms.date: 09/21/2022
 ms.topic: how-to
 ---
@@ -44,7 +43,7 @@ The steps in this section require the `ststv2_vms_Scheduled_start` logic app tha
 
  6. Drag the **Scheduled** action below the new **HTTP** action in the **Function-Try** step. The pre-action must come before the scheduled action in the step. Your app should now look like the following example:
 
-    :::image type="content" source="./media/pre-actions/pre-action-configured.png" alt-text="Screenshot of the Logic Apps designer showing the actions in the correct order.":::
+    :::image type="content" source="./media/pre-actions/configured.png" alt-text="Screenshot of the Logic Apps designer showing the actions in the correct order.":::
 
 At this point, you've defined a pre-action that's run before the start action scheduled by `ststv2_vms_Scheduled_start`. 
 
