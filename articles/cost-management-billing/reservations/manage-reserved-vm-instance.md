@@ -87,7 +87,7 @@ We don’t allow changing the billing subscription after a reservation is purcha
 
 ## Check billing subscription for an Azure Reservation
 
-To check the billing subscription for an Azure reservation, please confirm which Azure subscription is being charged for [an Azure reservation purchase cost](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/view-purchase-refunds).
+To check the billing subscription for an Azure reservation, please confirm which Azure subscription is being charged for [an Azure reservation purchase cost](/azure/cost-management-billing/reservations/view-purchase-refunds).
 
 
 ## Change billing frequency for an Azure Reservation
