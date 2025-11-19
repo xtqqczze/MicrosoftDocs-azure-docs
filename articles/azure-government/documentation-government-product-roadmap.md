@@ -26,7 +26,7 @@ For comprehensive information about compliance in Azure Government clouds, see [
 
 | GA Status | Description |
 |---|---|
-|:::image alt-text="GA" type="content" source="media/check-mark.svg" border="false":::| Currently GA Currently GA and authorized. |
+|:::image alt-text="GA" type="content" source="media/check-mark.svg" border="false":::| Currently GA and authorized. |
 | Awaiting review | GA and authorization is submitted. |
 | Forecasted | GA date is set. |
 | Planned | GA is in progress, but no date is set. |
