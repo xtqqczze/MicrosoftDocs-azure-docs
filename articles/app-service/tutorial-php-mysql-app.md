@@ -401,7 +401,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row:::
     :::column span="2":::
         **Step 4:**
-        1. In the Azure portal, open you web app and then select **Deployment** > **Deployment Center**.
+        1. In the Azure portal, open your web app and then select **Deployment** > **Deployment Center**.
         1. Select **Logs**, then select **Refresh** to see the new deployment run.
         1. In the log item for the deployment run, select the **Build/Deploy Logs** entry with the latest timestamp.
     :::column-end:::
