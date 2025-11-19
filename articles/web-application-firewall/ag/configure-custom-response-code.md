@@ -37,12 +37,11 @@ In this example, we changed the default 403 response code to 429 and set a brief
 
 The following limitations apply when configuring custom responses for Azure Application Gateway WAF:
 
-- Only 20 Application Gateway WAF policies with custom block response status code and body can be enabled within one Application Gateway.
+- Only 20 WAF policies with custom block response status code and body you can enable within one Application Gateway.
 - Supported custom status codes are: 200, 403, 405, 406, 429, 990, 991, 992, 993, 994, 995, 996, 997, 998, 999.
 - The maximum size for the custom block response body is 32KB.
-- The custom block response body must be specified in base64 encoding when using Azure Resource Manager (ARM) API.
+- You must use base64 encoding for the custom block response body when you use Azure Resource Manager (ARM) API.
 - Custom block response status code and body aren't supported on Application Gateway for Containers WAF.
-
 
 ## Related content
 
