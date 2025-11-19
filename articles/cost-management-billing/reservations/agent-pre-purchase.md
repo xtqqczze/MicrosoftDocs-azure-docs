@@ -57,54 +57,89 @@ You can't split or merge a **Microsoft Agent Pre-Purchase Plan**. For more infor
 
 ## How does benefit application work?
 
-You may have multiple types of purchases that can apply to the same or adjacent AI workloads - for example, a [Microsoft Foundry Provisioned Throughput reservation](microsoft-foundry.md), a [Copilot Credit pre-purchase plan](copilot-credit-p3.md), and the broader Microsoft Agent pre-purchase plan. These benefits can overlap with coverage:
+When you have multiple AI-related purchasing options, understanding how benefits are applied helps you maximize your cost savings. You might have several types of purchases for your AI workloads:
 
-Overlap occurs when more than one benefit is eligible to cover the same meter or usage (e.g., a Copilot credit that is eligible for both Copilot Credit pre-purchase plan and Microsoft Agent pre-purchase plan, or a Microsoft Foundry PTU workload eligible for both a PTU reservation and Microsoft Agent pre-purchase plan).
+- [Microsoft Foundry Provisioned Throughput reservation](microsoft-foundry.md) - Covers Microsoft Foundry PTU (Provisioned Throughput Units) usage
+- [Copilot Credit pre-purchase plan](copilot-credit-p3.md) - Covers Copilot Credit-specific usage  
+- Microsoft Agent pre-purchase plan - Covers broader AI workloads including both Copilot Credit and Microsoft Foundry
 
--	In overlap situations, the platform applies benefits in a deterministic precedence to decide which benefit covers first and what remains for subsequent benefits.
--	Reservations are PTU‑only and always apply before pre-purchase plans. Between the two pre-purchase plans, the more granular Copilot pre-purchase plan applies before Microsoft Agent pre-purchase plan. This preserves specialized benefits and keeps the broader pool available for heterogeneous AI workloads.
--	Microsoft Agent pre-purchase plan does not cover purchase cost for any other reservation or pre-purchase plan.
+### Understanding benefit overlap
 
-Here are a few scenarios on how benefit is applied:
+**What is overlap?** Overlap occurs when multiple benefits can cover the same usage. For example:
+- Copilot credits eligible for both Copilot Credit pre-purchase plan and Microsoft Agent pre-purchase plan
+- Microsoft Foundry PTU workloads eligible for both PTU reservations and Microsoft Agent pre-purchase plan
 
-### Scenario 1: Customer with Microsoft Foundry reservation Only
+### Benefit application order (precedence)
 
-**Coverage:**
-- Reservation applies only to PTUs for Microsoft Foundry workloads.
-- Any usage beyond reserved PTUs is billed at pay-as-you-go rates.
+When overlap occurs, Azure applies benefits in this specific order to maximize your savings:
 
-**Example:**
-- Customer purchases a reservation for 10 PTUs for GPT-4. If usage requires 12 PTUs, 10 are covered by reservation, 2 are billed at pay-as-you-go rates.
+1. **Microsoft Foundry PTU Reservations**
+   - Always applied first to PTU usage
+   - PTU-specific and most cost-effective for provisioned throughput
 
-### Scenario 2: Customer with Copilot Credit pre-purchase plan and Microsoft Agent pre-purchase plan
+2. **Copilot Credit Pre-Purchase Plan** 
+   - Applied next to Copilot-specific workloads
+   - More granular benefit preserved for specialized use
 
-**Coverage:**
-- Copilot pre-purchase plan applies first to Copilot workloads.
-- Microsoft Agent pre-purchase plan applies next for remaining Copilot usage and Microsoft Foundry workloads (including PTU-based usage if no reservation exists).
-  
-**Example:**
-- Copilot usage draws down Copilot pre-purchase plan first, then Microsoft Agent pre-purchase plan.
-- Microsoft Foundry usage (hourly PTUs or token-based) draws from Microsoft Agent pre-purchase plan.
+3. **Microsoft Agent Pre-Purchase Plan**
+   - Applied last to remaining AI usage across both platforms
+   - Broader coverage for heterogeneous AI workloads
 
-### Scenario 3: Customer with Microsoft Foundry reservation + Microsoft Agent pre-purchase plan
-**Coverage:**
-- Reservation applies first to hourly PTUs.
-- Microsoft Agent pre-purchase plan applies next for any remaining hourly PTU usage and Copilot workloads.
+> [!IMPORTANT]
+> Microsoft Agent pre-purchase plan does not cover the purchase cost of other reservations or pre-purchase plans - only actual usage costs.
 
-**Example:**
-- PTU Reservation consumed first; overflow PTUs and Copilot usage draw from Microsoft Agent pre-purchase plan.
+### Real-world application scenarios
 
-### Scenario 4: Customer with All Three (Microsoft Foundry reservation + Copilot pre-purchase plan + Microsoft Agent pre-purchase plan)
-**Coverage:**
-- Reservation applies first to PTUs.
-- Copilot pre-purchase plan applies next to Copilot workloads.
-- Microsoft Agent pre-purchase plan applies last for remaining Copilot and Azure AI usage.
+These scenarios show how benefits work together in different purchasing combinations:
 
-**Example:**
-- PTUs covered by reservation; Copilot usage draws down Copilot pre-purchase plan first, then Microsoft Agent pre-purchase plan.
+#### Scenario 1: Microsoft Foundry reservation only
 
->[!NOTE]
->If you are using products with tiered pricing, Microsoft Agent pre-purchase plan applies based on rates for lowest tier. For example, if you are using Custom Entity Lookup skill, the pre-purchase plan applies based on 0-1M text records price.
+**What you have:**
+- Microsoft Foundry PTU reservation for 10 PTUs
+
+**How benefits apply:**
+1. Reservation covers first 10 PTUs at discounted rate
+2. Additional PTU usage beyond 10 PTUs charged at pay-as-you-go rates
+3. Non-PTU AI usage (like Copilot) charged at pay-as-you-go rates
+
+#### Scenario 2: Copilot Credit + Microsoft Agent pre-purchase plans
+
+**What you have:**
+- Copilot Credit pre-purchase plan: 5,000 CCCUs
+- Microsoft Agent pre-purchase plan: 20,000 ACUs  
+
+**How benefits apply:**
+1. Copilot workloads consume Copilot Credit pre-purchase plan first (up to 5,000 CCCUs)
+2. Additional Copilot usage draws from Microsoft Agent pre-purchase plan
+3. Microsoft Foundry usage draws from Microsoft Agent pre-purchase plan
+
+#### Scenario 3: Microsoft Foundry reservation + Microsoft Agent pre-purchase plan
+
+**What you have:**
+- Microsoft Foundry PTU reservation: 15 PTUs
+- Microsoft Agent pre-purchase plan: 25,000 CUs
+
+**How benefits apply:**
+1. Foundry PTU reservation covers first 15 PTUs  
+2. Overflow PTU usage draws from Agent pre-purchase plan
+3. All Copilot usage draws from remaining Agent pre-purchase plan
+
+#### Scenario 4: Complete coverage (all three benefits)
+
+**What you have:**
+- Microsoft Foundry PTU reservation: 10 PTUs
+- Copilot Credit pre-purchase plan: 3,000 CUs
+- Microsoft Agent pre-purchase plan: 15,000 CUs
+
+**How benefits apply:**
+1. Foundry reservation covers PTU usage (up to 10 PTUs)
+2. Copilot Credit pre-purchase plan covers Copilot usage (up to 3,000 CUs)  
+3. Agent pre-purchase plan covers overflow from both platforms
+
+### Important pricing considerations
+
+> [!NOTE]
+> **Tiered pricing optimization:** Microsoft Agent pre-purchase plan automatically applies benefits at smallest tier pricing rates. For example, if you're using Custom Entity Lookup skills, benefits are calculated using the 0-1M text records pricing tier.
 
 ## Cancellations and exchanges
 
