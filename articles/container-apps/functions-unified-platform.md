@@ -5,7 +5,7 @@ services: azure-container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: overview
-ms.date: 11/17/2025
+ms.date: 11/19/2025
 ms.author: cshoe
 ---
 
@@ -34,7 +34,7 @@ Azure Functions on Azure Container Apps is ideal for event-driven, batch, and AP
 | Scenario Type | Implementation | Rationale |
 |---|---|---|
 | Schedule tasks | Use Timer triggers that execute code on predefined timed intervals, such as executing data clean-up code or generating reports.  | Timer triggers reliably ensure code execution at specific, recurring intervals, defining a discrete task timeframe. |
-| Batch or stream processing | Use Event Hubs triggers to capture and transform data from IoT or event source streams or use Blob/Queue triggers in conjunction with durable execution patterns (like fan-out/fan-in) to process large datasets. | Functions are adept at processing and transforming data immediately upon event arrival. |
+| Batch or stream processing | Use Event Hubs triggers to capture and transform data from IoT or event source streams, or use blob or queue triggers with durable execution patterns (such as fan-out/fan-in) to process large datasets. | Functions efficiently process and transform data as soon as events arrive. |
 | Machine learning<br>(inference/processing) | Functions can run AI inference by pulling data from a queue or integrating with services using bindings. GPU support is available on Azure Container Apps for compute-intensive machine learning workloads. | Functions can wrap the complex logic needed for model processing and leverage highly optimized hardware resources available on Azure Container Apps. |
 | Event-driven workloads<br>(discrete) | Use Queue Storage triggers or Service Bus triggers where a message arrival instantly triggers processing. Durable Functions can orchestrate this workload. | Functions excel at immediate response to messages and events, managing message queues and processing event streams. |
 | On-demand processing | Use HTTP triggers as webhooks or APIs to initiate processing upon request. For asynchronous work, the HTTP trigger can defer the actual work to a queue-triggered function. | HTTP endpoints allow manual or programmatic initiation of any workload, providing on-demand execution. |
@@ -65,16 +65,21 @@ The following advanced scenarios feature Azure Functions on Azure Container Apps
 With support for specialized hardware requirements, Azure Functions on Azure Container Apps can run workloads that demand advanced compute capabilities, such as GPU acceleration. This support enables you to address scenarios like AI, machine learning, and high-performance computing directly within your serverless applications with features like:
 
 - **GPU-enabled compute**: Serverless GPU resources for AI and machine learning workloads
+
 - **Dedicated workload profiles**: High-performance computing for intensive applications
+
 - **Flexible scaling**: Scale GPU resources based on demand
 
 ### Complex stateful workflows
 
-Azure Functions on Azure Container Apps supports advanced workflow management using Durable Functions. With this support, you can define, execute, and monitor complex, stateful workflows within a serverless environment. This integration allows for reliable orchestration of long-running processes, human interactions, and error handling scenarios.
+Azure Functions on Azure Container Apps supports advanced workflow management using Durable Functions including: 
 
 - **Stateful orchestration**: Manage complex, long-running processes
+
 - **Human interaction patterns**: Support for approval workflows and user input
+
 - **Monitoring and observability**: Built-in tracking for workflow execution
+
 - **Extended processing time**: Handle processes that exceed standard limits
 
 ### Scalable web APIs
@@ -82,21 +87,26 @@ Azure Functions on Azure Container Apps supports advanced workflow management us
 Build robust REST endpoints with enhanced capabilities:
 
 - **Custom ingress settings**: Advanced traffic routing and load balancing
+
 - **High availability**: Built-in redundancy and failover
+
 - **Performance optimization**: Automatic scaling based on traffic patterns
 
 ### Advanced deployment strategies
 
-Sophisticated deployment management features:
+Azure Functions on Azure Container Apps offers sophisticated deployment management capabilities including:
 
 - **Multi-revision support**: Run multiple versions simultaneously
+
 - **Traffic splitting**: Gradual rollouts and A/B testing
+
 - **Blue-green deployments**: Zero-downtime updates
+
 - **Rollback capabilities**: Quick reversion to previous versions
 
 ### Microservices integration
 
-Native Dapr integration for microservices patterns:
+Azure Functions on Azure Container Apps offers native Dapr integration including:
 
 - **Service invocation**: Secure communication between services
 - **Pub/Sub messaging**: Decoupled event-driven communication
@@ -105,7 +115,7 @@ Native Dapr integration for microservices patterns:
 
 ## Next steps
 
-- [Create your first Azure Function on Azure Container Apps](../quickstart-functions.md)
+- [Create your first Azure Function on Azure Container Apps](functions-container-apps.md)
 - [Configure scaling in Azure Container Apps](./scale-app.md)
 - [Learn about Dapr integration](./dapr-overview.md)
 - [Explore deployment strategies](./revisions.md)
