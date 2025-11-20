@@ -134,7 +134,11 @@ Azure Resource Manager lets you manage and control your Azure IoT Operations ins
 * The location of the Azure Resource Manager for your Azure IoT Operations instance is a logical reference for management and orchestration.​
 * No customer production data is relocated. Some system telemetry, such as metrics and logs, used for service improvement and proactive identification of infrastructure issues might flow to the Azure region where your Azure IoT Operations resources are located.​
 
-The following diagram shows an example deployment where the Azure IoT Operations resources are deployed in the West US region, operational workloads and data remain on-premises, and data storage and processing resources are deployed in the Canada Central region to meet data residency requirements:
+The following diagram shows an example deployment that illustrates how to maintain data sovereignty on your local infrastructure while optionally using a different Azure region for  data storage and processing. In this example:
+
+* Azure IoT Operations management resources are deployed in the _US West_ region. This region is one of the supported regions for Azure IoT Operations.
+* Operational workloads and data remain _on-premises at the edge_ under your complete control to ensure data residency and data sovereignty.
+* Data storage and processing resources are deployed in the _Canada Central_ region to meet specific regional data residency requirements.
 
 :::image type="content" source="./media/overview-deploy/data-residency.png" alt-text="Diagram that shows an example deployment of Azure IoT Operations with data residency considerations." lightbox="./media/overview-deploy/data-residency.png":::
 
