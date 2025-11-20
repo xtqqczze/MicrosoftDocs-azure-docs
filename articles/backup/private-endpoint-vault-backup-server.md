@@ -77,7 +77,7 @@ To create a Recovery Services vault with private endpoints and disable the publi
 
 1. To prevent access from public networks, on the **Networking** pane, on the **Public access** tab, select **Deny**.
 
-   :::image type="content" source="media/private-endpoint-vault-backup-server/public-access-deny.png" alt-text="Screenshot shows how to deny public access to a vault.":::
+   :::image type="content" source="media/private-endpoint-vault-backup-server/public-access-deny.png" alt-text="Screenshot shows how to deny public access to a vault." lightbox="media/private-endpoint-vault-backup-server/public-access-deny.png":::
 
 ## Create private endpoints for Azure Backup
 
@@ -194,7 +194,7 @@ For custom DNS servers, [add the private endpoint DNS records to your DNS server
 
 ## Back up on-premises resources using DPM/MABS with private endpoints
 
-When you use the MARS Agent for backup, ensure your on-premises network is peered with the Azure virtual network that hosts the vault’s private endpoint. You can then continue to install the MARS agent and configure backup as detailed here. However, you must ensure all communication for backup happens through the peered network only.
+When you use the MARS Agent for backup, ensure your on-premises network is peered with the Azure virtual network that hosts the vault’s private endpoint. You can then continue to install the MARS agent and configure backup that allows  the MARS agent to  store backup data in the vault through private endpoints. However, you must ensure all communication for backup happens through the peered network only.
 
 1. [Register your DPM\MABS Server to the vault](#re-register-the-dpmmabs-server-with-vault) you created with private endpoints.
 
