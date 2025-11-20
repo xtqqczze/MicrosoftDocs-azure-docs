@@ -70,8 +70,10 @@ var addThisPerson = new CallInvite(new PhoneNumberIdentifier("+16041234567"), ca
 // Set custom UUI header. This key is sent on SIP protocol as User-to-User
 addThisPerson.CustomCallingContext.AddSipUui("value");
 
-// This provided key will be automatically prefixed with X-MS-Custom on SIP protocol, such as 'X-MS-Custom-{key}'
+// The provided key will be automatically prefixed with X-MS-Custom on SIP protocol, such as 'X-MS-Custom-{key}'
 addThisPerson.CustomCallingContext.AddSipX("header1", "customSipHeaderValue1");
+// The provided key prefix is based on SipHeaderPrefix param: SipHeaderPrefix.X → 'X-{key}', SipHeaderPrefix.XmsCustom → 'X-MS-Custom-{key}'
+addThisPerson.CustomCallingContext.AddSipX("header2", "customSipHeaderValue2", SipHeaderPrefix.X);
 AddParticipantsResult result = await callConnection.AddParticipantAsync(addThisPerson);
 ```
 ### [Java](#tab/java)
@@ -86,7 +88,10 @@ Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsyn
 PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234");
 CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
 callInvite.getCustomCallingContext().addSipUui("value");
+// The provided key will be automatically prefixed with X-MS-Custom on SIP protocol, such as 'X-MS-Custom-{key}'
 callInvite.getCustomCallingContext().addSipX("header1", "customSipHeaderValue1");
+// The provided key prefix is based on SipHeaderPrefix param: SipHeaderPrefix.X → 'X-{key}', SipHeaderPrefix.X_MS_CUSTOM → 'X-MS-Custom-{key}'
+callInvite.getCustomCallingContext().addSipX("header2", "customSipHeaderValue2", SipHeaderPrefix.X);
 AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
 Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
 ```
@@ -106,7 +111,10 @@ const addParticipantResult = await callConnection.addParticipant(addThisPerson);
 const callerIdNumber = { phoneNumber: "+16044561234" };
 const customCallingContext: CustomCallingContext = [];
 customCallingContext.push({ kind: "sipuui", key: "", value: "value" });
-customCallingContext.push({ kind: "sipx", key: "headerName", value: "headerValue" })
+// The provided key will be automatically prefixed with X-MS-Custom on SIP protocol, such as 'X-MS-Custom-{key}'
+customCallingContext.push({ kind: "sipx", key: "headerName", value: "headerValue" });
+// The provided key prefix is based on sipHeaderPrefix param: X- → 'X-{key}', X-MS-Custom- → 'X-MS-Custom-{key}'
+customCallingContext.push({ kind: "sipx", key: "headerName2", value: "headerValue2", sipHeaderPrefix: "X-" });
 const addThisPerson = {
     targetParticipant: { phoneNumber: "+16041234567" }, 
     sourceCallIdNumber: callerIdNumber,
@@ -129,7 +137,10 @@ result = call_connection_client.add_participant(
 caller_id_number = PhoneNumberIdentifier("+16044561234")
 sip_headers = {}
 sip_headers["User-To-User"] = "value"
+# Specify dict key with X-MS-Custom prefix
 sip_headers["X-MS-Custom-headerName"] = "headerValue"
+# Specify dict key with X- prefix
+sip_headers["X-headerName2"] = "headerValue2"
 target = PhoneNumberIdentifier("+16041234567")
 result = call_connection_client.add_participant(
     target,
@@ -158,7 +169,10 @@ TransferCallToParticipantResult result = await callConnection.TransferCallToPart
 var transferDestination = new PhoneNumberIdentifier("<target_phoneNumber>");
 var transferOption = new TransferToParticipantOptions(transferDestination);
 transferOption.CustomCallingContext.AddSipUui("uuivalue");
+// The provided key will be automatically prefixed with X-MS-Custom on SIP protocol, such as 'X-MS-Custom-{key}'
 transferOption.CustomCallingContext.AddSipX("header1", "headerValue");
+// The provided key prefix is based on SipHeaderPrefix param: SipHeaderPrefix.X → 'X-{key}', SipHeaderPrefix.XmsCustom → 'X-MS-Custom-{key}'
+transferOption.CustomCallingContext.AddSipX("header2", "headerValue2", SipHeaderPrefix.X);
 TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption)
 ```
 
@@ -174,7 +188,10 @@ Response<TransferCallResult> transferResponse = callConnectionAsync.transferToPa
 CommunicationIdentifier transferDestination = new PhoneNumberIdentifier("<target_phoneNumber>");
 TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(transferDestination);
 options.getCustomCallingContext().addSipUui("UUIvalue");
+// The provided key will be automatically prefixed with X-MS-Custom on SIP protocol, such as 'X-MS-Custom-{key}'
 options.getCustomCallingContext().addSipX("sipHeaderName", "value");
+// The provided key prefix is based on SipHeaderPrefix param: SipHeaderPrefix.X → 'X-{key}', SipHeaderPrefix.X_MS_CUSTOM → 'X-MS-Custom-{key}'
+options.getCustomCallingContext().addSipX("sipHeaderName2", "value2", SipHeaderPrefix.X);
 Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
 ```
 
@@ -195,7 +212,10 @@ const transferee = { phoneNumber: "<transferee_phoneNumber>" };
 const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
 const customCallingContext: CustomCallingContext = [];
 customCallingContext.push({ kind: "sipuui", key: "", value: "uuivalue" });
-customCallingContext.push({ kind: "sipx", key: "headerName", value: "headerValue" })
+// The provided key will be automatically prefixed with X-MS-Custom on SIP protocol, such as 'X-MS-Custom-{key}'
+customCallingContext.push({ kind: "sipx", key: "headerName", value: "headerValue" });
+// The provided key prefix is based on sipHeaderPrefix param: X- → 'X-{key}', X-MS-Custom- → 'X-MS-Custom-{key}'
+customCallingContext.push({ kind: "sipx", key: "headerName2", value: "headerValue2", sipHeaderPrefix: "X-" });
 options.customCallingContext = customCallingContext;
 const result = await callConnection.transferCallToParticipant(transferDestination, options);
 ```
@@ -218,8 +238,11 @@ result = call_connection_client.transfer_call_to_participant(
 transfer_destination = PhoneNumberIdentifier("<target_phoneNumber>")
 transferee = PhoneNumberIdentifier("transferee_phoneNumber")
 sip_headers={}
-sip_headers["X-MS-Custom-headerName"] = "headerValue"
 sip_headers["User-To-User"] = "uuivalue"
+# Specify dict key with X-MS-Custom prefix
+sip_headers["X-MS-Custom-headerName"] = "headerValue"
+# Specify dict key with X- prefix
+sip_headers["X-headerName2"] = "headerValue2"
 result = call_connection_client.transfer_call_to_participant(
     target_participant=transfer_destination,
     transferee=transferee,
