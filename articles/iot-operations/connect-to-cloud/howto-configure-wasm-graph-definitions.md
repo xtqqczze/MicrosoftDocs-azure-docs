@@ -1,18 +1,22 @@
 ---
-title: Configure WebAssembly Graph Definitions For Data Flow Graphs
+title: Configure WebAssembly Graph Definitions For Data Flow Graphs (preview)
 description: Learn how to create and configure WebAssembly graph definitions that define data processing workflows for Azure IoT Operations data flow graphs.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 11/19/2025
 ai-usage: ai-assisted
 
 ---
 
-# Configure WebAssembly (WASM) graph definitions for data flow graphs
+# Configure WebAssembly (WASM) graph definitions for data flow graphs (preview)
 
+> [!IMPORTANT]
+> WebAssembly (WASM) graph definitions for data flow graphs are in PREVIEW. This feature has limitations and is not for production workloads.
+>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or not yet released into general availability.
 
 Graph definitions are central to WASM development because they define how your modules connect to processing workflows. Understanding the relationship between graph definitions and data flow graphs helps you develop effectively.
 
@@ -23,7 +27,7 @@ This article focuses on creating and configuring the YAML graph definitions. For
 
 ## Graph definition structure
 
-Graph definitions follow a formal [JSON schema](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/ConfigGraph.json) that validates structure and ensures compatibility. The configuration includes:
+Graph definitions follow a formal [JSON schema](https://www.schemastore.org/aio-wasm-graph-config-1.0.0.json) that validates structure and ensures compatibility. The configuration includes:
 
 - Module requirements for API and host library version compatibility
 - Module configurations for runtime parameters and operator customization  
