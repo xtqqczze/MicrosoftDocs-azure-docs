@@ -35,9 +35,24 @@ For all the code samples, `client` is the `CallAutomationClient` object that you
 
 Call Automation supports up to five custom SIP headers and 1,000 custom voice-over-IP (VoIP) headers. Developers can include a dedicated user-to-user header as part of a SIP headers list.
 
-The custom SIP header key must start with a mandatory `X-MS-Custom-` prefix. The maximum length of a SIP header key is 64 characters, including the `X-MS-Custom` prefix. The SIP header key consists of alphanumeric characters and a few selected symbols, which include `.`, `!`, `%`, `*`, `_`, `+`, `~`, and `-`. The maximum length of a SIP header value is 256 characters. The same limitations apply when you configure the SIP headers on your SBC. The SIP header value consists of alphanumeric characters and a few selected symbols, which include `=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, and `-`.
+Custom SIP header keys can now start with either the **X-\*** prefix or the **X-MS-Custom-\*** prefix.  
+- **X-\*** is newly supported.  
+- **X-MS-Custom-\*** remains supported for backward compatibility.  
+- Any other **X-MS-\*** prefix is reserved and must not be used.
 
-The maximum length of a VoIP header key is 64 characters. These headers can be sent without the `x-MS-Custom` prefix. The maximum length of a VoIP header value is 1,024 characters.
+The maximum length of a SIP header key is **64 characters**, including the prefix, while the maximum length of a SIP header value is **256 characters**. The key can contain alphanumeric characters and the following symbols:  
+```
+`.`, `!`, `%`, `*`, `_`, `+`, `~`, and `-`
+```
+The SIP header value consists also of alphanumeric characters and a few selected symbols, which include:
+```
+`=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, and `-`.
+```
+> [!NOTE]
+> The same limitations apply when configuring SIP headers on your SBC.
+
+
+For VoIP header, the maximum length of a VoIP header key is **64 characters** while the maximum length of a VoIP header value is **1,024 characters**. These headers can be sent without the custom prefix. 
 
 ## Add custom context when you invite a participant
 
