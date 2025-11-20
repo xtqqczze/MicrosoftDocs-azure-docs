@@ -6,7 +6,7 @@ description: Learn how to enable user sign-in to the API Management developer po
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 11/18/2025
+ms.date: 11/20/2025
 ms.author: danlep
 ms.custom:
   - engagement-fy23
@@ -19,7 +19,7 @@ ms.custom:
 [!INCLUDE [premium-dev-standard-premiumv2-standardv2-basicv2.md](../../includes/api-management-availability-premium-dev-standard-premiumv2-standardv2-basicv2.md)]
 
 
-In this article, you'll learn how to:
+In this article, you learn how to:
 > [!div class="checklist"]
 > * Enable access to the developer portal for users from Microsoft Entra ID in your organization.
 > * Manage groups of Microsoft Entra users by adding external groups that contain the users.
@@ -27,8 +27,8 @@ In this article, you'll learn how to:
 For an overview of options to secure the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md).
 
 > [!IMPORTANT]
-> * This article has been updated with steps to configure a Microsoft Entra app using the Microsoft Authentication Library ([MSAL](../active-directory/develop/msal-overview.md)). 
-> * If you previously configured a Microsoft Entra app for user sign-in using the Azure AD Authentication Library (ADAL), we recommend that you [migrate to MSAL](#migrate-to-msal).
+> * This article is updated with steps to configure a Microsoft Entra app using the Microsoft Authentication Library ([MSAL](../active-directory/develop/msal-overview.md)). 
+> * If you previously configured a Microsoft Entra app for user sign-in by using the Azure AD Authentication Library (ADAL), [migrate to MSAL](#migrate-to-msal).
 
 For scenarios involving Microsoft External ID to allow external identities to sign in to the developer portal, see [Authorize access to API Management developer portal by using Microsoft Entra External ID](api-management-howto-entra-external-id.md).
 
@@ -51,7 +51,7 @@ For scenarios involving Microsoft External ID to allow external identities to si
 
 ## Migrate to MSAL
 
-If you previously configured a Microsoft Entra app for user sign-in using the ADAL, you can use the portal to migrate the app to MSAL and update the identity provider in API Management.
+If you previously configured a Microsoft Entra app for user sign-in by using ADAL, you can use the portal to migrate the app to MSAL and update the identity provider in API Management.
 
 <a name='update-azure-ad-app-for-msal-compatibility'></a>
 
@@ -72,16 +72,16 @@ For steps, see [Switch redirect URIs to the single-page application type](../act
 
 ## Add an external Microsoft Entra group
 
-Now that you've enabled access for users in a Microsoft Entra tenant, you can:
-* Add Microsoft Entra groups into API Management. Groups added must be in the tenant where your API Management instance is deployed.
-* Control product visibility using Microsoft Entra groups.
+After you enable access for users in a Microsoft Entra tenant, you can:
+* Add Microsoft Entra groups into API Management. You must add groups in the tenant where you deployed your API Management instance.
+* Control product visibility by using Microsoft Entra groups.
 
-1. Navigate to the App Registration page for the application you registered in [the previous section](#enable-user-sign-in-using-azure-ad---portal). 
+1. Go to the App Registration page for the application you registered in [the previous section](#enable-user-sign-in-using-azure-ad---portal). 
 1. Select **API Permissions**. 
 1. Add the following minimum **application** permissions for Microsoft Graph API:
-    * `User.Read.All` application permission – so API Management can read the user’s group membership to perform group synchronization at the time the user logs in. 
-    * `Group.Read.All` application permission – so API Management can read the Microsoft Entra groups when an administrator tries to add the group to API Management using the **Groups** blade in the portal. 
-1. Select **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
+    * `User.Read.All` application permission – so API Management can read the user’s group membership to perform group synchronization when the user signs in. 
+    * `Group.Read.All` application permission – so API Management can read the Microsoft Entra groups when an administrator tries to add the group to API Management by using the **Groups** blade in the portal. 
+1. Select **Grant admin consent for {tenantname}** to grant access for all users in this directory. 
 
 Now you can add external Microsoft Entra groups from the **Groups** tab of your API Management instance.
 
@@ -94,12 +94,12 @@ Now you can add external Microsoft Entra groups from the **Groups** tab of your 
 1. Search for and select the group that you want to add.
 1. Press the **Select** button.
 
-Once you add an external Microsoft Entra group, you can review and configure its properties: 
+After you add an external Microsoft Entra group, you can review and configure its properties: 
 1. Select the name of the group from the **Groups** tab. 
-2. Edit **Name** and **Description** information for the group.
+1. Edit **Name** and **Description** information for the group.
  
 Users from the configured Microsoft Entra instance can now:
-* Sign into the developer portal. 
+* Sign in to the developer portal. 
 * View and subscribe to any groups for which they have visibility.
 
 > [!NOTE]
@@ -114,12 +114,12 @@ Groups configured in Microsoft Entra must synchronize with API Management so tha
 
 ## <a id="log_in_to_dev_portal"></a> Developer portal: Add Microsoft Entra account authentication
 
-In the developer portal, you can sign in with Microsoft Entra ID using the **Sign-in button: OAuth** widget included on the sign-in page of the default developer portal content.
+In the developer portal, you can sign in with Microsoft Entra ID by using the **Sign-in button: OAuth** widget included on the sign-in page of the default developer portal content.
 
 :::image type="content" source="media/api-management-howto-aad/developer-portal-azure-ad-signin.png" alt-text="Screenshot showing OAuth widget in developer portal.":::
 
 
-Although a new account will automatically be created when a new user signs in with Microsoft Entra ID, consider adding the same widget to the sign-up page. The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
+Although a new account is automatically created when a new user signs in with Microsoft Entra ID, consider adding the same widget to the sign-up page. The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
 
 > [!IMPORTANT]
 > You need to [republish the portal](developer-portal-overview.md#publish-the-portal) for the Microsoft Entra ID changes to take effect.
@@ -136,14 +136,14 @@ Although a new account will automatically be created when a new user signs in wi
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 
 [How to add operations to an API]: ./mock-api-responses.md
-[How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
-[Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: get-started-create-service-instance.md
+[How to add and publish a product]: ./api-management-howto-add-products.md
+[Monitoring and analytics]: ./api-management-monitoring.md
+[Add APIs to a product]: ./api-management-howto-add-products.md#add-apis
+[Publish a product]: ./api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: ./get-started-create-service-instance.md
 [API Management policy reference]: ./api-management-policies.md
 [Caching policies]: ./api-management-policies.md#caching
-[Create an API Management service instance]: get-started-create-service-instance.md
+[Create an API Management service instance]: ./get-started-create-service-instance.md
 
 [https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
