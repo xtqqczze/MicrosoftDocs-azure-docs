@@ -26,6 +26,10 @@ items:
       href: ./elastic/index.yml
     - name: New Relic
       href: ./new-relic/index.yml
+    - name: Features
+      items: 
+      - name: Metrics and logs
+        href: metrics-logs.md
   - name: Data and storage partners
     items:
     - name: Astro
