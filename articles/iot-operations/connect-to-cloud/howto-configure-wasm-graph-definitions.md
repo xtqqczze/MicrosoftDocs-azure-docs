@@ -1,5 +1,5 @@
 ---
-title: Configure WebAssembly Graph Definitions For Data Flow Graphs (Preview)
+title: Configure WebAssembly Graph Definitions For Data Flow Graphs
 description: Learn how to create and configure WebAssembly graph definitions that define data processing workflows for Azure IoT Operations data flow graphs.
 author: SoniaLopezBravo
 ms.author: sonialopez
@@ -11,12 +11,8 @@ ai-usage: ai-assisted
 
 ---
 
-# Configure WebAssembly (WASM) graph definitions for data flow graphs (preview)
+# Configure WebAssembly (WASM) graph definitions for data flow graphs
 
-> [!IMPORTANT]
-> WebAssembly (WASM) graph definitions for data flow graphs are in **preview**. This feature has limitations and is not for production workloads.
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or not yet released into general availability.
 
 Graph definitions are central to WASM development because they define how your modules connect to processing workflows. Understanding the relationship between graph definitions and data flow graphs helps you develop effectively.
 
@@ -27,7 +23,7 @@ This article focuses on creating and configuring the YAML graph definitions. For
 
 ## Graph definition structure
 
-Graph definitions follow a formal [JSON schema](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/ConfigGraph.json) that validates structure and ensures compatibility. The configuration includes:
+Graph definitions follow a formal [JSON schema](https://www.schemastore.org/aio-wasm-graph-config-1.0.0.json) that validates structure and ensures compatibility. The configuration includes:
 
 - Module requirements for API and host library version compatibility
 - Module configurations for runtime parameters and operator customization  
@@ -75,9 +71,9 @@ moduleRequirements:
 
 ## Example 1: Simple graph definition
 
-The [simple graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/graph-simple.yaml) demonstrates a basic three-stage pipeline that converts temperature data from Fahrenheit to Celsius:
+The [simple graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/graph-simple.yaml) demonstrates a basic three-stage pipeline that converts temperature data from Fahrenheit to Celsius:
 
-:::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/graph-simple.yaml":::
+:::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/rust/graph-simple.yaml":::
 
 For step-by-step deployment instructions and testing guidance for this example, see [Example 1: Basic deployment with one WASM module](howto-dataflow-graph-wasm.md#example-1-basic-deployment-with-one-wasm-module).
 
@@ -103,9 +99,9 @@ The [temperature module](https://github.com/Azure-Samples/explore-iot-operations
 
 ## Example 2: Complex graph definition
 
-The [complex graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/wasm/samples/wasm/graph-complex.yaml) demonstrates a sophisticated multi-sensor processing workflow that handles temperature, humidity, and image data with advanced analytics:
+The [complex graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/graph-complex.yaml) demonstrates a sophisticated multi-sensor processing workflow that handles temperature, humidity, and image data with advanced analytics:
 
-:::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/graph-complex.yaml":::
+:::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/rust/graph-complex.yaml":::
 
 For step-by-step deployment instructions and testing guidance for this example, see [Example 2: Deploy a complex graph](howto-dataflow-graph-wasm.md#example-2-deploy-a-complex-graph).
 
