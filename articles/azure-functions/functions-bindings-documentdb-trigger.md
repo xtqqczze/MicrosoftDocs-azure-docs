@@ -1,6 +1,7 @@
 ---
-title: Azure DocumentDB Trigger for Azure Functions
-description: Understand how to use Azure DocumentDB trigger to monitor change streams for inserts and updates in collections.
+title: Azure DocumentDB Trigger
+titleSuffix: Azure Functions
+description: Learn how to use the Azure DocumentDB trigger in Azure Functions to monitor change streams for inserts and updates. Includes code examples and configuration guidance.
 author: sajeetharan
 ms.author: sasinnat
 ms.topic: reference
@@ -13,17 +14,55 @@ ms.custom:
 
 [!INCLUDE [functions-bindings-documentdb-preview](../../includes/functions-bindings-documentdb-preview.md)]
 
-This article explains how to work with the [Azure DocumentDB](/azure/documentdb/overview) trigger in Azure Functions.
+The [Azure DocumentDB](/azure/documentdb/overview) trigger monitors change streams for inserts and updates in your DocumentDB collections. This article explains how to configure and use the trigger in Azure Functions, including code examples and attribute parameters to help you respond to data changes in real-time.
 
-The change feed publishes only new and updated items. Watching for delete operations using change streams is currently not supported.
+The feed publishes only new and updated items. Watching for delete operations using change streams is currently not supported.
 
-## Example
+## Prerequisites
 
-This example shows a function that returns a single document that is inserted or updated:
+- An Azure subscription
 
-:::code language="csharp" source="~/azure-functions-mongodb-extension/Sample/Sample.cs" range="49-57" ::: 
+  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
-For the complete example, see [Sample.cs](https://github.com/Azure/Azure-functions-mongodb-extension/blob/main/Sample/Sample.cs) in the extension repository.
+- An existing Azure DocumentDB cluster
+
+  - If you don't have a cluster, create a [new cluster](/azure/documentdb/quickstart-portal)
+
+  - [Change stream feature](/azure/documentdb/change-streams) enabled
+
+- Azure Functions .NET 8.0 project using the legacy in-process worker model
+
+- [`Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo` NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo)
+
+- [`MongoDB.Driver` NuGet package](https://www.nuget.org/packages/MongoDB.Driver)
+
+## Examples
+
+This example shows a function triggered by an insert or replacement operation on a collection in Azure DocumentDB. The function logs the body of the changed document.
+
+```csharp
+using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo;
+using MongoDB.Bson;
+using MongoDB.Driver;
+
+public static class DocumentDBTrigger
+{
+    [FunctionName(nameof(DocumentDBTrigger))]
+    public static void Run(
+        [CosmosDBMongoTrigger(databaseName: "<database-name>",
+                        collectionName: "<collection-name>",
+                        ConnectionStringSetting = "AZURE_DOCUMENTDB_CONNECTION_STRING")]
+        ChangeStreamDocument<BsonDocument> change,
+        ILogger logger)
+    {
+        logger.LogInformation("C# Azure DocumentDB trigger function processed a change.");
+
+        logger.LogInformation($"{change.FullDocument}");
+    }
+}
+```
 
 ## Attributes
 
@@ -31,19 +70,31 @@ This table describes the binding configuration properties of the `CosmosDBMongoT
 
 | Parameter | Description |
 | --- | --- |
-| **FunctionId** | (Optional) The ID of the trigger function. |
-| **DatabaseName** | The name of the database being monitored by the trigger for changes. Required unless `TriggerLevel` is set to `MonitorLevel.Cluser`. |
-| **CollectionName** | The name of the collection in the database being monitored by the trigger for changes. Required when `TriggerLevel` is set to `MonitorLevel.Collection`.|
-| **ConnectionStringSetting** | The name of an app setting or setting collection that specifies how to connect to the Azure DocumentDB cluster being monitored. |
-| **TriggerLevel** | Indicates the level at which changes are being monitored. Valid values of `MonitorLevel` are: `Collection`, `Database`, and `Cluster`. |
+| **`FunctionId`** | (Optional) The ID of the trigger function. |
+| **`DatabaseName`** | The name of the database monitored by the trigger for changes. A valid value is required unless `TriggerLevel` is set to `MonitorLevel.Cluster`. Otherwise, an empty string can be supplied. |
+| **`CollectionName`** | The name of the collection in the database monitored by the trigger for changes. A valid value is required unless `TriggerLevel` is set to `MonitorLevel.Database` or `MonitorLevel.Cluster`. Otherwise, an empty string can be supplied. |
+| **`ConnectionStringSetting`** | The name of an app setting or setting collection that specifies how to connect to the Azure DocumentDB cluster. |
+| **`TriggerLevel`** | Indicates the level at which changes are monitored. Valid values of `MonitorLevel` are: `Collection`, `Database`, and `Cluster`. |
 
 ## Usage
 
-Use the `TriggerLevel` parameter to set the scope of changes being monitored. 
+Use the `TriggerLevel` parameter to set the scope of changes being monitored.
 
-You can use the `CosmosDBMongo` attribute to obtain and work directly with the [MongoDB client](https://mongodb.github.io/mongo-csharp-driver/2.8/apidocs/html/T_MongoDB_Driver_IMongoClient.htm) in your function code:
+```csharp
+[FunctionName(nameof(DocumentDBTrigger))]
+public static void Run(
+    [CosmosDBMongoTrigger(databaseName: "",
+                    collectionName: "",
+                    ConnectionStringSetting = "<name-of-app-setting>",
+                    TriggerLevel = MonitorLevel.Cluster)]
+    ChangeStreamDocument<BsonDocument> change,
+    ILogger logger)
+{
+    logger.LogInformation("C# Azure DocumentDB trigger function processed a change.");
 
-:::code language="csharp" source="~/azure-functions-mongodb-extension/Sample/Sample.cs" range="17-29" ::: 
+    logger.LogInformation($"{change.FullDocument}");
+}
+```
 
 ## Related articles
  

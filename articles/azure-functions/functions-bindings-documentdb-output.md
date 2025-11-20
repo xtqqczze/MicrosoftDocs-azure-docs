@@ -1,6 +1,7 @@
 ---
-title: Azure DocumentDB Output Binding for Azure Functions
-description: Understand how to use Azure DocumentDB output to write new items to the database.
+title: Azure DocumentDB Output Binding
+titleSuffix: Azure Functions
+description: Learn how to use the Azure DocumentDB output binding in Azure Functions to write new documents to your database. Includes code examples and configuration guidance.
 author: sajeetharan
 ms.author: sasinnat
 ms.topic: reference
@@ -13,43 +14,106 @@ ms.custom:
 
 [!INCLUDE [functions-bindings-documentdb-preview](../../includes/functions-bindings-documentdb-preview.md)]
 
-This article explains how to work with the [Azure DocumentDB](/azure/documentdb/overview) output binding in Azure Functions. 
+The [Azure DocumentDB](/azure/documentdb/overview) output binding lets you write new documents to an Azure DocumentDB collection from your Azure Functions. This article explains how to configure and use the output binding, including code examples for writing documents to your database.
 
-The Azure DocumentDB output binding lets you write a new document to an Azure DocumentDB collection.
+## Prerequisites
+
+- An Azure subscription
+
+  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
+
+- An existing Azure DocumentDB cluster
+
+  - If you don't have a cluster, create a [new cluster](/azure/documentdb/quickstart-portal)
+
+- Azure Functions .NET 8.0 project using the legacy in-process worker model
+
+- [`Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo` NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo)
+
+- [`MongoDB.Driver` NuGet package](https://www.nuget.org/packages/MongoDB.Driver)
 
 ## Example
 
-This example shows a Timer trigger function that uses `CosmosDBMongoCollector` to add an item to the database:
+This example shows an HTTP trigger function for an HTTP `POST` request. The request gets an expected `string` in the request body. Then the output binding adds a document to the collection.
 
 ```csharp
-[FunctionName("OutputBindingSample")]
-    public static async Task OutputBindingRun(
-    [TimerTrigger("*/5 * * * * *")] TimerInfo myTimer,
-    [CosmosDBMongo("%vCoreDatabaseBinding%", "%vCoreCollectionBinding%", ConnectionStringSetting = "vCoreConnectionStringBinding")] IAsyncCollector<TestClass> CosmosDBMongoCollector,
-    ILogger log)
+using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo;
+using MongoDB.Bson;
+using System.Threading.Tasks;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Mvc;
+
+public static class DocumentDBOutput
 {
-    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
-
-    TestClass item = new TestClass()
+    [FunctionName(nameof(DocumentDBOutput))]
+    public static async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "POST", Route = null)]
+        string payload,
+        [CosmosDBMongo(databaseName: "<database-name>",
+                        collectionName: "<collection-name>",
+                        ConnectionStringSetting = "<name-of-app-setting>")]
+        IAsyncCollector<BsonDocument> collector,
+        ILogger logger)
     {
-        id = Guid.NewGuid().ToString(),
-        SomeData = "some random data"
-    };
-    await CosmosDBMongoCollector.AddAsync(item);
-} 
-```
+        logger.LogInformation("C# Azure DocumentDB output function starting.");
 
-The examples refer to a simple `TestClass` type:
+        BsonDocument document = new()
+        {
+            { "message", payload },
+            { "originator", nameof(DocumentDBOutput) },
+            { "timestamp", BsonDateTime.Create(System.DateTime.UtcNow) }
+        };
 
-```csharp
-namespace Sample
-{
-    public class TestClass
-    {
-        public string id { get; set; }
-        public string SomeData { get; set; }
+        await collector.AddAsync(document);
+
+        return new OkObjectResult("Document added successfully.");
     }
 }
+```
+
+Alternatively, use a C# record or class type to represent documents to add to the collection:
+
+```csharp
+using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo;
+using MongoDB.Bson;
+using System.Threading.Tasks;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson.Serialization.Attributes;
+
+public static class DocumentDBOutput
+{
+    [FunctionName(nameof(DocumentDBOutput))]
+    public static async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "POST", Route = null)]
+        ProductDocument payload,
+        [CosmosDBMongo(databaseName: "<database-name>",
+                        collectionName: "<collection-name>",
+                        ConnectionStringSetting = "<name-of-app-setting>")]
+        IAsyncCollector<ProductDocument> collector,
+        ILogger logger)
+    {
+        logger.LogInformation("C# Azure DocumentDB output function starting.");
+
+        await collector.AddAsync(payload);
+
+        return new OkObjectResult("Document added successfully.");
+    }
+}
+
+public sealed record ProductDocument(
+    [property: BsonId]
+    [property: BsonRepresentation(BsonType.ObjectId)] string id,
+    string name,
+    string category,
+    int quantity,
+    decimal price,
+    bool sale
+);
 ```
 
 ## Attributes
@@ -58,17 +122,58 @@ This table describes the binding configuration properties of the `CosmosDBMongoT
 
 | Parameter | Description |
 | --- | --- |
-|**FunctionId** | (Optional) The ID of the trigger function. |
-|**DatabaseName** | The name of the database being monitored by the trigger for changes. |
-|**CollectionName** | The name of the collection in the database being monitored by the trigger for changes.|
-|**ConnectionStringSetting** | The name of an app setting or setting collection that specifies how to connect to the Azure DocumentDB cluster being monitored. |
-|**CreateIfNotExists** | (Optional) When set to true, creates the targeted database and collection when they don't already exist. |
+| **`FunctionId`** | (Optional) The ID of the trigger function. |
+| **`DatabaseName`** | The name of the database targeted for the output data. |
+| **`CollectionName`** | The name of the collection in the database targeted for the output data.|
+| **`ConnectionStringSetting`** | The name of an app setting or setting collection that specifies how to connect to the Azure DocumentDB cluster targeted for the output data. |
+| **`CreateIfNotExists`** | (Optional) When set to `true`, creates the targeted collection if it doesn't already exist. |
 
 ## Usage
 
-You can use the `CosmosDBMongo` attribute to obtain and work directly with the [MongoDB client](https://mongodb.github.io/mongo-csharp-driver/2.8/apidocs/html/T_MongoDB_Driver_IMongoClient.htm) in your function code:
+Use the `CosmosDBMongo` attribute to insert a set of documents into a collection that might not exist:
 
-:::code language="csharp" source="~/azure-functions-mongodb-extension/Sample/Sample.cs" range="17-29" ::: 
+```csharp
+[FunctionName(nameof(DocumentDBOutput))]
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "POST", Route = null)]
+    BsonDocument payload,
+    [CosmosDBMongo(databaseName: "<database-name>",
+                    collectionName: "products",
+                    ConnectionStringSetting = "<name-of-app-setting>",
+                    CreateIfNotExists = true)]
+    IAsyncCollector<BsonDocument> collector,
+    ILogger logger)
+{
+    logger.LogInformation("C# Azure DocumentDB output function starting.");
+
+    await collector.AddAsync(payload);
+
+    return new OkObjectResult("Document added successfully.");
+}
+```
+
+Alternatively, work directly with the [MongoDB client](https://mongodb.github.io/mongo-csharp-driver/2.8/apidocs/html/T_MongoDB_Driver_IMongoClient.htm) in your function code:
+
+```csharp
+[FunctionName(nameof(DocumentDBOutput))]
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "POST", Route = null)]
+    BsonDocument payload,
+    [CosmosDBMongo(ConnectionStringSetting = "<name-of-app-setting>")]
+    IMongoClient client,
+    ILogger logger)
+{
+    logger.LogInformation("C# Azure DocumentDB function got a client.");
+
+    IMongoDatabase database = client.GetDatabase("<database-name>");
+
+    IMongoCollection<BsonDocument> collection = database.GetCollection<BsonDocument>("<collection-name>");
+
+    await collection.InsertOneAsync(payload);
+
+    return new OkObjectResult("Document added successfully.");
+}
+```
 
 ## Related articles
  
