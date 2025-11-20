@@ -92,7 +92,7 @@ This command performs the following actions:
 1. Creates and deploys a container app that pulls the image from a public registry.
 1. Sets the container app's `ingress` value to `external` with a target port set to the specified value.
 
-You can also use the `up` command to redeploy a container app. If you want to redeploy with a new image, use the `--image` option to specify a new image. Ensure that the `--resource-group` and `environment` options are set to the values from the original deployment. 
+You can also use the `up` command to redeploy a container app. If you want to redeploy with a new image, use the `--image` option to specify a new image. Ensure that the `--resource-group` and `--environment` options are set to the values from the original deployment. 
 
 ```azurecli
 az containerapp up \
@@ -133,7 +133,7 @@ This command performs the following actions:
 1. Pushes the image to the registry.
 1. Creates and deploys the container app.
 
-When the Dockerfile includes the `EXPOSE` instruction, the `up` command configures the container app's ingress and target port by using the information in the Dockerfile. If you configure ingress through your Dockerfile or your app doesn't require ingress, you can omit the `ingress` option.
+When the Dockerfile includes the `EXPOSE` instruction, the `up` command configures the container app's ingress and target port by using the information in the Dockerfile. If you configure ingress through your Dockerfile or your app doesn't require ingress, you can omit the `--ingress` option.
 
 The output of the command includes the URL for the container app.
 
@@ -141,7 +141,7 @@ If the command reports that it's waiting for the Cloud Build agent but then stop
 
 If there's a failure, you can run the command again with the `--debug` option to get more information. If the build fails without a Dockerfile, you can try adding a Dockerfile and running the command again.
 
-To use the `az containerapp up` command to redeploy your container app with an updated image, include the `--resource-group` and `--environment` arguments. To redeploy a container app from local source code, take the following steps:
+To use the `az containerapp up` command to redeploy your container app with an updated image, include the `--resource-group` and `--environment` options. To redeploy a container app from local source code, take the following steps:
 
 1. Make changes to the source code.
 
@@ -192,7 +192,7 @@ az containerapp up \
   --ingress external 
 ```
 
-If you configure ingress through your Dockerfile or your app doesn't require ingress, you can omit the `ingress` option.
+If you configure ingress through your Dockerfile or your app doesn't require ingress, you can omit the `--ingress` option.
 
 The `up` command creates a GitHub Actions workflow. As a result, rerunning the command has the unwanted effect of creating multiple workflows. If you want to deploy changes to your app's image, push changes to your GitHub repository instead of rerunning the command. The GitHub workflow automatically detects the changes in your repository and then builds and deploys your app. To change the workflow, edit the workflow file in GitHub.
 
