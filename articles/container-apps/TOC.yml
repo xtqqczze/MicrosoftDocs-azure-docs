@@ -130,6 +130,8 @@
           href: functions-usage.md
         - name: Create your Azure functions on Azure Container Apps
           href: functions-container-apps.md
+        - name: Manage with Azure CLI
+          href: functions-cli.md
     - name: Use dynamic sessions
       items:
         - name: Code interpreter sessions
