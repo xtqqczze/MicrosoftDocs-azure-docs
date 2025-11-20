@@ -29,7 +29,7 @@ The following source code hosting providers are supported with Azure SRE Agent.
 ::: zone pivot="azure-devops"
 
 > [!NOTE]
-> The [Code Search extension](https://marketplace.visualstudio.com/items?itemName=ms.vss-code-search) must be installed on your Azure DevOps organization for repository files to be searchable. It can take approximately an hour for your repository files to be searchable after you install this extension.
+> The [Code Search extension](https://marketplace.visualstudio.com/items?itemName=ms.vss-code-search) must be installed on your Azure DevOps organization for repository files to be searchable. It can take an hour for your repository files to be searchable after you install this extension.
 
 Before you can connect an Azure DevOps Repo to a resource, you first need to associate the agent managed identity with the repository.
 
