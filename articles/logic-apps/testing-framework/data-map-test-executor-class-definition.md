@@ -1,0 +1,197 @@
+---
+title: DataMapTestExecutor class
+description: Detailed documentation for the DataMapTestExecutor class in the Azure Logic Apps Unit Testing SDK.
+services: logic-apps
+ms.suite: integration
+author: wsilveiranz
+ms.reviewer: estfan, azla
+ms.topic: reference
+ms.date: 11/21/2025
+---
+
+# DataMapTestExecutor class
+
+This class provides functionality to compile, generate XSLT, and execute data map tests for Standard logic app workflows in single-tenant Azure Logic Apps. The class serves as the main entry point for testing data transformations with data maps.
+
+## Namespace
+
+**`Microsoft.Azure.Workflows.UnitTesting`**
+
+## Usage
+
+You can use the **`DataMapTestExecutor`** class to generate XSLT from data map definitions and execute data transformations:
+
+```csharp
+// Initialize with app directory path
+var executor = new DataMapTestExecutor("path/to/logic-app-project");
+
+// Generate XSLT from map name
+var xslt = await executor.GenerateXslt("MyDataMap");
+
+// Generate XSLT from map content
+var generateXsltInput = new GenerateXsltInput { MapContent = mapContent };
+var xslt = await executor.GenerateXslt(generateXsltInput);
+
+// Execute data map transformation by map name
+var inputData = System.Text.Encoding.UTF8.GetBytes(xmlInput);
+var result = await executor.RunMapAsync("MyDataMap", inputData);
+
+// Execute data map transformation with XSLT content
+var result = await executor.RunMapAsync(xsltContent, inputData);
+```
+
+## Constructors
+
+### DataMapTestExecutor(string)
+
+Initializes a new instance of the **`DataMapTestExecutor`** class by using the logic app project root path.
+
+#### Parameters
+
+| Name | Type | Description | Required |
+|------|------|-------------|----------|
+| appDirectoryPath | string | The logic app project root path | Yes |
+
+#### Example
+
+```csharp
+var executor = new DataMapTestExecutor("C:\\MyLogicApp");
+```
+
+## Properties
+
+### AppDirectoryPath
+
+The logic app project root directory path.
+
+| Property | Type | Description | Required |
+|----------|------|-------------|----------|
+| AppDirectoryPath | string | The root path of the logic app project | Yes |
+
+### DataMapTestEngine
+
+The internal data map test engine used for compilation and execution.
+
+| Property | Type | Description | Required |
+|----------|------|-------------|----------|
+| DataMapTestEngine | DataMapTestEngine | The underlying test engine for data map operations | Yes |
+
+## Methods
+
+### GenerateXslt(string)
+
+Compiles a data map (found by map name) and generates XSLT.
+
+#### Parameters
+
+| Name | Type | Description | Required |
+|------|------|-------------|----------|
+| mapName | string | The data map name (without .lml extension) | Yes |
+
+#### Returns
+
+**`Task<byte[]>`**: A task that represents the asynchronous operation that returns the generated XSLT content as a byte array.
+
+#### Exceptions
+
+- **`ArgumentException`**: Thrown when the data map file does not exist at the expected path.
+
+#### Example
+
+```csharp
+var executor = new DataMapTestExecutor("C:\\MyLogicApp");
+var xslt = await executor.GenerateXslt("OrderToInvoice");
+```
+
+#### Remarks
+
+This method looks for the data map file at the path: `{appDirectoryPath}\Artifacts\MapDefinitions\{mapName}.lml`
+
+### GenerateXslt(GenerateXsltInput)
+
+Compiles a data map and generates XSLT from the provided map content.
+
+#### Parameters
+
+| Name | Type | Description | Required |
+|------|------|-------------|----------|
+| generateXsltInput | GenerateXsltInput | The input containing data map content | Yes |
+
+#### Returns
+
+**`Task<byte[]>`**: A task that represents the asynchronous operation that returns the generated XSLT content as a byte array.
+
+#### Example
+
+```csharp
+var mapContent = await File.ReadAllTextAsync("CustomMap.lml");
+var generateXsltInput = new GenerateXsltInput { MapContent = mapContent };
+var xslt = await executor.GenerateXslt(generateXsltInput);
+```
+
+### RunMapAsync(string, byte[])
+
+Executes a data map by applying the given XSLT (found by map name) to sample input data.
+
+#### Parameters
+
+| Name | Type | Description | Required |
+|------|------|-------------|----------|
+| mapName | string | The data map XSLT file name (without extension) | Yes |
+| inputContent | byte[] | The input content to be transformed | Yes |
+
+#### Returns
+
+**`Task<JToken>`**: A task that represents the asynchronous operation that returns the transformed output as a JSON token.
+
+#### Example
+
+```csharp
+var xmlInput = "<Order><Item>Widget</Item></Order>";
+var inputData = System.Text.Encoding.UTF8.GetBytes(xmlInput);
+var result = await executor.RunMapAsync("OrderToInvoice", inputData);
+Console.WriteLine(result.ToString());
+```
+
+#### Remarks
+
+This method looks for the XSLT file at the path: `{appDirectoryPath}\Artifacts\Maps\{mapName}.xslt`
+
+### RunMapAsync(byte[], byte[])
+
+Executes a data map by applying the given XSLT content to sample input data.
+
+#### Parameters
+
+| Name | Type | Description | Required |
+|------|------|-------------|----------|
+| xsltContent | byte[] | The data map XSLT content | Yes |
+| inputContent | byte[] | The input content to be transformed | Yes |
+
+#### Returns
+
+**`Task<JToken>`**: A task that represents the asynchronous operation that returns the transformed output as a JSON token.
+
+#### Example
+
+```csharp
+// First generate XSLT
+var xslt = await executor.GenerateXslt("OrderToInvoice");
+
+// Then execute transformation
+var xmlInput = "<Order><Item>Widget</Item></Order>";
+var inputData = System.Text.Encoding.UTF8.GetBytes(xmlInput);
+var result = await executor.RunMapAsync(xslt, inputData);
+Console.WriteLine(result.ToString());
+```
+
+#### Remarks
+
+This method creates a temporary file to store the XSLT content during execution and automatically cleans it up after the transformation is complete.
+
+## Related content
+
+- [UnitTestExecutor Class Definition](unit-test-executor-class-definition.md)
+- [ActionMock Class Definition](action-mock-class-definition.md)
+- [TriggerMock Class Definition](trigger-mock-class-definition.md)
+- [TestWorkflowRun Class Definition](test-workflow-run-class-definition.md)
