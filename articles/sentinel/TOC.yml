@@ -133,6 +133,8 @@
                           href: sap/sap-deploy-troubleshoot.md
                         - name: Extra deployment steps
                           items:
+                            - name: Migrate agent to agentless connector
+                              href: sap/sap-agent-migrate.md
                             - name: Collect SAP HANA audit logs
                               href: sap/collect-sap-hana-audit-logs.md
                             - name: Update the data connector agent
@@ -300,10 +302,20 @@
               href: detection-tuning.md
             - name: Troubleshoot analytics rules
               href: troubleshoot-analytics-rules.md
-        - name: Tutorial - Detect threats using analytics rules
-          href: tutorial-log4j-detection.md
-        - name: MITRE ATT&CK coverage
-          href: mitre-coverage.md
+            - name: Tutorial - Detect threats using analytics rules
+              href: tutorial-log4j-detection.md
+            - name: MITRE ATT&CK coverage
+              href: mitre-coverage.md
+            - name: Compare analytics rules and custom detections
+              href: compare-analytics-rules-custom-detections.md
+        - name: Custom detections in the Defender portal
+          items:
+            - name: Overview
+              href: /defender-xdr/custom-detections-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Create detection rules
+              href: /defender-xdr/custom-detection-rules?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+            - name: Manage detection rules
+              href: /defender-xdr/custom-detection-manage?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
         - name: Data classification with entities
           items:
             - name: Overview
@@ -385,6 +397,8 @@
               href: notebooks-msticpy-advanced.md
         - name: Bring your own machine learning
           href: bring-your-own-ml.md
+    - name: Track and respond to threats with threat analytics
+      href: threat-analytics-sentinel.md
     - name: Investigate incidents
       items:
         - name: Azure portal
@@ -585,7 +599,19 @@
         - name: Microsoft Sentinel MCP server overview
           href: datalake/sentinel-mcp-overview.md
         - name: Get started with Microsoft Sentinel MCP
-          href: datalake/sentinel-mcp-get-started.md
+          items:
+          - name: Overview      
+            href: datalake/sentinel-mcp-get-started.md
+          - name: Use Sentinel MCP tools in Security Copilot   
+            href: datalake/sentinel-mcp-use-tool-security-copilot.md
+          - name: Use Sentinel MCP tools in Copilot Studio
+            href: datalake/sentinel-mcp-use-tool-copilot-studio.md
+          - name: Use Sentinel MCP tools in Azure AI Foundry
+            href: datalake/sentinel-mcp-use-tool-azure-ai-foundry.md
+          - name: Use Sentinel MCP tools in Visual Studio Code
+            href: datalake/sentinel-mcp-use-tool-visual-studio-code.md
+          - name: Use Sentinel MCP connector in ChatGPT
+            href: datalake/sentinel-mcp-chatgpt-connector.md
         - name: Tool collection in Microsoft Sentinel MCP
           items:
           - name: Overview
@@ -594,6 +620,8 @@
             href: datalake/sentinel-mcp-data-exploration-tool.md
           - name: Agent creation
             href: datalake/sentinel-mcp-agent-creation-tool.md
+          - name: Create your own custom tool
+            href: datalake/sentinel-mcp-create-custom-tool.md
         - name: Troubleshooting
           href: datalake/troubleshoot-sentinel-mcp.md
         - name: Billing, limits, and availability
@@ -710,7 +738,7 @@
               href: connect-aws-s3-waf.md
         - name: Troubleshoot AWS S3 connector issues
           href: aws-s3-troubleshoot.md
-        - name: Cisco FTD firewall
+        - name: Cisco firewalls
           href: cisco-ftd-firewall.md
         - name: Google Cloud Platform connectors
           href: connect-google-cloud-platform.md
@@ -916,6 +944,12 @@
           href: normalization-functions.md
         - name: ASIM known issues
           href: normalization-known-issues.md
+        - name: ASIM entities
+          items:
+            - name: ASIM user entity
+              href: normalization-entity-user.md
+            - name: ASIM device entity
+              href: normalization-entity-device.md
         - name: ASIM schemas
           items:
             - name: ASIM alert event schema

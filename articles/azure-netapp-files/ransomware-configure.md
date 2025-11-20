@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/22/2025
+ms.date: 11/20/2025
 ms.author: anfdocs
 ---
 # Configure advanced ransomware protection for Azure NetApp Files volumes (preview)

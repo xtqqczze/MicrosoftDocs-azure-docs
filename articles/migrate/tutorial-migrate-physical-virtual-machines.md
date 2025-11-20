@@ -116,11 +116,12 @@ To set up a new appliance, you can use PowerShell installer script. Ensure you m
 
 The first step of migration is to set up the replication appliance. To set up the appliance for physical server migration, download the installer file for the appliance. Then run it on the machine you prepared. After you install the appliance, register it with your migrate project using the key copied from the portal.
 
-## Classic experience (Retired)
+## Classic experience (Retiring)
 
 > [!NOTE]
-> Classic experience is scheduled for retirement on **30 September 2026**. Your existing replications and migrations will be supported till the retirement date.
-Please use simplified experience for all new migrations. [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) on how to set up the simplified experience.
+> Classic experience is scheduled for retirement on **30 September 2026**. Final recovery point for replications will be on **31 May 2026**. Support for migrations will continue until the retirement date. 
+> Switch sooner to gain the richer benefits of [simplified experience](simplified-experience-for-azure-migrate.md). [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) on how to set up the Simplified Experience.
+
 
 ### Download the replication appliance installer
 
@@ -272,7 +273,7 @@ Use the following steps to register the appliance:
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-replication-appliance-connectivity.png" alt-text=" Screenshot shows how to select replication appliance connectivity":::.
 
 1. After saving the connectivity details, select **Continue** to proceed with registration in Microsoft Azure. 
-1. Ensure the [prerequisites](../site-recovery/replication-appliance-support-matrix.md#pre-requisites) are met, and then proceed with the registration.
+1. Ensure the [prerequisites](../site-recovery/replication-appliance-support-matrix.md#prerequisites) are met, and then proceed with the registration.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/registry-with-recovery-service-vault.png" alt-text="Screenshot shows the registry with recovery service vault.":::.
 1. **Friendly name of appliance**: Provide a friendly name to track this appliance in the Azure portal under Recovery Services Vault infrastructure. 
