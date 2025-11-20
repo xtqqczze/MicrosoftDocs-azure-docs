@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 11/19/2025
+ms.date: 11/20/2025
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage dev centers so that I can manage my Microsoft Dev Box implementation.
 ---
@@ -20,29 +20,15 @@ You can create as many dev centers as you need, depending on how you organize an
 You can add users to a dev center to do administrative tasks, and you can attach network connections to dev centers. This article shows you how to use the Azure portal to create and manage a Microsoft Dev Box dev center.
 
 >[!NOTE]
->Microsoft Dev Box uses [Microsoft-hosted networks] to host dev box pools by default. However, you can host dev boxes in your own virtual network instead. You might use your own network to:
->
->- Connect to on-premises resources.
->- Directly access other Azure resources in a virtual network.
->- Manage and customize your own network and settings.
->- Use a Microsoft Entra hybrid join model for dev boxes.
->
->To use your own network with Microsoft Dev Box, you must [create a network connection](how-to-configure-network-connections.md#create-a-network-connection) and then [attach the network connection to a dev center](#attach-network-connection).
+>Microsoft Dev Box uses [Microsoft-hosted networks](/windows-365/enterprise/deployment-options#microsoft-hosted-network) to host dev box pools by default. However, you can host dev boxes in your own virtual networks instead. To use your own network with Microsoft Dev Box, you must [create a network connection](how-to-configure-network-connections.md#create-a-network-connection) and then [attach the network connection to a dev center](#attach-network-connection).
  
  ## Permissions
 
 | Category | Requirement |
 |---|---|
-| Permissions | To create or delete a dev center, **Owner** or **Contributor** role in the Azure subscription or resource group. |
-| Permissions | To manage a dev center, **Owner** or **Contributor** role or specific **Write** permissions to the dev center. |
-| Permissions | To attach or remove a network connection, **Owner** or **Contributor** role or **Network Contributor** permissions on an existing network connection. |
-| Tools | To attach or remove a network connection, an existing network connection in the same Azure subscription as the dev center.
-
-| Category | Requirement |
-|-------------|---------|
-| Licenses | Users need licenses for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Microsoft Entra ID P1.|
-| Tools | Microsoft Intune. Your organization must use Microsoft Intune for device management.  |
-| Identity | Your organization must use Microsoft Entra ID for identity and access management. |
+| Permissions | - To create or delete a dev center, **Owner** or **Contributor** role in the Azure subscription or resource group.<br> - To manage a dev center, **Owner** or **Contributor** role or specific **Write** permissions to the dev center.<br> - To attach or remove a network connection, **Owner** or **Contributor** role or **Network Contributor** permissions on the network connection. |
+| Connectivity | To attach or remove a network connection, an existing network connection in the same Azure subscription as the dev center.
+| Authentication | To attach or remove a network connection, Microsoft Entra ID for identity and access management and Microsoft Intune for device management. |
 
 ## Create a dev center
 
@@ -89,14 +75,13 @@ To delete a dev center:
 1. In the [Azure portal](https://portal.azure.com), go to the page for the dev center you want to delete.
 1. On the dev center page, select **Delete**.
 
-   :::image type="content" source="./media/how-to-manage-dev-center/delete-dev-center.png" alt-text="Screenshot of the Delete button on the page for a dev center." lightbox="./media/how-to-manage-dev-center/delete-dev-center.png":::
+   :::image type="content" source="./media/how-to-manage-dev-center/delete-dev-center.png" alt-text="Screenshot of the Delete button on the page for a dev center.":::
 
 1. Select **OK** in the confirmation message.
 
-## Next step
-
 ## Related content
 
-- [Provide access to projects for project admins](./how-to-project-admin.md)
+- [Manage a Microsoft Dev Box project](how-to-manage-dev-box-projects.md)
+- [Provide access to projects for project admins](how-to-project-admin.md)
 - [Create a dev box definition](how-to-manage-dev-box-definitions.md#create-a-dev-box-definition)
 - [Configure Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)

@@ -10,7 +10,7 @@ ms.service: dev-box
 
 Network connections enable dev boxes to connect to existing virtual networks. The location or Azure region of the network connection determines where associated dev boxes are hosted.
 
-If you have an existing network connection you want to use with Microsoft Dev Box, you must attach it to a dev center before you can use it for dev box projects and pools.
+If you have an existing network connection you want to use with Microsoft Dev Box, you must attach it to a dev center before you can use it for dev box projects and pools. You can attach multiple network connections to a dev center.
 
 ### Attach a network connection to a dev center
 
@@ -22,7 +22,7 @@ To attach a network connection to a dev center:
 
    :::image type="content" source="../media/how-to-manage-network-connection/select-add-network-connection.png" alt-text="Screenshot that shows how to select Add to attach a network connection to a dev center.":::
 
-1. On the **Add network connection** pane, select the network connection, and then select **Add**:
+1. On the **Add network connection** pane, select the network connection you want to use, and then select **Add**:
 
    :::image type="content" source="../media/how-to-manage-network-connection/add-network-connection.png" alt-text="Screenshot that shows the pane for selecting the network connection to add.":::
 
