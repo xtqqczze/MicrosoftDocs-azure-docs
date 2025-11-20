@@ -6,7 +6,7 @@ author: alkohli
  
 ms.service: azure-stack-edge
 ms.topic: article
-ms.date: 11/03/2025
+ms.date: 11/20/2025
 ms.author: alkohli
 ---
 
@@ -42,7 +42,7 @@ You can update to the latest version using the following update paths:
 
 There are no new features or enhancements in this release, but the following is a change:
 
-The Kubernetes workload profile selection feature has been deprecated from the local UI and from Minishell.
+Azure Kubernetes service (AKS) on Azure Stack Edge has been deprecated.
 
 
 ## Known issues in this release
