@@ -27,7 +27,7 @@ You can add users to a dev center to do administrative tasks, and you can attach
 >- Manage and customize your own network and settings.
 >- Use a Microsoft Entra hybrid join model for dev boxes.
 >
->To use your own network with Microsoft Dev Box, you must [create a network connection](how-to-configure-network-connections.md#create a network connection) and then [attach the network connection to a dev center](#attach-network-connection).
+>To use your own network with Microsoft Dev Box, you must [create a network connection](how-to-configure-network-connections.md#create-a-network-connection) and then [attach the network connection to a dev center](#attach-network-connection).
  
  ## Permissions
 
@@ -52,7 +52,7 @@ To create a dev center in the Azure portal:
 
 ## Assign dev center permissions to users
 
-If you want help with administrative tasks, you can assign users or groups to the following Azure or built-in dev center roles.
+You can assign users or groups to the following built-in Azure or Microsoft Dev Box roles.
 
 - **Owner** role grants full access to manage all resources in the dev center, including the ability to assign roles in Azure role-based access control (RBAC).
 - **Contributor** role grants full access to manage all resources in the dev center, but doesn't allow the user to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
@@ -67,7 +67,7 @@ To assign roles to users:
 1. On the dev center page, select **Access control (IAM)** in the left navigation menu.
 1. On the **Access control (IAM)** page, select **Add role assignment**.
 1. On the **Role** tab of the **Add role assignment** page, select one of the built-in roles, and then select the **Members** tab.
-1. On the **Members** tab, select **User, group, or service principal**, and select the **Select members** link.
+1. On the **Members** tab, select **User, group, or service principal**, and then select the **Select members** link.
 1. On the **Select members** screen, search for and select users or groups you want to assign the role, and select **Select**.
 1. Select **Review + assign**, and then select **Review + assign** again.
 

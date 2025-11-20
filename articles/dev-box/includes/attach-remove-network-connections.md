@@ -6,7 +6,7 @@ ms.topic: include
 ms.service: dev-box
 ---
 
-## Attach and remove network connections to a dev center
+## Attach and remove network connections
 
 Network connections enable dev boxes to connect to existing virtual networks. The location or Azure region of the network connection determines where associated dev boxes are hosted.
 
@@ -17,8 +17,7 @@ If you have an existing network connection you want to use with Microsoft Dev Bo
 To attach a network connection to a dev center:
 
 1. In the [Azure portal](https://portal.azure.com), go to the page for the dev center you want to attach the network connection to.
-1. On the dev center page, select **Access control (IAM)** in the left navigation menu.
-1. Select **Networking** under **Dev box configuration** in the left navigation menu.
+1. On the dev center page, select **Networking** under **Dev box configuration** in the left navigation menu.
 1. On the **Networking** page, select **Add**.
 
    :::image type="content" source="../media/how-to-manage-network-connection/select-add-network-connection.png" alt-text="Screenshot that shows how to select Add to attach a network connection to a dev center.":::
@@ -43,11 +42,11 @@ Follow these steps to remove an attached network connection from a dev center.
 > If the network connection is in use by one or more dev centers, you can't remove it.
 
 1. In the [Azure portal](https://portal.azure.com), select the dev center that has the connection you want to remove.
-1. On the dev center page, select **Networking** under **Dev box configuration**.
+1. On the dev center page, select **Networking** under **Dev box configuration** in the left navigation menu.
 1. Select the network connection you want to remove and then select **Remove**.
 
    :::image type="content" source="../media/how-to-manage-network-connection/remove-network-connection.png" alt-text="Screenshot that shows how to remove a selected network connection attached to a dev center.":::
 
-1. Respond **OK** to confirmation message.
+1. Respond **OK** to the confirmation message.
 
 After you remove a network connection, it's no longer available for use by dev box pools in the dev center.
