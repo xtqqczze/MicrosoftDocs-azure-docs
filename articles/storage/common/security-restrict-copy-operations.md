@@ -18,7 +18,7 @@ ms.custom:
 
 # Restrict the source of copy operations to a storage account
 
-For security reasons, storage administrators might want to limit the environments from which data can be copied to secured accounts. Limiting the scope of permitted copy operations helps prevent the infiltration of unwanted data from untrusted tenants or virtual networks.
+For security reasons, storage administrators might want to limit the environments from which data can be copied to storage accounts. Limiting the scope of permitted copy operations helps prevent the infiltration of unwanted data from untrusted tenants or virtual networks.
 
 This article shows you how to limit the source accounts of copy operations to accounts within the same tenant as the destination account, or with private links to the same virtual network as the destination.
 
