@@ -126,10 +126,10 @@
       items:
         - name: Overview
           href: functions-overview.md
-        - name: Run event-driven and batch workloads
-          href: functions-unified-platform.md
         - name: Create a Functions app
           href: functions-usage.md
+        - name: Run event-driven and batch workloads
+          href: functions-unified-platform.md
         - name: Create your Azure functions on Azure Container Apps
           href: functions-container-apps.md
     - name: Use dynamic sessions
