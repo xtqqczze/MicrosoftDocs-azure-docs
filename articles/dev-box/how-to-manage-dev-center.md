@@ -40,12 +40,12 @@ To create a dev center in the Azure portal:
 
 You can assign users or groups to the following built-in Azure or Microsoft Dev Box roles.
 
-- **Owner** role grants full access to manage all resources in the dev center, including the ability to assign roles in Azure role-based access control (RBAC).
-- **Contributor** role grants full access to manage all resources in the dev center, but doesn't allow the user to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
-- **Reader** role grants the ability to view all resources in the dev center, but not make any changes.
+- **Owner** grants full access to manage all resources in the dev center, including the ability to assign roles in Azure role-based access control (RBAC).
+- **Contributor** grants full access to manage all resources in the dev center, but not assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.
+- **Reader** grants the ability to view all resources in the dev center, but not make any changes.
 - **DevCenter Owner** provides access to manage all Microsoft.DevCenter resources and access to them.
 - **DevCenter Project Admin** provides access to manage project resources.
-- **DevCenter Dev Box User** provides access to create and manage dev boxes and can be granted to developers by project admins.
+- **DevCenter Dev Box User** provides access to create and manage dev boxes and can be granted to users by project admins.
 
 To assign roles to users:
 
@@ -64,9 +64,9 @@ For more information, see [Assign Azure roles using the Azure portal](/azure/rol
 
 ## Delete a dev center
 
-You can delete a dev center to reflect organizational or workload changes.
+You can delete a Microsoft Dev Box dev center to reflect organizational or workload changes.
 
-- Deleting a Microsoft Dev Box dev center is irreversible.
+- Deleting a dev center is irreversible.
 - You can't delete a dev center that has any projects associated with it. You must delete the projects before you can delete the dev center.
 - Attached network connections and their associated virtual networks aren't deleted when you delete a dev center.
 
