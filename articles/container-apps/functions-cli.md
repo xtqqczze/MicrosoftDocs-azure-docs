@@ -158,7 +158,7 @@ az containerapp create \
 
 ## Manage multiple revisions (optional)
 
-For scenarios requiring multiple revisions with traffic splitting, update your container app to create a new revision by deploying a new container image version.
+For scenarios that require multiple revisions with traffic splitting, update your container app to create a new revision by deploying a new container image version.
 
 Use the following command to split traffic between revisions.
 
@@ -235,7 +235,7 @@ Monitoring your function app is essential for understanding its performance and 
       --limit 3
     ```
 
-1. View a invocation summary to review successful and failed invocations.
+1. View an invocation summary to review successful and failed invocations.
 
     ```azurecli
     az containerapp function invocations summary \
@@ -275,7 +275,7 @@ az containerapp function keys list \
 
 ### Show a specific key
 
-Show the value of a specific host-level key for your function app using the following command:
+Show the value of a specific host-level key for your function app with the following command:
 
 ```azurecli
 KEY_NAME="default"
@@ -289,7 +289,7 @@ az containerapp function keys show \
 
 ### Set a key
 
-Set a specific host-level key for your function app using the following command:
+Set a specific host-level key for your function app with the following command:
 
 ```azurecli
 KEY_VALUE="your-secure-key-value"
