@@ -1,9 +1,9 @@
 ---
-title: Set up SQL storage for Standard logic app workflows
-description: Set up a SQL database to store Standard logic app workflow artifacts, states, and run history in single-tenant Azure Logic Apps.
+title: Set Up SQL Storage for Standard Workflows
+description: Learn to set up a separate SQL database to store Standard logic app workflow artifacts, states, and run history in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.date: 08/21/2025
 ms.custom: sfi-image-nochange
