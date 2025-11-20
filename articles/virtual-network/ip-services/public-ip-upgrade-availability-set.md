@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: This article shows you how to upgrade all public IP address attached to a VM in an Availability Set to a standard public IP address
 author: mbender-ms
 ms.author: mbratschun
-ms.date: 08/27/2024
+ms.date: 11/20/2025
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
@@ -13,8 +13,8 @@ ms.topic: how-to
 
 # Upgrade all public IP addresses attached to VMs in an Availability Set from Basic to Standard
 
->[!Important]
->On September 30, 2025, Basic SKU public IPs were retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs as soon as possible. This article will help guide you through the upgrade process.
+> [!IMPORTANT]
+> On September 30, 2025, Basic SKU public IPs were retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs as soon as possible. This article will help guide you through the upgrade process.
 
 For more information about the retirement of Basic SKU Public IPs and the benefits of Standard SKU Public IPs, see [here](public-ip-basic-upgrade-guidance.md)
 
@@ -47,13 +47,13 @@ Install-Module -Name AzureAvSetBasicPublicIPUpgrade -Scope CurrentUser -Reposito
     ```powershell
     Select-AzSubscription -Subscription <SubscriptionId>
     ```
-2. Locate the Availability Set with the attached Basic Public IPs that you wish to upgrade. Record its name and resource group name.
+1. Locate the Availability Set with the attached Basic Public IPs that you wish to upgrade. Record its name and resource group name.
 
-3. Examine the module parameters:
+1. Examine the module parameters:
     - *AvailabilitySetName  [string] Required* - This parameter is the name of your Availability Set.
     - *ResourceGroupName [string] Required* - This parameter is the resource group for your Availability Set with the Basic Public IPs attached that you want to upgrade.
 
-4. Run the upgrade, using the following examples or `Get-Help Start-AzAvSetPublicIPUpgrade` for guidance.
+1. Run the upgrade, using the following examples or `Get-Help Start-AzAvSetPublicIPUpgrade` for guidance.
 
 ### Example uses of the script
 
