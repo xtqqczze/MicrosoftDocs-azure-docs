@@ -59,8 +59,6 @@ Update your Azure CLI and install the required extensions:
 
 Set up the basic Azure resources needed to run your function app in a container. You create a resource group, set up a Container Apps environment, and add services for storage and monitoring.
 
-### Create a resource group
-
 1. Create a resource group to contain all your resources.
 
     ```azurecli
