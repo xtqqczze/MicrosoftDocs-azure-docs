@@ -33,10 +33,7 @@ Quantitative data that reflects the performance and health of your Azure resourc
 
 For metrics, the system automatically creates a system managed identity and assigns it the Monitoring Reader role, which is required for data collection. If you remove this identity or role assignment, metric collection stops.
 
-You can enable your partner resource to collect metrics for all Azure resources within any linked subscriptions.
-
-For a complete list of available platform metrics, see [Azure Monitor metrics index](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics).
-Optionally, you can limit metric collection for Azure Virtual Machines and App Service plans by attaching Azure tags to your resources.
+You can enable your partner resource to collect metrics for all Azure resources within any linked subscriptions. Optionally, you can limit metric collection for Azure Virtual Machines and App Service plans by attaching Azure tags to your resources.
 
 For metrics, the system automatically creates a system managed identity and associates it with the resource on Azure. The setup process provides the Monitoring Reader role to the system managed identity. This role gives the partner service the ability to pull metrics for resources in your subscription from Azure Monitor.
 
