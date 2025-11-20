@@ -25,33 +25,35 @@ Before you begin, ensure you have:
 
 Update your Azure CLI and install the required extensions:
 
-```azurecli
-# Upgrade the Azure CLI to the latest version
-az upgrade
+1. Install the required extensions:
 
-# Register the Microsoft.App resource provider
-az provider register --namespace Microsoft.App
+    ```azurecli
+    # Upgrade the Azure CLI to the latest version
+    az upgrade
+    
+    # Register the Microsoft.App resource provider
+    az provider register --namespace Microsoft.App
+    
+    # Install the latest version of the Azure Container Apps CLI extension
+    az extension add --name containerapp --allow-preview true --upgrade
+    
+    # Sign in to Azure
+    az login
+    ```
 
-# Install the latest version of the Azure Container Apps CLI extension
-az extension add --name containerapp --allow-preview true --upgrade
+1. Set environment variables for the resources you create.
 
-# Sign in to Azure
-az login
-```
+    You can use the given values for these variables, or provide your own.
 
-Set environment variables for the resources you create.
-
-You can provide your own values for these variables, or provide your own.
-
-```bash
-RESOURCE_GROUP="myResourceGroup"
-LOCATION="eastus"
-CONTAINERAPPS_ENVIRONMENT="myContainerAppsEnv"
-STORAGE_ACCOUNT_NAME="mystorageaccount$(date +%s)"
-STORAGE_ACCOUNT_SKU="Standard_LRS"
-APPLICATION_INSIGHTS_NAME="myAppInsights"
-CONTAINERAPP_NAME="myFunctionApp"
-```
+    ```bash
+    RESOURCE_GROUP="myResourceGroup"
+    LOCATION="eastus"
+    CONTAINERAPPS_ENVIRONMENT="myContainerAppsEnv"
+    STORAGE_ACCOUNT_NAME="mystorageaccount$(date +%s)"
+    STORAGE_ACCOUNT_SKU="Standard_LRS"
+    APPLICATION_INSIGHTS_NAME="myAppInsights"
+    CONTAINERAPP_NAME="myFunctionApp"
+    ```
 
 ## Create Azure resources
 
@@ -59,95 +61,87 @@ Set up the basic Azure resources needed to run your function app in a container.
 
 ### Create a resource group
 
-Create a resource group to contain all your resources:
+1. Create a resource group to contain all your resources.
 
-```azurecli
-az group create \
-  --name $RESOURCE_GROUP \
-  --location $LOCATION
-```
+    ```azurecli
+    az group create \
+      --name $RESOURCE_GROUP \
+      --location $LOCATION
+    ```
 
-### Create Container Apps environment
+1. Create Container Apps environment. Create a Container Apps environment with workload profiles enabled.
 
-Create a Container Apps environment with workload profiles enabled:
+    ```azurecli
+    az containerapp env create \
+      --name $CONTAINERAPPS_ENVIRONMENT \
+      --resource-group $RESOURCE_GROUP \
+      --location $LOCATION \
+      --enable-workload-profiles
+    ```
 
-```azurecli
-az containerapp env create \
-  --name $CONTAINERAPPS_ENVIRONMENT \
-  --resource-group $RESOURCE_GROUP \
-  --location $LOCATION \
-  --enable-workload-profiles
-```
+1. Add workload profiles (optional). For dedicated compute resources, add a workload profile.
 
-### Add workload profiles (optional)
+    ```azurecli
+    # List available workload profiles
+    az containerapp env workload-profile list-supported -l $LOCATION --output table
+    
+    # Set workload profile variables
+    WORKLOAD_PROFILE_NAME="myWorkloadProfile"
+    WORKLOAD_PROFILE_TYPE="D4"
+    
+    # Add workload profile
+    az containerapp env workload-profile add \
+      --resource-group $RESOURCE_GROUP \
+      --name $CONTAINERAPPS_ENVIRONMENT \
+      --workload-profile-type $WORKLOAD_PROFILE_TYPE \
+      --workload-profile-name $WORKLOAD_PROFILE_NAME \
+      --min-nodes 1 \
+      --max-nodes 3
+    ```
 
-For dedicated compute resources, add a workload profile:
+1. Create a storage account for your function app.
 
-```azurecli
-# List available workload profiles
-az containerapp env workload-profile list-supported -l $LOCATION --output table
+    ```azurecli
+    az storage account create \
+      --name $STORAGE_ACCOUNT_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --location $LOCATION \
+      --sku $STORAGE_ACCOUNT_SKU
+    ```
 
-# Set workload profile variables
-WORKLOAD_PROFILE_NAME="myWorkloadProfile"
-WORKLOAD_PROFILE_TYPE="D4"
+1. Get the storage account connection string.
 
-# Add workload profile
-az containerapp env workload-profile add \
-  --resource-group $RESOURCE_GROUP \
-  --name $CONTAINERAPPS_ENVIRONMENT \
-  --workload-profile-type $WORKLOAD_PROFILE_TYPE \
-  --workload-profile-name $WORKLOAD_PROFILE_NAME \
-  --min-nodes 1 \
-  --max-nodes 3
-```
+    ```azurecli
+    STORAGE_ACCOUNT_CONNECTION_STRING=$(az storage account show-connection-string \
+      --name $STORAGE_ACCOUNT_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --query connectionString \
+      --output tsv)
+    ```
 
-### Create storage account
+1. Create an Application Insights resource for monitoring.
 
-Create a storage account for your function app's storage requirements:
+    ```azurecli
+    az monitor app-insights component create \
+      --app $APPLICATION_INSIGHTS_NAME \
+      --location $LOCATION \
+      --resource-group $RESOURCE_GROUP \
+      --application-type web
+    ```
 
-```azurecli
-az storage account create \
-  --name $STORAGE_ACCOUNT_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --location $LOCATION \
-  --sku $STORAGE_ACCOUNT_SKU
-```
+1. Get the Application Insights connection string.
 
-Get the storage account connection string:
-
-```azurecli
-STORAGE_ACCOUNT_CONNECTION_STRING=$(az storage account show-connection-string \
-  --name $STORAGE_ACCOUNT_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --query connectionString \
-  --output tsv)
-```
-
-### Create Application Insights
-
-Create an Application Insights resource for monitoring:
-
-```azurecli
-az monitor app-insights component create \
-  --app $APPLICATION_INSIGHTS_NAME \
-  --location $LOCATION \
-  --resource-group $RESOURCE_GROUP \
-  --application-type web
-```
-
-Get the Application Insights connection string:
-
-```azurecli
-APPLICATION_INSIGHTS_CONNECTION_STRING=$(az monitor app-insights component show \
-  --app $APPLICATION_INSIGHTS_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --query connectionString \
-  --output tsv)
-```
+    ```azurecli
+    APPLICATION_INSIGHTS_CONNECTION_STRING=$(az monitor app-insights component show \
+      --app $APPLICATION_INSIGHTS_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --query connectionString \
+      --output tsv)
+    ```
 
 ## Deploy your function app
 
-Create the container app with function app configuration:
+Create the container app with configuration for your Functions app.
 
 ```azurecli
 az containerapp create \
@@ -164,13 +158,9 @@ az containerapp create \
 
 ## Manage multiple revisions (optional)
 
-For scenarios requiring multiple revisions with traffic splitting:
+For scenarios requiring multiple revisions with traffic splitting, update your container app to create a new revision by deploying a new container image version.
 
-### Update to create a new revision
-
-Update your container app to create a new revision by deploying a new container image version:
-
-### Split traffic between revisions
+Use the following command to split traffic between revisions.
 
 ```azurecli
 az containerapp ingress traffic set \
@@ -216,52 +206,44 @@ az containerapp function show \
 
 Monitoring your function app is essential for understanding its performance and diagnosing issues. The following commands show you how to retrieve function URLs, trigger invocations, and view detailed telemetry and invocation summaries using the Azure CLI.
 
-### Get the function URL
+1. Get your container app's fully qualified domain name (FQDN).
 
-First, get your container app's fully qualified domain name (FQDN):
+    ```azurecli
+    FQDN=$(az containerapp show \
+      --resource-group $RESOURCE_GROUP \
+      --name $CONTAINERAPP_NAME \
+      --query properties.configuration.ingress.fqdn \
+      --output tsv)
+    
+    echo "Function URL: https://$FQDN/api/HttpExample"
+    ```
 
-```azurecli
-FQDN=$(az containerapp show \
-  --resource-group $RESOURCE_GROUP \
-  --name $CONTAINERAPP_NAME \
-  --query properties.configuration.ingress.fqdn \
-  --output tsv)
+1. To produce telemetry data, trigger your function.
 
-echo "Function URL: https://$FQDN/api/HttpExample"
-```
+    ```bash
+    curl -X POST "https://$FQDN/api/HttpExample"
+    ```
 
-### Test your function
+1. To view invocation traces, get detailed traces of function invocations.
 
-To produce telemetry data, trigger your function:
+    ```azurecli
+    az containerapp function invocations traces \
+      --name $CONTAINERAPP_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --function-name HttpExample \
+      --timespan 5h \
+      --limit 3
+    ```
 
-```bash
-curl -X POST "https://$FQDN/api/HttpExample"
-```
+1. View a invocation summary to review successful and failed invocations.
 
-### View invocation traces
-
-Get detailed traces of function invocations:
-
-```azurecli
-az containerapp function invocations traces \
-  --name $CONTAINERAPP_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --function-name HttpExample \
-  --timespan 5h \
-  --limit 3
-```
-
-### Get invocation summary
-
-View a summary of successful and failed invocations:
-
-```azurecli
-az containerapp function invocations summary \
-  --name $CONTAINERAPP_NAME \
-  --resource-group $RESOURCE_GROUP \
-  --function-name HttpExample \
-  --timespan 5h
-```
+    ```azurecli
+    az containerapp function invocations summary \
+      --name $CONTAINERAPP_NAME \
+      --resource-group $RESOURCE_GROUP \
+      --function-name HttpExample \
+      --timespan 5h
+    ```
 
 ## Manage function keys
 
@@ -318,14 +300,6 @@ az containerapp function keys set \
   --key-type hostKey \
   --key-name $KEY_NAME \
   --key-value $KEY_VALUE
-```
-
-## Clean up resources
-
-If you're not going to continue to the resources created in this article, you can delete resource group using the following command:
-
-```azurecli
-az group delete --name $RESOURCE_GROUP --yes --no-wait
 ```
 
 ## Next steps
