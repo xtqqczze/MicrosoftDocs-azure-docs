@@ -1,13 +1,13 @@
 ---
 title: Web application firewall exclusion lists in Azure Application Gateway - Azure portal
 description: This article provides information on Web Application Firewall exclusion lists configuration in Application Gateway with the Azure portal.
-services: web-application-firewall
-author: vhorne
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
-ms.date: 01/13/2025
-ms.author: victorh
 ms.topic: concept-article
+ms.date: 01/13/2025
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a web application administrator, I want to configure exclusion lists for my Web Application Firewall, so that I can prevent false positives and ensure legitimate traffic is not blocked by security rules.
 ---
 
 # Web Application Firewall exclusion lists

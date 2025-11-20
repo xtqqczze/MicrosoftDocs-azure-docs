@@ -6,6 +6,7 @@ ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.date: 04/30/2024
+ms.custom: sfi-image-nochange
 #customer intent: As a network engineer, I want to deploy User-Defined Routes (UDRs) with Azure Virtual Network Manager.
 ---
 
@@ -19,14 +20,9 @@ In this article, you learn how to deploy [User-Defined Routes (UDRs)](concept-us
     
 - Routing configuration to create UDRs for the network group
 
-> [!IMPORTANT]
-> User-defined routes management with Azure Virtual Network Manager is generally available in select regions. For more information and a list of regions, see [General availability](./concept-user-defined-route.md#general-availability).
->
-> Regions that aren't listed in the previous link are in public preview. Public previews are made available to you on the condition that you agree to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some features might not be supported or might have constrained capabilities. This preview version is provided without a service level agreement, and it's not recommended for production workloads.
-
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - You need to have the **Network Contributor Role** for the scope that you want to use for your virtual network manager instance. 
 

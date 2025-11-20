@@ -8,6 +8,7 @@ ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 10/19/2022
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 # Configure and run a module on GPU on Azure Stack Edge Pro device
 
@@ -97,7 +98,7 @@ To configure a module to use the GPU on your Azure Stack Edge Pro device to run 
 
        ![Configure module to use GPU 11](media/azure-stack-edge-gpu-configure-gpu-modules/configure-gpu-7.png)
 
-       For more information on environment variables that you can use with the NVIDIA GPU, go to [nVidia container runtime](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).
+       For more information on environment variables that you can use with the NVIDIA GPU, go to [NVIDIA container runtime](https://github.com/NVIDIA/nvidia-container-runtime#environment-variables-oci-spec).
 
     > [!NOTE]
     > A module can use one, both or no GPUs.

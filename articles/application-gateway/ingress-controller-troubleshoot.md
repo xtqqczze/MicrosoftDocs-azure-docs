@@ -2,11 +2,13 @@
 title: Application Gateway Ingress Controller troubleshooting
 description: This article provides documentation on how to troubleshoot common questions and issues with the Application Gateway Ingress Controller.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 01/31/2024
-ms.author: greglin
+ms.author: mbender
+ms.custom: sfi-image-nochange
+# Customer intent: As a Kubernetes administrator, I want to troubleshoot the Application Gateway Ingress Controller installation, so that I can ensure it is configured correctly and resolve any issues affecting application accessibility.
 ---
 
 # Troubleshoot common questions or issues with Ingress Controller
@@ -17,7 +19,7 @@ and AGIC installation. Launch your shell from [shell.azure.com](https://shell.az
 :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers](for-containers/overview.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
 ## Test with a simple Kubernetes app
 
@@ -310,3 +312,8 @@ rbac:
 aksClusterConfiguration:
     apiServerAddress: <aks-api-server-address>
 ```
+
+
+## Review Application Gateway Activity Log
+
+When troubleshooting Application Gateway Ingress Controller issues, it's good practice to check the Application Gateway's Activity Log in addition to Kubernetes resources. Every time AGIC applies a new configuration, a corresponding entry is recorded in the Activity Log in the Azure portal. Reviewing these entries helps to confirm whether configuration updates were successfully applied and can often reveal gateway-related issues that aren't visible from the Kubernetes side.

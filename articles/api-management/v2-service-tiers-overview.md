@@ -1,14 +1,16 @@
 ---
-title: Azure API Management - v2 tiers
+title: Azure API Management - V2 Tiers
 description: Introduction to key scenarios, capabilities, and concepts of the v2 tiers (SKUs) of the Azure API Management service. 
 services: api-management
 author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/20/2024
+ms.date: 11/11/2025
 ms.author: danlep
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - build-2025
 ---
 
 # Azure API Management v2 tiers
@@ -23,12 +25,7 @@ The following v2 tiers are generally available:
 
 * **Standard v2** - Standard v2 is a production-ready tier with support for network-isolated backends.
 
-The following v2 tier is in preview:
-
-* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation and scaling for high volume workloads.
-
-    > [!NOTE]
-    > The Premium v2 tier is currently in limited preview. To sign up, fill [this form](https://aka.ms/premiumv2).
+* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation, scaling for high volume workloads, availability zones, and workspaces.
 
 ## Key capabilities
 
@@ -51,7 +48,7 @@ The latest capabilities of the v2 tiers are supported in API Management API vers
 
 * **Standard v2** and **Premium v2** support **virtual network integration** to allow your API Management instance to reach API backends that are isolated in a single connected virtual network. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The virtual network must be in the same region and subscription as the API Management instance. [Learn more](integrate-vnet-outbound.md).
 
-    In preview, *Standard v2* also supports inbound [private endpoint connections](private-endpoint.md) to the API Management gateway.
+* **Standard v2** and **Premium v2** also support inbound [private endpoint connections](private-endpoint.md) to the API Management gateway.
 
 * **Premium v2** also supports simplified **virtual network injection** for complete isolation of inbound and outbound gateway traffic without requiring network security group rules, route tables, or service endpoints. The virtual network must be in the same region and subscription as the API Management instance. [Learn more](inject-vnet-v2.md).
 
@@ -74,23 +71,20 @@ The following API Management capabilities are currently unavailable in the v2 ti
 
 **Infrastructure and networking**
 * Multi-region deployment 
-* Availability zone support
 * Multiple custom domain names 
 * Capacity metric - *replaced by CPU Percentage of Gateway and Memory Percentage of Gateway metrics*
 * Built-in analytics - *replaced by Azure Monitor-based dashboard*
-* Autoscaling
-* Upgrade to v2 tiers from classic tiers 
-* CA Certificates
+* CA certificates - *replaced by CA certificates in backend entity*
 * Sending events to Event Grid
+* Event Hubs event metrics
+* Upgrade to v2 tiers from classic tiers 
 
 **Developer portal**
-* Reports
+* Reports 
 * Custom HTML code widget and custom widget
-* Self-hosted developer portal
 
 **Gateway**
 * Self-hosted gateway
-* Quota by key policy
 * Cipher configuration
 * Client certificate renegotiation
 * Free, managed TLS certificate
@@ -110,7 +104,7 @@ The following limits apply to the developer portal in the v2 tiers.
 
 ## Deployment
 
-Deploy a v2 tier instance using the Azure portal or using tools such as the Azure REST API, Azure Resource Manager, Bicep template, or Terraform.
+Deploy a v2 tier instance using the Azure portal or using tools such as the Azure REST API, Azure Resource Manager, Bicep file, or Terraform.
 
 ## Frequently asked questions
 
@@ -120,7 +114,7 @@ A: No. Currently you can't migrate an existing API Management instance (in the C
 
 ### Q: What's the relationship between the stv2 compute platform and the v2 tiers?
 
-A: They're not related. stv2 is a [compute platform](compute-infrastructure.md) version of the Developer, Basic, Standard, and Premium tier service instances. stv2 is a successor to the stv1 compute platform [that retired in 2024](./breaking-changes/stv1-platform-retirement-august-2024.md).
+A: They're not related. stv2 is a compute platform version of the Developer, Basic, Standard, and Premium tier service instances. stv2 is a successor to the stv1 compute platform that retired in 2024.
 
 ### Q: Will I still be able to provision Developer, Basic, Standard, or Premium tier services? 
 
