@@ -46,7 +46,7 @@ Finally, you can remove the configuration that was installed on your cluster. To
 kubectl delete -f ama-metrics-prometheus-config.yaml
 ```
 
-## Related content
+## Next steps
 
 - [Deploy observability resources with a script](howto-configure-observability.md)
 - [How to Deploy observability resources manually](howto-configure-observability-manual.md)
