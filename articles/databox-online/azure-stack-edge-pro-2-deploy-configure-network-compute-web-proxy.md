@@ -202,9 +202,9 @@ After the virtual switches are created, you can enable the switches for Kubernet
 
     <!--If you select the **other workloads** option for an *n*-node device, a contiguous range of a minimum of *n+1* IPv4 addresses (or more) are provided for the compute VM using the start and end IP addresses. For a 1-node device, provide a minimum of 2 free, contiguous IPv4 addresses. For a two-node cluster, provide a minimum of 3 free, contiguous IPv4 addresses.-->
 
-    <!-- > [!IMPORTANT]
+    > [!IMPORTANT]
     > - If you're running **other workloads** in your environment, Kubernetes on Azure Stack Edge uses 172.27.0.0/16 subnet for pod and 172.28.0.0/16 subnet for service. Make sure that these are not in use in your network. For more information, see [Change Kubernetes pod and service subnets](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
-    > - DHCP mode is not supported for Kubernetes node IPs.-->
+    > - DHCP mode is not supported for Kubernetes node IPs.
 
 1. Assign **Kubernetes external service IPs**. These are also the load-balancing IP addresses. These contiguous IP addresses are for services that you want to expose outside of the Kubernetes cluster and you specify the static IP range depending on the number of services exposed. 
     
