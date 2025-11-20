@@ -145,6 +145,18 @@ Subscription quota metrics display subscription-level quotas relative to the imp
 
     Number of NetApp accounts per region 
 
+- *Capacity pools per subscription*
+
+    Number of capacity pools per subscription
+
+- *Snapshots per volume*
+
+    Number of snapshots per volume
+
+- *Buckets per volume*
+
+    Number of buckets per volume
+
 - *Total backup enabled volumes per subscription*
 
     Maximum number of volumes that can be backed up per subscription 
@@ -153,18 +165,34 @@ Subscription quota metrics display subscription-level quotas relative to the imp
 
     Total number of cool access volumes per subscription 
 
+- *Volumes per subscription*
+
+    Total number of volumes per subscription
+
+- *Volumes per capacity pool*
+
+    Total number of volumes per capacity pool
+
 - *Total DP volumes per subscription* 
 
-    Total number of data protection volumes per subscription  
+    Total number of data protection volumes per subscription (destination volumes)
+
+- *Short-term clone volumes per source volume*
+
+    Total number of short-term clone volumes per source volume
+
+- *Short-term clone volumes per subscription*
+
+    Total number of short-term clone volumes per subscription
+
+- *Ransomware protection volumes per subscription*
+
+    Total number of advanced ransomware protection-enabled volumes per subscription
 
 - *Total TIBs per subscription* 
 
     Total regional capacity per subscription 
 
-- *Total volumes per subscription* 
-
-    Total number of volumes per subscription  
-    
 ## <a name="capacity_pools"></a>Usage metrics for capacity pools
 
 - *Pool Allocated Size*   
