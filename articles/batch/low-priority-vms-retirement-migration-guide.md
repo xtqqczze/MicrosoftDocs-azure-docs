@@ -89,7 +89,8 @@ $pool = Get-AzBatchPool -Id "spot-pool-001" -BatchContext $context
 $pool | Select-Object Id, VmSize, @{Name="SpotNodes";Expression={$_.TargetLowPriorityComputeNodes}}, State
 ```
 
-### Option 3: Azure Portal (UI method)
+### Option 3: Azure portal (UI method)
+
 1. In the Azure portal, select the Batch account and view an existing pool or create a new pool.
 1. Under **Scale**, select either **Target dedicated nodes** or **Target Spot/low-priority nodes**.
 
