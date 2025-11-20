@@ -1,7 +1,8 @@
 ---
 title: Deploy Start/Stop VMs v2 to an Azure subscription
+titleSuffix: Azure Functions
 description: This article tells how to deploy the Start/Stop VMs v2 feature for your Azure VMs in your Azure subscription.
-services: azure-functions
+ms.service: azure-functions
 ms.date: 06/08/2022
 ms.topic: how-to
 ms.custom: subject-rbac-steps
@@ -34,7 +35,7 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 to
 > Currently this solution does not support specifying an existing Storage account or Application Insights resource.
 
 > [!NOTE]
-> The naming format for the function app and storage account has changed. To guarantee global uniqueness, a random and unique string is now appended to the names of these resource.
+> The naming format for the function app and storage account changed. To guarantee global uniqueness, a random and unique string is now appended to the names of these resources.
 
 1. Open your browser and navigate to the Start/Stop VMs v2 [GitHub organization](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md).
 1. Select the deployment option based on the Azure cloud environment your Azure VMs are created in.
@@ -63,10 +64,10 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 to
     |Name |Value |
     |-----|------|
     |Region |Select a region near you for new resources.|
-    |Resource Group Name |Specify the resource group name that will contain the individual resources for Start/Stop VMs. |
+    |Resource Group Name |Specify the resource group name that contain the individual resources for Start/Stop VMs. |
     |Resource Group Region |Specify the region for the resource group. For example, **Central US**.|
-    |Azure Function App Name |Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. |
-    |Application Insights Name |Specify the name of your Application Insights instance that will hold the analytics for Start/Stop VMs. |
+    |Azure Function App Name |Type a name that's valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. |
+    |Application Insights Name |Specify the name of your Application Insights instance that holds the analytics for Start/Stop VMs. |
     |Application Insights Region |Specify the region for the Application Insights instance.|
     |Storage Account Name |Specify the name of the Azure Storage account to store Start/Stop VMs execution telemetry. |
     |Email Address |Specify one or more email addresses to receive status notifications, separated by a comma (,).|
@@ -81,7 +82,7 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 to
     :::image type="content" source="media/deploy/deployment-results-resource-list.png" alt-text="Start/Stop VMs template deployment resource list":::
 
 > [!NOTE]
-> We are collecting operation and heartbeat telemetry to better assist you if you reach the support team for any troubleshooting. We are also collecting virtual machine event history to verify when the service acted on a virtual machine and how long a virtual machine was snoozed in order to determine the efficacy of the service.
+> We collect operation and heartbeat telemetry to better assist you if you reach the support team for any troubleshooting. We also collect virtual machine event history to verify when the service acted on a virtual machine and how long a virtual machine was snoozed in order to determine the efficacy of the service.
 
 ## Enable multiple subscriptions
 
@@ -111,7 +112,7 @@ To manage the automation method to control the start and stop of your VMs, you c
 
 - Scheduled - Start and stop actions are based on a schedule you specify against Azure Resource Manager and classic VMs. **ststv2_vms_Scheduled_start** and **ststv2_vms_Scheduled_stop** configure the scheduled start and stop.
 
-- Sequenced - Start and stop actions are based on a schedule targeting VMs with pre-defined sequencing tags. Only two named tags are supported - **sequencestart** and **sequencestop**. **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop** configure the sequenced start and stop.
+- Sequenced - Start and stop actions are based on a schedule targeting VMs with predefined sequencing tags. Only two named tags are supported - **sequencestart** and **sequencestop**. **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop** configure the sequenced start and stop.
 
     > [!NOTE]
     > This scenario only supports Azure Resource Manager VMs.
@@ -126,7 +127,7 @@ Perform the following steps to configure the scheduled start and stop action for
 
 Configuring the logic app to just start the VMs is supported.
 
-For each scenario, you can target the action against one or more subscriptions, single or multiple resource groups, and specify one or more VMs in an inclusion or exclusion list. You cannot specify them together in the same logic app.
+For each scenario, you can target the action against one or more subscriptions, single or multiple resource groups, and specify one or more VMs in an inclusion or exclusion list. You can't specify them together in the same logic app.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and then navigate to **Logic apps**.
 
@@ -139,7 +140,7 @@ For each scenario, you can target the action against one or more subscriptions, 
     :::image type="content" source="media/deploy/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
 
    > [!NOTE]
-   > If you do not provide a start date and time for the first recurrence, a recurrence will immediately run when you save the logic app, which might cause the VMs to start or stop before the scheduled run.
+   > If you don't provide a start date and time for the first recurrence, a recurrence immediately runs when you save the logic app, which might cause the VMs to start or stop before the scheduled run.
 
 1. In the designer pane, select **Function-Try** to configure the target settings. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
 

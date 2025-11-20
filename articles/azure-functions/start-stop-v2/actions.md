@@ -1,7 +1,8 @@
 ---
-title: Adding preactions to schedules in Start/Stop VMs v2 (Azure)
+title: Add preactions to schedules in Start/Stop VMs v2 (Azure)
+titleSuffix: Azure Functions
 description: This article shows you how to add a preaction to your Start/Stop VMs v2 schedules.
-services: azure-functions
+ms.service: azure-functions
 ms.date: 09/21/2022
 ms.topic: how-to
 ---

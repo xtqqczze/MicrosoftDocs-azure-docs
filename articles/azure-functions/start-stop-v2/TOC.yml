@@ -7,7 +7,7 @@
   - name: Manage Start/Stop VMs
     href: manage.md
   - name: Preactions in Start/Stop VMs
-    href: preactions.md
+    href: actions.md
   - name: Remove Start/Stop VMs
     href: remove.md
   - name: Troubleshoot Start/Stop VMs
