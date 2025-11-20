@@ -264,7 +264,7 @@
       href: api-management-authenticate-authorize-azure-openai.md
     - name: Log LLM tokens, requests, and responses
       href: api-management-howto-llm-logs.md
-  - name: Manage MCP servers
+  - name: Manage AI tools and agents
     items:
     - name: MCP server capabilities
       href: mcp-server-overview.md
@@ -274,6 +274,8 @@
       href: expose-existing-mcp-server.md
     - name: Secure access to MCP servers
       href: secure-mcp-servers.md
+    - name: Import A2A agent API
+      href: agent-to-agent-api.md
 - name: Manage APIs with policies
   items:
   - name: API Management policies overview

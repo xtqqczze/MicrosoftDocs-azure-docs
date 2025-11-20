@@ -2030,3 +2030,12 @@ groups:
     title: Business Critical
   - id: hyperscale
     title: Hyperscale
+# Owner: jodowns
+- id: virtual-network-gateway-types
+  title: Gateway type
+  prompt: Choose a virtual network gateway type
+  pivots:
+  - id: expressroute
+    title: Azure ExpressRoute gateway
+  - id: vpn
+    title: Azure VPN Gateway

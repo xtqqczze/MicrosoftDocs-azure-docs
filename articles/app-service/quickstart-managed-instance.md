@@ -1,17 +1,25 @@
 ---
-title: 'Quickstart: Deploy Managed Instance on Azure App Service (preview)'
+title: "Quickstart: Deploy Managed Instance on Azure App Service (Preview)"
 description: Learn how to configure Managed Instance on Azure App Service
-keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
-ms.topic: quickstart
-ms.date: 11/05/2025
-ms.author: msangapu
 author: msangapu-msft
+ms.author: msangapu
+ms.reviewer: maghan
+ms.date: 11/18/2025
 ms.service: azure-app-service
+ms.topic: quickstart
+keywords:
+  - app service
+  - azure app service
+  - scale
+  - scalable
+  - scalability
+  - app service plan
+  - app service cost
 ---
 
 # Deploy Managed Instance on Azure App Service (preview)
 
-Managed Instance on Azure App Service combines the simplicity of platform-as-a-service with the flexibility of infrastructure-level control. Managed Instance is designed for applications that require plan-level isolation, customization, and secure network integration.
+Managed Instance on Azure App Service combines the simplicity of platform as a service with the flexibility of infrastructure-level control. Managed Instance is designed for applications that require plan-level isolation, customization, and secure network integration.
 
 [!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
 
@@ -23,15 +31,15 @@ In this quickstart, you complete the following steps:
 
 ## Prerequisites
 
-* **Azure account**: You need an Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- **Azure account**: You need an Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* **Access to the approved regions**: During preview, regions for Managed Instance include: *East Asia*, *East US*, *North Europe*, and *West Central US*. More regions to follow.
+- **Access to the approved regions**: During preview, regions for Managed Instance include: *East Asia*, *East US*, *North Europe*, and *West Central US*. More regions to follow.
 
-* [Managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity)
+- [Managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity)
 
-* [Storage account and storage container (blob)](/storage/blobs/storage-quickstart-blobs-portal.md)
+- [Quickstart: Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md)
 
-* Configuration (install) scripts (PowerShell script named `Install.ps1`) in a compressed .zip file
+- Configuration (install) scripts (PowerShell script named `Install.ps1`) in a compressed .zip file
 
 ## Deploy sample resources
 
@@ -54,7 +62,7 @@ The `azd up` command does the following actions:
 1. Compresses included fonts and Install.ps1 into scripts.zip.
 1. Upload scripts.zip to the storage container.
 
-> [!NOTE]
+> [!NOTE]  
 > The configuration script package (`scripts.zip`) deployed with the sample resources contains `Install.ps1`, which copies Microsoft Aptos font files into C:\Windows\Fonts. The sample app you deploy later renders text into an image using these fonts. This process demonstrates how a Managed Instance configuration (install) script can lay down OS-level or framework dependencies before app code runs.
 >
 
@@ -105,37 +113,37 @@ Follow these steps to create a Managed Instance plan and deploy an app to it:
 
 #### Project details
 
-   | Setting | Value |
-   |-------|----------|
-   | Subscription | Your Azure subscription |
-   | Resource Group | **rg-managed-instance** |
+| Setting | Value |
+| --- | --- |
+| Subscription | Your Azure subscription |
+| Resource Group | **rg-managed-instance** |
 
 #### App details
 
-   | Setting | Value |
-   |-------|----------|
-   | Name | **contoso-mi-app** |
-   | Runtime stack | **ASPNET V4.8** |
-   | Region | A region near you |
+| Setting | Value |
+| --- | --- |
+| Name | **contoso-mi-app** |
+| Runtime stack | **ASPNET V4.8** |
+| Region | A region near you |
 
 #### Pricing plans
 
-   | Setting | Value |
-   |-------|----------|
-   | Windows Plan | Use default plan or create new (for example, 'contoso-mi-plan')|
-   | Pricing plans* | Select a pricing plan. If Pv4 or Pmv4 isn't visible in _pricing plans_, confirm region availability or request more quota.|
+| Setting | Value |
+| --- | --- |
+| Windows Plan | Use default plan or create new (for example, 'contoso-mi-plan') |
+| Pricing plans* | Select a pricing plan. If Pv4 or Pmv4 isn't visible in _pricing plans_, confirm region availability or request more quota. |
 
 On the Advanced tab, provide the following details.
 
 #### Configuration (install) script
 
-   | Setting | Value |
-   |-------|----------|
-   | Storage Account | Use default plan or create new (for example, 'contoso-mi-plan')|
-   | Container | **scripts** |
-   | Zip file | **scripts.zip** |
-   | Value | Verify the .zip URL is correct|
-   | Identity | Select the managed identity that was created earlier|
+| Setting | Value |
+| --- | --- |
+| Storage Account | Use default plan or create new (for example, 'contoso-mi-plan') |
+| Container | **scripts** |
+| Zip file | **scripts.zip** |
+| Value | Verify the .zip URL is correct |
+| Identity | Select the managed identity that was created earlier |
 
 1. Select **Review + create** and then select **Create**.
 
@@ -158,7 +166,7 @@ az deployment group create \
 
 Deployment takes several minutes while resources provisioned.
 
-2. The following command creates a web app on the Managed Instance plan.
+1. The following command creates a web app on the Managed Instance plan.
 
 ```bash
 az webapp create \
@@ -168,7 +176,7 @@ az webapp create \
   --runtime "ASPNET:V4.8"
 ```
 
-3. The following command assigns a Managed Identity to the web app.
+1. The following command assigns a Managed Identity to the web app.
 
 ```bash
 az webapp identity assign \
@@ -230,7 +238,7 @@ az group delete
 
 ---
 
-## Next steps
+## Related content
 
 - [Configure Managed Instance](configure-managed-instance.md)
 - [App Service overview](overview.md)

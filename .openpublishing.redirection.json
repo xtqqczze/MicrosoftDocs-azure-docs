@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/defender-for-iot/organizations/custom-columns-sample-script.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/custom-columns-sample-script",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/business-continuity-center/index.yml",
       "redirect_url": "/azure/resiliency/",
       "redirect_document_id": false
@@ -6214,6 +6219,12 @@
       "source_path": "articles/storage/container-storage/container-storage-aks-quickstart.md",
       "redirect_url": "/azure/storage/container-storage/install-container-storage-aks",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/vpn-gateway/about-zone-redundant-vnet-gateways.md",
+      "redirect_url": "/azure/reliability/reliability-virtual-network-gateway",
+      "redirect_document_id": true
     }
+    
   ]
 }
