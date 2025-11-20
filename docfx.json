@@ -1206,7 +1206,7 @@
         "articles/cloud-services-extended-support/**/*.md": "wwilliams, jushiman",
         "articles/confidential-computing/**/*.md": "wwilliams, jushiman",
         "articles/cyclecloud/**/*.md": "padmalathas",
-        "articles/databox/**/*.md": "akashdubey-ms ",
+        "articles/databox/**/*.md": "akashdubey-ms",
         "articles/databox-gateway/**/*.md": "akashdubey-ms",
         "articles/ddos-protection/**/*.md": "cherylmc, abell",
         "articles/dns/**/*.md": "cherylmc, abell",
