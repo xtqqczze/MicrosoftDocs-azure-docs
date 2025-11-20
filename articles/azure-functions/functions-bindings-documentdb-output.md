@@ -5,15 +5,17 @@ author: sajeetharan
 ms.author: sasinnat
 ms.topic: reference
 ms.date: 11/19/2025
+ms.custom:
+  - sfi-ropc-nochange
 ---
 
 # Azure DocumentDB output binding for Azure Functions
 
-This article explains how to work with the [Azure DocumentDB](/azure/documentdb/introduction) output binding in Azure Functions. 
+[!INCLUDE [functions-bindings-documentdb-preview](../../includes/functions-bindings-documentdb-preview.md)]
+
+This article explains how to work with the [Azure DocumentDB](/azure/documentdb/overview) output binding in Azure Functions. 
 
 The Azure DocumentDB output binding lets you write a new document to an Azure DocumentDB collection.
-
-[!INCLUDE [functions-bindings-documentdb-preview](../../includes/functions-bindings-documentdb-preview.md)]
 
 ## Example
 
@@ -39,7 +41,7 @@ This example shows a Timer trigger function that uses `CosmosDBMongoCollector` t
 
 The examples refer to a simple `TestClass` type:
 
-```cs
+```csharp
 namespace Sample
 {
     public class TestClass
@@ -54,8 +56,8 @@ namespace Sample
 
 This table describes the binding configuration properties of the `CosmosDBMongoTrigger` attribute.
 
-|Parameter | Description|
-|---------|----------------------|
+| Parameter | Description |
+| --- | --- |
 |**FunctionId** | (Optional) The ID of the trigger function. |
 |**DatabaseName** | The name of the database being monitored by the trigger for changes. |
 |**CollectionName** | The name of the collection in the database being monitored by the trigger for changes.|

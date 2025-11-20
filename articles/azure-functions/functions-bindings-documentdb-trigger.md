@@ -5,15 +5,17 @@ author: sajeetharan
 ms.author: sasinnat
 ms.topic: reference
 ms.date: 11/19/2025
+ms.custom:
+  - sfi-ropc-nochange
 ---
 
 # Azure DocumentDB trigger for Azure Functions
 
+[!INCLUDE [functions-bindings-documentdb-preview](../../includes/functions-bindings-documentdb-preview.md)]
+
 This article explains how to work with the [Azure DocumentDB](/azure/documentdb/overview) trigger in Azure Functions.
 
 The change feed publishes only new and updated items. Watching for delete operations using change streams is currently not supported.
-
-[!INCLUDE [functions-bindings-documentdb-preview](../../includes/functions-bindings-documentdb-preview.md)]
 
 ## Example
 
@@ -27,13 +29,13 @@ For the complete example, see [Sample.cs](https://github.com/Azure/Azure-functio
 
 This table describes the binding configuration properties of the `CosmosDBMongoTrigger` attribute.
 
-|Parameter | Description|
-|---------|----------------------|
-|**FunctionId** | (Optional) The ID of the trigger function. |
-|**DatabaseName** | The name of the database being monitored by the trigger for changes. Required unless `TriggerLevel` is set to `MonitorLevel.Cluser`. |
-|**CollectionName** | The name of the collection in the database being monitored by the trigger for changes. Required when `TriggerLevel` is set to `MonitorLevel.Collection`.|
-|**ConnectionStringSetting** | The name of an app setting or setting collection that specifies how to connect to the Azure DocumentDB cluster being monitored. |
-|**TriggerLevel** | Indicates the level at which changes are being monitored. Valid values of `MonitorLevel` are: `Collection`, `Database`, and `Cluster`. |
+| Parameter | Description |
+| --- | --- |
+| **FunctionId** | (Optional) The ID of the trigger function. |
+| **DatabaseName** | The name of the database being monitored by the trigger for changes. Required unless `TriggerLevel` is set to `MonitorLevel.Cluser`. |
+| **CollectionName** | The name of the collection in the database being monitored by the trigger for changes. Required when `TriggerLevel` is set to `MonitorLevel.Collection`.|
+| **ConnectionStringSetting** | The name of an app setting or setting collection that specifies how to connect to the Azure DocumentDB cluster being monitored. |
+| **TriggerLevel** | Indicates the level at which changes are being monitored. Valid values of `MonitorLevel` are: `Collection`, `Database`, and `Cluster`. |
 
 ## Usage
 

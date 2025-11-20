@@ -5,41 +5,41 @@ author: sajeetharan
 ms.author: sasinnat
 ms.topic: reference
 ms.date: 11/19/2025
+ms.custom:
+  - sfi-ropc-nochange
 ---
 
 # Azure DocumentDB bindings for Azure Functions
 
-The Azure DocumentDB extension supports trigger, input, and output bindings for Azure DocumentDB. 
-
 [!INCLUDE [functions-bindings-documentdb-preview](../../includes/functions-bindings-documentdb-preview.md)]
+
+The [Azure DocumentDB](/azure/documentdb/overview) extension supports trigger, input, and output bindings for Azure DocumentDB. 
 
 Using the Azure DocumentDB extension, you can build functions that can:
 
 | Action  | Trigger/binding type |
-|---------|-----------|
+| --- | --- |
 | Execute on changes to a collection | [Azure DocumentDB trigger](functions-bindings-documentdb-trigger.md) |
 | Write documents to the database | [Azure DocumentDB output binding](functions-bindings-documentdb-output.md)| 
 | Query the database | [Azure DocumentDB input binding](functions-bindings-documentdb-input.md) |
 
 Considerations for the Azure DocumentDB extension:
-+ Only [C# apps that use the legacy in-process model](./functions-dotnet-class-library.md) are currently supported in preview.
-+ The Azure DocumentDB binding extension doesn't currently support Microsoft Entra authentication and managed identities. 
-+ Your app must be using version 4.x of the Azure Functions runtime.
+
+- Only [C# apps that use the legacy in-process model](./functions-dotnet-class-library.md) are currently supported in preview.
+- The Azure DocumentDB binding extension doesn't currently support Microsoft Entra authentication and managed identities. 
+- Your app must be using version 4.x of the Azure Functions runtime.
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
-## Supported APIs
-
-[!INCLUDE [Azure Cosmos DB supported APIs note](../../includes/functions-cosmosdb-sqlapi-note.md)]
-
 ## Install extension 
 
-Add the extension to your .NET project for an in-process app by installing [this preview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo/1.1.0-preview):
+Add the extension to your .NET project for an in-process app by installing [this preview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo/1.1.0-preview): `Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo`
 
-`Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo`
+> [!IMPORTANT]
+> While this extension has `AzureCosmosDb` in the name, this is the correct extension for integrating with Azure DocumentDB.
 
->[!NOTE]  
->Don't try to install this package in a .NET isolated worker process app. There will be errors and the app project won't build. To learn how to create a .NET app that uses the legacy in-process model, see [Develop legacy C# class library functions using Azure Functions](functions-dotnet-class-library.md#develop-legacy-c-class-library-functions-using-azure-functions).
+> [!NOTE]  
+> Don't try to install this package in a .NET isolated worker process app. There will be errors and the app project won't build. To learn how to create a .NET app that uses the legacy in-process model, see [Develop legacy C# class library functions using Azure Functions](functions-dotnet-class-library.md#develop-legacy-c-class-library-functions-using-azure-functions).
 
 ## Related articles
  
