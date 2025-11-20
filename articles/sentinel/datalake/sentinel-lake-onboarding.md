@@ -96,7 +96,7 @@ To onboard to the Microsoft Sentinel data lake and graph (preview) in Microsoft 
 
 To configure billing and enable asset data ingestion into the data lake, the following roles must be assigned to the tenant [member](/entra/fundamentals/users-default-permissions) account:
 
-+ Azure Subscription owner for billing setup
++ Azure Subscription owner or Subscription contributor for billing setup
 + Microsoft Entra Global Administrator, or Security Administrator for data ingestion authorization from Microsoft Entra, Microsoft 365, and Azure
 + Read access to all workspaces to enable their attachment to the data lake
 
@@ -115,6 +115,10 @@ During onboarding, your data lake is provisioned in the same [region](/azure/sen
 ## Existing Microsoft Sentinel workspaces
 
 You must connect your Microsoft Sentinel primary workspace to the Defender portal to onboard to the data lake. Your data lake is located in the same region as your primary Sentinel workspace. You can connect other workspaces in the same region as your primary workspace to the Defender portal so you can use them with the data lake. If you onboarded to the data lake, data in Microsoft Sentinel workspaces that are connected to Defender and enabled for use with the data lake. For more information on how to connect Microsoft Sentinel to the Defender portal, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops-platform/microsoft-sentinel-onboard).
+
+## Offboard from Microsoft Sentinel data lake and graph
+
+To disable Microsoft Sentinel data lake and graph, [submit a support request](/defender-xdr/contact-defender-support).
 
 ## Ready to get started?
 
