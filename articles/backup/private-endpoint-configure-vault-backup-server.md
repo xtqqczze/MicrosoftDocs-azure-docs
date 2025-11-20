@@ -196,7 +196,7 @@ For custom DNS servers, [add the private endpoint DNS records to your DNS server
 
 When you use the MARS Agent for backup, ensure your on-premises network is peered with the Azure virtual network that hosts the vault’s private endpoint. You can then continue to install the MARS agent and configure backup that allows  the MARS agent to  store backup data in the vault through private endpoints. However, you must ensure all communication for backup happens through the peered network only.
 
-1. [Register your DPM\MABS Server to the vault](reregister-public-access-vault-backup-server.md#re-register-the-dpmmabs-server-with-vault) you created with private endpoints.
+1. [Register your DPM\MABS Server to the vault](register-public-access-vault-backup-server.md#re-register-the-dpmmabs-server-with-vault) you created with private endpoints.
 
    :::image type="content" source="media/private-endpoint-vault-backup-server/register-backup-server-vault.png" alt-text="Screenshot shows the DPM/MABS server registration to vault with private endpoints." lightbox="media/private-endpoint-vault-backup-server/register-backup-server-vault.png":::
 
@@ -216,7 +216,7 @@ When you use the MARS Agent for backup, ensure your on-premises network is peere
 
 ## Next steps
 
-- [Reregister the MABS/DPM server with Recovery Services vault using public access](reregister-public-access-vault-backup-server.md).
+- [Reregister the MABS/DPM server with Recovery Services vault using public access](register-public-access-vault-backup-server.md).
 
 ## Related content
 
