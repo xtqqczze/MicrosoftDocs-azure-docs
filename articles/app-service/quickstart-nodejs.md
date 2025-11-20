@@ -345,7 +345,7 @@ You can stream log output (calls to `console.log()`) from the Azure app directly
 
 1. In **Resources** in Visual Studio Code, right-click the app node and then select **Start Streaming Logs**.
 
-    :::image type="content" source="media/quickstart-nodejs/view-logs.png" alt-text="Screenshot of the option to Start Streaming Logs":::
+    :::image type="content" source="media/quickstart-nodejs/view-logs.png" alt-text="Screenshot of the option to Start Streaming Logs.":::
 
 1. If asked to restart the app, select **Yes**. Once the app is restarted, the Visual Studio Code output window opens with a connection to the log stream.
 
