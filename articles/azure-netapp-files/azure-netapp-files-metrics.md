@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 11/18/2025
+ms.date: 11/20/2025
 ms.author: anfdocs
 # Customer intent: As a cloud storage administrator, I want to analyze performance and usage metrics for Azure NetApp Files, so that I can optimize storage provisioning and ensure efficient operation of my storage resources.
 ---
@@ -223,7 +223,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     Throughput limit reached is a boolean metric that denotes the volume is hitting its QoS limits. If the metric displays 1, the volume has reached its throughput, and throughput for this volume will be throttled. The value 0 means this limit hasn't yet been reached.
 
      > [!NOTE] 
-     > The "Throughput limit reached metric" is collected every 5 minutes. If the limit has been reached during the previous five-minute window, it means the limit has been reached in that window. 
+     > The "Throughput limit reached" metric is collected every 5 minutes. If the limit has been reached during the previous five-minute window, it means the limit has been reached in that window. 
     
     If the volume is hitting the throughput limit, it's not sized appropriately for the application's demands. To resolve throughput issues:
 
