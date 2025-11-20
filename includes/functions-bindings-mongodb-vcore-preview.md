@@ -1,12 +1,10 @@
 ---
-author: ggailey777
+author: sajeetharan
+ms.author: sasinnat
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/12/2025
-ms.author: glenga
-ms.custom:
-  - build-2025
+ms.date: 11/19/2025
 ---
->[!IMPORTANT]  
->The Azure Cosmos DB for MongoDB (vCore) extension is currently in preview.  
->At this time, only .NET apps that use the [legacy in-process model](../articles/azure-functions/functions-dotnet-class-library.md) are supported.
+
+> [!IMPORTANT]  
+> The Azure DocumentDB extension is currently in preview. At this time, only .NET apps that use the [legacy in-process model](../articles/azure-functions/functions-dotnet-class-library.md) are supported.

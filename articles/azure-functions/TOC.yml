@@ -722,16 +722,16 @@
         items:
         - name: Overview
           displayName: Azure Cosmos DB for MongoDB (vCore)
-          href: functions-bindings-mongodb-vcore.md
+          href: functions-bindings-documentdb.md
         - name: Trigger
           displayName: Azure Cosmos DB for MongoDB (vCore)
-          href: functions-bindings-mongodb-vcore-trigger.md
+          href: functions-bindings-documentdb-trigger.md
         - name: Input
           displayName: Azure Cosmos DB for MongoDB (vCore)
-          href: functions-bindings-mongodb-vcore-input.md
+          href: functions-bindings-documentdb-input.md
         - name: Output
           displayName: Azure Cosmos DB for MongoDB (vCore)
-          href: functions-bindings-mongodb-vcore-output.md
+          href: functions-bindings-documentdb-output.md
     - name: Azure Data Explorer
       items:
       - name: Overview

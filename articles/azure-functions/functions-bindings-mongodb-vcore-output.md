@@ -5,8 +5,6 @@ author: sajeetharan
 ms.author: sasinnat
 ms.topic: reference
 ms.date: 11/19/2025
-ms.custom: 
-  - build-2025
 ---
 
 # Azure DocumentDB output binding for Azure Functions
@@ -15,7 +13,7 @@ This article explains how to work with the [Azure DocumentDB](/azure/documentdb/
 
 The Azure DocumentDB output binding lets you write a new document to an Azure DocumentDB collection.
 
-[!INCLUDE [functions-bindings-mongodb-vcore-preview](../../includes/functions-bindings-mongodb-vcore-preview.md)]
+[!INCLUDE [functions-bindings-documentdb-preview](../../includes/functions-bindings-documentdb-preview.md)]
 
 ## Example
 
@@ -73,6 +71,6 @@ You can use the `CosmosDBMongo` attribute to obtain and work directly with the [
 ## Related articles
  
 - [Azure DocumentDB](/azure/documentdb/introduction)
-- [Azure DocumentDB bindings for Azure Functions](functions-bindings-mongodb-vcore.md)
-- [Azure DocumentDB trigger for Azure Functions](functions-bindings-mongodb-vcore-trigger.md)
-- [Azure DocumentDB input binding for Azure Functions](functions-bindings-mongodb-vcore-input.md)
+- [Azure DocumentDB bindings for Azure Functions](functions-bindings-documentdb.md)
+- [Azure DocumentDB trigger for Azure Functions](functions-bindings-documentdb-trigger.md)
+- [Azure DocumentDB input binding for Azure Functions](functions-bindings-documentdb-input.md)

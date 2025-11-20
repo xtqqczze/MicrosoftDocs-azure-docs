@@ -1,31 +1,29 @@
 ---
-title: Azure Cosmos DB for MongoDB (vCore) bindings for Azure Functions
-description:  Learn to use the Azure Cosmos DB for MongoDB (vCore) trigger in Azure Functions.
+title: Azure DocumentDB bindings for Azure Functions
+description:  Learn to use the Azure DocumentDB trigger in Azure Functions.
 author: sajeetharan
 ms.author: sasinnat
 ms.topic: reference
-ms.date: 5/8/2025
-ms.custom: 
-  - build-2025
+ms.date: 11/19/2025
 ---
 
-# Azure Cosmos DB for MongoDB (vCore) bindings for Azure Functions
+# Azure DocumentDB bindings for Azure Functions
 
-The Azure Cosmos DB for MongoDB (vCore) extension supports trigger, input, and output bindings for Azure Cosmos DB for MongoDB (vCore). 
+The Azure DocumentDB extension supports trigger, input, and output bindings for Azure DocumentDB. 
 
-[!INCLUDE [functions-bindings-mongodb-vcore-preview](../../includes/functions-bindings-mongodb-vcore-preview.md)]
+[!INCLUDE [functions-bindings-documentdb-preview](../../includes/functions-bindings-documentdb-preview.md)]
 
-Using the Azure Cosmos DB for MongoDB (vCore) extension, you can build functions that can:
+Using the Azure DocumentDB extension, you can build functions that can:
 
 | Action  | Trigger/binding type |
 |---------|-----------|
-| Execute on changes to a collection | [Azure Cosmos DB for MongoDB (vCore) trigger](functions-bindings-mongodb-vcore-trigger.md) |
-| Write documents to the database | [Azure Cosmos DB for MongoDB (vCore) output binding](functions-bindings-mongodb-vcore-output.md)| 
-| Query the database | [Azure Cosmos DB for MongoDB (vCore) input binding](functions-bindings-mongodb-vcore-input.md) |
+| Execute on changes to a collection | [Azure DocumentDB trigger](functions-bindings-documentdb-trigger.md) |
+| Write documents to the database | [Azure DocumentDB output binding](functions-bindings-documentdb-output.md)| 
+| Query the database | [Azure DocumentDB input binding](functions-bindings-documentdb-input.md) |
 
-Considerations for the Azure Cosmos DB for MongoDB (vCore) extension:
+Considerations for the Azure DocumentDB extension:
 + Only [C# apps that use the legacy in-process model](./functions-dotnet-class-library.md) are currently supported in preview.
-+ The Azure Cosmos DB for MongoDB (vCore) binding extension doesn't currently support Microsoft Entra authentication and managed identities. 
++ The Azure DocumentDB binding extension doesn't currently support Microsoft Entra authentication and managed identities. 
 + Your app must be using version 4.x of the Azure Functions runtime.
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
@@ -45,8 +43,7 @@ Add the extension to your .NET project for an in-process app by installing [this
 
 ## Related articles
  
-- [What is Azure Cosmos DB for MongoDB (vCore architecture)?](/azure/cosmos-db/mongodb/vcore/introduction)
-- [Change streams in Azure Cosmos DB’s API for MongoDB](/azure/cosmos-db/mongodb/change-streams)
-- [Azure Cosmos DB for MongoDB (vCore) trigger for Azure Functions](functions-bindings-mongodb-vcore-trigger.md)
-- [Azure Cosmos DB for MongoDB (vCore) input binding for Azure Functions](functions-bindings-mongodb-vcore-input.md)
-- [Azure Cosmos DB for MongoDB (vCore) output binding for Azure Functions](functions-bindings-mongodb-vcore-output.md)
+- [What is Azure DocumentDB?](/azure/documentdb/overview)
+- [Azure DocumentDB trigger for Azure Functions](functions-bindings-documentdb-trigger.md)
+- [Azure DocumentDB input binding for Azure Functions](functions-bindings-documentdb-input.md)
+- [Azure DocumentDB output binding for Azure Functions](functions-bindings-documentdb-output.md)
