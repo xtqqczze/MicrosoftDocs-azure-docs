@@ -44,7 +44,7 @@ The following table describes scenarios when you might choose SQL:
 | Scenario | Recommended storage |
 |----------|---------------------|
 | Run Standard logic app workflows in Azure with more control over storage throughput and performance. | Choose SQL because Azure Storage doesn't provide tools to fine-tune throughput and performance. |
-| Run Standard workflows in hybrid environments, including on-premises infrastructure. For more information, see: <br><br>- [Set up your own infrastructure for Standard logic apps for hybrid deployment](set-up-standard-workflows-hybrid-deployment-requirements.md) <br>- [Create Standard workflows for hybrid deployment](create-standard-workflows-hybrid-deployment.md) | Choose SQL because you can decide where to host your SQL database, for example, on-premises, on a virtual machine, in a container, or multicloud environment. Consider running your logic app workflows close to the systems you want to integrate, or reducing your dependency on the cloud.   |
+| Run Standard workflows in hybrid environments, including on-premises or bring-your-own infrastructure. For more information, see: <br><br>- [Set up your own infrastructure for Standard logic apps for hybrid deployment](set-up-standard-workflows-hybrid-deployment-requirements.md) <br>- [Create Standard workflows for hybrid deployment](create-standard-workflows-hybrid-deployment.md) | Choose SQL because you can decide where to host your SQL database, for example, on-premises, on a virtual machine, in a container, or multicloud environment. Consider running your logic app workflows close to the systems you want to integrate, or reducing your dependency on the cloud.   |
 | Depend on predictable storage costs. | Choose SQL when you want more control over scaling costs. SQL costs are based on each compute and input-output operations per second (IOPs). Azure Storage costs are based on numbers of operations, which might work better for small workloads that scale to zero. |
 | Prefer SQL over Azure Storage. | SQL is a well-known and reliable ecosystem where you can apply the same governance and management across your logic apps behind-the-scenes operations. |
 | Reuse existing SQL environments. | Choose SQL if you already own SQL licenses that you want to reuse or modernize onto the cloud. You also might want to apply Azure Hybrid Benefits to your logic app integrations. |
@@ -232,12 +232,11 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 
 1. From the list that Visual Studio Code opens, make sure to select the advanced option for **Create new Logic App (Standard) in Azure Advanced**. Otherwise, you're not prompted to set up SQL.
 
-   :::image type="content" source="media/set-up-sql-database-storage-standard/select-create-logic-app-advanced.png" alt-text="Screenshot shows selected deployment option to create new Standard logic app in Azure Advanced.":::
-lightbox="media/set-up-sql-database-storage-standard/select-create-logic-app-advanced.png":::
+   :::image type="content" source="media/set-up-sql-database-storage-standard/select-create-logic-app-advanced.png" alt-text="Screenshot shows selected deployment option to create new Standard logic app in Azure Advanced." lightbox="media/set-up-sql-database-storage-standard/select-create-logic-app-advanced.png":::
 
 1. When prompted, provide a globally unique name for your new logic app, which is the name for the **Logic App (Standard)** resource. This example uses `Fabrikam-Workflows-App`.
 
-   ![Screenshot that shows the prompt for a globally unique name for your logic app.](./media/set-up-sql-database-storage-standard/enter-logic-app-name.png)
+   :::image type="content" source="media/set-up-sql-database-storage-standard/enter-logic-app-name.png" alt-text="Screenshot shows prompt for a globally unique name for your logic app." lightbox="media/set-up-sql-database-storage-standard/enter-logic-app-name.png":::
 
 1. Select a location for your logic app. You can also start typing to filter the list.
 
