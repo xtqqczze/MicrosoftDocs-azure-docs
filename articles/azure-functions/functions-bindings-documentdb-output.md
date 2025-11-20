@@ -72,7 +72,7 @@ You can use the `CosmosDBMongo` attribute to obtain and work directly with the [
 
 ## Related articles
  
-- [Azure DocumentDB](/azure/documentdb/introduction)
+- [Azure DocumentDB](/azure/documentdb/overview)
 - [Azure DocumentDB bindings for Azure Functions](functions-bindings-documentdb.md)
 - [Azure DocumentDB trigger for Azure Functions](functions-bindings-documentdb-trigger.md)
 - [Azure DocumentDB input binding for Azure Functions](functions-bindings-documentdb-input.md)

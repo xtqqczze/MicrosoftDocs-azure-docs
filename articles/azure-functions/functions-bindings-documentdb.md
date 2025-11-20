@@ -33,13 +33,13 @@ Considerations for the Azure DocumentDB extension:
 
 ## Install extension 
 
-Add the extension to your .NET project for an in-process app by installing [this preview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo/1.1.0-preview): `Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo`
+Add the extension to your .NET project for an in-process app by installing [the `Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo` preview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo/1.1.0-preview).
 
 > [!IMPORTANT]
-> While this extension has `AzureCosmosDb` in the name, this is the correct extension for integrating with Azure DocumentDB.
+> While this extension has `AzureCosmosDb` in the name, the specified extension is the correct one for integrating with Azure DocumentDB.
 
 > [!NOTE]  
-> Don't try to install this package in a .NET isolated worker process app. There will be errors and the app project won't build. To learn how to create a .NET app that uses the legacy in-process model, see [Develop legacy C# class library functions using Azure Functions](functions-dotnet-class-library.md#develop-legacy-c-class-library-functions-using-azure-functions).
+> Don't try to install this package in a .NET isolated worker process app. Errors occur and the app project can't build. To learn how to create a .NET app that uses the legacy in-process model, see [Develop legacy C# class library functions using Azure Functions](functions-dotnet-class-library.md#develop-legacy-c-class-library-functions-using-azure-functions).
 
 ## Related articles
  

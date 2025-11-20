@@ -266,11 +266,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-functions/functions-bindings-documentdb.md",
-            "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/functions/functions-bindings-documentdb.md",
             "redirect_url": "/azure/azure-functions/functions-bindings-documentdb",
             "redirect_document_id": false
