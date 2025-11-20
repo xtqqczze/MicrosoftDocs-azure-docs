@@ -24,7 +24,7 @@ In this article, you learn how to associate a public IP address to an existing v
 
  If you want to instead create a new VM with a public IP address, you can use the [Azure portal](virtual-network-deploy-static-pip-arm-portal.md), the [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md), or [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md).
 
-Public IP addresses have a nominal fee. For details, see [pricing](https://azure.microsoft.com/pricing/details/ip-addresses/). There's a limit to the number of public IP addresses that you can use per subscription. For details, see [limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#public-ip-address-limits).
+Public IP addresses have a nominal fee. For details, see [pricing](https://azure.microsoft.com/pricing/details/ip-addresses/). There's a limit to the number of public IP addresses that you can use per subscription. For details, see [limits](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
