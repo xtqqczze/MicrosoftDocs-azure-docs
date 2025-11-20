@@ -59,7 +59,7 @@ If you want help with administrative tasks, you can assign users or groups to th
 - **Reader** role grants the ability to view all resources in the dev center, but not make any changes.
 - **DevCenter Owner** provides access to manage all Microsoft.DevCenter resources and access to them.
 - **DevCenter Project Admin** provides access to manage project resources.
-- **DevCenter Dev Box User** provides access to create and manage dev boxes, and is usually granted to developers by project admins.
+- **DevCenter Dev Box User** provides access to create and manage dev boxes and can be granted to developers by project admins.
 
 To assign roles to users:
 
@@ -81,7 +81,7 @@ For more information, see [Assign Azure roles using the Azure portal](/azure/rol
 You can delete a dev center to reflect organizational or workload changes.
 
 - Deleting a Microsoft Dev Box dev center is irreversible.
-- You can't delete a dev center that has any projects are associated with it. You must delete the projects before you can delete the dev center.
+- You can't delete a dev center that has any projects associated with it. You must delete the projects before you can delete the dev center.
 - Attached network connections and their associated virtual networks aren't deleted when you delete a dev center.
 
 To delete a dev center:

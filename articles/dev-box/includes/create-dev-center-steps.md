@@ -15,8 +15,8 @@ ms.service: dev-box
 
    - **Subscription**: Select the subscription where you want to create the dev center.
    - **Resource group**: Select an existing resource group, or select **Create new** and enter a name for the new resource group.
-   - **Name** Enter a name for the dev center.
-   - **Location** | Select the Azure region to create the dev center in. For a list of the currently supported Azure locations with capacity, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dev-box).
+   - **Name**: Enter a name for the dev center.
+   - **Location**: Select the Azure region to create the dev center in. For a list of the currently supported Azure locations with capacity, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dev-box).
 
 1. Select **Attach the environment definition quick start catalog (recommended)** to attach a quick start catalog of predefined environment configurations to the dev center. You can also create your own catalogs and attach them to the dev center.
 
@@ -27,10 +27,10 @@ ms.service: dev-box
 1. On the **Settings** tab of the **Create a dev center** screen, the following options are already enabled by default. Change this configuration if desired.
 
    - **Project level catalogs**. Resources from catalogs attached to a dev center are available to all projects within it. This option allows attaching project-level catalogs to specific projects to provide customizations for different development teams.
-   - **Microsoft hosted network in projects**. This option lets project admins specify using [Microsoft-hosted networks](/windows-365/enterprise/deployment-options#microsoft-hosted-network) to host dev boxes in their projects. Microsoft-hosted isolated networks offer easy customization and low administrative overhead. Projects in organizations that require customized networking should use [network connection resources]() instead.
+   - **Microsoft hosted network in projects**. This option lets project admins specify using [Microsoft-hosted networks](/windows-365/enterprise/deployment-options#microsoft-hosted-network) to host dev boxes in their projects. Microsoft-hosted isolated networks offer easy customization and low administrative overhead. Projects in organizations that require customized networking should use [network connection resources](how-to-configure-network-connections.md) instead.
    - **Azure Monitor Agent**. This option configures all dev boxes in this dev center to automatically install the [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview). The agent collects monitoring data from the dev box and sends it to Azure Monitor.
 
-1. Select **Review + Create** or optionally, select the **Tags** tab to assign tags.
+1. Select **Review + Create** or optionally select the **Tags** tab to assign tags.
 
 1. On the **Tags** tab, enter name-value tags that you want to assign to resources in the dev center, and then select **Review + Create**.
 

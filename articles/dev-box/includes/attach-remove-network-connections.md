@@ -48,6 +48,6 @@ Follow these steps to remove an attached network connection from a dev center.
 
    :::image type="content" source="../media/how-to-manage-network-connection/remove-network-connection.png" alt-text="Screenshot that shows how to remove a selected network connection attached to a dev center.":::
 
-1. Respond **OK** to the Review the warning message, and then select **OK**.
+1. Respond **OK** to confirmation message.
 
 After you remove a network connection, it's no longer available for use by dev box pools in the dev center.
