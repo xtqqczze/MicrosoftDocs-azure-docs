@@ -103,9 +103,9 @@ var executor = new DataMapTestExecutor("C:\\MyLogicApp");
 var xslt = await executor.GenerateXslt("OrderToInvoice");
 ```
 
-#### Remarks
-
-This method looks for the data map file at the path: `{appDirectoryPath}\Artifacts\MapDefinitions\{mapName}.lml`
+> [!NOTE]
+>
+> This method looks for the data map file at the path: `{appDirectoryPath}\Artifacts\MapDefinitions\{mapName}.lml`
 
 ### GenerateXslt(GenerateXsltInput)
 
@@ -153,9 +153,9 @@ var result = await executor.RunMapAsync("OrderToInvoice", inputData);
 Console.WriteLine(result.ToString());
 ```
 
-#### Remarks
-
-This method looks for the XSLT file at the path: `{appDirectoryPath}\Artifacts\Maps\{mapName}.xslt`
+> [!NOTE]
+>
+> This method looks for the XSLT file at the path: `{appDirectoryPath}\Artifacts\Maps\{mapName}.xslt`
 
 ### RunMapAsync(byte[], byte[])
 
@@ -185,9 +185,9 @@ var result = await executor.RunMapAsync(xslt, inputData);
 Console.WriteLine(result.ToString());
 ```
 
-#### Remarks
-
-This method creates a temporary file to store the XSLT content during execution and automatically cleans it up after the transformation is complete.
+> [!NOTE]
+>
+> This method creates a temporary file to store the XSLT content during execution and automatically cleans it up after the transformation is complete.
 
 ## Related content
 
