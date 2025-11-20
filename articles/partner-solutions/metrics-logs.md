@@ -1,11 +1,12 @@
 ---
 title: Azure Native Integrations monitoring overview
 description: "Overview of metrics and logs for Azure Native Integrations and key operational considerations."
-author: GitHub Copilot
-ms.author: azteam-ps
-ms.service: Azure Monitor
+author: ProfessorKendrick
+ms.author: kkendrick
+ms.service: partner-solutions
 ms.topic: overview
-ms.date: 11/07/2025
+ms.date: 11/20/2025
+ai-usage: ai-assisted
 
 #customer intent: As a cloud operator, I want to understand what telemetry partner integrations collect so that I can plan monitoring and governance.
 
