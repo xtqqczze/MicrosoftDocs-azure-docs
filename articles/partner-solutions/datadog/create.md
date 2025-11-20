@@ -127,7 +127,7 @@ There are required fields (identified with a red asterisk) in each section that 
 
 ### Metrics and logs tab (optional)
 
-If you wish, you can configure resources to send metrics/logs to Datadog.
+If you wish, you can configure resources to send metrics/logs to Datadog. For more information, see [Monitoring Azure Native Integrations](../metrics-logs.md).
 
 Enter the names and values for each *Action* listed under Metrics and Logs.
 
@@ -135,16 +135,6 @@ Enter the names and values for each *Action* listed under Metrics and Logs.
 - Select **Collect custom metrics from App Insights**.
 - Select **Send subscription activity logs**.
 - Select **Send Azure resource logs for all defined sources**.
-
-#### Inclusion and exclusion rules for metrics and logs
-
-To filter the set of Azure resources that send logs to Datadog, use inclusion and exclusion rules and set Azure resource tags.
-
-- All Azure resources with tags defined in include rules send logs to Datadog.
-- All Azure resources with tags defined in exclude rules don't send logs to Datadog.
-
-> [!NOTE]
-> If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
 
 Select the **Next** button at the bottom of the page.
 

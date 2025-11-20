@@ -64,7 +64,7 @@ There are required fields (identified with a red asterisk) in each section that 
 
 ### Metrics and logs tab (optional)
 
-If you wish, you can configure resources to send metrics/logs to New Relic. 
+If you wish, you can configure resources to send metrics/logs to New Relic. For more information, see [Monitoring Azure Native Integrations](../metrics-logs.md). 
 
 > [!TIP]
 > You can collect metrics for virtual machines and app services by installing the New Relic agent after you create the New Relic resource.
