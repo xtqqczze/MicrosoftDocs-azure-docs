@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/11/2025
+ms.date: 11/20/2025
 ms.author: danlep
 ms.custom:
   - references_regions
@@ -58,26 +58,33 @@ For a current list of regions where the v2 tiers are available, see [Availabilit
 
 ### Classic feature availability
 
-Most capabilities of the classic API Management tiers are supported in the v2 tiers. However, the following capabilities aren't supported in the v2 tiers:
+Most capabilities of the classic API Management tiers are supported directly in the v2 tiers. However, some features have replacements in the v2 tiers, and some currently aren't available in the v2 tiers.
 
-* API Management service configuration using Git
-* Back up and restore of API Management instance
-* Enabling Azure DDoS Protection
-* Direct Management API access
+#### Features replaced in v2 (with comparable functionality)
 
-### Limitations
+| Classic feature | Replacement in v2 |
+|---------|-----|
+| [Built-in analytics](monitor-api-management.md#legacy-built-in-analytics)  | [Azure Monitor-based dashboard](monitor-api-management.md#get-api-analytics-in-azure-api-management)<sup>1</sup> |
+| [CA certificates](api-management-howto-ca-certificates.md) managed in the global certificate list | CA certificates referenced in [backend](backends.md#configure-certificates-for-authorization-credentials) entity |
+| [Capacity](api-management-capacity.md#available-capacity-metrics) metric | [CPU Percentage of Gateway and Memory Percentage of Gateway](api-management-capacity.md#available-capacity-metrics) metrics<sup>1</sup> |
 
-The following API Management capabilities are currently unavailable in the v2 tiers.
+<sup>1</sup> Also available in the classic tiers.
 
-**Infrastructure and networking**
+
+#### Currently unavailable features
+
+The following are currently unavailable in the v2 tiers.
+
+**Infrastructure and configuration**
 * Multi-region deployment 
 * Multiple custom domain names 
-* Capacity metric - *replaced by CPU Percentage of Gateway and Memory Percentage of Gateway metrics*
-* Built-in analytics - *replaced by Azure Monitor-based dashboard*
-* CA certificates - *replaced by CA certificates in backend entity*
 * Sending events to Event Grid
 * Event Hubs event metrics
-* Upgrade to v2 tiers from classic tiers 
+* API Management service configuration using Git
+* Enabling Azure DDoS Protection
+* Direct Management API access
+* Back up and restore of API Management instance
+* Upgrade to v2 tiers from classic tiers
 
 **Developer portal**
 * Reports 
@@ -112,10 +119,6 @@ Deploy a v2 tier instance using the Azure portal or using tools such as the Azur
 
 A: No. Currently you can't migrate an existing API Management instance (in the Consumption, Developer, Basic, Standard, or Premium tier) to a new v2 tier instance. Currently the v2 tiers are available for newly created service instances only.
 
-### Q: What's the relationship between the stv2 compute platform and the v2 tiers?
-
-A: They're not related. stv2 is a compute platform version of the Developer, Basic, Standard, and Premium tier service instances. stv2 is a successor to the stv1 compute platform that retired in 2024.
-
 ### Q: Will I still be able to provision Developer, Basic, Standard, or Premium tier services? 
 
 A: Yes, there are no changes to the classic Developer, Basic, Standard, or Premium tiers. 
@@ -129,6 +132,10 @@ The Premium tier and Premium v2 tier support full network isolation by deploymen
 ### Q: Can I deploy an instance of the Basic v2 or Standard v2 tier entirely in my virtual network? 
 
 A: No, such a deployment is only supported in the Premium and Premium v2 tiers. 
+
+### Q: What's the relationship between the stv2 compute platform and the v2 tiers?
+
+A: They're not related. stv2 is a compute platform version of the Developer, Basic, Standard, and Premium tier service instances. stv2 is a successor to the stv1 compute platform that retired in 2024.
 
 ## Related content
 
