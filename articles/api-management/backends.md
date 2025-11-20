@@ -100,6 +100,8 @@ If the backend service is secured with a certificate issued by a well-known CA, 
 
 If the backend service uses a custom CA certificate, you can reference the custom CA certificate in the backend entity. You might need to do this step to establish trust for the backend server certificate - for example, with self-signed certificates, untrusted root certificates, or partial certificate chains.
 
+
+
 > [!NOTE]
 > Currently, you can only configure CA certificate details in a backend entity in the [v2 tiers](v2-service-tiers-overview.md).
 
@@ -112,6 +114,8 @@ To add CA certificate details, follow these steps:
     * **Subject name and issuer thumbprint** - Enter the subject name that uniquely identifies the CA and the thumbprint of the CA.
 1. Select **Add**.
 1. Select **Create**.
+
+:::image type="content" source="media/backends/ca-certificate.png" alt-text="Screenshot of configuring CA certificate details for a backend in the portal.":::
 
 > [!NOTE]
 > When you configure details of a custom CA certificate in the backend entity, API Management always validates the certificate name and certificate chain, regardless of whether you enable or disable validation settings in the backend's `backendTlsProperties`.
