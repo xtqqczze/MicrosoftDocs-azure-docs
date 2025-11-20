@@ -62,7 +62,7 @@ The following advanced scenarios feature Azure Functions on Azure Container Apps
 
 ### GPU-accelerated workloads
 
-With support for specialized hardware requirements, Azure Functions on Azure Container Apps can run workloads that demand advanced compute capabilities, such as GPU acceleration. This support enables you to address scenarios like AI, machine learning, and high-performance computing directly within your serverless applications with features like:
+With support for specialized hardware requirements, Azure Functions on Azure Container Apps can run workloads that demand advanced compute capabilities such as:
 
 - **GPU-enabled compute**: Serverless GPU resources for AI and machine learning workloads
 
@@ -72,7 +72,7 @@ With support for specialized hardware requirements, Azure Functions on Azure Con
 
 ### Complex stateful workflows
 
-Azure Functions on Azure Container Apps supports advanced workflow management using Durable Functions including: 
+Azure Functions on Azure Container Apps supports advanced workflow management using Durable Functions including:
 
 - **Stateful orchestration**: Manage complex, long-running processes
 
@@ -84,7 +84,7 @@ Azure Functions on Azure Container Apps supports advanced workflow management us
 
 ### Scalable web APIs
 
-Build robust REST endpoints with enhanced capabilities:
+You can use advanced features such as custom ingress, traffic management featuring:
 
 - **Custom ingress settings**: Advanced traffic routing and load balancing
 
