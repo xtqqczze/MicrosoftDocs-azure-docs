@@ -60,8 +60,10 @@ The following table describes scenarios when you might choose SQL:
 
      Supported SQL server editions:
 
-     - [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads)
+     - [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads)
+
      - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/)
+
      - [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/) and others
 
   1. If your SQL server is supported and hosted on Azure, make sure to set up the following permissions:
@@ -84,11 +86,11 @@ The following table describes scenarios when you might choose SQL:
 
   1. Follow the [steps to set up your SQL environment](#set-up-sql-environment) in this article.
 
-1. For local development, you need [Visual Studio Code](https://code.visualstudio.com/Download) locally installed on your computer.
+  1. For local development, you need [Visual Studio Code](https://code.visualstudio.com/Download) locally installed on your computer.
 
-   > [!NOTE]
-   >
-   > Make sure to install the [latest Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools/releases) and that you have SQL support by choosing the Microsoft Installer (MSI), which is `func-cli-X.X.XXXX-x*.msi`. For more information about Visual Studio Code requirements, see [Create Standard workflows in Azure Logic Apps with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+     > [!NOTE]
+     >
+     > Make sure to install the [latest Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools/releases) and that you have SQL support by choosing the Microsoft Installer (MSI), which is `func-cli-X.X.XXXX-x*.msi`. For more information about Visual Studio Code requirements, see [Create Standard workflows in Azure Logic Apps with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
 <a name="set-up-sql-environment"></a>
 
@@ -144,14 +146,14 @@ When you create your Standard logic app, you can set up SQL as your storage prov
 
 1. On the **Create Logic App** page, under **Standard**, select the hosting option that you want.
 
-1. On the **Basics** tab, provide the following information:
+1. On the **Basics** tab, provide the following information, which can vary based on your selections:
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription for your logic app. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The Azure resource group for your logic app and related resources. The name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named `Fabrikam-Workflows-RG`. |
    | **Type** | Yes | **Standard** | This logic app type follows the [Standard usage, billing, and pricing model](logic-apps-pricing.md#standard-pricing). |
-   | **Logic App name** | Yes | <*logic-app-name*> | The name for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a logic app named `Fabrikam-Workflows`. <br><br>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Standard)** resource is powered by the single-tenant Azure Logic Apps runtime, which uses the Azure Functions extensibility model and is hosted as an extension on the Azure Functions runtime. Azure Functions uses the same app naming convention. |
+   | **Logic App name** | Yes | <*logic-app-name*> | The name for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a logic app named `Fabrikam-Workflows`. <br><br>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the Standard logic app resource is powered by the single-tenant Azure Logic Apps runtime, which uses the Azure Functions extensibility model and is hosted as an extension on the Azure Functions runtime. Azure Functions uses the same app naming convention. |
    | **Region** | Yes | <*Azure-region*> | The location for your resource group and resources. This example deploys the sample logic app to Azure and uses **West US**. <br><br>- To deploy to an [ASEv3](../app-service/environment/overview.md) resource, which must first exist, select that environment resource from the **Region** list. |
    | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan name or provide a name for a new plan. <br><br>This example uses the name **My-App-Service-Plan**. <br><br>**Note**: Don't choose a Linux-based App Service plan. Only the Windows-based App Service plan is supported. |
    | **Pricing plan** | Yes | <*pricing-tier*> | The [pricing tier](../app-service/overview-hosting-plans.md) for your logic app and workflows. Your selection affects the pricing, compute, memory, and storage for your logic app and workflows. <br><br>For more information, see [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
@@ -200,7 +202,7 @@ The following steps show how to set up SQL as a storage provider for local devel
 
    :::image type="content" source="media/set-up-sql-database-storage-standard/enter-sql-connection-string.png" alt-text="Screenshot shows SQL connection string prompt." lightbox="media/set-up-sql-database-storage-standard/enter-sql-connection-string.png":::
 
-   After confirmation, Visual Studio Code creates the following setting in your project's **local.settings.json** file. You can update this setting at any time.  
+   After confirmation, Visual Studio Code creates the following setting in your project's *local.settings.json* file. You can update this setting at any time.
 
    :::image type="content" source="media/set-up-sql-database-storage-standard/local-settings-json-file.png" alt-text="Screenshot shows logic app project and open file named local.settings.json with SQL connection string setting." lightbox="media/set-up-sql-database-storage-standard/local-settings-json-file.png":::
 
@@ -208,11 +210,11 @@ The following steps show how to set up SQL as a storage provider for local devel
 
 ## Set up SQL during deployment from Visual Studio Code
 
-You can directly publish your logic app project from Visual Studio Code to Azure. This action deploys your logic app project using the **Logic App (Standard)** resource type.
+You can directly publish your logic app project from Visual Studio Code to Azure. This action deploys your logic app project to a Standard logic app resource.
 
-- If you're publishing your project as a new **Logic App (Standard)** resource in Azure, and you want a SQL database as a storage provider, enter your SQL connection string when you publish your app. For complete steps, follow [Set up SQL for new logic app deployment](#deploy-new-logic-app-visual-studio-code).
+- If you're publishing your project as a new Standard logic app resource in Azure, and you want a SQL database as a storage provider, enter your SQL connection string when you publish your app. For complete steps, follow [Set up SQL for new logic app deployment](#deploy-new-logic-app-visual-studio-code).
 
-- If you already set up your SQL settings, you can publish your logic app project to an already deployed **Logic App (Standard)** resource in Azure. This action overwrites your existing logic app.
+- If you already set up your SQL settings, you can publish your logic app project to an already deployed a Standard logic app resource in Azure. This action overwrites your existing logic app.
 
   > [!NOTE]
   >
@@ -220,13 +222,11 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 
 <a name="deploy-new-logic-app-visual-studio-code"></a>
 
-### Set up SQL for new Logic App (Standard) resource deployment
+### Set up SQL for new Standard logic app resource deployment
 
-1. On the Visual Studio Code Activity Bar, select the Azure icon.
+1. In Visual Studio Code, open the Explorer pane, if not already open.
 
-1. On the **Azure: Logic Apps (Standard)** pane toolbar, select **Deploy to Logic App**.
-
-   :::image type="content" source="media/set-up-sql-database-storage-standard/deploy-to-logic-app.png" alt-text="Screenshot shows Azure Logic Apps Standard pane and selected icon for Deploy to logic app." lightbox="media/set-up-sql-database-storage-standard/deploy-to-logic-app.png":::
+1. In the Explorer pane, at your logic app project's root, move your mouse pointer over any blank area under all the project's files and folders, open the shortcut menu, and select **Deploy to logic app**.
 
 1. If prompted, select the Azure subscription for your logic app deployment.
 
@@ -234,7 +234,7 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 
    :::image type="content" source="media/set-up-sql-database-storage-standard/select-create-logic-app-advanced.png" alt-text="Screenshot shows selected deployment option to create new Standard logic app in Azure Advanced." lightbox="media/set-up-sql-database-storage-standard/select-create-logic-app-advanced.png":::
 
-1. When prompted, provide a globally unique name for your new logic app, which is the name for the **Logic App (Standard)** resource. This example uses `Fabrikam-Workflows-App`.
+1. When prompted, provide a globally unique name for your new logic app, which is the name for the Standard logic app resource. This example uses `Fabrikam-Workflows-App`.
 
    :::image type="content" source="media/set-up-sql-database-storage-standard/enter-logic-app-name.png" alt-text="Screenshot shows prompt for a globally unique name for your logic app." lightbox="media/set-up-sql-database-storage-standard/enter-logic-app-name.png":::
 
@@ -291,13 +291,13 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 
    ![Screenshot showing Visual Studio Code and SQL connection string prompt.](./media/set-up-sql-database-storage-standard/enter-sql-connection-string.png)
 
-1. Finish the remaining deployment steps in [Publish to a new Logic App (Standard) resource](create-single-tenant-workflows-visual-studio-code.md#publish-new-logic-app).
+1. Finish the remaining deployment steps in [Publish to a new Standard logic app resource](create-single-tenant-workflows-visual-studio-code.md#publish-new-logic-app).
 
 When you're done, your new logic app resource and workflow is live in Azure and uses your SQL database as a storage provider.
 
 ## Validate deployments
 
-After you deploy your **Logic App (Standard)** resource to Azure, you can check whether your settings are correct:
+After you deploy your Standard logic app resource to Azure, you can check whether your settings are correct:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
