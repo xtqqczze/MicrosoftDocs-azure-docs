@@ -1,7 +1,7 @@
 ---
-title: Reregister the MABS/DPM server with Recovery Services vault using public access
-description: Learn how to reregister your MABS or DPM server with an Azure Backup Recovery Services vault using public access after deleting private endpoints.
-#customer intent: As a DPM/MABS user, I want to register my server with a Recovery Services vault using private endpoints so that I can back up on-premises data securely.
+title: Reregister the MABS server with Recovery Services vault using public access
+description: Learn how to reregister your MABS server with an Azure Backup Recovery Services vault using public access after deleting private endpoints.
+#customer intent: As a MABS user, I want to reregister my server with a Recovery Services vault using public access so that I can back up on-premises data securely.
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
@@ -10,11 +10,11 @@ ms.topic: how-to
 ms.service: azure-backup
 ---
 
-# Reregister the MABS/DPM server with Recovery Services vault using public access
+# Reregister the MABS server with Recovery Services vault using public access
 
-This article describes how to configure your Microsoft Azure Backup Server (MABS) or System Center Data Protection Manager (DPM) server to use public access of the Recovery Services vault after deleting private endpoints.
+This article describes how to configure your Microsoft Azure Backup Server (MABS) server to use public access of the Recovery Services vault after deleting private endpoints.
 
-If you don't want to continue using private endpoints for backup, delete them from the vault and re-register DPM/MABS. You don’t need to stop protection.
+If you don't want to continue using private endpoints for backup, delete them from the vault and re-register MABS. You don’t need to stop protection.
 
 ## Delete private endpoints
 
@@ -36,15 +36,15 @@ To delete the private endpoint from Recovery Service vault, follow these steps:
 
    :::image type="content" source="media/private-endpoint-vault-backup-server/vault-public-access-settings.png" alt-text="Screenshot shows the vault public access settings with allow from all networks option." lightbox="media/private-endpoint-vault-backup-server/vault-public-access-settings.png":::
 
-## Re-register the DPM\MABS Server with vault
+## Register the MABS Server with vault
 
 After you delete the private endpoints from the vault, download a new Credential File from the Azure portal for that vault.
 
-To re-register the DPM\MABS Server with the vault, follow these steps:
+To register the MABS Server with the vault, follow these steps:
 
-1. Sign in to the **DPM**\ **MABS** Server, and then select **Management** > **Online** > **Register**.
+1. Sign in to the  **MABS** Server, and then select **Management** > **Online** > **Register**.
 
-1. On the **Register Server Wizard**, follow the onscreen instruction and provide the **same passphrase** that was used initially to register DPM\MABS Server on the **Encryption Setting** pane.
+1. On the **Register Server Wizard**, follow the onscreen instruction and provide the **same passphrase** that was used initially to register MABS Server on the **Encryption Setting** pane.
 
 1. Select **Register** and wait for the registration process to complete.
 
