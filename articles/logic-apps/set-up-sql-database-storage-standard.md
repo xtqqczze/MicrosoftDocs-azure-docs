@@ -138,7 +138,7 @@ When you create your Standard logic app, you can set up SQL as your storage prov
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter `logic apps`, and select **Logic apps**.
 
-   :::image type="content" source="media/set-up-sql-db-storage-single-tenant-standard-workflows/find-logic-app-resource-template.png" alt-text="Screenshot shows the Azure portal search box with logic apps as search term and selected category named Logic apps." lightbox="media/set-up-sql-db-storage-single-tenant-standard-workflows/find-logic-app-resource-template.png":::
+   :::image type="content" source="media/set-up-sql-database-storage-standard/find-logic-app-resource-template.png" alt-text="Screenshot shows the Azure portal search box with logic apps as search term and selected category named Logic apps." lightbox="media/set-up-sql-database-storage-standard/find-logic-app-resource-template.png":::
 
 1. On the **Logic apps** page toolbar, select **Add**.
 
@@ -158,7 +158,7 @@ When you create your Standard logic app, you can set up SQL as your storage prov
 
    The following example shows the **Create Logic App** page with the **Basics** tab:
 
-   :::image type="content" source="media/set-up-sql-db-storage-single-tenant-standard-workflows/create-logic-app-resource-portal.png" alt-text="Screenshot shows Azure portal and Create Logic App page with Basics tab." lightbox="media/set-up-sql-db-storage-single-tenant-standard-workflows/create-logic-app-resource-portal.png":::
+   :::image type="content" source="media/set-up-sql-database-storage-standard/create-logic-app-resource-portal.png" alt-text="Screenshot shows Azure portal and Create Logic App page with Basics tab." lightbox="media/set-up-sql-database-storage-standard/create-logic-app-resource-portal.png":::
 
 1. When you're ready, select **Next: Storage**. On the **Storage** tab, provide the following information about the storage solution and hosting plan for your logic app.
 
@@ -170,7 +170,7 @@ When you create your Standard logic app, you can set up SQL as your storage prov
 
    The following example shows the **Create Logic App** page with the **Storage** tab:
 
-   :::image type="content" source="media/set-up-sql-db-storage-single-tenant-standard-workflows/set-up-sql-storage-details.png" alt-text="Screenshot shows Azure portal and Create Logic App page with the Storage tab." lightbox="media/set-up-sql-db-storage-single-tenant-standard-workflows/set-up-sql-storage-details.png":::
+   :::image type="content" source="media/set-up-sql-database-storage-standard/set-up-sql-storage-details.png" alt-text="Screenshot shows Azure portal and Create Logic App page with the Storage tab." lightbox="media/set-up-sql-database-storage-standard/set-up-sql-storage-details.png":::
 
 1. Finish the remaining creation steps in [Create an example Standard workflow in single-tenant Azure Logic Apps](create-single-tenant-workflows-azure-portal.md).
 
@@ -192,17 +192,17 @@ The following steps show how to set up SQL as a storage provider for local devel
 
 1. In Visual Studio Code, open the Explorer pane, if not already open.
 
-1. In the Explorer pane, at your logic app project's root, move your mouse pointer over any blank area under all the project's files and folders, open the shortcut menu, and select **Use SQL storage for your Logic App project**.
+1. In the Explorer pane, at your logic app project's root, move your mouse pointer over any blank area under all the project's files and folders, open the shortcut menu, and select **Use SQL storage for your logic app project**.
 
-   ![Screenshot showing Visual Studio Code, Explorer pane, and mouse pointer at project root in blank area, opened shortcut menu, and "Use SQL storage for your Logic App project" selected.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/use-sql-storage-logic-app-project.png)
+   :::image type="content" source="media/set-up-sql-database-storage-standard/use-sql-storage-logic-app-project.png" alt-text="Screenshot shows Visual Studio Code, Explorer pane, and mouse pointer at project root in blank area, opened shortcut menu, and selected option for Use SQL storage for your logic app project." lightbox="media/set-up-sql-database-storage-standard/use-sql-storage-logic-app-project.png":::
 
 1. When the prompt appears, enter your SQL connection string. You can choose a local SQL Express instance or any other SQL database that you have.
 
-   ![Screenshot showing Visual Studio Code and SQL connection string prompt.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/enter-sql-connection-string.png)
+   :::image type="content" source="media/set-up-sql-database-storage-standard/enter-sql-connection-string.png" alt-text="Screenshot shows SQL connection string prompt." lightbox="media/set-up-sql-database-storage-standard/enter-sql-connection-string.png":::
 
    After confirmation, Visual Studio Code creates the following setting in your project's **local.settings.json** file. You can update this setting at any time.  
 
-   ![Screenshot showing Visual Studio Code, logic app project, and open "local.settings.json" file with SQL connection string setting.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/local-settings-json-file.png)
+   :::image type="content" source="media/set-up-sql-database-storage-standard/local-settings-json-file.png" alt-text="Screenshot shows logic app project and open file named local.settings.json with SQL connection string setting." lightbox="media/set-up-sql-database-storage-standard/local-settings-json-file.png":::
 
 <a name="set-up-sql-logic-app-deployment-visual-studio-code"></a>
 
@@ -215,6 +215,7 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 - If you already set up your SQL settings, you can publish your logic app project to an already deployed **Logic App (Standard)** resource in Azure. This action overwrites your existing logic app.
 
   > [!NOTE]
+  >
   > Local SQL Express won't work with logic apps deployed and hosted in Azure.
 
 <a name="deploy-new-logic-app-visual-studio-code"></a>
@@ -225,17 +226,18 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 
 1. On the **Azure: Logic Apps (Standard)** pane toolbar, select **Deploy to Logic App**.
 
-   ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and "Deploy to Logic App" icon selected.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/deploy-to-logic-app.png)
+   :::image type="content" source="media/set-up-sql-database-storage-standard/deploy-to-logic-app.png" alt-text="Screenshot shows Azure Logic Apps Standard pane and selected icon for Deploy to logic app." lightbox="media/set-up-sql-database-storage-standard/deploy-to-logic-app.png":::
 
 1. If prompted, select the Azure subscription for your logic app deployment.
 
 1. From the list that Visual Studio Code opens, make sure to select the advanced option for **Create new Logic App (Standard) in Azure Advanced**. Otherwise, you're not prompted to set up SQL.
 
-   ![Screenshot that shows the deployment option to "Create new Logic App (Standard) in Azure Advanced" selected.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/select-create-logic-app-advanced.png)
+   :::image type="content" source="media/set-up-sql-database-storage-standard/select-create-logic-app-advanced.png" alt-text="Screenshot shows selected deployment option to create new Standard logic app in Azure Advanced.":::
+lightbox="media/set-up-sql-database-storage-standard/select-create-logic-app-advanced.png":::
 
 1. When prompted, provide a globally unique name for your new logic app, which is the name for the **Logic App (Standard)** resource. This example uses `Fabrikam-Workflows-App`.
 
-   ![Screenshot that shows the prompt for a globally unique name for your logic app.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/enter-logic-app-name.png)
+   ![Screenshot that shows the prompt for a globally unique name for your logic app.](./media/set-up-sql-database-storage-standard/enter-logic-app-name.png)
 
 1. Select a location for your logic app. You can also start typing to filter the list.
 
@@ -243,19 +245,19 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 
    The following example shows the location list filtered to **West US**.
 
-   ![Screenshot that shows the prompt to select a deployment location with available Azure regions and custom location for Azure Arc deployments.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/select-location.png)
+   ![Screenshot that shows the prompt to select a deployment location with available Azure regions and custom location for Azure Arc deployments.](./media/set-up-sql-database-storage-standard/select-location.png)
 
 1. Select the hosting plan type for your new logic app.
 
    1. If you selected an ASEv3 as your app's location, select **App Service Plan**, and then select your ASEv3 resource. Otherwise, select **Workflow Standard**.
 
-      ![Screenshot that shows the prompt to select 'Workflow Standard' or 'App Service Plan'.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/select-hosting-plan.png)
+      ![Screenshot that shows the prompt to select 'Workflow Standard' or 'App Service Plan'.](./media/set-up-sql-database-storage-standard/select-hosting-plan.png)
 
    1. Either create a name for your plan, or select an existing plan.
 
       This example selects **Create new App Service Plan** as no existing plans are available.
 
-      ![Screenshot that shows the prompt to create a name for hosting plan with "Create new App Service plan" selected.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/create-app-service-plan.png)
+      ![Screenshot that shows the prompt to create a name for hosting plan with "Create new App Service plan" selected.](./media/set-up-sql-database-storage-standard/create-app-service-plan.png)
 
 1. Provide a name for your hosting plan, and then select a pricing tier for your selected plan.
 
@@ -281,14 +283,14 @@ You can directly publish your logic app project from Visual Studio Code to Azure
 
 1. When prompted, select **Create new storage account** or an existing storage account, if available.
 
-   ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to create or select a storage account.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/create-storage.png)
+   ![Screenshot that shows the "Azure: Logic Apps (Standard)" pane and a prompt to create or select a storage account.](./media/set-up-sql-database-storage-standard/create-storage.png)
 
 1. At the SQL storage confirmation prompt, select **Yes**. At the connection string prompt, enter your SQL connection string.
 
    > [!NOTE]
    > Make sure that you enter a correct connection string because Visual Studio Code won't validate this string for you.
 
-   ![Screenshot showing Visual Studio Code and SQL connection string prompt.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/enter-sql-connection-string.png)
+   ![Screenshot showing Visual Studio Code and SQL connection string prompt.](./media/set-up-sql-database-storage-standard/enter-sql-connection-string.png)
 
 1. Finish the remaining deployment steps in [Publish to a new Logic App (Standard) resource](create-single-tenant-workflows-visual-studio-code.md#publish-new-logic-app).
 
@@ -308,11 +310,11 @@ After you deploy your **Logic App (Standard)** resource to Azure, you can check 
 
 For example, the following screenshot shows the tables that the single-tenant Azure Logic Apps runtime created for a logic app resource with a single workflow:
 
-![Screenshot showing SQL tables created by the single-tenant Azure Logic Apps runtime.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/runtime-created-tables-sql.png)
+![Screenshot showing SQL tables created by the single-tenant Azure Logic Apps runtime.](./media/set-up-sql-database-storage-standard/runtime-created-tables-sql.png)
 
 The single-tenant Azure Logic Apps service also creates user-defined table types. For example, the following screenshot shows user-defined table types that the single-tenant Azure Logic Apps runtime created for a logic app resource with a single workflow:
 
-![Screenshot showing SQL user-defined table types created by the single-tenant Azure Logic Apps runtime.](./media/set-up-sql-db-storage-single-tenant-standard-workflows/runtime-created-user-defined-tables-sql.png)
+![Screenshot showing SQL user-defined table types created by the single-tenant Azure Logic Apps runtime.](./media/set-up-sql-database-storage-standard/runtime-created-user-defined-tables-sql.png)
 
 ## Related content
 
