@@ -26,25 +26,21 @@ Orchestration versioning helps to prevent problems related to non-determinism, a
 
 ::: zone-end
 
-::: zone pivot="python"
-
-> [!IMPORTANT]
-> Currently, versioning isn't available in the Python SDK.
-
-::: zone-end
-
-::: zone pivot="csharp,java"
+::: zone pivot="java,python,csharp"
 
 ## Client/context-based conditional versioning
 
-In order for an orchestration to have a version, it must first be set in the client. For the .NET SDK, this is done through the standard host builder extensions, as seen below:
+
+In order for an orchestration to have a version, it must first be set in the client.
 
 ::: zone-end
 
 ::: zone pivot="csharp"
 
+For the .NET SDK, this is done through the standard host builder extensions, as seen below:
+
 > [!NOTE]
-> Available in the .NET SDK (Microsoft.DurableTask.Client.AzureManaged) since v1.9.0.
+> Available in the .NET SDK (`Microsoft.DurableTask.Client.AzureManaged`) since v1.9.0.
 
 ```csharp
 builder.Services.AddDurableTaskClient(builder =>
@@ -59,7 +55,7 @@ builder.Services.AddDurableTaskClient(builder =>
 ::: zone pivot="java"
 
 > [!NOTE]
-> Available in the Java SDK (com.microsoft:durabletask-client) since v1.6.0.
+> Available in the Java SDK (`com.microsoft:durabletask-client`) since v1.6.0.
 
 ```java
 public DurableTaskClient durableTaskClient(DurableTaskProperties properties) {
@@ -69,18 +65,25 @@ public DurableTaskClient durableTaskClient(DurableTaskProperties properties) {
         .build();
 }
 ```
+::: zone pivot="python"
 
-::: zone-end
+> [!NOTE]
+> Available in the Python SDK (com.microsoft:durabletask-client) since v1.6.0.
 
-::: zone pivot="csharp,java"
+```python
+ c = DurableTaskSchedulerClient(host_address=endpoint, secure_channel=secure_channel,
+                                   taskhub=taskhub_name, token_credential=credential,
+                                   default_version="1.0.0")
+```
 
-Once that is added, any orchestration started by this host will use the version `1.0.0`. The version itself is a simple string and accepts any value. However, the SDK will try to convert it to .NET's `System.Version`. If it can be converted, that library is used for comparison, if not, a simple string comparison is used.
-
-By supplying the version in the client, it also becomes available in the `TaskOrchestrationContext`. This means the version can be used in conditional statements. So long as newer versions of an orchestration have the appropriate version gating, both the old and the new version of the orchestration can run together on the same host. An example of how the version can be used is:
 
 ::: zone-end
 
 ::: zone pivot="csharp"
+
+Once that is added, any orchestration started by this host will use the version `1.0.0`. The version itself is a simple string and accepts any value. However, the SDK will try to convert it to .NET's `System.Version`. If it can be converted, that library is used for comparison, if not, a simple string comparison is used.
+
+By supplying the version in the client, it also becomes available in the `TaskOrchestrationContext`. This means the version can be used in conditional statements. So long as newer versions of an orchestration have the appropriate version gating, both the old and the new version of the orchestration can run together on the same host. An example of how the version can be used is:
 
 ```csharp
 [DurableTask]
@@ -110,6 +113,10 @@ class HelloCities : TaskOrchestrator<string, List<string>>
 
 ::: zone pivot="java"
 
+Once that is added, any orchestration started by the client will use the version `1.0.0`. The version itself is a simple string and accepts any value. 
+
+By supplying the version in the client, it also becomes available in the `TaskOrchestration`. This means the version can be used in conditional statements. So long as newer versions of an orchestration have the appropriate version gating, both the old and the new version of the orchestration can run together on the same host. An example of how the version can be used is:
+
 ```java
 public TaskOrchestration create() {
     return ctx -> {
@@ -128,9 +135,36 @@ public TaskOrchestration create() {
 
 ::: zone-end
 
+::: zone pivot="python"
+
+Once that is added, any orchestration started by the client will use the version `1.0.0`. The version itself is a simple string and accepts any value. 
+
+By supplying the version in the client, it also becomes available in the `task.OrchestrationContext`. This means the version can be used in conditional statements. So long as newer versions of an orchestration have the appropriate version gating, both the old and the new version of the orchestration can run together on the same host. An example of how the version can be used is:
+
+```python
+def orchestrator(ctx: task.OrchestrationContext, _):
+    if ctx.version == "1.0.0":
+        # For version 1.0.0, we use the original logic
+        result: int = yield ctx.call_activity(activity_v1, input="input for v1")
+    elif ctx.version == "2.0.0":
+        # For version 2.0.0, we use the updated logic
+        result: int = yield ctx.call_activity(activity_v2, input="input for v2")
+    else:
+        raise ValueError(f"Unsupported version: {ctx.version}")
+    return {
+        'result': result,
+    }
+```
+
+::: zone-end
+
 ::: zone pivot="csharp,java"
 
 In this example, we've added a `SayGoodbye` activity to the `HelloCities` orchestration. This is only called if the orchestration is at least version `2.0.0`. With the simple conditional statement, any orchestration with a version less than `2.0.0` will continue to function and any new orchestration will have the new activity in it.
+
+::: zone-end
+
+::: zone pivot="csharp,java,python"
 
 ### When to use client versioning
 
@@ -237,7 +271,31 @@ private static DurableTaskGrpcWorker createTaskHubServer() {
 
 ::: zone-end
 
-::: zone pivot="csharp,java"
+::: zone pivot="python"
+
+> [!NOTE]
+> Available in the Python SDK (durabletask.azuremanaged.worker) since v1.0.0.
+
+```python
+with DurableTaskSchedulerWorker(host_address=endpoint, secure_channel=secure_channel,
+                                taskhub=taskhub_name, token_credential=credential) as w:
+    # This worker is versioned for v2, as the orchestrator code has already been updated
+    # CURRENT_OR_OLDER allows this worker to process orchestrations versioned below 2.0.0 - e.g. 1.0.0
+    w.use_versioning(worker.VersioningOptions(
+        version="2.0.0",
+        default_version="2.0.0",
+        match_strategy=worker.VersionMatchStrategy.CURRENT_OR_OLDER,
+        failure_strategy=worker.VersionFailureStrategy.FAIL
+    ))
+    w.add_orchestrator(orchestrator)
+    w.add_activity(activity_v1)
+    w.add_activity(activity_v2)
+    w.start()
+```
+
+::: zone-end
+
+::: zone pivot="csharp,java,python"
 
 The `Reject` failure strategy should be used when the desired behavior is to have the orchestration try again at a later time/on a different worker. When an orchestration is rejected, it's simply returned to the work queue. When it's dequeued again, it could land on a different worker or the same one again. The process will repeat until a worker that can actually handle the orchestration is available. This strategy allows for the seamless handling of deployments in which an orchestration is updated. As the deployment progresses, workers that can't handle the orchestration will reject it while workers that can handle it will process it. The ability to have mixed workers/orchestration versions allows for scenarios like blue-green deployments.
 
