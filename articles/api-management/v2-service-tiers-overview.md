@@ -58,7 +58,7 @@ For a current list of regions where the v2 tiers are available, see [Availabilit
 
 ### Classic feature availability
 
-Most capabilities of the classic API Management tiers are supported directly in the v2 tiers. However, some features have replacements in the v2 tiers, and some currently aren't available in the v2 tiers.
+Most capabilities of the classic API Management tiers are supported directly in the v2 tiers. However, some features have replacements in the v2 tiers, and some currently aren't available in the v2 tiers. For more information, see [Feature-based comparison of the Azure API Management tiers](api-management-features.md).
 
 #### Features replaced in v2 (with comparable functionality)
 
