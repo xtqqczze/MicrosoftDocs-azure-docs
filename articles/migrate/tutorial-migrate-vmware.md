@@ -150,7 +150,7 @@ Replication occurs as follows: <br /><br />
 - During initial replication, a VM snapshot is created. Disk data from the snapshot is replicated to replica managed disks in Azure. <br /><br />
 - After initial replication finishes, delta replication begins. Incremental changes to on-premises disks are periodically replicated to the replica disks in Azure. <br /><br />
 
-3. Use PowerShell to view **Time Remaining** across **all stages of server migration** in Azure Migrate. This helps you monitor replication progress and plan cutover accurately. You can use PowerShell, Windows PowerShell, or Cloud Shell on Azure Portal. 
+3. Use PowerShell to view **Time Remaining** across **all stages of server migration** in Azure Migrate. This helps you monitor replication progress and plan cutover accurately. You can use PowerShell, Windows PowerShell, or Cloud Shell on Azure portal. 
 4. Open the **Azure portal**, then select the **Cloud Shell** at the top. Select **PowerShell** when prompted.
 5. Run this command in Azure Cloud Shell to monitor the migration status of the server you need.
 
@@ -165,13 +165,13 @@ Replication occurs as follows: <br /><br />
     :::image type="content" source="./media/tutorial-migrate-vmware/run-command.png" alt-text="Screenshot shows the output when you run the command." lightbox="./media/tutorial-migrate-vmware/run-command.png":::
 
 8. The output shows the server replication status, disk progress, time left, upload speed, and datastore details.
-9. Run the above command with Expedite flag to also retrieve appliance operating parameters and a prioritized list of recommended actions that can help reduce the remaining migration time for the specified server. 
+9. Run the above command with Expedite flag to retrieve appliance operating parameters and a prioritized list of recommended actions. These actions help reduce migration time for the specified server.
 
     `Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>"   -ResourceGroupName "<your-resource-group>" -MachineName "<your-server-name>" -Expedite `
 
 10.   You get the following output: 
     
-:::image type="content" source="./media/tutorial-migrate-vmware/server-migration.png"alt-text="Screenshot shows the output of the server migration status. "lightbox="./media/tutorial-migrate-vmware/server-migration.png":::
+  :::image type="content" source="./media/tutorial-migrate-vmware/server-migration.png"alt-text="Screenshot shows the output of the server migration status. "lightbox="./media/tutorial-migrate-vmware/server-migration.png":::
     
 11. You can run the command without `-MachineName` to view migration status and time remaining for all servers in the project. For example: 
 
