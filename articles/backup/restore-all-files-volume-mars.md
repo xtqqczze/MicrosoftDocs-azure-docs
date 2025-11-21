@@ -28,7 +28,7 @@ The MARS Agent enables seamless restoration of all files within a volume. By usi
 >[!NOTE]
 >During Azure VM restore, you might experience performance issues in the following scenarios:
 > - The number of files to restore exceeds 8 million
-> 2. The total data size to restore is greater than 1 TB
+> - The total data size to restore is greater than 1 TB
 > - The backup set includes more than 20 chained incremental snapshots. >
 > 
 >The restore process can also interrupt due to operational issues such as high latency between the vault and the source machine, low download speed from Azure to the source machine, or limited bandwidth on your machine.
