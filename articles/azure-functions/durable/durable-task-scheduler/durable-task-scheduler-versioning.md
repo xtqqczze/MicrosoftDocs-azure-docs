@@ -2,9 +2,10 @@
 title: Configure Versioning for Durable Task Scheduler (preview)
 description: Learn how to use orchestration versioning in Durable Task Scheduler.
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.date: 11/21/2025
 author: halspang
 ms.author: azfuncdf
+ms.reviewer: hannahhunter
 zone_pivot_groups: df-languages
 ---
 
@@ -65,6 +66,9 @@ public DurableTaskClient durableTaskClient(DurableTaskProperties properties) {
         .build();
 }
 ```
+
+::: zone-end
+
 ::: zone pivot="python"
 
 > [!NOTE]
