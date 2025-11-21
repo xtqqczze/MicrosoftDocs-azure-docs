@@ -576,7 +576,14 @@ git commit -m "<some-message>"
 git push origin main
 ```
 
-## Related content
+## Next steps
 
-- [Use a custom domain and a managed certificate to secure your app](tutorial-secure-domain-certificate.md)
-- [Configure a Linux Python app for Azure App Service](configure-language-python.md)
+Learn how to secure your app with a custom domain and certificate.
+
+> [!div class="nextstepaction"]
+> [Use a custom domain and managed certificate](tutorial-secure-domain-certificate.md)
+
+Learn how App Service runs a Python app.
+
+> [!div class="nextstepaction"]
+> [Configure a Linux Python app](configure-language-python.md)
