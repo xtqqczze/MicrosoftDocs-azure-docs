@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm  
 ms.service: dev-box    
 ms.topic: troubleshooting-general    
-ms.date: 11/20/2025
+ms.date: 11/21/2025
   
 #customer intent: As a developer, I want to find out about known connectivity and other issues with dev boxes so that I can maintain a stable and efficient workflow.
 ---
@@ -20,7 +20,6 @@ If this article doesn't address your issue, try running the automated troublesho
   
 | Category | Requirements |
 |---------|--------------|
-| Tools | To create or access a dev box, an organization must set up Microsoft Dev Box with at least one project and one dev box pool. To set up Microsoft Dev Box for an organization, see [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md).|
 | Tools | To connect to a dev box with the Windows App, [install the Windows App](https://apps.microsoft.com/detail/9n1f85v9t8bn) on your client device. |
 | Permissions | To create or access a dev box, you need [Dev Box User](quickstart-configure-dev-box-service.md#provide-access-to-a-dev-box-project) permissions in a project that has an available dev box pool. If you don't have permissions to a project, contact your admin.|
 
