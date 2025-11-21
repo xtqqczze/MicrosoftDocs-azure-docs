@@ -3,7 +3,7 @@ title: Configure Multi-user authorization using Resource Guard
 description: This article explains how to configure Multi-user authorization using Resource Guard.
 ms.topic: how-to
 zone_pivot_groups: backup-vaults-recovery-services-vault-backup-vault
-ms.date: 06/09/2025
+ms.date: 11/21/2025
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 author: AbhishekMallick-MS
