@@ -110,7 +110,7 @@ Windows 7| 1,700 GB
 
 >[!NOTE]
 >During Azure VM restore, you might experience performance issues in the following scenarios:
-> 1. The number of files to restore exceeds 8 million
+> - The number of files to restore exceeds 8 million
 > 2. The total data size to restore is greater than 1 TB
 > 3. The backup set includes more than 20 chained incremental snapshots. >
 > 
