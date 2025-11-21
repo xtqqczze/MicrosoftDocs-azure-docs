@@ -270,7 +270,7 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 To create a self-hosted runner, you need to build a container image that executes the runner. In this section, you build the container image and push it to a container registry.
 
 > [!NOTE]
-> The image you build in this tutorial contains a basic self-hosted runner that's suitable for running as a Container Apps job. You can customize it to include additional tools or dependencies that your workflows require.
+> The image you build in this tutorial contains a basic self-hosted runner that's suitable for running as a Container Apps job. You can customize it to include other tools or dependencies that your workflows require.
 
 1. Define a name for your container image and registry.
 
@@ -673,7 +673,10 @@ To run a self-hosted runner, you need to create a personal access token (PAT) in
 To create a self-hosted agent, you need to build a container image that runs the agent. In this section, you build the container image and push it to a container registry.
 
 > [!NOTE]
-> The image you build in this tutorial contains a basic self-hosted agent that's suitable for running as a Container Apps job. You can customize it to include additional tools or dependencies that your pipelines require.
+> The image you build in this tutorial contains a basic self-hosted agent that's suitable for running as a Container Apps job. You can customize it to include other tools or dependencies that your pipelines require.
+
+> [!IMPORTANT]
+> If your pipelines build .NET Framework applications, you might need to include Mono in your container image. The sample Dockerfile includes .NET SDK but not Mono. Consider using a Windows-based container or adding Mono dependencies if needed.
 
 1. Back in your terminal, define a name for your container image and registry.
 
@@ -859,6 +862,9 @@ You can run a manual job to register an offline placeholder agent. The job runs 
 
 After you create a placeholder agent, you can create a self-hosted agent. In this section, you create an event-driven job that runs a self-hosted agent when a pipeline is triggered.
 
+> [!IMPORTANT]
+> Ensure that your Azure DevOps organization URL is correct and accessible. The KEDA azure-pipelines scaler requires proper authentication and network connectivity to monitor the pipeline queue.
+
 # [Bash](#tab/bash)
 ```bash
 az containerapp job create -n "$JOB_NAME" -g "$RESOURCE_GROUP" --environment "$ENVIRONMENT" \
@@ -971,6 +977,65 @@ After you configure a self-hosted agent job, run a pipeline to verify that it wo
     ---
 
 ::: zone-end
+
+## Troubleshooting
+
+If you encounter issues with your self-hosted agents, try the following troubleshooting steps.
+
+### Pipeline jobs remain queued and don't trigger Container Apps jobs
+
+If your pipelines stay in a queued state and don't trigger job executions, then try these steps:
+
+1. Verify the scale rule configuration. Check that the scale rule metadata matches your Azure DevOps setup.
+
+   ```bash
+   az containerapp job show \
+       --name "$JOB_NAME" \
+       --resource-group "$RESOURCE_GROUP" \
+       --query "properties.configuration.eventTriggerConfig.scale.rules[0]"
+   ```
+
+1. Ensure your personal access token has the correct permissions and isn't expired.
+
+1. The Container Apps environment must be able to reach your Azure DevOps organization URL, so verify network connectivity in your environment.
+
+1. Check the polling interval. The default polling interval is 30 seconds. You can increase it if needed, but this change might delay job execution.
+
+1. Check if there are any error messages in the job execution logs.
+
+   ```bash
+   az containerapp job execution list \
+       --name "$JOB_NAME" \
+       --resource-group "$RESOURCE_GROUP" \
+       --output table
+   ```
+
+### Missing dependencies in container image
+
+If you encounter errors like "Unable to locate executable file: 'mono'" when building .NET Framework applications:
+
+1. Use appropriate base images. Ensure that your container image includes all required dependencies for your build process.
+
+1. If you need to build .NET Framework applications on Linux, add Mono to your container image with the following command:
+
+   ```dockerfile
+   # Add to your Dockerfile
+   RUN apt-get update && apt-get install -y mono-complete
+   ```
+
+1. Consider Windows containers. For .NET Framework applications, consider using Windows-based container images instead of Linux.
+
+1. For versions, use .NET Core/5+. Modern .NET versions don't require Mono and work better with Linux containers.
+
+### Agent registration issues
+
+If agents fail to register with Azure DevOps:
+
+1. Check token permissions. Ensure the PAT has "Agent Pools (Read & manage)" permissions.
+
+1. Verify organization URL. Make sure the organization URL is correct and doesn't have trailing slashes.
+
+1. Check agent pool name. Confirm the agent pool name matches exactly between Azure DevOps and your job configuration.
 
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
