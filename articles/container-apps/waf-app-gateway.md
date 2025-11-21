@@ -44,7 +44,13 @@ Use the following steps to retrieve the values of the **default domain** and the
 
 1. On the *Overview* window for your container app environment resource, select **JSON View** in the upper right-hand corner of the page to view the JSON representation of the container apps environment.
 
-1. Copy the values for the **defaultDomain** and **staticIp** properties and paste them into a text editor. You use these values for the default domain when you create a private DNS zone in the next section.
+1. In the JSON view, locate the `properties` section and find the following values:
+
+   - **Default domain**: Look for `properties.defaultDomain` or `properties.environmentFqdn`
+
+   - **Static IP**: Look for `properties.staticIp`
+
+1. Copy these values and paste them into a text editor. You use the default domain value when you create a private DNS zone in the next section.
 
 ## Create and configure an Azure Private DNS zone
 
@@ -64,7 +70,7 @@ To create and configure an Azure Private DNS zone, complete the following steps:
     |---|---|
     | Subscription | Select your Azure subscription. |
     | Resource group | Select the resource group of your container app. |
-    | Name | Enter the **defaultDomain** property of the Container Apps Environment from the previous section. |
+    | Name | Enter the default domain property of the Container Apps Environment from the previous section (either `defaultDomain` or `environmentFqdn`). |
     | Resource group location | Leave as the default. You don't need a value because Private DNS Zones are global. |
 
 1. Select **Review + create**. After validation finishes, select **Create**.
@@ -81,7 +87,7 @@ To create and configure an Azure Private DNS zone, complete the following steps:
     | Type | Select **A-Address Record**. |
     | TTL | Keep the default values. |
     | TTL unit | Keep the default values. |
-    | IP address | Enter the **staticIp** property of the Container Apps Environment from the previous section. |
+    | IP address | Enter the static IP property of the Container Apps Environment from the previous section (`staticIp`). |
 
 1. Select **OK** to create the record set.
 
@@ -95,7 +101,7 @@ To create and configure an Azure Private DNS zone, complete the following steps:
     | Type | Select **A-Address Record**. |
     | TTL | Keep the default values. |
     | TTL unit | Keep the default values. |
-    | IP address | Enter the **staticIp** property of the Container Apps Environment from the previous section. |
+    | IP address | Enter the static IP property of the Container Apps Environment from the previous section (`staticIp`). |
 
 1. Select **OK** to create the record set.
 
