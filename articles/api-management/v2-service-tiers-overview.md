@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/20/2025
+ms.date: 11/21/2025
 ms.author: danlep
 ms.custom:
   - references_regions
@@ -25,7 +25,7 @@ The following v2 tiers are generally available:
 
 * **Standard v2** - Standard v2 is a production-ready tier with support for network-isolated backends.
 
-* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation, scaling for high volume workloads, availability zones, and workspaces.
+* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation, scaling for high volume workloads, availability zones, and workspaces. [Read the blog post](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcing-the-general-availability-ga-of-the-premium-v2-tier-of-azure-api-manag/4471499) announcing general availability.
 
 ## Key capabilities
 
@@ -58,7 +58,10 @@ For a current list of regions where the v2 tiers are available, see [Availabilit
 
 ### Classic feature availability
 
-Most capabilities of the classic API Management tiers are supported directly in the v2 tiers. However, some features have replacements in the v2 tiers, and some currently aren't available in the v2 tiers. For more information, see [Feature-based comparison of the Azure API Management tiers](api-management-features.md).
+Most capabilities of the classic API Management tiers are supported directly in the v2 tiers. However, some features have replacements in the v2 tiers, and some currently aren't available. For detailed comparisons, see 
+
+* [Feature-based comparison of the Azure API Management tiers](api-management-features.md)
+* [API Management gateways overview](api-management-gateways-overview.md)
 
 #### Features replaced in v2 (with comparable functionality)
 
@@ -99,15 +102,11 @@ The following are currently unavailable in the v2 tiers.
 
 ## Resource limits
 
-The following resource limits apply to the v2 tiers.
+The following resource limits apply to the v2 tiers:
 
-[!INCLUDE [api-management-service-limits-v2](../../includes/api-management-service-limits-v2.md)]
+* [Resource limits for v2 tiers](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---api-management-v2-tiers)
+* [Developer portal limits for v2 tiers](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json#limits---developer-portal-in-api-management-v2-tiers)
 
-## Developer portal limits
-
-The following limits apply to the developer portal in the v2 tiers.
-
-[!INCLUDE [api-management-developer-portal-limits-v2](../../includes/api-management-developer-portal-limits-v2.md)]
 
 ## Deployment
 
