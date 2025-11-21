@@ -185,6 +185,7 @@ For estimated maximum gateway throughput in the API Management service tiers, se
 
 * **v2 tiers**
     * Scale gateway capacity by adding and removing scale [units](upgrade-and-scale.md), or upgrade the service tier.
+    * Optionally configure [Azure Monitor autoscale](api-management-howto-autoscale.md).
 
 * **Consumption tier**
     * API Management instances in the Consumption tier scale automatically based on the traffic.

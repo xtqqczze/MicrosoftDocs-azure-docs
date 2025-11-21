@@ -37,7 +37,7 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Developer portal<sup>2</sup>                                                                 | No          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
 | Built-in cache | No      | Yes                                            | Yes          | Yes       | Yes   | Yes      | Yes     | Yes |
 | [External cache](./api-management-howto-cache-external.md)                                                    | Yes         | Yes       | Yes   | Yes      | Yes      | Yes      |Yes     | Yes
-| Autoscaling                                                    | No         | No       | Yes   | No      | Yes      | No      |Yes     | No |
+| Autoscaling                                                    | No         | No       | Yes   | Yes      | Yes      | Yes      |Yes     | Yes |
 | API analytics                                     | No          | Yes       | Yes   | Yes      | Yes      | Yes      | Yes     | Yes |
 | [Self-hosted gateway](self-hosted-gateway-overview.md)<sup>3</sup>                           | No          | Yes       | No    | No       | No       | No       | Yes     | No |
 | [Workspaces](workspaces-overview.md)                                                         | No          | No       | No    | No     | No     | No       | Yes     |  Yes |
