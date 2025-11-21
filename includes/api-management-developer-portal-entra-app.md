@@ -25,7 +25,7 @@ To simplify the configuration, API Management can automatically enable a Microso
 
 After the Microsoft Entra provider is enabled:
 
-* Users in the specified Microsoft Entra tenant(s) can [sign into the developer portal by using a Microsoft Entra account](#log_in_to_dev_portal).
+* Users in your Microsoft Entra tenant can [sign into the developer portal by using a Microsoft Entra account](#log_in_to_dev_portal).
 * You can manage the Microsoft Entra configuration on the **Developer portal** > **Identities** page in the portal.
 * Optionally configure other sign-in settings by selecting **Identities** > **Settings**. For example, you might want to redirect anonymous users to the sign-in page.
 * Republish the developer portal after any configuration change.
@@ -52,7 +52,7 @@ After the Microsoft Entra provider is enabled:
     * In **Redirect URI**, select **Single-page application (SPA)** and paste the redirect URL you saved from a previous step. 
     * Select **Register**. 
 
-1.  After you've registered the application, copy the **Application (client) ID** from the **Overview** page. 
+1. After you've registered the application, copy the **Application (client) ID** from the **Overview** page. 
 1. Switch to the browser tab with your API Management instance. 
 1. In the **Add identity provider** window, paste the **Application (client) ID** value into the **Client ID** box.
 1. Switch to the browser tab with the App registration.

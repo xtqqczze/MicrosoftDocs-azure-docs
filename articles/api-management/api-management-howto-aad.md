@@ -21,7 +21,7 @@ ms.custom:
 
 In this article, you learn how to:
 > [!div class="checklist"]
-> * Enable access to the developer portal for users from Microsoft Entra ID in your organization.
+> * Enable access to the developer portal for users from Microsoft Entra ID in your organization's tenant (*workforce tenant*).
 > * Manage groups of Microsoft Entra users by adding external groups that contain the users.
 
 For an overview of options to secure the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md).
