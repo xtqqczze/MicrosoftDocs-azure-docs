@@ -169,9 +169,9 @@ Replication occurs as follows: <br /><br />
 
     `Get-AzMigrateServerMigrationStatus -ProjectName "<your-project-name>"   -ResourceGroupName "<your-resource-group>" -MachineName "<your-server-name>" -Expedite `
 
-10.   You will get the following output. 
+10.   You get the following output: 
     
-    :::image type="content" source="./media/tutorial-migrate-vmware/server-migration.png"alt-text="Screenshot shows the output of the server migration status. "lightbox="./media/tutorial-migrate-vmware/server-migration.png":::
+:::image type="content" source="./media/tutorial-migrate-vmware/server-migration.png"alt-text="Screenshot shows the output of the server migration status. "lightbox="./media/tutorial-migrate-vmware/server-migration.png":::
     
 11. You can run the command without `-MachineName` to view migration status and time remaining for all servers in the project. For example: 
 
