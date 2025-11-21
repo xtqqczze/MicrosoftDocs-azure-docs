@@ -6,7 +6,7 @@ author: alkohli
  
 ms.service: azure-stack-edge
 ms.topic: article
-ms.date: 11/20/2025
+ms.date: 11/21/2025
 ms.author: alkohli
 ---
 
@@ -18,7 +18,7 @@ The following release notes identify critical open issues and resolved issues fo
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2510** release, which maps to software version **3.3.2510.2130**.
+This article applies to the **Azure Stack Edge 2510** release, which maps to software version **3.3.2510.2170**.
 
 ## Supported update paths
 
@@ -34,15 +34,15 @@ You can update to the latest version using the following update paths:
 
 | Current version of Azure Stack Edge software and Kubernetes     | Update to Azure Stack Edge software and Kubernetes  | Desired update to 2510  |
 | --------------------| -----------| -----------|
-|earlier than 2501  | update to 2501, then directly to 2510   | 2510   |
-|2501  | Directly to   | 2510   |
-|2506   | Directly to   | 2510   |
+|earlier than 2403  | update to 2403, then to 2501   | 2510   |
+|earlier than 2501  | update to 2501   | 2510   |
+|2501   | Directly to   | 2510   |
 
 ## What's new
 
 There are no new features or enhancements in this release, but the following is a change:
 
-Azure Kubernetes service (AKS) on Azure Stack Edge has been deprecated.
+- Azure Kubernetes service (AKS) on Azure Stack Edge has been deprecated.
 
 
 ## Known issues in this release
