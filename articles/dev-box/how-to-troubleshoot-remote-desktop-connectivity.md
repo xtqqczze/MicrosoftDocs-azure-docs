@@ -41,7 +41,7 @@ If you disabled the network connection in your dev box and are unable to connect
 Enabling the Windows Insider channel in your dev box isn't supported. Upgrading your dev box to a Windows Insider build might result in being unable to connect to your dev box.
 
 ### The remote connection reports UDP issues
-If Universal Data Protocol (UDP) port 3478 is blocked in your network, on your home router for example, your remote connection might have problems using UDP. For the best experience, keep UDP port 3478 open.
+If Universal Data Protocol (UDP) port 3478 is blocked in your network, such as on your home router, your remote connection might have problems using UDP. For the best experience, keep UDP port 3478 open.
 
 ## Latency issues
 
