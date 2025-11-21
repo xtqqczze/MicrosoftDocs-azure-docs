@@ -140,6 +140,8 @@ The following diagram shows an example deployment that illustrates how to mainta
 * Operational workloads and data remain _on-premises at the edge_ under your complete control to ensure data residency and data sovereignty.
 * Data storage and processing resources are deployed in the _Canada Central_ region to meet specific regional data residency requirements.
 
+<!-- Art Library Source# ConceptArt-0-000-131 -->
+
 :::image type="content" source="./media/overview-deploy/data-residency.png" alt-text="Diagram that shows an example deployment of Azure IoT Operations with data residency considerations." lightbox="./media/overview-deploy/data-residency.png":::
 
 ## Next steps
