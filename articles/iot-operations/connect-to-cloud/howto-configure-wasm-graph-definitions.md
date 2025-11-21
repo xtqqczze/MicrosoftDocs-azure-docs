@@ -40,7 +40,7 @@ Graph definitions follow a formal [JSON schema](https://www.schemastore.org/aio-
 ```yaml
 moduleRequirements:
   apiVersion: "1.1.0"
-  hostlibVersion: "1.1.0"
+  runtimeVersion: "1.1.0"
 
 operations:
   - operationType: "source"
@@ -65,7 +65,7 @@ The `moduleRequirements` section ensures compatibility using semantic versioning
 ```yaml
 moduleRequirements:
   apiVersion: "1.1.0"          # WASI API version for interface compatibility
-  hostlibVersion: "1.1.0"     # Host library version providing runtime support
+  runtimeVersion: "1.1.0"     # Runtime version providing runtime support
   features:                    # Optional features required by modules
     - name: "wasi-nn"
 ```

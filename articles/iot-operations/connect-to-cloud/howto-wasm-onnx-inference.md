@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/03/2025
+ms.date: 11/21/2025
 ai-usage: ai-assisted
 
 ---
@@ -92,8 +92,8 @@ To enable WebAssembly Neural Network interface support, add the `wasi-nn` featur
 
 ```yaml
 moduleRequirements:
-  apiVersion: "0.2.0"
-  hostlibVersion: "0.2.0"
+  apiVersion: "1.1.0"
+  runtimeVersion: "1.1.0"
   features:
     - name: "wasi-nn"
 ```
