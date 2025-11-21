@@ -31,21 +31,21 @@ Organizations can set a policy that disconnects idle dev boxes after a specified
 
 ### The message "You were disconnected from \<dev-box-name\> because your session was locked" appears
 You might see this message if your organization sets a policy to disconnect idle dev boxes after a specified length of time, and has the single-sign on (SSO) feature enabled. Select **Reconnect** to access your dev box again.
-## Windows update takes a long time to install
+### Windows update takes a long time to install
 Windows update might take 30 minutes or more to install. If you can't connect to your dev box immediately after Windows update, retry after 15–30 minutes.
 
-## The dev box can't connect after the network connection is disabled
+### The dev box can't connect after the network connection is disabled
 If you disabled the network connection in your dev box and are unable to connect, wait for up to four hours and retry. The agent periodically checks and reenables the connection every four hours.
 
-### The dev box can't connect after upgrading to a Windows insider build
-Enabling the Windows insider channel in your dev box isn't supported. Upgrading your dev box to a Windows insider build might result in being unable to connect to your dev box.
+### The dev box can't connect after upgrading to a Windows Insider build
+Enabling the Windows Insider channel in your dev box isn't supported. Upgrading your dev box to a Windows Insider build might result in being unable to connect to your dev box.
 
 ### The remote connection reports UDP issues
-If Universal Data Protocol (UDP) port 3478 is blocked in your network, for example on your home router, your remote connection might have problems using UDP. For the best experience, keep UDP port 3478 open.
+If Universal Data Protocol (UDP) port 3478 is blocked in your network, on your home router for example, your remote connection might have problems using UDP. For the best experience, keep UDP port 3478 open.
 
 ## Latency issues
 
-### The remote session has high network latency and seems laggy
+### The remote session has high network latency and lags
 If you use a virtual private network (VPN) on your client computer or dev box, you might experience network latency. A forced-tunnel VPN, which routes all IP addresses, can increase this latency. Check with your network administrator.
 
 ## Sign-in issues
@@ -58,20 +58,20 @@ If signing in to a dev box via Windows Hello for Business based authentication m
 
 ## Dev box application or performance issues
 
-## Teams calls don't work well in the dev box
-If Teams calls don't work well in your dev box, open the **About** page in Teams and check that the **AVD Media Optimized** feature is installed. If this feature isn't installed, or if your dev box is running Windows Enterprise N or KN SKUs, contact your dev box administrator.
+### Teams calls don't work well in the dev box
+If Teams calls don't work well in your dev box, open the **About** page in Teams and check that the **AVD Media Optimized** feature is installed. If this feature isn't installed, or if your dev box is running Windows Enterprise N or `KN` SKU, contact your dev box administrator.
 
-## Teams calls from the dev box can't access the camera or microphone
+### Teams calls from the dev box can't access the camera or microphone
 If Teams calls from the dev box can't access a camera or microphone, open **Settings** on your local client computer, go to **Privacy & security**, and make sure **Camera** or **Microphone** is set to **On** for all **Microsoft Teams VDI** apps.
 
-## CPU profiling isn't available on an AMD-based dev box
+### CPU profiling isn't available on an AMD-based dev box
 It's a known Windows issue that CPU profiling doesn't work on AMD-based dev boxes. To fix the issue, go to **Turn Windows features on or off**, uninstall **Hyper-V** and **Virtual Machine Platform**, and reboot the machine.
 
-## Enabling nested virtualization on a Hyper-V VM causes issues in an AMD-based dev box
+### Enabling nested virtualization on a Hyper-V VM causes issues in an AMD-based dev box
 Enabling nested virtualization on a Hyper-V virtual machine (VM) in an AMD-based dev box by setting `Set-VMProcessor -VMName <name> -ExposeVirtualizationExtensions $true` might prevent the Hyper-V VM from booting. To avoid this issue, use an Intel-based dev box. 
 
-## The dev box has display issues
-Display issues like incorrect window scaling, blurry content, or broken screen paint might be due to a screen DPI rendering issue. These issues can happen when using multiple monitors or switching between different physical machines. To fix the issue, disconnect and reconnect to the dev box.
+### The dev box has display issues
+Display issues like incorrect window scaling, blurry content, or broken screen paint might be due to a screen dots per inch (DPI) rendering issue. These issues can happen when using multiple monitors or switching between different physical machines. To fix the issue, disconnect and reconnect to the dev box.
 
 ## Related content  
 
