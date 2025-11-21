@@ -171,7 +171,7 @@
     items:
     - name: Enable Azure Marketplace purchases
       href: manage/enable-marketplace-purchases.md
-    - name: To update COCP in Azure portal
+    - name: Initiate a Change of Channel Partner (COCP) request
       href: manage/change-of-channel-partner.md
     - name: Create subscriptions programmatically
       items:
