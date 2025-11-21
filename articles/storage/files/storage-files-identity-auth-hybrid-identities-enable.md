@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication over Ser
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/07/2025
+ms.date: 11/19/2025
 ms.author: kendownie
 recommendations: false
 # Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication on Azure Files, so that hybrid and cloud-only users can securely access file shares with their Microsoft Entra credentials.
@@ -173,7 +173,13 @@ You can configure the API permissions from the [Azure portal](https://portal.azu
 
 If you're connecting to a storage account via a private endpoint/private link using Microsoft Entra Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Microsoft Entra application. For instructions, see our [troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#error-1326---the-username-or-password-is-incorrect-when-using-private-link).
 
-If you have more than 1,010 security identifiers (SIDs) in a Microsoft Entra group, you might need to take [additional steps](/troubleshoot/windows-server/windows-security/logging-on-user-account-fails) in order to overcome the Kerberos ticket limit.
+## Enable cloud-only groups support (mandatory for cloud-only identities)
+
+Kerberos tickets can include a maximum of 1,010 Security Identifiers (SIDs) for groups. Now that Microsoft Entra Kerberos supports Entra-only identities (preview), tickets must include both on-premises group SIDs and cloud group SIDs. If the combined group SIDs exceed 1,010, the Kerberos ticket can't be issued. 
+
+If you're using Microsoft Entra Kerberos to authenticate cloud-only identities, you'll need to update the Tags in your application manifest file, or authentication will fail. 
+
+Follow [these instructions](/entra/identity/authentication/kerberos#group-sid-limit-in-entra-kerberos-preview) to update the tag in your application manifest.
 
 ## Disable multifactor authentication on the storage account
 

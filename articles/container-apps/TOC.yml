@@ -128,10 +128,12 @@
           href: functions-overview.md
         - name: Create a Functions app
           href: functions-usage.md
-        - name: Migrate from Functions V1 to V2
-          href: migrate-functions.md
         - name: Create your Azure functions on Azure Container Apps
           href: functions-container-apps.md
+        - name: Migrate from Functions V1 to V2
+          href: migrate-functions.md
+        - name: Run event-driven and batch workloads
+          href: functions-unified-platform.md
     - name: Use dynamic sessions
       items:
         - name: Code interpreter sessions
