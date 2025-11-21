@@ -159,6 +159,7 @@ The size of the Zarr store and spatial chunks will also impact performance. You 
 #### Time slider for data cube visualization
 
 If your data cube assets have a temporal component, you can use the time slider in the Explorer to visualize changes over time. The time slider will appear automatically if your STAC Items contains assets with a `time` dimension with an `extent` and `step` field.
+
 > [!NOTE]
 > We do not currently offer time slider support for Zarr assets. Because of this, it is critical that you specify which time slices you want to visualize in the render configuration. Failure to do so will result in the Explorer attempting to render all time slices of the Zarr store at once, which will cause the Explorer to crash.
 
