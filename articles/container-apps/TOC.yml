@@ -130,7 +130,7 @@
           href: functions-usage.md
         - name: Create your Azure functions on Azure Container Apps
           href: functions-container-apps.md
-        - name: Migrate from Functions V1 to V2
+        - name: Migrate from Functions v1 to v2
           href: migrate-functions.md
         - name: Run event-driven and batch workloads
           href: functions-unified-platform.md
