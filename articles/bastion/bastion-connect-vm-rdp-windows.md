@@ -43,11 +43,11 @@ Before you begin, verify that you've met the following criteria:
 > [!NOTE]
 > Microsoft Entra ID Authentication support for RDP connections within the portal is only supported for Windows VMs. For SSH connections to Linux VMs, see [Connect to a Linux VM using SSH](bastion-connect-vm-ssh-linux.md#microsoft-entra-id-authentication).
 
-If  the following prerequisites are met, Microsoft Entra ID becomes the default option to connect to your VM. If not, Microsoft Entra ID will not appear as an option.
+If the following prerequisites are met, Microsoft Entra ID becomes the default option to connect to your VM. If any prerequisite is not met, Microsoft Entra ID will not be presented as a Connection Method. To learn more about Entra ID authentication for Azure machines, see [Enable Microsoft Entra sign in for a Windows virtual machine in Azure or Arc-enabled Windows Server](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows#enable-microsoft-entra-sign-in-for-a-windows-virtual-machine-in-azure-or-arc-enabled-windows-server)
 
 Prerequisites:
 
-* **AADLoginForWindows** extension should be enabled on the VM. Microsoft Entra ID Login can be enabled during VM creation or by adding the **AADLoginForWindows** extension to a pre-existing VM.
+* **AADLoginForWindows** extension should be enabled on the VM. Microsoft Entra ID Login can be enabled during VM creation by checking the box for **Login with Microsoft Entra ID** or by adding the **AADLogin** extension to a pre-existing VM.
 
 * One of the following required roles should be configured on the VM for the user:
 
