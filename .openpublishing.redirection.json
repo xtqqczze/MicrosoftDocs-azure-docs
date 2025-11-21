@@ -6221,6 +6221,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/reliability/reliability-cosmos-mongodb.md",
+      "redirect_url": "/azure/reliability/reliability-documentdb",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/vpn-gateway/about-zone-redundant-vnet-gateways.md",
       "redirect_url": "/azure/reliability/reliability-virtual-network-gateway",
       "redirect_document_id": true
