@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: troubleshooting-general
-ms.date: 11/18/2025
+ms.date: 11/21/2025
   
 #customer intent: As a developer, I want to troubleshoot my connection issues with dev boxes so that I can maintain a stable and efficient workflow.
 ---
@@ -28,14 +28,15 @@ To automatically identify and address dev box issues, try running **Troubleshoot
 
 ## Troubleshooting checklist
 
-- Verify that your client device has an active internet connection.
-- Make sure your client device and dev box have the latest operating system and security updates installed.
-- Ensure you have the latest [Windows App installed](https://apps.microsoft.com/detail/9n1f85v9t8bn) on your client device.
-- Check for any improper network configurations or internet proxy settings on your client or dev box that could disrupt remote connections.
-- Confirm that your dev box status is **Running**. If the status is **Stopped** or **Hibernated**, select **Start** or **Resume** from the **More actions** menu on the dev box tile in the [developer portal](https://devbox.microsoft.com).
-- Check Windows Update. You can't connect to a dev box for up to 30 minutes while Windows is updating.
-- If you can access your dev box, review security and connection information by selecting the icons on the top connection bar during a session.
-- Review known connectivity issues at [Troubleshoot known Remote Desktop connectivity issues with dev boxes](how-to-troubleshoot-remote-desktop-connectivity.md).
+> [!div class="checklist"]
+> * Verify that your client device has an active internet connection.
+> * Make sure your client device and dev box have the latest operating system and security updates installed.
+> * Ensure you have the latest [Windows App installed](https://apps.microsoft.com/detail/9n1f85v9t8bn) on your client device.
+> * Check for any improper network configurations or internet proxy settings on your client or dev box that could disrupt remote connections.
+> * Confirm that your dev box status is **Running**. If the status is **Stopped** or **Hibernated**, select **Start** or **Resume** from the **More actions** menu on the dev box tile in the [developer portal](https://devbox.microsoft.com).
+> * Check Windows Update. You can't connect to a dev box for up to 30 minutes while Windows is updating.
+> * If you can access your dev box, review security and connection information by selecting the icons on the top connection bar during a session.
+> * Review known connectivity issues at [Troubleshoot known Remote Desktop connectivity issues with dev boxes](how-to-troubleshoot-remote-desktop-connectivity.md).
 
 ## Remote connectivity issues
 
