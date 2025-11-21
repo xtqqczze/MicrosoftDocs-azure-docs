@@ -21,7 +21,7 @@ ms.custom:
 
 In this article, you learn how to:
 > [!div class="checklist"]
-> * Enable access to the developer portal for users from Microsoft Entra ID in your organization's tenant (*workforce tenant*).
+> * Enable access to the developer portal for users from Microsoft Entra ID in your organization's tenant (*workforce tenant*) or other Microsoft Entra tenants.
 > * Manage groups of Microsoft Entra users by adding external groups that contain the users.
 
 For an overview of options to secure the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md).
@@ -69,6 +69,30 @@ For steps, see [Switch redirect URIs to the single-page application type](../act
 
 
 <a name='add-an-external-azure-ad-group'></a>
+
+## Add another Microsoft Entra tenant
+
+You can enable access to the developer portal for users from multiple Microsoft Entra ID tenants. 
+
+<!-- Are these the only steps required? How do they differ from current experience? Is admin consent required for each additional tenant? -->
+
+### Configure app registration for multiple tenants
+
+The app registration you configure for the identity provider must allow access from multiple Microsoft Entra ID tenants. 
+
+* When creating the app registration, set **Supported account types** to **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)**. 
+* If an app registration was previously configured for a single tenant, update the setting on the **Authentication** page of the app registration in the Azure portal.
+
+### Update identity provider configuration for multiple tenants
+
+Then update the identity provider to add another tenant:
+
+1. In the Azure portal, navigate to your API Management instance.
+1. Under **Developer portal**, select **Identities**.
+1. Select **Microsoft Entra ID** from the list.
+1. In the **Tenant ID** field, add the additional tenant ID(s separated by commas.
+1. Select **Update**.
+1. [Republish your developer portal](developer-portal-overview.md#)publish-the-portal).
 
 ## Add an external Microsoft Entra group
 
