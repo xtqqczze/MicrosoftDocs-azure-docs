@@ -16,7 +16,9 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 
 # Optimize blob partitions
 
-If your clients upload data by using _small_ block sizes, you can improve performance by choosing an efficient naming scheme. A _small_ block size is less than 256 KiB. Larger blocks aren't affected by partition naming. 
+If your clients upload data by using _small_ block sizes, you can improve performance by choosing an efficient naming scheme. A _small_ block size is less than 256 KiB. Larger blocks aren't affected by partition naming.
+
+## Partition keys and efficient naming schemes
 
 The partition key for a blob is account name + container name + blob name. The partition key is used to partition data into ranges and these ranges are load-balanced across the system.
 
