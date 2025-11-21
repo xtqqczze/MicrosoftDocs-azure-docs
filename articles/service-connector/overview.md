@@ -7,7 +7,7 @@ ms.service: service-connector
 ms.custom:
   - build-2024
 ms.topic: overview
-ms.date: 04/16/2025
+ms.date: 11/21/2025
 ---
 
 # What is Service Connector?
