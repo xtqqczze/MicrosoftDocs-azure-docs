@@ -62,6 +62,12 @@ Azure Data Lake Storage protection has the following supported and unsupported s
 - You can protect the storage account with the vault in another subscription but in the same region as storage account.
 - Archive tier for vault is currently not supported.
 - Azure Data Lake Storage accounts support both Blob and Data File System (DFS) APIs. The system captures operations through Change Feed and uses directory snapshots to ensure consistent recovery.
+- Vaulted Backup doesn’t support cross-container data moves because backup policies are container-specific. If you move data between containers, the replication consistency breaks.
+- When expiry is set on blobs via SetBlobExpiry API or PutBlob/PutBlock options. Once expired, expired blobs remain in restore points, creating inconsistencies in future restore points. Recommendation is to not use blob expiry.
+- Storage accounts upgraded from FNS to HNS are not supported for backup.
+- SFTP-enabled & NFS accounts are not supported for backup. Backup jobs may stall if SFTP-uploaded blobs encountered.
+- $web container cannot be restored as $web on the target. Use the renameTo option and restore it with a different container name.
+- $root container can be restored as $root on the target only if $root does not already exist there. If it already exists, use the renameTo option and restore it with a different container name.
 
 ## Backup limits
 
