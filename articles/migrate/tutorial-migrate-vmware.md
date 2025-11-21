@@ -141,7 +141,7 @@ Enable replication as follows:
 ## Track and monitor
 
 1. Track job status in the portal notifications.
-2. Monitor replication status by selecting on the numerical value next to **Azure VM** in **Migration and modernization**. 
+2. Monitor replication status by selecting the numerical value next to **Azure VM** in **Migration and modernization**. 
 
 ![Screenshot that shows monitor replication.](./media/tutorial-migrate-vmware/replicating-servers.png)
 
