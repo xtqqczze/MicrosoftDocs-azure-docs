@@ -24,7 +24,7 @@ This article provides the release notes for Azure Change Tracking and Inventory 
 | OS | Notes |
 | --- | --- |
 | **Windows** | Removed some security vulnerabilities. |
-| **Linux** | Removed some more security vulnerabilities. |
+| **Linux** | Removed some security vulnerabilities. |
 
 ### Extension version 2.33.1.0
 
@@ -37,8 +37,8 @@ This article provides the release notes for Azure Change Tracking and Inventory 
 
 | OS | Notes |
 | --- | --- |
-| **Windows** | Added ability to see details like KBIDs for software patches. |
-| **Linux** | Fixed bugs related to detecting correct os versions. |
+| **Windows** | Added ability to see details like the KB IDs for software patches. |
+| **Linux** | Fixed bugs related to detecting the correct OS versions. |
 
 ### Extension version 2.29.0.0
 
