@@ -4,7 +4,7 @@ description: Learn how to use command line tools, such as Azure Functions Core T
 ms.date: 07/22/2025
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-dotnet
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-full
 ---
 
 # Quickstart: Create a function in Azure from the command line
@@ -20,7 +20,13 @@ Make sure to select your preferred development language at the top of the articl
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [functions-requirements-azure-cli](../../includes/functions-requirements-azure-cli.md)]
-
+::: zone pivot="programming-language-other"  
+### [Go](#tab/go)
++ [Go](https://go.dev/doc/install), latest version recommended. Use the `go version` command to check your version.
+### [Rust](#tab/rust)
++ Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
+---
+::: zone-end  
 + [Azure CLI](/cli/azure/install-azure-cli)
 
 + The [`jq` command line JSON processor](https://jqlang.org/download/), used to parse JSON output, and is also available in Azure Cloud Shell.
@@ -69,6 +75,14 @@ In Azure Functions, your code project is an app that contains one or more indivi
  
     ```console
     func init --worker-runtime node --language typescript 
+    ```
+
+::: zone-end
+::: zone pivot="programming-language-other" 
+ 1. In a terminal or command prompt, run this [`func init`](./functions-core-tools-reference.md#func-init) command to create a function app project in the current folder:  
+ 
+    ```console
+    func init --worker-runtime custom 
     ```
 
 ::: zone-end
@@ -123,29 +137,26 @@ In Azure Functions, your code project is an app that contains one or more indivi
 
     You can review the template-generated code for your new HTTP trigger function in _Function.java_ in the _\src\main\java\com\fabrikam_ project directory.
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other" 
 2. Use this [`func new`](./functions-core-tools-reference.md#func-new) command to add a function to your project:
 
     ```console
-    func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
+    func new --name HttpExample --template "HTTP trigger" --authlevel "function"
     ```
 
     A new code file is added to your project. In this case, the `--name` argument is the unique name of your function (`HttpExample`) and the `--template` argument specifies an HTTP trigger. 
 ::: zone-end
 
 The project root folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because _local.settings.json_ can contain secrets downloaded from Azure, the file is excluded from source control by default in the _.gitignore_ file.
-
+::: zone pivot="programming-language-other"
+[!INCLUDE [functions-custom-handler-create-function-code](../../includes/functions-custom-handler-create-function-code.md)]  
+::: zone-end 
 ## Run the function locally
 
 Verify your new function by running the project locally and calling the function endpoint. 
 
-1. Use this command to start the local Azure Functions runtime host in the root of the project folder:
-    ::: zone pivot="programming-language-csharp"  
-    ```console
-    func start  
-    ```
-    ::: zone-end  
-    ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
+1. Use this command to start the local Azure Functions runtime host in the root of the project folder: 
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-other"
     ```console
     func start  
     ```

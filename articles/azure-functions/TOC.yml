@@ -84,8 +84,6 @@
     - name: Terraform
       displayName: Terraform, quickstart, get started
       href: functions-create-first-function-terraform.md
-    - name: Custom handlers (Go/Rust)
-      href: create-first-function-vs-code-other.md
   - name: Connect to services  
     items:
     - name: Storage
