@@ -22,6 +22,8 @@ This class provides functionality to compile, generate XSLT, and execute data ma
 You can use the **`DataMapTestExecutor`** class to generate XSLT from data map definitions and execute data transformations:
 
 ```csharp
+using Microsoft.Azure.Workflows.Data.Entities;
+
 // Initialize with app directory path
 var executor = new DataMapTestExecutor("path/to/logic-app-project");
 
@@ -30,7 +32,7 @@ var xslt = await executor.GenerateXslt("MyDataMap");
 
 // Generate XSLT from map content
 var generateXsltInput = new GenerateXsltInput { MapContent = mapContent };
-var xslt = await executor.GenerateXslt(generateXsltInput);
+var xsltContent = await executor.GenerateXslt(generateXsltInput);
 
 // Execute data map transformation by map name
 var inputData = System.Text.Encoding.UTF8.GetBytes(xmlInput);
@@ -67,14 +69,6 @@ The logic app project root directory path.
 | Property | Type | Description | Required |
 |----------|------|-------------|----------|
 | AppDirectoryPath | string | The root path of the logic app project | Yes |
-
-### DataMapTestEngine
-
-The internal data map test engine used for compilation and execution.
-
-| Property | Type | Description | Required |
-|----------|------|-------------|----------|
-| DataMapTestEngine | DataMapTestEngine | The underlying test engine for data map operations | Yes |
 
 ## Methods
 
@@ -180,14 +174,10 @@ var xslt = await executor.GenerateXslt("OrderToInvoice");
 
 // Then execute transformation
 var xmlInput = "<Order><Item>Widget</Item></Order>";
-var inputData = System.Text.Encoding.UTF8.GetBytes(xmlInput);
+var inputData = System.Text.Encoding.UTF8.GetBytes(xmlInput
 var result = await executor.RunMapAsync(xslt, inputData);
 Console.WriteLine(result.ToString());
 ```
-
-> [!NOTE]
->
-> This method creates a temporary file to store the XSLT content during execution and automatically cleans it up after the transformation is complete.
 
 ## Related content
 
