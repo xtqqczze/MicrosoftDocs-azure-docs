@@ -9,12 +9,12 @@ author: vikrammittal8
 ms.author: vikrammittal
 ms.service: volume-licensing
 ms.topic: article
-ms.date:     14/11/2025
+ms.date:     11/24/2025
 ---
 
-Initiate a Change of Channel Partner (COCP) request in the Azure portal
+# Initiate a Change of Channel Partner (COCP) request in the Azure portal
 
-# Summary
+## Summary
 
 Beginning November 2025, Enterprise Agreement (EA) Azure customers have the capability to initiate a change of channel partner (COCP) through Azure portal.
 
@@ -22,7 +22,7 @@ This change moves the ability to initiate the COCP process away from Partners an
 
 When a customer initiates a COCP, the new partner receives a notification via email to either accept or decline the request. Upon the partner's acceptance, the Azure customer is notified of the accepted request along with the effective date when the new partner becomes Active.
 
-# Prerequisite  information required for new partner
+## Prerequisite  information required for new partner
 
 To initiate a COCP request, only two attributes of information are required.
 
@@ -52,7 +52,7 @@ Make sure that the partner accepts the request within 10 days.
 -   EA agreements with expired/ended status
 -   Backdated COCP requests, Early COCP (before anniversary date)
 
-# Azure Portal customer experience
+## Azure Portal customer experience
 
 - The customer must have Enterprise Administrator role on the EA Billing Account to initiate the request.
 
@@ -82,7 +82,7 @@ Make sure that the partner accepts the request within 10 days.
     
 - **If customer selects agreement that are not eligible for** **COCP****, Azure portal displays a message informing the user that agreements are ineligible for a COCP.**
 
-![A screenshot of a computer AI-generated content may be incorrect.](../media/Billing_Ac_not_eli.png)
+![Cost management + Billing](../media/Billing_Ac_not_eli.png)
 
 User must expand the message to see the reasons blocking COCP for each impacted billing account.
 
@@ -92,13 +92,13 @@ It's up to the new partner contact who is directly engaged with the customer to 
 
 
 
-![A screenshot of a computer AI-generated content may be incorrect.](../media/Invalid_PCN.png)
+![Initiate change of Partner page](../media/Invalid_PCN.png)
 
 **Scenario: Partner email address inputted by customer does not have access to VL Central**.
 
 Customer may input an email address in Partner Notification Contact of a partner user who doesn't have permissions on VLC to accept the COCP. The Azure portal displays a warning but allows the user to proceed.
 
-This rule means the notification goes to the email address listed on COCP rather than the partner user who has VL Central access. That partner user with VLC access can see and accept the COCP in VL Central even though they do not receive the COCP notification.![A screenshot of a computer AI-generated content may be incorrect.](../media/Invalid_Email.png)
+This rule means the notification goes to the email address listed on COCP rather than the partner user who has VL Central access. That partner user with VLC access can see and accept the COCP in VL Central even though they do not receive the COCP notification.![Initiate change of Partner page2](../media/Invalid_Email.png)
 
 .  **Review Change Partner terms**
 -   If selected billing accounts are all EA direct – "Change of Software Advisor" form displayed.
@@ -107,17 +107,17 @@ This rule means the notification goes to the email address listed on COCP rather
 -   User needs to input their first name and last name and agree to terms and conditions by clicking on the checkbox.
 
 
-![A screenshot of a computer AI-generated content may be incorrect.](../media/f076209a9ebd77b5df61d2478b3c2170.png)![A screenshot of a computer screen AI-generated content may be incorrect.](../media/76471b6f9a91b163aea5237056d5c87e.png)![A screenshot of a computer AI-generated content may be incorrect.](../media/39242bb1fcdf405b3158369556ee7359.png)
+![Not eligible for COCP](../media/f076209a9ebd77b5df61d2478b3c2170.png)![Invalid partner PCN](../media/76471b6f9a91b163aea5237056d5c87e.png)![Invalid partner PCN](../media/39242bb1fcdf405b3158369556ee7359.png)
 
  **User must agree to terms to initiate the** COCP.
 
 A message appears to indicate the change of channel partner is successfully submitted. Make sure that the partner accepts the request within 10 days.
 
-![A screenshot of a computer AI-generated content may be incorrect.](../media/20573885c55ca53207cc946de627c33e.png)
+![Invalid partner EMAIL](../media/20573885c55ca53207cc946de627c33e.png)
 
  **COCP request is sent to Partner Notification contact identified in COCP**
 
-![A screenshot of a computer screen AI-generated content may be incorrect.](../media/ee41aefe5f112ad5ec0c473f184aa929.png)
+![Partner Notification contact identified ](../media/ee41aefe5f112ad5ec0c473f184aa929.png)
 
 #### 
 
@@ -143,7 +143,7 @@ A ‘**Request ID’** is displayed for each billing account included in the COC
 The **effective date** is the date from which the new partner may place orders on the agreement.
 
 
-![A screenshot of a computer AI-generated content may be incorrect.](../media/285d6a5992c75cef93ec0e4e273ce53b.png)
+![COCP Status Definitions](../media/285d6a5992c75cef93ec0e4e273ce53b.png)
 
 #### How to download COCP request ID in Azure portal
 
@@ -154,7 +154,7 @@ Customer admin must navigate to Azure Portal Track change page.
 
 - The COCP form can only be downloaded once partner accepts the request or the request isn't canceled.
 
-![A screenshot of a computer AI-generated content may be incorrect.](../media/COCP_Request.png)
+![download COCP request ID](../media/COCP_Request.png)
 
 #### How to cancel COCP request in Azure portal
 
@@ -164,8 +164,9 @@ A COCP request with a status of In Process may be canceled in full or partially 
 
 - Select Cancel Request from the action menu at the top, or the three dots next to billing scope.
 
-![A screenshot of a computer AI-generated content may be incorrect.](../media/70d4d272274e6e5374095722b4a09c86.png)
+![cancel COCP request in Azure portal](../media/70d4d272274e6e5374095722b4a09c86.png)
 
 This initiates a notification to the partner to let them know that the request is canceled.
+
 
 
