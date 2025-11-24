@@ -300,7 +300,7 @@ Inference in WASM data flow graphs has the following limitations:
 - Single-tensor input models are supported. Multi-input models, key-value caching, and advanced sequence or generative scenarios aren't supported.
 - Ensure the ONNX backend in the WASM runtime supports your model's operators. If an operator isn't supported, inference fails at load or execution time.
 
-## Related content
+## Next steps
 
 - [Develop WebAssembly modules](howto-develop-wasm-modules.md)
 - [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md)

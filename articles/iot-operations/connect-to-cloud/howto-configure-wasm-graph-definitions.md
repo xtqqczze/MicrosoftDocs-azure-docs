@@ -276,8 +276,5 @@ For a complete implementation example, see the [branch module](https://github.co
 - [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md)
 - [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md)
 - [Configure data flow endpoints](howto-configure-dataflow-endpoint.md)
-
-## Related content
-
 - [Configure registry endpoints](howto-configure-registry-endpoint.md)
 - [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)

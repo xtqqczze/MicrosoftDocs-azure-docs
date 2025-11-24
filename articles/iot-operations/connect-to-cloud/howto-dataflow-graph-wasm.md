@@ -1254,7 +1254,7 @@ Registry endpoints provide access to container registries for pulling WASM modul
 For detailed configuration information, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
 
 
-## Related content
+## Next steps
 
 - [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md)
 - [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md)

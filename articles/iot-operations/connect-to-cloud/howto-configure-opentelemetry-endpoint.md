@@ -515,7 +515,7 @@ Common validation errors:
 
 The OpenTelemetry endpoint provides delivery guarantees to the collector itself, but not to upstream services that the collector can forward data to. Once data reaches the collector, Azure IoT Operations doesn't have visibility into whether it reaches the final destination.
 
-## Related content
+## Next steps
 
 - [Create a data flow](howto-create-dataflow.md)
 - [Configure data flow endpoints](howto-configure-dataflow-endpoint.md)

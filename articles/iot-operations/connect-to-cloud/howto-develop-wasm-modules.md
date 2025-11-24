@@ -663,9 +663,3 @@ Key topics covered in the graph definitions guide:
 - See complete examples and advanced patterns in the [Azure IoT Operations WASM samples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm) repository.
 - Learn how to deploy your modules in [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md).
 - Configure your data flow endpoints in [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
-
-## Related content
-
-- [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md)
-- [Configure registry endpoints](howto-configure-registry-endpoint.md)
-- [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)
