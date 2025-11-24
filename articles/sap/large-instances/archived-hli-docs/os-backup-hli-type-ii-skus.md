@@ -8,7 +8,7 @@ ms.subservice: sap-large-instances
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 07/12/2019
-ms.author: bentrin
+ms.author: hrushib
 ms.custom: H1Hack27Feb2017
 # Customer intent: As a system administrator, I want to implement a file-level backup and restore process for SAP HANA on large Azure instances, so that I can ensure data integrity and recovery in case of operating system corruption.
 ---
