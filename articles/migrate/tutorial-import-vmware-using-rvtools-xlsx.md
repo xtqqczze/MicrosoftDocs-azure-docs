@@ -87,6 +87,8 @@ To import the servers using RVTools XLSX (preview) file, follow these steps:
 
 1. Click on **Browse** and choose and the RVTools XLSX file you want to import and click on **Import**.
 
+    :::image type="content" source="./media/tutorial-discover-vmware/import-successful.png" alt-text="Screenshot that shows file type drop-down and to choose RVTools XLSX." lightbox="./media/tutorial-discover-vmware/import-successful.png":::
+
     We recommend that you don't close the browser tab or attempt to import again while the current import is in progress. The import status provides information on the following:
     - If there are warnings in the status, you can either fix them or continue without addressing them.
     - To improve assessment accuracy, improve the server information as suggested in warnings. 
