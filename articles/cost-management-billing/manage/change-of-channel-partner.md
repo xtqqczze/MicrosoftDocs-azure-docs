@@ -5,8 +5,8 @@
 
 title: Initiate a Change of Channel Partner (COCP) request
 description: This document provides Enterprise  customers to initiate Change of Channel Partner via the Microsoft admin center and Azure portal.
-author: vikrammittal8
-ms.author: vikrammittal
+author: SandeepReddyAcc
+ms.author: v-salin
 ms.service: volume-licensing
 ms.topic: article
 ms.date:     11/24/2025
@@ -168,6 +168,7 @@ A COCP request with a status of In Process may be canceled in full or partially 
 ![cancel cocp request in azure portal](../media/70d4d272274e6e5374095722b4a09c86.png)
 
 This initiates a notification to the partner to let them know that the request is canceled.
+
 
 
 
