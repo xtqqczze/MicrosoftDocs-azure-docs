@@ -123,7 +123,7 @@ Premium SKU is recommended for production deployments requiring advanced securit
 - You need all Standard features plus advanced security and compliance capabilities
 
 > [!TIP]
-> The cost difference between Standard and Premium is marginal. Premium SKU is the recommended choice for production deployments, as upcoming roadmap features will be added exclusively to this tier.
+> The cost difference between Standard and Premium is marginal. Premium SKU is the recommended choice for production deployments.
 
 ## Upgrade considerations
 
@@ -136,47 +136,9 @@ Azure Bastion supports upgrading from lower SKUs to higher SKUs, but downgrading
 - **Standard to Premium**: Straightforward upgrade through the Azure portal. You can add features at the same time you upgrade.
 
 > [!IMPORTANT]
-> Upgrades take approximately 10 minutes. Downgrading a SKU isn't supported—you must delete and recreate Azure Bastion. You can add features during the upgrade process.
+> Upgrades take approximately 10 minutes. Downgrading a SKU isn't supported. You must delete and recreate Azure Bastion. You can add features during the upgrade process.
 
 For step-by-step upgrade instructions, see [View or upgrade a SKU](upgrade-sku.md).
-
-## Limitations
-
-Be aware of the following limitations when choosing your Azure Bastion SKU:
-
-### Limitations for all SKUs
-
-- PaaS multitenant services (Azure App Service Environment for Power Apps, Azure API Management in deployment modes other than virtual network integration) aren't currently supported.
-- Protecting a public IP resource attached to a NAT Gateway isn't supported.
-- Virtual machines in Classic/RDFE deployments aren't supported.
-- VPN Gateway or Virtual Network Gateway is protected by a DDoS policy. Adaptive tuning isn't supported at this stage.
-- Protection of a public IP address prefix linked to a public load balancer frontend is supported with the Azure DDoS Network Protection SKU.
-- DDoS telemetry for individual virtual machine instances in Virtual Machine Scale Sets is available with Flexible orchestration mode.
-
-> [!NOTE]
-> Scenarios in which a single VM is running behind a public IP is supported, but not recommended. For more information, see [Fundamental best practices](design-architecture.md).
-
-### Developer SKU limitations
-
-In addition to the general limitations, Bastion Developer has these additional constraints:
-
-- Virtual network peering isn't supported.
-- Connect to only one VM at a time.
-- Limited regional availability. See [Connect with Azure Bastion Developer](quickstart-developer.md).
-- Shared resource (not a dedicated bastion host).
-- Availability zones aren't supported.
-
-### Basic SKU limitations
-
-In addition to the general limitations, Basic SKU has these additional constraints:
-
-- Host scaling isn't supported (fixed at two instances).
-- Custom ports aren't supported.
-- Advanced connection methods aren't available (native client, shareable links, IP-based connections).
-- Can't disable copy/paste for web-based clients.
-- File upload/download isn't supported.
-- Connect to Linux VM using RDP isn't supported.
-- Connect to Windows VM using SSH isn't supported.
 
 ## Pricing model
 
