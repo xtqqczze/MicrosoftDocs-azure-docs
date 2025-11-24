@@ -81,7 +81,7 @@ The following table shows the language versions supported for Java function apps
 
 | Supported version | Support level | Supported until |
 | ---- | ---- |--- |
-| **Java 25** | Preview | TBD* |
+| **Java 25** | Preview | Pending<sup>*</sup> |
 | **Java 21** | GA | See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 17** | GA | See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 11** | GA |See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
