@@ -92,7 +92,7 @@ It's up to the new partner contact who is directly engaged with the customer to 
 
 
 
-![initiate change of partner page](../media/invalid-publicnumber.png)
+![initiate change of partner page](../media/invalid-number.png)
 
 **Scenario: Partner email address inputted by customer does not have access to VL Central**.
 
@@ -168,6 +168,7 @@ A COCP request with a status of In Process may be canceled in full or partially 
 ![cancel cocp request in azure portal](../media/70d4d272274e6e5374095722b4a09c86.png)
 
 This initiates a notification to the partner to let them know that the request is canceled.
+
 
 
 
