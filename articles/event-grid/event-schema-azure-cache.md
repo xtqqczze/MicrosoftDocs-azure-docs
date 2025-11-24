@@ -4,7 +4,7 @@ description: Describes the properties that are provided for Azure Cache for Redi
 ms.topic: conceptual
 ms.date: 12/02/2022
 author: curib
-ms.author: cauribeg
+ms.author: spelluru
 ---
 
 # Azure Cache for Redis as an Event Grid source
