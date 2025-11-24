@@ -99,7 +99,7 @@ For the up-to-date list of supported language stack versions, see [Supported lan
 
 ### How long will Functions continue to support my language version?
 
-Support is governed by the earlier of two factors: the community end-of-support date for the language, or the end-of-support date for the underlying base operating system — whichever comes first. The retirement date for each language version is defined and published when that version is made generally available (GA), giving customers ample time to plan and test upgrades. For the expected end-of-life dates of currently supported versions, see [Supported languages in Azure Functions](supported-languages.md#languages-by-runtime-version).
+Support ends on the earlier of: the community end-of-support date for the language or the end-of-support date for the underlying base operating system. Retirement dates are published at general availability (GA) to allow time for upgrade planning and testing. For the expected end-of-life dates of currently supported versions, see [Supported languages in Azure Functions](supported-languages.md#languages-by-runtime-version).
 
 ### What happens when my runtime version reaches the end of support?
 
