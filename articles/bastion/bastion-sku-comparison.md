@@ -11,7 +11,7 @@ ms.date: 11/24/2025
 
 # Choose the Right Azure Bastion SKUs to Meet Your Needs
 
-Azure Bastion offers four SKU tiers: **Developer** (free dev/test), **Basic** (essential production features), **Standard** (advanced features with scaling), and **Premium** (session recording and compliance). Each tier is designed for specific use cases and requirements.
+Azure Bastion offers four SKU tiers: **Developer**, **Basic**, **Standard**, and **Premium**.
 
 For detailed information about all Azure Bastion features and configuration settings, see [About Bastion configuration settings](configuration-settings.md).
 
@@ -61,7 +61,7 @@ Compare the features across all four Azure Bastion SKU tiers:
 
 ## Performance and scalability
 
-Understand the capacity and scaling characteristics of each SKU tier:
+The following table shows the capacity and scaling characteristics of each SKU tier:
 
 | Metric | Developer | Basic | Standard | Premium |
 |--------|-----------|-------|----------|---------|
@@ -81,14 +81,13 @@ Azure Bastion SKU availability varies by region:
 
 ## Decision framework
 
-Use the following guidance to select the appropriate Azure Bastion SKU for your requirements.
+Select an Azure Bastion SKU based on your requirements.
 
 ### Developer SKU
 
-Developer SKU is ideal for development and test environments where cost is the primary concern. Choose Developer SKU when:
+Developer SKU is available for development and test environments at no cost. Choose Developer SKU when:
 
-- You're working exclusively in dev/test environments
-- You want to minimize costs (completely free)
+- You're working in dev/test environments
 - You don't require virtual network peering or concurrent connections
 - You're operating in a [supported region](quickstart-developer.md)
 
@@ -97,30 +96,27 @@ Developer SKU is ideal for development and test environments where cost is the p
 
 ### Basic SKU
 
-Basic SKU provides cost-effective dedicated deployment for production environments that require essential features. Choose Basic SKU when:
+Basic SKU provides dedicated deployment with fixed capacity. Choose Basic SKU when:
 
-- You need dedicated production deployment with essential features
+- You need dedicated production deployment
 - Fixed capacity of two instances (40 RDP/80 SSH sessions) is sufficient
 - You don't need advanced features (native client, shareable links, IP-based connections, custom ports, file transfer)
-- You're working in a cost-conscious production environment
 
 ### Standard SKU
 
-Standard SKU offers comprehensive remote access capabilities with advanced features and scalability. Choose Standard SKU when:
+Standard SKU includes advanced features and configurable scaling. Choose Standard SKU when:
 
 - You need advanced features (native client, shareable links, IP-based connections, custom ports, file transfer)
-- You require host scaling (2-50 instances) for variable demand
+- You require host scaling (2-50 instances)
 - You need high concurrency (up to 1,000 RDP or 2,000 SSH sessions at max scale)
 
 ### Premium SKU
 
-Premium SKU is recommended for production deployments requiring advanced security, compliance features, or future-proofing. Choose Premium SKU when:
+Premium SKU includes all Standard features plus session recording and private-only deployment. Choose Premium SKU when:
 
 - You require session recording for compliance or audit requirements
 - You need private-only deployment (no public IP address)
-- You want to future-proof your deployment for upcoming features
 - Compliance requirements mandate session audit trails
-- You need all Standard features plus advanced security and compliance capabilities
 
 > [!TIP]
 > The cost difference between Standard and Premium is marginal. Premium SKU is the recommended choice for production deployments.
@@ -132,8 +128,8 @@ Azure Bastion supports upgrading from lower SKUs to higher SKUs, but downgrading
 ### Upgrade paths
 
 - **Developer to Basic/Standard/Premium**: Requires creating an AzureBastionSubnet (/26 or larger) and a public IP address (Standard SKU, Static allocation). See [Upgrade from Bastion Developer](upgrade-sku.md#upgrade-from-bastion-developer).
-- **Basic to Standard**: Straightforward upgrade through the Azure portal. You can add features at the same time you upgrade. See [Upgrade from Basic or Standard SKU](upgrade-sku.md#upgrade-from-the-basic-or-standard-sku).
-- **Standard to Premium**: Straightforward upgrade through the Azure portal. You can add features at the same time you upgrade.
+- **Basic to Standard**: Upgrade through the Azure portal. You can add features at the same time you upgrade. See [Upgrade from Basic or Standard SKU](upgrade-sku.md#upgrade-from-the-basic-or-standard-sku).
+- **Standard to Premium**: Upgrade through the Azure portal. You can add features at the same time you upgrade.
 
 > [!IMPORTANT]
 > Upgrades take approximately 10 minutes. Downgrading a SKU isn't supported. You must delete and recreate Azure Bastion. You can add features during the upgrade process.
@@ -142,7 +138,7 @@ For step-by-step upgrade instructions, see [View or upgrade a SKU](upgrade-sku.m
 
 ## Pricing model
 
-Azure Bastion pricing combines hourly SKU charges with outbound data transfer costs. Developer SKU is free. For dedicated SKUs (Basic, Standard, Premium), you pay hourly rates plus data transfer charges (first 5 GB/month free). Additional instances for host scaling have lower incremental rates.
+Azure Bastion pricing combines hourly SKU charges with outbound data transfer costs. Developer SKU is free. For dedicated SKUs (Basic, Standard, Premium), you pay hourly rates plus data transfer charges (first 5 GB/month free).
 
 For detailed pricing information and cost optimization strategies, see [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion/) and [Azure Bastion cost optimization principles](cost-optimization.md).
 
