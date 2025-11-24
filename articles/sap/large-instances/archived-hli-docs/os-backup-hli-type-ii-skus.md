@@ -17,16 +17,16 @@ ms.custom: H1Hack27Feb2017
 This document describes the steps to perform an operating system file level backup and restore for the **Type II  SKUs** of the HANA Large Instances of Revision 3.
 
 >[!Important]
-> **This article does not apply to Type II SKU deployments in Revision 4 HANA Large Instance stamps.** Boot LUNS of Type II HANA Large Instance units which are deployed in Revision 4 HANA Large Instance stamps can be backed up with storage snapshots as this is the case with Type I SKUs already in Revision 3 stamps
+> **This article does not apply to Type II SKU deployments in Revision 4 HANA Large Instance stamps.** Boot LUNS of Type II HANA Large Instance units, which are deployed in Revision 4 HANA Large Instance stamps can be backed up with storage snapshots as this is the case with Type I SKUs already in Revision 3 stamps
 >[!NOTE]
 > * The OS backup scripts uses xfsdump utility.
 > * This document supports complete Root filesystem backup and **no incremental** backups.
 > * Ensure that while creating a backup, no files are being written to the same system. Otherwise, files being written during the backup may not be included in the backup.
 > * ReaR backup is deprecated for Type II SKUs of the HANA Large Instances of Revision 3.
-> * We've tested this procedure in-house against multiple OS corruption scenarios. However, since you, as customer, are solely responsible for the OS, we recommend you thoroughly test before relying on this documentation for your scenario.
-> * We've tested this process on SLES OS.
+> * We tested this procedure in-house against multiple OS corruption scenarios. However, since you, as customer, are solely responsible for the OS, we recommend you thoroughly test before relying on this documentation for your scenario.
+> * We tested this process on SLES OS.
 > * Major versions upgrades, such as SLES 12.x to SLES 15x, aren't supported.
-> * To complete an OS restore with this process, you'll need Microsoft assistance since the recovery requires console access. Create a support ticket with Microsoft to assist in recovery.
+> * To complete an OS restore with this process, you need Microsoft assistance since the recovery requires console access. Create a support ticket with Microsoft to help recovery.
 
 ## How to take a manual backup?
 
@@ -64,7 +64,7 @@ To perform a manual backup:
 
 >[!NOTE]
 > * This step requires engaging the Microsoft operations team.
-> * To complete an OS restore with this process, Microsoft assistance is required since the recovery requires console access. Create a support ticket with Microsoft to assist in recovery.
+> * To complete an OS restore with this process, Microsoft assistance is required since the recovery requires console access. Create a support ticket with Microsoft to help recovery.
 > * We'll be restoring the complete filesystem:
 
 1. Mount OS iso on the system.
