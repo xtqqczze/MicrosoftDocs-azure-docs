@@ -70,7 +70,7 @@ Azure Data Lake Storage protection has the following supported and unsupported s
   - Soft Delete: Objects can still be soft-deleted as expected.
   - Undelete: Restore from soft-deleted state is not supported while Vaulted Backup is active. Undelete will only work if Vaulted Backup is disabled first. Re-enabling Vaulted Backup after disabling will trigger a full backup.
 - Storage accounts upgraded from FNS to HNS are not supported for backup.
-- SFTP-enabled & NFS accounts are not supported for backup. Backup jobs may stall if SFTP-uploaded blobs encountered.
+- SFTP-enabled and NFS-enabled accounts are not eligible for Vaulted Backup. If backup is initiated on such accounts, jobs will fail or hang when encountering blobs uploaded via SFTP.
 - $web container cannot be restored as $web on the target. Use the renameTo option and restore it with a different container name.
 - $root container can be restored as $root on the target only if $root does not already exist there. If it already exists, use the renameTo option and restore it with a different container name.
 
