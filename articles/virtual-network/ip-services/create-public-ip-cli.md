@@ -65,9 +65,9 @@ To create an IPv6 address, modify the `--version` parameter to **IPv6**.
 > For versions of the API older than 2020-08-01, execute the command without specifying a `--zone` parameter to create a zone-redundant IP address. 
 >
 
-# [**Standardv2 SKU**](#tab/create-public-ip-standard)
+# [**Standardv2 SKU**](#tab/create-public-ip-standardv2)
 
-### Create a standard zone-redundant IP address
+### Create a standard v2 zone-redundant IP address
 
 >[!NOTE]
 >Standard v2 SKU public IP is required for use of the Standard v2 NAT Gateway with zone-redundancy. For more information about SKUs, see **[Public IP addresses](public-ip-addresses.md)**.
