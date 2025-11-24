@@ -85,7 +85,7 @@ To import the servers using RVTools XLSX (preview) file, follow these steps:
 
     :::image type="content" source="./media/tutorial-discover-vmware/file-drop-down.png" alt-text="Screenshot that shows file type drop-down and to choose RVTools XLSX." lightbox="./media/tutorial-discover-vmware/file-drop-down.png":::
 
-1. Click on **Browse** and choose and the RVTools XLSX file you want to import and click on **Import**.
+1. Click on **Browse** and choose the RVTools XLSX file you want to import and click on **Import**.
 1. We recommend that you don't close the browser tab or attempt to import again while the current import is in progress. The import status provides information on the following:
     - If there are warnings in the status, you can either fix them or continue without addressing them.
     - To improve assessment accuracy, improve the server information as suggested in warnings. 
@@ -97,11 +97,11 @@ To import the servers using RVTools XLSX (preview) file, follow these steps:
       :::image type="content" source="./media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png" alt-text="Screenshot that shows to status as failed." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png"::: 
    
     - To view and fix errors, follow these steps:
-        - Select *Download error details.XLSX* file. This operation downloads the XLSX with warnings included.
+        - Click on **Download this file, rectify the errors and re-upload the file.**. This downloads the XLSX with warnings and errors included.
         - Review and address the errors as necessary.
         - Upload the modified file again.
 
-When the **Import status** is marked as **Complete**, it implies that the server information is successfully imported.
+1. When the **Import status** is marked as **Complete**, it implies that the server information is successfully imported.
 
 ## Update server information
 To update the information for a server, follow these steps:
