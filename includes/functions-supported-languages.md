@@ -87,7 +87,7 @@ The following table shows the language versions supported for Java function apps
 | **Java 11** | GA |See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
 | **Java 8** | GA | See the [Temurin support page](https://adoptium.net/support/). |
 
-*The end-of-life (EOL) date for Java 25 will be published when the language version reaches general availability (GA).
+<sup>*</sup>The end-of-support date for Java 25 is determined when general availability (GA) is declared.
 
 For more information on developing and running Java function apps, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
 
