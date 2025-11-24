@@ -25,6 +25,7 @@
       "redirect_url": "/azure/azure-change-tracking-inventory/change-tracking-inventory-support-matrix",
       "redirect_document_id": false
     },
+    {
       "source_path": "articles/defender-for-iot/organizations/custom-columns-sample-script.md",
       "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/custom-columns-sample-script",
       "redirect_document_id": false
