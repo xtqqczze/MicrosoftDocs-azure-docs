@@ -26,6 +26,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/automation/change-tracking/enable-vms-monitoring-agent.md",
+      "redirect_url": "/azure/azure-change-tracking-inventory/quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory?pivots=single-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking/manage-change-tracking-monitoring-agent.md",
+      "redirect_url": "/azure/azure-change-tracking-inventory/tutorial-change-workspace-configure-data-collection-rule",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/defender-for-iot/organizations/custom-columns-sample-script.md",
       "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/custom-columns-sample-script",
       "redirect_document_id": false
