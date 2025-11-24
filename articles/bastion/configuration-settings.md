@@ -38,7 +38,7 @@ You can configure this setting using the following methods:
 
 ## <a name="public-ip"></a>Public IP address
 
-Azure Bastion deployments, except [Bastion Developer](#bastion-developer) and [Private-only](#private-only), require a Public IP address. The Public IP must have the following configuration:
+Azure Bastion deployments, except Bastion Developer and [Private-only](#private-only), require a Public IP address. The Public IP must have the following configuration:
 
 * The Public IP address SKU must be **Standard**.
 * The Public IP address assignment/allocation method must be **Static**.
@@ -112,4 +112,4 @@ When a user without Azure credentials clicks a shareable link, a webpage opens t
 
 For frequently asked questions, see the [Azure Bastion FAQ](bastion-faq.md).
 Choose the right Azure Bastion SKU for your needs by reading [Choose the right Azure Bastion SKUs to meet your needs](bastion-sku-comparison.md).
-Review the cost optimization recommendations for Azure Bastion in [Optimize Azure Bastion costs](optimize-bastion-costs.md).
+Review the cost optimization recommendations for Azure Bastion in [Optimize Azure Bastion costs](cost-optimization.md).
