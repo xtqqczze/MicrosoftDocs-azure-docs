@@ -58,8 +58,6 @@ As data progresses into the Gold layer, it's shaped into business-ready models d
 
 Business Process Solutions use the same connectivity options as Microsoft Fabric and Azure Data Factory, but goes further by embedding best practices that make integration simpler and more effective. We also understand that many businesses have already invested in data extraction tools, which is why Business Process Solutions support a wide range of options, from native connectivity to third-party options that bring specialized capabilities to the table. The solution automatically deploys necessary objects to establish the connection to the source system and extract data.
 
-![Diagram that shows data extraction options for business process solutions.](./media/about-business-process-solutions/data-extraction-options.png)
-
 Business Process Solutions offers integration with following source systems:
 
 ### SAP S/4HANA (Public Preview)
