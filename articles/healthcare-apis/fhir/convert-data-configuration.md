@@ -175,7 +175,7 @@ You can register up to 20 ACR servers in the FHIR service.
 > [!IMPORTANT]
 > When registering an Azure Container Registry (ACR) image in the FHIR service:
 >  - If a _digest is specified_ only the image with the exact digest will be used.
->  - If a _digest is *not* specified_ the image can be resolved using both taging and digest.
+>  - If a _digest is *not* specified_ the image can be resolved using both tagging and digest.
 
 ### Step 6: Configure the Azure Container Registry firewall for secure access
 
