@@ -120,7 +120,7 @@ Related resources:
 
 The sales and billing insights data model combines sales order and billing document data to provide a comprehensive view of the sales process. It enables organizations to analyze the entire sales lifecycle, from initial order creation through to billing and revenue recognition. By integrating these two critical areas, businesses can gain deeper insights into customer behavior, sales performance, and financial outcomes.
 
-:::image type="content" source="./media/data-models-business-process-solutions/sales-billing-insights.png" alt-text="Diagram that shows Sales and Billing Insights dashboard." lightbox="./media/data-models-business-process-solutions/sales-billing-insights.png":::
+:::image type="content" source="./media/data-models-business-process-solutions/sales-billing-insights-dashboard.png" alt-text="Diagram that shows Sales and Billing Insights dashboard." lightbox="./media/data-models-business-process-solutions/sales-billing-insights-dashboard.png":::
 
 Supported source systems:
 
