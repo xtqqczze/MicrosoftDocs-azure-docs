@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/21/2025
+ms.date: 11/24/2025
 ai-usage: ai-assisted
 
 ---
@@ -252,17 +252,19 @@ fn init_model() -> Result<(), anyhow::Error> {
 To avoid recreating the ONNX graph and execution context for every message, initialize it once and reuse it. The [public sample](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/examples/snapshot/src/lib.rs) uses a static `LazyLock`:
 
 ```rust
-use std::sync::LazyLock;
-use wasi_nn::{graph::{load, Graph, GraphEncoding, ExecutionTarget}, GraphExecutionContext};
+use crate::wasi::nn::{
+     graph::{load, ExecutionTarget, Graph, GraphEncoding, GraphExecutionContext},
+     tensor::{Tensor, TensorData, TensorDimensions, TensorType},
+ };
 
-static mut CONTEXT: LazyLock<GraphExecutionContext> = LazyLock::new(|| {
-  let graph = load(&[MODEL.to_vec()], GraphEncoding::Onnx, ExecutionTarget::Cpu).unwrap();
-  Graph::init_execution_context(&graph).unwrap()
-});
-
+ static mut CONTEXT: LazyLock<GraphExecutionContext> = LazyLock::new(|| {
+     let graph = load(&[MODEL.to_vec()], GraphEncoding::Onnx, ExecutionTarget::Cpu).unwrap();
+     Graph::init_execution_context(&graph).unwrap()
+ });
+    
 fn run_inference(/* input tensors, etc. */) {
-  unsafe {
-    // (*CONTEXT).set_input(...)?; (*CONTEXT).compute()?; (*CONTEXT).get_output(...)?;
+   unsafe {
+     // (*CONTEXT).compute()?;
   }
 }
 ```
