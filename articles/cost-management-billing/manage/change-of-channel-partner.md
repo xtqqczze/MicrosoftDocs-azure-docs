@@ -155,7 +155,7 @@ Customer admin must navigate to Azure Portal Track change page.
 
 - The COCP form can only be downloaded once partner accepts the request or the request isn't canceled.
 
-![download cocp request](../media/Request.png)
+![download cocp request](../media/request.png)
 
 #### How to cancel COCP request in Azure portal
 
@@ -168,6 +168,7 @@ A COCP request with a status of In Process may be canceled in full or partially 
 ![cancel cocp request in azure portal](../media/70d4d272274e6e5374095722b4a09c86.png)
 
 This initiates a notification to the partner to let them know that the request is canceled.
+
 
 
 
