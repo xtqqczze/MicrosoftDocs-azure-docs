@@ -26,7 +26,7 @@ This document describes the steps to perform an operating system file level back
 > * We tested this procedure in-house against multiple OS corruption scenarios. However, since you, as customer, are solely responsible for the OS, we recommend you thoroughly test before relying on this documentation for your scenario.
 > * We tested this process on SLES OS.
 > * Major versions upgrades, such as SLES 12.x to SLES 15x, aren't supported.
-> * To complete an OS restore with this process, you need Microsoft assistance since the recovery requires console access. Create a support ticket with Microsoft to help recovery.
+> * To complete an OS restore with this process, you need Microsoft assistance since the recovery requires console access. To help recovery, create a support ticket with Microsoft.
 
 ## How to take a manual backup?
 
@@ -64,8 +64,8 @@ To perform a manual backup:
 
 >[!NOTE]
 > * This step requires engaging the Microsoft operations team.
-> * To complete an OS restore with this process, Microsoft assistance is required since the recovery requires console access. Create a support ticket with Microsoft to help recovery.
-> * We'll be restoring the complete filesystem:
+> * To complete an OS restore with this process, Microsoft assistance is required since the recovery requires console access. To help recovery, create a support ticket with Microsoft.
+> * We'll restore the complete filesystem:
 
 1. Mount OS iso on the system.
 
