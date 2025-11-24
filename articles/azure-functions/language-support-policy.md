@@ -12,7 +12,7 @@ This article explains the support policy for the language stacks supported by Az
 
 ## Retirement process
 
-The Functions runtime includes the Functions host and programming language-specific workers. To maintain full-support coverage when running your functions in Azure, Functions support aligns with end-of-life support for a given language. To help you keep your apps up-to-date and supported, Functions implements a phased reduction in support as language stack versions reach their end-of-life dates. Support is governed by the community end-of-support date for the language or the end-of-support date for the underlying base operating system — whichever comes first. The retirement date for each language version will be published at general availability (GA) to provide sufficient time for upgrade planning and testing.
+The Functions runtime includes the Functions host and programming language-specific workers. To maintain full-support coverage when running your functions in Azure, Functions support aligns with end-of-life support for a given language. To help you keep your apps up-to-date and supported, Functions implements a phased reduction in support as language stack versions reach their end-of-life dates. Support ends on the earlier of: the community end-of-support date for the language or the end-of-support date for the underlying base operating system. Retirement dates are published at general availability (GA) to allow time for upgrade planning and testing.
 
 + **Notification phase**: 
 
