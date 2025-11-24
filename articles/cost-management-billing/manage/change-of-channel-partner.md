@@ -71,7 +71,7 @@ Make sure that the partner accepts the request within 10 days.
 -   Input the email address of the partner’s Notification contact.
 -   Select a reason for changing partner from available drop downs: Unsatisfactory service by current partner, current partner is being off boarded by Microsoft, or Other.
 
-!iInitiate change of partner pages1](../media/9350cd4c52e4430287886bf707b2dd03.png)
+![iInitiate change of partner pages1](../media/9350cd4c52e4430287886bf707b2dd03.png)
 
 - Partner organization name displays when user inputs partner PCN and clicks “*confirm partner*” button in bottom left corner of screen.
 - This check verifies whether the partner PCN entered is allowed to do business or not. if there's error reach out to partner to get the correct PCN.
@@ -82,7 +82,7 @@ Make sure that the partner accepts the request within 10 days.
     
 - **If customer selects agreement that are not eligible for** **COCP****, Azure portal displays a message informing the user that agreements are ineligible for a COCP.**
 
-![cost management billing](../media/Billing_Ac_not_eli.png)
+![cost management billing](../media/billingacnoteli.png)
 
 User must expand the message to see the reasons blocking COCP for each impacted billing account.
 
@@ -92,13 +92,13 @@ It's up to the new partner contact who is directly engaged with the customer to 
 
 
 
-![initiate change of partner page](../media/Invalid_PCN.png)
+![initiate change of partner page](../media/invalidpcn.png)
 
 **Scenario: Partner email address inputted by customer does not have access to VL Central**.
 
 Customer may input an email address in Partner Notification Contact of a partner user who doesn't have permissions on VLC to accept the COCP. The Azure portal displays a warning but allows the user to proceed.
 
-This rule means the notification goes to the email address listed on COCP rather than the partner user who has VL Central access. That partner user with VLC access can see and accept the COCP in VL Central even though they do not receive the COCP notification.![initiate change of partner page2](../media/Invalid_Email.png)
+This rule means the notification goes to the email address listed on COCP rather than the partner user who has VL Central access. That partner user with VLC access can see and accept the COCP in VL Central even though they do not receive the COCP notification.![initiate change of partner page2](../media/invalidemail.png)
 
 .  **Review Change Partner terms**
 -   If selected billing accounts are all EA direct – "Change of Software Advisor" form displayed.
@@ -155,7 +155,7 @@ Customer admin must navigate to Azure Portal Track change page.
 
 - The COCP form can only be downloaded once partner accepts the request or the request isn't canceled.
 
-![download cocp request](../media/COCP_Request.png)
+![download cocp request](../media/cocprequest.png)
 
 #### How to cancel COCP request in Azure portal
 
@@ -168,6 +168,7 @@ A COCP request with a status of In Process may be canceled in full or partially 
 ![cancel cocp request in azure portal](../media/70d4d272274e6e5374095722b4a09c86.png)
 
 This initiates a notification to the partner to let them know that the request is canceled.
+
 
 
 
