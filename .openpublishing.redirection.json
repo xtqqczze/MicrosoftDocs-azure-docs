@@ -775,9 +775,9 @@
       "redirect_url": "/previous-versions/azure/databox-online/azure-stack-edge-deploy-configure-compute",
       "redirect_document_id": false
     },
-        {
-      "source_path": "articles/databox-online/azure-stack-edge-gpu-2510-release-notes.md",
-      "redirect_url": "/articles/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge",
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-deploy-aks-on-azure-stack-edge.md",
+      "redirect_url": "/articles/databox-online/azure-stack-edge-gpu-2510-release-notes",
       "redirect_document_id": false
     },
     {
