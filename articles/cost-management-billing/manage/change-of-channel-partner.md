@@ -58,20 +58,20 @@ Make sure that the partner accepts the request within 10 days.
 
 - Go to Azure portal, Cost management + Billing -> Billing Scopes -> click on Change Partner.
 
-![A screenshot of a computer AI-generated content may be incorrect.](../media/4c8cf6ac757a54ac716d903f02bf6d47.png)
+![Azure Portal customer experience](../media/4c8cf6ac757a54ac716d903f02bf6d47.png)
 
 - After clicking Change Partner, the user is redirected to a page showing only eligible billing accounts on which COCP requests can be initiated. Select the Billing accounts that you want to transfer and click on next.
 
 - User may select multiple billing accounts up to a maximum of 20 or user may select one billing account and click the three dots to Change Partner on that billing account.
 
-![A screenshot of a computer AI-generated content may be incorrect.](../media/47bba1c187178d52bedceea553c275f2.png)
+![Azure Portal customer experiences1](../media/47bba1c187178d52bedceea553c275f2.png)
 
   On the **Initiate change of Partner page** user needs to
 -   Input the Public Customer Number (PCN) of the new partner.
 -   Input the email address of the partner’s Notification contact.
 -   Select a reason for changing partner from available drop downs: Unsatisfactory service by current partner, current partner is being off boarded by Microsoft, or Other.
 
-![A screenshot of a computer AI-generated content may be incorrect.](../media/9350cd4c52e4430287886bf707b2dd03.png)
+![Initiate change of Partner pages1](../media/9350cd4c52e4430287886bf707b2dd03.png)
 
 - Partner organization name displays when user inputs partner PCN and clicks “*confirm partner*” button in bottom left corner of screen.
 - This check verifies whether the partner PCN entered is allowed to do business or not. if there's error reach out to partner to get the correct PCN.
@@ -107,7 +107,8 @@ This rule means the notification goes to the email address listed on COCP rather
 -   User needs to input their first name and last name and agree to terms and conditions by clicking on the checkbox.
 
 
-![Not eligible for COCP](../media/f076209a9ebd77b5df61d2478b3c2170.png)![Invalid partner PCN](../media/76471b6f9a91b163aea5237056d5c87e.png)![Invalid partner PCN](../media/39242bb1fcdf405b3158369556ee7359.png)
+![Not eligible for COCP](../media/f076209a9ebd77b5df61d2478b3c2170.png)
+![Invalid partner PCN12](../media/76471b6f9a91b163aea5237056d5c87e.png)![Invalid partner PCN1](../media/39242bb1fcdf405b3158369556ee7359.png)
 
  **User must agree to terms to initiate the** COCP.
 
@@ -119,7 +120,7 @@ A message appears to indicate the change of channel partner is successfully subm
 
 ![Partner Notification contact identified ](../media/ee41aefe5f112ad5ec0c473f184aa929.png)
 
-#### 
+
 
 #### How to Track COCP status COCP request ID in Azure portal
 
@@ -167,6 +168,7 @@ A COCP request with a status of In Process may be canceled in full or partially 
 ![cancel COCP request in Azure portal](../media/70d4d272274e6e5374095722b4a09c86.png)
 
 This initiates a notification to the partner to let them know that the request is canceled.
+
 
 
 
