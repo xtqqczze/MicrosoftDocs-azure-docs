@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Manage Azure Functions on Container Apps using Azure CLI
 
-This article shows you how to deploy and manage Azure Functions on Azure Container Apps by using the Azure CLI. You learn how to set up your environment, create the necessary Azure resources, deploy function apps, and manage function operations.
+This article shows you how to deploy and manage Azure Functions on Azure Container Apps by using the Azure CLI. You learn how to set up your environment, create the necessary Azure resources and deploy function apps for managing function operations.
 
 ## Prerequisites
 
