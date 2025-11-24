@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.custom: devx-track-azurepowershell
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/22/2024
+ms.date: 11/21/2025
 ms.topic: how-to
 ai-usage: ai-assisted
 ---
@@ -32,6 +32,8 @@ To simplify VM image creation, VM Image Builder:
 
 ## Prerequisites
 
+The example in this article uses PowerShell. You can also use the Azure CLI.
+
 To provision a custom image that you created by using VM Image Builder, you need:
 
 - Azure PowerShell 6.0 or later. If you don't have PowerShell installed, follow the steps in [Install Azure PowerShell on Windows](/powershell/azure/install-azps-windows).
@@ -41,43 +43,34 @@ To provision a custom image that you created by using VM Image Builder, you need
 
 ## Create a Windows image and distribute it to Azure Compute Gallery
 
-The first step is to use Azure VM Image Builder and Azure PowerShell to create an image in Azure Compute Gallery and distribute it globally. 
+The first step is to use Azure VM Image Builder to create an image in Azure Compute Gallery and distribute it globally. To use VM Image Builder, the following Azure resource providers must be registered:
 
-The following example uses PowerShell. You can also use the Azure Command-Line Interface (CLI).
+- `Microsoft.VirtualMachineImages`
+- `Microsoft.Compute`
+- `Microsoft.Network`
+- `Microsoft.Storage`
+- `Microsoft.KeyVault`
 
-1. To use VM Image Builder, you need to register the features.
-
-   Check your provider registrations. Make sure each command returns `Registered` for the specified feature.
-
-   ```powershell
-      Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages | Format-table -Property ResourceTypes,RegistrationState 
-      Get-AzResourceProvider -ProviderNamespace Microsoft.Storage | Format-table -Property ResourceTypes,RegistrationState  
-      Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState 
-      Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | Format-table -Property ResourceTypes,RegistrationState 
-      Get-AzResourceProvider -ProviderNamespace Microsoft.Network | Format-table -Property ResourceTypes,RegistrationState 
-   ```
-
-   If the provider registrations don't return `Registered`, register the providers by running the following commands:
+1. Check the provider registrations by running the following command:
 
    ```powershell
-      Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages  
-      Register-AzResourceProvider -ProviderNamespace Microsoft.Storage  
-      Register-AzResourceProvider -ProviderNamespace Microsoft.Compute  
-      Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault  
-      Register-AzResourceProvider -ProviderNamespace Microsoft.Network 
+     Get-AzResourceProvider -ProviderNamespace "Microsoft.VirtualMachineImages", "Microsoft.Compute", "Microsoft.Network", "Microsoft.Storage", "Microsoft.KeyVault" `
+     | Format-table -Property ProviderNamespace,RegistrationState
    ```
 
-1. Install PowerShell modules:
+   If any of the provider registrations don't return `Registered`, register the provider by running the `Register-AzResourceProvider` command. For example:
+
+   ```powershell
+     Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
+   ```
+
+1. Install PowerShell modules by running the following command:
 
    ```powershell
    'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
    ```
 
-1. Create variables to store information that you use more than once.
-
-   1. Copy the following sample code.
-   1. Replace `<Resource group>` with the resource group that you used to create the dev center.
-   1. Run the updated code in PowerShell.
+1. Run the following code to create variables to store information that you use more than once. Replace `<resource-group>` with the name of the resource group you used to create your dev center, and `<location>` with the Azure region you want to use.
 
    ```powershell
    # Get existing context 
@@ -87,10 +80,10 @@ The following example uses PowerShell. You can also use the Azure Command-Line I
    $subscriptionID=$currentAzContext.Subscription.Id
 
    # Destination image resource group  
-   $imageResourceGroup="<Resource group>"
+   $imageResourceGroup="<resource-group>"
 
-   # Location  
-   $location="eastus2"
+   # Location
+   $location="<location>"
 
    # Image distribution metadata reference name  
    $runOutputName="aibCustWinManImg01"
@@ -99,9 +92,9 @@ The following example uses PowerShell. You can also use the Azure Command-Line I
    $imageTemplateName="vscodeWinTemplate"  
    ```
 
-1. Create a user-assigned identity and set permissions on the resource group by running the following code in PowerShell.
+1. Run the following code to create a user-assigned identity and set permissions on the resource group. VM Image Builder uses the user identity to store the image in Azure Compute Gallery.
 
-   VM Image Builder uses the user identity you provide to store the image in Azure Compute Gallery. The following example creates an Azure role definition with specific actions for distributing the image. The role definition is then assigned to the user identity.
+   The code creates an Azure role definition with specific actions for distributing the image, and then assigns it to the user identity.
 
    ```powershell
    # Set up role definition names, which need to be unique 
@@ -119,9 +112,7 @@ The following example uses PowerShell. You can also use the Azure Command-Line I
    $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
    ```
 
-1. Assign permissions for the identity to distribute the images.
-
-   Use this command to download an Azure role definition template, and update it with the previously specified parameters:
+1. Run the following code to assign permissions for the identity to distribute the images. The code downloads an Azure role definition template and updates it with the previously specified parameters.
 
    ```powershell
    $aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json" 
@@ -142,11 +133,9 @@ The following example uses PowerShell. You can also use the Azure Command-Line I
 
 ## Create a gallery
 
-To use VM Image Builder with Azure Compute Gallery, make sure you have an existing gallery and image definition. VM Image Builder doesn't create the gallery and image definition for you.
+VM Image Builder doesn't create a gallery and image definition for you. To use VM Image Builder with Azure Compute Gallery, you need an existing gallery and image definition.
 
-1. Run the following commands to create a new gallery and image definition.
-
-   This code creates a definition with the _trusted launch_ security type and meets the Windows 365 image requirements.
+1. Run the following commands to create a new gallery and image definition. This code creates a definition with the *trusted launch* security type that meets the Windows 365 image requirements.
 
    ```powershell
    # Gallery name 
@@ -168,11 +157,9 @@ To use VM Image Builder with Azure Compute Gallery, make sure you have an existi
    New-AzGalleryImageDefinition -GalleryName $galleryName -ResourceGroupName $imageResourceGroup -Location $location -Name $imageDefName -OsState generalized -OsType Windows -Publisher 'myCompany' -Offer 'vscodebox' -Sku '1-0-0' -Feature $features -HyperVGeneration "V2" 
    ```
 
-1. Create a file to store your template definition, such as c:/temp/mytemplate.txt.
+1. Copy and paste the following Azure Resource Manager template for VM Image Builder into a new local text file, such as *c:/temp/mytemplate.txt*, and then close the file.
 
-1. Copy the following Azure Resource Manager template for VM Image Builder into your new template file.
-
-   This template indicates the source image and the customizations applied. It installs Choco and VS Code, and also indicates the image distribution location.
+   This template indicates the source image and the customizations applied, installs Choco and VS Code, and indicates the image distribution location.
 
    ```json
    {
@@ -252,14 +239,12 @@ To use VM Image Builder with Azure Compute Gallery, make sure you have an existi
      }
    ```
 
-   Close your template file before proceeding to the next step.
+1. Run the following code, replacing `<template-path>` with your template file location, to configure your new template with your variables.
 
-1. Configure your new template with your variables.
-
-   Replace `<Template Path>` with the location of your template file, such as `c:/temp/mytemplate`.
+   Replace such as `c:/temp/mytemplate`.
 
    ```powershell
-   $templateFilePath = <Template Path>
+   $templateFilePath = c:\ps
    
    (Get-Content -path $templateFilePath -Raw ) -replace '<subscriptionID>',$subscriptionID | Set-Content -Path $templateFilePath 
    (Get-Content -path $templateFilePath -Raw ) -replace '<rgName>',$imageResourceGroup | Set-Content -Path $templateFilePath 
