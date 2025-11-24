@@ -11,9 +11,9 @@ ms.topic: how-to
 ai-usage: ai-assisted
 ---
 
-# Create a dev box image using Azure VM Image Builder
+# Use Azure VM Image Builder to create a dev box image
 
-This article shows you how to use a template in Azure VM Image Builder to create a customized Microsoft Dev Box virtual machine (VM) image. Using standardized dev box images helps you ensure consistent deployments. These images can include predefined security, configuration, and software.
+This article shows you how to use an Azure VM Image Builder template to create a customized Microsoft Dev Box virtual machine (VM) image. Using standardized dev box images helps you ensure consistent deployments. These images can include predefined security, configuration, and software.
 
 Setting up an imaging pipeline is time-consuming and complex, and creating custom VM images manually can be difficult and unreliable. Azure VM Image Builder simplifies the process of creating and building VM images. You can submit the images to use for creating dev boxes in dev box projects. The template in this article includes a customization step to install Visual Studio Code.
 
