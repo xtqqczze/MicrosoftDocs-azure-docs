@@ -148,7 +148,112 @@ The Jira linked service supports the following properties when apply version 1.0
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Jira dataset.
 
-To copy data from Jira, set the type property of the dataset to **JiraObject**. The following properties are supported:
+To copy data from Jira version 2.0, set the type property of the dataset to **JiraObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **JiraObject** | Yes |
+| schema | Name of the schema. | No (if "query" in activity source is specified) |
+| table | Name of the table. | No (if "query" in activity source is specified) |
+
+**Example**
+
+```json
+{
+    "name": "JiraDataset",
+    "properties": {
+        "type": "JiraObject",
+        "typeProperties": {
+            "schema": "Api", 
+            "table": "<Table name>" 
+        },
+        "schema": [],
+        "linkedServiceName": {
+            "referenceName": "<Jira linked service name>",
+            "type": "LinkedServiceReference"
+        }
+    }
+}
+```
+The connector version 2.0 supports the following Jira tables:
+
+- AdvancedSettings
+- AllAccessibleProjectTypes 
+- AllApplicationRoles 
+- AllAvailableDashboardGadgets 
+- AllDashboards 
+- AllFieldConfigurations 
+- AllFieldConfigurationSchemes 
+- AllIssueTypeSchemes 
+- AllLabels 
+- AllPermissions 
+- AllPermissionSchemes 
+- AllProjectCategories 
+- AllProjectRoles 
+- AllProjectTypes 
+- AllUserDataClassificationLevels 
+- AllUsers 
+- AllUsersDefault 
+- AllWorkflowSchemes 
+- ApplicationProperty 
+- ApproximateLicenseCount 
+- AttachmentMeta 
+- AutoComplete 
+- AvailableTimeTrackingImplementations 
+- Banner 
+- BulkGetGroups 
+- Configuration 
+- CurrentUser 
+- DashboardsPaginated 
+- DefaultEditor 
+- DefaultShareScope 
+- Events 
+- FavouriteFilters 
+- FieldAutoCompleteForQueryString 
+- FieldConfigurationSchemeMappings 
+- Fields 
+- FieldsPaginated 
+- FiltersPaginated 
+- FindComponentsForProjects 
+- FindGroups 
+- IdsOfWorklogsDeletedSince 
+- IdsOfWorklogsModifiedSince 
+- IssueAllTypes 
+- IssueLimitReport 
+- IssueLinkTypes 
+- IssueNavigatorDefaultColumns 
+- IssuePickerResource 
+- IssueSecuritySchemes 
+- IssueTypeSchemesMapping 
+- IssueTypeScreenSchemeMappings 
+- IssueTypeScreenSchemes 
+- License 
+- Locale 
+- MyFilters 
+- NotificationSchemes 
+- NotificationSchemeToProjectMappings 
+- Plans 
+- PrioritySchemes 
+- Recent 
+- Screens 
+- ScreenSchemes 
+- Search 
+- SearchProjects 
+- SearchProjectsUsingSecuritySchemes 
+- SearchResolutions 
+- SearchSecuritySchemes 
+- SearchWorkflows 
+- SecurityLevelMembers 
+- SecurityLevels 
+- SelectedTimeTrackingImplementation 
+- ServerInfo 
+- SharedTimeTrackingConfiguration 
+- StatusCategories 
+- Statuses 
+- TrashedFieldsPaginated 
+- UserDefaultColumns 
+
+To copy data from Jira version 1.0, set the type property of the dataset to **JiraObject**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -244,7 +349,7 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 | GA version available | • The data type mapping for the Jira linked service version 2.0 is different from that for the version 1.0. For the latest data type mapping, go to [Data type mapping for Jira](#data-type-mapping-for-jira). <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>  • OAuth 1.0 authentication is not supported. |
+| Version 2.0 | GA version available | • Support `schema` and `table` in Dataset. <br><br>• Support specific Jira tables. For the supported table list, go to [Dataset properties](#dataset-properties). <br><br>• The data type mapping for the Jira linked service version 2.0 is different from that for the version 1.0. For the latest data type mapping, go to [Data type mapping for Jira](#data-type-mapping-for-jira). <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>  • OAuth 1.0 authentication is not supported. |
 
 ### Upgrade the Jira connector from version 1.0 to version 2.0
 
@@ -252,8 +357,9 @@ The following table shows the release stage and change logs for different versio
 
 1. The data type mapping for the Jira linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Jira](#data-type-mapping-for-jira).
 
-1. `query` is only supported in version 1.0. You should use the `tableName` instead of `query` in version 2.0.
+1. `query` is only supported in version 1.0. You should use `schema` and `table` instead of `query` in version 2.0.
 
+1. Note that version 2.0 supports specific Jira tables. For the supported table list, go to [Dataset properties](#dataset-properties).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
