@@ -33,7 +33,7 @@ AKS is a managed container orchestration service that simplifies the deployment,
 
 The Azure Spring Apps Basic and Standard plans won't accept new customers after March 17, 2025. Existing customers will remain operational until the plans are phased out on March 31, 2028. Even though the service will generally remain operational until March 31, 2028, we strongly recommend that existing customers migrate their applications off of Azure Spring Apps as soon as possible. This helps minimize disruption to your business operations.
 
-The migration tool assisting with an Azure Container Apps environment setup will be available on March 17, 2025. For migration guidance, see [Migrate off Azure Spring Apps documentation](../migration/index.yml).
+The migration tool assisting with an Azure Container Apps environment setup is available in Azure CLI `spring` extension. For migration guidance, see [Migrate off Azure Spring Apps documentation](../migration/index.yml).
 
 ## Migration guidance and tooling for the Azure Spring Apps Enterprise plans
 

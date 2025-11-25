@@ -40,7 +40,7 @@ The pricing for Azure Spring Apps Enterprise plan is composed of the following t
 - Infrastructure pricing, set by Microsoft, based on vCPU and memory usage of apps and managed Tanzu components.
 - Tanzu component licensing pricing, set by Broadcom, based on vCPU usage of apps.
 
-Since April 21, 2025, Microsoft has been collecting licensing fees directly from customers and then distributing the payments to Broadcom. The voice content has been updated accordingly. This update replaces the previous process where customers paid Broadcom directly through the [Azure Marketplace offer](https://aka.ms/ascmpoffer). For more information, see [Azure Spring Apps pricing](https://aka.ms/springcloudpricing).
+Since April 21, 2025, Microsoft has been collecting licensing fees directly from customers and then distributing the payments to Broadcom. The invoice content has been updated accordingly. This update replaces the previous process where customers paid Broadcom directly through the [Azure Marketplace offer](https://aka.ms/ascmpoffer). For more information, see [Azure Spring Apps pricing](https://aka.ms/springcloudpricing).
 
 ## Next steps
 
