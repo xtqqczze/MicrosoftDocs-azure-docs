@@ -203,7 +203,7 @@ When you use the MARS Agent for backup, ensure your on-premises network is peere
 
    :::image type="content" source="media/private-endpoint-vault-backup-server/register-backup-server-vault.png" alt-text="Screenshot shows the MABS server registration to vault with private endpoints." lightbox="media/private-endpoint-vault-backup-server/register-backup-server-vault.png":::
 
-1. Enable backup on MABS Server for disk and online
+1. [Enable backup on MABS Server for disk and online](back-up-file-data.md#back-up-file-data-with-mabs-1).
 
    :::image type="content" source="media/private-endpoint-vault-backup-server/backup-configuration-backup-server-protection.png" alt-text="Screenshot shows the backup configuration on MABS server for disk and online protection.":::
 
