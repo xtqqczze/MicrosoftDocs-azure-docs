@@ -179,7 +179,7 @@ The `AutomaticScalingInstanceCount` metric reports the number of virtual machine
 ### How does ARR Affinity affect automatic scaling?
 
 > [!NOTE]
-> When enabling Automatic Scaling on the App Service Plan, all apps in the plan will automatically have ARR Affinity disabled. 
+> When enabling Automatic Scaling on the App Service Plan, all pre-existing apps in the plan will automatically have ARR Affinity disabled. 
 
 Azure App Service uses Application Request Routing cookies known as an ARR Affinity. ARR Affinity cookies restrict scaling because they send requests only to servers associated with the cookie, rather than any available instance. For apps that store state, it's better to scale up (increase resources on a single instance). For stateless apps, scaling out (adding more instances) offers more flexibility and scalability. ARR Affinity cookies are enabled by default on App Service. However, when using automatic scaling, you should disable ARR affinity cookies to ensure proper scaling.
 
