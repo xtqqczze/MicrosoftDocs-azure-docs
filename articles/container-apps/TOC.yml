@@ -1,3 +1,4 @@
+items:
 - name: Azure Container Apps documentation
   href: index.yml
 - name: Get started
@@ -132,6 +133,10 @@
           href: functions-container-apps.md
         - name: Manage with Azure CLI
           href: functions-cli.md
+        - name: Migrate from Functions v1 to v2
+          href: migrate-functions.md
+        - name: Run event-driven and batch workloads
+          href: functions-unified-platform.md
     - name: Use dynamic sessions
       items:
         - name: Code interpreter sessions
