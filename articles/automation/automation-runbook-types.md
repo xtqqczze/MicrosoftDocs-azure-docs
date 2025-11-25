@@ -44,7 +44,6 @@ The same Azure sandbox and Hybrid Runbook Worker can execute multiple **PowerShe
 
 > [!NOTE]
 > - Currently, PowerShell 7.4 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Brazil Southeast and Gov clouds.
-> - PowerShell 7.4 runtime support is rolling out gradually across Azure regions. If it doesn’t appear in your portal yet, the update hasn’t reached your region. You can continue to use PowerShell 5.1 or 7.2 until 7.4 becomes available.
 > - At the time of runbook execution, if you select **Runtime Version** as **7.4**, PowerShell modules targeting 7.4 runtime version is used and if you select **Runtime Version** as **5.1**, PowerShell modules targeting 5.1 runtime version is used.
 
 Ensure that you select the right Runtime Version for modules.
