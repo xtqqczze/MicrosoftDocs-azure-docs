@@ -12,9 +12,9 @@ ms.service: azure-backup
 
 # Reregister the MABS server with Recovery Services vault using public access
 
-This article describes how to configure your Microsoft Azure Backup Server (MABS) server to use public access of the Recovery Services vault after deleting private endpoints.
-
 If you don't want to continue using private endpoints for backup, delete them from the vault and re-register MABS. You don’t need to stop protection.
+
+This article describes how to delete private endpoints and register your Microsoft Azure Backup Server (MABS) to use public access of the Recovery Services vault.
 
 ## Delete private endpoints
 
