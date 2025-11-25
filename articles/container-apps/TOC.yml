@@ -186,12 +186,10 @@
           href: sessions-usage.md
         - name: Session pools
           href: session-pool.md
-        - name: Session types
-          items:
-            - name: Code interpreter sessions
-              href: sessions-code-interpreter.md
-            - name: Custom container sessions
-              href: sessions-custom-container.md
+        - name: Code interpreter sessions
+          href: sessions-code-interpreter.md
+        - name: Custom container sessions
+          href: sessions-custom-container.md
         - name: Tutorials
           items:
             - name: AutoGen
