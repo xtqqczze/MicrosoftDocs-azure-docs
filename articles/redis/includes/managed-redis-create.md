@@ -1,5 +1,5 @@
 ---
-ms.date: 05/18/2025
+ms.date: 11/24/2025
 ms.topic: include
 ms.custom:
   - ignite-2024
@@ -53,7 +53,6 @@ ms.custom:
 
    > [!IMPORTANT]
    > For optimal security, we recommend that you use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization by using Microsoft Entra ID and managed identities provides superior security and ease of use over shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
-
 
    > [!IMPORTANT]
    > You can't change the clustering policy of an Azure Managed Redis instance after you create it. If you're using [RediSearch](../redis-modules.md#redisearch), the Enterprise cluster policy is required, and `NoEviction` is the only eviction policy supported.
