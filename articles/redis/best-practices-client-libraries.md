@@ -92,15 +92,6 @@ For more information on using some of these client libraries in tutorials, see t
 - [Code a Node.js app](nodejs-get-started.md)
 - [Code a Python app](python-get-started.md)
 
-## Get started with tutorials
-
-Learn how to implement Azure Managed Redis in your applications with these step-by-step tutorials organized by programming language:
-
-- [.NET tutorials](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-dotnet-core)
-- [Java tutorials](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-java)
-- [Node.js tutorials](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-nodejs)
-- [Python tutorials](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-python)
-
 ## Next steps
 
 - [Azure Managed Redis development FAQs](development-faq.yml)
