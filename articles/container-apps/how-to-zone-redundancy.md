@@ -73,7 +73,7 @@ Use the Azure portal, the Azure CLI, or Azure PowerShell to create a zone-redund
 
 :::image type="content" source="../container-apps/media/screen-shot-vnet-configuration.png" alt-text="Screenshot of the Networking tab on the Create Container Apps environment page.":::
 
-# [The Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 1. Create a virtual network and infrastructure subnet to include with the Container Apps environment.
 
