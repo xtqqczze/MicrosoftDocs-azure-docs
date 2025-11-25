@@ -17,7 +17,7 @@ As a Backup and Compliance admin, choose the policy that best fits your team’s
 
 ## Azure Policy types for Azure Managed Disk backup
 
-The following table lists the various policy types that allows you to manage Azure Managed Disk instances backups automatically:
+The following table lists the various policy types that allow you to manage Azure Managed Disk instances backups automatically:
 
 | Policy type | Description |
 | --- | --- |
