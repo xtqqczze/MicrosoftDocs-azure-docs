@@ -47,7 +47,7 @@ Get detailed information about a specific function:
 az containerapp function show \
   --resource-group <RESOURCE_GROUP> \
   --name <CONTAINER_APP_NAME> \
-  --function-name HttpExample
+  --function-name <FUNCTIONS_APP_NAME>
 ```
 
 ## Monitor function invocations
@@ -60,7 +60,7 @@ Monitoring your function app is essential for understanding its performance and 
     az containerapp function invocations traces \
       --name <CONTAINER_APP_NAME> \
       --resource-group <RESOURCE_GROUP> \
-      --function-name <FUNCTION_APP_NAME> \
+      --function-name <FUNCTIONS_APP_NAME> \
       --timespan 5h \
       --limit 3
     ```
@@ -71,7 +71,7 @@ Monitoring your function app is essential for understanding its performance and 
     az containerapp function invocations summary \
       --name <CONTAINER_APP_NAME> \
       --resource-group <RESOURCE_GROUP> \
-      --function-name <FUNCTION_APP_NAME> \
+      --function-name <FUNCTIONS_APP_NAME> \
       --timespan 5h
     ```
 
@@ -84,7 +84,7 @@ Azure Functions uses [keys for authentication and authorization](/azure/azure-fu
 - **System keys**: Used by Azure services
 - **Function keys**: Access specific functions
 
-The following commands show you how to manage keys for the host. To run the same command for a specific Functions app, add the `--function-name <FUNCTION_APP_NAME>` parameter to your command.
+The following commands show you how to manage keys for the host. To run the same command for a specific Functions app, add the `--function-name <FUNCTIONS_APP_NAME>` parameter to your command.
 
 ### List keys
 
