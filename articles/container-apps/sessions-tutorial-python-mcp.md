@@ -221,4 +221,3 @@ az group delete --resource-group $RESOURCE_GROUP
 ## Next steps
 
 * [Container Apps dynamic sessions overview](/azure/container-apps/sessions)
-* [MCP JSON-RPC specification](https://spec.modelcontextprotocol.io/)
