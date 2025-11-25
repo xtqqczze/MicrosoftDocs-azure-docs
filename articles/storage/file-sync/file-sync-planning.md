@@ -205,7 +205,7 @@ The following table shows the interoperability state of NTFS file system feature
 > compact /U /S <filepath>
 > ```
 >
-> If file recalls lead to low disk space issues you should wait for background tiering to kick in and tier the file back before recalling more files (OR) tier the file back
+> If file recalls lead to low disk space issues, you should wait for background tiering to kick in and tier the file back before recalling more files or tier the file back
 > after uncompressing by running the cmdlet
 > ```powershell
 > Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
