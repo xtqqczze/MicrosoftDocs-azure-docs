@@ -21,33 +21,22 @@ This article describes how to create an Azure VMware Solution assessment for on-
 
 - [Create](./create-manage-projects.md) an Azure Migrate project.
 - [Add](how-to-assess.md) the Azure Migrate: Discovery and assessment tool if you've already created a project.
-- Discover your on-premises inventory data using either of the following approach:
-    - [Import your RVTools XLSX file](tutorial-import-vmware-using-rvtools-xlsx.md).
-    - [Import the server metadata in comma-separated values (CSV) format](./tutorial-discover-import.md)
+- Discover your on-premises inventory data using any of the following approach:
+    - [Import your RVTools XLSX file](tutorial-import-vmware-using-rvtools-xlsx.md) OR
+    - [Import the server metadata in comma-separated values (CSV) format](./tutorial-discover-import.md) OR
     - Set up an Azure Migrate appliance for [VMware vSphere](how-to-set-up-appliance-vmware.md), which discovers the on-premises servers, and sends metadata and performance data to Azure Migrate: Discovery and assessment. [Learn more](migrate-appliance.md).
 
 
 ## Azure VMware Solution (AVS) Assessment overview
-
-There are four types of assessments you can create using Azure Migrate: Discovery and assessment.
-
-**Assessment Type** | **Details**
---- | --- 
-**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. You can assess your on-premises VMs in [VMware vSphere](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
-**Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
-**Azure App Service** | Assessments to migrate your on-premises ASP.NET/Java web apps, running on IIS web servers, from your VMware vSphere environment to Azure App Service.
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). You can assess your on-premises VMs in [VMware vSphere environment](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
-
-> [!NOTE]
-> Azure VMware Solution (AVS) assessment can be created for virtual machines in VMware vSphere environment only.
-
-
 There are two types of sizing criteria that you can use to create Azure VMware Solution (AVS) assessments:
 
 **Assessment** | **Details** | **Data**
 --- | --- | ---
 **Performance-based** | For RVTools and CSV file-based assessments and performance-based assessments, the assessment considers the utilized storage by each VM. For appliance-based assessments, the assessment considers the CPU & memory utilization data of each VM. | **Recommended Node size**: Based on CPU and memory utilization data along with node type, storage type, and storage policies that you select for the assessment.
 **As on-premises** | Assessments based on on-premises VM's resource allocation. | **Recommended Node size**: Based on the on-premises server size along with the node type, storage type, and storage policies that you select for the assessment.
+
+> [!NOTE]
+> Azure VMware Solution (AVS) assessment can be created for virtual machines in VMware vSphere environment only.
 
 ## Run an Azure VMware Solution (AVS) assessment
 

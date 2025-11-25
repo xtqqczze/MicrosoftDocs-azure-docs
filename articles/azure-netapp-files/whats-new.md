@@ -19,7 +19,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Advanced ransomware protection](ransomware-configure.md) (preview)
 
-    Azure NetApp Files supports ransomware protection on volumes. 
+    Azure NetApp Files advanced ransomware protection can be enabled for key volumes to protect against ransomware attacks. When an attack is detected, backup and snapshots are generated to preserve data integrity. 
     
 ## November 2025
 
