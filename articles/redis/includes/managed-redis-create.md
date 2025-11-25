@@ -10,7 +10,7 @@ ms.custom:
 
 1. On the **Create a resource** page, type **Azure Managed Redis** in the search box.
 
-1. Select the **Azure Managed Resource** tile and select **Create**.
+1. Select the **Azure Managed Redis** tile and select **Create**.
 
 1. On the **Create Azure Managed Redis instance** pane, configure the settings for a new cache on the **Basics** tab.
 
