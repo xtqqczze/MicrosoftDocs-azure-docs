@@ -1,16 +1,16 @@
 ---
-title: "QuickStart: Use Azure Cache for Redis with Python"
-description: In this quickstart, you learn how to create a Python app that uses Azure Cache for Redis.
+title: 'QuickStart: Use Azure Managed Redis with Python'
+description: In this quickstart, you learn how to create a Python app that uses Azure Managed Redis.
 ms.date: 07/29/2025
 ms.topic: quickstart
 ms.custom:
-  - mode-api
-  - devx-track-python
-  - ignite-2024
-  - build-2025
+- mode-api
+- devx-track-python
+- ignite-2024
+- build-2025
 appliesto:
-  - ✅ Azure Cache for Redis
-  - ✅ Azure Managed Redis
+- ✅ Azure Cache for Redis
+- ✅ Azure Managed Redis
 ms.devlang: python
 ai-usage: ai-assisted
 ---
