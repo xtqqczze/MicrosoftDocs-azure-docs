@@ -189,10 +189,11 @@ Verify your new function by running the project locally and calling the function
 
     </pre>
 
-    >[!NOTE]
-    > If the HttpExample endpoint doesn't appear as expected, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
 
 1. Copy the URL of your `HttpExample` function from this output to a browser and browse to the function URL and you should receive success response with a "hello world" message.
+
+    >[!NOTE]
+    > Because access key authorization isn't enforced when running locally, the function URL returned doesn't include the access key value and you don't need it to call your function. 
 
 1. When you're done, use **Ctrl**+**C** and choose `y` to stop the functions host.
 
@@ -300,30 +301,28 @@ You can now use Maven to deploy your code project to your existing app.
     mvn clean package azure-functions:deploy
     ```
 
-1. After your deployment succeeds, use this [`az functionapp function show`](/cli/azure/functionapp/function#az-functionapp-function-show) to get the URL of the remote `HttpExample` function endpoint: 
+1. After your deployment succeeds, run this command to get the URL endpoint value, including the access key:
 
-    ```azurecli
-    az functionapp function show --name <APP_NAME> --resource-group "AzureFunctionsQuickstart-rg" \
-        --function-name HttpExample --query invokeUrlTemplate -o tsv
     ```
+    func azure functionapp list-functions <APP_NAME> --show-keys
+    ```
+    
+    In this example, again replace `<APP_NAME>` with the name of your app.
 
-    In this example, replace `<APP_NAME>` with the names of your function app. 
-
-1. Copy the returned endpoint URL, which you next use to invoke the function endpoint.    
+1. Copy the returned endpoint URL and key, which you use to invoke the function endpoint.    
 ::: zone-end
 
 ## Invoke the function on Azure
 
 Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL. It's easiest to do execute a GET request in a browser. 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-Copy the complete **Invoke URL** shown in the output of the publish command into a browser address bar. 
-::: zone-end  
-::: zone pivot="programming-language-java"
-Paste the URL you copied into a browser address bar. 
-::: zone-end
+
+Paste the URL and access key you copied into a browser address bar. 
+
 The endpoint URL should look something like this example:
 
-`https://contoso-app.azurewebsites.net/api/httpexample`
+`https://contoso-app.azurewebsites.net/api/httpexample?code=aabbccdd...`
+
+In this case, you must also provide an access key in the query string when making a GET request to the endpoint URL. Using an access key is recommended to limit access from random clients. When making a POST request using an HTTP client, you should instead provide the access key in the `x-functions-key` header.
 
 When you navigate to this URL, the browser should display similar output as when you ran the function locally.
 

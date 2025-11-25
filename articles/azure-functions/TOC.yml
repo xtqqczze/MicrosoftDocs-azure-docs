@@ -19,6 +19,7 @@
     href: functions-scale.md
 - name: Quickstarts
   displayName: quickstart, get started
+  expanded: true
   items:
   - name: Scenarios
     expanded: true
