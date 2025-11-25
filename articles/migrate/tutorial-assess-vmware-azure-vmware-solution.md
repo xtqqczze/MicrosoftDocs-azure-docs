@@ -54,7 +54,12 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 
 Run an assessment as follows:
 
-1. In **Infrastructure**, select the list of all workloads you want to assess the cost for.
+1. In **Infrastructure**, select the list of all workloads you want to assess the cost for. Ensure you only select **VMware VMs** to create an assessment for AVS.
+    - You can filter the list of VMware VMs using the filter for **Hypervisor type** and choosing **VMware**
+
+        :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/filter-vmware-vms.png" alt-text="Screenshot of page for selecting VMware VMs." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/filter-vmware-vms.png" :::
+
+    - You can also choose to create the assessment only for powered-on VMs by using the filter for **Power status** and choosing **On**.
 
 1. From the top menu, click on **Create assessment** drop-down, select **For Azure VMware Solution (AVS)**.
 
@@ -124,7 +129,7 @@ To view an assessment:
 
 1. In **Assessments**, select an assessment to open it. As an example (estimations and costs, for example,  only): 
 
-   :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary-inline.png" alt-text="Assessment Summary" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary-expanded.png":::
+   :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview.png" alt-text="Assessment overview" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview.png":::
 
 1. Review the assessment summary.
  
