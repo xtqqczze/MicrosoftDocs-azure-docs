@@ -196,7 +196,7 @@ The following table shows the interoperability state of NTFS file system feature
 > ```
 > Using NTFS compression on tiered files can cause significant performance impact. It is recommended not to use cloud tiering with compressed files.
 > 
-> Files can be uncompressed using the [compact](./windows-server/administration/windows-commands/compact.md)
+> You can uncompress files using the [compact](/windows-server/administration/windows-commands/compact) command.
 >
 > On Windows Server 2019 or later, the **compact** command skips tiered files, so you must recall the file first before uncompressing it.
 > ```powershell
