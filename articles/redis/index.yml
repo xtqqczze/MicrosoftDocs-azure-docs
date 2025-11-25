@@ -114,18 +114,10 @@ landingContent:
           - text: Azure CLI
             url: /cli/azure/redisenterprise
 
-  - title: About Azure Cache for Redis
+  - title: Azure Cache for Redis
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure Cache for Redis?
             url: /azure/azure-cache-for-redis/cache-overview
-      - linkListType: video
-        links:
-          - text: Azure Cache for Redis Community Standup 
-            url: https://www.youtube.com/watch?v=hA3117yQnHg&list=PLI7iePan8aH4V7A_BMwvlBY3xW2FAGITp
-      - linkListType: whats-new
-        links:
-          - text: What's new with Azure Cache for Redis?
-            url: /azure/azure-cache-for-redis/cache-whats-new
-  
+
