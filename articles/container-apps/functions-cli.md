@@ -156,7 +156,7 @@ az containerapp create \
 
 ## Manage multiple revisions (optional)
 
-For scenarios that require multiple revisions with traffic splitting, update your container app to create a new revision by deploying a new container image version.
+For scenarios that require multiple revisions with traffic splitting, update your container app to create a new revision.
 
 Use the following command to split traffic between revisions.
 
