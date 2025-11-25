@@ -58,8 +58,6 @@ The following Azure Managed Redis tiers currently support reservations:
 | Qatar Central       | Yes              | Yes      | Yes              | No              |
 | UK West             | Yes              | Yes      | Yes              | No              |
 | US East             | Yes              | No       | Yes              | No              |
-| US Gov Iowa         | Yes              | No       | No               | No              |
-| US Gov Virginia     | Yes              | No       | No               | No              |
 | South Africa North  | Yes              | Yes      | Yes              | No              |
 
 ## Buy Azure Managed Redis reservations
