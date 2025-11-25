@@ -1,10 +1,6 @@
 ### YamlMime:Landing
 title: Azure Managed Redis Documentation
-summary: Azure Managed Redis is a managed service that can be used as a data cache, session store, or messaging broker that provides high throughput and low-latency. It provides secure and reliable caching for use with your cloud architecture. 
-
-  Use Azure Managed Redis for applications such as storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Azure Managed Redis. 
-  
-  For information about Azure Cache for Redis, see the links on this page.
+summary: Azure Managed Redis is a managed service that can be used as a data cache, session store, or messaging broker that provides high throughput and low-latency. It provides secure and reliable caching for use with your cloud architecture. Use Azure Managed Redis for applications such as storing embeddings vectors and as a semantic cache. These tutorials, API references, and other documentation show you how to use Azure Managed Redis. For information about Azure Cache for Redis, see the links on this page.
 
 
 metadata:
