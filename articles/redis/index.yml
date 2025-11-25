@@ -8,6 +8,7 @@ metadata:
   description: Learn how to use Azure Redis for secure data caches and messaging brokers that give applications fast access to data. Tutorials, API references, and more.
   ms.date: 05/18/2025
   ms.topic: landing-page
+  ai-usage: ai-assisted
   ms.custom:
     - ignite-2024
     - build-2025
@@ -128,4 +129,4 @@ landingContent:
         links:
           - text: What's new with Azure Cache for Redis?
             url: /azure/azure-cache-for-redis/cache-whats-new
-  
+
