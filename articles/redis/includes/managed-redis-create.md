@@ -6,11 +6,13 @@ ms.custom:
   - build-2025
 ---
 
-1. To create an Azure Managed Redis instance, sign in to the Azure portal and select **Create a resource**.
+1. To create an Azure Managed Redis instance, sign in to the Azure portal and select **Create a resource**. 
 
-1. On the **New** page, in the search box type **Azure Managed Redis**.
-  
-1. On the **New Redis Cache** tab, configure the settings for your new cache on the Basics .
+1. On the **Create a resource** page, type **Azure Managed Redis** in the search box.
+
+1. Select the **Azure Managed Resource** tile and select **Create**.
+
+1. On the **Create Azure Managed Redis instance** pane, configure the settings for your a new cache on the **Basics** tab.
 
    | Setting      |  Choose a value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -26,20 +28,13 @@ ms.custom:
 
    [!INCLUDE [tier-preview](tier-preview.md)]
 
-1. Select **Next: Networking** , and select either a **Public Endpoint** or **Private Endpoint**.
+1. Select **Next: Networking** , and select either a **Disable public access and use private access** or **Enable public access from all networks**.
 
 1. Select **Next: Active geo-replication**. To use active geo-replication it must be enabled during provisioning. Caches without active geo-replication can't be added to or join active geo-replication groups later. For more information, see [Configure active geo-replication for Azure Managed Redis instances](../how-to-active-geo-replication.md).
 
 1. Select the **Next: Advanced** tab.
 
    Configure any [Redis modules](../redis-modules.md) you want to add to the instance.
-
-   By default, for a new managed cache:
-     - Microsoft Entra ID is enabled.
-     - **Access Keys Authentication** is disabled for security reasons.
-
-   > [!IMPORTANT]
-   > For optimal security, we recommend that you use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization by using Microsoft Entra ID and managed identities provides superior security and ease of use over shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
    Set **Clustering policy**:
     - Use **Enterprise** in order to use RedisSearch or other modules
@@ -48,16 +43,24 @@ ms.custom:
 
    For more information on choosing **Clustering policy**, see [Cluster policy](../architecture.md#cluster-policies).
 
-      > [!IMPORTANT]
+   By default, for a new managed cache:
+     - Microsoft Entra ID is enabled.
+     - **Access Keys Authentication** is disabled for security reasons.
+
+   > [!IMPORTANT]
+   > You can't change modules after you create a cache instance. Modules must be enabled at the time you create an Azure Managed Redis instance. There is no option to enable the configuration of a module after you create a cache.
+   >
+
+   > [!IMPORTANT]
+   > For optimal security, we recommend that you use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization by using Microsoft Entra ID and managed identities provides superior security and ease of use over shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
+
+
+   > [!IMPORTANT]
    > You can't change the clustering policy of an Azure Managed Redis instance after you create it. If you're using [RediSearch](../redis-modules.md#redisearch), the Enterprise cluster policy is required, and `NoEviction` is the only eviction policy supported.
    >
 
    > [!IMPORTANT]
    > If you're using this cache instance in a geo-replication group, eviction policies cannot be changed after the instance is created. Be sure to know the eviction policies of your primary nodes before you create the cache. For more information on active geo-replication, see [Active geo-replication prerequisites](../how-to-active-geo-replication.md#active-geo-replication-prerequisites).
-   >
-
-   > [!IMPORTANT]
-   > You can't change modules after you create a cache instance. Modules must be enabled at the time you create an Azure Managed Redis instance. There is no option to enable the configuration of a module after you create a cache.
    >
 
 1. Select **Next: Tags** and skip.
