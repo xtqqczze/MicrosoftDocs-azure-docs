@@ -205,12 +205,12 @@ After you register your first application, register a second (with a distinct na
    - Go to the **APIs my organization uses** tab and search for the **Web API app** that you created previously (for example, **ArcGIS Pro**).
    - Select the app name to open the **Request API Permissions** screen.
 
-   :::image type="content" source="media/request-api-permissions.png" alt-text="Screenshot that shows how to request API permissions." lightbox="media/request-api-permissions.png":::
+     :::image type="content" source="media/request-api-permissions.png" alt-text="Screenshot that shows how to request API permissions." lightbox="media/request-api-permissions.png":::
 
    - Select both **user_authentication** and **user_impersonation**, the delegated permissions that you defined in the first app.
    - Select **Add permissions**.
 
-   :::image type="content" source="media/add-api-permissions-arcgis-pro.png" alt-text="Screenshot that shows how to add API permissions for ArcGIS Pro." lightbox="media/add-api-permissions-arcgis-pro.png":::
+     :::image type="content" source="media/add-api-permissions-arcgis-pro.png" alt-text="Screenshot that shows how to add API permissions for ArcGIS Pro." lightbox="media/add-api-permissions-arcgis-pro.png":::
 
 1. Add the following delegated permissions:
 
@@ -220,9 +220,9 @@ After you register your first application, register a second (with a distinct na
    - **Add permissions**
    - **Grant admin consent**
 
-   :::image type="content" source="media/app-selection-on-request-api-permissions-screen.png" alt-text="Screenshot that shows app selection on the request API permissions screen." lightbox="media/app-selection-on-request-api-permissions-screen.png":::
+     :::image type="content" source="media/app-selection-on-request-api-permissions-screen.png" alt-text="Screenshot that shows app selection on the request API permissions screen." lightbox="media/app-selection-on-request-api-permissions-screen.png":::
   
-   :::image type="content" source="media/grant-admin-consents-4.png" alt-text="Screenshot that shows grant admin consent." lightbox="media/grant-admin-consents-4.png":::
+     :::image type="content" source="media/grant-admin-consents-4.png" alt-text="Screenshot that shows grant admin consent." lightbox="media/grant-admin-consents-4.png":::
 
 ### [US Gov](#tab/usgov)
 
@@ -343,7 +343,7 @@ This section outlines how to configure authentication and data access in the Arc
    - `https://storage.usgovcloudapi.net/.default`
    - `https://geocatalog.spatio.azure.us/.default`
 
-    :::image type="content" source="media/add-authentication-us-gov.png" alt-text="Screenshot that shows how to add a connection." lightbox="media/add-authentication-us-gov.png":::
+     :::image type="content" source="media/add-authentication-us-gov.png" alt-text="Screenshot that shows how to add a connection." lightbox="media/add-authentication-us-gov.png":::
 
 1. Select **OK**.
 
