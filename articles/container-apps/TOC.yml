@@ -186,36 +186,34 @@
           href: sessions-usage.md
         - name: Session pools
           href: session-pool.md
-        - name: Use dynamic sessions
+        - name: Session types
           items:
             - name: Code interpreter sessions
+              href: sessions-code-interpreter.md
+            - name: Custom container sessions
+              href: sessions-custom-container.md
+        - name: Tutorials
+          items:
+            - name: Use a LLM agent
               items:
-                - name: Overview
-                  href: sessions-code-interpreter.md
-                - name: Tutorials
-                  items:
-                    - name: Use a LLM agent
-                      items:
-                        - name: AutoGen
-                          href: sessions-tutorial-autogen.md
-                        - name: LangChain
-                          href: sessions-tutorial-langchain.md
-                        - name: LlamaIndex
-                          href: sessions-tutorial-llamaindex.md
-                        - name: Semantic Kernel
-                          href: sessions-tutorial-semantic-kernel.md
-                    - name: Use the REST API
-                      items:
-                        - name: JavaScript code interpreter
-                          href: sessions-tutorial-nodejs.md
-                        - name: Shell session
-                          href: sessions-tutorial-shell.md
-                        - name: Shell session with MCP
-                          href: sessions-tutorial-shell-mcp.md
-                        - name: Python code interpreter with MCP
-                          href: sessions-tutorial-python-mcp.md
-        - name: Custom container sessions
-          href: sessions-custom-container.md
+                - name: AutoGen
+                  href: sessions-tutorial-autogen.md
+                - name: LangChain
+                  href: sessions-tutorial-langchain.md
+                - name: LlamaIndex
+                  href: sessions-tutorial-llamaindex.md
+                - name: Semantic Kernel
+                  href: sessions-tutorial-semantic-kernel.md
+            - name: Use the REST API
+              items:
+                - name: JavaScript code interpreter
+                  href: sessions-tutorial-nodejs.md
+                - name: Shell session
+                  href: sessions-tutorial-shell.md
+                - name: Shell session with MCP
+                  href: sessions-tutorial-shell-mcp.md
+                - name: Python code interpreter with MCP
+                  href: sessions-tutorial-python-mcp.md
     - name: Modernize .NET & Java apps
       href: modernize-ai.md
 - name: Observability
