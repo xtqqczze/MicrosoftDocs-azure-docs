@@ -18,7 +18,7 @@ This article shows you how to deploy and manage Azure Functions on Azure Contain
 Before you begin, ensure you have:
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
-- [Azure CLI](/cli/azure/install-azure-cli) version 2.0.70 or later.
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.0.79 or later.
 - A function app ready for containerized deployment.
 
 ## Set up your environment
