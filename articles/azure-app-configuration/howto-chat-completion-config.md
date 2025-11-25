@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 author: MaryanneNjeri
 ms.author: mgichohi
 ms.topic: how-to
-ms.date: 04/20/2025
+ms.date: 11/21/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -63,3 +63,4 @@ You successfully added your chat completion configuration named **ChatApp:ChatCo
 1. Continue to the following instructions to implement the chat completion configuration into your application for the language or platform you're using.
 
     - [.NET](./quickstart-chat-completion-dotnet.md)
+    - [.Go](./quickstart-chat-completion-go.md)

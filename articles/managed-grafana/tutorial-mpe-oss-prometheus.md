@@ -5,8 +5,9 @@ description: In this tutorial, learn how to connect to self-hosted Prometheus on
 ms.service: azure-managed-grafana
 author: maud-lv
 ms.topic: tutorial
-ms.date: 02/21/2024
+ms.date: 11/21/2025
 ms.author: malev
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: connect to a self-hosted Prometheus service on an AKS cluster using a managed private endpoint

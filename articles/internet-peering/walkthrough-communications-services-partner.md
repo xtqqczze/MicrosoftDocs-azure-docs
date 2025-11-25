@@ -7,6 +7,7 @@ ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/03/2025
+ms.custom: sfi-image-nochange
 # Customer intent: As a voice services provider, I want to establish an interconnect with Azure Peering Service, so that I can integrate my communications infrastructure and ensure high-quality, reliable services for messaging and conferencing.
 ---
 
@@ -251,3 +252,8 @@ Get answers to frequently asked questions.
 **Q.** Can we use APIs for onboarding?
 
 **A.** Currently, there's no API support. You can configure your service only by using the Azure portal.
+
+**Setting the Prefix Limit: Recommended Max Prefix Limits for Microsoft Azure Peering Service.**
+
+Microsoft currently announces up to 2000 IPv4 prefixes on the internet, and this number may increase over time. To maintain stability and prevent session drops, it is recommended to set your Max Prefix Count according to the peeringdb.com entry for ASN 8075.  This provides a safe buffer above current announcements and allows for future growth.
+

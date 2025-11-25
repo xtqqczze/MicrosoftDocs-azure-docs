@@ -1,14 +1,15 @@
 ---
 title: Configure MQTT broker authentication
 description: Configure MQTT broker authentication.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
+ms.date: 04/10/2025
 ms.custom:
   - ignite-2023
-ms.date: 04/10/2025
+  - sfi-image-nochange
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -773,7 +774,7 @@ With Azure Device Registry integration enabled:
 - Disabled or removed devices are automatically denied access.
 
 Before you enable this feature, create a corresponding device in the Azure Device Registry for each client certificate. The device name must match the certificate's Common Name (CN). To create and manage devices in the Azure Device Registry, see:
-- [Use the operations experience to manage resources such as assets, devices, and data flows](../discover-manage-assets/howto-manage-assets-devices.md)
+- [Use the operations experience to manage resources such as assets, devices, and data flows](../discover-manage-assets/howto-use-operations-experience.md)
 - [Understand assets and devices](../discover-manage-assets/concept-assets-devices.md)
 
 To enable Azure Device Registry integration, set the `additionalValidation` field to `AzureDeviceRegistry` in your X.509 settings. The `additionalValidation` field performs additional validation of the client certificate using the specified method, with supported values of `AzureDeviceRegistry` or `None` (default):
@@ -1304,7 +1305,7 @@ SAT clients send an AUTH client with the fields `method: K8S-SAT` and `data: <to
 
 Successful reauthentication updates the client's credential expiry with the expiry time of its new credential. The broker responds with a `Success` AUTH packet. Failed authentication because of transient issues, such as the custom authentication server being unavailable, causes the broker to respond with a `ContinueAuthentication` AUTH packet. The client can try again later. Other authentication failures cause the broker to send a DISCONNECT packet and close the client's network connection.
 
-## Related content
+## Next steps
 
 - [BrokerListener resource](howto-configure-brokerlistener.md)
 - [Configure authorization for a BrokerListener](./howto-configure-authorization.md)

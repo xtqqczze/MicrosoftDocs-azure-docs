@@ -6,7 +6,9 @@ ms.date: 08/11/2025
 ms.topic: troubleshooting
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-ms.custom: engagement-fy24
+ms.custom:
+  - engagement-fy24
+  - sfi-image-nochange
 # Customer intent: "As an IT administrator managing Azure Files, I want to troubleshoot backup and restore issues, so that I can ensure reliable data protection and recovery for our file shares."
 ---
 
@@ -313,7 +315,7 @@ Recommended Actions: Ensure that the following configurations in the storage acc
 
 **Error message**: Storage account does not support key based authentication required for Azure Backup integration.
 
-**Recommended action**: Enable storage key based authentication on storage account and the retry opertaion.
+**Recommended action**: Enable storage key based authentication on storage account and the retry operation.
 
 ## Common policy modification errors
 
