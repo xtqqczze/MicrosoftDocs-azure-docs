@@ -17,7 +17,9 @@ appliesto:
 
 # Azure Managed Redis Client libraries
 
-Azure Managed Redis is based on the popular in-memory data store, Redis. Redis clients for many programming languages can access Azure Managed Redis. Each client library has its own API that makes calls to Redis server using Redis commands, but the client libraries are built to talk to any Redis server.
+This article helps you choose and use the best client libraries for Azure Managed Redis. You learn which libraries to use for your programming language, how to handle clustering policies, and avoid common connection issues.
+
+Azure Managed Redis is based on the popular in-memory data store, Redis. Redis clients for many programming languages can access Azure Managed Redis. Each client library has its own API that makes calls to Redis server using Redis commands, but the client libraries are built to talk to any Redis server.
 
 Each client library maintains its own reference documentation. The libraries also provide links to get support through the client library developer community. The Azure Managed Redis team doesn't own the development, or the support for any client libraries.
 
@@ -25,20 +27,20 @@ The following recommendations are based on popularity and whether there's an act
 
 | **Client library**        | **Language** | **GitHub** **repo**                                                 | **Documentation**                                                                    |
 |---------------------------|--------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| StackExchange.Redis       | C#/.NET      | [Link](https://github.com/StackExchange/StackExchange.Redis)        | [More information here](https://stackexchange.github.io/StackExchange.Redis/)        |
-| Lettuce                   | Java         | [Link](https://github.com/lettuce-io/)                              | [More information here](https://lettuce.io/)                                         |
-| Jedis                     | Java         | [Link](https://github.com/redis/jedis)                              |                                                                                      |
-| node_redis                | Node.js      | [Link](https://github.com/redis/node-redis)                         |                                                                                      |
-| ioredis                   | Node.js      | [Link](https://github.com/luin/ioredis)                             | [More information here](https://ioredis.readthedocs.io/en/stable/API/)               |
+| StackExchange.Redis       | C#/.NET      | [StackExchange.Redis GitHub](https://github.com/StackExchange/StackExchange.Redis)        | [StackExchange.Redis docs](https://stackexchange.github.io/StackExchange.Redis/)        |
+| Lettuce                   | Java         | [Lettuce GitHub](https://github.com/lettuce-io/)                              | [Lettuce documentation](https://lettuce.io/)                                         |
+| Jedis                     | Java         | [Jedis GitHub](https://github.com/redis/jedis)                              | [Jedis documentation](https://github.com/redis/jedis#readme)                                                                                      |
+| node_redis                | Node.js      | [node_redis GitHub](https://github.com/redis/node-redis)                         | [node_redis documentation](https://github.com/redis/node-redis#readme)                                                                                      |
+| ioredis                   | Node.js      | [ioredis GitHub](https://github.com/luin/ioredis)                             | [ioredis API reference](https://ioredis.readthedocs.io/en/stable/API/)               |
 
 > [!NOTE]
-> Your application can use any client library that is compatible with open-source Redis to connect to your Azure Managed Redis instance.
+> Your application can use any client library that's compatible with open-source Redis to connect to your Azure Managed Redis instance.
 
 ## Choosing the right client library based on your clustering policy
 
 Azure Managed Redis supports the Enterprise clustering policy and the OSS clustering policy. See more information here (add link to clustering policy information).
 
-All client libraries work with your Redis instance with Enterprise clustering policy. However, if you're using the OSS clustering policy, ensure that the client library you choose supports connecting to clustered Redis instances.
+All client libraries work with your Redis instance with Enterprise clustering policy. However, if you're using the OSS clustering policy, ensure that the selected client library supports connecting to clustered Redis instances.
 
 ## Blocked commands
 
@@ -67,14 +69,14 @@ In Active-Active databases, multi-key write commands (`DEL`, `MSET`, `UNLINK`) c
 
 ## Client library-specific guidance
 
-For information on client library-specific guidance best practices, see the following links:
+Choose your programming language to get detailed best practices and connection guidance:
 
-- [StackExchange.Redis (.NET)](best-practices-connection.md#using-forcereconnect-with-stackexchangeredis)
-- [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
-- [Jedis (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-Java-Jedis.md)
-- [Node.js](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-Node-js.md)
-- [PHP](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-PHP.md)
-- [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
+- [StackExchange.Redis (.NET) best practices](best-practices-connection.md#using-forcereconnect-with-stackexchangeredis)
+- [Lettuce (Java) best practices](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
+- [Jedis (Java) best practices](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-Java-Jedis.md)
+- [Node.js best practices](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-Node-js.md)
+- [PHP best practices](https://github.com/Azure/AzureCacheForRedis/blob/main/Redis-BestPractices-PHP.md)
+- [HiRedisCluster best practices](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
 
 ## How to use client libraries
 
@@ -89,6 +91,15 @@ For more information on using some of these client libraries in tutorials, see t
 - [Code a Java app](java-get-started.md)
 - [Code a Node.js app](nodejs-get-started.md)
 - [Code a Python app](python-get-started.md)
+
+## Get started with tutorials
+
+Learn how to implement Azure Managed Redis in your applications with these step-by-step tutorials organized by programming language:
+
+- [.NET tutorials](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-dotnet-core)
+- [Java tutorials](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-java)
+- [Node.js tutorials](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-nodejs)
+- [Python tutorials](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-python)
 
 ## Next steps
 
