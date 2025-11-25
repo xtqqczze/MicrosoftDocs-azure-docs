@@ -81,7 +81,7 @@ Learn how to securely browse and access data hosted in Microsoft Planetary Compu
    - **Azure Storage** > **user_impersonation**
    - **Microsoft Graph** > **User.Read** (default)
 
-     :::image type="content" source="media/add-api-permissions.png" alt-text="Screenshot that shows how to add API permissions." lightbox="media/add-api-permissions.png":::
+   :::image type="content" source="media/add-api-permissions.png" alt-text="Screenshot that shows how to add API permissions." lightbox="media/add-api-permissions.png":::
 
 1. After you add permissions, select **Grant admin consent for Default Directory**.
 
@@ -168,9 +168,10 @@ Learn how to securely browse and access data hosted in Microsoft Planetary Compu
 1. Select **Add a scope** and add the following information:
 
    - **user_authentication** (display name: **ArcGISPro-API-User-Auth**)
-   - **user_impersonation** (display name: **ArcGISPro-API-Impersonation**)
 
      :::image type="content" source="media/add-user-authentication-scope.png" alt-text="Screenshot that shows how to add a user authentication scope." lightbox="media/add-user-authentication-scope.png":::
+
+   - **user_impersonation** (display name: **ArcGISPro-API-Impersonation**)
 
      :::image type="content" source="media/add-user-impersonation-scope.png" alt-text="Screenshot that shows how to add a user impersonation scope." lightbox="media/add-user-impersonation-scope.png":::
 
@@ -265,9 +266,9 @@ After you register your first application, register a second (with a distinct na
    - Select **Add permissions**.
    - Select **Grant admin consent**.
 
-     :::image type="content" source="media/app-selection-on-request-api-permissions-screen.png" alt-text="Screenshot that shows app selection on the request API permissions screen." lightbox="media/app-selection-on-request-api-permissions-screen.png":::
+   :::image type="content" source="media/app-selection-on-request-api-permissions-screen.png" alt-text="Screenshot that shows app selection on the request API permissions screen." lightbox="media/app-selection-on-request-api-permissions-screen.png":::
   
-     :::image type="content" source="media/grant-admin-consents-4.png" alt-text="Screenshot that shows you how to grant admin consent." lightbox="media/grant-admin-consents-4.png":::
+   :::image type="content" source="media/grant-admin-consents-4.png" alt-text="Screenshot that shows you how to grant admin consent." lightbox="media/grant-admin-consents-4.png":::
 
 ---
 
