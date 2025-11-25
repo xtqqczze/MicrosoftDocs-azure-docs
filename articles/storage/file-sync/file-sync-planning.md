@@ -198,7 +198,7 @@ The following table shows the interoperability state of NTFS file system feature
 > 
 > Files can be uncompressed using the [compact](./windows-server/administration/windows-commands/compact.md)
 >
-> On Windows Server 2019 or later, the [compact](./windows-server/administration/windows-commands/compact.md)
+> On Windows Server 2019 or later, the **compact** command skips tiered files, so you must recall the file first before uncompressing it.
 > ```powershell
 > Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 > Invoke-StorageSyncFileRecall -FilePath <path>
