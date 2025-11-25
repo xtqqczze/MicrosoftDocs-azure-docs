@@ -34,7 +34,7 @@ The following Azure Managed Redis tiers currently support reservations:
 
 | Region          | Memory Optimized | Balanced | Compute Optimized | Flash Optimized |
 | --------------- | ---------------- | -------- | ---------------- | --------------- |
-| AE North        | Yes              | Yes      | No               | No              |
+| AE North        | Yes              | Yes      | Yes              | No              |
 | AU Central      | Yes              | Yes      | No               | No              |
 | AU Southeast    | Yes              | Yes      | No               | No              |
 | BR Southeast    | Yes              | Yes      | No               | No              |
