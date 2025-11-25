@@ -3,6 +3,7 @@ title: Best practices using client libraries with Azure Managed Redis
 description: Learn about client libraries for Azure Managed Redis.
 ms.date: 11/24/2025
 ms.topic: article
+
 ms.custom:
   - devx-track-java
   - devx-track-javaee
