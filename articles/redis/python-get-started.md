@@ -15,9 +15,9 @@ ms.devlang: python
 ai-usage: ai-assisted
 ---
 
-# Quickstart: Use Azure Redis with Python
+# Quickstart: Use Azure Managed Redis with Python
 
-In this article, you learn how to use an Azure Redis cache with the Python language and connect using Microsoft Entra ID.
+In this article, you learn how to use an Azure Managed Redis cache with the Python language and connect using Microsoft Entra ID.
 
 ## Prerequisites
 
