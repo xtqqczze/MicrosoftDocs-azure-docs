@@ -30,8 +30,8 @@ Learn how to securely browse and access data hosted in Microsoft Planetary Compu
 - Azure subscription with permissions to manage app registrations
 - ArcGIS Pro installed on your machine
 
-  > [!TIP]
-  > Before you begin, review background information in [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app).
+> [!TIP]
+> Before you begin, review background information in [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app).
 
 ## Register a web API application for ArcGIS Pro
 
@@ -94,9 +94,10 @@ Learn how to securely browse and access data hosted in Microsoft Planetary Compu
 1. Select **Add a scope** and add the following information:
 
    - **user_authentication** (display name: **ArcGISPro-API-User-Auth**)
-   - **user_impersonation** (display name: **ArcGISPro-API-Impersonation**)
 
      :::image type="content" source="media/add-user-authentication-scope.png" alt-text="Screenshot that shows how to add a user authentication scope." lightbox="media/add-user-authentication-scope.png":::
+
+   - **user_impersonation** (display name: **ArcGISPro-API-Impersonation**)
 
      :::image type="content" source="media/add-user-impersonation-scope.png" alt-text="Screenshot that shows how to add a user impersonation scope." lightbox="media/add-user-impersonation-scope.png":::
 
@@ -154,7 +155,7 @@ Learn how to securely browse and access data hosted in Microsoft Planetary Compu
    - **Azure Storage** > **user_impersonation**
    - **Microsoft Graph** > **User.Read** (default)
 
-     :::image type="content" source="media/add-api-permissions.png" alt-text="Screenshot that shows how to configure API permissions." lightbox="media/add-api-permissions.png":::
+   :::image type="content" source="media/add-api-permissions.png" alt-text="Screenshot that shows how to configure API permissions." lightbox="media/add-api-permissions.png":::
 
 1. After you add permissions, select **Grant admin consent for Default Directory**.
 
@@ -220,9 +221,9 @@ After you register your first application, register a second (with a distinct na
    - **Add permissions**
    - **Grant admin consent**
 
-     :::image type="content" source="media/app-selection-on-request-api-permissions-screen.png" alt-text="Screenshot that shows app selection on the request API permissions screen." lightbox="media/app-selection-on-request-api-permissions-screen.png":::
+   :::image type="content" source="media/app-selection-on-request-api-permissions-screen.png" alt-text="Screenshot that shows app selection on the request API permissions screen." lightbox="media/app-selection-on-request-api-permissions-screen.png":::
   
-     :::image type="content" source="media/grant-admin-consents-4.png" alt-text="Screenshot that shows grant admin consent." lightbox="media/grant-admin-consents-4.png":::
+   :::image type="content" source="media/grant-admin-consents-4.png" alt-text="Screenshot that shows grant admin consent." lightbox="media/grant-admin-consents-4.png":::
 
 ### [US Gov](#tab/usgov)
 
@@ -295,7 +296,7 @@ This section outlines how to configure authentication and data access in the Arc
 
 1. Enter values in the **Entra Domain** and **Client ID** fields.
 
-   - You can [find your Microsoft Entra ID domain](/partner-center/account-settings/find-ids-and-domain-names) (also known as your primary domain) from Microsoft Entra ID in the Azure portal
+   - You can [find your Microsoft Entra ID domain](/partner-center/account-settings/find-ids-and-domain-names) (also known as your primary domain) from Microsoft Entra ID in the Azure portal.
    - For **Client ID**, enter the client ID you set in the **Add a client application** step.
 
 1. Add the following values in the **Scopes** fields:
@@ -303,7 +304,7 @@ This section outlines how to configure authentication and data access in the Arc
    - `https://storage.azure.com/.default`
    - `https://geocatalog.spatio.azure.com/.default`
 
-     :::image type="content" source="media/add-connection.png" alt-text="Screenshot that shows how to add a connection." lightbox="media/add-connection.png":::
+   :::image type="content" source="media/add-connection.png" alt-text="Screenshot that shows how to add a connection." lightbox="media/add-connection.png":::
 
 1. Select **OK**.
 
@@ -335,7 +336,7 @@ This section outlines how to configure authentication and data access in the Arc
 
 1. Enter values in the **Entra Domain** and **Client ID** fields.
 
-   - You can [find your Microsoft Entra ID domain](/partner-center/account-settings/find-ids-and-domain-names) (also known as your primary domain) from Microsoft Entra ID in the Azure portal
+   - You can [find your Microsoft Entra ID domain](/partner-center/account-settings/find-ids-and-domain-names) (also known as your primary domain) from Microsoft Entra ID in the Azure portal.
    - For **Client ID**, enter the client ID that you set in the **Add a client application** step.
 
 1. Add the following values in the **Scopes** fields:
@@ -343,7 +344,7 @@ This section outlines how to configure authentication and data access in the Arc
    - `https://storage.usgovcloudapi.net/.default`
    - `https://geocatalog.spatio.azure.us/.default`
 
-     :::image type="content" source="media/add-authentication-us-gov.png" alt-text="Screenshot that shows how to add a connection." lightbox="media/add-authentication-us-gov.png":::
+   :::image type="content" source="media/add-authentication-us-gov.png" alt-text="Screenshot that shows how to add a connection." lightbox="media/add-authentication-us-gov.png":::
 
 1. Select **OK**.
 
@@ -376,7 +377,7 @@ This section outlines how to configure authentication and data access in the Arc
 
 1. Record the value in **Collection Name**. For example, `sentinel-2-l2a-tutorial-1000`.
 
-1. Construct the token API endpoint by using this pattern: ```<GeoCatalog URI>/sas/token/<Collection Name>?api-version=2025-04-30-preview```. For example: ```https://arcgisprogeocatalog.<unique-identity>.<cloud-region>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-tutorial-1000?api-version=2025-04-30-preview```
+1. Construct the token API endpoint by using this pattern: ```<GeoCatalog URI>/sas/token/<Collection Name>?api-version=2025-04-30-preview```. For example: ```https://arcgisprogeocatalog.<unique-identity>.<cloud-region>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-tutorial-1000?api-version=2025-04-30-preview```.
 
 ### Find and record the storage location
 
@@ -389,7 +390,7 @@ There are two easy ways to discover the storage account and blob container for a
 
 #### Discover the storage account by using a collection thumbnail
 
-1. From a specific **Collections** page, select the value for the **Collection Name**.
+1. From a specific **Collections** page, select the value for **Collection Name**.
 
    :::image type="content" source="media/click-on-collection-name.png" alt-text="Screenshot that shows how to select the collection name." lightbox="media/click-on-collection-name.png":::
 
@@ -408,7 +409,7 @@ There are two easy ways to discover the storage account and blob container for a
    - **(Storage) Account Name**: ```<unique-storage>```
    - **Container Name**: ```sentinel-2-l2a-tutorial-1000-<unique-id>```
 
-     :::image type="content" source="media/collection-json-display.png" alt-text="Screenshot that shows a collection json display." lightbox="media/collection-json-display.png":::
+   :::image type="content" source="media/collection-json-display.png" alt-text="Screenshot that shows a collection json display." lightbox="media/collection-json-display.png":::
 
 #### Discover the storage account by using a STAC Item
 
@@ -420,11 +421,11 @@ There are two easy ways to discover the storage account and blob container for a
 
    :::image type="content" source="media/select-stac-item-checkbox.png" alt-text="Screenshot that shows how to select a STAC Item box." lightbox="media/select-stac-item-checkbox.png":::
 
-1. Scroll to the bottom of the **STAC Item** right panel and select this link to retrieve the STAC Item JSON.
+1. Scroll to the bottom of the **STAC Item** right panel and select the link to retrieve the STAC Item JSON.
 
    :::image type="content" source="media/select-stac-item-json-link.png" alt-text="Screenshot that shows how to select the STAC Item JSON link." lightbox="media/select-stac-item-json-link.png":::
 
-1. Find the object called `assets` within the STAC Item JSON specification called. Select one of the asset types within this object and find the `href` key.
+1. Find the object called `assets` within the STAC Item JSON specification. Select one of the asset types within this object and find the `href` key.
 
    ```json
     "assets": {
