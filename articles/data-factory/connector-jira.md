@@ -68,7 +68,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Jira connector now supports version 2.0. Refer to this [section](#upgrade-the-Jira-connector-from-version-10-to-version-20) to upgrade your Jira connector version from version 1.0. For the property details, see the corresponding sections.
+The Jira connector now supports version 2.0. Refer to this [section](#jira-connector-lifecycle-and-upgrade) to upgrade your Jira connector version from version 1.0. For the property details, see the corresponding sections.
 
 - [Version 2.0](#version-20)
 - [Version 1.0](#version-10)
