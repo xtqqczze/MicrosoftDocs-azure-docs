@@ -45,12 +45,10 @@ By performing token validation at the edge, Application Gateway simplifies appli
    - Make a  call to the Microsoft Entra Id to request access to a service. The Microsoft Entra ID responds with an access token.
 
 - **Configure JWT validation in Application Gateway**
-   - Configure JWT validation
-
-  
+   
    
 
-## JWT validation setup
+## JSON Web Token (JWT) validation setup
 
 In this section, you learn how to configure JWT validation in Azure Application Gateway:
 
@@ -117,6 +115,8 @@ In this section, you learn how to configure JWT validation in Azure Application 
 1. Link this rule to your JWT validation configuration. Your JWT validation configuration is now attached to a secure HTTPS listener and routing rule.
 
 ## Obtain a JWT from the Entra ID token endpoint, then include that token in the request header and send it to the Application Gateway with every request.
+
+- Learn more about [Access tokens in the Microsoft identity platform](/entra/identity-platform/access-tokens)
 
 
 
