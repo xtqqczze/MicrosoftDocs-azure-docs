@@ -4,7 +4,7 @@ description: This article explains how you can authenticate managed identities t
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/17/2025
+ms.date: 11/26/2025
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -235,21 +235,13 @@ AzFilesSmbMIClient.exe refresh --uri https://<storage-account-name>.file.core.wi
 
 To prepare your Linux VM to authenticate using a managed identity, follow these steps.
 
-### Install needed dependencies
-
-Make sure your system has all the necessary dependencies by running the following command:
-
-```bash
-sudo dnf update && sudo dnf install curl krb5-libs python3 unzip
-```
-
 ### Download and install the authentication packages
 
 The package location and installation steps differ depending on your Linux distro.
 
 #### Azure Linux 3.0
 
-[Download azfilesauth](https://packages.microsoft.com/azurelinux/3.0/prod/ms-oss/x86_64/Packages/a/azfilesauth-1.0-7.azl3.x86_64.rpm) and run the following commands to install:
+Run the following commands to install `azfilesauth` on Azure Linux 3.0:
 
 ```bash
 tdnf update 
@@ -258,7 +250,7 @@ tdnf install azfilesauth
 
 #### Ubuntu 22.04
 
-[Download azfilesauth](https://packages.microsoft.com/ubuntu/22.04/prod/pool/main/a/azfilesauth/azfilesauth_1.0-7_amd64.deb) and run the following commands to install:
+Run the following commands to install `azfilesauth` on Ubuntu 22.04:
 
 ```bash
 curl -sSL -O https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
@@ -269,21 +261,13 @@ sudo apt-get update sudo apt-get install azfilesauth
 
 #### Ubuntu 24.04
 
-[Download azfilesauth](https://packages.microsoft.com/ubuntu/24.04/prod/pool/main/a/azfilesauth/azfilesauth_1.0-7_amd64.deb) and run the following commands to install:
+Run the following commands to install `azfilesauth` on Ubuntu 24.04:
 
 ```bash
 curl -SSL -O https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb rm packages-microsoft-prod.deb
 # the above steps update the sources.list
 sudo apt-get update sudo apt-get install azfilesauth
-```
-
-### Install the authentication manager
-
-Install the core package that will handle the OAuth tokens:
-
-```bash
-sudo rpm -ivh ./azfilesauth-1.0-2.azl3.x86_64.rpm
 ```
 
 ### Configure authentication
@@ -334,10 +318,10 @@ For more information, see [Mount SMB Azure file share on Windows](storage-how-to
 
 ### [Linux](#tab/linux)
 
-Run the following command to mount the file share. Be sure to replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name. You can find your credential ID in the following config file: `cat /etc/azfilesauth/config.yaml`
+Run the following command to mount the file share with recommended mount options. Be sure to replace `<storage-account-name>` with your storage account name and `<file-share-name>` with your file share name. You can find your credential ID in the following config file: `cat /etc/azfilesauth/config.yaml`
 
 ```bash
-sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /mnt/smb -o sec=krb5,cruid=<credential-id>
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /mnt/smb -o sec=krb5,cruid=<credential-id>,dir_mode=0755,file_mode=0755,serverino,nosharesock,mfsymlinks,actimeo=30
 ```
 
 Verify that the mount succeeded:
@@ -350,17 +334,21 @@ For more information, see [Mount SMB Azure file shares on Linux clients](storage
 
 ### Refresh your credentials
 
-After you mount the file share for the first time, start the refresh service to keep credentials up to date:
+After you mount the file share for the first time, start the refresh service to keep credentials up to date. You can only refresh credentials if your VM has a user-assigned managed identity assigned. If you're supplying the OAuth token directly, then the refresh won't work.
 
 ```bash
 sudo systemctl start azfilesauth
 ```
 
-You should refresh your credentials periodically to avoid access interruptions. You can refresh credentials manually using the azfilesauthmanager set command as described in [Configure authentication](#configure-authentication), or you can automate the refresh using the shared library APIs.
+You should refresh your credentials periodically to avoid access interruptions. You can refresh credentials manually using the `azfilesauthmanager set` command as described in [Configure authentication](#configure-authentication), or you can automate the refresh using the shared library APIs.
 
 ---
 
-## Troubleshooting for Windows clients
+## Troubleshooting
+
+Troubleshooting steps are different for Windows and Linux clients. 
+
+### [Windows](#tab/windows)
 
 If you encounter issues when mounting your file share on Windows, follow these steps to enable verbose logging and collect diagnostic information.
 
@@ -370,9 +358,15 @@ If you encounter issues when mounting your file share on Windows, follow these s
 
 1. You should now have a file named `AzFilesSmbMILog.log`. Send the log file to azurefilespm@microsoft.com for assistance.
 
-## Client library installation and integration options 
+### [Linux](#tab/linux)
 
-For developers who need to integrate managed identities into their applications, multiple implementation approaches are available depending on your application architecture and requirements.
+If you encounter issues when mounting your file share on Linux, follow [these SMB diagnostics steps](https://github.com/Azure-Samples/azure-files-samples/tree/master/SMBDiagnostics).
+
+---
+
+## Client library installation and integration options for Windows
+
+For developers who need to integrate managed identities into their Windows applications, multiple implementation approaches are available depending on your application architecture and requirements.
 
 ### Managed assembly integration: NuGet package
 
