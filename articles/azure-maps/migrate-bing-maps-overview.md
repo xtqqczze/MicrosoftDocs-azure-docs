@@ -165,7 +165,7 @@ Developers can get migration support through the [Azure Maps Q&A] or through one
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Authentication best practices]: authentication-best-practices.md
 [Autosuggest]: /bingmaps/rest-services/autosuggest
-[Azure Licensing]: https://azure.microsoft.com/pricing/purchase-options/azure-account
+[Azure Licensing]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Azure Maps account]: how-to-manage-account-keys.md#create-a-new-account
 [Azure Maps blog]: https://aka.ms/AzureMapsTechBlog
 [Azure Maps code samples]: https://samples.azuremaps.com/
