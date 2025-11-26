@@ -118,6 +118,7 @@ In this section, you learn how to configure JWT validation in Azure Application 
 
 
 ## Send a JWT Access Token with Every Request to the Secure Application
+
 To securely access an application protected by Application Gateway, the client must first obtain a JWT access token from the Microsoft Entra ID token endpoint. The client then includes this token in the Authorization header (for example, Authorization: Bearer <token>) on every request it sends to the Application Gateway. Application Gateway validates the token before forwarding the request to the backend application, ensuring that only authenticated and authorized traffic reaches the secure application.
 
 - Learn more about [Access tokens in the Microsoft identity platform](/entra/identity-platform/access-tokens)
