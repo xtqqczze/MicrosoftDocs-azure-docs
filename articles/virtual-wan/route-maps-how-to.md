@@ -119,17 +119,17 @@ To modify or remove an existing Route-map rule, use the following steps.
 
 1. On the **Route-maps page**, at the top, select **Apply Route-maps to connections**.
 
-1. On **Apply Route-maps to connections** page, select the connection you want to modify via the checkbox on the left.
+2. On **Apply Route-maps to connections** page, select the connection you want to modify via the checkbox on the left.
 
-1. Change the **Inbound Route-map** and **Outbound Route-map** dropdowns to the appropriate Route-maps or set to **None** for the connections you want to remove the Route-map for. In this example, we're removing the inbound Route-map from a branch VPN connection.
+3. Change the **Inbound Route-map** and **Outbound Route-map** dropdowns to the appropriate Route-maps or set to **None** for the connections you want to remove the Route-map for. In this example, we're removing the inbound Route-map from a branch VPN connection.
 
-:::image type="content" source="./media/route-maps-how-to/remove-a-route-map-from-a-connection.png" alt-text="Screenshot shows removing a route-map from a connection in the Azure portal." lightbox="./media/route-maps-how-to/remove-a-route-map-from-a-connection.png":::
+   :::image type="content" source="./media/route-maps-how-to/remove-route-map-final.png" alt-text="Screenshot shows removing a route-map from a connection in the Azure portal." lightbox="./media/route-maps-how-to/remove-route-map-final.png":::
 
-1. Once completed, select **Save**.
+4. Once completed, select **Save**.
 
-1. Verify the changes by opening **Apply Route-maps to connections** and using the [Route-maps dashboard](route-maps-dashboard.md). 
+5. Verify the changes by opening **Apply Route-maps to connections** and using the [Route-maps dashboard](route-maps-dashboard.md). 
 
-:::image type="content" source="./media/route-maps-how-to/remove-route-map-results.png" alt-text="Screenshot shows that the route-map is removed from the connection in the Azure portal." lightbox="./media/route-maps-how-to/remove-route-map-results.png":::
+   :::image type="content" source="./media/route-maps-how-to/remove-route-map-results-final.png" alt-text="Screenshot shows that the route-map is removed from the connection in the Azure portal." lightbox="./media/route-maps-how-to/remove-route-map-results-final.png":::
 
 ## Troubleshooting
 
