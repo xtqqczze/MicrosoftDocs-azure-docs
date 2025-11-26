@@ -2,7 +2,7 @@
 title: Azure Monitor Logs in Azure Backup
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
 ms.topic: how-to
-ms.date: 12/30/2024
+ms.date: 11/26/2025
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
 author: AbhishekMallick-MS
 ms.author: v-mallicka
