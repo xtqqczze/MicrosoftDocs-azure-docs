@@ -50,7 +50,7 @@ The following prerequisites are mandatory. Without these, you can't authenticate
 
 - Azure Files SMB support for external identities is currently limited to FSLogix scenarios running on Azure Virtual Desktop (AVD). This applies to external users invited to a Microsoft Entra ID tenant in the public cloud, with the exception of cross-cloud users (those invited into the tenant from Azure Government or Azure operated by 21Vianet). Government cloud scenarios aren't supported. Non-AVD scenarios aren't supported for business-to-business guest users or users from other Microsoft Entra tenants.
 
-> [IMPORTANT!]
+> [!IMPORTANT]
 > Cloud-only identities support (preview) is only available using a [default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities).
 
 ### Operating system and domain prerequisites
