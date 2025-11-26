@@ -66,7 +66,7 @@ Azure Data Lake Storage protection has the following unsupported scenarios:
 - Any new containers that get created after backup configuration for the storage account aren't backed up automatically. To enable the backup operation for the new containers, modify the protection of the storage account. 
 - The storage accounts to be backed up must contain a *minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error might appear when you configure backup.
 - Backup vaults with User-Assigned Managed Identity (UAMI) aren't compatible with Azure Blob Vaulted backups.
-- When a Azure Data Lake Storage account or container in it is deleted and recreated with the same name between two consecutive backups, It causes recovery points to retain older blobs and versions.
+- When an Azure Data Lake Storage account or container in it is deleted and recreated with the same name between two consecutive backups, then recovery points retain older blobs and versions.
 - Archive tier for the backup data in a vault is currently not supported.
 - Storage accounts upgraded from FNS to HNS are not supported for backup.
 - SFTP- and NFS-enabled accounts aren’t supported for Vaulted Backup. Backup jobs on these accounts fail or hang when processing blobs uploaded via SFTP.
