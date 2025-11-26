@@ -121,7 +121,7 @@ When rehydrating archived blobs, there's no option to choose a priority. The blo
 
 ## Delay in Task Assignment Runs
 
-Task assignment runs can take around 20 minutes to change status to In Progress after being queued. Until then, no updates will be shown. This delay is expected behavior and there is no workaround for immediate updates.
+Task assignment runs can take around 20 minutes to change status to `In Progress` after being queued. Until then, no updates appear. This delay is expected and there is no workaround to shorten it.
 
 
 ## See Also
