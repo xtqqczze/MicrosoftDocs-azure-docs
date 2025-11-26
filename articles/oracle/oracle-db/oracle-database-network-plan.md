@@ -23,7 +23,6 @@ Default network features enable basic network connectivity for both new and exis
 Advanced network features enhance the virtual networking experience, offering improved security, performance, and control—similar to standard Azure VMs. These features are generally available for new deployments in the following regions:
 
 * Australia East
-* Australia Southeast
 * Brazil South
 * Canada Central
 * Central India
@@ -38,6 +37,7 @@ Advanced network features enhance the virtual networking experience, offering im
 * Japan West
 * North Europe
 * South Central US
+* South India
 * Southeast Asia
 * Spain Central
 * Sweden Central
