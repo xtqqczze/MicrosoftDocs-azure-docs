@@ -90,11 +90,11 @@ To create private endpoints for Azure Backup, follow these steps:
 
 1. On the **Create a private endpoint** pane, specify the required details for creating your private endpoint connection by following these steps.
 
-    1. On the **Basics** tab, enter the basic details for your private endpoints. The region should be the same as the vault and the resource for backup.
+   1. On the **Basics** tab, enter the basic details for your private endpoints. The region should be the same as the vault and the resource for backup.
 
       :::image type="content" source="media/private-endpoint-vault-backup-server/basic-private-endpoint-configuration.png" alt-text="Screenshot shows the private endpoint basics configuration page.":::
 
-   1. On the **Resource** tab, select the PaaS resource for which you want to create your connection, **Resource type** as `Microsoft.RecoveryServices/vaults` . Then, choose the name of your Recovery Services vault as the **Resource** and **AzureBackup** as the **Target sub-resource**.
+   1. On the **Resource** tab, select the PaaS resource for which you want to create your connection, **Resource type** as `Microsoft.RecoveryServices/vaults`. Then, choose the name of your Recovery Services vault as the **Resource** and **AzureBackup** as the **Target sub-resource**.
 
       :::image type="content" source="media/private-endpoint-vault-backup-server/private-endpoint-resource-details.png" alt-text="Screenshot shows the private endpoint resource selection configuration." lightbox="media/private-endpoint-vault-backup-server/private-endpoint-resource-details.png":::
 
@@ -201,11 +201,9 @@ When you use the MARS Agent for backup, ensure your on-premises network is peere
 
 1. [Register your MABS Server to the vault](register-public-access-vault-backup-server.md#register-the-mabs-server-with-vault) you created with private endpoints.
 
-   :::image type="content" source="media/private-endpoint-vault-backup-server/register-backup-server-vault.png" alt-text="Screenshot shows the MABS server registration to vault with private endpoints." lightbox="media/private-endpoint-vault-backup-server/register-backup-server-vault.png":::
-
 1. [Enable backup on MABS Server for disk and online](back-up-file-data.md#back-up-file-data-with-mabs-1).
 
-   :::image type="content" source="media/private-endpoint-vault-backup-server/backup-configuration-backup-server-protection.png" alt-text="Screenshot shows the backup configuration on MABS server for disk and online protection.":::
+   :::image type="content" source="media/private-endpoint-vault-backup-server/backup-configuration-backup-server-protection.png" alt-text="Screenshot shows the backup configuration on MABS server for disk and online protection." lightbox="media/private-endpoint-vault-backup-server/backup-configuration-backup-server-protection.png":::
 
    After the registration, wait for the Initial Replica to complete. The online backup operation starts as per the schedule, or you can manually trigger backups for your data sources.
 

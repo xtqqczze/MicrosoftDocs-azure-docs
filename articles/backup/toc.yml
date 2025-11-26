@@ -754,7 +754,7 @@
       items:
       - name: Configure private endpoint
         href: private-endpoint-configure-vault-backup-server.md
-      - name: Reregister MABS using public access
+      - name: Re-register MABS using public access
         href: register-public-access-vault-backup-server.md  
     - name: Protect workloads
       items:

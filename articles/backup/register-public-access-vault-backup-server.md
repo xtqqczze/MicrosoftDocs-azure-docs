@@ -1,7 +1,7 @@
 ---
-title: Reregister the MABS server with Recovery Services vault using public access
-description: Learn how to reregister your MABS server with an Azure Backup Recovery Services vault using public access after deleting private endpoints.
-#customer intent: As a MABS user, I want to reregister my server with a Recovery Services vault using public access so that I can back up on-premises data securely.
+title: Re-register the MABS server with Recovery Services vault using public access
+description: Learn how to re-register your MABS server with an Azure Backup Recovery Services vault using public access after deleting private endpoints.
+#customer intent: As a MABS user, I want to re-register my server with a Recovery Services vault using public access so that I can back up on-premises data securely.
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.service: azure-backup
 ---
 
-# Reregister the MABS server with Recovery Services vault using public access
+# Re-register the MABS server with Recovery Services vault using public access
 
 If you don't want to continue using private endpoints for backup, delete them from the vault and re-register MABS. You don’t need to stop protection.
 
@@ -48,7 +48,7 @@ To register the MABS Server with the vault, follow these steps:
 
 1. Select **Register** and wait for the registration process to complete.
 
-   :::image type="content" source="media/private-endpoint-vault-backup-server/backup-server-reregistration.png" alt-text="Screenshot shows the backup server re-registration process and encryption settings.":::
+   :::image type="content" source="media/private-endpoint-vault-backup-server/backup-server-registration.png" alt-text="Screenshot shows the backup server registration process and encryption settings.":::
 
 ## Related content
 
