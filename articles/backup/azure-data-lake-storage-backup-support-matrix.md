@@ -56,7 +56,7 @@ Azure Data Lake Storage protection has the following supported scenarios:
 - Backup vaults with System-Assigned Managed Identity (SAMI) works for backup, because the vault needs to access the storage account where the blobs are stored. The vault uses its system-assigned managed identity for this access.
 - You can protect the storage account with the vault in another subscription but in the same region as storage account.
 - Azure Data Lake Storage accounts support both Blob and Data File System (DFS) APIs.
-- $web container cannot be restored as $web on the target. Use the renameTo option and restore it with a different container name.
+- `$web` container can't be restored as `$web` on the target. Use the **renameTo** option and restore it with a different container name.
 - $root container can be restored as $root on the target only if $root does not already exist there. If it already exists, use the renameTo option and restore it with a different container name. 
 
 ### Unsupported scenarios and considerations for Azure Data Lake Storage protection
