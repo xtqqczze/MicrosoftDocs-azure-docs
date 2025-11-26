@@ -7,6 +7,7 @@ ai-usage: ai-assisted
 ms.custom:
   - ignite-2024
   - build-2025
+  - references_regions
 appliesto:
   - ✅ Azure Managed Redis
 ---
