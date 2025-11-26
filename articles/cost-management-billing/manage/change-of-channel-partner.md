@@ -30,7 +30,7 @@ To initiate a COCP request, only two attributes of information are required.
 
 - **Partner Notification Contact** - When initiating a COCP request, you need to provide the email address of a 'partner notification contact' from your new partner organization. Ideally, your new partner should provide you with this contact information, as this person will serve as your primary point of contact for all future communications regarding your agreement.
 
-If you don't have this information, you may enter any email address to proceed. However be aware that if Microsoft can't verify the email address you provide, it will not send automatic notifications about the COCP request to your new partner due to privacy reasons. In such cases, has to you directly inform your new partner about the initiation of the COCP process outside the system.
+If you don't have this information, you may enter any email address to proceed. However, be aware that if Microsoft can't verify the email address you provide, it will not send automatic notifications about the COCP request to your new partner due to privacy reasons. Perhaps In such cases, it has you directly inform your new partner about the initiation of the COCP process outside the system.
 
 **Key Takeaway:**  
 Always try to get the correct partner notification contact from your new partner before starting the COCP. This action helps ensure a smooth and timely transition.
@@ -56,13 +56,13 @@ Make sure that the partner accepts the request within 10 days.
 
 - Go to Azure portal, Cost management + Billing -> Billing Scopes -> select on Change Partner.
 
-:::image type="content" source="../media/4c8cf6ac757a54ac716d903f02bf6d47.png" alt-text="Screenshot of azure portal customer experience." lightbox="../media/4c8cf6ac757a54ac716d903f02bf6d47.png" border="false":::
+:::image type="content" source="../media/4c8cf6ac757a54ac716d903f02bf6d47.png" alt-text="Screenshot of Azure portal customer experience." lightbox="../media/4c8cf6ac757a54ac716d903f02bf6d47.png" border="false":::
 
-- After selecting Change Partner, the user is redirected to a page showing only eligible billing accounts on which COCP requests can be initiated. Select the Billing accounts that you want to transfer and select on next.
+- After selecting Change Partner, the user is redirected to a page showing only eligible billing accounts on which COCP requests can be initiated. Select the Billing accounts that you want to transfer and select Next.
 
 - User may select multiple billing accounts up to a maximum of 20 or user may select one billing account and select the three dots to Change Partner on that billing account.
 
-:::image type="content" source="../media/47bba1c187178d52bedceea553c275f2.png" alt-text="Screenshot of azure portal customer experiences." lightbox="../media/47bba1c187178d52bedceea553c275f2.png" border="false":::
+:::image type="content" source="../media/47bba1c187178d52bedceea553c275f2.png" alt-text="Screenshot of Azure portal customer experiences." lightbox="../media/47bba1c187178d52bedceea553c275f2.png" border="false":::
 
   On the **Initiate change of Partner page** user needs to
 -   Input the Public Customer Number (PCN) of the new partner.
@@ -104,7 +104,7 @@ This rule means the notification goes to the email address listed on COCP rather
 -   If selected billing accounts are all a combination of EA direct and Indirect, one form with sections for *Change of SA Advisor* and *Change of Reseller* is displayed. The form is scrollable.
 -   User needs to input their first name and last name and agree to terms and conditions by selecting the checkbox.
 
-:::image type="content" source="../media/f076209a9ebd77b5df61d2478b3c2170.png" alt-text="Screenshot of not eligible for cocp." lightbox="../media/f076209a9ebd77b5df61d2478b3c2170.png" border="false":::
+:::image type="content" source="../media/f076209a9ebd77b5df61d2478b3c2170.png" alt-text="Screenshot of not eligible for COCP." lightbox="../media/f076209a9ebd77b5df61d2478b3c2170.png" border="false":::
 
 :::image type="content" source="../media/76471b6f9a91b163aea5237056d5c87e.png" alt-text="Screenshot of invalid partner public number." lightbox="../media/76471b6f9a91b163aea5237056d5c87e.png" border="false":::
 
@@ -140,7 +140,7 @@ A **'Request ID'** is displayed for each billing account included in the COCP re
 
 The **effective date** is the date from which the new partner may place orders on the agreement.
 
-:::image type="content" source="../media/cancel-request.png" alt-text="Screenshot of cocp Status definitions." lightbox="../media/cancel-request.png" border="false":::
+:::image type="content" source="../media/cancel-request.png" alt-text="Screenshot of COCP Status definitions." lightbox="../media/cancel-request.png" border="false":::
 
 #### How to download COCP request ID in Azure portal
 
@@ -151,7 +151,7 @@ Customer admin must navigate to Azure portal Track change page.
 
 - The COCP form can only be downloaded once partner accepts the request or the request isn't canceled.
 
-:::image type="content" source="../media/change-request.png" alt-text="Screenshot of download cocp request." lightbox="../media/change-request.png" border="false":::
+:::image type="content" source="../media/change-request.png" alt-text="Screenshot of download COCP request." lightbox="../media/change-request.png" border="false":::
 
 #### How to cancel COCP request in Azure portal
 
@@ -161,9 +161,10 @@ A COCP request with a status of In Process may be canceled in full or partially 
 
 - Select Cancel Request from the action menu at the top, or the three dots next to billing scope.
 
-:::image type="content" source="../media/70d4d272274e6e5374095722b4a09c86.png" alt-text="cancel cocp request in azure portal." lightbox="../media/70d4d272274e6e5374095722b4a09c86.png" border="false":::
+:::image type="content" source="../media/70d4d272274e6e5374095722b4a09c86.png" alt-text="cancel COCP request in Azure portal." lightbox="../media/70d4d272274e6e5374095722b4a09c86.png" border="false":::
 
 This initiates a notification to the partner to let them know that the request is canceled.
+
 
 
 
