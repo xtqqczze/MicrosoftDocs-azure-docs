@@ -143,20 +143,6 @@ See [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capac
 
 See [Azure Chaos Studio service limits](/azure/chaos-studio/chaos-studio-service-limits) for Azure Chaos Studio limits.
 
-## Azure Communications Gateway limits
-
-Some of the following default limits and quotas can be increased. To request a change, create an [Azure portal support request](../../communications-gateway/request-changes.md), and describe the limit that you need to change.
-
-[!INCLUDE [communications-gateway-general-restrictions](/previous-versions/azure/communications-gateway/includes/communications-gateway-general-restrictions.md)]
-
-Azure Communications Gateway also has limits on SIP signaling.
-
-[!INCLUDE [communications-gateway-sip-size-restrictions](/previous-versions/azure/communications-gateway/includes/communications-gateway-sip-size-restrictions.md)]
-
-[!INCLUDE [communications-gateway-sip-behavior-restrictions](/previous-versions/azure/communications-gateway/includes/communications-gateway-sip-behavior-restrictions.md)]
-
-[!INCLUDE [limits on the Provisioning API](/previous-versions/azure/communications-gateway/includes/communications-gateway-provisioning-api-restrictions.md)]
-
 ## Azure Container Apps limits
 
 See [Quotas in Azure Container Apps](../../container-apps/quotas.md) for Azure Container Apps limits.
