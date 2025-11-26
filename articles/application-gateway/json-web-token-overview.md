@@ -75,7 +75,9 @@ In this section, you learn how to configure JWT validation in Azure Application 
 > [!NOTE]
 > Supported account types:
 > Single tenant (This directory only)
+>
 > Multitenant (Any Azure AD directory)
+>
 > Accounts in any Azure AD directory + personal Microsoft accounts
 
 
@@ -114,7 +116,9 @@ In this section, you learn how to configure JWT validation in Azure Application 
 
 1. Link this rule to your JWT validation configuration. Your JWT validation configuration is now attached to a secure HTTPS listener and routing rule.
 
-## Obtain a JWT from the Entra ID token endpoint, then include that token in the request header and send it to the Application Gateway with every request.
+
+## Send a JWT Access Token with Every Request to the Secure Application
+To securely access an application protected by Application Gateway, the client must first obtain a JWT access token from the Microsoft Entra ID token endpoint. The client then includes this token in the Authorization header (for example, Authorization: Bearer <token>) on every request it sends to the Application Gateway. Application Gateway validates the token before forwarding the request to the backend application, ensuring that only authenticated and authorized traffic reaches the secure application.
 
 - Learn more about [Access tokens in the Microsoft identity platform](/entra/identity-platform/access-tokens)
 
