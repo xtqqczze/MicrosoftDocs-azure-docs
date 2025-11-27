@@ -17,7 +17,7 @@ This guide assumes you went through the QuickStart or that you implemented an ap
 
 ### Create CallAgentFeature for Active Call Transfer
 
-First thing you will need to do when setting up Active Call Tranfer is you will need to create the `CallAgentFeature` for it. This does all the setup needed to start using the underlying API's for the functionality of the feature. It also holds all the functions and events for Active Call Transfer. 
+First thing you need to do when setting up Active Call Transfer is you need to create the `CallAgentFeature` for it. Creating this feature does the setup needed to start using the underlying APIs for the functionality of Active Call Transfer. It also holds all the functions and events for Active Call Transfer. 
 
 ```js
 const activeCallTransferFeature = await callAgent.feature(ActiveCallTransfer);
@@ -25,7 +25,7 @@ const activeCallTransferFeature = await callAgent.feature(ActiveCallTransfer);
 
 ### Fetch your Active Call
 
-When your user signs to the `CallAgent` and you create the feature API, there is a method that you can use to fetch the ongoing calls `getActiveCallDetails`. The response will return to you the active call, or active meeting that your users are in.
+When your user signs to the `CallAgent` and you create the feature API, there is a method that you can use to fetch the ongoing calls `getActiveCallDetails`. The response returns the active call, or active meeting that your users are in.
 
 ```js
 const activeCallTransferFeature = await callAgent.feature(ActiveCallTransfer);
