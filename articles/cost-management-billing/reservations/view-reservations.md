@@ -19,7 +19,7 @@ This article explains how reservation permissions work in Azure and how authoriz
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-## <a name = "#who-can-manage-a-reservation-by-default"></a> Users who can manage a reservation by default
+## <a name = "who-can-manage-a-reservation-by-default"></a> Users who can manage a reservation by default
 
 By default, the following users can view and manage reservations:
 
