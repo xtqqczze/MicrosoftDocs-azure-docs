@@ -12,11 +12,11 @@ ms.author: momakhij
 
 # Configure Dataset in Business Process Solutions
 
-In this article, we'll describe the steps required to configure Dataset in Business Process Solutions. This document contains steps on how you can set up the dataset by importing template datasets depending on the source system you configure in your Business Process Solution item.
+In this article, we describe the steps required to configure Dataset in Business Process Solutions. This document contains steps on how you can set up the dataset by importing template datasets depending on the source system you configure in your Business Process Solution item.
 
 ## Configure dataset
 
-Now before data extraction, we need to enable datasets which contain solution areas and table we want to enable extraction and processing. Follow the steps to configure a dataset.
+Now before data extraction, we need to enable datasets, which contain solution areas and table we want to enable extraction and processing. Follow the steps to configure a dataset.
 
 1. Open your Business Process Solution item and click on the **Set up your Datasets** button.
    :::image type="content" source="./media/configure-dataset/set-up-datasets.png" alt-text="Navigate to Dataset tab" lightbox="./media/configure-dataset/set-up-datasets.png":::
@@ -24,13 +24,13 @@ Now before data extraction, we need to enable datasets which contain solution ar
 3. Once the dialog opens select your source system and enter the name of the dataset, make sure to enter a unique name.
 4. Select the dataset you would like to enable. Click on import.
    :::image type="content" source="./media/configure-dataset/import-dataset-template.png" alt-text="Import dataset from template" lightbox="./media/configure-dataset/import-dataset-template.png":::
-5. After the dataset creation is completed successfully, the dataset is in Disabled state, we need to enable this dataset. To do this, select the dataset and click on Activate datasets button.
+5. After the dataset creation is completed successfully, the dataset is in Disabled state, we need to enable this dataset. Select the dataset and click on Activate datasets button.
    :::image type="content" source="./media/configure-dataset/enable-dataset.png" alt-text="Activate dataset" lightbox="./media/configure-dataset/enable-dataset.png":::
 6. Now, your dataset is ready for extraction and processing.
 
 ## Modify dataset tables and relationships
 
-Once the dataset is deployed, you should be able to view the dataset. You can explore the tables which are enabled for extraction. You can also check the relationship that will be created between fact and dimension tables.
+Once the dataset is deployed, you should be able to view the dataset. You can explore the tables, which are enabled for extraction. You can also check the relationship that is created between fact and dimension tables.
 
 ### Update dataset tables
 
@@ -59,13 +59,13 @@ To create new relationships between tables, follow the steps
    :::image type="content" source="./media/configure-dataset/manage-relationship.png" alt-text="Manage Relationships" lightbox="./media/configure-dataset/manage-relationship.png":::
 5. In the Manage Relationships dialog, click on the **New Relationship** button.
    :::image type="content" source="./media/configure-dataset/create-new-relationship.png" alt-text="New Relationship" lightbox="./media/configure-dataset/create-new-relationship.png":::
-6. Enter the inpus for the relationship like Fact table name, dimension table name, surrogate column name which should be created. Enter the join condition refering the example mentioned in the dialog. Finally, if you would like to copy a column from dimension table to fact table, add the column names in import columns input.
+6. Enter the inputs for the relationship like Fact table name, dimension table name, surrogate column name, which should be created. Enter the join condition referring the example mentioned in the dialog. Finally, if you would like to copy a column from dimension table to fact table, add the column names in import columns input.
    :::image type="content" source="./media/configure-dataset/create-relationship.png" alt-text="Enter inputs for relationship" lightbox="./media/configure-dataset/create-relationship.png":::
 7. Click on the **Save** button to create the relationship.
 
 ### Delete relationships
 
-To delete existing relationships between tables, you can select the relationship and click on the **Delete** button. This will remove the relationship from the dataset, but this will not delete the surrogate keys which are already created in the fact tables.
+To delete existing relationships between tables, you can select the relationship and click on the **Delete** button. This removes the relationship from the dataset, but this won't delete the surrogate keys which are already created in the fact tables.
    :::image type="content" source="./media/configure-dataset/delete-relationship.png" alt-text="Delete Relationship" lightbox="./media/configure-dataset/delete-relationship.png":::
 
 ## Next steps
