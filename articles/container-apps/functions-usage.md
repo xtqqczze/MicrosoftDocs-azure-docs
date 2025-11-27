@@ -291,8 +291,8 @@ View all functions deployed in your container app:
 ```azurecli
 # List all functions
 az containerapp function list \
-  --resource-group <RESOURCE_GROUP> \
-  --name <CONTAINER_APP_NAME>
+  --resource-group $RESOURCE_GROUP \
+  --name $CONTAINERAPP_NAME
 ```
 
 ### Show function details
@@ -301,21 +301,22 @@ Get detailed information about a specific function:
 
 ```azurecli
 az containerapp function show \
-  --resource-group <RESOURCE_GROUP> \
-  --name <CONTAINER_APP_NAME> \
+  --resource-group $RESOURCE_GROUP \
+  --name $CONTAINERAPP_NAME \
   --function-name <FUNCTIONS_APP_NAME>
 ```
 
 ## Monitor function invocations
 
 Monitoring your function app is essential for understanding its performance and diagnosing issues. The following commands show you how to retrieve function URLs, trigger invocations, and view detailed telemetry and invocation summaries by using the Azure CLI.
+Ensure to invoke the function few times by `curl -X POST "fqdn/api/HttpExample"` before calling the traces
 
 1. To view invocation traces, get detailed traces of function invocations.
 
     ```azurecli
     az containerapp function invocations traces \
-      --name <CONTAINER_APP_NAME> \
-      --resource-group <RESOURCE_GROUP> \
+      --name $CONTAINERAPP_NAME \
+      --resource-group $RESOURCE_GROUP \
       --function-name <FUNCTIONS_APP_NAME> \
       --timespan 5h \
       --limit 3
@@ -325,8 +326,8 @@ Monitoring your function app is essential for understanding its performance and 
 
     ```azurecli
     az containerapp function invocations summary \
-      --name <CONTAINER_APP_NAME> \
-      --resource-group <RESOURCE_GROUP> \
+      --name $CONTAINERAPP_NAME \
+      --resource-group $RESOURCE_GROUP \
       --function-name <FUNCTIONS_APP_NAME> \
       --timespan 5h
     ```
@@ -351,8 +352,8 @@ Use the following commands to list host-level and function-specific keys for you
 
 ```azurecli
 az containerapp function keys list \
-  --resource-group <RESOURCE_GROUP> \
-  --name <CONTAINER_APP_NAME> \
+  --resource-group $RESOURCE_GROUP \
+  --name $CONTAINERAPP_NAME \
   --key-type hostKey
 ```
 
@@ -362,8 +363,8 @@ Show the value of a specific host-level key for your function app with the follo
 
 ```azurecli
 az containerapp function keys show \
-  --resource-group <RESOURCE_GROUP> \
-  --name <CONTAINER_APP_NAME> \
+  --resource-group $RESOURCE_GROUP \
+  --name $CONTAINERAPP_NAME \
   --key-name <KEY_NAME> \
   --key-type hostKey
 ```
@@ -374,8 +375,8 @@ Set a specific host-level key for your function app with the following command:
 
 ```azurecli
 az containerapp function keys set \
-  --resource-group <RESOURCE_GROUP> \
-  --name <CONTAINER_APP_NAME> \
+  --resource-group $RESOURCE_GROUP \
+  --name $CONTAINERAPP_NAME \
   --key-name <KEY_NAME> \
   --key-value <KEY_VALUE> \
   --key-type hostKey
