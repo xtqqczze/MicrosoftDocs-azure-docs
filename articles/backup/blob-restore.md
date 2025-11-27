@@ -2,7 +2,7 @@
 title: Restore Azure Blobs
 description: Learn how to restore Azure Blobs.
 ms.topic: how-to
-ms.date: 09/26/2025
+ms.date: 11/27/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to restore Azure Blob data from both operational and vaulted backups, so that I can recover essential files and maintain business continuity in case of data loss.
