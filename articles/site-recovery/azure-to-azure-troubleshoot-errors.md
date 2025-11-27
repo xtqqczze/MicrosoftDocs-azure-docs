@@ -4,7 +4,7 @@ description: Troubleshoot errors when replicating Azure virtual machines for dis
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 11/12/2025
+ms.date: 11/27/2025
 ms.author: v-gajeronika
 ms.custom:
   - engagement-fy23
@@ -585,7 +585,7 @@ Protection container name <protectionContainerName> is not valid.
 
 ### Possible causes
 
-Protection container name exceeds the maximum permissible length of <protectionContainerNameMaxLength> characters.
+Protection container name exceeds the maximum permissible length of **protectionContainerNameMaxLength** characters.
 
 ### Fix the problem
 
