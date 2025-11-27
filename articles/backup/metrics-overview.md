@@ -95,7 +95,7 @@ To view metrics in the Azure portal, follow the below steps:
 
    :::image type="content" source="./media/metrics-overview/metrics-filters.png" alt-text="Screenshot showing the process to filter metrics by different dimensions." lightbox="./media/metrics-overview/metrics-filters.png":::
 
-## Manage Alerts
+## Manage alerts
 
 To view your fired metric alerts, follow these steps:
 
@@ -128,7 +128,7 @@ You can use the different programmatic clients, such as PowerShell, CLI, or REST
 
 **Alert Rule: Fire an alert if Backup Health Events < 1 in last 24 hours for**:
 
-Dimensions["HealthStatus"] != "Healthy"
+Dimensions["HealthStatus"]!= "Healthy"
 	 
 #### Fire an alert after every failed backup job
 
