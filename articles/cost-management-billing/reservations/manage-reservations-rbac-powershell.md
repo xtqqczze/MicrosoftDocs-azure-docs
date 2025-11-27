@@ -20,7 +20,7 @@ This article shows you how to use Azure role-based access control (Azure RBAC) w
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-## Grant access with PowerShell
+## Grant access by using PowerShell
 
 The following user types can delegate access management for all reservation orders they can access:
 
