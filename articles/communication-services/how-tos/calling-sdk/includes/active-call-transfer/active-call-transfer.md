@@ -36,12 +36,16 @@ The function `getActiveCallDetails` is a way that you can manually query for thi
 
 ### Switch your Active Call
 
-Once you have your active call data, you can switch the client over to the new call. This call switching behavior can be done with the `activeCallTransfer` function.
+Once you have your active call data, you can switch the client over to the new call. This call switching behavior can be done with the `activeCallTransfer` function. Here you can also pass in your `joinCallOptions` to choose the [device configuration](../../../../how-tos/calling-sdk/manage-video.md) of the joining client.
 
 ```js
+const joinCallOptions = {
+    audioOptions: { isMuted: false },
+    videoOptions: { localVideoStreams: [yourLocalVideoStream]}
+}
 const activeCallTransferFeature = callAgent.feature(ActiveCallTransfer);
 const activeCallDetails = await activeCallTransferFeature.getActiveCallDetails();
-const call = await activeCallTransferFeature.activeCallTransfer(activeCallDetails, {isTransfer: true});
+const call = await activeCallTransferFeature.activeCallTransfer(activeCallDetails, {isTransfer: true, joinCallOptions});
 ```
 
 This function returns the call object for your applications state.
@@ -64,7 +68,7 @@ There are two new events that you can subscribe to so you can receive events not
 const activeCallTransferFeature = callAgent.feature(ActiveCallTransfer);
 activeCallTransferFeature.on("activeCallsUpdated", (args) => {
     // show UI indicating that the user is in another call on another device
-    await callAgent.activeCallTransfer(args.activeCallDetails, {isTransfer: true});
+    await activeCallTransferFeature.activeCallTransfer(args.activeCallDetails, {isTransfer: true});
 });
 ```
 The second event notifies the application that the user is no longer in an active call anywhere else. This event is to be used to hide any UI indicating that they are in a call elsewhere, and any controls to manually transfer the call over.
