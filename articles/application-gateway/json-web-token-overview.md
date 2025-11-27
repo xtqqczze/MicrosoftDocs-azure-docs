@@ -5,7 +5,7 @@ description: Learn how to configure JSON Web Token (JWT) validation in Azure App
 author: rnautiyal
 ms.author: rnautiyal
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/18/2025
 ---
 
@@ -119,7 +119,7 @@ In this section, you learn how to configure JWT validation in Azure Application 
 
 ## Send a JWT Access Token with Every Request to the Secure Application
 
-To securely access an application protected by Application Gateway, the client must first obtain a JWT access token from the Microsoft Entra ID token endpoint. The client then includes this token in the Authorization header (for example, Authorization: Bearer <token>) on every request it sends to the Application Gateway. Application Gateway validates the token before forwarding the request to the backend application, ensuring that only authenticated and authorized traffic reaches the secure application.
+To securely access an application protected by Application Gateway, the client must first obtain a JWT access token from the Microsoft Entra ID token endpoint. The client then includes this token in the Authorization header (for example, Authorization: Bearer TOKEN) on every request it sends to the Application Gateway. Application Gateway validates the token before forwarding the request to the backend application, ensuring that only authenticated and authorized traffic reaches the secure application.
 
 - Learn more about [Access tokens in the Microsoft identity platform](/entra/identity-platform/access-tokens)
 
@@ -136,7 +136,7 @@ To securely access an application protected by Application Gateway, the client m
 
 ## Backend Verification
 
-Check ``x-msft-entra-identity`` header to confirm authentication.
+Check ``x-msft-entra-identity`` header to confirm authentication. 
 
 ## Troubleshooting 401 and 403 responses
 
