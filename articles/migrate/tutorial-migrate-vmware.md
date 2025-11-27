@@ -114,6 +114,7 @@ Enable replication as follows:
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Zone**: Specify the Availability Zone to use.
     - **Availability Set**: Specify the Availability Set to use.
+    - **Capacity reservation**: If you already have a capacity reservation, specify it here to use for this deployment. Capacity reservations ensure that the required VM SKU is available when you start migration. You can associate a reservation now or skip this step and configure it later during the migration process. [Learn more](/azure/virtual-machines/capacity-reservation-create).
 
     > [!NOTE]
     > If you want to select a different availability option for a set of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
@@ -259,9 +260,10 @@ After you've verified that the test migration works as expected, you can migrate
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
     - By default Azure Migrate shuts down the on-premises VM, and runs an on-demand replication to synchronize any VM changes that occurred since the last replication occurred. This ensures no data loss.
     - If you don't want to shut down the VM, select **No**
-1. You have an option to upgrade the Windows Server OS during migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](./how-to-upgrade-windows.md).
-4. A migration job starts for the VM. Track the job in Azure notifications.
-5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
+4. You have an option to upgrade the Windows Server OS during migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](./how-to-upgrade-windows.md).
+5. If you already have a capacity reservation, specify it here for this deployment. Capacity reservations ensure that the required VM SKU is available when you start migration. [Learn more](/azure/virtual-machines/capacity-reservation-create).
+6. A migration job starts for the VM. Track the job in Azure notifications.
+7. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 
 ## Complete the migration
 
