@@ -7,7 +7,6 @@ description: Understand Azure Event Grid's push delivery model, including event 
 #customer intent: As a developer, I want to understand the key concepts of Azure Event Grid push delivery so that I can design event-driven applications effectively.
 ms.topic: concept-article
 ms.date: 11/28/2025
-# Customer intent: I want to basic concepts of Azure Event Grid. 
 ---
 
 # Azure Event Grid's push delivery - concepts
