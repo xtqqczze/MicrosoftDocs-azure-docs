@@ -188,8 +188,7 @@ After discovery is finished, you can begin the replication of Hyper-V VMs to Azu
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
     - **VM Security Type**: Azure Migrate recommends migrating eligible VMs to **Trusted Launch Virtual Machines (TVMs)** for enhanced security. By default, the **VM security type is set to Trusted Launch**. VMs that are not eligible for Trusted Launch are automatically configured as **standard security VMs**. 
-
-- **Capacity reservation**: If you already have a capacity reservation, specify it here to use for this deployment. Capacity reservations ensure that the required VM SKU is available when you start migration. You can associate a reservation now or skip this step and configure it later during the migration process. [Learn more](/azure/virtual-machines/capacity-reservation-create).
+    - **Capacity reservation**: If you already have a capacity reservation, specify it here to use for this deployment. Capacity reservations ensure that the required VM SKU is available when you start migration. You can associate a reservation now or skip this step and configure it later during the migration process. [Learn more](/azure/virtual-machines/capacity-reservation-create).
 
 1. In **Disks**, specify the VM disks that need to be replicated to Azure. Then select **Next**.
     - You can exclude disks from replication.
