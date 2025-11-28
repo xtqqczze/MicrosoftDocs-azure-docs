@@ -212,9 +212,9 @@ For **Identity requirement**, choose whether to:
 
 For **Tenant requirement**, choose whether to:
 
-- Allow requests only from the issuer tenant.
+- Allow requests only from the same tenant as the app registration.
 - Allow requests from specific tenants.
-- Use default restrictions based on the issuer.
+- Use default restrictions based on the app registration's tenant.
 
 Your app might still need to make other authorization decisions in code. For more information, see [Use a built-in authorization policy](#use-a-built-in-authorization-policy) later in this article.
 
