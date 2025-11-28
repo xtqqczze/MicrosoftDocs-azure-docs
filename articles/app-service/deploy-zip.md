@@ -318,15 +318,15 @@ curl -X POST \
 
 # [ARM template](#tab/arm)
 
-Add the following JSON to your ARM template. Replace the placeholder *\<app-name>*.
+Add the following JSON to your ARM template. Replace the placeholder *\<app-name>* with your app name (for example, `myapp`).
 
 ```json
 {
     "type": "Microsoft.Web/sites/extensions",
     "apiVersion": "2021-03-01",
-    "name": "onedeploy",
+    "name": "<app-name>/onedeploy",
     "dependsOn": [
-        "[resourceId('Microsoft.Web/Sites', <app-name>')]"
+        "[resourceId('Microsoft.Web/sites', '<app-name>')]"
     ],
     "properties": {
         "packageUri": "<zip-package-uri>",
@@ -335,6 +335,9 @@ Add the following JSON to your ARM template. Replace the placeholder *\<app-name
     }
 }
 ```
+
+> [!NOTE]
+> For child resources defined outside the parent resource, the `name` property must include the parent resource name. Use the format `{parent-name}/{child-name}` to match the resource type's segment structure. For more information, see [Set name and type for child resources](/azure/azure-resource-manager/templates/child-resource-name-type).
 
 Use the following reference to help you configure the properties:
 
