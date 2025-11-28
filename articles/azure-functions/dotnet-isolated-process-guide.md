@@ -3,7 +3,7 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/05/2025
+ms.date: 11/28/2025
 recommendations: false
 ms.custom:
   - template-concept
@@ -994,11 +994,13 @@ The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule`
 #### Managing log levels
 
 > [!IMPORTANT]
-> The Functions host and the isolated process worker have separate configuration for log levels, etc. Any [Application Insights configuration in host.json](./functions-host-json.md#applicationinsights) will not affect the logging from the worker, and similarly, configuration made in your worker code will not impact logging from the host. You need to apply changes in both places if your scenario requires customization at both layers.
+> The Functions host and the isolated process worker have separate configuration for log levels. Any [Application Insights configuration in host.json](./functions-host-json.md#applicationinsights) won't affect logging from the worker, and similarly, configuration in your worker code won't impact logging from the host. Apply changes in both places if your scenario requires customization at both layers.
 
-The rest of your application continues to work with `ILogger` and `ILogger<T>`. However, by default, the Application Insights SDK adds a logging filter that instructs the logger to capture only warnings and more severe logs. If you want to disable this behavior, remove the filter rule as part of service configuration:
+The rest of your application continues to work with `ILogger` and `ILogger<T>`. However, by default, the Application Insights SDK adds a logging filter that instructs the logger to capture only warnings and more severe logs. You can configure log levels either in your code or in the `appsettings.json` configuration file, which is useful when you want to set different log levels for different categories without modifying code.
 
-# [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
+##### [Code-based](#tab/ihostapplicationbuilder/code)
+
+To disable the default behavior and capture all log levels, remove the filter rule as part of service configuration:
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -1026,7 +1028,9 @@ builder.Logging.Services.Configure<LoggerFilterOptions>(options =>
 builder.Build().Run();
 ```
 
-# [IHostBuilder](#tab/hostbuilder)
+##### [Code-based](#tab/hostbuilder/code)
+
+To disable the default behavior and capture all log levels, remove the filter rule as part of service configuration:
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -1057,7 +1061,98 @@ var host = new HostBuilder()
 host.Run();
 ```
 
+##### [Configuration](#tab/ihostapplicationbuilder/config)
+
+`FunctionsApplication.CreateBuilder()` automatically loads configuration from `appsettings.json` files. You can add logging configuration to your `appsettings.json` file:
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information",
+      "Microsoft.Azure.Functions.Worker": "Information"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    }
+  }
+}
+```
+
+This configuration is automatically applied when you create the builder. No additional code changes are required in `Program.cs`:
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+var builder = FunctionsApplication.CreateBuilder(args);
+
+builder.Services
+    .AddApplicationInsightsTelemetryWorkerService()
+    .ConfigureFunctionsApplicationInsights();
+
+builder.Build().Run();
+```
+
+##### [IHostBuilder](#tab/hostbuilder/config)
+
+When using `new HostBuilder()`, configuration files like `appsettings.json` aren't loaded automatically. To load these files, use `ConfigureAppConfiguration()`:
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+var host = new HostBuilder()
+    .ConfigureAppConfiguration(config =>
+    {
+        config.SetBasePath(Directory.GetCurrentDirectory())
+              .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+              .AddEnvironmentVariables();
+    })
+    .ConfigureFunctionsWorkerDefaults()
+    .ConfigureServices(services => {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+    })
+    .Build();
+
+host.Run();
+```
+
+Then create an `appsettings.json` file in your project root with the following content:
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information",
+      "Microsoft.Azure.Functions.Worker": "Information"
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Information"
+      }
+    }
+  }
+}
+```
+
+> [!TIP]
+> Alternatively, you can use `Host.CreateDefaultBuilder()` instead of `new HostBuilder()`, which automatically loads configuration from `appsettings.json`, environment variables, and other sources. However, `FunctionsApplication.CreateBuilder()` is the recommended approach for new projects.
+
 ---
+
+For more information about configuring logging, see [Logging in .NET](/dotnet/core/extensions/logging) and [Application Insights for Worker Service applications](/azure/azure-monitor/app/worker-service#ilogger-logs).
 
 ## Performance optimizations
 
