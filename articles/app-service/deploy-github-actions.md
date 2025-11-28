@@ -92,7 +92,7 @@ The following procedure describes the steps for creating a Microsoft Entra appli
 1. Create a new role assignment by subscription and object. By default, the role assignment is tied to your default subscription. Replace `$subscriptionId` with your subscription ID, `$resourceGroupName` with your resource group name, `$webappName` with your web app name, and `$assigneeObjectId` with the generated `id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     ```azurecli-interactive
-    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/$webappName --assignee-principal-type ServicePrincipal
+    az role assignment create --role "Website Contributor" --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --scope /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Web/sites/$webappName --assignee-principal-type ServicePrincipal
     ```
 
 1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your Microsoft Entra app.
@@ -140,7 +140,7 @@ A publish profile is an app-level credential. Set up your publish profile as a G
 You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [`az ad sp create-for-rbac`](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command by using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting **Open Cloud Shell**.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor \
+az ad sp create-for-rbac --name "myApp" --role "Website Contributor" \
                             --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> \
                             --json-auth
 ```
