@@ -53,7 +53,7 @@ function refreshTokens() {
 }
 ```
 
-When called, App Service automatically refreshes the access tokens in the [token store](overview-authentication-authorization.md#token-store) for the authenticated user. Subsequent requests for tokens get the refreshed tokens. You can see the refresh tokens and the expiration time for the tokens by using the headers listed in [Retrieve tokens from the token store](#retrieve-tokens-from-the-token-store).
+When called, App Service automatically refreshes the access tokens in the [token store](overview-authentication-authorization.md#token-store) for the authenticated user. Subsequent requests for tokens get the refreshed tokens. You can see the refresh tokens and the expiration time for the tokens by using the headers listed in [Retrieve tokens in app code](#retrieve-tokens-in-app-code).
 
 >[!NOTE]
 >If a user revokes the permissions they granted to your app, your call to `/.auth/me` might fail with a `403 Forbidden` response. To diagnose errors, check your application logs for details.
