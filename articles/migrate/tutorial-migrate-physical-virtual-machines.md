@@ -401,7 +401,7 @@ Now, select machines for migration.
     - **Availability Zone**: Specify the availability zone to use.
     - **Availability Set**: Specify the availability set to use. 
     - **VM Security Type**: Azure Migrate recommends migrating eligible VMs to **Trusted Launch Virtual Machines (TVMs)** for enhanced security. By default, the **VM security type is set to Trusted Launch**. VMs that are not eligible for Trusted Launch are automatically configured as **standard security VMs**. 
-    - **Capacity reservation**:If you already have a capacity reservation for the VM SKU in the target subscription and location, specify it here for this deployment. Capacity reservations ensure that the required VM SKU is available when you start migration. You can associate a reservation now or skip this step and configure it later during the migration. [Learn more](/azure/virtual-machines/capacity-reservation-create). The capacity reservation for the SKU can be in any resource group within the target subscription and location.
+    - **Capacity reservation**:If you already have a capacity reservation for the VM SKU in the target subscription and location, specify it here for this deployment. Capacity reservations ensure that the required VM SKU is available when you start migration. You can associate a reservation now or skip this step and configure it later during the migration. The capacity reservation for the SKU can be in any resource group within the target subscription and location. [Learn more](/azure/virtual-machines/capacity-reservation-create).
 
 1. In **Disks**, specify whether the VM disks should be replicated to Azure. Select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
     - You can exclude disks from replication.
@@ -469,7 +469,7 @@ After you verify that the test migration works as expected, you can migrate the 
     > For minimal data loss, we recommend that you bring the application down manually as part of the migration window. (Don't let the applications accept any connections.) Then initiate the migration. The server needs to be kept running so that remaining changes can be synchronized before the migration is finished.
 
 1. You can upgrade the Windows Server OS during migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](how-to-upgrade-windows.md).
-1. If you already have a capacity reservation for the VM SKU in the target subscription and location, specify it here for this deployment. Capacity reservations ensure that the required VM SKU is available when you start migration. [Learn more](/azure/virtual-machines/capacity-reservation-create). The capacity reservation for the SKU can be in any resource group within the target subscription and location.
+1. If you already have a capacity reservation for the VM SKU in the target subscription and location, specify it here for this deployment. Capacity reservations ensure that the required VM SKU is available when you start migration. The capacity reservation for the SKU can be in any resource group within the target subscription and location. [Learn more](/azure/virtual-machines/capacity-reservation-create).
 1. A migration job starts for the VM. Track the job in Azure notifications.
 1. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 
