@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.reviewer: ushan
 ms.topic: how-to
-ms.date: 01/16/2025
+ms.date: 11/28/2025
 
 #customer intent: As a build developer, I want to learn how to automate my deployment of web apps by using Azure App Service and GitHub.
 
