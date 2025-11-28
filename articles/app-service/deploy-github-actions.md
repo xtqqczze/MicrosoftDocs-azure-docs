@@ -244,6 +244,7 @@ The following examples show the part of the workflow that builds the web app, in
 - [How do I deploy a WAR file through the Azure CLI?](#how-do-i-deploy-a-war-file-through-the-azure-cli)
 - [How do I deploy a startup file?](#how-do-i-deploy-a-startup-file)
 - [How do I deploy to a container?](#how-do-i-deploy-to-a-container)
+- [How do I deploy to a deployment slot?](#how-do-i-deploy-to-a-deployment-slot)
 - [How do I update the Tomcat configuration after deployment?](#how-do-i-update-the-tomcat-configuration-after-deployment)
 
 ### How do I deploy a WAR file through the Maven plugin?
@@ -291,6 +292,22 @@ Use the GitHub Action for the Azure CLI. For example:
 ### How do I deploy to a container?
 
 With the **Azure Web Deploy** action, you can automate your workflow to deploy custom containers to App Service by using GitHub Actions. For more information, see [Deploy to a container](/azure/app-service/deploy-container-github-action).
+
+### How do I deploy to a deployment slot?
+
+You can deploy to a [deployment slot](deploy-staging-slots.md) instead of the production slot by using the `slot-name` parameter in the `azure/webapps-deploy@v3` action. To deploy to a slot, add the `slot-name` parameter to the deployment step in your workflow:
+
+```yaml
+- name: Deploy to Azure Web App
+  uses: azure/webapps-deploy@v3
+  with:
+    app-name: 'my-app-name'
+    slot-name: 'staging'  # Deploy to the 'staging' slot instead of production
+    package: './output'
+```
+
+> [!NOTE]
+> When you use OpenID Connect or service principal authentication, ensure that the identity has the **Website Contributor** role on both the app and the deployment slot. For publish profile authentication, download the publish profile for the specific slot from the Azure portal (**Deployment** > **Deployment slots** > select slot > **Download publish profile**).
 
 ### How do I update the Tomcat configuration after deployment?
 
