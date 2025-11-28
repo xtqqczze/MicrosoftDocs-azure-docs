@@ -11,9 +11,9 @@ When you clone a configuration from another deployment slot, the cloned configur
 When you swap slots, these settings are swapped:
 
 - Language stack and version, 32 bit and 64 bit
-- App settings (can be configured to stick to a slot)
-- Connection strings (can be configured to stick to a slot)
-- Mounted storage accounts (can be configured to stick to a slot)
+- App settings (can be [configured to stick to a slot](../articles/app-service/deploy-staging-slots.md#make-an-app-setting-unswappable))
+- Connection strings (can be [configured to stick to a slot](../articles/app-service/deploy-staging-slots.md#make-an-app-setting-unswappable))
+- Mounted storage accounts (can be [configured to stick to a slot](../articles/app-service/deploy-staging-slots.md#make-an-app-setting-unswappable))
 - Handler mappings
 - Public certificates
 - WebJobs content
