@@ -3,7 +3,7 @@ title: Set Up Staging Environments
 description: Learn how to deploy apps to a nonproduction slot and automatically swap into production. Increase the reliability and eliminate app downtime from deployments.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: how-to
-ms.date: 03/28/2025
+ms.date: 11/28/2025
 author: cephalin
 ms.author: cephalin
 ai-usage: ai-assisted
