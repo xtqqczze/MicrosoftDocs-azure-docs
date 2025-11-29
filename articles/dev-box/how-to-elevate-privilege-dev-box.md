@@ -14,17 +14,17 @@ ms.date: 11/29/2025
 
 This article shows you how to configure Intune Endpoint Privilege Management so dev box users don't need local administrative privileges to do common dev box tasks. Tasks that normally require local administrative privileges include installing applications, updating device drivers, and running some Windows diagnostics. Intune Endpoint Privilege Management lets your organization's dev box users complete these tasks as standard, nonadministrative users.
 
-Endpoint Privilege Management is part of Intune, and you configure it in the Microsoft Intune admin center. Before you can use Endpoint Privilege Management, you must license it in your tenant as a Microsoft Intune add-on. You can license Endpoint Privilege Management either standalone license or as part of the Intune Suite.
+Endpoint Privilege Management is part of Intune, and you configure it in the Microsoft Intune admin center. Before you can use Endpoint Privilege Management, you must license it in your tenant as a Microsoft Intune add-on. You can either license Endpoint Privilege Management standalone or as part of the Intune Suite.
 
-After you license Endpoint Privilege Management, you can [configure and deploy an elevation settings policy](#deploy-an-elevation-settings-policy) to dev boxes in your project.
+After you license Endpoint Privilege Management, you can [configure and deploy an elevation settings policy](#deploy-an-elevation-settings-policy) to apply Endpoint Privilege Management elevation rules to dev boxes in your project.
 
 ## Prerequisites
 
 | Category | Requirement |
 |---|---|
 | Authentication | Microsoft Entra ID for identity and access management. |
-| Licenses | - Microsoft Intune, with one license per Microsoft Dev Box user. |
-| Roles and permissions | - To administer Endpoint Privilege Management: **Intune Administrator** role.<br> - To create and manage a dev center, **Owner** or **Contributor** role in the Azure subscription or dev center.<br> - To create and use dev boxes, **Dev Box User** role.
+| Licenses | Microsoft Intune, with one license per Microsoft Dev Box user. |
+| Roles and permissions | - To administer Endpoint Privilege Management, **Intune Administrator** role.<br> - To create and manage a dev center, **Owner** or **Contributor** role in the Azure subscription or dev center.<br> - To create and use dev boxes, **Dev Box User** role.
 | Tools | An Azure subscription linked to your Microsoft Entra tenant and Microsoft Intune license.
 | Tools | A dev center with a dev box project created in the Azure subscription. |
 
@@ -38,14 +38,14 @@ Assign an Intune admin role for Endpoint Privilege Management administration:
 License Endpoint Privilege Management in your tenant as an Intune add-on:
 
 1. In the [Microsoft Intune admin center](https://intune.microsoft.com), go to **Tenant administration** > **Intune add-ons** and select **Endpoint Privilege Management**.
-1. In the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home?#/catalog), go to **Billing** > **Purchase services** > **Endpoint Privilege Management**, and then select your Endpoint Privilege Management license.
+1. In the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home?#/catalog), go to **Billing** > **Purchase services** > **Endpoint Privilege Management**, and select or configure your Endpoint Privilege Management license.
 
 Assign Microsoft 365 E5 and Endpoint Privilege Management licenses to users in Microsoft Entra ID:
 
-1. In the Intune admin center, select **Users** and then select the user you want to assign the Microsoft 365 E5 and Endpoint Privilege Management licenses to.
+1. In the Intune admin center, select **Users** and then select the users you want to assign the Microsoft 365 E5 and Endpoint Privilege Management licenses to.
 1. Select **Assigned roles** in the left navigation menu, select **Add assignments**, and then select and assign the **Microsoft 365 E5** and **Endpoint Privilege Management** roles.
 
-## Deploy an example elevation settings policy
+## Deploy an elevation settings policy
 
 An elevation settings policy activates Endpoint Privilege Management on a client device. By using this policy, you can configure settings that are specific to the client but aren't necessarily related to the elevation of individual applications or tasks.
 
@@ -54,7 +54,7 @@ To process elevation policy rules or requests, a dev box must have an elevation 
 The following procedure:
 
 - Creates a dev box and an Intune group to test the Endpoint Privilege Management policy configuration.
-- Creates a example Endpoint Privilege Management elevation settings policy.
+- Creates an example Endpoint Privilege Management elevation settings policy.
 - Assigns the policy to the group.
 
 ### Create a dev box definition, pool, and dev box
@@ -77,11 +77,11 @@ The following procedure:
 
 1. Select **Create**.
 
-### Create an Endpoint Privilege Management elevation settings policy and assign it to the group
+### Create an elevation settings policy and assign it to the group
 
 1. In the Microsoft Intune admin center, select **Endpoint security** > **Endpoint Privilege Management**, and on the **Policies** tab, select **Create Policy**.
 
-   :::image type="content" source="media/how-to-elevate-privilege-dev-box/intune-endpoint-security.png" alt-text="Screenshot that shows the Microsoft Intune admin center, showing the Endpoint security | Endpoint Privilege Management pane." lightbox="media/how-to-elevate-privilege-dev-box/intune-endpoint-security.png":::
+   :::image type="content" source="media/how-to-elevate-privilege-dev-box/intune-endpoint-security.png" alt-text="Screenshot that shows the Microsoft Intune admin center, showing the Endpoint security | Endpoint Privilege Management pane.":::
 
 1. On the **Basics** tab of the **Create profile** pane, ensure that **Platform** is **Windows 10 and later** and **Profile type** is **Elevation settings policy**, and enter a name for the policy.
 1. On the **Configuration settings** tab, in **Default elevation response**, select **Deny all requests**.
@@ -107,7 +107,7 @@ Validate that the Endpoint Privilege Management agent is installed and the polic
 
 1. On the **Profile settings** page, wait until all the settings report as **Succeeded**.
 
-   :::image type="content" source="media/how-to-elevate-privilege-dev-box/device-profile-settings.png" alt-text="Screenshot that shows Profile Settings with Setting status highlighted." lightbox="media/how-to-elevate-privilege-dev-box/device-profile-settings.png":::
+   :::image type="content" source="media/how-to-elevate-privilege-dev-box/device-profile-settings.png" alt-text="Screenshot that shows Profile Settings with Setting status highlighted.":::
 
 ### Verify that the Endpoint Privilege Management agent is installed on the dev box
 
