@@ -26,7 +26,7 @@ If your web application already has useful features, like shopping, hotel bookin
 
 ### [Foundry Agent Service](#tab/aifoundry)
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-node/foundry-agent.png" alt-text="Screenshot of a chat completion session with an Microsoft Foundry agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-node/foundry-agent.png" alt-text="Screenshot of a chat completion session with a Microsoft Foundry agent.":::
 
 -----
 
@@ -45,7 +45,7 @@ In this tutorial, you learn how to:
 > * Convert existing app functionality into a plugin for LangGraph.
 > * Add the plugin to a LangGraph agent and use it in a web app.
 > * Convert existing app functionaltiy into an OpenAPI endpoint for Foundry Agent Service.
-> * Call an Microsoft Foundry agent in a web app.
+> * Call a Microsoft Foundry agent in a web app.
 - Assign the required permissions for managed identity connectivity.
 
 ## Prerequisites
@@ -239,7 +239,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 ### [Foundry Agent Service](#tab/aifoundry)
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-node/foundry-agent.png" alt-text="Screenshot of a chat completion session with an Microsoft Foundry agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-node/foundry-agent.png" alt-text="Screenshot of a chat completion session with a Microsoft Foundry agent.":::
 
 -----
 

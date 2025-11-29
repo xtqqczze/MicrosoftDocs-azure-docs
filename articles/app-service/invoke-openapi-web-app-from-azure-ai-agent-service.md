@@ -22,7 +22,7 @@ ms.service: azure-app-service
 
 Azure App Service is a fully managed platform for building, deploying, and scaling web apps and APIs. If your API is hosted on Azure App Service, you can connect your AI Agent to the API using the OpenAPI specification. The OpenAPI specification defines the API and how to interact with it. You can then use natural language to invoke the API through your AI Agent. This tool is powerful because it allows you to add AI agent capabilities to your existing apps with minimal code changes. Also, this agent has the ability to directly interact with your app. There's no need for significant code changes or implementation work other thank minor updates to interact with the agent using the available SDKs.
 
-In this tutorial, you're using an Microsoft Foundry agent to invoke an existing API hosted on Azure App Service. By the end of this tutorial, you have a fashion assistant chat application running in App Service using an AI agent from the Foundry Agent Service.
+In this tutorial, you're using a Microsoft Foundry agent to invoke an existing API hosted on Azure App Service. By the end of this tutorial, you have a fashion assistant chat application running in App Service using an AI agent from the Foundry Agent Service.
 
 :::image type="content" source="media/invoke-openapi-web-app-from-azure-ai-agent-service/browse-app.png" alt-text="A screenshot showing an AI agent running within App Service.":::
 

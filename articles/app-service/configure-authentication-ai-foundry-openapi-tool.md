@@ -22,7 +22,7 @@ This article shows you how to secure your App Service OpenAPI endpoints when the
   - [Add an App Service app as a tool in Foundry Agent Service (Python)](tutorial-ai-integrate-azure-ai-agent-python.md)
   - [Add an App Service app as a tool in Foundry Agent Service (Node.js)](tutorial-ai-integrate-azure-ai-agent-node.md)
 
-- An Microsoft Foundry project where you'll add your app as an OpenAPI tool.
+- A Microsoft Foundry project where you'll add your app as an OpenAPI tool.
 
 ## Find your Microsoft Foundry project's managed identity IDs
 
