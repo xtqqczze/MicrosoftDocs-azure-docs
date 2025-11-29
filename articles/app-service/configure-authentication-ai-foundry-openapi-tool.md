@@ -56,11 +56,11 @@ You need both the object ID and the application ID of your Microsoft Foundry pro
 
 1. Under **Additional checks**, for **Client application requirement**, select **Allow requests from specific client applications**.
 
-1. Select the pencil widget and add the **application ID** that you copied in [Find your Microsoft Foundry project's managed identity IDs](#find-your-azure-ai-foundry-projects-managed-identity-ids).
+1. Select the pencil widget and add the **application ID** that you copied in [Find your Microsoft Foundry project's managed identity IDs](#find-your-microsoft-foundry-projects-managed-identity-ids).
 
 1. For **Identity requirement**, select **Allow requests from specific identities**.
 
-1. Select the pencil widget and add the **object ID** that you copied in [Find your Microsoft Foundry project's managed identity IDs](#find-your-azure-ai-foundry-projects-managed-identity-ids).
+1. Select the pencil widget and add the **object ID** that you copied in [Find your Microsoft Foundry project's managed identity IDs](#find-your-microsoft-foundry-projects-managed-identity-ids).
 
 1. For **Tenant requirement** accept the default value. If not, be sure to select the tenant where your Microsoft Foundry project (or rather its identity) is created.
 
