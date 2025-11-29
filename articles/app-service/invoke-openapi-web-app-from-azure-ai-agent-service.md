@@ -1,6 +1,6 @@
 ---
 title: 'Invoke an App Service Web App from Foundry Agent Service'
-description: Learn how to integrate App Service with AI Foundry Agent Service and get started with agentic AI
+description: Learn how to integrate App Service with Foundry Agent Service and get started with agentic AI
 author: seligj95
 ms.author: jordanselig
 ms.date: 07/11/2025
@@ -12,7 +12,7 @@ ms.custom:
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-app-service 
 
-#Customer intent: As a developer, I want to integrate App Service with AI Foundry Agent Service so that I can create AI agents that are tailored to my needs. 
+#Customer intent: As a developer, I want to integrate App Service with Foundry Agent Service so that I can create AI agents that are tailored to my needs. 
  
 ---
 

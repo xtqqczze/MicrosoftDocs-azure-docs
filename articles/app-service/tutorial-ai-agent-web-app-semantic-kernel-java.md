@@ -144,7 +144,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 ## Configure connection variables in your sample application
 
-1. Open *src/main/resources/application.properties*. Using the values you copied earlier from the AI Foundry portal, configure the following variables: 
+1. Open *src/main/resources/application.properties*. Using the values you copied earlier from the Foundry portal, configure the following variables: 
 
     | Variable                      | Description                                              |
     |-------------------------------|----------------------------------------------------------|

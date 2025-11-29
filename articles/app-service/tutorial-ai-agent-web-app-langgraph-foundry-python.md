@@ -17,7 +17,7 @@ ms.update-cycle: 180-days
 
 This tutorial demonstrates how to add agentic capability to an existing data-driven FastAPI CRUD application. It does this using two different approaches: LangGraph and Foundry Agent Service.
 
-If your web application already has useful features, like shopping, hotel booking, or data management, it's relatively straightforward to add agent functionality to your web application by wrapping those functionalities in a plugin (for LangGraph) or as an OpenAPI endpoint (for AI Foundry Agent Service). In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent in an App Service app.
+If your web application already has useful features, like shopping, hotel booking, or data management, it's relatively straightforward to add agent functionality to your web application by wrapping those functionalities in a plugin (for LangGraph) or as an OpenAPI endpoint (for Foundry Agent Service). In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent in an App Service app.
 
 ### [LangGraph](#tab/langgraph)
 
@@ -172,7 +172,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
     Your application code is already configured to include the server's `url` and `operationId`, which are needed by the agent. For more information, see [How to use Foundry Agent Service with OpenAPI Specified Tools: Prerequisites](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites).
 
-1. Select **Try in playground** and test your AI Foundry agent with prompts like "*Show me all the tasks*."
+1. Select **Try in playground** and test your Foundry agent with prompts like "*Show me all the tasks*."
 
     If you get a valid response, the agent is making tool calls to the OpenAPI endpoint on your deployed web app.
 
@@ -187,13 +187,13 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
     | Target resource                | Required role                       | Needed for              |
     |--------------------------------|-------------------------------------|-------------------------|
     | Microsoft Foundry               | Cognitive Services OpenAI User      | The chat completion service in the LangGraph. |
-    | Microsoft Foundry Project       | Azure AI User                       | Reading and calling the AI Foundry agent. |
+    | Microsoft Foundry Project       | Azure AI User                       | Reading and calling the Foundry agent. |
 
     For instructions, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Configure connection variables in your sample application
 
-1. Open *.env*. Using the values you copied earlier from the AI Foundry portal, configure the following variables: 
+1. Open *.env*. Using the values you copied earlier from the Foundry portal, configure the following variables: 
 
     | Variable                      | Description                                              |
     |-------------------------------|----------------------------------------------------------|

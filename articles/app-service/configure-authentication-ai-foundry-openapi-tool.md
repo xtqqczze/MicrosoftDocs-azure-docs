@@ -32,7 +32,7 @@ You need both the object ID and the application ID of your Microsoft Foundry pro
 
 1. In the **Project details** section on the right, select the link next to **Resource group** to open the resource group in the Azure portal.
 
-1. In the resource group, find and select your AI Foundry project resource.
+1. In the resource group, find and select your Microsoft Foundry project resource.
 
 1. In the project resource's left menu, select **Resource Management** > **Identity**.
 
