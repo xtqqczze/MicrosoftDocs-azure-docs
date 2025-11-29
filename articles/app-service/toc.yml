@@ -189,7 +189,7 @@ items:
           href: tutorial-ai-integrate-azure-ai-agent-python.md
         - name: Agentic web app
           href: tutorial-ai-agent-web-app-langgraph-foundry-python.md
-        - name: Web app from Azure AI Foundry
+        - name: Web app from Microsoft Foundry
           href: /azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json
   - name: PHP
     items:
