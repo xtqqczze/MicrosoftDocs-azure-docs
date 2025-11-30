@@ -46,9 +46,9 @@ Follow these steps to add an autostop schedule to an existing dev box pool:
    :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-pool-grid-populated.png" alt-text="Screenshot of the list of existing dev box pools for the project." lightbox="./media/how-to-manage-stop-schedule/dev-box-pool-grid-populated.png":::
 
 1. In the **Edit** pane, select the **Management** tab.
-1. Under **Cost controls** on the **Management** screen, , select the checkbox for **Auto-stop on schedule**.
-1. For **Stop time**, select a time to shut down or hibernate all the dev boxes in the pool daily.|
-1. For **Time zone**, select the time zone that the stop time is in. |
+1. Under **Cost controls** on the **Management** screen, select the checkbox for **Auto-stop on schedule**.
+1. For **Stop time**, select a time to shut down or hibernate all the dev boxes in the pool daily.
+1. For **Time zone**, select the time zone that the stop time is in.
 1. Select **Save**. 
 
    :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-enable-stop.png" alt-text="Screenshot of the edit dev box pool page showing the Cost controls section and the autostop option selected."::: 
@@ -65,9 +65,9 @@ Follow these steps to add an autostop schedule when you create a dev box pool.
    :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-pool-grid-empty.png" alt-text="Screenshot of the list of dev box pools within a project. The list is empty. The Create option is selected." lightbox="./media/how-to-manage-stop-schedule/dev-box-pool-grid-empty.png":::
 
 1. On the **Create a dev box pool** screen, select the **Management** tab.
-1. Under **Cost controls** on the **Management** screen, , select the checkbox for **Auto-stop on schedule**.
-1. For **Stop time**, select a time to shut down or hibernate all the dev boxes in the pool daily.|
-1. For **Time zone**, select the time zone that the stop time is in. |
+1. Under **Cost controls** on the **Management** screen, select the checkbox for **Auto-stop on schedule**.
+1. For **Stop time**, select a time to shut down or hibernate all the dev boxes in the pool daily.
+1. For **Time zone**, select the time zone that the stop time is in.
 1. Finish configuring the other pool settings, and then select **Create**.
 
    :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-pool-create.png" alt-text="Screenshot of the Create dev box pool dialog."::: 
@@ -76,7 +76,7 @@ Verify that the new dev box pool appears in the dev pool list. You might need to
 
 # [Azure CLI](#tab/cli)
 
-You can also manage autostop schedules by using the Azure CLI.
+You can manage autostop schedules by using the Azure CLI.
 
 ### Create an autostop schedule
 
@@ -104,13 +104,13 @@ The following steps delete the autostop schedule associated with a dev box pool.
 1. On the **Dev box pools** page, select the checkbox for the pool you want to modify, select the **More actions** icon next to the entry, and then select **Edit**.
 
 1. In the **Edit** pane, select the **Management** tab.
-1. Under **Cost controls** on the **Management** screen, , deselect the checkbox for **Auto-stop on schedule**.
+1. Under **Cost controls** on the **Management** screen, deselect the checkbox for **Auto-stop on schedule**.
 
    :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-disable-stop.png" alt-text="Screenshot of the edit dev box pool page showing the autostop on schedule option unselected."::: 
 
 1. Select **Save**. 
 
-After you deselect the setting, dev boxes in this pool no longer shut down automatically.
+After you deselect the setting, dev boxes in this pool no longer stop automatically.
 
 # [Azure CLI](#tab/cli)
 
@@ -120,7 +120,7 @@ The following Azure CLI command deletes an autostop schedule. Replace the `<pool
 az devcenter admin schedule delete --pool-name <poolName> --project-name <projectName>
 ```
 
-After you run the command, dev boxes in this pool no longer shut down automatically.
+After you run the command, dev boxes in this pool no longer stop automatically.
 
 ---
 
