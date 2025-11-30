@@ -14,7 +14,7 @@ ms.date: 11/29/2025
 
 This article shows you how to configure Intune Endpoint Privilege Management so dev box users don't need local administrative privileges to do common dev box tasks. Tasks that normally require local administrative privileges include installing applications, updating device drivers, and running some Windows diagnostics. Intune Endpoint Privilege Management lets your organization's dev box users complete these tasks as standard, nonadministrative users.
 
-Endpoint Privilege Management is part of Intune, and you configure it in the Microsoft Intune admin center. Before you can use Endpoint Privilege Management, you must license it in your tenant as a Microsoft Intune add-on. You can either license Endpoint Privilege Management standalone or as part of the Intune Suite.
+Endpoint Privilege Management is part of Intune, and you configure it in the Microsoft Intune admin center. Before you can use Endpoint Privilege Management, you must [license it](#configure-license-and-roles) in your tenant as a Microsoft Intune add-on. You can license Endpoint Privilege Management either standalone or as part of the Intune Suite.
 
 After you license Endpoint Privilege Management, you can [configure and deploy an elevation settings policy](#deploy-an-elevation-settings-policy) to apply Endpoint Privilege Management elevation rules to dev boxes in your project.
 
@@ -24,11 +24,11 @@ After you license Endpoint Privilege Management, you can [configure and deploy a
 |---|---|
 | Authentication | Microsoft Entra ID for identity and access management. |
 | Licenses | Microsoft Intune, with one license per Microsoft Dev Box user. |
-| Roles and permissions | - To administer Endpoint Privilege Management, **Intune Administrator** role.<br> - To create and manage a dev center, **Owner** or **Contributor** role in the Azure subscription or dev center.<br> - To create and use dev boxes, **Dev Box User** role.
+| Roles and permissions | - To administer Endpoint Privilege Management, **Intune Administrator** role.<br> - To create and manage a dev center, **Owner** or **Contributor** role in the Azure subscription or dev center.<br> - To create and use dev boxes, **DevCenter Dev Box User** role.
 | Tools | An Azure subscription linked to your Microsoft Entra tenant and Microsoft Intune license.
 | Tools | A dev center with a dev box project created in the Azure subscription. |
 
-## Configure Endpoint Privilege Management license and roles
+## Configure license and roles
 
 Assign an Intune admin role for Endpoint Privilege Management administration:
 
@@ -40,7 +40,7 @@ License Endpoint Privilege Management in your tenant as an Intune add-on:
 1. In the [Microsoft Intune admin center](https://intune.microsoft.com), go to **Tenant administration** > **Intune add-ons** and select **Endpoint Privilege Management**.
 1. In the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home?#/catalog), go to **Billing** > **Purchase services** > **Endpoint Privilege Management**, and select or configure your Endpoint Privilege Management license.
 
-Assign Microsoft 365 E5 and Endpoint Privilege Management licenses to users in Microsoft Entra ID:
+Assign Microsoft Entra ID Microsoft 365 E5 and Endpoint Privilege Management licenses to users:
 
 1. In the Intune admin center, select **Users** and then select the users you want to assign the Microsoft 365 E5 and Endpoint Privilege Management licenses to.
 1. Select **Assigned roles** in the left navigation menu, select **Add assignments**, and then select and assign the **Microsoft 365 E5** and **Endpoint Privilege Management** roles.
@@ -62,7 +62,7 @@ The following procedure:
 1. In the Azure portal, create a [dev box definition](how-to-manage-dev-box-definitions.md), specifying a supported OS. Endpoint Privilege Management supports Windows 11 versions 21H2 and later.
 1. In your dev box project, create a [dev box pool](how-to-manage-dev-box-pools.md) that uses the new dev box definition.
 1. In the [developer portal](https://aka.ms/devbox-portal), create a dev box by using the dev box pool you created. Note the dev box host name to use for adding the dev box to the Intune group.
-1. Ensure that the dev box test user has [Dev Box User](how-to-manage-dev-box-access.md) role.
+1. Ensure that the dev box test user has [DevCenter Dev Box User](how-to-manage-dev-box-access.md) role.
 
 ### Create an Intune group and add the dev box to the group
 
@@ -105,7 +105,7 @@ Validate that the Endpoint Privilege Management agent is installed and the polic
 
    :::image type="content" source="media/how-to-elevate-privilege-dev-box/intune-device-configuration.png" alt-text="Screenshot that shows the Microsoft Intune admin center with the Devices pane and Device configuration highlighted.":::
 
-1. On the **Profile settings** page, wait until all the settings report as **Succeeded**.
+1. On the **Profile settings** page, ensure that all the settings report status as **Succeeded**.
 
    :::image type="content" source="media/how-to-elevate-privilege-dev-box/device-profile-settings.png" alt-text="Screenshot that shows Profile Settings with Setting status highlighted.":::
 
@@ -119,4 +119,4 @@ Validate that the Endpoint Privilege Management agent is installed and the polic
 
 - [Use Intune Suite add-on capabilities](/intune/intune-service/fundamentals/intune-add-ons)
 - [Use Endpoint Privilege Management with Microsoft Intune](/intune/intune-service/protect/epm-overview)
-- [Manage dev box access](how-to-manage-dev-box-access.md)
+- [Configure access to Microsoft Dev Box projects](how-to-manage-dev-box-access.md)
