@@ -68,7 +68,7 @@ This example shows:
 
 ### Why is the maintenance taking so long?
 
-Routine maintenance delivers the latest updates to the platform and service. It's difficult to predict how maintenance affects individual apps. No notifications provide general time ranges. These ranges reflect the overall operation across all resources, not specific app-level experiences. Apps that undergo maintenance restart on updated machines and continue to run. There's no downtime when requests and traffic aren't served.
+Routine maintenance delivers the latest updates to the platform and service. It's difficult to predict how maintenance affects individual apps. Notifications provide general time ranges. These ranges reflect the overall operation across all resources, not specific app-level experiences. Apps that undergo maintenance restart on updated machines and continue to run. There's no downtime when requests and traffic aren't served.
 
 ### Why am I getting so many notifications?
 
