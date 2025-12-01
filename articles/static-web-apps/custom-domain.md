@@ -77,12 +77,12 @@ The slice your resource is placed in can be determined by inspecting the default
 
 `<random-prefix>.<slice>.azurestaticapps.net`
 
-eg. a Static Web App site with the default URL of `orange-pond-0a04b7203.2.azurestaticapps.net` has been placed in slice number 2. 
+For example, a Static Web App site with the default URL of `orange-pond-0a04b7203.2.azurestaticapps.net` has been placed in slice number 2. 
 
 If the static app you're migrating the domain from and to are both in the same slice you must either:
 
 * Remove the domain from one instance, then add it to your new instance. This will result in some downtime.
-* Delete and re-deploy the new instance until the resulting resource is placed into a slice different from the source instance.
+* Delete and redeploy the new instance until the resulting resource is placed into a slice different from the source instance.
 
 ## Next steps
 
