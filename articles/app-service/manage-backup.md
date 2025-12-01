@@ -45,9 +45,6 @@ There are two types of backups in App Service. If your app is in a supported pri
 > [!NOTE]
 > App Service stops the target app or target slot while restoring a backup. To minimize downtime for a production app, restore the backup to a [deployment slot](deploy-staging-slots.md) first, and then [swap](deploy-staging-slots.md#swap-two-slots) into production.
 
-> [!NOTE]
-> For Linux apps, restoring an automatic backup directly to the app may fail with an "Access denied" error. As a workaround, restore the backup to an empty [deployment slot](deploy-staging-slots.md) first.
-
 # [Azure portal](#tab/portal)
 
 1. In your app management pane in the [Azure portal](https://portal.azure.com), select **Backups** on the left menu. The **Backups** page lists all the automatic and custom backups for your app and displays the status of each.
