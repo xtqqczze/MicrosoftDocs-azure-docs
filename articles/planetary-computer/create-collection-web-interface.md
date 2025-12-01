@@ -75,7 +75,7 @@ The following table describes the standard STAC collection fields. Fields marked
 | `item_assets`   | [**Required for Visualization**](./render-configuration.md#step-1-define-item_assets-in-your-collection-json)                     | A dictionary of assets that can be found in member items.                   |
 
 > [!NOTE]
-> It's best practice to not modify the `item_assets` keys for your STAC Items once the data is ingested.
+> The `item_assets` keys in the STAC collection should match the asset keys present in your STAC items. Mismatches can cause incorrect asset display.
 
 3. Once the JSON is complete, select the **Create** button to create your collection. This selection takes you to the **Overview** tab of your collection, where you can view and edit your collection's metadata, manage your data ingestions, and [configure your collection for visualization in the Explorer](./collection-configuration-concept.md).
 
