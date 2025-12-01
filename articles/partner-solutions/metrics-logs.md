@@ -41,7 +41,7 @@ For example, if you configure a tag rule in which only virtual machines, Virtual
 
 Logs provide detailed records of activity and events within your Azure environment. These logs provide valuable insights for monitoring, troubleshooting, and auditing. With Azure Native Integrations, you can collect and forward various types of logs from your Azure resources directly to the partner service based on configurable tag-based rules. For a complete list of supported log categories, see [Supported Resource log categories for Azure Monitor](/azure/azure-monitor/reference/logs-index).
 
-The inclusion and exclusion tags determine which logs for all defined sources are sent to partner resources. By default, logs are collected for all resources.
+The inclusion and exclusion tags determine which logs for all defined sources are sent to partner resources. By default, you collect logs for all resources.
 
 The tag rules match the tags that are available on Azure resources in your subscription. If you select Include and add tags that match resources for your subscription, they're in scope for monitoring. By default, platform resource logs are enabled.
 
