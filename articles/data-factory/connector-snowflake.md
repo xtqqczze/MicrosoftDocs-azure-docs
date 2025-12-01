@@ -109,7 +109,7 @@ You can set the following additional connection properties in the linked service
 
 | Property | Description | Required | Default value |
 |:--- |:--- |:--- |:--- |
-| UseUtcTimestamps | Set it to `false` to return TIMESTAMP_LTZ type and TIMESTAMP_TZ type in the correct time zone, and TIMESTAMP_NTZ type without time zone information. Set it to `true` to return all Snowflake timestamp types in UTC.  | No | `false` |
+| UseUtcTimestamps | Specify it to `false` to return TIMESTAMP_LTZ type and TIMESTAMP_TZ type in the correct time zone, and TIMESTAMP_NTZ type without time zone information. Specify it to `true` to return all Snowflake timestamp types in UTC.  | No | `false` |
 | schema | Specifies the schema for the query session after connecting. | No | / |
 
 This Snowflake connector supports the following authentication types. See the corresponding sections for details.
@@ -278,7 +278,7 @@ To copy data from Snowflake, the following properties are supported in the Copy 
 | type                         | The type property of the Copy activity source must be set to **SnowflakeV2Source**. | Yes      |
 | query          | Specifies the SQL query to read data from Snowflake. If the names of the schema, table and columns contain lower case, quote the object identifier in query e.g. `select * from "schema"."myTable"`.<br>Executing stored procedure isn't supported. | No       |
 | exportSettings | Advanced settings used to retrieve data from Snowflake. You can configure the ones supported by the COPY into command that the service will pass through when you invoke the statement. | Yes       |
-| treatDecimalAsString | Treat Decimal type as String type in Lookup and Script activity. The Decmial type will be displayed as String type if it is set to `true`. Setting it to `false` could lead to a risk of overflow.<br><br> This property is only supported in version 1.1.| No  |
+| treatDecimalAsString | Specify to treat decimal type as string type in lookup and script activity. The default value is `false`.<br><br> This property is only supported in version 1.1.| No  |
 | ***Under `exportSettings`:*** |  |  |
 | type | The type of export command, set to **SnowflakeExportCopyCommand**. | Yes |
 | storageIntegration | Specify the name of your storage integration that you created in the Snowflake. For the prerequisite steps of using the storage integration, see [Configuring a Snowflake storage integration](https://docs.snowflake.com/en/user-guide/data-load-azure-config#option-1-configuring-a-snowflake-storage-integration). | No |
