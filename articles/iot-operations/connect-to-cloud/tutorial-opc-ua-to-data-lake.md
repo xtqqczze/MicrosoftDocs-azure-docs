@@ -370,6 +370,6 @@ To see the content of the files, select each file and select **Edit**.
 
 The content doesn't render properly in the Azure portal, but you can download the file and open it in a tool like [Parquet Viewer](https://github.com/mukunku/ParquetViewer).
 
-## Next steps
+## Related content
 
 - [Fabric tutorial](../end-to-end-tutorials/tutorial-add-assets.md)

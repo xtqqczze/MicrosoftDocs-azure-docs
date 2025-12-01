@@ -72,7 +72,7 @@ When you use the local MQTT broker as a source endpoint in a data flow, messages
 
 The local MQTT broker message queue is stored in memory by default. You can configure the MQTT broker to store messages on disk by using the disk-backed message buffer configuration. For more information about the MQTT broker configuration, see [Configure broker settings for high availability, scaling, and memory usage](../manage-mqtt-broker/howto-configure-availability-scale.md). For more information about the disk-backed message buffer, see [Configure disk-backed message buffer behavior](../manage-mqtt-broker/howto-disk-backed-message-buffer.md).
 
-## Next steps
+## Related content
 
 - [Tutorial: Send messages from assets to the cloud using a data flow](../end-to-end-tutorials/tutorial-upload-messages-to-cloud.md)
 - [Create a data flow](howto-create-dataflow.md)
