@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 03/19/2025
 ---
 
-1. Navigate to the Function app creation blade. This example uses the **Flex Consumption** hosting option.
+1. Navigate to the Function app creation blade. 
 
    :::image type="content" source="../media/create-durable-task-scheduler/function-app-hosted-app-service.png" alt-text="Screenshot of hosting options for Function apps and selecting App Service.":::
 
