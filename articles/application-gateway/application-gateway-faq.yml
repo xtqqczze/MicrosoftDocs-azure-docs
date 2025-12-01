@@ -6,8 +6,8 @@ metadata:
   author: greg-lindsay
   ms.service: azure-application-gateway
   ms.topic: faq
-  ms.date: 05/04/2025
-  ms.author: greglin
+  ms.date: 12/01/2025
+  ms.author: mbender
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
 summary: |
