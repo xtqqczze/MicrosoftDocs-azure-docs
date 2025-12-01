@@ -55,25 +55,24 @@ The **Explorer** page is where you can visualize your data on a map. Here, you c
     OR
     * Upload a collection JSON from your local machine 
 
-> [!NOTE] 
-> Whichever method you use to create your STAC collection, your JSON file must include the following fields:
-> 
-> | Field           | Required             | Description                                                                 |
-> |-----------------|----------------------|-----------------------------------------------------------------------------|
-> | `type`          | **Required**         | The type of the STAC object, which should be set to `Collection`.           |
-> | `stac_version`  | **Required**         | The version of the STAC specification that your collection adheres to.      |
-> | `stac_extensions`|                      | A list of STAC extensions that your collection uses.                        |
-> | `id`            | **Required**         | A unique identifier for your collection.                                    |
-> | `title`         |                      | A one-line title for your collection.                                       |
-> | `description`   | **Required**         | A description of your collection.                                           |
-> | `keywords`      |                      | A list of keywords that describe your collection.                           |
-> | `license`       | **Required**         | The license for your STAC collection.                       |
-> | `providers`     |                      | A list of providers capturing or processing the data for your collection.   |
-> | `extent`        | **Required**         | The spatial and temporal extent of your collection.                         |
-> | `summaries`     | **Strongly recommended** | A map of property summaries, either a set or range of values.             |
-> | `links`         | **Required**         | A list of links for your collection.                                        |
-> | `assets`        |                      | A dictionary of asset objects for your collection, each with unique keys. |
-> | `item_assets`   | [**Required for Visualization**](./render-configuration.md#step-1-define-item_assets-in-your-collection-json)                     | A dictionary of assets that can be found in member items.                   |
+The following table describes the standard STAC collection fields. Fields marked as **Required** must be included in your collection. You can also add custom fields as needed.
+
+| Field           | Required             | Description                                                                 |
+|-----------------|----------------------|-----------------------------------------------------------------------------|
+| `type`          | **Required**         | The type of the STAC object, which should be set to `Collection`.           |
+| `stac_version`  | **Required**         | The version of the STAC specification that your collection adheres to.      |
+| `stac_extensions`|                      | A list of STAC extensions that your collection uses.                        |
+| `id`            | **Required**         | A unique identifier for your collection.                                    |
+| `title`         |                      | A one-line title for your collection.                                       |
+| `description`   | **Required**         | A description of your collection.                                           |
+| `keywords`      |                      | A list of keywords that describe your collection.                           |
+| `license`       | **Required**         | The license for your STAC collection.                       |
+| `providers`     |                      | A list of providers capturing or processing the data for your collection.   |
+| `extent`        | **Required**         | The spatial and temporal extent of your collection.                         |
+| `summaries`     | **Strongly recommended** | A map of property summaries, either a set or range of values.             |
+| `links`         | **Required**         | A list of links for your collection.                                        |
+| `assets`        |                      | A dictionary of asset objects for your collection, each with unique keys. |
+| `item_assets`   | [**Required for Visualization**](./render-configuration.md#step-1-define-item_assets-in-your-collection-json)                     | A dictionary of assets that can be found in member items.                   |
 
 > [!NOTE]
 > It's best practice to not modify the `item_assets` keys for your STAC Items once the data is ingested.
