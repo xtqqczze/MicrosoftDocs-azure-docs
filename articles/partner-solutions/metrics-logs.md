@@ -30,10 +30,7 @@ For metrics, the system automatically creates a system managed identity and asso
 
 Virtual machines, Virtual Machine Scale Sets, and App Service plans with include tags send metrics to the partner.
 
-> [!NOTE]
-> 
-> - If there's a conflict between inclusion and exclusion rules, exclusion takes priority. 
-> - You can't limit metric collection for other resource types.
+If there's a conflict between inclusion and exclusion rules, exclusion takes priority. You can't limit metric collection for other resource types.
 
 For example, if you configure a tag rule in which only virtual machines, Virtual Machine Scale Sets, and App Service plans tagged with True are included, only resources with this tag send metrics to the partner. All other virtual machines, Virtual Machine Scale Sets, and App Service plans are excluded from metrics collection.
 
@@ -50,9 +47,7 @@ The tag rules match the tags that are available on Azure resources in your subsc
 - Azure resources with include tags send logs.
 - Azure resources with exclude tags don't send logs.
 
-> [!NOTE]
-> If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
-Example: If you configure a tag rule in which resources tagged with Environment = Production are included, all Azure resources (of any type) with this tag send logs to the partner service. Resources without this tag or with conflicting exclude tags don't send logs.
+If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
 
 ### Azure activity logs
 
