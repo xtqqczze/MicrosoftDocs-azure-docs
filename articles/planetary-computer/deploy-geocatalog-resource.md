@@ -17,7 +17,7 @@ ms.custom:
 This article guides the reader through the process of deploying a GeoCatalog resource. The GeoCatalog resource is the top-level container for Geospatial data stored using Microsoft Planetary Computer Pro. Once a GeoCatalog resource is deployed, the user can begin to ingest geospatial data into Planetary Computer Pro. Geospatial data stored in a GeoCatalog is indexed, queried, and retrieved using the SpatioTemporal Access Catalog (STAC) open-standard. For more information on STAC, see [STAC overview](./stac-overview.md).
 
 > [!NOTE]
-> Due to the receovery from recent  [Azure Front Door issues](https://azure.status.microsoft/status/history/?trackingId=YKYN-BWZ), users can expect deployments to take up to 2 hours.
+> Due to the recovery from recent  [Azure Front Door issues](https://azure.status.microsoft/status/history/?trackingId=YKYN-BWZ), users can expect deployments to take up to 2 hours.
 
 ## Prerequisites
 
