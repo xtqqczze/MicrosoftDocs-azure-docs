@@ -76,7 +76,7 @@ The **Explorer** page is where you can visualize your data on a map. Here, you c
 > | `item_assets`   | [**Required for Visualization**](./render-configuration.md#step-1-define-item_assets-in-your-collection-json)                     | A dictionary of assets that can be found in member items.                   |
 
 > [!NOTE]
-> It's best practice to not modify the item_assets keys for your STAC Items once the data is ingested.
+> It's best practice to not modify the `item_assets` keys for your STAC Items once the data is ingested.
 
 
 
