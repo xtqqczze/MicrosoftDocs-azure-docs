@@ -4,7 +4,7 @@ description: This article explains the usage metering model for Microsoft Planet
 author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer-pro
-ms.topic: conceptual
+ms.topic: article
 ms.date: 10/13/2024
 #customer intent: As a user, I want to understand the service usage meter structure for Microsoft Planetary Computer Pro so I can estimate usage.
 ---
