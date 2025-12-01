@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 03/19/2025
 ---
 
-1. Navigate to the Function app creation blade and select **Functions Premium** or **App Service** as a hosting option.
+1. Navigate to the Function app creation blade. This example uses the **Flex Consumption** hosting option.
 
    :::image type="content" source="../media/create-durable-task-scheduler/function-app-hosted-app-service.png" alt-text="Screenshot of hosting options for Function apps and selecting App Service.":::
 
-1. In the **Create Function App (App Service)** blade, fill in the information in the **Basics** tab. 
+1. In the **Create Function App (Flex Consumption)** blade, fill in the information in the **Basics** tab. 
 
-   :::image type="content" source="../media/create-durable-task-scheduler/function-app-basic-tab.png" alt-text="Screenshot of the Basic tab for creating an App Service plan Function app.":::
+   :::image type="content" source="../media/create-durable-task-scheduler/function-app-basic-tab.png" alt-text="Screenshot of the Basic tab for creating a Flex Consumption plan Function app.":::
 
    | Field | Description | 
    | ----- | ----------- | 
@@ -26,7 +26,7 @@ ms.date: 03/19/2025
 
 1. Select the **Durable Functions** tab. 
 
-1. Choose **Durable Task Scheduler** as the backend provider for your durable functions. 
+1. Choose **Azure managed: Durable Task Scheduler** as the backend provider for your Durable Functions. 
 
 1. Create a scheduler resource. This action automatically creates a task hub.
 
@@ -34,9 +34,9 @@ ms.date: 03/19/2025
 
    | Field | Description | 
    | ----- | ----------- | 
-   | Storage backend | Select **Durable Task Scheduler**. | 
-   | Region | It's recommended that the scheduler and function app regions should be the same. | 
-   | Durable task scheduler | Use the scheduler name offered, or click **Create new** to create a custom name. | 
+   | Storage backend | Select **Azure managed: Durable Task Scheduler**. | 
+   | Region | Make sure the scheduler and function app regions are the same. | 
+   | Durable Task Scheduler | Use the scheduler name offered, or click **Create new** to create a custom name. | 
    | Plan | Select the [pricing plan](../durable-task-scheduler-dedicated-sku.md) that fits your project best. Check the [Choosing an orchestration framework](../choose-orchestration-framework.md) guide to determine which plan is best for production use. | 
    | Capacity units | Only applicable when "Dedicated" pricing plan is selected. You can select up to 3 Capacity Units. | 
 
