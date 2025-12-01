@@ -127,7 +127,7 @@ items:
       items:
         - name: Overview
           href: functions-overview.md
-        - name: Create a Functions app
+        - name: Create Functions App through Azure Portal and Azure CLI
           href: functions-usage.md
         - name: Create your Azure functions on Azure Container Apps
           href: functions-container-apps.md
