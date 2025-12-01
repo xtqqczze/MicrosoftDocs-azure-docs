@@ -41,10 +41,10 @@ sections:
       answer: Azure IoT Edge isn't an Azure Arc-enabled service like Azure IoT Operations is. Instead, IoT Edge is deeply integrated with and relies on Azure IoT Hub primitives such as device twins and direct methods for its functionality. While Azure IoT Operations can achieve outcomes similar to IoT Edge in some scenarios, the two services have fundamentally different architectures. As a result, there isn't a direct migration path for transitioning IoT Edge workload modules to Azure IoT Operations. 
     - question: |
          For IoT Operations, which device communication protocols supported.
-      answer: Currently, Azure IoT Operations supports OPC-UA and MQTT for device communication.
+      answer: Currently, Azure IoT Operations supports HTTP/REST, SSE, OPC-UA, and MQTT for device communication.
     - question: |
          Which Azure regions is Azure IoT Operations currently available in?
-      answer: Azure IoT Operations is available in East US2, West US 3, West Europe, East US, West US, West US 2, North Europe regions.
+      answer: Azure IoT Operations is available in East US2, West US 3, West Europe, East US, West US, West US 2, North Europe, Germany West Central regions.
     - question: |
          Does Azure IoT Operations support connecting via proxy servers? 
       answer: Azure IoT Operations supports connecting via passthrough proxies that don't require proxy authentication. Proxies that require authentication or can inspect encrypted traffic are currently not supported. 
