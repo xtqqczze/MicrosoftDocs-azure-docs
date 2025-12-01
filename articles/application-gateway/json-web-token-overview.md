@@ -42,7 +42,7 @@ By performing token validation at the edge, Application Gateway simplifies appli
 
 - **Microsoft Entra ID Requirements**
    - Register your Web API in Microsoft Entra ID
-   - Make a  call to the Microsoft Entra Id to request access to a service. The Microsoft Entra ID responds with an access token.
+   - Make a call to the Microsoft Entra ID to request access to a service. The Microsoft Entra ID responds with an access token.
 
 - **Configure JWT validation in Application Gateway**
    
