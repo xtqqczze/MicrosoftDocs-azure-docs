@@ -2,7 +2,7 @@
 title: Troubleshoot the Azure Backup agent
 description: In this article, learn how to troubleshoot the installation and registration of the Azure Backup agent.
 ms.topic: troubleshooting
-ms.date: 11/28/2025
+ms.date: 12/01/2025
 ms.service: azure-backup
 ms.custom:
   - engagement-fy24
@@ -302,27 +302,15 @@ If you've ongoing Import/Export jobs created from older MARS agents, you can sti
 
 ### Backup Failure due to cbengine crash 
 
-**Error Message:** The Microsoft Azure Recovery Services Agent cannot connect to the OBEngine service. 
+**Error code**: Cannot connect to CBEngine 
 
-**Error Code:** Cannot connect to CBEngine 
+**Error message**: The Microsoft Azure Recovery Services Agent cannot connect to the OBEngine service. 
 
-**What is the customer facing symptom for this failure?** 
+**Cause**: Backup fails when Microsoft Azure Recovery Services Agent cannot connect to the `OBEngine` service. This usually happens if the `OBEngine` service crashes, often due to an incompatible Azure File Sync Agent installed on the same machine.
 
-Backup fails with "The Microsoft Azure Recovery Services Agent cannot connect to the OBEngine service".
+To confirm the cause, check for errors in the MABAgent, then open **Task Manager** > **Services** and verify the `OBEngine` service status. If it’s not running, the failure is due to the service crash.
 
-**Root Cause:** 
-
-There are multiple possible reason for cbengine crash. One possible reason is presence of incompatible Azure File Sync Agent in same machine. 
-
-How to verify if the failure is caused by this specific root cause? 
-
-- User will see this error on MABAgent UI 
-
-- From Task Manager > Services check the status of obengine service, it will not be in running state. 
-
-**Mitigation Steps:** 
-
-To overcome this issue, disable the StorageSync.sys driver and then perform the backup. 
+**Recommended action**: Disable the `StorageSync.sys` driver, and then perform the backup.  
 
 ## Next steps
 
