@@ -39,8 +39,8 @@ WebJobs are stored in the `site/wwwroot/App_Data/jobs/` folder of your App Servi
 
 Each job has its own subfolder under the corresponding type, named after the WebJob. For example:
 
-`App_Data/jobs/triggered/myjob/`
-`App_Data/jobs/continuous/myjob/`
+- `App_Data/jobs/triggered/myjob/`
+- `App_Data/jobs/continuous/myjob/`
 
 Inside the job folder, the Kudu engine looks for a file to run. This file can be a script or executable.
 
@@ -54,7 +54,7 @@ The filename must be exactly `run.*` to be autodetected. Files like `start.sh` o
 - A Node.js WebJob looks for the first `.js` file.
 - A Bash-based WebJob looks for the first `.sh` script.
 
-If multiple script files are present, especially in multi-file projects, this fallback behavior can lead to unpredictable execution. We recommended that you include a `run.*` file to define the entry point explicitly.
+If multiple script files are present, especially in multi-file projects, this fallback behavior can lead to unpredictable execution. We recommend that you include a `run.*` file to define the entry point explicitly.
 
 On Linux-based WebJobs, `.sh` scripts must include a shebang (`#!`) and must be marked as executable.
 
