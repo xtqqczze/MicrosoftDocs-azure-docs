@@ -5,17 +5,16 @@ author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 03/20/2025
+ms.date: 10/08/2025
+ms.custom:
+  - build-2025
 ---
 
 # Inject an Azure API Management instance in a private virtual network - Premium v2 tier
 
 [!INCLUDE [api-management-availability-premiumv2](../../includes/api-management-availability-premiumv2.md)] 
 
-This article guides you through the requirements to inject your Azure API Management Premium v2 (preview) instance in a virtual network. 
-
-> [!NOTE]
-> The Premium v2 tier is currently in limited preview. To sign up, fill [this form](https://aka.ms/premiumv2).
+This article guides you through the requirements to inject your Azure API Management Premium v2 instance in a virtual network. 
 
 > [!NOTE]
 > To inject a classic Developer or Premium tier instance in a virtual network, the requirements and configuration are different. [Learn more](virtual-network-injection-resources.md).
@@ -33,7 +32,7 @@ If you want to enable *public* inbound access to an API Management instance in t
 
 
 > [!IMPORTANT]
-> * Virtual network injection described in this article is available only for API Management instances in the Premium v2 tier (preview). For networking options in the different tiers, see [Use a virtual network with Azure API Management](virtual-network-concepts.md).
+> * Virtual network injection described in this article is available only for API Management instances in the Premium v2 tier. For networking options in the different tiers, see [Use a virtual network with Azure API Management](virtual-network-concepts.md).
 > * Currently, you can inject a Premium v2 instance into a virtual network only when the instance is **created**. You can't inject an existing Premium v2 instance into a virtual network. However, you can update the subnet settings for injection after the instance is created.
 > * Currently, you can't switch between virtual network injection and virtual network integration for a Premium v2 instance.
 
@@ -57,7 +56,7 @@ If you want to enable *public* inbound access to an API Management instance in t
 
 ### Network security group
 
-A network security group must be associated with the subnet. No specific rules are required. To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md).
+[!INCLUDE [api-management-virtual-network-v2-nsg-rules](../../includes/api-management-virtual-network-v2-nsg-rules.md)]
 
 ### Subnet delegation
 
@@ -70,8 +69,6 @@ The subnet needs to be delegated to the **Microsoft.Web/hostingEnvironments** se
 > You might need to register the `Microsoft.Web/hostingEnvironments` resource provider in the subscription so that you can delegate the subnet to the service.
 
 For more information about configuring subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
-
-[!INCLUDE [api-management-virtual-network-address-prefix](../../includes/api-management-virtual-network-address-prefix.md)]
 
 ### Permissions
 
@@ -99,12 +96,7 @@ When you [create](get-started-create-service-instance.md) a Premium v2 instance 
 
 When a Premium v2 API Management instance is injected in a virtual network, you have to manage your own DNS to enable inbound access to API Management. 
 
-While you have the option to use your own custom DNS server, we recommend:
-
-1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
-1. Link the Azure DNS private zone to the virtual network. 
-
-Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-portal.md).
+[!INCLUDE [api-management-virtual-network-dns-resolver](../../includes/api-management-virtual-network-dns-resolver.md)]
 
 ### Endpoint access on default hostname
 

@@ -2,10 +2,10 @@
 title: Use the SIEM migration experience
 titleSuffix: Microsoft Sentinel
 description: Migrate security monitoring use cases from other Security Information and Event Management (SIEM) systems to Microsoft Sentinel. 
-author: austinmccollum
+author: batamig
 ms.topic: how-to
 ms.date: 9/23/2024
-ms.author: austinmc
+ms.author: bagol
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -17,7 +17,10 @@ appliesto:
 
 # Migrate to Microsoft Sentinel with the SIEM migration experience
 
-Migrate your SIEM to Microsoft Sentinel for all your security monitoring use cases. Automated assistance from the SIEM Migration experience simplifies your migration. 
+Migrate your SIEM to Microsoft Sentinel for all your security monitoring use cases. Automated assistance from the SIEM Migration experience simplifies your migration.
+
+> [!NOTE]
+> The page describes the current SIEM migration process. A new tool will be available soon. You can read about the new tool in our [official announcement](https://techcommunity.microsoft.com/blog/microsoft-security-blog/microsoft-ignite-2025-power-the-next-era-of-cybersecurity-with-microsoft-sentine/4469080).
 
 These features are currently included in the SIEM Migration experience: 
 

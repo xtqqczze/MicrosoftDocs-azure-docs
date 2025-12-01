@@ -4,9 +4,9 @@ description: Lists the permissions for the Azure resource providers in the Integ
 ms.service: role-based-access-control
 ms.topic: generated-reference
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 10/07/2025
 ms.custom: generated
 ---
 
@@ -686,11 +686,10 @@ Azure service: [Azure Communication Services](/azure/communication-services/over
 > | Microsoft.Communication/CommunicationServices/EventGridFilters/Read | Reads EventGrid filters on communication services |
 > | Microsoft.Communication/CommunicationServices/EventGridFilters/Write | Writes EventGrid filters on communication services |
 > | Microsoft.Communication/CommunicationServices/EventGridFilters/Delete | Removes an EventGrid filter on communication services |
-> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/write | Write Network Security Perimeter Assocation |
-> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/read | Read Network Security Perimeter Assocation |
-> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/delete | Delete Network Security Perimeter Assocation |
+> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/write | Write Network Security Perimeter Association |
+> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/read | Read Network Security Perimeter Association |
+> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterAssociationProxies/delete | Delete Network Security Perimeter Association |
 > | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterConfigurations/read | Read Network Security Perimeter Configuration |
-> | Microsoft.Communication/CommunicationServices/networkSecurityPerimeterConfigurations/reconcile/action | Refresh a Network Security Perimeter Configuration |
 > | Microsoft.Communication/CommunicationServices/SmtpUsernames/read | Get an SMTP username resource. |
 > | Microsoft.Communication/CommunicationServices/SmtpUsernames/write | Add SMTP username resource or update an existing resource. |
 > | Microsoft.Communication/CommunicationServices/SmtpUsernames/delete | Operation to delete an SMTP username resource. |
@@ -699,7 +698,6 @@ Azure service: [Azure Communication Services](/azure/communication-services/over
 > | Microsoft.Communication/CommunicationServicesGccm/Delete | Deletes communication services |
 > | Microsoft.Communication/CommunicationServicesGccm/ListKeys/action | Reads the keys for a communication service |
 > | Microsoft.Communication/CommunicationServicesGccm/RegenerateKey/action | Regenerates the primary or secondary key for a communication service |
-> | Microsoft.Communication/CommunicationServicesGccm/LinkNotificationHub/action | Links an Azure Notification Hub to the communication service |
 > | Microsoft.Communication/CommunicationServicesGccm/EventGridFilters/Read | Reads EventGrid filters on communication services |
 > | Microsoft.Communication/CommunicationServicesGccm/EventGridFilters/Write | Writes EventGrid filters on communication services |
 > | Microsoft.Communication/CommunicationServicesGccm/EventGridFilters/Delete | Removes an EventGrid filter on communication services |
@@ -711,8 +709,6 @@ Azure service: [Azure Communication Services](/azure/communication-services/over
 > | Microsoft.Communication/EmailServices/Domains/write | Add a new Domain under the parent EmailService resource or update an existing Domain resource. |
 > | Microsoft.Communication/EmailServices/Domains/delete | Operation to delete a Domain resource. |
 > | Microsoft.Communication/EmailServices/Domains/InitiateVerification/action | Initiate verification of Dns record. |
-> | Microsoft.Communication/EmailServices/Domains/CancelVerification/action | Cancel verification of Dns record. |
-> | Microsoft.Communication/EmailServices/Domains/RevokeVerification/action | Revoke existing verified status of a Dns record. |
 > | Microsoft.Communication/EmailServices/Domains/SenderUsernames/read | List all valid sender usernames for a domains resource. |
 > | Microsoft.Communication/EmailServices/Domains/SenderUsernames/read | Get the email SenderUsername and its properties. |
 > | Microsoft.Communication/EmailServices/Domains/SenderUsernames/write | Add a new SenderUsername under the parent Domain resource or update an existing SenderUsername resource. |
@@ -725,11 +721,9 @@ Azure service: [Azure Communication Services](/azure/communication-services/over
 > | Microsoft.Communication/EmailServices/Domains/SuppressionLists/SuppressionListAddresses/read | Get all the addresses in a suppression list. |
 > | Microsoft.Communication/EmailServices/Domains/SuppressionLists/SuppressionListAddresses/write | Add a new suppression list under the parent Domain resource or update an existing suppression list. |
 > | Microsoft.Communication/EmailServices/Domains/SuppressionLists/SuppressionListAddresses/delete | Operation to delete an address from a suppression list. |
-> | Microsoft.Communication/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Notifies that new Network Security Perimeter updates are available |
 > | Microsoft.Communication/Locations/OperationStatuses/read | Reads the status of an async operation |
 > | Microsoft.Communication/Locations/OperationStatuses/write | Writes the status of an async operation |
 > | Microsoft.Communication/Locations/Usages/Read | Get email quota for the subscription |
-> | Microsoft.Communication/Operations/read | Reads operations |
 > | Microsoft.Communication/RegisteredSubscriptions/read | Reads registered subscriptions |
 
 ## Microsoft.DurableTask
@@ -1067,6 +1061,8 @@ Azure service: [Event Hubs](/azure/event-hubs/)
 > | Microsoft.EventHub/sku/read | Get list of Sku Resource Descriptions |
 > | Microsoft.EventHub/sku/regions/read | Get list of SkuRegions Resource Descriptions |
 > | **DataAction** | **Description** |
+> | Microsoft.EventHub/namespaces/generateUserDelegationKey/action | Returns a user delegation key for the Namespace |
+> | Microsoft.EventHub/namespaces/revokeUserDelegationKeys/action | Revokes all the user delegation keys for the specified EventHub Namespace |
 > | Microsoft.EventHub/namespaces/messages/send/action | Send messages |
 > | Microsoft.EventHub/namespaces/messages/receive/action | Receive messages |
 > | Microsoft.EventHub/namespaces/schemas/read | Retrieve schemas |
@@ -1586,6 +1582,8 @@ Azure service: [Service Bus](/azure/service-bus-messaging/)
 > | Microsoft.ServiceBus/sku/read | Get list of Sku Resource Descriptions |
 > | Microsoft.ServiceBus/sku/regions/read | Get list of SkuRegions Resource Descriptions |
 > | **DataAction** | **Description** |
+> | Microsoft.ServiceBus/namespaces/generateUserDelegationKey/action | Returns a user delegation key for the Namespace |
+> | Microsoft.ServiceBus/namespaces/revokeUserDelegationKeys/action | Revokes all the user delegation keys for the specified ServiceBus Namespace |
 > | Microsoft.ServiceBus/namespaces/messages/send/action | Send messages |
 > | Microsoft.ServiceBus/namespaces/messages/receive/action | Receive messages |
 

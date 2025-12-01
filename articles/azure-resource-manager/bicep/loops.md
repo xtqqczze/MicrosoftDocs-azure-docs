@@ -2,8 +2,10 @@
 title: Iterative loops in Bicep
 description: Learn how to use loops to iterate over collections in Bicep.
 ms.topic: conceptual
-ms.custom: devx-track-bicep
-ms.date: 03/25/2025
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+ms.date: 10/30/2025
 ---
 
 # Iterative loops in Bicep
@@ -14,7 +16,7 @@ To use loops to create multiple resources or modules, each instance must have a 
 
 ### Training resources
 
-For step-by-step guidance about loops, see the [Build flexible Bicep templates by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/) module in Microsoft Learn.
+For step-by-step guidance about loops, see the [Build flexible Bicep files by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/) module in Microsoft Learn.
 
 ## Loop syntax
 
@@ -99,7 +101,7 @@ The next example creates the number of storage accounts specified in the `storag
 param location string = resourceGroup().location
 param storageCount int = 2
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2023-05-01' = [for i in range(0, storageCount): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2025-06-01' = [for i in range(0, storageCount): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -150,7 +152,7 @@ param storageNames array = [
   'coho'
 ]
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2023-05-01' = [for name in storageNames: {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2025-06-01' = [for name in storageNames: {
   name: '${name}${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -176,7 +178,7 @@ var subnets = [
   }
 ]
 
-resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: 'vnet'
   location: rgLocation
   properties: {
@@ -213,7 +215,7 @@ var storageConfigurations = [
   }
 ]
 
-resource storageAccountResources 'Microsoft.Storage/storageAccounts@2023-05-01' = [for (config, i) in storageConfigurations: {
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2025-06-01' = [for (config, i) in storageConfigurations: {
   name: '${storageAccountNamePrefix}${config.suffix}${i}'
   location: resourceGroup().location
   sku: {
@@ -233,7 +235,7 @@ param orgNames array = [
   'Coho'
 ]
 
-resource nsg 'Microsoft.Network/networkSecurityGroups@2023-11-01' = [for name in orgNames: {
+resource nsg 'Microsoft.Network/networkSecurityGroups@2025-01-01' = [for name in orgNames: {
   name: 'nsg-${name}'
   location: location
 }]
@@ -261,7 +263,7 @@ param nsgValues object = {
   }
 }
 
-resource nsg 'Microsoft.Network/networkSecurityGroups@2023-11-01' = [for nsg in items(nsgValues): {
+resource nsg 'Microsoft.Network/networkSecurityGroups@2025-01-01' = [for nsg in items(nsgValues): {
   name: nsg.value.name
   location: nsg.value.location
 }]
@@ -315,7 +317,7 @@ To serially deploy instances of a resource, add the [`batchSize` decorator](./fi
 param location string = resourceGroup().location
 
 @batchSize(2)
-resource storageAcct 'Microsoft.Storage/storageAccounts@2023-05-01' = [for i in range(0, 4): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2025-06-01' = [for i in range(0, 4): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
@@ -338,7 +340,7 @@ To create more than one instance of a child resource, both of the following Bice
 ```bicep
 param location string = resourceGroup().location
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'examplestorage'
   location: location
   kind: 'StorageV2'
@@ -357,7 +359,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-05-01' = {
 **Top-level child resources**
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -366,12 +368,12 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   }
 }
 
-resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-05-01' = {
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2025-06-01' = {
   name: 'default'
   parent: stg
 }
 
-resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-05-01' = [for i in range(0, 3): {
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2025-06-01' = [for i in range(0, 3): {
   name: 'exampleshare${i}'
   parent: service
 }]
@@ -387,7 +389,7 @@ The outputs of the two samples in [Integer index](#integer-index) can be written
 param location string = resourceGroup().location
 param storageCount int = 2
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2023-05-01' = [for i in range(0, storageCount): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2025-06-01' = [for i in range(0, storageCount): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
   location: location
   sku: {

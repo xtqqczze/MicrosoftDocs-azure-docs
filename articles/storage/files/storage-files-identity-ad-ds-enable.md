@@ -1,15 +1,18 @@
 ---
-title: Enable AD DS authentication for Azure Files
+title: Enable AD DS Authentication for Azure Files
 description: Learn how to enable Active Directory Domain Services authentication over SMB for Azure file shares. Your domain-joined Windows virtual machines can then access Azure file shares by using AD DS credentials.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/10/2025
+ms.date: 06/24/2025
 ms.author: kendownie 
 ms.custom: engagement-fy23, devx-track-azurepowershell
+# Customer intent: As an IT administrator, I want to enable Active Directory Domain Services authentication for Azure file shares, so that our domain-joined Windows virtual machines can securely access and manage file shares using existing AD credentials.
 ---
 
 # Enable Active Directory Domain Services authentication for Azure file shares
+
+**Applies to:** :heavy_check_mark: SMB Azure file shares
 
 This article describes the process for enabling Active Directory Domain Services (AD DS) authentication on your storage account in order to use on-premises Active Directory (AD) credentials for authenticating to Azure file shares.
 
@@ -17,20 +20,6 @@ This article describes the process for enabling Active Directory Domain Services
 > Before you enable AD DS authentication, make sure you understand the supported scenarios and requirements in the [overview article](storage-files-identity-ad-ds-overview.md) and complete the necessary [prerequisites](storage-files-identity-ad-ds-overview.md#prerequisites). If your Active Directory environment spans multiple forests, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 
 To enable AD DS authentication over SMB for Azure file shares, you need to register your Azure storage account with your on-premises AD DS and then set the required domain properties on the storage account. To register your storage account with AD DS, you create a computer account (or service logon account) representing it in your AD DS. Think of this process as if it were like creating an account representing an on-premises Windows file server in your AD DS. When the feature is enabled on the storage account, it applies to all new and existing file shares in the account.
-
-## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Option one (recommended): Use AzFilesHybrid PowerShell module
 
@@ -172,6 +161,12 @@ The cmdlets should return the key value. Once you have the kerb1 key, create eit
    ```powershell
    Set-ADUser -Identity $UserSamAccountName -UserPrincipalName cifs/<StorageAccountName>.file.core.windows.net@<DNSRoot>
    ```
+> [!IMPORTANT]
+> **Don't sync users with invalid userPrincipalName (UPN) values**. UPNs must not contain special characters such as `/`, spaces, or other unsupported symbols.
+> Attempting to sync users with invalid UPNs (i.e. using `/` in the username) will result in Microsoft Entra Connect errors.
+> If such identities exist in your on-premises directory, either:
+> - Update the UPN to a valid format (e.g., `user@domain.com`), **or**
+> - Exclude the user from synchronization using filtering rules in Microsoft Entra Connect.
 
 3. Set the AD account password to the value of the kerb1 key.
 

@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/06/2024
+ms.date: 06/16/2025
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -39,7 +39,11 @@ This article shows how to automate backup and restore operations of your API Man
 
 ## Prerequisites
 
-* An API Management service instance. If you don't have one, see [Create an API Management service instance](get-started-create-service-instance.md).
+* An API Management service instance in a supported service tier. If you don't have one, see [Create an API Management service instance](get-started-create-service-instance.md).
+
+   > [!NOTE]
+   > Currently, backup and restore aren't supported in API Management instances with associated [workspace gateways](workspaces-overview.md#workspace-gateway).
+
 * An Azure storage account. If you don't have one, see [Create a storage account](../storage/common/storage-account-create.md).
     * [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in the storage account to hold the backup data.
         
@@ -61,7 +65,7 @@ Azure generates two 512-bit storage account access keys for each storage account
 
     * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
     * If you will back up and restore to different API Management instances, enable a managed identity in both the source and target instances.
-1. Assign the identity the **Storage Blob Data Contributor** role, scoped to the storage account used for backup and restore. To assign the role, use the [Azure portal](../role-based-access-control/role-assignments-portal.yml) or other Azure tools.
+1. Assign the identity the **Storage Blob Data Contributor** role, scoped to the storage account used for backup and restore. To assign the role, use the [Azure portal](/azure/role-based-access-control/role-assignments-portal) or other Azure tools.
 
 
 ## Back up an API Management service
