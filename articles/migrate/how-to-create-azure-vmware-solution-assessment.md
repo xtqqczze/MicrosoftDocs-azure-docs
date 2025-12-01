@@ -21,7 +21,7 @@ This article describes how to create an Azure VMware Solution assessment for on-
 
 - [Create](./create-manage-projects.md) an Azure Migrate project.
 - [Add](how-to-assess.md) the Azure Migrate: Discovery and assessment tool if you've already created a project.
-- Discover your on-premises inventory data using any of the following approach:
+- Discover your on-premises inventory data using any of the following approaches:
     - [Import your RVTools XLSX file](tutorial-import-vmware-using-rvtools-xlsx.md) OR
     - [Import the server metadata in comma-separated values (CSV) format](./tutorial-discover-import.md) OR
     - Set up an Azure Migrate appliance for [VMware vSphere](how-to-set-up-appliance-vmware.md), which discovers the on-premises servers, and sends metadata and performance data to Azure Migrate: Discovery and assessment. [Learn more](migrate-appliance.md).
@@ -113,7 +113,7 @@ There are two types of sizing criteria that you can use to create Azure VMware S
     > [!NOTE]
     > For performance-based assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high-confidence rating.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview-v2.png" alt-text="Overview of an Azure VMware Solution assessment." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview-v2.png" :::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview-v2.png" alt-text="Screenshot showing an overview of an Azure VMware Solution assessment." lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/assessment-overview-v2.png" :::
 
 
 ## Next steps
