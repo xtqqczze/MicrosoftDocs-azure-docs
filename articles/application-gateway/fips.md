@@ -77,4 +77,4 @@ To control the FIPS mode setting through Azure portal,
 
 ## Next steps
 
-If you want to configure a TLS policy, you can do so via the portal or use these [PowerShell commands](application-gateway-configure-ssl-policy-powershell.md).
+Know about the supported [TLS policies on Application Gateway](application-gateway-ssl-policy-overview.md).
