@@ -13,18 +13,18 @@ Use the built-in upgrade assessment to quickly check pipeline readiness and iden
 
 In [Azure Data Factory](https://adf.azure.com), open the factory you want to migrate. On the authoring canvas toolbar, select Run upgrade assessment (preview).
 
-:::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/run-upgrade-assessment.png" alt-text="Run the Assessment tool":::
+:::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/run-upgrade-assessment.png" alt-text="Screenshot of how to run the Assessment tool":::
 
 This opens a side pane with the preview of list of pipelines and expandable list of activities within the pipeline.
 
-:::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/pipeline-assessment.png" alt-text="View the assessment in side pane":::
+:::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/pipeline-assessment.png" alt-text="Screenshot to view the assessment in side pane":::
 
 You can export the assessment results as a .csv file, which lists pipeline names, activity-level statuses, and compatibility notes.
 
 Some results point to features that are still in progress or out of scope. Use the results to prioritize the fixes and to decide whether to migrate now using existing tools such as [PowerShell upgrade module](/fabric/data-factory/migrate-pipelines-powershell-upgrade-module-for-azure-data-factory-to-fabric) or wait for upcoming support.
 
 
-## Understanding the results
+## Understand the results
 You’ll see one of the four results for each pipeline (and summarized at the factory level):
 
 | Status            | Meaning                                                 |
@@ -41,7 +41,7 @@ In the assessment side pane, expand each pipeline to see:
 - Activity‑level status (which activities block migration).
 - A summary of Ready/Needs review/Not compatible counts across pipelines.
 
- :::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/detailed-assessment-drilldown.png" alt-text="Drill down the assessment details":::
+ :::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/detailed-assessment-drilldown.png" alt-text="Diagram showing the drill down of the assessment details":::
   
 Use this list to build your to‑do plan (what to fix, what to defer, and what to replace).
 
