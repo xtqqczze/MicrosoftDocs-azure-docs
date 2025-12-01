@@ -77,8 +77,6 @@ The following table describes the standard STAC collection fields. Fields marked
 > [!NOTE]
 > It's best practice to not modify the `item_assets` keys for your STAC Items once the data is ingested.
 
-
-
 3. Once the JSON is complete, select the **Create** button to create your collection. This selection takes you to the **Overview** tab of your collection, where you can view and edit your collection's metadata, manage your data ingestions, and [configure your collection for visualization in the Explorer](./collection-configuration-concept.md).
 
 [ ![Screenshot of Collection overview page.](./media/collection-overview.jpeg) ](./media/collection-overview.jpeg#lightbox)
