@@ -3,7 +3,7 @@ title: Create a Datadog resource
 description: Get started with Datadog on Azure by creating a new resource, configuring metrics and logs, and setting up single sign-on through Microsoft Entra ID.
 ms.topic: quickstart
 zone_pivot_groups: datadog-create
-ms.date: 09/04/2025
+ms.date: 12/01/2025
 ms.custom:
   - references_regions
   - ai-gen-docs-bap
@@ -136,7 +136,7 @@ Enter the names and values for each *Action* listed under Metrics and Logs.
 - Select **Send subscription activity logs**.
 - Select **Send Azure resource logs for all defined sources**.
 
-Select the **Next** button at the bottom of the page.
+After you finish configuring metrics and logs, select **Next**.
 
 ### Security tab (optional)
 
