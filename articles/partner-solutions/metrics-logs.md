@@ -2,7 +2,7 @@
 title: Azure Native Integrations monitoring overview
 description: "Overview of metrics and logs for Azure Native Integrations and key operational considerations."
 ms.topic: overview
-ms.date: 11/20/2025
+ms.date: 12/01/2025
 ai-usage: ai-assisted
 
 #customer intent: As a cloud operator, I want to understand what telemetry partner integrations collect so that I can plan monitoring and governance.
@@ -13,18 +13,7 @@ ai-usage: ai-assisted
 
 Monitoring and observability are essential for managing modern cloud environments. Azure integrates with leading partner solutions to provide comprehensive metrics and logs collection. These integrations enable centralized visibility, actionable insights, and streamlined troubleshooting across your Azure resources. 
 
-## What data is collected?
-
-| Feature | Datadog | Dynatrace | Elastic | New Relic |
-|---|---|---|---|---|
-| Metrics Collection | Yes | Yes | No | Yes |
-| Logs Collection | Yes | Yes | Yes | Yes |
-| Tag-based Filtering | Yes | Yes | Yes (logs only) | Yes |
-| Managed Identity for Metrics | Yes | Yes |  | Yes |
-| Microsoft Entra Logs | Yes | Yes | Yes | Yes |
-| Setup Guides Linked | Yes | Yes | Yes | Yes |
-
-### Metrics
+## Metrics
 
 Quantitative data that reflects the performance and health of your Azure resources.
 
