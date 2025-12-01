@@ -21,7 +21,7 @@ The following capabilities and improvements have recently been released to suppo
 - [Enhancing Security and streamlining Configuration with Lab Secrets](https://devblogs.microsoft.com/develop-from-the-cloud/%f0%9f%8e%89enhancing-security-and-streamlining-configuration-with-lab-secrets-in-azure-devtest-labs/)
 - [Virtual Machine Management with Multi-Select, Sorting, Grouping, and Tags](https://devblogs.microsoft.com/develop-from-the-cloud/elevate-your-virtual-machine-management-with-multi-select-sorting-grouping-and-tags-in-azure-devtest-labs/)
 - [Improved Security of Generation2 Virtual Machines via Trusted Launch](https://devblogs.microsoft.com/develop-from-the-cloud/improve-the-security-of-generation-2-vms-via-trusted-launch-in-azure-devtest-labs/)
-- [Improved Performance and Security with Standard Load Balancer and Standard SKU Public IP Addresses](https://microsoft-my.sharepoint.com/personal/takamath_microsoft_com/Documents/improve-performance-and-security-using-standard-load-balancer-and-standard-sku-public-ip-addresses)
+- [Improved Performance and Security with Standard Load Balancer and Standard SKU Public IP Addresses](https://devblogs.microsoft.com/develop-from-the-cloud/improve-performance-and-security-using-standard-load-balancer-and-standard-sku-public-ip-addresses-in-azure-devtest-labs/)
 - [Support for Generation 2 VMs](https://devblogs.microsoft.com/develop-from-the-cloud/unlock-key-capabilities-via-generation-2-vms-in-azure-devtest-labs/)
 - [Reduce costs with hibernation support](https://devblogs.microsoft.com/develop-from-the-cloud/reduce-costs-with-hibernation-in-azure-devtest-labs/)
 
