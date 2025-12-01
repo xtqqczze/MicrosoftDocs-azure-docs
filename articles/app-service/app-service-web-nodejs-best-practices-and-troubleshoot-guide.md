@@ -176,21 +176,21 @@ The common cause for long application start times is a high number of files in t
 
 ## iisnode HTTP status and substatus
 
-The [`cnodeconstants` source file](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) lists all of the possible status or substatus combinations iisnode can return due to an error.
+The [cnodeconstants](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) source file lists all of the possible status or substatus combinations iisnode can return due to an error.
 
 Enable FREB for your application to see the Win32 error code. Be sure you enable FREB only on non-production sites for performance reasons.
 
 | HTTP status | HTTP substatus | Possible reason |
 | --- | --- | --- |
 | 500 |1000 |There was some issue dispatching the request to iisnode. Check if node.exe was started. Node.exe might have crashed when starting. Check your *web.config* configuration for errors. |
-| 500 |1001 |- Win32Error 0x2: App isn't responding to the URL. Check the URL rewrite rules or check if your express app has the correct routes defined. <br> Win32Error 0x6d: Named pipe is busy. Node.exe isn't accepting requests because the pipe is busy. Check high cpu usage. <br> Other errors: Check if node.exe crashed. |
-| 500 |1002 |Node.exe crashed: Check *d:\\home\\LogFiles\\logging-errors.txt* for stack trace. |
-| 500 |1003 |Pipe configuration Issue: The named pipe configuration is incorrect. |
-| 500 |1004-1018 |There was some error while sending the request or processing the response to/from node.exe. Check if node.exe crashed. check *d:\\home\\LogFiles\\logging-errors.txt* for stack trace. |
+| 500 |1001 |- Win32Error 0x2: App isn't responding to the URL. Check the URL rewrite rules or check if your express app has the correct routes defined. <br> - Win32Error 0x6d: Named pipe is busy. Node.exe isn't accepting requests because the pipe is busy. Check high cpu usage. <br> - Other errors: Check if node.exe crashed. |
+| 500 |1002 |Node.exe crashed. Check *d:\\home\\LogFiles\\logging-errors.txt* for stack trace. |
+| 500 |1003 |Pipe configuration Issue. The named pipe configuration is incorrect. |
+| 500 |1004-1018 |There was some error while sending the request or processing the response to/from node.exe. Check if node.exe crashed. Check *d:\\home\\LogFiles\\logging-errors.txt* for stack trace. |
 | 503 |1000 |Not enough memory to allocate more named pipe connections. Check why your app is consuming so much memory. Check `maxConcurrentRequestsPerProcess` setting value. If it's not infinite and you have many requests, increase this value to prevent this error. |
 | 503 |1001 |Request couldn't be dispatched to node.exe because the application is recycling. After the application is recycled, requests should be served normally. |
-| 503 |1002 |Check Win32 error code for actual reason: Request could not be dispatched to a node.exe. |
-| 503 |1003 |Named pipe is too busy: Verify if node.exe is consuming excessive CPU. |
+| 503 |1002 |Check Win32 error code for actual reason. Request couldn't be dispatched to a node.exe. |
+| 503 |1003 |Named pipe is too busy. Verify if node.exe is consuming excessive CPU. |
 
 Node.exe has a setting called `NODE_PENDING_PIPE_INSTANCES`. On Azure App Service, this value is set to *5000*, which means that node.exe can accept 5,000 requests at a time on the named pipe. This value should be good enough for most node applications running on Azure App Service. You shouldn't see 503.1003 on Azure App Service because of the high value for the `NODE_PENDING_PIPE_INSTANCES`.
 
