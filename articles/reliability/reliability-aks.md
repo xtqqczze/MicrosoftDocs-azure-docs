@@ -34,7 +34,7 @@ When you create an AKS cluster, the Azure platform automatically creates and con
 
 After this initial node pool setup is complete, you can [add or delete node pools](/azure/aks/create-node-pools) for your own user workloads. AKS doesn't manage node pools for reliability, and you must ensure that your workloads are resilient to infrastructure failures.
 
-:::image type="content" source="./media/reliability-aks/control-plane-and-nodes.png" alt-text="Diagram that shows the Kubernetes control plane and node components, including the system node pool and user node pools." border="false" lightbox="./media/reliability-aks/control-plane-and-nodes.png":::
+:::image type="content" source="./media/reliability-aks/control-plane-and-nodes.svg" alt-text="Diagram that shows the Kubernetes control plane and node components, including the system node pool and user node pools." border="false":::
 
 Resiliency is a shared responsibility between you and Microsoft. As a compute service, AKS manages some aspects of your cluster's reliability, but you're responsible for managing other aspects.
 
@@ -177,7 +177,7 @@ For more information, see the following articles:
 - [What is Azure Kubernetes Service backup?](/azure/backup/azure-kubernetes-service-backup-overview)
 - [Back up AKS by using Azure Backup](/azure/backup/azure-kubernetes-service-cluster-backup)
 
-For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [Redundancy, replication, and backup](concept-redundancy-replication-backup.md).
+[!INCLUDE [Backups include ](includes/reliability-backups-include.md)]
 
 Strive to use stateless clusters that minimize the need for backup. Store data in external storage systems and databases instead of within your cluster.
 

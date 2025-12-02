@@ -4,6 +4,7 @@ description: Understand common Azure subscription and service limits, quotas, an
 ms.topic: conceptual
 ms.date: 01/23/2025
 ms.custom: ignite-2024
+#customer intent: As a subscription owner or cloud operator, I want an authoritative list of subscription and service limits and guidance for requesting increases so that I can plan capacity and avoid service interruptions.
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -58,6 +59,8 @@ The following limits apply to [Azure management groups](../../governance/managem
 The following limits apply when you use Azure Resource Manager and Azure resource groups.
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](~/reusable-content/ce-skilling/azure/includes/azure-subscription-limits-azure-resource-manager.md)]
+
+Note that subscription IDs must be non-empty GUIDs.
 
 ### Azure resource group limits
 
@@ -351,6 +354,10 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
 
+## Azure Device Registry limits
+
+[!INCLUDE [device-registry-limits](../../iot-operations/includes/device-registry-limits.md)]
+
 ## Azure Device Update for IoT Hub limits
 
 [!INCLUDE [device-update-for-iot-hub-limits](../../../includes/device-update-for-iot-hub-limits.md)]
@@ -529,7 +536,7 @@ See [VM Applications overview](/azure/virtual-machines/vm-applications) for more
 
 A limit of 5,000 disk encryption sets are allowed per region and per subscription. [Contact Azure support](../../communications-gateway/request-changes.md) to increase the quota. 
 
-See the following documentation to learn more about about encryption restrictions:
+See the following documentation to learn more about encryption restrictions:
 
 - [Linux](/azure/virtual-machines/disk-encryption#restrictions)
 - [Windows](/azure/virtual-machines/disk-encryption#restrictions) virtual machines
