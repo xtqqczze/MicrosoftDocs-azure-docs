@@ -82,7 +82,7 @@ Restore as follows:
 1. Under **Restore Point**, click **Select**.
 1. On the **Select restore point** pane, select whether to [restore to point in time](#restore-to-a-specific-point-in-time) or to [restore to a specific recovery point](#restore-to-a-specific-restore-point), and then select **OK**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-alternate-location-recovery.png" alt-text="Screenshot showing to select Restore Point.":::
+   :::image type="content" source="./media/backup-azure-sql-database/sql-alternate-location-recovery.png" alt-text="Screenshot shows how to select Restore Point." lightbox="./media/backup-azure-sql-database/sql-alternate-location-recovery.png":::
 
     
 1. On the **Restore** pane, under **Advanced Configuration**, select **Configure**.
@@ -92,7 +92,7 @@ Restore as follows:
     - If you want to keep the database nonoperational after the restore, enable **Restore with NORECOVERY**.
     - If you want to change the restore location on the destination server, enter new target paths.
 
-        ![Enter target paths](./media/backup-azure-sql-database/target-paths.png)
+        :::image type="content" source="./media/backup-azure-sql-database/target-paths.png" alt-text="Screenshot shows how to enter target paths." lightbox="./media/backup-azure-sql-database/target-paths.png":::
 
 1. On the **Restore** pane, select **OK** to trigger the restore. Track the restore progress in the **Notifications** area, or track it under the **Backup Jobs** view in the vault.
 
