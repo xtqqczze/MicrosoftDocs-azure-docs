@@ -1,77 +1,91 @@
 ---
-title: Exchange B2B Messages Using Workflows
-description: Learn to exchange messages between partners in workflows with Azure Logic Apps and the Enterprise Integration Pack.
+title: Automate B2B Messages Between Partners
+description: Learn to exchange business-to-business (B2B) messages between trading partners using workflows in Azure Logic Apps. Follow protocols like AS2, X12, EDIFACT, and RosettaNet.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 11/06/2025
+ms.date: 12/02/2025
 #Customer intent: As an integration developer who works with Azure Logic Apps, I want to exchange messages between trading partners in B2B workflows.
 ---
 
-# Exchange B2B messages between partners using workflows in Azure Logic Apps
+# Automate B2B messages between trading partners using workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-When you have an integration account that defines trading partners and agreements, you can create an automated business-to-business (B2B) workflow that exchanges messages between trading partners by using Azure Logic Apps. Your workflow can use connectors that support industry-standard protocols, such as AS2, X12, EDIFACT, and RosettaNet. You can also include operations provided by other [connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors), such as Office 365 Outlook, SQL Server, and Salesforce.
+For business-to-business (B2B) integrations, you can automate communication between trading partners by building workflows with B2B artifacts and industry-standard protocols in Azure Logic Apps.
 
-This article creates an example logic app workflow that can receive HTTP requests by using a **Request** trigger, decode message content by using the **AS2 Decode** and **Decode X12** actions, and return a response by using the **Response** action. The example uses the workflow designer in the Azure portal. You can follow similar steps for the workflow designer in Visual Studio Code.
+For example, you can create an integration account to define artifacts such as trading partners, agreements, maps, and schemas. Workflows support protocols such as AS2, X12, EDIFACT, and RosettaNet. Create end-to-end integrations by combining these B2B capabilities with [1,400+ connectors available in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors), such as Office 365 Outlook, SQL Server, and Salesforce.
 
-If you're new to logic apps, see [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, see [B2B enterprise integration workflows and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
+This guide shows how to create an example B2B workflow that can complete the following tasks:
+
+- Receive HTTPS requests with the **Request** trigger named **When an HTTP request is received**.
+- Decode incoming message content with the **AS2 (v2)** action named **AS2 Decode** and the **X12** action named **Decode X12**.
+- Return a response to the caller with the **Response** action.
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts for use in your enterprise integration and B2B workflows. Artifacts include trading partners, agreements, and certificates. This resource has to meet the following requirements:
+- The logic app resource and blank workflow where you want to build the B2B integration in this example.
 
-  - Is associated with the same Azure subscription as your logic app resource.
+  The **AS2 (v2)** and **X12** operations don't include any triggers. Your workflow can start with any trigger or use any action to receive messages.
 
-  - Exists in the same location or Azure region as your logic app resource.
+  The examples in this article use the **Request** trigger named **When an HTTP request is received**.
 
-  - If you're using a [Consumption Logic App](logic-apps-overview.md#resource-environment-differences), link it to your [integration account](logic-apps-enterprise-integration-create-integration-account.md#link-account).
+  For more information, see:
 
-  - If you're using a [Standard Logic App](logic-apps-overview.md#resource-environment-differences), your integration account doesn't need a link to your logic app resource. You still need one to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), or [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. Your integration account has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
+  - [Create a Consumption logic app workflow using the Azure portal](quickstart-create-example-consumption-workflow.md)
 
-  > [!NOTE]
-  >
-  > Currently, only Consumption logic apps support [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
+  - [Create a Standard logic app workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md)
 
-- At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. The definitions for both partners must use the same *business identity* qualifier, which is AS2, X12, EDIFACT, or RosettaNet.
+- An [integration account resource](enterprise-integration/create-integration-account.md) to define and store artifacts for enterprise integration and B2B workflows.
 
-- An [AS2 agreement and X12 agreement](logic-apps-enterprise-integration-agreements.md) for the partners that you're using in this workflow. Each agreement requires a host partner and a guest partner.
+  - Both the integration account and logic app resource must exist in the same Azure subscription and Azure region.
 
-- A logic app resource with a blank workflow where you can add the [Request](../connectors/connectors-native-reqres.md) trigger and the following actions:
+  - Defines at least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. The definitions for both partners must use the same *business identity* qualifier, such as AS2, X12, EDIFACT, or RosettaNet.
 
-  - [AS2 Decode](../logic-apps/logic-apps-enterprise-integration-as2.md)
+  - Defines an [AS2 agreement and X12 agreement](logic-apps-enterprise-integration-agreements.md) between the trading partners that participate in your workflow. Each agreement requires a host partner and a guest partner.
 
-  - [Condition](../logic-apps/logic-apps-control-flow-conditional-statement.md), which sends a [Response](../connectors/connectors-native-reqres.md) based on whether the AS2 Decode action succeeds or fails
+    The content in the messages between the partners must match the agreement type. For information about agreement settings to use when receiving and sending messages, see:
+    
+    - [AS2 message settings](logic-apps-enterprise-integration-as2-message-settings.md)
+    - [X12 message settings](logic-apps-enterprise-integration-x12-message-settings.md)
 
-  - [Decode X12 message](../logic-apps/logic-apps-enterprise-integration-x12.md)
+- Before you start working with the AS2 and X12 operations, you must [link your Consumption logic app](enterprise-integration/create-integration-account.md?tabs=consumption#link-account) or [link your Standard logic app](enterprise-integration/create-integration-account.md?tabs=standard#link-account) to the integration account so you can work with artifacts such as trading partners and agreements. You can link an integration account to multiple Consumption or Standard logic app resources to share the same artifacts.
+
+  When you add the AS2 and X12 operations, you might have to create a connection to the integration account:
+
+  | Logic app workflow | Connection required? |
+  |--------------------|----------------------|
+  | Consumption | - AS2 (v2) connector: No connection required <br><br>- X12 connector: Connection required |
+  | Standard | - AS2 (v2) connector: No connection required <br><br>- X12 connector: Connection required | 
 
 <a name="add-request-trigger"></a>
 
 ## Add the Request trigger
 
-To start the workflow in this example, add the request trigger.
+To start the workflow in this example, add the **Request** trigger.
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-1. Add the **When an HTTP request is received** trigger to your workflow. To add a trigger, see [Add a trigger to start your workflow](add-trigger-action-workflow.md#add-a-trigger-to-start-your-workflow).
+1. In the designer, open your workflow. Follow these [general steps](add-trigger-action-workflow.md#add-trigger) to add the **Request** built-in trigger named **When an HTTP request is received** to your workflow.
 
-1. In the trigger, leave the **Request Body JSON Schema** box empty, because the trigger receives an X12 message in flat file format.
+   The trigger information pane opens with the **Parameters** tab selected.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/request-trigger.png" alt-text="Screenshot showing multi-tenant designer and Request trigger properties." lightbox="./media/logic-apps-enterprise-integration-b2b/request-trigger.png":::
+1. Leave the trigger's **Request Body JSON Schema** parameter empty because the trigger receives X12 messages in flat file format.
 
-1. When you're done, on the designer toolbar, select **Save**.
+   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/request-trigger.png" alt-text="Screenshot shows Azure portal, workflow designer, and Request trigger parameters." lightbox="./media/logic-apps-enterprise-integration-b2b/request-trigger.png":::
 
-   This step generates the **HTTP POST URL** that you later use to send a request that triggers logic app workflow.
+1. Save your workflow. On the designer toolbar, select **Save**.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/request-trigger-generated-url.png" alt-text="Screenshot showing multi-tenant designer and generated URL for Request trigger." lightbox="./media/logic-apps-enterprise-integration-b2b/request-trigger-generated-url.png":::
+   This step generates the **HTTP POST URL**, which you later use to send a request that triggers the workflow.
 
-1. Copy and save the URL to use later.
+   :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/request-trigger-generated-url.png" alt-text="Screenshot shows workflow designer, Request trigger parameters, and generated URL for Request trigger." lightbox="./media/logic-apps-enterprise-integration-b2b/request-trigger-generated-url.png":::
+
+1. Copy and save the URL for later use.
 
 <a name="add-decode-as2-trigger"></a>
 
