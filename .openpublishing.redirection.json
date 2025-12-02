@@ -6552,7 +6552,7 @@
     },
     {
       "source_path": "articles/dns/dns-sdk.md",
-      "redirect_url": "https://learn.microsoft.com/dotnet/api/overview/azure/resourcemanager.dns-readme?view=azure-dotnet",
+      "redirect_url": "https://learn.microsoft.com/dotnet/api/overview/azure/resourcemanager.dns-readme",
       "redirect_document_id": false
     }
     
