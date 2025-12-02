@@ -15,8 +15,6 @@ ms.date: 06/24/2025
 
 This article outlines Microsoft's planned feature releases to support enterprise development and testing teams with Azure DevTest Labs. DevTest Labs lets teams self-serve customized test machines in the cloud while following governance policies. This list highlights the key features we're developing in the next six months. Some features might be previews and can change based on feedback before general release. We value your input, so timing and priorities might change.
 
-## Recently Shipped
-
 The following capabilities and improvements have recently been released to support customers using DevTest Labs at scale:
 - [Enhancing Security and streamlining Configuration with Lab Secrets](https://devblogs.microsoft.com/develop-from-the-cloud/%f0%9f%8e%89enhancing-security-and-streamlining-configuration-with-lab-secrets-in-azure-devtest-labs/)
 - [Virtual Machine Management with Multi-Select, Sorting, Grouping, and Tags](https://devblogs.microsoft.com/develop-from-the-cloud/elevate-your-virtual-machine-management-with-multi-select-sorting-grouping-and-tags-in-azure-devtest-labs/)
@@ -25,9 +23,7 @@ The following capabilities and improvements have recently been released to suppo
 - [Support for Generation 2 VMs](https://devblogs.microsoft.com/develop-from-the-cloud/unlock-key-capabilities-via-generation-2-vms-in-azure-devtest-labs/)
 - [Reduce costs with hibernation support](https://devblogs.microsoft.com/develop-from-the-cloud/reduce-costs-with-hibernation-in-azure-devtest-labs/)
 
-## Coming Soon 
-
-We are currently working on enhancements informed by customer feedback. These improvements are focused on maintaining service quality and supporting common DevTest Labs usage patterns.
+The DevTest Labs team continues to focus on maintaining service quality and supporting common DevTest Labs usage patterns.
 
 - **Multiple Shared Image Gallery (SIG) support:** This feature lets lab owners attach more than one shared image gallery (SIG) to a DevTest Lab. Platform engineering teams can better organize images by team, product, or use case. This approach improves governance, simplifies image maintenance, and gives teams more flexibility in managing and accessing the right VM images for their workflows.
 - **Modify VM expiration date in the Azure portal:** This feature allows users to easily update the expiration date of their virtual machines directly from the Azure portal. While already supported via API, this enhancement brings a user-friendly interface to manage VM lifecycles more intuitively, helping teams reduce costs and clean up unused resources without needing manual API calls.
