@@ -130,13 +130,13 @@ In this section, you add a private endpoint to an existing Azure Managed Redis i
 
 1. After the green **Validation passed** message appears, select **Create**.
 
-## Setting the public network access
+## Enabling public network access
 
 With the `publicNetworkAccess` property, you can restrict public IP traffic independently of private links to Virtual Networks (VNets).
 
 Previously, Azure Managed Redis was designed with two exclusive network configurations: enabling public traffic required private endpoints to be disabled; and enabling private endpoints automatically restricted all public access. This setting ensured clear network boundaries, but it limited flexibility for scenarios like migrations where both public and private access are needed simultaneously.
 
-The following network configurations are now supported:
+With `publicNetworkAccess`, the following network configurations are now supported:
 
 - Public traffic without Private Links
 - Public traffic with Private Links
