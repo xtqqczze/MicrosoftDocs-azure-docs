@@ -4,7 +4,7 @@ description: Troubleshoot errors when replicating Azure virtual machines for dis
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 09/19/2025
+ms.date: 11/27/2025
 ms.author: v-gajeronika
 ms.custom:
   - engagement-fy23
@@ -294,6 +294,70 @@ The Site Recovery Mobility service has many components, one of which is called t
 > This is only a warning. The existing replication continues to work even after the new agent update. You can choose to restart whenever you want the benefits of the new filter driver, but the old filter driver keeps working if you don't restart.
 >
 > Apart from the filter driver, the benefits of any other enhancements and fixes in the Mobility service update take effect without requiring a restart.
+
+## Protection not enabled if replica managed disk exists
+
+This error occurs when the replica managed disk already exists, without expected tags, in the target resource group.
+
+### Possible cause
+
+This problem can occur if the virtual machine was previously protected, and when replication was disabled, the replica disk wasn't removed.
+
+### Fix the problem
+
+Delete the replica disk identified in the error message and retry the failed protection job.
+
+## Enable protection failed as the installer is unable to find the root disk (error code 151137)
+
+This error occurs for Linux machines where the OS disk is encrypted using Azure Disk Encryption (ADE). This is a valid issue in Agent version 9.35 only.
+
+### Possible Causes
+
+The installer is unable to find the root disk that hosts the root file-system.
+
+### Fix the problem
+
+Perform the following steps to fix this issue.
+
+1. Find the agent bits under the directory _/var/lib/waagent_ on RHEL machines using the below command: <br>
+
+	`# find /var/lib/ -name Micro\*.gz`
+
+   Expected output:
+
+	`/var/lib/waagent/Microsoft.Azure.RecoveryServices.SiteRecovery.LinuxRHEL7-1.0.0.9139/UnifiedAgent/Microsoft-ASR_UA_9.35.0.0_RHEL7-64_GA_30Jun2020_release.tar.gz`
+
+2. Create a new directory and change the directory to this new directory.
+3. Extract the Agent file found in the first step here, using the below command:
+
+    `tar -xf <Tar Ball File>`
+
+4. Open the file _prereq_check_installer.json_ and delete the following lines. Save the file after that.
+
+    ```
+       {
+          "CheckName": "SystemDiskAvailable",
+          "CheckType": "MobilityService"
+       },
+    ```
+5. Invoke the installer using the command: <br>
+
+    `./install -d /usr/local/ASR -r MS -q -v Azure`
+6. If the installer succeeds, retry the enable replication job.
+
+## ProtectionContainerNameLengthExceeded (error code 150257)
+
+```Output
+Protection container name <protectionContainerName> is not valid.
+```
+
+### Possible causes
+
+Protection container name exceeds the maximum permissible length of **protectionContainerNameMaxLength** characters.
+
+### Fix the problem
+
+Choose a different name and reattempt the operation.
 
 ## Troubleshoot and handle time changes on replicated servers
 
