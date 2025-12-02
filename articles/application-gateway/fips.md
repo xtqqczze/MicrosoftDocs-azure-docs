@@ -19,9 +19,9 @@ Application Gateway V2 SKUs can run in a FIPS (Federal Information Processing St
 | ---------- | ---------- | ---------- |
 | Azure Government (Fairfax) | Supported | Enabled for deployments through Portal |
 | Public | Supported | Disabled |
-| Microsoft Azure operated by 21Vianet (Mooncake) | Supported | Disabled |
+| Microsoft Azure operated by 21Vianet | Supported | Disabled |
 
-Since FIPS 140 is mandatory for US federal agencies, Application Gateway V2 has FIPS mode enabled by default in Azure Government (Fairfax) cloud. Customers can disable FIPS mode if they have legacy clients using older cipher suites, though it'sn't recommended. As part of the FedRAMP compliance, the US Government mandates that systems operate in a [FIPS-approved mode](/azure/compliance/offerings/offering-fips-140-2) after August 2024.
+Since FIPS 140 is mandatory for US federal agencies, Application Gateway V2 has FIPS mode enabled by default in Azure Government (Fairfax) cloud. Customers can disable FIPS mode if they have legacy clients using older cipher suites, though it isn't recommended. As part of the FedRAMP compliance, the US Government mandates that systems operate in a [FIPS-approved mode](/azure/compliance/offerings/offering-fips-140-2) after August 2024.
 
 For rest of the clouds, customers must opt in to enable the FIPS mode.
 
@@ -71,9 +71,6 @@ To control the FIPS mode setting through Azure portal,
 1. Navigate to your application gateway resource.
 2. Open the Configuration blade in the left menu pane.
 3. Switch the FIPS mode toggle as "Enabled".
-
-> [!NOTE]
-> * FIPS management through PowerShell is coming soon.
 
 ## Next steps
 
