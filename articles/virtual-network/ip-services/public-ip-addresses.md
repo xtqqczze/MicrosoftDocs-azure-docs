@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 # Public IP addresses
 
-Public IP addresses allow Internet resources to communicate inbound to Azure resources. Public IP addresses enable Azure resources to communicate to Internet and public-facing Azure services. For your Azure resources which are associated with public IP addresses, these Public IPs remain dedicated exclusively to the resource until you unassign it or delete the resource.
+Public IP addresses allow Internet resources to communicate inbound to Azure resources. Public IP addresses enable Azure resources to communicate to internet and public-facing Azure services. For your Azure resources which are associated with public IP addresses, these public IPs remain dedicated exclusively to the resource until you unassign it or delete the resource.
 
 A resource without an assigned public IP can still communicate outbound; in these instances, Azure automatically assigns an available dynamic IP address for outbound communication. This dynamically assigned address isn't dedicated to the resource and can change over time. For more information about outbound connections in Azure, see [Understand outbound connections](../../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
