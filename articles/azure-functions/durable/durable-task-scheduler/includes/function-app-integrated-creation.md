@@ -19,10 +19,11 @@ ms.date: 03/19/2025
    | Resource Group | Select an existing resource group or click **Create new** to create a new one. | 
    | Function App name | Create a unique name for your function app. | 
    | Do you want to deploy code or container image? | Keep the **Code** option selected. | 
+   | Region | Select [one of the supported regions](../durable-task-scheduler.md#limitations-and-considerations). | 
    | Runtime stack | Select the runtime you're using for this quickstart. | 
    | Version | Select your runtime stack version. | 
-   | Region | Select [one of the supported regions](../durable-task-scheduler.md#limitations-and-considerations). | 
-   | Operating System | Select your operating system. | 
+   | Instance size | Select an instance size, or use the default selection. [Learn more about instance sizes.](../../../flex-consumption-plan.md#instance-sizes) | 
+   | Zone Redundancy | Leave as the default **Disabled** setting. | 
 
 1. Select the **Durable Functions** tab. 
 
