@@ -127,7 +127,7 @@ There are required fields (identified with a red asterisk) in each section that 
 
 ### Metrics and logs tab (optional)
 
-If you wish, you can configure resources to send metrics/logs to Datadog. For more information, see [Monitoring Azure Native Integrations](../metrics-logs.md).
+If you wish, you can configure resources to send metrics/logs to Datadog. For more information, see [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
 
 Enter the names and values for each *Action* listed under Metrics and Logs.
 

@@ -181,3 +181,6 @@ You can also request support in the Azure portal from the [resource overview](#r
 
 Select **Support + Troubleshooting** from the service menu, then choose the link to [log a support request in the New Relic portal](https://support.newrelic.com/).
 
+## Related content
+- [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
+

@@ -106,7 +106,7 @@ Select **Elastic Observability**.
 
 ### Logs & metrics tab (optional)
 
-You can configure resources to send metrics and logs to Elastic. For more information, see [Monitoring Azure Native Integrations](../metrics-logs.md).
+You can configure resources to send metrics and logs to Elastic. For more information, see [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
 
 - Select **Send subscription activity logs**.
 - Select **Send Azure resource logs for all defined sources** (default).

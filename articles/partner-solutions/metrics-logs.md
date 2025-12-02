@@ -9,7 +9,7 @@ ai-usage: ai-assisted
 
 ---
 
-# Monitoring Azure Native Integrations
+# Monitor & Observe Azure resources with Azure Native Integrations
 
 Monitoring and observability are essential for managing modern cloud environments. Azure integrates with leading partner solutions to provide comprehensive metrics and logs collection. These integrations enable centralized visibility, actionable insights, and streamlined troubleshooting across your Azure resources. 
 

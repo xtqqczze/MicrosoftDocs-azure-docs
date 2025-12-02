@@ -62,7 +62,7 @@ There are required fields (identified with a red asterisk) that you need to fill
 
 ### Metrics and logs tab (optional)
 
-If you wish, you can configure resources to send metrics/logs to Dynatrace. For more information, see [Monitoring Azure Native Integrations](../metrics-logs.md).
+If you wish, you can configure resources to send metrics/logs to Dynatrace. For more information, see [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
 
 - Select **Enable metrics collection** to set up monitoring of platform metrics.
 - Select **Subscription activity logs** to send subscription-level logs to Dynatrace.
