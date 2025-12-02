@@ -130,39 +130,41 @@ After you create your schema, upload the schema based on your workflow:
 
 ## Add a flat file decoding action
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
-1. If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first. Flat file operations don't have any triggers available.
+1. In the designer, open your workflow.
 
-   This example uses the **Request** trigger named **When an HTTP request is received**. To add a trigger, see [Add a trigger to start your workflow](add-trigger-action-workflow.md#add-a-trigger-to-start-your-workflow).
+   If your workflow doesn't have a trigger or any other actions that your workflow needs, add those operations first.
 
-1. On the workflow designer, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the built-in action **Flat File Decoding**.
+   This example uses the **Request** trigger named **When an HTTP request is received**. To add a trigger, see [Add a trigger to start your workflow](add-trigger-action-workflow.md#add-trigger).
 
-1. In the action's **Content** property, provide the output from the trigger or a previous action that you want to decode by following these steps:
+1. In the designer, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the built-in action named **Flat File Decoding**.
+
+1. In the action's **Content** parameter, provide the XML content to encode, either as output from the trigger or from a previous action by following these steps:
 
    1. Select inside the **Content** box, then select the lightning icon to open the dynamic content list.
 
-   1. From the dynamic content list, select the flat file content that you want to decode.
+   1. From the dynamic content list, select the XML content to decode.
    
-      For this example, from the dynamic content list, under **When an HTTP request is received**, select the **Body** token, which represents the body content output from the trigger.
+   The following example shows the opened dynamic content list, the output from the **When an HTTP request is received** trigger, and the selected **Body** content from the trigger output.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-content-to-decode.png" alt-text="Screenshot showing the workflow designer and Content property with dynamic content list and content selected for decoding." lightbox="./media/logic-apps-enterprise-integration-flatfile/select-content-to-decode.png":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-content-to-decode.png" alt-text="Screenshot shows the Azure portal, workflow designer, Flat File Decoding action, and Content parameter with dynamic content list and content selected for decoding." lightbox="./media/logic-apps-enterprise-integration-flatfile/select-content-to-decode.png":::
 
    > [!NOTE]
    >
-   > If the **Body** property doesn't appear in the dynamic content list, select **See more** next to the **When an HTTP request is received** section label. You can also directly enter the content to decode in the **Content** box.
+   > If **Body** doesn't appear in the dynamic content list, select **See more** next to the **When an HTTP request is received** section label. You can also directly enter the content to decode in the **Content** box.
 
 1. From the **Schema Name** list, select your schema.
 
-   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema.png" alt-text="Screenshot showing workflow designer and opened Schema Name list with selected schema for decoding." lightbox="./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema.png":::
+   :::image type="content" source="./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema.png" alt-text="Screenshot shows the designer and opened Schema Name list with selected schema for decoding." lightbox="./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema.png":::
 
    > [!NOTE]
    >
    > If the schema list is empty, the cause might be:
    >
-   > - Your logic app resource isn't linked to your integration account.
-   > - Your integration account doesn't contain any schema files.
-   > - Your logic app resource doesn't contain any schema files (Standard Logic Apps only).
+   > - The logic app resource isn't linked to an integration account.
+   > - The linked integration account doesn't contain any schema files.
+   > - The logic app resource doesn't contain any schema files. This reason applies only to Standard logic apps.
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -175,7 +177,7 @@ You're now done with setting up your flat file decoding action. In a real world 
 
 To trigger your workflow, follow these steps:
 
-1. In the **Request** trigger, find the **HTTP POST URL** property, and copy the URL.
+1. In the **Request** trigger, find the **HTTP POST URL** parameter, and copy the URL.
 
 1. Open your HTTP request tool and use its instructions to send an HTTP request to the copied URL, including the method that the **Request** trigger expects.
 
@@ -187,7 +189,4 @@ To trigger your workflow, follow these steps:
 
 ## Related content
 
-- Learn more about the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
-
-
-
+- [Process XML messages and flat files in Azure Logic Apps](logic-apps-enterprise-integration-xml.md)
