@@ -22,7 +22,7 @@ For example, you can create an integration account to define artifacts such as t
 This guide shows how to create an example B2B workflow that can complete the following tasks:
 
 - Receive HTTPS requests with the **Request** trigger named **When an HTTP request is received**.
-- Decode incoming message content with the **AS2 (v2)** action named **AS2 Decode** and the **X12** action named **Decode X12**.
+- Decode incoming message content with the **AS2 (v2)** decode action and the **X12** decode action.
 - Return a response to the caller with the **Response** action.
 
 ## Prerequisites
@@ -67,7 +67,7 @@ This guide shows how to create an example B2B workflow that can complete the fol
 
 ## Add the Request trigger
 
-To start the workflow in this example, add the **Request** trigger.
+To start the workflow in this example, add the [**Request** trigger](../connectors/connectors-native-reqres.md).
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource.
 
@@ -91,41 +91,54 @@ To start the workflow in this example, add the **Request** trigger.
 
 ## Add the decode AS2 action
 
-Now add the B2B actions for this example, which uses the AS2 and X12 actions.
+Follow these steps to add the [**AS2 Decode** action](logic-apps-enterprise-integration-as2.md).
 
-1. Under the trigger, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the action **AS2 Decode**.
+1. Under the **Request** trigger, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the following **AS2 (v2)** built-in action, based on your workflow type:
 
-1. In the action's **Message to decode** property, enter the input that you want the AS2 action to decode, which is the `body` output from the Request trigger. You can specify this content as the action's input either by selecting from the dynamic content list or as an expression:
+   | Workflow | Action name |
+   |----------|-------------|
+   | Consumption | **AS2 Decode** |
+   | Standard | **Decode AS2** |
 
-   - To select from a list that shows the available trigger outputs, select inside the **Message to decode** box. Then select the lightning icon to open the dynamic content list. Under **When an HTTP request is received**, select **Body** property value:
+1. In the action's **Message to decode** parameter, provide the message content to decode.
 
-     :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/select-trigger-output-body.png" alt-text="Screenshot showing multi-tenant designer with dynamic content list and Body property selected." lightbox="./media/logic-apps-enterprise-integration-b2b/select-trigger-output-body.png":::
+   This example specifies the body content from the **Request** trigger output. You can provide this content either by selecting from the dynamic content list or entering an expression:
 
-     > [!TIP]
-     >
-     > If no trigger outputs appear, in the dynamic property list, under **When an HTTP request is received**, select **See more**.
+   - To choose output from previous operations, follow these steps for the dynamic content list:
+   
+     1. Select inside the **Message to decode** box, then select the lightning icon to open the dynamic content list.
 
-   - To enter an expression that references the trigger's `body` output, select inside the **Message to decode** box. Then select the expression icon. In the expression editor, enter the following expression, and select **Add**:
+     1. Under **When an HTTP request is received**, select **Body**, for example:
 
-     `triggerOutputs()['body']`
+        :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/select-trigger-output-body.png" alt-text="Screenshot shows workflow designer, Request trigger parameters, and dynamic content list with Body parameter selected." lightbox="./media/logic-apps-enterprise-integration-b2b/select-trigger-output-body.png":::
 
-     Or, in the **Message to decode** box, directly enter the following expression:
+        > [!NOTE]
+        >
+        > If **Body** doesn't appear in the dynamic property list, next to the **When an HTTP request is received** section label, select **See more**.
 
-     `@triggerBody()`
+   - To enter an expression that references the content in the `body` property from the **Request** trigger output, follow these steps:
+   
+     1. Select inside the **Message to decode** box, then select the function icon to open the expression editor.
 
-1. In the action's **Message headers** property, enter any headers required for the AS2 action, which are in the `headers` output from the request trigger.
+     1. In the editor box, enter the following expression, and select **Add**:
 
-   1. To enter an expression that references the trigger's `headers` output, select **Switch Message headers to text mode**.
+        `triggerOutputs()['body']`
 
-      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/switch-text-mode.png" alt-text="Screenshot showing multi-tenant designer with Switch Message headers to text mode selected." lightbox="./media/logic-apps-enterprise-integration-b2b/switch-text-mode.png":::
+1. In the action's **Message headers** parameter, enter any headers that the AS2 action requires. You can find these values in the `headers` property from the **Request** trigger output by following these steps:
 
-   1. Select inside the **Message headers** box. Select the Expression icon. In the expression editor, enter the following expression, and select **Add**:
+   1. In the **Message headers** section, select **Switch Message headers to text mode**:
+
+      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/switch-text-mode.png" alt-text="Screenshot shows AS2 decode action with Switch Message headers to text mode selected." lightbox="./media/logic-apps-enterprise-integration-b2b/switch-text-mode.png":::
+
+   1. Select inside the **Message headers** box, then select the function icon to open the expression editor.
+   
+   1. In the editor box, enter the following expression, and select **Add**:
 
       `triggerOutputs()['Headers']`
 
-      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/header-expression.png" alt-text="Screenshot showing multi-tenant designer and the Message headers box with the @triggerOutputs()['Headers'] token." lightbox="./media/logic-apps-enterprise-integration-b2b/header-expression.png":::
+      :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/header-expression.png" alt-text="Screenshot shows the Message headers box with an expression that references the headers in trigger output." lightbox="./media/logic-apps-enterprise-integration-b2b/header-expression.png":::
 
-   1. To get the expression token to resolve into the Headers token, in the designer menu, select **Code view**, then select **Designer**.
+   1. To resolve the expression into `Headers` token, on the designer toolbar, select **Code view** > **Designer**.
 
 <a name="add-response-action"></a>
 
