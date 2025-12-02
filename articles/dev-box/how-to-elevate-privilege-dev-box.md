@@ -54,13 +54,13 @@ To license and configure the Microsoft Intune Endpoint Privilege Management add-
 1. In the Microsoft 365 admin center, go to **Billing** > **Your products**, and select **Microsoft Intune Endpoint Privilege Management**.
 1. On the **Microsoft Intune Endpoint Privilege Management** page, select **Assign licenses**. You can also buy more licenses here by selecting **Buy licenses**.
 1. On the **Users** tab, select **Assign licenses**.
-1. On the **Assign licenses to users** screen, select up to 20 users at a time and then select **Assign licenses**.
+1. On the **Assign licenses to users** screen, select up to 20 users at a time, and then select **Assign licenses**.
 
    :::image type="content" source="media/how-to-elevate-privilege-dev-box/assign-license.png" alt-text="Screenshot that shows assigning a Microsoft Intune Endpoint Privilege Management license.":::
 
 ## Deploy an elevation settings policy
 
-To process elevation policy rules or requests, a dev box must have an elevation settings policy that enables Endpoint Privilege Management. Enabling this support installs the Endpoint Privilege Management agent, which processes the policy on the device. an elevation settings policy lets you configure settings that are specific to the client but aren't necessarily related to the elevation of individual applications or tasks.
+To process elevation policy rules or requests, a dev box must have an elevation settings policy that enables Endpoint Privilege Management. Enabling this support installs the Endpoint Privilege Management agent, which processes the policy on the device. An elevation settings policy lets you configure settings that are specific to the client but aren't necessarily related to the elevation of individual applications or tasks.
 
 The following procedures:
 
