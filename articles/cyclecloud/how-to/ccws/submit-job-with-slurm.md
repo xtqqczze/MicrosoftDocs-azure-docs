@@ -18,7 +18,7 @@ Before starting, you need:
 - SSH key pair configured during deployment
 - Access to the CycleCloud VM or Azure Bastion
 
-For instructions on how to deploy, see [deployment quickstart](../../qs-deploy-ccws) to set up your environment.
+For instructions on how to deploy, see [deployment quickstart](../../qs-deploy-ccws.md) to set up your environment.
 
 ## Understanding the cluster components
 
@@ -41,7 +41,7 @@ Your cluster comes with preconfigured partitions (resource pools) designed for d
 | **HPC** | Tightly coupled parallel jobs using MPI (simulations, modeling) | HPC-optimized VMs with InfiniBand (HBv3, HBv4, HBv5) |
 | **GPU** | Machine learning, deep learning, GPU-accelerated computing | GPU VMs (NC-series, ND-series) |
 
-For partition configuration options, see [Slurm Scheduler Integration](../../slurm) for partition configuration options.
+For partition configuration options, see [Slurm Scheduler Integration](../../slurm.md) for partition configuration options.
 
 ---
 
