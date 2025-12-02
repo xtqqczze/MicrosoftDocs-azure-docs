@@ -23,7 +23,7 @@ Azure DNS supports both internet-facing DNS domains and private DNS zones, and p
 
 - **[Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview)** is a DNS-based traffic load balancer. This service allows you to distribute traffic to your public facing applications across the global Azure regions.
 
-- **[DNS Security Policy](dns-security-policy.md)** offers the ability to filter and log DNS queries at the virtual network level. 
+- **[DNS Security Policy](dns-security-policy.md)** offers the ability to filter and log DNS queries at the virtual network level. It also includes a Threat Intelligence feed which allows early detection and prevention of security incidents on your Virtual Networks where known malicious domains sourced by [Microsoft’s Security Response Center (MSRC)](https://www.microsoft.com/msrc) can be blocked from name resolution. 
 
 Azure DNS enables multiple scenarios, including:
 
