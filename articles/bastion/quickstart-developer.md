@@ -47,7 +47,6 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 You need a VM in a virtual network to connect to using Bastion Developer. When you connect with Bastion Developer, the configuration values are pulled from the virtual network in which your VM resides. Make sure the VM is in a resource group that's in a region where Bastion Developer is supported.
 
 * If you don't already have a VM in a virtual network, create one using [Quickstart: Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal) or [Quickstart: Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal).
-* If you need example values, see the [Example values](#example-values) section.
 * If you already have a virtual network, make sure it's selected on the Networking tab when you create your VM.
 * If you don't have a virtual network, you can create one at the same time you create your VM.
 * If you have a virtual network, make sure you have the rights to write to it.
