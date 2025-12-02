@@ -301,7 +301,7 @@ You can now use Maven to deploy your code project to your existing app.
     mvn clean package azure-functions:deploy
     ```
 
-1. After your deployment succeeds, run this command to get the URL endpoint value, including the access key:
+1. After your deployment succeeds, run this Core Tools command to get the URL endpoint value, including the access key:
 
     ```
     func azure functionapp list-functions <APP_NAME> --show-keys
@@ -314,7 +314,7 @@ You can now use Maven to deploy your code project to your existing app.
 
 ## Invoke the function on Azure
 
-Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL. It's easiest to do execute a GET request in a browser. 
+Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL using the function-level access key. It's easiest to do execute a GET request in a browser. 
 
 Paste the URL and access key you copied into a browser address bar. 
 
