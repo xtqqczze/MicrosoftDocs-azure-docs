@@ -2,7 +2,7 @@
 title: Azure Managed Redis with Azure Private Link
 description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal with a managed Redis cache.
 ms.date: 12/01/2025
-ms.topic: conceptual
+ms.topic: article
 ai-usage: ai-assisted
 ms.custom:
   - ignite-2024
