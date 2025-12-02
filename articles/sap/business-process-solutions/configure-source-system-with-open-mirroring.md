@@ -12,7 +12,7 @@ ms.author: momakhij
 
 # Configure SAP source system with Open Mirroring
 
-In this article, we'll describe the steps required to configure SAP S/4 Hana and SAP ECC source system with Open Mirroring. This document contains details on how to set up the source system connection in your Business Process Solution item.
+This article describes how to configure SAP S/4HANA and SAP ECC source systems using Open Mirroring. In this scenario, Business Process Solutions processes the extracted data, while data ingestion is handled by third-party tools. Data extraction should be configured directly within your chosen extraction solution.
 
 ## Configure SAP S/4 HANA source system with Open Mirroring
 
@@ -20,31 +20,31 @@ Follow the steps below to configure your SAP S/4 HANA source system with Open Mi
 
 1. On the home screen, click on Configure source system button.
 2. Click on the New source system button.
-   :::image type="content" source="./media/configure-source-system-with-open-mirroring/create-source-system.png" alt-text="New source system button" lightbox="./media/configure-source-system-with-open-mirroring/create-source-system.png":::
+   :::image type="content" source="./media/configure-source-system-with-open-mirroring/create-source-system.png" alt-text="Screenshot showing the new source system button." lightbox="./media/configure-source-system-with-open-mirroring/create-source-system.png":::
 3. Provide the inputs for the fields.
-   :::image type="content" source="./media/configure-source-system-with-open-mirroring/create-om-source-system.png" alt-text="Provide SAP S4 HANA inputs for source system" lightbox="./media/configure-source-system-with-open-mirroring/create-om-source-system.png":::
-4. In the System connection section, Select the name of the mirroring partner, you can also enter a custom name here, and add the connection id for the connection we created in the prerequisite step. Finally click on Create button to start the deployment.
-   :::image type="content" source="./media/configure-source-system-with-open-mirroring/enter-om-details.png" alt-text="Enter SQL connection details" lightbox="./media/configure-source-system-with-open-mirroring/enter-om-details.png":::
+   :::image type="content" source="./media/configure-source-system-with-open-mirroring/create-om-source-system.png" alt-text="Screenshot showing the SAP S/4HANA input fields for source system configuration." lightbox="./media/configure-source-system-with-open-mirroring/create-om-source-system.png":::
+4. In the System connection section, Select the name of the mirroring partner, and add the connection ID for the connection we created in the prerequisite step. Finally click on Create button to start the deployment.
+   :::image type="content" source="./media/configure-source-system-with-open-mirroring/enter-om-details.png" alt-text="Screenshot showing how to enter SQL connection details." lightbox="./media/configure-source-system-with-open-mirroring/enter-om-details.png":::
 5. You can monitor the deployment status by refreshing the page using the refresh button.
-   :::image type="content" source="./media/configure-source-system-with-open-mirroring/source-system-creating.png" alt-text="Monitor deployment status" lightbox="./media/configure-source-system-with-open-mirroring/source-system-creating.png":::
+   :::image type="content" source="./media/configure-source-system-with-open-mirroring/source-system-creating.png" alt-text="Screenshot showing the deployment status monitoring view." lightbox="./media/configure-source-system-with-open-mirroring/source-system-creating.png":::
 6. Once the deployment is done, you should be able to see the resources deployed to your workspace.
-   :::image type="content" source="./media/configure-source-system-with-open-mirroring/deployed-resources.png" alt-text="Deployed resources" lightbox="./media/configure-source-system-with-open-mirroring/deployed-resources.png":::
+   :::image type="content" source="./media/configure-source-system-with-open-mirroring/deployed-resources.png" alt-text="Screenshot showing the deployed resources in the workspace." lightbox="./media/configure-source-system-with-open-mirroring/deployed-resources.png":::
 
 ## Configure SAP ECC source system with Open Mirroring
 
 1. On the home screen, click on Configure source system button.
 2. Click on the New source system button.
-   :::image type="content" source="./media/configure-source-system-with-open-mirroring/create-source-system.png" alt-text="Click on new source system button" lightbox="./media/configure-source-system-with-open-mirroring/create-source-system.png":::
+   :::image type="content" source="./media/configure-source-system-with-open-mirroring/create-source-system.png" alt-text="Screenshot showing how to click the new source system button." lightbox="./media/configure-source-system-with-open-mirroring/create-source-system.png":::
 3. Provide the inputs for the fields.
-   :::image type="content" source="./media/configure-source-system-with-open-mirroring/enter-system-details.png" alt-text="Provide SAP ECC inputs for source system" lightbox="./media/configure-source-system-with-open-mirroring/enter-system-details.png":::
-4. In the System connection section, Select the name of the mirroring partner, you can also enter a custom name here, and add the connection id for the connection we created in the prerequisite step. Finally click on Create button to start the deployment.
-   :::image type="content" source="./media/configure-source-system-with-open-mirroring/enter-system-details.png" alt-text="Enter SQL connect for open mirroringion details" lightbox="./media/configure-source-system-with-open-mirroring/enter-system-details.png":::
+   :::image type="content" source="./media/configure-source-system-with-open-mirroring/create-source-system-mirror.png" alt-text="Screenshot showing the SAP ECC input fields for source system configuration." lightbox="./media/configure-source-system-with-open-mirroring/create-source-system-mirror.png":::
+4. In the System connection section, Select the name of the mirroring partner, and add the connection ID for the connection we created in the prerequisite step. Finally click on Create button to start the deployment.
+   :::image type="content" source="./media/configure-source-system-with-open-mirroring/enter-system-details.png" alt-text="Screenshot showing how to enter SQL connection details for open mirroring." lightbox="./media/configure-source-system-with-open-mirroring/enter-system-details.png":::
 5. You can monitor the deployment status by refreshing the page using the refresh button.
-   :::image type="content" source="./media/configure-source-system-with-open-mirroring/source-system-creating.png" alt-text="Monitor deployment status" lightbox="./media/configure-source-system-with-open-mirroring/source-system-creating.png":::
+   :::image type="content" source="./media/configure-source-system-with-open-mirroring/source-system-creating.png" alt-text="Screenshot showing the deployment status monitoring view." lightbox="./media/configure-source-system-with-open-mirroring/source-system-creating.png":::
 6. Once the deployment is done, you should be able to see the resources deployed to your workspace.
 
 ## Next steps
 
-With this configuration, we are ready to proceed with the next steps to configure dataset and relationships.
+Once this configuration is complete, you can proceed to set up the dataset.
 
 - [Configure Dataset in Business Process Solutions](configure-dataset.md)

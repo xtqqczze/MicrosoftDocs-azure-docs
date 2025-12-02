@@ -21,29 +21,29 @@ This section describes the steps to extract data using Azure Data Factory or Ope
 ### SAP with Open Mirroring
 
 Once the resources are created in your workspace, you can start pushing data to your mirrored database. To start processing your parquet files in your mirrored database, we need to enable the replication in the mirrored database, to enable replication, open the mirrored database resource and click on the **Start replication** button.
-:::image type="content" source="./media/run-extraction-data-processing/start-replication.png" alt-text="Start Mirrored Database Replication" lightbox="./media/run-extraction-data-processing/start-replication.png":::
+:::image type="content" source="./media/run-extraction-data-processing/start-replication.png" alt-text="Screenshot showing how to start mirrored database replication." lightbox="./media/run-extraction-data-processing/start-replication.png":::
 After the replication is enabled, wait for 30 minutes for all the tables to get replicated, check the number of records to see if data has been replicated successfully. Once done now you can start data processing. This is applicable for SAP S/4HANA and SAP ECC source systems using Open Mirroring connector.
 
 ### SAP with Azure Data Factory
 
-This section is applicable for source systems where you have configured Azure Data Factory for data extraction. We need to run two pipelines to copy the data from SAP system to our Silver Lakehouse. Open Azure Portal and navigate to the resource group we created when creating the source system. Now open the Azure data factory resource and launch the studio from the overview page. Follow the section to start the data replication.
+This section is applicable for source systems where you have configured Azure Data Factory for data extraction. We need to run two pipelines to copy the data from SAP system to our Silver Lakehouse. Open Azure portal and navigate to the resource group we created when creating the source system. Now open the Azure data factory resource and launch the studio from the overview page. Follow the section to start the data replication:
 
 #### Extract field metadata
 
-Before you start extracting data, you need to process field metadata from the source system to ensure correct data mapping. This pipeline copies the table schema from the DD03ND table in SAP system to the Fabric SQL database.
+Before you start extracting data, you need to process field metadata from the source system to ensure correct data mapping. This pipeline copies the table schema from the DD03ND table in SAP system to the Fabric SQL database:
 
 1. Open Azure Data Factory and navigate to Get field metadata pipeline.
 2. Click Add Trigger to start the processing.
-   :::image type="content" source="./media/run-extraction-data-processing/get-field-meta-data.png" alt-text="Trigger Get field metadata pipeline" lightbox="./media/run-extraction-data-processing/get-field-meta-data.png":::
+   :::image type="content" source="./media/run-extraction-data-processing/get-field-meta-data.png" alt-text="Screenshot showing how to trigger the Get field metadata pipeline." lightbox="./media/run-extraction-data-processing/get-field-meta-data.png":::
 3. The extraction takes couple of minutes, and it fills metadata table. Once completed, you can start data extraction.
 
 #### Extract and process data
 
-Once the field metadata extraction is completed, you can start extracting data from SAP system to the Silver Lakehouse. This pipeline copies the data from SAP system to the Silver Lakehouse in Fabric. Follow the steps to start data extraction.
+Once the field metadata extraction is completed, you can start extracting data from SAP system to the Silver Lakehouse. This pipeline copies the data from SAP system to the Silver Lakehouse in Fabric. Follow the steps to start data extraction:
 
 1. Open Azure Data Factory and navigate to **Orchestration Master** pipeline.
 2. Click Add Trigger to start the processing.
-   :::image type="content" source="./media/run-extraction-data-processing/trigger-orchestration-master.png" alt-text="Trigger Orchestration Master pipeline" lightbox="./media/run-extraction-data-processing/trigger-orchestration-master.png":::
+   :::image type="content" source="./media/run-extraction-data-processing/trigger-orchestration-master.png" alt-text="Screenshot showing how to trigger the Orchestration Master pipeline." lightbox="./media/run-extraction-data-processing/trigger-orchestration-master.png":::
 3. Once the extraction is completed, you should see tables in the Fabric Silver Lakehouse.
 4. You can view the tables using the Lakehouse view or the run SQL queries in the SQL analytics endpoint view.
 
@@ -51,20 +51,20 @@ Once the field metadata extraction is completed, you can start extracting data f
 
 ### SAP S/4 HANA data processing with Azure Data Factory
 
-After your SAP data is replicated using Azure data factory, we need to execute pipelines in order to process the data. Since we have a medallion architecture in Business process solution the data flows from Silver -> Gold Layer. We need to execute the pipelines in the order
+After your SAP data is replicated using Azure data factory, we need to execute pipelines in order to process the data. Since we have a medallion architecture in Business process solution the data flows from Silver -> Gold Layer. We need to execute the following pipeline:
 
-1. **ei_orchestration_pipeline_full_processing** – This pipeline processes and copies data from silver lakehouse to gold lakehouse. Once this pipeline is completed, you should be able to refresh your semantic model and view data in your Power BI reports.
+**ei_orchestration_pipeline_full_processing** – This pipeline processes and copies data from silver lakehouse to gold lakehouse. Once this pipeline is completed, you should be able to refresh your semantic model and view data in your Power BI reports.
 
 ### SAP S/4 HANA data processing with Open Mirroring
 
-After your SAP data is replicated to the mirroring database, we need to execute pipelines in order to process the data. Since we have a medallion architecture in Business process solution the data flows from Bronze -> Silver -> Gold Layers. We need to execute the pipelines in the order
+After your SAP data is replicated to the mirroring database, we need to execute pipelines in order to process the data. Since we have a medallion architecture in Business process solution the data flows from Bronze -> Silver -> Gold Layers. We need to execute the pipelines in the following order:
 
 1. **EI_OM_B2S_Orchestration_Pipeline** – This copies the data from your mirrored database to Silver lakehouse. Once this pipeline is completed, you should be able to see data in your silver lakehouse.
 2. **ei_orchestration_pipeline_full_processing** – This pipeline processes and copies data from silver lakehouse to gold lakehouse. Once this pipeline is completed, you should be able to refresh your semantic model and view data in your Power BI reports.
 
 ### SAP ECC data processing with Open Mirroring
 
-After your ECC data is replicated to the mirroring database, we need to execute pipelines in order to process the data. Since we have a medallion architecture in Business process solution the data flows from Bronze -> Silver -> Gold Layers. We need to execute the pipelines in the order
+After your ECC data is replicated to the mirroring database, we need to execute pipelines in order to process the data. Since we have a medallion architecture in Business process solution the data flows from Bronze -> Silver -> Gold Layers. We need to execute the pipelines in the following order:
 
 1. **EI_ECC_B2S_orchestration_pipeline** – This copies the data from your mirrored database to Silver lakehouse. Once this pipeline is completed, you should be able to see data in your silver lakehouse.
 2. **ei_orchestration_pipeline_full_processing** – This pipeline processes and copies data from silver lakehouse to gold lakehouse. Once this pipeline is completed, you should be able to refresh your semantic model and view data in your Power BI reports.
@@ -73,14 +73,14 @@ After your ECC data is replicated to the mirroring database, we need to execute 
 
 ### Salesforce data extraction with Fabric pipelines
 
-To start the replication process, follow the steps
+To start the replication process, follow the steps:
 
 1. Navigate to the workspace.
 2. Run the pipeline **EI_SF_Salesforce_Data_Pull**, this pipeline pulls the table metadata and data from your salesforce system to the bronze lakehouse.
 
 ### Salesforce data processing with Fabric pipelines
 
-After your Salesforce data is replicated to the bronze lakehouse, we need to execute pipelines in order to process the data. Since we have a medallion architecture in Business process solution the data flows from Bronze -> Silver -> Gold Layers. We need to execute the pipelines in the order
+After your Salesforce data is replicated to the bronze lakehouse, we need to execute pipelines in order to process the data. Since we have a medallion architecture in Business process solution the data flows from Bronze -> Silver -> Gold Layers. We need to execute the pipelines in the following order:
 
 1. **EI_SF_Orchestration_Pipeline_B2S_Processing** – This copies the data from your bronze lakehouse to Silver lakehouse. Once this pipeline is completed you should be able to see data in your silver lakehouse.
 2. **EI_SF_Orchestration_Pipeline_S2G_Dimension_Processing** – This pipeline processes and copies dimension tables from silver lakehouse to gold lakehouse.
