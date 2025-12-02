@@ -6549,6 +6549,11 @@
       "source_path": "articles/vpn-gateway/about-zone-redundant-vnet-gateways.md",
       "redirect_url": "/azure/reliability/reliability-virtual-network-gateway",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/dns/dns-sdk.md",
+      "redirect_url": "https://learn.microsoft.com/dotnet/api/overview/azure/resourcemanager.dns-readme",
+      "redirect_document_id": false
     }
     
   ]
