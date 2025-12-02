@@ -1,7 +1,7 @@
 ---
 title: Host servers built with MCP SDKs on Azure Functions
 description: "Learn how to host servers built with Anthropic MCP SDKs on Azure Functions. This quickstart shows how to deploy MCP SDK based servers as custom handlers in Azure Functions, using serverless scale and security features."
-ms.date: 11/11/2025
+ms.date: 12/02/2025
 ms.topic: quickstart
 ai-usage: ai-assisted
 ms.collection: 
@@ -210,9 +210,9 @@ You can view the complete project template in the [Azure Functions .NET MCP SDK 
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 The MCP server code is defined in the `server.py` file. The server uses the official Python MCP SDK to define weather-related tools. This is the definition of the `get_forecast` tool:
-<!--
+
 :::code language="python" source="~/functions-host-mcp-sdk-python/server.py" range="1-13,23-29,76-110" :::
--->
+
 You can view the complete project template in the [Azure Functions Python MCP SDK hosting](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-python) GitHub repository.
 ::: zone-end   
 ::: zone pivot="programming-language-typescript"
