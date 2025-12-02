@@ -107,7 +107,7 @@ After you create your schema, upload the schema based on your workflow:
 
    > [!NOTE]
    >
-   > If **Body** doesn't appear in the dynamic content list, select **See more** next to the **When an HTTP request is received** section label. You can also directly enter the content to encode in the **Content** box.
+   > If **Body** doesn't appear in the dynamic content list, next to the **When an HTTP request is received** section label, select **See more**. You can also directly enter the content to encode in the **Content** box.
 
 1. From the **Schema Name** list, select your schema.
 
@@ -192,4 +192,5 @@ To trigger your workflow, follow these steps:
 ## Related content
 
 - [Process XML messages and flat files in Azure Logic Apps](logic-apps-enterprise-integration-xml.md)
+
 
