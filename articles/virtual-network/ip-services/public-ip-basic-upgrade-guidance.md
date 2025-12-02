@@ -10,13 +10,13 @@ ms.topic: overview
 author: mbender-ms
 ms.author: mbender
 ms.date: 06/11/2025
-# Customer intent: As an cloud engineer with Basic public IP services, I need guidance and direction on migrating my workloads off basic to Standard SKUs
+# Customer intent: As a cloud engineer with Basic public IP services, I need guidance and direction on migrating my workloads off basic to Standard SKUs
 ---
 
 # Upgrade Basic Public IP Address to Standard SKU in Azure
 
 >[!Important]
->On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. This article will help guide you through the upgrade process.
+>On September 30, 2025, Basic SKU public IPs were retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs as soon as possible. This article will help guide you through the upgrade process. 
 
 
 This article explains how to upgrade your Basic SKU public IPs to Standard SKU. Upgrading to Standard public IPs ensures continued support after retirement and [provides enhanced security and availability](#basic-sku-vs-standard-sku) for your workloads.
@@ -62,7 +62,7 @@ This section lists out some key differences between these two SKUs.
 |---------|---------|---------|
 | **Allocation method** | Static. | For IPv4: Dynamic or Static; For IPv6: Dynamic. |
 | **Security** | Uses *Secure by default* model closed to inbound traffic when used as a frontend. To allow traffic, a [network security group](../network-security-groups-overview.md#network-security-groups) is required (for example, on the NIC of a virtual machine with a Standard SKU public IP attached). | Open by default. Network security groups are recommended but optional for restricting inbound or outbound traffic. |
-| **[Availability zones](../../reliability/availability-zones-overview.md)** | Supported. Standard IPs can be nonzonal, zonal, or zone-redundant. Zone redundant IPs can only be created in [regions where three availability zones](../../reliability/availability-zones-region-support.md) are live. IPs created before availability zones aren't zone redundant. | Not supported. |
+| **[Availability zones](../../reliability/availability-zones-overview.md)** | Supported. Standard IPs can be non-zonal, zonal, or zone-redundant. Zone redundant IPs can only be created in [regions where availability zones](../../reliability/availability-zones-region-support.md) are live. IPs created before availability zones aren't zone redundant. | Not supported. |
 | **[Routing preference](routing-preference-overview.md)** | Supported to enable more granular control of how traffic is routed between Azure and the Internet. | Not supported. |
 | **Global tier** | Supported via [cross-region load balancers](../../load-balancer/cross-region-overview.md).| Not supported. |
 | **[Standard Load Balancer Support](../../load-balancer/skus.md)** | Both IPv4 and IPv6 are supported. | Not supported. |
