@@ -3,8 +3,8 @@ title: Assess your Azure Data Factory pipelines for migration to Fabric
 description: Learn how to check which pipelines are ready to migrate and which ones need attention 
 author: ssindhub
 ms.author: ssrinivasara
-ms.topic: conceptual
-ms.date: 11/18/2024
+ms.topic: article
+ms.date: 12/02/2025
 ms.custom: pipelines
 ---
 
