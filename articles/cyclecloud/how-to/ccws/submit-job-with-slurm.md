@@ -1,12 +1,12 @@
 ---
-title: Configure Open Demand with CycleCloud
-description: How to configure Open OnDemand with CycleCloud
+title: Submit job on CycleCloud with Slurm
+description: How to submit your first job on CycleCloud with Slurm
 author: xpillons
 ms.date: 12/01/2025
 ms.author: padmalathas
 ---
 
-# Submit your first job on Azure CycleCloud with Slurm
+# Submit your first job on CycleCloud with Slurm
 
 This guide walks you through submitting and managing jobs on an Azure CycleCloud cluster running Slurm. Whether you're new to HPC or just new to Azure, you learn how to connect to your cluster, submit jobs, and monitor their progress.
 
