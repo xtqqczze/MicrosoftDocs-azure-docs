@@ -263,35 +263,35 @@ After you've verified that the function runs correctly on your local computer, i
 ::: zone pivot="programming-language-other"  
 ## Compile the custom handler for Azure
 
-+ In this section, you compile your project for deployment to Azure in a function app running Linux. In most cases, you must recompile your binary and adjust your configuration to match the target platform before publishing it to Azure.
+In this section, you compile your project for deployment to Azure in a function app running Linux. In most cases, you must recompile your binary and adjust your configuration to match the target platform before publishing it to Azure.
 
-    ### [Go](#tab/go)
+### [Go](#tab/go)
     
-    In the integrated terminal, compile the handler to Linux/x64. 
-    
-    #### [macOS](#tab/macos)
-    
-    ```bash
-    GOOS=linux GOARCH=amd64 go build handler.go
-    ```
-    
-    #### [Linux](#tab/linux)
-    
-    ```bash
-    GOOS=linux GOARCH=amd64 go build handler.go
-    ```
-    
-    #### [Windows](#tab/windows)
-    
-    ```cmd
-    set GOOS=linux
-    set GOARCH=amd64
-    go build handler.go
-    ```
-    
-    Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
-    
-    ---
+In the integrated terminal, compile the handler to Linux/x64. 
+
+#### [macOS](#tab/macos)
+
+```bash
+GOOS=linux GOARCH=amd64 go build handler.go
+```
+
+#### [Linux](#tab/linux)
+
+```bash
+GOOS=linux GOARCH=amd64 go build handler.go
+```
+
+#### [Windows](#tab/windows)
+
+```cmd
+set GOOS=linux
+set GOARCH=amd64
+go build handler.go
+```
+
+Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
+
+---
 
 A binary named `handler` is created in the function app root.
 
