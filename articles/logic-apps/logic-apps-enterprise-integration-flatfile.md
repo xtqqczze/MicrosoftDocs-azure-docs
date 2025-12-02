@@ -93,7 +93,9 @@ After you create your schema, upload the schema based on your workflow:
 
 1. In the designer, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the built-in action named **Flat File Encoding**.
 
-1. In the action's **Content** parameter, provide the XML content to encode, either as output from the trigger or from a previous action by following these steps:
+   The action information pane opens with the **Parameters** tab selected.
+
+1. In the action's **Content** parameter, provide the XML content to encode, which is either output from the trigger or from a previous action, by following these steps:
 
    1. Select inside the **Content** box, then select the lightning icon to open the dynamic content list.
 
@@ -190,3 +192,4 @@ To trigger your workflow, follow these steps:
 ## Related content
 
 - [Process XML messages and flat files in Azure Logic Apps](logic-apps-enterprise-integration-xml.md)
+
