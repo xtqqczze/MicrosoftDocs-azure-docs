@@ -3,6 +3,7 @@ title: Azure Managed Redis with Azure Private Link
 description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal with a managed Redis cache.
 ms.date: 12/01/2025
 ms.topic: conceptual
+ai-usage: ai-assisted
 ms.custom:
   - ignite-2024
   - build-2025
@@ -129,11 +130,11 @@ In this section, you add a private endpoint to an existing Azure Managed Redis i
 
 1. After the green **Validation passed** message appears, select **Create**.
 
-## PublicNetworkAccess property
+## Setting the public network access
 
-With the new `PublicNetworkAccess` property, you can restrict public IP traffic independently of Private Links to Virtual Networks (VNets).
+With the `publicNetworkAccess` property, you can restrict public IP traffic independently of private links to Virtual Networks (VNets).
 
-Previously, Azure Managed Redis was designed with two exclusive network configurations: enabling public traffic required private endpoints to be disabled, and enabling private endpoints automatically restricted all public access. This setting ensured clear network boundaries but limited flexibility for scenarios like migrations where both public and private access are needed simultaneously.
+Previously, Azure Managed Redis was designed with two exclusive network configurations: enabling public traffic required private endpoints to be disabled; and enabling private endpoints automatically restricted all public access. This setting ensured clear network boundaries, but it limited flexibility for scenarios like migrations where both public and private access are needed simultaneously.
 
 The following network configurations are now supported:
 
@@ -142,27 +143,29 @@ The following network configurations are now supported:
 - Private traffic without Private Links
 - Private traffic with Private Links
 
-Disabling `PublicNetworkAccess` and protecting your cache by using a VNet along with a Private Endpoint and Private Links is the most secure option. A VNet enables network controls and adds an extra layer of security. Private Links restrict traffic to one-way communication from the Virtual Network, offering enhanced network isolation. This means that even if the Azure Managed Redis resource is compromised, other resources within the Virtual Network remain secure.
+Disabling `publicNetworkAccess` and protecting your cache by using a VNet along with a Private Endpoint and Private Links is the most secure option. A VNet enables network controls and adds an extra layer of security. Private Links restrict traffic to one-way communication from the Virtual Network, offering enhanced network isolation. This means that even if the Azure Managed Redis resource is compromised, other resources within the Virtual Network remain secure.
 
-## Updating a cache to use `PublicNetworkAccess` using the portal
+### Updating a cache to use `publicNetworkAccess` using the portal
 
-Use the Azure portal to follow the instructions below to add `PublicNetworkAccess` to your existing.
+Use the Azure portal to follow the instructions following to add `publicNetworkAccess` to your existing cache.
 
-1. Navigate to the [Azure Portal](https://aka.ms/publicportal).
+1. Navigate to the [Azure portal](https://aka.ms/publicportal).
 
 1. Browse to your **Azure Managed Redis resource \| Administration \| Networking** in the resource menu.
 
-1. Enabling public access is a irreversible operation – once set it you cannot go back to unset state. Select **Enable public access from all networks**.
+1. Enabling public access is an irreversible operation – once set it you can't go back to unset state. Select **Enable public access from all networks**.
 
-   :::image type="content" source="media/using-publicnetworkaccess-property/public-access-setting.png" alt-text="Screenshot of the Azure portal showing the PublicNetworkAccess property settings with options to disable or enable public network access.":::
+   :::image type="content" source="media/private-link/public-access-setting.png" alt-text="Screenshot of the Azure portal showing the publicNetworkAccess property settings with options to disable or enable public network access." lightbox="media/private-link/public-access-setting.png":::
 
-## API changes
+### API changes
 
-The `PublicNetworkAccess` property is introduced in [Microsoft.Cache redisEnterprise 2025-07-01](/azure/templates/microsoft.cache/2025-07-01/redisenterprise?pivots=deployment-language-bicep). Since this is a security-related breaking change, API versions before 2025-07-01 wil be deprecated in October 2026. This means after October 2026:
+The `publicNetworkAccess` property is introduced in [Microsoft.Cache redisEnterprise 2025-07-01](/azure/templates/microsoft.cache/2025-07-01/redisenterprise?pivots=deployment-language-bicep). Since this change is a security-related breaking change, API versions before 2025-07-01 will be deprecated in October 2026.
 
-- You can only set `PublicNetworkAccess` property using API versions 2025-07-01 or later.
-- You can no longer send API calls with older versions prior to 2025-07-01.
-- Your older caches provisioned with the older versions of the APIs  continue to work, but additional operations on it require calls to be made with API versions 2025-07-01 or later.
+After October 2026:
+
+- You can only set `publicNetworkAccess` property using API versions 2025-07-01 or later.
+- You can no longer send API calls with versions before 2025-07-01.
+- Your older caches provisioned with the older versions of the APIs continue to work, but other operations on it require calls to be made with API versions 2025-07-01 or later.
 
 ## Create an Azure Managed Redis cache connected to a private endpoint using Azure PowerShell
 
@@ -331,7 +334,7 @@ If you delete all private endpoints on your Azure Managed Redis cache, networkin
 
 ### Are network security groups (NSG) enabled for private endpoints?
 
-Network policies are disabled for private endpoints. To enforce Network Security Group (NSG) and User-Defined Route (UDR) rules on private endpoint traffic, network policies must be enabled on the subnet. When network policies are disabled (required to deploy private endpoints), NSG and UDR rules do not apply to traffic processed by the private endpoint. For more information, see [Manage network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal). NSG and UDR rules continue to apply normally to other workloads in the same subnet.
+Network policies are disabled for private endpoints. To enforce Network Security Group (NSG) and User-Defined Route (UDR) rules on private endpoint traffic, network policies must be enabled on the subnet. When network policies are disabled (required to deploy private endpoints), NSG and UDR rules don't apply to traffic processed by the private endpoint. For more information, see [Manage network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal). NSG and UDR rules continue to apply normally to other workloads in the same subnet.
 
 Traffic from client subnets to private endpoints uses a /32 prefix. To override this default routing behavior, create a corresponding UDR with a /32 route.
 
