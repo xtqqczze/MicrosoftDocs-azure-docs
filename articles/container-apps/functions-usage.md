@@ -10,7 +10,7 @@ ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Create Functions App through Azure Portal and Azure CLI
+# Use Azure Functions in Azure Container Apps
 
 This article shows you how to create an [Azure Functions app in Azure Container Apps](functions-overview.md), complete with preconfigured autoscaling rules.
 
