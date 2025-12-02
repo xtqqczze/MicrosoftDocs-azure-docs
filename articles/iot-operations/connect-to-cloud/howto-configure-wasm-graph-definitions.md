@@ -1,18 +1,22 @@
 ---
-title: Configure WebAssembly Graph Definitions For Data Flow Graphs
+title: Configure WebAssembly Graph Definitions For Data Flow Graphs (preview)
 description: Learn how to create and configure WebAssembly graph definitions that define data processing workflows for Azure IoT Operations data flow graphs.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 11/21/2025
 ai-usage: ai-assisted
 
 ---
 
-# Configure WebAssembly (WASM) graph definitions for data flow graphs
+# Configure WebAssembly (WASM) graph definitions for data flow graphs (preview)
 
+> [!IMPORTANT]
+> WebAssembly (WASM) graph definitions for data flow graphs are in PREVIEW. This feature has limitations and is not for production workloads.
+>
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or not yet released into general availability.
 
 Graph definitions are central to WASM development because they define how your modules connect to processing workflows. Understanding the relationship between graph definitions and data flow graphs helps you develop effectively.
 
@@ -35,8 +39,8 @@ Graph definitions follow a formal [JSON schema](https://www.schemastore.org/aio-
 
 ```yaml
 moduleRequirements:
-  apiVersion: "0.2.0"
-  hostlibVersion: "0.2.0"
+  apiVersion: "1.1.0"
+  hostlibVersion: "1.1.0"
 
 operations:
   - operationType: "source"
@@ -60,8 +64,8 @@ The `moduleRequirements` section ensures compatibility using semantic versioning
 
 ```yaml
 moduleRequirements:
-  apiVersion: "0.2.0"          # WASI API version for interface compatibility
-  hostlibVersion: "0.2.0"     # Host library version providing runtime support
+  apiVersion: "1.1.0"          # WASI API version for interface compatibility
+  hostlibVersion: "1.1.0"     # Host library version providing runtime support
   features:                    # Optional features required by modules
     - name: "wasi-nn"
 ```
