@@ -18,7 +18,7 @@ Before starting, you need:
 - SSH key pair configured during deployment
 - Access to the CycleCloud VM or Azure Bastion
 
-For instructions on how to deploy, see [deployment quickstart](https://learn.microsoft.com/en-us/azure/cyclecloud/qs-deploy-ccws?view=cyclecloud-8) to set up your environment.
+For instructions on how to deploy, see [deployment quickstart](../../qs-deploy-ccws?view=cyclecloud-8) to set up your environment.
 
 ## Understanding the cluster components
 
@@ -30,7 +30,6 @@ Your CycleCloud Slurm cluster has three main node types you interact with:
 | **Scheduler Node** | Manages job queue and resources | Runs automatically in the background |
 | **Compute Nodes** | Execute your workloads | Created on-demand when jobs need resources |
 
-> **Learn more:** For detailed architecture information, see [CycleCloud Architecture Concepts](https://learn.microsoft.com/en-us/azure/cyclecloud/concepts/core?view=cyclecloud-8).
 
 ## Understanding Slurm partitions
 
@@ -42,7 +41,7 @@ Your cluster comes with preconfigured partitions (resource pools) designed for d
 | **HPC** | Tightly coupled parallel jobs using MPI (simulations, modeling) | HPC-optimized VMs with InfiniBand (HBv3, HBv4, HBv5) |
 | **GPU** | Machine learning, deep learning, GPU-accelerated computing | GPU VMs (NC-series, ND-series) |
 
-> **Learn more:** See [Slurm Scheduler Integration](https://learn.microsoft.com/en-us/azure/cyclecloud/slurm?view=cyclecloud-8) for partition configuration options.
+For partition configuration options, see [Slurm Scheduler Integration](../../slurm?view=cyclecloud-8) for partition configuration options.
 
 ---
 
@@ -73,7 +72,8 @@ If you have the authentication node's IP address:
 ssh -i ~/.ssh/your_private_key username@login-node-ip
 ```
 
-> **Tip:** If your cluster doesn't allow public IPs, connect through Azure Bastion. See [Azure Bastion documentation](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview) for setup instructions.
+> [!NOTE]
+> If your cluster doesn't allow public IPs, connect through Azure Bastion. See [Azure Bastion documentation](/azure/bastion/bastion-overview) for setup instructions.
 
 ---
 
@@ -350,10 +350,3 @@ sacct -j JOB_ID --format=JobID,State,ExitCode,Reason
 - **Use containers:** CycleCloud Workspace for Slurm includes Pyxis and Enroot for containerized workloads
 - **Set up job accounting:** Enable MySQL integration to track resource usage over time
 - **Explore Open OnDemand:** Access your cluster through a web interface
-
-## Related documentation
-
-- [Deploy CycleCloud Workspace for Slurm](https://learn.microsoft.com/azure/cyclecloud/qs-deploy-ccws?view=cyclecloud-8)
-- [Slurm Scheduler Integration](https://learn.microsoft.com/azure/cyclecloud/slurm?view=cyclecloud-8)
-- [Slurm Version 3.0 Features](https://learn.microsoft.com/azure/cyclecloud/slurm-3?view=cyclecloud-8)
-- [Official Slurm Documentation](https://slurm.schedmd.com/documentation.html)
