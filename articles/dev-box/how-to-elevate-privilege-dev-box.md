@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: how-to
-ms.date: 12/01/2025
+ms.date: 12/02/2025
 
 #customer intent: As a platform engineer, I want to configure elevated privilege management for dev boxes so that users don't need administrative privileges to manage their dev boxes.
 ---
@@ -30,9 +30,9 @@ Endpoint Privilege Management is an add-on to Microsoft Intune. Before you can u
 
 To license and configure the Microsoft Intune Endpoint Privilege Management add-on, you must:
 
-- Assign yourself the **Intune Administrator** role.
-- License **Endpoint Privilege Management** in your tenant as an Intune add-on.
-- Assign **Endpoint Privilege Management** licenses to yourself and other users.
+1. Assign yourself the **Intune Administrator** role.
+1. License **Endpoint Privilege Management** in your tenant as an Intune add-on.
+1. Assign **Endpoint Privilege Management** licenses to yourself and other users.
 
 ### Assign the Intune administrator role
 
@@ -43,7 +43,7 @@ To license and configure the Microsoft Intune Endpoint Privilege Management add-
 
 1. Repeat the process for any other users you want to assign the **Intune Administrator** role.
 
-### License the Endpoint Privilege Management add-on in your tenant
+### License the Endpoint Privilege Management add-on
 
 1. In the [Microsoft Intune admin center](https://intune.microsoft.com), go to **Tenant administration** > **Intune add-ons** and select the **View details** link next to **Endpoint Privilege Management**.
 1. On the details screen, select the link to the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home?#/catalog).
@@ -54,26 +54,26 @@ To license and configure the Microsoft Intune Endpoint Privilege Management add-
 1. In the Microsoft 365 admin center, go to **Billing** > **Your products**, and select **Microsoft Intune Endpoint Privilege Management**.
 1. On the **Microsoft Intune Endpoint Privilege Management** page, select **Assign licenses**. You can also buy more licenses here by selecting **Buy licenses**.
 1. On the **Users** tab, select **Assign licenses**.
-1. Select users on the **Assign licenses to users** screen and then select **Assign licenses**.
+1. On the **Assign licenses to users** screen, select up to 20 users at a time and then select **Assign licenses**.
 
    :::image type="content" source="media/how-to-elevate-privilege-dev-box/assign-license.png" alt-text="Screenshot that shows assigning a Microsoft Intune Endpoint Privilege Management license.":::
 
 ## Deploy an elevation settings policy
 
-To process elevation policy rules or requests, a dev box must have an elevation settings policy that enables Endpoint Privilege Management. Enabling this support installs the Endpoint Privilege Management agent, which processes Endpoint Privilege Management policies on the device. These policies let you configure settings that are specific to the client but aren't necessarily related to the elevation of individual applications or tasks.
+To process elevation policy rules or requests, a dev box must have an elevation settings policy that enables Endpoint Privilege Management. Enabling this support installs the Endpoint Privilege Management agent, which processes the policy on the device. an elevation settings policy lets you configure settings that are specific to the client but aren't necessarily related to the elevation of individual applications or tasks.
 
-The following procedure:
+The following procedures:
 
-- Creates an Intune group to use for testing policy configuration, and adds your dev box to the group.
-- Creates an example Endpoint Privilege Management elevation settings policy.
-- Assigns the policy to the group.
+1. Create an Intune group to use for testing policy configuration, and add your dev box to the group.
+1. Create an Endpoint Privilege Management elevation settings policy.
+1. Assign the policy to the group.
 
 ### Create an Intune group and add the dev box
 
 1. In the [Microsoft Intune admin center](https://intune.microsoft.com), select **Groups** > **New group**.
 1. In the **New group** form, complete the following fields:
    - **Group type**: Select **Security**.
-   - **Group name**: Enter a name for the group.
+   - **Group name**: Enter a name for the group, for example *Intune testers*.
    - **Membership type**: Select **Assigned**.
    - **Members**: Select your dev box host name.
 1. Select **Create**.
@@ -86,18 +86,18 @@ The following procedure:
 
 1. On the **Create a profile** screen, select the following options:
 
-   **Platform**: Select **Windows 10 and later**.
-   **Profile type**: Select **Elevation settings policy**.
+   - **Platform**: Select **Windows 10 and later**.
+   - **Profile type**: Select **Elevation settings policy**.
 
 1. Select **Create**.
 1. On the **Basics** tab of the **Create profile** pane, enter a name for the policy, and then select **Next**.
-1. On the **Configuration settings** tab, expand **Privilege management elevation client settings**
+1. On the **Configuration settings** tab, expand **Privilege management elevation client settings**.
 1. Set **Endpoint Privilege Management** to **Enabled**.
 1. Under **Default elevation response**, select **Deny all requests**.
+1. Select **Next** twice, or select the **Assignments** tab.
 
    :::image type="content" source="media/how-to-elevate-privilege-dev-box/deny-all-requests.png" alt-text="Screenshot that shows the Configuration settings tab, with Endpoint Privilege Management enabled and Default elevation response set to Deny all requests.":::
 
-1. Select **Next** twice, or select the **Assignments** tab.
 1. On the **Assignments** tab, select **Add groups** and add the Intune group you created.
 
    :::image type="content" source="media/how-to-elevate-privilege-dev-box/assign-defined-group.png" alt-text="Screenshot that shows the Create profile Assignments tab with Add groups highlighted.":::
@@ -118,7 +118,7 @@ Confirm that the Endpoint Privilege Management policy is applied and the agent i
    :::image type="content" source="media/how-to-elevate-privilege-dev-box/intune-device-configuration.png" alt-text="Screenshot that shows the Microsoft Intune admin center with the Devices pane and Device configuration highlighted.":::
 
 1. On the policy page, select the **Per setting status** tile.
-1. Ensure that all settings report **Success** for your device.
+1. Ensure that all settings report **Success** for all group devices.
 
    :::image type="content" source="media/how-to-elevate-privilege-dev-box/device-profile-settings.png" alt-text="Screenshot that shows Profile Settings with Setting status highlighted.":::
 
