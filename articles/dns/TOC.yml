@@ -115,7 +115,7 @@
         - name: Integrate with other Azure services
           href: dns-for-azure-services.md
         - name: Automate DNS operations with the .NET SDK
-          href: dns-sdk.md
+          href: https://learn.microsoft.com/dotnet/api/overview/azure/resourcemanager.dns-readme?view=azure-dotnet?toc=%2Fazure%2Fdns%2Ftoc.json
         - name: Custom domains for Azure resources
           href: dns-custom-domain.md
         - name: Deploy DNSSEC
