@@ -265,7 +265,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 In this section, you compile your project for deployment to Azure in a function app running Linux. In most cases, you must recompile your binary and adjust your configuration to match the target platform before publishing it to Azure.
 
-### [Go](#tab/go)
+### [Go](#tab/go-2)
     
 In the integrated terminal, compile the handler to Linux/x64. 
 
@@ -295,7 +295,7 @@ Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler
 
 A binary named `handler` is created in the function app root.
 
-### [Rust](#tab/rust)
+### [Rust](#tab/rust-2)
 
 1. Create a file at *.cargo/config*. Add the following contents and save the file.
 
