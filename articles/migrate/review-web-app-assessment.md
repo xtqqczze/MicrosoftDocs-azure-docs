@@ -36,11 +36,20 @@ In this article, you'll learn how to:
 To view an assessment, follow these steps:
 
 1. On the Azure Migrate project **Overview** page, under **Decide and Plan**, select **Assessments**. 
+
+    :::image type="content" source="./media/review-web-app-assessment/assessment-overview.png" alt-text="Screenshot displays assessment details." lightbox="./media/review-web-app-assessment/assessment-overview.png":::
+
 1. Search for the assessment using the **Workloads** filter and select it.
+
+    :::image type="content" source="./media/review-web-app-assessment/assessed-workloads.png" alt-text="Screenshot displays assessed workloads." lightbox="./media/review-web-app-assessment/assessed-workloads.png":::
+
 1. On the assessment **Overview** page, you see summarized insights on assessed workloads, recommended migration path, and target-specific migration path (that is, if you wanted to migrate all assessed apps to that target).
    1. **Assessed workloads**: Surfaces the collection of workloads assessed. Click view details to shows the distribution across web server and web app types. 
    1. **Recommended path**: It provides the most optimal path for migrating web apps across Azure targets, based on your preferred targets, cloud readiness and cost. It captures the readiness distribution, migration strategy (Replatform vs Rehost) and monthly cost estimate for running the web apps across the targets.
    1. **Target-specific migration path**: This section provides the path for migrating all web apps to a specific target. It allows you to see the readiness warnings or issues for migrating the apps to that target and captures the monthly cost estimate.
+    
+    :::image type="content" source="./media/review-web-app-assessment/recommended-path.png" alt-text="Screenshot shows the recommended path." lightbox="./media/review-web-app-assessment/recommended-path.png":::
+
 1. The web apps can take one of the following readiness states: 
 
    | **Status**| **Definition**|
