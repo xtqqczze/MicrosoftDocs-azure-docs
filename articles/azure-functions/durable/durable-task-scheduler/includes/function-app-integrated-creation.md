@@ -7,7 +7,7 @@ ms.date: 03/19/2025
 
 1. Navigate to the Function app creation blade. 
 
-   :::image type="content" source="../media/create-durable-task-scheduler/function-app-hosted-app-service.png" alt-text="Screenshot of hosting options for Function apps and selecting App Service.":::
+   :::image type="content" source="../media/create-durable-task-scheduler/function-app-hosted-app-service.png" alt-text="Screenshot of hosting options for Function apps.":::
 
 1. In the **Create Function App (Flex Consumption)** blade, fill in the information in the **Basics** tab. 
 
@@ -31,7 +31,7 @@ ms.date: 03/19/2025
 
 1. Create a scheduler resource. This action automatically creates a task hub.
 
-   :::image type="content" source="../media/create-durable-task-scheduler/durable-functions-tab.png" alt-text="Screenshot of creating an App Service plan Function app.":::
+   :::image type="content" source="../media/create-durable-task-scheduler/durable-functions-tab.png" alt-text="Screenshot of creating a Flex Consumption Function app.":::
 
    | Field | Description | 
    | ----- | ----------- | 
