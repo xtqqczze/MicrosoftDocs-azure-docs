@@ -1,11 +1,9 @@
 ---
 title: Azure Managed Redis with Azure Private Link
 description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal with a managed Redis cache.
-ms.date: 05/18/2025
+ms.date: 12/01/2025
 ms.topic: conceptual
 ms.custom:
-  - devx-track-azurecli
-  - devx-track-azurepowershell
   - ignite-2024
   - build-2025
 appliesto:
@@ -123,8 +121,6 @@ In this section, you add a private endpoint to an existing Azure Managed Redis i
 
 1. In the **Virtual Network** pane, select the **Virtual Network** and **Subnet** you created in the [previous section](#create-a-virtual-network-with-a-subnet).
 
-    <!-- We don't talk about DNS zones -->
-
 1. Select the **Next: Tags** button at the bottom of the pane.
 
 1. Optionally, in the **Tags** pane, enter the name and value if you wish to categorize the resource.
@@ -133,11 +129,40 @@ In this section, you add a private endpoint to an existing Azure Managed Redis i
 
 1. After the green **Validation passed** message appears, select **Create**.
 
-> [!IMPORTANT]
->
-> There's currently no `publicNetworkAccess` property for Azure Managed Redis resource.
-> If sPrivate Endpoint is connected to the Azure Managed Redis cache, it only accepts private traffic from the connect Virtual Network.
-> If you delete the Private Endpoint, the resource is automatically opened to public network access.
+## PublicNetworkAccess property
+
+With the new `PublicNetworkAccess` property, you can restrict public IP traffic independently of Private Links to Virtual Networks (VNets).
+
+Previously, Azure Managed Redis was designed with two exclusive network configurations: enabling public traffic required private endpoints to be disabled, and enabling private endpoints automatically restricted all public access. This setting ensured clear network boundaries but limited flexibility for scenarios like migrations where both public and private access are needed simultaneously.
+
+The following network configurations are now supported:
+
+- Public traffic without Private Links
+- Public traffic with Private Links
+- Private traffic without Private Links
+- Private traffic with Private Links
+
+Disabling `PublicNetworkAccess` and protecting your cache by using a VNet along with a Private Endpoint and Private Links is the most secure option. A VNet enables network controls and adds an extra layer of security. Private Links restrict traffic to one-way communication from the Virtual Network, offering enhanced network isolation. This means that even if the Azure Managed Redis resource is compromised, other resources within the Virtual Network remain secure.
+
+## Updating a cache to use `PublicNetworkAccess` using the portal
+
+Use the Azure portal to follow the instructions below to add `PublicNetworkAccess` to your existing.
+
+1. Navigate to the [Azure Portal](https://aka.ms/publicportal).
+
+1. Browse to your **Azure Managed Redis resource \| Administration \| Networking** in the resource menu.
+
+1. Enabling public access is a irreversible operation – once set it you cannot go back to unset state. Select **Enable public access from all networks**.
+
+   :::image type="content" source="media/using-publicnetworkaccess-property/public-access-setting.png" alt-text="Screenshot of the Azure portal showing the PublicNetworkAccess property settings with options to disable or enable public network access.":::
+
+## API changes
+
+The `PublicNetworkAccess` property is introduced in [Microsoft.Cache redisEnterprise 2025-07-01](/azure/templates/microsoft.cache/2025-07-01/redisenterprise?pivots=deployment-language-bicep). Since this is a security-related breaking change, API versions before 2025-07-01 wil be deprecated in October 2026. This means after October 2026:
+
+- You can only set `PublicNetworkAccess` property using API versions 2025-07-01 or later.
+- You can no longer send API calls with older versions prior to 2025-07-01.
+- Your older caches provisioned with the older versions of the APIs  continue to work, but additional operations on it require calls to be made with API versions 2025-07-01 or later.
 
 ## Create an Azure Managed Redis cache connected to a private endpoint using Azure PowerShell
 
