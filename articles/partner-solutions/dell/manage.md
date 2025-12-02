@@ -27,7 +27,7 @@ The **Essentials** details include:
 - Pricing Plan
 - Billing Term 
 - Resource valid until
-- Resource billing 
+- Recurring billing 
 
 To manage your resource, select the links next to the corresponding details.
 
