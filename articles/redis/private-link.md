@@ -279,7 +279,8 @@ az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyR
 ```
 
 ## Azure Managed Redis Private Endpoint Private DNS zone value
-Your application should connect to `<cachename>.<region>.redis.azure.net` on port `10000`. A private DNS zone, named `*.privatelink.redis.azure.net`, is automatically created in your subscription. The private DNS zone is vital for espanelishing the TLS connection with the private endpoint. We recommend avoiding the use of `<cachename>.privatelink.redis.azure.net` in configuration for client connection.
+
+Your application should connect to `<cachename>.<region>.redis.azure.net` on port `10000`. A private DNS zone, named `*.privatelink.redis.azure.net`, is automatically created in your subscription. The private DNS zone is vital for establishing the TLS connection with the private endpoint. We recommend avoiding the use of `<cachename>.privatelink.redis.azure.net` in configuration for client connection.
 
 For more information, see [Azure services DNS zone configuration](/azure/private-link/private-endpoint-dns).
 
