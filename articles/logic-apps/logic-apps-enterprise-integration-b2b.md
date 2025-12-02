@@ -61,7 +61,7 @@ This guide shows how to create an example B2B workflow that can complete the fol
   | Logic app workflow | Connection required? |
   |--------------------|----------------------|
   | Consumption | - AS2 (v2) connector: No connection required <br><br>- X12 connector: Connection required |
-  | Standard | - AS2 (v2) connector: No connection required <br><br>- X12 connector: Connection required | 
+  | Standard | - AS2 (v2) connector: No connection required <br><br>- X12 built-in connector: No connection required |
 
 <a name="add-request-trigger"></a>
 
@@ -91,9 +91,9 @@ To start the workflow in this example, add the [**Request** trigger](../connecto
 
 ## Add the decode AS2 action
 
-Follow these steps to add the [**AS2** decode action](logic-apps-enterprise-integration-as2.md).
+Follow these steps to add the [**AS2 (v2)** decode action](logic-apps-enterprise-integration-as2.md).
 
-1. Under the **Request** trigger, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the following **AS2 (v2)** built-in action, based on your workflow type:
+1. Under the **Request** trigger, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the following **AS2 (v2)** action, based on your workflow type:
 
    | Workflow | Action name |
    |----------|-------------|
@@ -152,9 +152,9 @@ To confirm the message receipt, return a response that contains an AS2 Message D
 
 ### Add a Condition action to choose action path
 
-These steps add the **Condition** action so you can specify one or multiple conditions to evaluate and choose the actions to take, based on whether the **AS2** decode action succeeds.
+These steps add the **Condition** action so you can specify one or multiple conditions to evaluate and choose the actions to take, based on whether the **AS2 (v2)** decode action succeeds.
 
-1. On the designer, under the **AS2** decode action, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the **Condition** built-in action.
+1. On the designer, under the **AS2 (v2)** decode action, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the **Condition** built-in action.
 
    The **Condition** action appears with the **True** and **False** empty paths. You later add the actions to run in these paths, based on whether the condition evaluates to true or false.
 
@@ -162,9 +162,19 @@ These steps add the **Condition** action so you can specify one or multiple cond
 
 1. Select the **Condition** title bar to expand the action so you can provide one or more conditions to evaluate.
 
-1. In the left-side **Choose a value** box, enter the following expression:
+1. In the left-side **Choose a value** box, enter the following expression, based on your workflow type:
 
-   `@body('AS2_Decode')?['AS2Message']?['MdnExpected']`
+   **Consumption**
+
+   `@body('AS2_Decode')?['messageContent']?['isMdnExpected']`
+
+   **Standard**
+
+   `@body('Decode_AS2')?['messageContent']?['isMdnExpected']`
+
+   > [!IMPORTANT]
+   >
+   > Make sure the AS2 decode action name and output names matches the names for your selected AS2 action.
 
 1. From the middle list, select the equal sign (**=**).
 
@@ -176,29 +186,45 @@ These steps add the **Condition** action so you can specify one or multiple cond
 
 ### Set up action paths 
 
-These steps specify the actions to take and the responses to return based on whether the **AS2** decode action succeeds.
+These steps specify the actions to take and the responses to return based on whether the **AS2 (v2)** decode action succeeds.
 
-1. For when the **AS2** decode action succeeds, follow these steps:
+1. For when the **AS2 (v2)** decode action succeeds, follow these steps:
 
    1. In the **True** box, select the plus sign (**+**) > **Add an action**.
 
    1. In the **Add an action** search box, enter `response`. Under **Request**, select the **Response** built-in action.
 
-   1. To reference the AS2 MDN in the **AS2** decode action output, specify the following expressions:
+   1. To reference the AS2 MDN from the **AS2 (v2)** decode action output, specify the following expressions:
 
       - In the action's **Headers** parameter, for the key value, enter the following expression:
 
-        `@body('AS2_Decode')?['OutgoingMdn']?['OutboundHeaders']`
+        **Consumption**
+
+        `@body('AS2_Decode')?['outgoingMdnContent']?['outgoingMdnHeaders']`
+
+        **Standard**
+
+        `@body('Decode_AS2')?['outgoingMdnContent']?['outgoingMdnHeaders']`
 
       - In the action's **Body** parameter, enter the following expression:
 
-        `@body('AS2_Decode')?['OutgoingMdn']?['Content']`
+        **Consumption**
 
-      The **Response** action now looks like the following example:
+        `@body('AS2_Decode')?['outgoingMdnContent']?['messageContent']`
+
+        **Standard**
+
+        `@body('Decode_AS2')?['outgoingMdnContent']?['messageContent']`
+
+      > [!IMPORTANT]
+      >
+      > Make sure the AS2 decode action name and output names matches the names for your selected AS2 action.
+
+      For example, the **Response** action looks like the following example:
 
       :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/response-success-resolved-expression.png" alt-text="Screenshot shows Response action and resolved expressions that access the AS2 MDN.":::
 
-1. For when the **AS2** decode action fails, follow these steps:
+1. For when the **AS2 (v2)** decode action fails, follow these steps:
 
    1. In the **False** box, select the plus sign (**+**) > **Add an action**.
 
@@ -212,25 +238,55 @@ These steps specify the actions to take and the responses to return based on whe
 
 ## Add the decode X12 message action
 
-Now add the **Decode X12 message** action.
+Follow these steps to decode X12 messages.
 
-1. On the workflow designer, under the **Response** action, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the **Decode X12 message** action.
+1. On the designer, under the **Response** action, follow these [general steps](add-trigger-action-workflow.md#add-action) to add the following X12 decode action, based on your workflow type:
 
-1. If the X12 action prompts you for connection information, provide the name for the connection, select the integration account you want to use, and then select **Create**.
+   | Workflow | Action name |
+   |----------|-------------|
+   | Consumption | **Decode X12 message** |
+   | Standard | **Decode X12** |
 
-1. Specify the input for the X12 action. This example uses the output from the AS2 action, which is the message content but note that this content is in JSON object format and is base64 encoded. You have to convert this content to a string.
+   For more information, see [Exchange X12 messages in B2B workflows with Azure Logic Apps](logic-apps-enterprise-integration-x12.md).
 
-   In the **X12 Flat file message to decode** box, enter the following expression to convert the AS2 output:
+1. If the action prompts you to create a connection, provide the following information, and select **Create new**.
 
-   `@base64ToString(body('AS2_Decode')?['AS2Message']?['Content'])`
+   - Connection name
+   - Integration account ID
+   - Integration account SAS URL
 
-1. Save your logic app workflow.
+   For more information, see [Decode X12 messages](logic-apps-enterprise-integration-x12.md#decode-x12-messages).
+
+1. On the action information pane, specify the content for the action to decode, based on your workflow type:
+
+   | Workflow | Action name | Parameter name |
+   |----------|-------------|----------------|
+   | Consumption | **Decode X12 message** | **X12 flat file message to decode** |
+   | Standard | **Decode X12** | **Message to decode** |
+
+   This example uses the message content from the **AS2 (v2)** action output. However, this output uses JSON object format and is base64 encoded. You must convert the content to a string.
+   
+   To convert the content, enter the following expression in the message-to-decode box, based on your workflow type:
+
+   **Consumption**
+
+   `@base64ToString(body('AS2_Decode')?['messageContent'])`
+
+   **Standard**
+
+   `@base64ToString(body('Decode_AS2')?['messageContent'])`
+
+    > [!IMPORTANT]
+    >
+    > Make sure the AS2 decode action name and output names matches the names for your selected AS2 action.
+
+1. Save your workflow.
 
    To get the expression to resolve as this token, switch between code view and designer view. In the designer menu, select **Code view**, then select **Designer**.
 
-If you need more steps for this logic app workflow, for example, to decode the message content and output that content in JSON object format, continue adding the necessary actions to your logic app workflow.
+You're now done setting up this example B2B workflow. In a real world app, you might want to store the decoded X12 content in a line-of-business (LOB) app or data store.
 
-You're done setting up your B2B logic app workflow. In a real world app, you might want to store the decoded X12 data in a line-of-business (LOB) app or data store. For example, review the following documentation:
+For more information, see:
 
 - [Connect to SAP systems from Azure Logic Apps](logic-apps-using-sap-connector.md)
 - [Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps](../connectors/connectors-sftp-ssh.md)
@@ -239,7 +295,5 @@ To connect your own LOB apps and use these APIs in your logic app, you can add m
 
 ## Related content
 
-- [Receive and respond to incoming HTTPS calls](../connectors/connectors-native-reqres.md)
 - [Exchange AS2 messages for B2B enterprise integration](../logic-apps/logic-apps-enterprise-integration-as2.md)
 - [Exchange X12 messages for B2B enterprise integration](../logic-apps/logic-apps-enterprise-integration-x12.md)
-- Learn more about the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
