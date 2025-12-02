@@ -1,36 +1,40 @@
 ---
-title: Submit Job on CycleCloud with Slurm 
-description: How to submit your first job on CycleCloud with Slurm
+title: Configure Open Demand with CycleCloud
+description: How to configure Open OnDemand with CycleCloud
 author: xpillons
 ms.date: 12/01/2025
 ms.author: padmalathas
 ---
 
-# Submit Your First Job on Azure CycleCloud with Slurm
+# Submit your first job on Azure CycleCloud with Slurm
 
-This guide walks you through submitting and managing jobs on an CycleCloud cluster running Slurm. 
+This guide walks you through submitting and managing jobs on an Azure CycleCloud cluster running Slurm. Whether you're new to HPC or just new to Azure, you learn how to connect to your cluster, submit jobs, and monitor their progress.
 
 ## Prerequisites
 
-Before starting, you'll need:
+Before starting, you need:
 
-- An Azure CycleCloud Workspace for Slurm environment already deployed. For instructions on how to deploy, see [deployment quickstart](https://learn.microsoft.com/en-us/azure/cyclecloud/qs-deploy-ccws?view=cyclecloud-8) to set up your environment.
-- SSH key pair configured during deployment.
-- Access to the CycleCloud VM or Azure Bastion.
+- An Azure CycleCloud Workspace for Slurm environment already deployed
+- SSH key pair configured during deployment
+- Access to the CycleCloud VM or Azure Bastion
 
-## Understanding the Cluster Components
+For instructions on how to deploy, see [deployment quickstart](https://learn.microsoft.com/en-us/azure/cyclecloud/qs-deploy-ccws?view=cyclecloud-8) to set up your environment.
 
-Your CycleCloud Slurm cluster has three main node types you'll interact with:
+## Understanding the cluster components
+
+Your CycleCloud Slurm cluster has three main node types you interact with:
 
 | Node Type | What It Does | When You Use It |
 |-----------|--------------|-----------------|
-| **Login Node** | Entry point for users | Connect here to submit and manage jobs |
+| **Authentication Node** | Entry point for users | Connect here to submit and manage jobs |
 | **Scheduler Node** | Manages job queue and resources | Runs automatically in the background |
 | **Compute Nodes** | Execute your workloads | Created on-demand when jobs need resources |
 
-## Understanding Slurm Partitions
+> **Learn more:** For detailed architecture information, see [CycleCloud Architecture Concepts](https://learn.microsoft.com/en-us/azure/cyclecloud/concepts/core?view=cyclecloud-8).
 
-Your cluster comes with pre-configured partitions (resource pools) designed for different workload types:
+## Understanding Slurm partitions
+
+Your cluster comes with preconfigured partitions (resource pools) designed for different workload types:
 
 | Partition | Best For | Typical VM Types |
 |-----------|----------|------------------|
@@ -38,12 +42,11 @@ Your cluster comes with pre-configured partitions (resource pools) designed for 
 | **HPC** | Tightly coupled parallel jobs using MPI (simulations, modeling) | HPC-optimized VMs with InfiniBand (HBv3, HBv4, HBv5) |
 | **GPU** | Machine learning, deep learning, GPU-accelerated computing | GPU VMs (NC-series, ND-series) |
 
-> [NOTE]
-> See [Slurm Scheduler Integration](https://learn.microsoft.com/en-us/azure/cyclecloud/slurm?view=cyclecloud-8) for partition configuration options.
+> **Learn more:** See [Slurm Scheduler Integration](https://learn.microsoft.com/en-us/azure/cyclecloud/slurm?view=cyclecloud-8) for partition configuration options.
 
 ---
 
-## Step 1: Connect to the Login Node
+## Step 1: Connect to the authentication node
 
 You have two options for connecting to your cluster.
 
@@ -64,20 +67,19 @@ cyclecloud connect login-1 -c your-cluster-name
 
 ### Option B: Direct SSH Connection
 
-If you have the login node's IP address:
+If you have the authentication node's IP address:
 
 ```bash
 ssh -i ~/.ssh/your_private_key username@login-node-ip
 ```
 
-> [NOTE]
-> If your cluster doesn't allow public IPs, connect through Azure Bastion. See [Azure Bastion documentation](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview) for setup instructions.
+> **Tip:** If your cluster doesn't allow public IPs, connect through Azure Bastion. See [Azure Bastion documentation](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview) for setup instructions.
 
 ---
 
 ## Step 2: Check Cluster Status
 
-Once connected to the login node, verify the cluster is ready:
+When you connect to the authentication node, check that the cluster is ready:
 
 ```bash
 # View available partitions and their status
@@ -93,7 +95,7 @@ gpu        up     infinite   4      idle~  gpu-[1-4]
 ```
 
 **Reading the output:**
-- `idle~` means nodes are available but not yet running (CycleCloud will start them when needed)
+- `idle~` means nodes are available but not yet running (CycleCloud starts them when needed)
 - `idle` means nodes are running and ready
 - `alloc` means nodes are currently running jobs
 
@@ -106,7 +108,7 @@ sinfo -l
 
 ---
 
-## Step 3: Create a Job Script
+## Step 3: Create a job script
 
 Job scripts tell Slurm what resources you need and what commands to run. Create a simple test script:
 
@@ -135,7 +137,7 @@ echo "Job completed at $(date)"
 
 Save and exit (Ctrl+X, then Y, then Enter).
 
-### Common SBATCH Options
+### Common SBATCH options
 
 | Option | Description | Example |
 |--------|-------------|---------|
@@ -151,7 +153,7 @@ Save and exit (Ctrl+X, then Y, then Enter).
 
 ---
 
-## Step 4: Submit Your Job
+## Step 4: Submit your job
 
 Submit the job to the queue:
 
@@ -159,22 +161,22 @@ Submit the job to the queue:
 sbatch hello-world.sh
 ```
 
-You'll see a confirmation with your job ID:
+You see a confirmation with your job ID:
 ```
 Submitted batch job 1
 ```
 
 ### What Happens Behind the Scenes
 
-1. **Job queued** — Slurm adds your job to the queue
-2. **Resources requested** — Slurm tells CycleCloud it needs compute nodes
-3. **Nodes provisioned** — CycleCloud creates VMs in Azure (takes 2-5 minutes for new nodes)
-4. **Job runs** — Your script executes on the allocated nodes
-5. **Nodes released** — After the job completes, idle nodes are eventually terminated to save costs
+1. **Job queued** — Slurm adds your job to the queue.
+1. **Resources requested** — Slurm tells CycleCloud it needs compute nodes.
+1. **Nodes provisioned** — CycleCloud creates VMs in Azure (takes 2-5 minutes for new nodes).
+1. **Job runs** — Your script executes on the allocated nodes.
+1. **Nodes released** — After the job completes, idle nodes are eventually terminated to save costs.
 
 ---
 
-## Step 5: Monitor Your Job
+## Step 5: Monitor your job
 
 ### Check Job Status
 
@@ -211,15 +213,15 @@ scontrol show job 1
 
 You can also monitor your cluster visually:
 
-1. Open your browser and navigate to `https://your-cyclecloud-vm-ip`
-2. Log in with your CycleCloud credentials
-3. Click on your cluster to see node status and provisioning progress
+1. Open your browser and go to `https://your-cyclecloud-vm-ip`
+1. Sign in with your CycleCloud credentials
+1. Select your cluster to see node status and provisioning progress
 
 ---
 
-## Step 6: View Job Results
+## Step 6: View job results
 
-Once your job completes, check the output file:
+When your job finishes, check the output file:
 
 ```bash
 # View the output
@@ -234,15 +236,15 @@ Running on partition: hpc
 Job completed at Mon Dec  1 14:23:55 UTC 2025
 ```
 
-### Output File Location
+### Output file location
 
-By default, output files are created in the directory where you submitted the job. This directory is typically on a shared filesystem (like Azure NetApp Files), making outputs accessible from any node.
+By default, the system creates output files in the directory where you submit the job. This directory is usually on a shared filesystem, such as Azure NetApp Files, so any node can access the outputs.
 
 ---
 
-## Practical Examples
+## Practical examples
 
-### Example 1: Simple Python Script
+### Example 1: Simple Python script
 
 ```bash
 #!/bin/bash
@@ -257,7 +259,7 @@ module load python/3.9  # Load Python if using modules
 python my_analysis.py
 ```
 
-### Example 2: Multi-Node MPI Job
+### Example 2: Multinode MPI job
 
 ```bash
 #!/bin/bash
@@ -272,7 +274,7 @@ module load mpi/openmpi
 srun ./my_mpi_program
 ```
 
-### Example 3: GPU Job
+### Example 3: GPU job
 
 ```bash
 #!/bin/bash
@@ -319,9 +321,9 @@ squeue -j JOB_ID -o "%j %T %r"
 Common reasons:
 - `(Resources)` — Waiting for nodes to be provisioned (normal, wait 2-5 minutes)
 - `(Priority)` — Other jobs have higher priority
-- `(QOSMaxJobsPerUserLimit)` — You've hit your job limit
+- `(QOSMaxJobsPerUserLimit)` — You reached your job limit
 
-### Nodes Not Starting
+### Nodes not starting
 
 Check CycleCloud for provisioning errors:
 ```bash
@@ -329,7 +331,7 @@ Check CycleCloud for provisioning errors:
 cyclecloud show_cluster your-cluster-name
 ```
 
-### Job Failed Immediately
+### Job failed immediately
 
 Check the output file and Slurm logs:
 ```bash
@@ -342,9 +344,16 @@ sacct -j JOB_ID --format=JobID,State,ExitCode,Reason
 
 ---
 
-## Next Steps
+## Next steps
 
 - **Scale up:** Submitting jobs that use multiple nodes
 - **Use containers:** CycleCloud Workspace for Slurm includes Pyxis and Enroot for containerized workloads
 - **Set up job accounting:** Enable MySQL integration to track resource usage over time
 - **Explore Open OnDemand:** Access your cluster through a web interface
+
+## Related documentation
+
+- [Deploy CycleCloud Workspace for Slurm](https://learn.microsoft.com/azure/cyclecloud/qs-deploy-ccws?view=cyclecloud-8)
+- [Slurm Scheduler Integration](https://learn.microsoft.com/azure/cyclecloud/slurm?view=cyclecloud-8)
+- [Slurm Version 3.0 Features](https://learn.microsoft.com/azure/cyclecloud/slurm-3?view=cyclecloud-8)
+- [Official Slurm Documentation](https://slurm.schedmd.com/documentation.html)
