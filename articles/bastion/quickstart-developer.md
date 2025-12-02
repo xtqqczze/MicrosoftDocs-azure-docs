@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Connect to VMs using Azure Bastion Developer: Azure portal'
+title: 'Quickstart: Connect to a VM using Azure Bastion Developer: Azure portal'
 description: Learn how to connect to VMs using Bastion Developer.
 author: abell
 ms.service: azure-bastion
@@ -10,7 +10,7 @@ ms.custom: references_regions
 # Customer intent: As a cloud administrator, I want to connect to virtual machines securely using a browser-based solution, so that I can manage resources without exposing public IP addresses or installing additional software.
 ---
 
-# Quickstart: Connect to a VM using Azure Bastion Developer
+# Quickstart: Connect to a VM using Azure Bastion Developer: Azure portal
 
 Azure Bastion Developer provides secure, browser-based connectivity to virtual machines without requiring public IP addresses or additional client software. This quickstart shows you how to deploy and use Bastion Developer to connect to a VM in your virtual network at no extra cost.
 
@@ -26,7 +26,7 @@ In this quickstart, you learn how to:
 For more information about Azure Bastion, see [What is Azure Bastion](bastion-overview.md).
 
 > [!IMPORTANT]
-> Bastion Developer is currently only available in select regions, listed below.
+> Bastion Developer is currently only available in select regions.
 
 [!INCLUDE [Bastion developer](../../includes/bastion-developer-description.md)] Virtual network peering isn't currently supported for Bastion Developer.
 
