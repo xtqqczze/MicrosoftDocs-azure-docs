@@ -73,7 +73,7 @@ As a prerequisite, the WordPress instance on App Service must have been created 
 
 ### Manually import the data at destination site
 
-1. Create a new WordPress app using our [WordPress on App Service template](https://aka.ms/linux-wordpress) for Linux.
+1. Create a new WordPress app by using our [WordPress on App Service template](https://aka.ms/linux-wordpress) for Linux.
 
 1. Under **Development Tools** on the sidebar menu, select **SSH**.
 
@@ -89,9 +89,8 @@ As a prerequisite, the WordPress instance on App Service must have been created 
 
 1. You can either [use an existing MySQL database](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/using_an_existing_mysql_database.md) or migrate the content to a new Azure MySQL Flexible Server created by App Service on Linux.
 
-> [!NOTE]
-> Azure Database for MySQL - Single Server was retired in 2024. If your existing MySQL database is hosted on Azure Database for MySQL - Single Server, consider migrating to Azure Database for MySQL - Flexible Server by using the following steps, or by using [Azure Database Migration Service (DMS)](/azure/dms/tutorial-mysql-azure-external-to-flex-online-portal).
->
+    > [!NOTE]
+    > Azure Database for MySQL - Single Server was retired in 2024. If your existing MySQL database is hosted on Azure Database for MySQL - Single Server, consider migrating to Azure Database for MySQL - Flexible Server by using the following steps, or by using [Azure Database Migration Service (DMS)](/azure/dms/tutorial-mysql-azure-external-to-flex-online-portal).
 
 1. If you migrate the database, import the SQL file downloaded from the source database into the database of your newly created WordPress site. You can do it via the PhpMyAdmin dashboard available at `<sitename>.azurewebsites.net/phpmyadmin`. If you're unable to use one single large SQL file, separate the files into parts and try uploading again. To import the database through phpMyAdmin, see [Import](https://docs.phpmyadmin.net/en/latest/import_export.html#import).
 
