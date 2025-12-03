@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/24/2025
+ms.date: 12/03/2025
 ai-usage: ai-assisted
 
 ---
@@ -38,6 +38,13 @@ Graph definitions follow a formal [JSON schema](https://www.schemastore.org/aio-
 ## Basic graph structure
 
 ```yaml
+metadata:
+  $schema: "https://www.schemastore.org/aio-wasm-graph-config-1.0.0.json"
+  name: "Simple graph"
+  description: "A simple graph with a source, a map module, and a sink"
+  version: "1.0.0"
+  vendor: "Microsoft"
+
 moduleRequirements:
   apiVersion: "1.1.0"
   runtimeVersion: "1.1.0"

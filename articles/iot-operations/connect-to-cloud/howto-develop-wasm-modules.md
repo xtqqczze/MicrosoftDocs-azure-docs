@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/24/2025
+ms.date: 12/03/2025
 ai-usage: ai-assisted
 
 ---
@@ -625,12 +625,12 @@ Each operator type implements a specific WIT interface:
 // Core operator interfaces
 interface map {
     use types.{data-model};
-    process: result<data-model, error>; -> data-model;
+    process: func(message: data-model) -> result<data-model, error>;
 }
 
 interface filter {
     use types.{data-model};
-    process: result<data-model, error>; -> bool;
+    process: func(message: data-model) -> result<data-model, error>;
 }
 
 interface branch {
