@@ -88,7 +88,7 @@ Compiles a data map and generates XSLT.  The operation uses the map name to find
 
 #### Exceptions
 
-- **`ArgumentException`**: Thrown when the data map file does not exist at the expected path.
+- **`ArgumentException`**: Thrown when the data map file doesn't exist in the expected path.
 
 #### Example
 
