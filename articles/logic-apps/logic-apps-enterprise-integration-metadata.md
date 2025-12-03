@@ -22,7 +22,7 @@ To help your workflow quickly find the correct business-to-business (B2B) artifa
 - Support reuse and avoid duplicate definitions.
 - Route payloads to the correct encode or decode steps.
 - Provide more control over moving artifacts through development, test, and production.
-- Apply the correct validation or transformation without harcoded logic.
+- Apply the correct validation or transformation without hardcoded logic.
 - Facilitate tracking, traceability, governance, and auditing.
 - Ease migration from BizTalk Server to Azure Logic Apps.
 
