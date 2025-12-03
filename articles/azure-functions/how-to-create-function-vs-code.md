@@ -42,7 +42,7 @@ Make sure to select your preferred development language at the top of the articl
 + [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-+ The [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17 or 21(Linux).
++ The [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, 11, 17, or 21 (Linux-only).
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
@@ -77,11 +77,11 @@ Make sure to select your preferred development language at the top of the articl
 
 In this section, you use Visual Studio Code to create a local Azure Functions project in your preferred language. Later in the article, you update, run, and then publish your function code to Azure.
 
-1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette and search for and run the command `Azure Functions: Create New Project...`.
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. Search for and run the command `Azure Functions: Create New Project...`.
 
-2. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
+1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
 
-3. Provide the following information at the prompts:
+1. Provide the following information at the prompts:
     ::: zone pivot="programming-language-csharp"
 
     |Prompt|Selection|
@@ -179,7 +179,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     ```
     
-    This tells the local Functions host to use the storage emulator for the storage connection required by the Python v2 model. When you publish your project to Azure, this setting uses the default storage account instead. If you're using an Azure Storage account during local development, set your storage account connection string here.   
+    This setting tells the local Functions host to use the storage emulator for the storage connection required by the Python v2 model. When you publish your project to Azure, this setting uses the default storage account instead. If you use an Azure Storage account during local development, set your storage account connection string here.   
 
 ## Start the emulator
 
@@ -196,7 +196,7 @@ After you verify that the function runs correctly on your local computer, you ca
 
 ## Use AI to normalize and validate input
 
-This is an example prompt for Copilot Chat that updates the existing function code to retrieve parameters from either the query string or JSON body, apply formatting or type conversions, and return them as JSON in the response: 
+This example prompt for Copilot Chat updates the existing function code to retrieve parameters from either the query string or JSON body. It applies formatting or type conversions and returns the parameters as JSON in the response: 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 ```copilot-prompt
@@ -237,21 +237,21 @@ Update the FunctionTest.java file to test the new logic.
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-powershell,programming-language-typescript"  
-You can customize your prompt to add specifics as needed, then run the app again locally and verify that it works as expected after the code changes. This time, use a message body like:
+You can customize your prompt to add specifics as needed. Then run the app again locally and verify that it works as expected after the code changes. This time, use a message body like:
 
 ```json
 { "name": "devon torres", "email": "torres.devon@contoso.com", "age": "34" }
 ```
 
 > [!TIP]  
-> GitHub Copilot is powered by AI, so surprises and mistakes are possible. Should you encounter any errors during execution, paste the error message in the chat window, select **Agent** mode, and ask Copilot to help resolve the error. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
+> GitHub Copilot is powered by AI, so surprises and mistakes are possible. If you encounter any errors during execution, paste the error message in the chat window, select **Agent** mode, and ask Copilot to help resolve the error. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
 >
 > When running in **Agent** mode, the results of this customization depend on the specific tools available to your agent.
  
-When you are satisfied with your app, you can use Visual Studio Code to publish the project directly to Azure.
+When you're satisfied with your app, use Visual Studio Code to publish the project directly to Azure.
 ::: zone-end
 ::: zone pivot="programming-language-other"
-After you've verified that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure.
+After you verify that the function runs correctly on your local computer, use Visual Studio Code to publish the project directly to Azure.
 ::: zone-end
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
@@ -263,7 +263,7 @@ After you've verified that the function runs correctly on your local computer, i
 ::: zone pivot="programming-language-other"  
 ## Compile the custom handler for Azure
 
-In this section, you compile your project for deployment to Azure in a function app running Linux. In most cases, you must recompile your binary and adjust your configuration to match the target platform before publishing it to Azure.
+In this section, you compile your project for deployment to Azure in a function app running Linux. In most cases, you need to recompile your binary and adjust your configuration to match the target platform before publishing it to Azure.
 
 ### [Go](#tab/go)
     
@@ -289,7 +289,7 @@ In this section, you compile your project for deployment to Azure in a function 
     go build handler.go
     ```
     
-    Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
+    Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This change instructs the function app to run the Linux binary.
     
     ---
 
@@ -312,7 +312,7 @@ A binary named `handler` is created in the function app root.
     cp target/x86_64-unknown-linux-musl/release/handler .
     ```
 
-1. If you are using Windows, change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This instructs the function app to run the Linux binary.
+1. If you're using Windows, change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This change instructs the function app to run the Linux binary.
 
 1. Add the following line to the *.funcignore* file:
 
@@ -320,7 +320,7 @@ A binary named `handler` is created in the function app root.
     target
     ```
 
-    This prevents publishing the contents of the *target* folder.
+    This line prevents publishing the contents of the *target* folder.
 
 ---
 
@@ -334,11 +334,11 @@ A binary named `handler` is created in the function app root.
 
 1. Press <kbd>F1</kbd> to display the command palette, then search for and run the command `Azure Functions:Execute Function Now...`. If prompted, select your subscription.
 
-2.  Select your new function app resource and `HttpExample` as your function.
+1. Select your new function app resource and `HttpExample` as your function.
 
-3. In **Enter request body** type `{ "name": "Contoso", "email": "me@contoso.com", "age": "34" }`, then press Enter to send this request message to your function.
+1. In **Enter request body** type `{ "name": "Contoso", "email": "me@contoso.com", "age": "34" }`, then press Enter to send this request message to your function.
 
-4. When the function executes in Azure, the response is displayed in the notification area. Expand the notification to review the full response.
+1. When the function executes in Azure, the response is displayed in the notification area. Expand the notification to review the full response.
 
 ## Troubleshooting
 
@@ -347,7 +347,7 @@ Use the following table to resolve the most common issues encountered when using
 |Problem|Solution|
 |--|--|
 |Can't create a local function project?|Make sure you have the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed.|
-|Can't run the function locally?|Make sure you have the latest version of [Azure Functions Core Tools installed](functions-run-local.md?tabs=node) installed. <br/>When running on Windows, make sure that the default terminal shell for Visual Studio Code isn't set to WSL Bash.|
+|Can't run the function locally?|Make sure you have the latest version of [Azure Functions Core Tools installed](functions-run-local.md?tabs=node). <br/>When running on Windows, make sure that the default terminal shell for Visual Studio Code isn't set to WSL Bash.|
 |Can't deploy function to Azure?|Review the Output for error information. The bell icon in the lower right corner is another way to view the output. Did you publish to an existing function app? That action overwrites the content of that app in Azure.|
 |Couldn't run the cloud-based Function app?|Remember to use the query string to send in parameters, or use the request body for custom handlers.|
 
@@ -355,7 +355,7 @@ Use the following table to resolve the most common issues encountered when using
 
 ## Next steps
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-powershell,programming-language-typescript" 
-You have used [Visual Studio Code](functions-develop-vs-code.md) to create a function app with a simple HTTP-triggered function. In the next articles, you expand that function by connecting to either Azure Cosmos DB or Azure Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md). If you want to learn more about security, see [Securing Azure Functions](security-concepts.md).
+You used [Visual Studio Code](functions-develop-vs-code.md) to create a function app with a simple HTTP-triggered function. In the next articles, you expand that function by connecting to either Azure Cosmos DB or Azure Storage. To learn more about connecting to other Azure services, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md). If you want to learn more about security, see [Securing Azure Functions](security-concepts.md).
 
 > [!div class="nextstepaction"]
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md)

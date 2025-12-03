@@ -22,7 +22,7 @@ This article supports version 2 of the Python programming model for Azure Functi
 [!INCLUDE [functions-scenario-quickstarts-prerequisites-full](../../includes/functions-scenario-quickstarts-prerequisites-full.md)]
 + [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage)
 
-+ [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) or an equivalent REST tool used to securely execute HTTP requests. 
++ [REST Client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) or an equivalent REST tool you use to securely execute HTTP requests. 
 
 ## Initialize the project
 
@@ -74,9 +74,9 @@ In `azd`, the environment maintains a unique deployment context for your app, an
 
 ## Add the local.settings.json file
 
-Functions requires the local.settings.json file to configure the host when running locally.
+Functions needs the local.settings.json file to configure the host when running locally.
 
-1. Run this command to navigate to the `src` app folder:
+1. Run this command to go to the `src` app folder:
 
     ```console
     cd src
@@ -325,7 +325,7 @@ Use the `azd up` command to create the function app in a Flex Consumption plan a
 
 1. When prompted, select the name of your new storage account (from `AZURE_STORAGE_ACCOUNT_NAME`). Select **Blob Containers** > **unprocessed-pdf**.
  
-1. Press <kbd>F1</kbd>. In the command palette, search for and run the command `Azure Storage: Open in Explorer`. Select the same storage account > **Blob Containers** > **processed-pdf**, and then **Open in new window**. 
+1. Press <kbd>F1</kbd>. In the command palette, search for and run the command `Azure Storage: Open in Explorer`. Select the same storage account > **Blob Containers** > **processed-pdf**, then **Open in new window**. 
 
 1. In the Explorer, verify that the PDF files you uploaded were processed by your function. The output is written to the `processed-pdf` container with a `processed-` prefix. 
 

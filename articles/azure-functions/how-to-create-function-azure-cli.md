@@ -37,7 +37,7 @@ Make sure to select your preferred development language at the top of the articl
 
 ## Create a local code project and function
 
-In Azure Functions, your code project is an app that contains one or more individual functions that each responds to a specific trigger. All functions in a project share the same configurations and are deployed as a unit to Azure. In this section, you create a code project that contains a single function.
+In Azure Functions, your code project is an app that contains one or more individual functions that each respond to a specific trigger. All functions in a project share the same configurations and are deployed as a unit to Azure. In this section, you create a code project that contains a single function.
 ::: zone pivot="programming-language-csharp" 
 1. In a terminal or command prompt, run this [`func init`](./functions-core-tools-reference.md#func-init) command to create a function app project in the current folder:  
  
@@ -113,7 +113,7 @@ In Azure Functions, your code project is an app that contains one or more indivi
 
     > [!IMPORTANT]
     > + Use `-DjavaVersion=11` if you want your functions to run on Java 11. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
-    > + The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK to complete this article.
+    > + Set the `JAVA_HOME` environment variable to the install location of the correct version of the JDK to complete this article.
 
 2. Maven asks you for values needed to finish generating the project on deployment.   
     Provide the following values when prompted:
@@ -174,7 +174,7 @@ Verify your new function by running the project locally and calling the function
     ```
     ::: zone-end  
 
-    Toward the end of the output, the following lines should appear:
+    Toward the end of the output, the following lines appear:
 
     <pre>
     ...
@@ -190,7 +190,7 @@ Verify your new function by running the project locally and calling the function
     </pre>
 
 
-1. Copy the URL of your `HttpExample` function from this output to a browser and browse to the function URL and you should receive success response with a "hello world" message.
+1. Copy the URL of your `HttpExample` function from this output to a browser and browse to the function URL. You should receive a success response with a "hello world" message.
 
     >[!NOTE]
     > Because access key authorization isn't enforced when running locally, the function URL returned doesn't include the access key value and you don't need it to call your function. 
@@ -201,7 +201,7 @@ Verify your new function by running the project locally and calling the function
 
 ## Update application settings
 
-To enable the Functions host to connect to the default storage account using shared secrets, you must replace the `AzureWebJobsStorage` connection string setting with several settings that are prefixed with `AzureWebJobsStorage__`. These settings define a complex setting that your app uses to connect to storage and Application Insights with a user-assigned managed identity.
+To enable the Functions host to connect to the default storage account by using shared secrets, replace the `AzureWebJobsStorage` connection string setting with several settings that are prefixed with `AzureWebJobsStorage__`. These settings define a complex setting that your app uses to connect to storage and Application Insights with a user-assigned managed identity.
 
 1. Use this script to get the client ID of the user-assigned managed identity and uses it to define managed identity connections to both storage and Application Insights:
  
@@ -225,7 +225,7 @@ To enable the Functions host to connect to the default storage account using sha
 
     In this example, replace `<APP_NAME>` with the names of your function app. 
 
-At this point, the Functions host is able to connect to the storage account securely using managed identities instead of shared secrets. You can now deploy your project code to the Azure resources.
+At this point, the Functions host can connect to the storage account securely by using managed identities instead of shared secrets. You can now deploy your project code to the Azure resources.
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
@@ -233,7 +233,7 @@ At this point, the Functions host is able to connect to the storage account secu
 ::: zone pivot="programming-language-java"
 ## Update the pom.xml file
 
-After you successfully created your function app in Azure, you must update the pom.xml file so that Maven can deploy to your new app. Otherwise, it creates new set of Azure resources during deployment.
+After you successfully create your function app in Azure, update the pom.xml file so that Maven can deploy to your new app. Otherwise, Maven creates a new set of Azure resources during deployment.
 
 1. In Azure Cloud Shell, use this [`az functionapp show`](/cli/azure/functionapp#az-functionapp-show) command to get the deployment container URL and ID of the new user-assigned managed identity:
 
@@ -245,7 +245,7 @@ After you successfully created your function app in Azure, you must update the p
 
     In this example, replace `<APP_NAME>` with the names of your function app. 
 
-1. In the project root directory, open the pom.xml file in a text editor, locate the `properties` element, and make updates to these specific property values:
+1. In the project root directory, open the pom.xml file in a text editor, locate the `properties` element, and update these specific property values:
 
     | Property name | Value |
     | ---- | ---- |
@@ -314,7 +314,7 @@ You can now use Maven to deploy your code project to your existing app.
 
 ## Invoke the function on Azure
 
-Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL using the function-level access key. It's easiest to do execute a GET request in a browser. 
+Because your function uses an HTTP trigger and supports GET requests, you invoke it by making an HTTP request to its URL using the function-level access key. It's easiest to execute a GET request in a browser. 
 
 Paste the URL and access key you copied into a browser address bar. 
 
