@@ -180,6 +180,8 @@ items:
           href: load-testing/resource-limits-quotas-capacity.md
         - name: JMeter property overrides
           href: load-testing/resource-jmeter-property-overrides.md
+        - name: Responsible AI FAQs
+          href: load-testing/resource-responsible-ai-faq.md
 
 - name: Playwright Workspaces
   expanded: true
