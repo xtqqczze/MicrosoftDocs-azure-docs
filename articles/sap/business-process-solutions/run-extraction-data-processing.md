@@ -53,21 +53,21 @@ Once the field metadata extraction is completed, you can start extracting data f
 
 After your SAP data is replicated using Azure data factory, we need to execute pipelines in order to process the data. Since we have a medallion architecture in Business process solution the data flows from Silver -> Gold Layer. We need to execute the following pipeline:
 
-**ei_orchestration_pipeline_full_processing** – This pipeline processes and copies data from silver lakehouse to gold lakehouse. Once this pipeline is completed, you should be able to refresh your semantic model and view data in your Power BI reports.
+**bps_orchestration_pipeline_full_processing** – This pipeline processes and copies data from silver lakehouse to gold lakehouse. Once this pipeline is completed, you should be able to refresh your semantic model and view data in your Power BI reports.
 
 ### SAP S/4 HANA data processing with Open Mirroring
 
 After your SAP data is replicated to the mirroring database, we need to execute pipelines in order to process the data. Since we have a medallion architecture in Business process solution the data flows from Bronze -> Silver -> Gold Layers. We need to execute the pipelines in the following order:
 
-1. **EI_OM_B2S_Orchestration_Pipeline** – This copies the data from your mirrored database to Silver lakehouse. Once this pipeline is completed, you should be able to see data in your silver lakehouse.
-2. **ei_orchestration_pipeline_full_processing** – This pipeline processes and copies data from silver lakehouse to gold lakehouse. Once this pipeline is completed, you should be able to refresh your semantic model and view data in your Power BI reports.
+1. **bps_om_b2s_orchestration_pipeline** – This copies the data from your mirrored database to Silver lakehouse. Once this pipeline is completed, you should be able to see data in your silver lakehouse.
+2. **bps_orchestration_pipeline_full_processing** – This pipeline processes and copies data from silver lakehouse to gold lakehouse. Once this pipeline is completed, you should be able to refresh your semantic model and view data in your Power BI reports.
 
 ### SAP ECC data processing with Open Mirroring
 
 After your ECC data is replicated to the mirroring database, we need to execute pipelines in order to process the data. Since we have a medallion architecture in Business process solution the data flows from Bronze -> Silver -> Gold Layers. We need to execute the pipelines in the following order:
 
-1. **EI_ECC_B2S_orchestration_pipeline** – This copies the data from your mirrored database to Silver lakehouse. Once this pipeline is completed, you should be able to see data in your silver lakehouse.
-2. **ei_orchestration_pipeline_full_processing** – This pipeline processes and copies data from silver lakehouse to gold lakehouse. Once this pipeline is completed, you should be able to refresh your semantic model and view data in your Power BI reports.
+1. **bps_ecc_b2s_orchestration_pipeline** – This copies the data from your mirrored database to Silver lakehouse. Once this pipeline is completed, you should be able to see data in your silver lakehouse.
+2. **bps_orchestration_pipeline_full_processing** – This pipeline processes and copies data from silver lakehouse to gold lakehouse. Once this pipeline is completed, you should be able to refresh your semantic model and view data in your Power BI reports.
 
 ## Salesforce - data extraction and processing
 
@@ -76,15 +76,15 @@ After your ECC data is replicated to the mirroring database, we need to execute 
 To start the replication process, follow the steps:
 
 1. Navigate to the workspace.
-2. Run the pipeline **EI_SF_Salesforce_Data_Pull**, this pipeline pulls the table metadata and data from your salesforce system to the bronze lakehouse.
+2. Run the pipeline **bps_sf_salesforce_data_pull**, this pipeline pulls the table metadata and data from your salesforce system to the bronze lakehouse.
 
 ### Salesforce data processing with Fabric pipelines
 
 After your Salesforce data is replicated to the bronze lakehouse, we need to execute pipelines in order to process the data. Since we have a medallion architecture in Business process solution the data flows from Bronze -> Silver -> Gold Layers. We need to execute the pipelines in the following order:
 
-1. **EI_SF_Orchestration_Pipeline_B2S_Processing** – This copies the data from your bronze lakehouse to Silver lakehouse. Once this pipeline is completed you should be able to see data in your silver lakehouse.
-2. **EI_SF_Orchestration_Pipeline_S2G_Dimension_Processing** – This pipeline processes and copies dimension tables from silver lakehouse to gold lakehouse.
-3. **EI_SF_Orchestration_Pipeline_S2G_Fact_Processing** – This pipeline processes and copies fact tables from silver lakehouse to gold lakehouse. Once this pipeline is completed you should be able to refresh your semantic model and view data in your Power BI reports.
+1. **bps_sf_orchestration_pipeline_b2s_processing** – This copies the data from your bronze lakehouse to Silver lakehouse. Once this pipeline is completed you should be able to see data in your silver lakehouse.
+2. **bps_sf_orchestration_pipeline_s2g_dimension_processing** – This pipeline processes and copies dimension tables from silver lakehouse to gold lakehouse.
+3. **bps_sf_orchestration_pipeline_s2g_fact_processing** – This pipeline processes and copies fact tables from silver lakehouse to gold lakehouse. Once this pipeline is completed you should be able to refresh your semantic model and view data in your Power BI reports.
 
 ## Next steps
 

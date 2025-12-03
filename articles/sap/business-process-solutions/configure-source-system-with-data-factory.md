@@ -16,7 +16,13 @@ In this article, we'll describe the steps required to configure SAP source syste
 
 ## Prerequisites
 
-Before connecting to the SAP source system in Business Process Solutions, complete the following Azure prerequisites:
+### Required SAP Notes
+
+Before implementing Business Process Solutions, review the following SAP Notes to help prevent common issues during data extraction.
+
+- 2930269 - ABAP CDS CDC : Common issues, troubleshooting and components (all notes listed in the point 9 of this SAP Note).
+- 3077184 - Use new CDS-Views for SAP S/4HANA SD and Billing Document Data.
+- 3031375 - Customer specific setting for bucket size in CDC extraction.
 
 ### Register services in Azure Subscription
 

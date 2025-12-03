@@ -20,10 +20,10 @@ This article explains how to configure Insights and establish connections to ref
 Some Insights require additional transformations delivered through SQL views on top of the lakehouse. To deploy these views, run the provided notebook from your workspace:
 
 1. Navigate to your workspace.
-2. Open the notebook ei_gold_view_creation.
-   :::image type="content" source="./media/configure-insights/gold-view-notebook.png" alt-text="Screenshot showing how to open the ei_gold_view_creation notebook." lightbox="./media/configure-insights/gold-view-notebook.png":::
+2. Open the notebook bps_gold_view_creation.
+   :::image type="content" source="./media/configure-insights/gold-view-notebook.png" alt-text="Screenshot showing how to open the bps_gold_view_creation notebook." lightbox="./media/configure-insights/gold-view-notebook.png":::
 3. Click on the Run All button.
-   :::image type="content" source="./media/configure-insights/run-gold-view-notebook.png" alt-text="Screenshot showing how to run the ei_gold_view_creation notebook." lightbox="./media/configure-insights/run-gold-view-notebook.png":::
+   :::image type="content" source="./media/configure-insights/run-gold-view-notebook.png" alt-text="Screenshot showing how to run the bps_gold_view_creation notebook." lightbox="./media/configure-insights/run-gold-view-notebook.png":::
 4. Once the notebook run is finished, you should see the sql views in your gold lakehouse.
 
 ## Deploy Power BI Report

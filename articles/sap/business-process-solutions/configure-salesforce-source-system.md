@@ -23,6 +23,7 @@ Before we create source system for salesforce, we need to create a connection to
 
    :::image type="content" source="./media/configure-salesforce-source-system/open-settings.png" alt-text="Screenshot showing how to open the settings page." lightbox="./media/configure-salesforce-source-system/open-settings.png":::
 3. Click on New Button.
+
    :::image type="content" source="./media/configure-salesforce-source-system/new-connection.jpg" alt-text="Screenshot showing the manage connections and gateways page." lightbox="./media/configure-salesforce-source-system/new-connection.jpg":::
 4. In the new connection input, select the Type as Cloud.
 5. Enter the connection name.
