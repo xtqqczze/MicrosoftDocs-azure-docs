@@ -4,9 +4,9 @@ description: Reference documentation for the Azure Logic Apps Automated Test SDK
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: concept-article
-ms.date: 07/18/2025
+ms.date: 12/03/2025
 ---
 
 # Azure Logic Apps Automated Test SDK
