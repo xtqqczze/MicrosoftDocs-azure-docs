@@ -4,7 +4,7 @@ description: Best practices to help you develop more secure code and deploy a mo
 author: msmbaldwin
 manager: rkarlin
 ms.author: mbaldwin
-ms.date: 09/29/2024
+ms.date: 12/03/2025
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop

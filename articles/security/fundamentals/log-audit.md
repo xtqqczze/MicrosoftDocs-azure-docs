@@ -8,7 +8,7 @@ manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 09/29/2024
+ms.date: 12/03/2025
 ms.author: mbaldwin
 
 ---
