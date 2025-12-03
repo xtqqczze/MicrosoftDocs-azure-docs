@@ -7,7 +7,7 @@ ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.date: 09/27/2024
+ms.date: 12/03/2025
 ms.author: mbaldwin
 
 ---
