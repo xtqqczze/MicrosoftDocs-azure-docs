@@ -111,8 +111,6 @@
     items:
     - name: App Service & Azure Functions
       href: /azure/app-service/app-service-configuration-references
-    - name: Azure Front Door
-      href: how-to-connect-azure-front-door.md
   - name: Deployment
     items:
     - name: Overview
@@ -252,6 +250,15 @@
       href: howto-telemetry-python.md
     - name: JavaScript
       href: howto-telemetry-javascript.md
+
+- name: Hyperscale Configuration
+  items:
+  - name: Overview
+    href: concept-hyperscale-client-config-afd.md
+  - name: Setup Azure Front Door integration
+    href: how-to-connect-azure-front-door.md
+  - name: Connect applications to Azure Front Door
+    href: howto-configproviders-afd.md
 - name: CI/CD integration
   items:
   - name: Use configuration files
