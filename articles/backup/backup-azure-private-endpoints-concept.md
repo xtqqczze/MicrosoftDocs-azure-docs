@@ -24,7 +24,7 @@ This article describes how the enhanced capabilities of private endpoints for Az
 - No private endpoints are created for the blob and queue services.
 - Use fewer private IPs.
 
-## Considerations
+## Considerations before you start
 
 - Although both Azure Backup and Azure Site Recovery use a Recovery Services vault, this article discusses use of private endpoints for Azure Backup only.
 

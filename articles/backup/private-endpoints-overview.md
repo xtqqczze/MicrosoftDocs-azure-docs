@@ -19,7 +19,7 @@ This article helps you understand how private endpoints for Azure Backup work in
 
 Azure Backup also provides an enhanced experience for creating and using private endpoints. [Learn more](backup-azure-private-endpoints-concept.md).
 
-## <a name = "before-you-start"></a>Considerations
+## <a name = "before-you-start"></a>Considerations before you start
 
 - You can create private endpoints for new Recovery Services vaults only, if no items are registered to the vault. You must create private endpoints before you try to protect any items in the vault. However, private endpoints are currently not supported for Backup vaults.
 

@@ -20,7 +20,7 @@ You can use [soft delete](backup-azure-security-feature-cloud.md) for Azure Back
 *Basic* soft delete is available for Recovery Services vaults. *Enhanced* soft delete provides more capabilities for data protection.
 
 > [!NOTE]
-> After you enable enhanced soft delete by changing the soft delete state to **Enabled and always-on**, you can't disable it for that vault.
+> After you enable enhanced soft delete by changing the soft-delete state to **Enabled and always-on**, you can't disable it for that vault.
 
 ## What's basic soft delete?
 
@@ -36,7 +36,7 @@ The following diagram shows the flow of a backup item (or a backup instance) tha
 
 The key benefits of enhanced soft delete are:
 
-- **Always-on soft delete**: You can opt to set soft delete as always-on. This action is irreversible. If you opt to do it, you can't disable the soft-delete settings for the vault.
+- **Always-on soft delete**: You can opt to set soft delete as always on. This action is irreversible. If you opt to do it, you can't disable the soft-delete settings for the vault.
 
 - **Configurable soft-delete retention**: You can specify the retention duration for deleted backup data, with a range of 14 to 180 days. By default, the retention duration is set to 14 days (the setting for basic soft delete) for the vault. You can extend it as required. However, you're charged for any period beyond 14 days.
 
@@ -52,7 +52,7 @@ The key benefits of enhanced soft delete are:
 
 - Enhanced soft delete is supported for Recovery Services vaults and Backup vaults. Also, it's supported for new and existing vaults.
 
-- Enhanced soft delete applies to all vaulted workloads alike and is supported for Recovery Services vaults and Backup vaults. However, for workloads at the operational tier, soft delete isn't completely applicable because you can delete the underlying storage account that's part of your own subscription. These workloads include operational backup of [Azure Files shares](azure-file-share-backup-overview.md?tabs=snapshot#architecture-for-azure-files-backup), [Azure blobs](blob-backup-overview.md?tabs=operational-backup#how-the-azure-blobs-backup-works), or [Azure disks](disk-backup-overview.md).
+- Enhanced soft delete applies to all vaulted workloads. However, for workloads at the operational tier, soft delete isn't completely applicable because you can delete the underlying storage account that's part of your own subscription. These workloads include operational backup of [Azure Files shares](azure-file-share-backup-overview.md?tabs=snapshot#architecture-for-azure-files-backup), [Azure blobs](blob-backup-overview.md?tabs=operational-backup#how-the-azure-blobs-backup-works), or [Azure disks](disk-backup-overview.md).
 
 ## Soft-delete states for vaults
 
@@ -82,7 +82,7 @@ Re-registration is currently not supported with SQL Server Always On availabilit
 
 ## Soft delete of recovery points
 
-Soft delete of recovery points helps you recover any recovery points that are accidentally or maliciously deleted for some operations that could lead to deletion of one or more recovery points. For example, these activities can cause a loss of certain recovery points:
+Soft delete of recovery points helps you restore any recovery points that are accidentally or maliciously deleted for some operations that could lead to deletion of one or more recovery points. For example, these activities can cause a loss of certain recovery points:
 
 - Modification of a backup policy associated with a backup item to reduce the backup retention
 - Assigning a new policy to a backed-up item that has a lower retention
