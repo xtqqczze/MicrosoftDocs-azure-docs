@@ -11,11 +11,11 @@ zone_pivot_groups: df-languages
 
 # Orchestration Versioning (preview)
 
-When using a durable orhestration system, how you handle the upgrading and downgrading of orchestrations is key. If an orchestration is interrupted and later resumed (for instance, during a host update), Durable Task Scheduler replays the events of the orchestration, ensuring all previous steps were executed successfully before taking the next step. This action ensures reliability, one of the core promises of the durable execution paradigm. 
+Upgrading and downgrading orchestrations is a key consideration when working with durable orchestration systems. If an orchestration is interrupted and later resumed (for instance, during a host update), Durable Task Scheduler replays the events of the orchestration, ensuring all previous steps were executed successfully before taking the next step. This action ensures reliability, one of the core promises of the durable execution paradigm. 
 
 If an orchestration changes between deployments, the steps it takes may no longer be the same. In this case, the system throws a `NonDeterministicError`, instead of allowing the orchestration to continue. 
 
-_Orchestration versioning_ prevents problems related to non-determinism, allowing you to work seamlessly with new (or old) orchestrations. Durable Task Scheduler has two different styles of versioning, which you can use separately or together:
+_Orchestration versioning_ prevents problems related to nondeterminism, allowing you to work seamlessly with new (or old) orchestrations. Durable Task Scheduler has two different styles of versioning, which you can use separately or together:
 - [Client/context-based conditional versioning](#clientcontext-based-conditional-versioning)
 - [Worker-based versioning](#worker-based-versioning)
 
@@ -85,7 +85,7 @@ public DurableTaskClient durableTaskClient(DurableTaskProperties properties) {
 
 ::: zone pivot="csharp"
 
-Once you've added the version to the client, any orchestration started by this host uses the version `1.0.0`. The version is a simple string and accepts any value. However, the SDK tries to convert it to .NET's `System.Version`. 
+Once you add the version to the client, any orchestration started by this host uses the version `1.0.0`. The version is a simple string and accepts any value. However, the SDK tries to convert it to .NET's `System.Version`. 
 - If it _can_ be converted, that library is used for comparison.
 - If _not,_ a simple string comparison is used.
 
@@ -121,7 +121,7 @@ class HelloCities : TaskOrchestrator<string, List<string>>
 
 ::: zone pivot="java"
 
-Once you've added the version to the client, any orchestration started by this client uses the version `1.0.0`. The version is a simple string and accepts any value. 
+Once you add the version to the client, any orchestration started by this client uses the version `1.0.0`. The version is a simple string and accepts any value. 
 
 Supplying the version in the client also makes it available in `TaskOrchestration`, meaning you can use the version in conditional statements. As long as newer orchestration versions have the appropriate version gating, both the old and new orchestration versions can run together on the same client. 
 
@@ -147,7 +147,7 @@ public TaskOrchestration create() {
 
 ::: zone pivot="python"
 
-Once you've added the version to the client, any orchestration started by this client uses the version `1.0.0`. The version is a simple string parsed using `packaging.version`, which supports semantic versioning comparison and accepts any value.  
+Once you add the version to the client, any orchestration started by this client uses the version `1.0.0`. The version is a simple string parsed using `packaging.version`, which supports semantic versioning comparison and accepts any value.  
 
 Supplying the version in the client also makes it available in the `task.OrchestrationContext`, meaning you can use the version in conditional statements. As long as newer orchestration versions have the appropriate version gating, both the old and new orchestration versions can run together on the same client. 
 
@@ -172,7 +172,7 @@ def orchestrator(ctx: task.OrchestrationContext, _):
 
 ::: zone pivot="csharp,java"
 
-In this example, we've added a `SayGoodbye` activity to the `HelloCities` orchestration. This activity is only called for orchestration versions `2.0.0` and higher. With the simple conditional statement, any orchestration with a version less than `2.0.0` continues to function and any new orchestration includes the new activity.
+In this example, we added a `SayGoodbye` activity to the `HelloCities` orchestration. This activity is only called for orchestration versions `2.0.0` and higher. With the simple conditional statement, any orchestration with a version less than `2.0.0` continues to function and any new orchestration includes the new activity.
 
 ::: zone-end
 
@@ -191,7 +191,7 @@ While orchestrations still need a client version to set the version, the worker-
 Worker versioning requires the following fields to be set:
 
 1. The version of the worker.
-1. The default version applied to sub-orchestrations started by the worker.
+1. The default version applied to suborchestrations started by the worker.
 1. The strategy that the worker uses to match against the orchestration's version.
 
     | Name           | Description                                                                              |
@@ -204,8 +204,8 @@ Worker versioning requires the following fields to be set:
 
     | Name   | Description                                                                                               |
     |--------|-----------------------------------------------------------------------------------------------------------|
-    | Reject | The orchestration will be rejected by the worker but remain in the work queue to be attempted again later |
-    | Fail   | The orchestration will be failed and removed from the work queue                                          |
+    | Reject | The orchestration is rejected by the worker but remains in the work queue to be attempted again later |
+    | Fail   | The orchestration is failed and removed from the work queue                                          |
 
 ::: zone-end
 
@@ -327,7 +327,7 @@ Use the `Fail` failure strategy when no other versions are expected. In this cas
 
 ### When to Use Worker Versioning
 
-Use worker versioning in scenarios where unknown or unsupported orchestration versions shouldn't be executed at all. Instead of placing version handling code in the worker, worker versioning stops the orchestration from ever executing. This method allows for much simpler orchestration code. Without any code changes, various deployment scenarios can be handled, like blue-green deployments.
+Use worker versioning in scenarios where unknown or unsupported orchestration versions shouldn't be executed at all. Instead of placing version handling code in the worker, worker versioning stops the orchestration from ever executing. This method allows for simpler orchestration code. Without any code changes, various deployment scenarios can be handled, like blue-green deployments.
 
 ## Next steps
 ::: zone-end
