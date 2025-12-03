@@ -1,44 +1,69 @@
 ---
-title: Manage Artifact Metadata in Integration Accounts
-description: You can add metadata to an integration account artifact. Learn how to use that metadata in an Azure Logic App workflow.
+title: Manage Metadata for B2B Artifacts
+description: Learn to add metadata for B2B artifacts such as trading partners and agreements in integration accounts. Learn to use this metadata with workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 11/12/2025
+ms.date: 12/03/2025
 ms.custom: sfi-image-nochange
-#Customer intent: As an Azure Logic Apps developer, I want to define custom metadata for integration account artifacts so that my logic app workflow can use that metadata.
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to define custom metadata for B2B artifacts in an integration account so my workflow can more easily identify and find the correct artifacts using this metadata.
 ---
 
-# Manage artifact metadata in integration accounts for Azure Logic Apps
+# Manage and use B2B artifact metadata in workflows for Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-You can define custom metadata for artifacts in integration accounts. Your Azure Logic Apps workflows can use that metadata at runtime. For example, you can provide metadata for artifacts, such as partners, agreements, schemas, and maps. These artifact types store metadata as key-value pairs. 
+To help workflows quickly find the correct business-to-business (B2B) artifacts to use at runtime, you can add custom metadata as key-value pairs to artifacts such as trading partners, agreements, schemas, and maps. Custom metadata for artifacts help accomplish the following goals or tasks:
 
-This article shows you how to add metadata to an integration account artifact and how to use these values in a workflow.
+- Enforce naming conventions.
+- Support reuse and avoid duplicate definitions.
+- Route payloads to the correct encode or decode steps.
+- Provide more control over moving artifacts through development, test, and production.
+- Apply the correct validation or transformation without harcoded logic.
+- Facilitate tracking, traceability, governance, and auditing.
+- Ease migration from BizTalk Server to Azure Logic Apps.
+
+The following list describes example useful metadata, based on artifact type:
+
+| Artifact | Metadata |
+|----------|----------|
+| Partner | - Business identity such as AS2, X12, or EDIFACT <br>- Trading name <br>- Contact and support information <br>- Certificate thumbprints <br>- Allowed protocols <br>- Expected acknowledgments such as MDN, TA1, or 997 |
+| Agreement | - Host and guest partners <br>- Encryption or signature policies <br>- Retry and timeout rules <br>- Content type <br>- Batching settings <br>- Acknowledgment behavior |
+| Schemas and maps | - Message type <br>- Version <br>- Namespace <br>- Source control URL <br>- Change notes <br>- Compatibility matrix for which agreements or workflows consume these artifacts |
+
+For tracking purposes and feeding B2B tracking tables or dashboards, useful metadata includes correlation properties such as interchange number, group number, transaction set ID as well as workflow run ID, partner and agreement IDs, status, and timestamps.
+
+This guide shows how to add metadata to an artifact and get that metadata for your workflow by using the **Integration Account Artifact Lookup** built-in action.
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- An [integration account](logic-apps-enterprise-integration-create-integration-account.md) that has the artifacts where you want to add metadata. The artifacts can be the following types:
+- The logic app resource and workflow where you want to get and use the artifact metadata.
+
+  Your workflow can start with any trigger and needs an action that works with the metadata after retrieval. This example uses the **Request** trigger named **When an HTTP request is received**.
+  
+  For more information, see:
+
+  - [Create a Consumption workflow in Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
+
+  - [Create a Standard workflow in Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
+
+- An [integration account resource](enterprise-integration/create-integration-account.md) that contains the artifacts where you want to add metadata.
+
+  - Both your integration account and logic app resource must exist in the same Azure subscription and Azure region.
+
+  You can add custom metadata to the following artifacts:
 
   - [Partner](logic-apps-enterprise-integration-partners.md)
   - [Agreement](logic-apps-enterprise-integration-agreements.md)
   - [Schema](logic-apps-enterprise-integration-schemas.md)
   - [Map](logic-apps-enterprise-integration-maps.md)
 
-- The logic app workflow where you want to use the artifact metadata. Your workflow must have a trigger, such as the **Request** or **HTTP** trigger, and an action to use for working with artifact metadata.
-
-  This article uses the **Request** trigger named **When an HTTP request is received**.   For more information, see:
-
-  - [Create a Consumption logic app workflow in Azure Logic Apps](quickstart-create-example-consumption-workflow.md)
-  - [Create a Standard logic app workflow in Azure Logic Apps](create-single-tenant-workflows-azure-portal.md)
-
-- Link your integration account to your [Consumption logic app resource](logic-apps-enterprise-integration-create-integration-account.md?tabs=azure-portal%2Cconsumption#link-account) or to your [Standard logic app workflow](logic-apps-enterprise-integration-create-integration-account.md?tabs=azure-portal%2Cstandard#link-account).
+  - Before you start working with the **Integration Account Artifact Lookup** action, you must [link your Consumption logic app](enterprise-integration/create-integration-account.md?tabs=consumption#link-account) or [link your Standard logic app](enterprise-integration/create-integration-account.md?tabs=standard#link-account) to the integration account. You can link an integration account to multiple Consumption or Standard logic app resources to share the same artifacts.
 
 ## Add metadata to artifacts
 
