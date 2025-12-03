@@ -131,7 +131,7 @@ Executes a data map by applying the given XSLT (found by map name) to sample inp
 
 | Name | Type | Description | Required |
 |------|------|-------------|----------|
-| mapName | string | The data map XSLT file name (without extension) | Yes |
+| mapName | string | The data map XSLT file name without the extension | Yes |
 | inputContent | byte[] | The input content to be transformed | Yes |
 
 #### Returns
