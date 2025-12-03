@@ -3,7 +3,7 @@ title: Set Up Deployment Slots for Zero Downtime
 description: Learn to set up deployment slots to enable zero downtime for Standard workflows in Azure Logic Apps. 
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, wsilveira, azla
+ms.reviewers: estfan, wsilveira, azla
 ms.topic: how-to
 ms.custom: sfi-image-nochange
 ms.date: 12/02/2025
