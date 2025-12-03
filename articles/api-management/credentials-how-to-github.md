@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 10/02/2025
+ms.date: 12/02/2025
 ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
@@ -42,9 +42,10 @@ Create a GitHub OAuth app for the API and give it the appropriate permissions fo
     1. Enter an **Application name** and **Homepage URL** for the application. For this example, you can supply a placeholder URL such as `http://localhost`.
     1. Optionally, add an **Application description**.
     1. In **Authorization callback URL** (the redirect URL), enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`, substituting the name of the API Management instance where you will configure the credential provider.  
+    1. Optionally select **Enable device flow** (not required for this example).
 1. Select **Register application**.
 1. On the **General** page, copy the **Client ID**, which you'll use in Step 2.
-1. Select **Generate a new client secret**. Copy the secret, which won't be displayed again, and which you'll use in Step 2. 
+1. Select **Generate a new client secret**. Copy the secret, which won't be displayed again. You'll configure the secret in Step 2. 
 
     :::image type="content" source="media/credentials-how-to-github/generate-secret.png" alt-text="Screenshot showing how to get client ID and client secret for the application in GitHub.":::
 
@@ -66,7 +67,7 @@ Create a GitHub OAuth app for the API and give it the appropriate permissions fo
     |**Scope**     |    For this example, set the scope to *User*      |
 
 1. Select **Create**.
-1. When prompted, review the OAuth redirect URL that's displayed, and select **Yes** to confirm that it matches the URL you entered in the app registration.
+1. When prompted, review the OAuth redirect URL that's displayed, and select **Yes** to confirm that it matches the URL you entered in the GitHub app registration.
   
 ## Step 3: Configure a connection
 
