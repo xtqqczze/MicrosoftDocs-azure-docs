@@ -2,7 +2,7 @@
 title: Secure your Azure App Service deployment
 description: Learn how to secure Azure App Service, with best practices for protecting your deployment.
 keywords: azure app service, web app, mobile app, api app, function app, security, secure, secured, compliance, compliant, certificate, certificates, https, ftps, tls, trust, encryption, encrypt, encrypted, ip restriction, authentication, authorization, authn, autho, msi, managed service identity, managed identity, secrets, secret, patching, patch, patches, version, isolation, network isolation, ddos, mitm
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/03/2025
 ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3, horz-security
