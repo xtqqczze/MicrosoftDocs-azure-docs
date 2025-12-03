@@ -74,7 +74,7 @@ The logic app project root directory path.
 
 ### GenerateXslt(string)
 
-Compiles a data map (found by map name) and generates XSLT.
+Compiles a data map and generates XSLT.  The operation uses the map name to find the data map.
 
 #### Parameters
 
