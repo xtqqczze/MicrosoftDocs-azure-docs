@@ -2,7 +2,7 @@
 title: Guidance for throttled requests in Azure Resource Graph
 description: Learn to group, stagger, paginate, and query in parallel to avoid requests being throttled in Azure Resource Graph.
 ms.date: 01/04/2024
-ms.topic: how-to
+ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
 
@@ -228,7 +228,7 @@ while (!string.IsNullOrEmpty(azureOperationResponse.Body.SkipToken))
 
 ## Differentiate between throttling requests for ARG and ARM
 
-When using ARG, you may encounter throttling errors in response to your requests. It’s important to identify the source of throttling, as it can occur at two levels:
+When using the ARG GET / LIST API, you may encounter throttling errors in response to your requests. It’s important to identify the source of throttling, as it can occur at two levels:
 
 - ARG API throttling: limits applied by Azure Resource Graph.
 - ARM throttling: limits enforced by Azure Resource Manager.
