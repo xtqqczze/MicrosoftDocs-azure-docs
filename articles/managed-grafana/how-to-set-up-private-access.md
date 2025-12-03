@@ -7,7 +7,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: how-to 
-ms.date: 11/21/2025
+ms.date: 12/03/2025
 ms.custom:
   - how-to
   - devx-track-azurecli
@@ -25,10 +25,35 @@ In this guide, you'll learn how to disable public access to your Azure Managed G
 
 ## Disable public access to a workspace
 
-Public access is enabled by default when you create an Azure Grafana workspace. Disabling public access prevents all traffic from accessing the resource unless you go through a private endpoint.
+By default, public access is enabled when you create an Azure Grafana workspace. You can disable it while creating a new workspace or by updating an existing workspace. 
+
+Disabling public access prevents all traffic from accessing the resource unless you go through a private endpoint.
 
 > [!NOTE]
 > When private access is enabled, pinging charts using the [*Pin to Grafana*](/azure/azure-monitor/visualize/grafana-plugin#pin-charts-from-the-azure-portal-to-azure-managed-grafana) feature will no longer work as the Azure portal can't access an Azure Managed Grafana workspace on a private IP address.
+
+### Disable public access during workspace creation
+
+### [Portal](#tab/azure-portal)
+
+1. Start the process for [creating a Grafana workspace](./quickstart-managed-grafana-portal.md)
+1. In the **Create Grafana Workspace** pane, select the **Networking** tab.
+1. Under **Public Access** > **Access Options**, select **Disabled** to disable public access to the Azure Managed Grafana workspace and only allow access through private endpoints.
+1. Click **Review + create** when ready.
+
+   :::image type="content" source="media/private-endpoints/disable-public-access-during-creation.png" alt-text="Screenshot of the Azure portal disabling public access during Grafana workspace creation.":::
+
+### [Azure CLI](#tab/azure-cli)
+
+In the CLI, run the [az grafana create](/cli/azure/grafana#az-grafana-create) command and replace the placeholders `<grafana-workspace>` and `<resource-group>` with your own information:
+
+```azurecli-interactive
+az grafana create --name <grafana-workspace> ---resource-group <resource-group> --public-network-access disabled
+```
+
+---
+
+### Disable public access on an existing workspace
 
 ### [Portal](#tab/azure-portal)
 
@@ -52,6 +77,8 @@ az grafana update --name <grafana-workspace> ---resource-group <resource-group> 
 ## Create a private endpoint
 
 Once you have disabled public access, set up a [private endpoint](../private-link/private-endpoint-overview.md) with Azure Private Link. Private endpoints allow access to your Azure Managed Grafana workspace using a private IP address from a virtual network.
+
+Even if the Grafana instance is configured to use private network only, the traffic to the SSO endpoint (used for Single Sign-on OAuth authentication), goes over public network. 
 
 ### [Portal](#tab/azure-portal)
 
