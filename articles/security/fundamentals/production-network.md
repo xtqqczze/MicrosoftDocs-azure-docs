@@ -3,7 +3,6 @@ title: Azure production network
 description: Learn about the Azure production network. See security access methods and protection mechanisms for establishing a connection to the network.
 services: security
 author: msmbaldwin
-manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security

@@ -5,7 +5,6 @@ titleSuffix: Azure security
 description: This article provides a set of operational best practices for protecting your data, applications, and other assets in Azure.
 services: security
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article

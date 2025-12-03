@@ -4,7 +4,6 @@ title: Azure security logging and auditing | Microsoft Docs
 description: Learn about the logs available in Azure and the security insights you can gain.
 services: security
 author: msmbaldwin
-manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
