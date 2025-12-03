@@ -225,6 +225,58 @@ Code that is written in any language or framework can get the information that i
 > [!NOTE]
 > Different language frameworks might present these headers to the app code in different formats, such as lowercase or title case.
 
+## Secure an MCP endpoint
+
+Create Azure AD app registration
+
+```azurecli
+az ad app create \
+  --display-name <APP_DISPLAY_NAME> \
+  --sign-in-audience <ORGANIZATION_NAME>
+---
+
+Enable ID token issuance - required for Easy Auth
+
+```azurecli
+az ad app update \
+  --id <APPLICATION_ID> \
+  --enable-id-token-issuance true
+```
+
+Add the redirect URI for Easy Auth callback
+
+```azurecli
+az ad app update \
+  --id <APP_ID> \
+  --web-redirect-uris "https://<APP_NAME_WITH_AUTH>.<CONTAINER_APPS_ENVIRONMENT_FQDN>/.auth/login/aad/callback"
+---
+
+Generate a client secret
+
+```azurecli
+az ad app credential reset \
+  --id <APP_ID>" \
+  --display-name "YOUR_APP_NAME-Secret"
+---
+
+Create service principal - required for proper authentication
+
+```azurecli
+az ad sp create --id <APP_ID>
+---
+
+Configure Microsoft Entra ID authentication with the App
+
+```azurecli
+az containerapp auth microsoft update \
+  --name <APP_NAME_WITH_AUTH> \
+  --resource-group <RESOURCE_GROUP> \
+  --client-id <APP_ID> \
+  --client-secret CLIENT_SECRET> \
+  --tenant-id <TENANT_ID \
+  --yes
+```
+
 ## Next steps
 
 Refer to the following articles for details on securing your container app.
