@@ -41,13 +41,13 @@ An Azure Functions app implemented as a custom handler must configure the *host.
 
 ## Deploy self-hosted MCP servers
 
-Custom handlers also enables you to host MCP servers that you build using official MCP SDKs in Azure Functions. Custom handlers provides a simple and streamlined experience for hosting your MCP servers in Azure. For more information, see [Self-hosted remote MCP server on Azure Functions](./self-hosted-mcp-servers.md). 
+Custom handlers also enables you to host MCP servers that you build by using official MCP SDKs in Azure Functions. Custom handlers provides a simple and streamlined experience for hosting your MCP servers in Azure. For more information, see [Self-hosted remote MCP server on Azure Functions](./self-hosted-mcp-servers.md). 
 
 [!INCLUDE [functions-custom-handler-mcp-preview](../../includes/functions-custom-handler-mcp-preview.md)]
 
 ## Application structure
 
-To implement a custom handler, you need the following aspects in your application:
+To implement a custom handler, your application needs the following aspects:
 
 - A *host.json* file at the root of your app
 - A *local.settings.json* file at the root of your app
@@ -193,8 +193,8 @@ By convention, function responses are formatted as key/value pairs. Supported ke
 
 | <nobr>Payload key</nobr>   | Data type | Remarks                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | object    | Holds response values as defined by the `bindings` array in *function.json*.<br /><br />For instance, if a function is configured with a queue output binding named "myQueueOutput", then `Outputs` contains a key named `myQueueOutput`, which the custom handler sets to the messages that are sent to the queue. |
-| `Logs`        | array     | Messages appear in the Functions invocation logs.<br /><br />When running in Azure, messages appear in Application Insights. |
+| `Outputs`     | object    | Holds response values as defined by the `bindings` array in *function.json*.<br /><br />For instance, if a function is configured with a queue output binding named "myQueueOutput", then `Outputs` contains a key named `myQueueOutput`, which the custom handler sets to the messages that it sends to the queue. |
+| `Logs`        | array     | Messages that appear in the Functions invocation logs.<br /><br />When running in Azure, messages appear in Application Insights. |
 | `ReturnValue` | string    | Used to provide a response when an output is configured as `$return` in the *function.json* file. |
 
 This table shows an example of a response payload.
@@ -406,10 +406,10 @@ By setting the `message` output equal to the order data that came in from the re
 
 ### HTTP-only function
 
-For HTTP-triggered functions with no additional bindings or outputs, you may want your handler to work directly with the HTTP request and response instead of the custom handler [request](#request-payload) and [response](#response-payload) payloads. This behavior can be configured in *host.json* using the `enableProxyingHttpRequest` setting, which supports response streaming.
+For HTTP-triggered functions with no additional bindings or outputs, you might want your handler to work directly with the HTTP request and response instead of the custom handler [request](#request-payload) and [response](#response-payload) payloads. You can configure this behavior in *host.json* by using the `enableProxyingHttpRequest` setting, which supports response streaming.
 
 > [!IMPORTANT]
-> The primary purpose of the custom handlers feature is to enable languages and runtimes that do not currently have first-class support on Azure Functions. While it may be possible to run web applications using custom handlers, Azure Functions is not a standard reverse proxy. Some components of the HTTP request such as certain headers and routes may be restricted. Your application may also experience excessive [cold start](event-driven-scaling.md#cold-start).
+> The primary purpose of the custom handlers feature is to enable languages and runtimes that don't currently have first-class support on Azure Functions. While you might be able to run web applications by using custom handlers, Azure Functions isn't a standard reverse proxy. Some components of the HTTP request, such as certain headers and routes, might be restricted. Your application might also experience excessive [cold start](event-driven-scaling.md#cold-start).
 >
 > To address these circumstances, consider running your web apps on [Azure App Service](../app-service/overview.md).
 
