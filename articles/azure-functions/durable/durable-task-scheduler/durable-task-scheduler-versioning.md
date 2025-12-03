@@ -72,7 +72,7 @@ public DurableTaskClient durableTaskClient(DurableTaskProperties properties) {
 ::: zone pivot="python"
 
 > [!NOTE]
-> Available in the Python SDK (com.microsoft:durabletask-client) since v1.6.0.
+> Available in the Python SDK (durabletask.azuremanaged.worker) since v1.0.0.
 
 ```python
  c = DurableTaskSchedulerClient(host_address=endpoint, secure_channel=secure_channel,
@@ -141,7 +141,7 @@ public TaskOrchestration create() {
 
 ::: zone pivot="python"
 
-Once that is added, any orchestration started by the client will use the version `1.0.0`. The version itself is a simple string and accepts any value. 
+Once that is added, any orchestration started by the client will use the version `1.0.0`. The version itself is a simple string parsed using `packaging.version`, which supports semantic versioning comparison and accepts any value. 
 
 By supplying the version in the client, it also becomes available in the `task.OrchestrationContext`. This means the version can be used in conditional statements. So long as newer versions of an orchestration have the appropriate version gating, both the old and the new version of the orchestration can run together on the same host. An example of how the version can be used is:
 
@@ -308,5 +308,20 @@ The `Fail` failure strategy should be used when no other versions are expected. 
 ### When to Use Worker Versioning
 
 Worker versioning should be used in scenarios where orchestrations of an unknown or unsupported version shouldn't be executed at all. Instead of placing version handling code in the worker, worker versioning stops the orchestration from ever executing. This allows for much simpler orchestration code. Without any code changes, various deployment scenarios can be handled, like blue-green deployments mentioned before.
+
+## Next steps
+::: zone-end
+
+::: zone pivot="csharp"
+[See more detailed examples and explanations in the code repository.](https://github.com/microsoft/durabletask-dotnet/tree/main)
+::: zone-end
+
+::: zone pivot="java"
+[See more detailed examples and explanations in the code repository.](https://github.com/microsoft/durabletask-java/tree/main)
+
+::: zone-end
+
+::: zone pivot="python"
+[See more detailed examples and explanations in the code repository.](https://github.com/microsoft/durabletask-python/tree/main)
 
 ::: zone-end
