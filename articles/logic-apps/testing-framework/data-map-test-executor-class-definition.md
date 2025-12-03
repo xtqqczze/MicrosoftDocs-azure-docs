@@ -11,7 +11,7 @@ ms.date: 11/21/2025
 
 # DataMapTestExecutor class
 
-This class provides functionality to compile, generate XSLT, and execute data map tests for Standard logic app workflows in single-tenant Azure Logic Apps. The class serves as the main entry point for testing data transformations with data maps.
+This class provides functionality that compiles, generates XSLT, and executes data map tests for Standard logic app workflows in single-tenant Azure Logic Apps. The class serves as the main entry point for testing data transformations with data maps.
 
 ## Namespace
 
@@ -74,13 +74,13 @@ The logic app project root directory path.
 
 ### GenerateXslt(string)
 
-Compiles a data map and generates XSLT.  The operation uses the map name to find the data map.
+Compiles a data map and generates XSLT. The operation uses the map name to find the data map.
 
 #### Parameters
 
 | Name | Type | Description | Required |
 |------|------|-------------|----------|
-| mapName | string | The data map file name without the .lml extension | Yes |
+| mapName | string | The data map file name without the LML extension | Yes |
 
 #### Returns
 
