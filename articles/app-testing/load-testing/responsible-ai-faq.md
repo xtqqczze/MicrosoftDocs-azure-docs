@@ -14,7 +14,7 @@ hideEdit: true
 
 ## What is Azure Load Testing?
 
-Azure Load Testing is a cloud-based service that enables developers and testers to generate high-scale load on their applications to identify performance bottlenecks and ensure reliability. It helps simulate real-world traffic and provides insights into how applications behave under stress. Azure Load Testing leverages advanced analytics and integrates with Azure Monitor to provide comprehensive performance metrics. All of this is carried out within the framework of Azure’s steadfast commitment to safeguarding the customer's data security and privacy. For an overview of how Azure Load Testing works and a summary of its capabilities, see [Azure Load Testing overview](overview.md).
+Azure Load Testing is a cloud-based service that enables developers and testers to generate high-scale load on their applications to identify performance bottlenecks and ensure reliability. It helps simulate real-world traffic and provides insights into how applications behave under stress. Azure Load Testing leverages advanced analytics and integrates with Azure Monitor to provide comprehensive performance metrics. All of this is carried out within the framework of Azure’s steadfast commitment to safeguarding the customer's data security and privacy. For an overview of how Azure Load Testing works and a summary of its capabilities, see [Azure Load Testing overview](overview-what-is-azure-load-testing.md).
 
 ## What can Azure Load Testing do?  
 
