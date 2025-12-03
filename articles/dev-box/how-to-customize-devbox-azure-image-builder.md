@@ -35,7 +35,7 @@ The example in this article uses Azure PowerShell. You can also use the Azure CL
 
 | Category | Requirements |
 |---------|--------------|
-| Permissions | **Owner** or **Contributor** permissions on an Azure subscription or resource group. |
+| Tools and permissions | An Azure resource group that you have **Owner** or **Contributor** permissions to. |
 | Tools | Azure PowerShell 6.0 or later installed. For instructions, see [Install Azure PowerShell on Windows](/powershell/azure/install-azps-windows). |
 
 ## Set up tools and roles
@@ -51,7 +51,7 @@ To set up tools and roles, you:
 
 Install the necessary PowerShell modules by running the following command:
 
-```azure-powershell
+```azurepowershell
 'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
 ```
 
@@ -59,9 +59,9 @@ Respond *Y* to the prompts about untrusted repositories.
 
 ### Set variables
 
-Create variables to store information you use more than once. Run the following code, replacing `<resource-group>` with the resource group name and `<location>` with the Azure region you want to use.
+Create variables to store information you use more than once. Run the following code, replacing `<resource-group>` with your resource group name and `<location>` with the Azure region you want to use.
 
-```azure-powershell
+```azurepowershell
 # Get existing context 
 $currentAzContext = Get-AzContext
 
@@ -93,14 +93,14 @@ To use VM Image Builder, the following Azure resource providers must be register
 
 1. Check the provider registrations by running the following command:
 
-   ```azure-powershell
+   ```azurepowershell
      Get-AzResourceProvider -ProviderNamespace "Microsoft.VirtualMachineImages", "Microsoft.Compute", "Microsoft.Network", "Microsoft.Storage", "Microsoft.KeyVault" `
      | Format-table -Property ProviderNamespace,RegistrationState
    ```
 
 1. If any of the provider registrations don't return `Registered`, register the provider by running the `Register-AzResourceProvider` command. The following example registers the `Microsoft.VirtualMachineImages` resource provider.
 
-   ```azure-powershell
+   ```azurepowershell
      Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
    ```
 
@@ -110,7 +110,7 @@ Create an Azure role definition that allows distributing the image. Then create 
 
 1. Run the following code to create an Azure role definition and user identity.
 
-   ```azure-powershell
+   ```azurepowershell
    # Set up a unique role definition name
    $timeInt=$(get-date -UFormat "%s") 
    $imageRoleDefName="Azure Image Builder Image Def"+$timeInt 
@@ -125,7 +125,7 @@ Create an Azure role definition that allows distributing the image. Then create 
 
 1. Run the following code to download an Azure role definition template that allows distributing an image, update the template with your parameters, and assign the role to the user identity.
 
-   ```azure-powershell
+   ```azurepowershell
    $aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json" 
    $aibRoleImageCreationPath = "aibRoleImageCreation.json" 
    
@@ -148,7 +148,7 @@ To use VM Image Builder with Azure Compute Gallery, you need a gallery and an im
 
 1. Run the following commands to create a new gallery and an image definition that has the required trusted launch security type for a Windows 365 image.
 
-   ```azure-powershell
+   ```azurepowershell
    # Gallery name 
    $galleryName= "devboxGallery" 
 
@@ -252,7 +252,7 @@ To use VM Image Builder with Azure Compute Gallery, you need a gallery and an im
 
 1. Configure the new template with your settings by running the following code, replacing `<template-location>` with your template file location and name.
 
-   ```azure-powershell
+   ```azurepowershell
    $templateFilePath = "<template-location>"
    
    (Get-Content -path $templateFilePath -Raw ) -replace '<subscriptionID>',$subscriptionID | Set-Content -Path $templateFilePath 
@@ -271,13 +271,13 @@ Submit your customized template to the VM Image Builder service and build the im
 
 1. Run the following command to submit your template to the service. The command downloads any dependent artifacts, such as scripts, and stores them in a staging resource group prefixed with `IT_`.
 
-   ```azure-powershell
+   ```azurepowershell
    New-AzResourceGroupDeployment  -ResourceGroupName $imageResourceGroup  -TemplateFile $templateFilePath  -Api-Version "2020-02-14"  -imageTemplateName $imageTemplateName  -svclocation $location 
    ```
 
 1. Build the image by invoking the `Run` action on the template. At the confirmation prompt, enter *Y* for `Yes`.
 
-   ```azure-powershell
+   ```azurepowershell
    Invoke-AzResourceAction  -ResourceName $imageTemplateName  -ResourceGroupName $imageResourceGroup  -ResourceType Microsoft.VirtualMachineImages/imageTemplates  -ApiVersion "2020-02-14"  -Action Run
    ```
 
@@ -288,13 +288,13 @@ Submit your customized template to the VM Image Builder service and build the im
 
 Run the following command to get information about the newly built image, including the run status and provisioning state.
 
-```azure-powershell
+```azurepowershell
 Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup | Select-Object -Property Name, LastRunStatusRunState, LastRunStatusMessage, ProvisioningState 
 ```
 
 Sample output:
 
-```azure-powershell
+```azurepowershell
 Name              LastRunStatusRunState LastRunStatusMessage ProvisioningState
 ----              --------------------- -------------------- -----------------
 vscodeWinTemplate Running                                    Succeeded
