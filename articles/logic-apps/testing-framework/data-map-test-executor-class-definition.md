@@ -164,7 +164,7 @@ Executes a data map by applying the given XSLT content to sample input data.
 
 #### Returns
 
-**`Task<JToken>`**: A task that represents the asynchronous operation that returns the transformed output as a JSON token.
+**`Task<JToken>`**: A task representing the asynchronous operation that returns the transformed output as a JSON token.
 
 #### Example
 
