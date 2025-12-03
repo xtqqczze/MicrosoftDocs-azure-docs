@@ -36,7 +36,7 @@ The following list describes example useful metadata, based on artifact type:
 
 For tracking purposes and feeding B2B tracking tables or dashboards, useful metadata includes correlation properties such as interchange number, group number, transaction set ID as well as workflow run ID, partner and agreement IDs, status, and timestamps.
 
-This guide shows how to add metadata to an artifact and get that metadata for your workflow by using the **Integration Account Artifact Lookup** built-in action.
+This guide shows how to add metadata to an artifact and get that metadata for your workflow by using the **Integration Account** built-in action named **Integration account artifact lookup**.
 
 ## Prerequisites
 
@@ -65,44 +65,60 @@ This guide shows how to add metadata to an artifact and get that metadata for yo
 
   - Before you start working with the **Integration Account Artifact Lookup** action, you must [link your Consumption logic app](enterprise-integration/create-integration-account.md?tabs=consumption#link-account) or [link your Standard logic app](enterprise-integration/create-integration-account.md?tabs=standard#link-account) to the integration account. You can link an integration account to multiple Consumption or Standard logic app resources to share the same artifacts.
 
-## Add metadata to artifacts
+## Add metadata to an artifact
 
-1. In the [Azure portal](https://portal.azure.com), go to your integration account.
+Follow these steps to add custom metadata for a B2B artifact in your integration account.
 
-1. Select the artifact where you want to add metadata, and then select **Edit**. 
+1. In the [Azure portal](https://portal.azure.com), go to your integration account resource. On the resource sidebar, under **Settings**, select the artifact category, for example, **Partners**.
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/edit-partner-metadata.png" alt-text="Screenshot of Azure portal, integration account, and Partners page with TradingPartner1 and Edit button selected.":::
+1. On the artifact category page, select the artifact, then select **Edit**. 
 
-1. Enter the metadata details for that artifact, and then select **OK**. The following screenshot shows three metadata key-value pairs:
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/edit-partner-metadata.png" alt-text="Screenshot shows Azure portal, integration account, and Partners page with TradingPartner1 and Edit button selected.":::
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/add-partner-metadata.png" alt-text="Screenshot of the Edit pane for TradingPartner1, with three key-value pairs highlighted and OK selected.":::
+1. Under **Metadata**, in the **Key** and **Value** columns, enter your custom metadata as a key-value pair. When you're done, select **OK**.
 
-1. To view this metadata in JavaScript Object Notation (JSON) definition, select **Edit as JSON**.
+   The following example shows sample metadata as key-value pairs:
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/partner-metadata.png" alt-text="Screenshot of the JSON code that contains information about TradingPartner1, with three key-value pairs highlighted.":::
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/add-partner-metadata.png" alt-text="Screenshot shows the Edit pane for TradingPartner1 with three key-value pairs highlighted and OK selected.":::
 
-## Use artifact metadata
+1. To view this metadata in the JavaScript Object Notation (JSON) definition for the artifact, next to **Edit**, select **Edit as JSON** instead.
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer. This logic app resource is linked to your integration account.
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/partner-metadata.png" alt-text="Screenshot shows the JSON code for TradingPartner1 with three key-value pairs highlighted.":::
 
-1. In the designer, follow these [general steps](create-workflow-with-trigger-or-action.md#add-action) to add the **Integration Account Artifact Lookup** action to get the metadata.
+## Get artifact metadata
 
-1. Provide the following information for the artifact that you want to find:
+Follow these steps to retrieve metadata for an artifact in your integration account. The example gets the metadata for a trading partner artifact.
 
-   | Property | Required | Value | Description |
-   |----------|----------|-------|-------------|
-   | **artifactName** | Yes | <*artifact-name*> | The name for the artifact you want to get |
-   | **artifactType** | Yes | **Schema**, **Map**, **Partner**, **Agreement**, or a custom type | The type for the artifact you want to get |
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource. Open your workflow in the designer.
 
-   This example gets the metadata for a trading partner artifact.
+1. In the designer, follow these [general steps](create-workflow-with-trigger-or-action.md#add-action) to add the **Integration Account** built-in action named **Integration account artifact lookup**, which gets artifact metadata.
 
-1. For **artifactName**, select inside the edit box. Select the lightning icon to open the dynamic content list. Then select the **Name** output from the trigger.
+1. Provide the following information for the artifact that you want to find, based on your workflow type:
 
-1. For **artifactType**, select **Partner**.
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | - Consumption: **artifactName** <br>- Standard: **Artifact name** | Yes | <*artifact-name*> | The artifact name, which you can enter as a hardcoded name or as dynamic output from the trigger or previous action in the workflow. |
+   | - Consumption: **artifactType** <br>- Standard: **Artifact type** | Yes | **Agreement**, **Map**, **Partner**, or **Schema** | The artifact type. |
 
-   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png" alt-text="Screenshot of the Integration Account Artifact Lookup action with the artifact type and artifact name properties highlighted." lightbox="media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png":::
+   1. To get an artifact name provided as dynamic output from the trigger or previous action, follow these steps:
+   
+      1. Select inside the **artifactName** or **Artifact name** box, then select the lightning icon to open the dynamic content list.
 
-1. Use the same [general steps](create-workflow-with-trigger-or-action.md#add-action) to add an action to use the metadata. This example continues with the built-in **HTTP** action.
+      1. In the dynamic list, under the trigger or action name, select the output that specifies the artifact name.
+
+   1. For **artifactType** or **Artifact type**, select artifact type, which is **Partner** in this example.
+
+      :::image type="content" source="media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png" alt-text="Screenshot shows the Integration Account Artifact Lookup action with the artifact type and artifact name parameters highlighted." lightbox="media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png":::
+
+1. Save your workflow.
+
+## Use artifact metadata in workflow
+
+Follow these steps to use the retrieved artifact metadata in your workflow. The example uses the partner metadata from the previous section.
+
+1. In the designer, under the **Integration account artifact lookup** action, follow these [general steps](create-workflow-with-trigger-or-action.md#add-action) to add any action you want to use the metadata.
+
+   This example continues with the **HTTP** built-in action.
 
 1. Provide the following information for the artifact metadata that you want the HTTP action to use.
 
