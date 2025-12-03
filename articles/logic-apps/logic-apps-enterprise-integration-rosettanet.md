@@ -39,7 +39,7 @@ The following table describes RosettaNet concepts and terms:
 | **PIP** | A PIP provides common business process definitions for all RosettaNet message exchanges. PIPs are categorized by a high-level business function, or *cluster*, and a subfunction, or *segment*. For example, "3A4" is the PIP for Purchase Order, while "3" is the Order Management function, and "3A" is the Quote & Order Entry subfunction. <br><br>Each PIP specification provides a document type definition (DTD) file and a message guideline document. The DTD file defines the service-content message structure. The message guideline document is a human-readable HTML file that specifies element-level constraints. Together, the PIP and DTD files provide a complete definition of the business process. <br><br>For more information, see the [RosettaNet site](https://www.gs1us.org/resources/rosettanet). |
 | **Action** | Action messages are part of a PIP and are business messages partners exchange with each other. |
 | **Signal** | Signal messages are part of a PIP and are acknowledgments sent in response to action messages. |
-| **Single action and double action** | For a PIP with a single action, the only response is an acknowledgment signal message. For a double-action PIP, the initator receives a response message and replies with an acknowledgment along with the single-action message flow. |
+| **Single action and double action** | For a PIP with a single action, the only response is an acknowledgment signal message. For a double-action PIP, the initiator receives a response message and replies with an acknowledgment along with the single-action message flow. |
 
 ## Connector technical reference
 
@@ -98,7 +98,7 @@ The **RosettaNet** connector has no triggers. The following table describes the 
     >
     > Make sure that you select **DUNS**, which you can find near the bottom of the **Qualifier** list, and not **1 - D-U-N-S (Dun & Bradstreet)**.
 
-  - Contains a PIP process configuration that stores all the PIP configuration characteristics. You use this configuration when you create an agreement between partners. If you don't have a processs configuration, [add a PIP process configuration](#add-pip).
+  - Contains a PIP process configuration that stores all the PIP configuration characteristics. You use this configuration when you create an agreement between partners. If you don't have a process configuration, [add a PIP process configuration](#add-pip).
 
   - Defines a [RosettaNet agreement](#create-rosettanet-agreement) between the trading partners that participate in the RosettaNet operation. An agreement requires a host partner and a guest partner. The content in the messages between partners must match the agreement type.
 
