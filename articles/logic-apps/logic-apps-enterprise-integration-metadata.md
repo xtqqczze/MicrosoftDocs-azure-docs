@@ -120,9 +120,9 @@ Follow these steps to find the artifact and associated metadata in your integrat
 
 1. Save your workflow.
 
-## Use artifact metadata in workflow
+## Reference artifact metadata in workflow
 
-Follow these steps to use the retrieved artifact metadata in your workflow. The example uses the metadata from the retrieved artifact in the previous section.
+Follow these steps to use the retrieved artifact metadata in your workflow. The example references the metadata from the retrieved artifact in the previous section.
 
 1. In the designer, under the **Integration account artifact lookup** action, follow these [general steps](create-workflow-with-trigger-or-action.md#add-action) to add the action you want.
 
