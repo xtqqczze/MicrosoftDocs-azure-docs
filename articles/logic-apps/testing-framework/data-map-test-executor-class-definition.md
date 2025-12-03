@@ -4,7 +4,7 @@ description: Detailed documentation for the DataMapTestExecutor class in the Azu
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: reference
 ms.date: 11/21/2025
 ---
