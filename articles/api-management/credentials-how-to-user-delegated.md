@@ -25,7 +25,7 @@ In this scenario, you configure a managed [connection](credentials-overview.md) 
 
 :::image type="content" source="media/credentials-how-to-user-delegated/scenario-overview.png" alt-text="Diagram showing process flow for user-delegated permissions." border="false":::
 
-* The user must authorize the app to access secured resources on their behalf. To authorize the app, the user must authenticate their identity.
+* The user must authorize the app to access secured resources on their behalf. To authorize the app, the user must authenticate their identity in Microsoft Entra.
 * To perform operations on behalf of a user, the app calls the external backend service, such as GitHub.
 * Each external service has a way of securing those calls; for example, with a user token that uniquely identifies the user.
 * To secure the call to the external service, the app must ask the user to sign in so it can acquire the user's token.
