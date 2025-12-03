@@ -54,7 +54,7 @@ When you configure the extension with a **Disconnect** command, it:
 Use this path when you’re creating a new VM and want it to deploy while already connected to an Elastic SAN: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Fill in the required fields on the Basics, Disks, and Networking tabs as usual. 
+1. Fill in the required fields on **Basics**, **Disks**, and **Networking**. 
 1. Navigate to **Extensions + applications** during VM creation. 
 1. Select **Add** and search for the **Elastic SAN Extension for Windows** in the Marketplace tiles. 
 1. Select the extension to open its configuration panel.
@@ -77,15 +77,16 @@ Use this path when the VM is already deployed and you want to connect or disconn
 1. Select **Add** and search for the **Elastic SAN Extension for Windows** or open the existing Elastic SAN extension instance if already installed. 
 1. Choose **Configure / Reconfigure**. 
 1. In the extension configuration panel: 
-  a. Choose the desired command, such as **Connect** or **Disconnect**.
-  b. Provide the required parameters: **Volume name(s)**, **Target IQN(s)**, **Target portal adress(es)** and **Sessions per target** (for Connect only). 
-  c. Proceed to apply the configuration.
+  1. Choose the desired command, such as **Connect** or **Disconnect**.
+  1. Provide the required parameters: **Volume name(s)**, **Target IQN(s)**, **Target portal adress(es)** and **Sessions per target** (for Connect only). 
+  1. Apply the configuration.
 
-The VM extension will immediately run the corresponding script on the VM and:
+The VM extension immediately runs the corresponding script on the VM and:
 - Connect additional volumes later by reconfiguring the extension with more volumes. 
 - Disconnect volumes by switching the command to disconnect and providing the same identifiers. 
 
-**Note!**: Reconfiguring the VM extension does not reboot the VM and does not automatically alter existing connections unless you explicitly request a disconnect. The extension simply executes the newly requested connect or disconnect operation. 
+> [!NOTE]
+> Reconfiguring the VM extension does not reboot the VM and does not automatically alter existing connections unless you explicitly request a disconnect. The extension simply executes the newly requested connect or disconnect operation. 
 
 
 ## Manually connect to Elastic SAN volumes
