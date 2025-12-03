@@ -16,7 +16,7 @@ This document contains information about new features and other changes to the A
 
 ## [2.0.0] (CDN: December 15, 2025, npm: TBD)
 
-### Changes
+### Breaking Changes
 
 - Aligned the behavior of edit operations with drawing operations. The `drawingchanging` events now fire continuously during editing, and the `drawingchanged` event fires when the operation completes.
 
