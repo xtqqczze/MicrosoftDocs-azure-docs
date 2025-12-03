@@ -446,19 +446,19 @@ use wasm_graph_sdk::{DataModel, HybridLogicalClock};
 
 // Map operator - transforms each data item
 #[map_operator(init = "my_init_function")]
-fn my_map(input: DataModel) -> DataModel {
+fn my_map(input: DataModel) -> Result<DataModel, Error> {
     // Transform logic here
 }
 
 // Filter operator - allows/rejects data based on predicate  
 #[filter_operator(init = "my_init_function")]
-fn my_filter(input: DataModel) -> bool {
+fn my_filter(input: DataModel) -> Result<bool, Error> {
     // Return true to pass data through, false to filter out
 }
 
 // Branch operator - routes data to different arms
 #[branch_operator(init = "my_init_function")]
-fn my_branch(input: DataModel, timestamp: HybridLogicalClock) -> bool {
+fn my_branch(input: DataModel, timestamp: HybridLogicalClock) -> Result<bool, Error> {
     // Return true for "True" arm, false for "False" arm
 }
 ```
