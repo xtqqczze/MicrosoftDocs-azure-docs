@@ -227,7 +227,7 @@ To enable the Functions host to connect to the default storage account using sha
 
 At this point, the Functions host is able to connect to the storage account securely using managed identities instead of shared secrets. You can now deploy your project code to the Azure resources.
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 ::: zone-end
 ::: zone pivot="programming-language-java"
