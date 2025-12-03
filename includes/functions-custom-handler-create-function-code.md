@@ -1,4 +1,5 @@
 ---
+ms.topic: include
 author: ggailey777
 ms.service: azure-functions
 ms.date: 11/14/2025

@@ -277,7 +277,7 @@ py -m venv .venv
 
 1. When you're done, press Ctrl+C in the terminal window to stop the `func.exe` host process.
 ::: zone pivot="programming-language-python"
-1. Run `deactivate` to shut down the virtual environment.
+5. Run `deactivate` to shut down the virtual environment.
 ::: zone-end
 
 ## Review the code (optional)
