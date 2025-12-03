@@ -13,7 +13,7 @@ ms.service: azure-app-service
 
 ---
 
-# Mitigate subdomain takeovers in Azure App Service
+# Prevent subdomain takeovers in Azure App Service
 
 Subdomain takeovers are a common threat for organizations that regularly create and delete many resources. A subdomain takeover can occur when you have a DNS record that points to a deprovisioned Azure resource. Such DNS records are also known as "dangling DNS" entries. Subdomain takeovers allow malicious actors to redirect traffic intended for an organization’s domain to a site performing malicious activity.
 
@@ -30,7 +30,7 @@ Azure App Service provides [name reservation](#how-app-service-prevents-subdomai
 
 ## How App Service prevents subdomain takeovers
 
-Upon deletion of an App Service app or App Service Environment (ASE), immediate reuse of the corresponding DNS is forbidden except for subscriptions that belong to the tenant of the subscription that originally owned the DNS. Thus, the customer has some time to either clean-up any associations or pointers to the said DNS or reclaim the DNS in Azure by recreating the resource with the same name. This behavior is enabled by default on Azure App Service for `*.azurewebsites.net` and `*.appserviceenvironment.net` resources, so it doesn't require any customer configuration.
+Upon deletion of an App Service app or App Service Environment (ASE), the corresponding DNS is forbidden from reuse except by subscriptions that belong to the tenant of the subscription that originally owned the DNS. Thus, the customer has some time to either clean up any associations or pointers to the said DNS or reclaim the DNS in Azure by recreating the resource with the same name. This behavior is enabled by default on Azure App Service for `*.azurewebsites.net` and `*.appserviceenvironment.net` resources, so it doesn't require any customer configuration.
 
 ### Example scenario
 

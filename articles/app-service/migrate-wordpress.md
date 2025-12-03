@@ -23,14 +23,14 @@ This article describes how to migrate WordPress from Azure App Service on Window
 
 You can migrate your site to WordPress on Azure App Service in two ways:
 
-- [All-in-One WP Migration and Backup plugin](#migrate-wordpress-with-all-in-one-wp-migration-plugin)
-- [Manual process of migration](#manual-migration-process)
+- [All-in-One WP Migration and Backup plugin](#migrate-wordpress-by-using-all-in-one-wp-migration-plugin)
+- [Manual migration process](#manual-migration-process)
 
 ## Migrate WordPress by using All-in-One WP Migration plugin
 
-The [All-in-One WP Migration and Backup](https://wordpress.org/plugins/all-in-one-wp-migration) plugin is popular for migrating sites with ease. This approach is recommended for sites less than 256MB. For larger sites, you can either *purchase the premium version* of the plugin or *migrate manually* by using the steps outlined in [manual migration process](#manual-migration-process).
+The [All-in-One WP Migration and Backup](https://wordpress.org/plugins/all-in-one-wp-migration) plugin is popular for migrating sites with ease. This approach is recommended for sites that are less than 256 MB. For larger sites, you can either *purchase the premium version* of the plugin or *migrate manually* by using the steps outlined in the [manual migration process](#manual-migration-process).
 
-By default, the file upload size for WordPress on App Service (Linux) is limited to 50MB, and it can be increased to a maximum limit of 256MB. To change the file upload limit, add the following [application settings](configure-common.md?tabs=portal) in App Service.
+By default, the file upload size for WordPress on App Service (Linux) is limited to 50 MB, and it can be increased to a maximum limit of 256 MB. To change the file upload limit, add the following [application settings](configure-common.md?tabs=portal) in App Service.
 
 |    Application setting    | Default value | New value   |
 |---------------------------|---------------|-------------|
@@ -67,7 +67,7 @@ As a prerequisite, the WordPress instance on App Service must have been created 
 > Depending on the size of your content and your internet connection, this operation could take several minutes.
 >
 
-1. Download the *wp-content* folder from the source site. You can use popular FTP tools like [FileZilla](https://filezilla-project.org/download.php?type=client) to connect to the web server and download the content.
+1. Download the *wp-content* folder from the source site. You can use FTP tools like [FileZilla](https://filezilla-project.org/download.php?type=client) to connect to the web server and download the content.
 
 1. Export the contents of the source database into a SQL file. You can perform this task either by using MySQL client tools like HeidiSQL, [MySQL workbench](https://dev.mysql.com/downloads/workbench/), [phpMyAdmin](https://docs.phpmyadmin.net/en/latest/setup.html), or by using the command-line interface. For more information, see [Data Export and Import Wizard](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html).
 
@@ -93,7 +93,7 @@ As a prerequisite, the WordPress instance on App Service must have been created 
 > Azure Database for MySQL - Single Server was retired in 2024. If your existing MySQL database is hosted on Azure Database for MySQL - Single Server, consider migrating to Azure Database for MySQL - Flexible Server by using the following steps, or by using [Azure Database Migration Service (DMS)](/azure/dms/tutorial-mysql-azure-external-to-flex-online-portal).
 >
 
-1. If you migrate the database, import the SQL file downloaded from the source database into the database of your newly created WordPress site. You can do it via the PhpMyAdmin dashboard available at *\<sitename\>.azurewebsites.net/phpmyadmin*. If you're unable to use one single large SQL file, separate the files into parts and try uploading again. To import the database through phpMyAdmin, see [Import](https://docs.phpmyadmin.net/en/latest/import_export.html#import).
+1. If you migrate the database, import the SQL file downloaded from the source database into the database of your newly created WordPress site. You can do it via the PhpMyAdmin dashboard available at `<sitename>.azurewebsites.net/phpmyadmin`. If you're unable to use one single large SQL file, separate the files into parts and try uploading again. To import the database through phpMyAdmin, see [Import](https://docs.phpmyadmin.net/en/latest/import_export.html#import).
 
 1. In your App Service app, select **Settings**, then choose **Environment variables**. Under **App Settings**, update **DATABASE_NAME** with the source database name. This restarts your app and the new changes are reflected. To learn more, see [WordPress Application Settings](https://github.com/Azure/wordpress-linux-appservice/blob/main/WordPress/wordpress_application_settings.md).
 
@@ -123,14 +123,14 @@ After the site migration, you should validate that you have the default recommen
 
 The following WordPress settings are recommended. However, when the users migrate their custom sites, it's up to them to decide whether to use these settings or not.
 
-1. Open the WordPress Admin dashboard.
-1. Set the permalink structure to **day and name**, as it performs better compared to the plain permalinks that use the format **?p=123**.
+1. Open the WordPress admin dashboard.
+1. Set the permalink structure to **day and name** since it performs better compared to the plain permalinks that use the format **?p=123**.
 1. Under the comment settings, enable the option to break comments into pages.
 1. Show excerpts instead of the full post in the feed.
 
 ## Search and replace (paths and domains)
 
-One common issue that users face during migration is that some of the contents of their old site use absolute urls/paths instead of relative ones. To resolve this issue, you can use plugins like [Search and Replace](https://wordpress.org/plugins/search-replace/) to update the database records.
+One common issue that users face during migration is that some of the contents of their old site use absolute URLs or paths instead of relative ones. To resolve this issue, you can use plugins like [Search and Replace](https://wordpress.org/plugins/search-replace/) to update the database records.
 
 ## Configure a custom domain
 
@@ -142,7 +142,7 @@ When you migrate a live site and its DNS domain name to App Service, that DNS na
 
 ## Update SSL certificates
 
-If your site is configured with SSL certs, then follow [Add and manage TLS/SSL certificates](configure-ssl-certificate.md?tabs=apex%2Cportal) to configure SSL.
+If your site is configured with Secure Sockets Layer (SSL) certs, then follow [Add and manage TLS/SSL certificates](configure-ssl-certificate.md?tabs=apex%2Cportal) to configure SSL.
 
 ## Related content
 
