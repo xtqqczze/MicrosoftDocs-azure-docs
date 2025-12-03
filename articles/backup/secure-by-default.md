@@ -22,7 +22,7 @@ Soft delete is now enforced by default as part of secure-by-default assurance fo
 ## Supported scenarios
 
 - Now that soft delete is enforced by default, a soft-delete state can no longer be modified from the Azure portal. This enforcement ensures reliable recovery from any accidental or malicious deletions.
-- With secure by default, soft delete is also applied at the vault level. When a vault is deleted, it automatically transitions into a soft-deleted state. You can then recover the vault if required.
+- With secure by default, soft delete is also applied at the vault level. When a vault is deleted, it automatically transitions into a soft-deleted state. You can then recover the vault if necessary.
 
 ## Supported regions
 
@@ -38,7 +38,7 @@ For a Backup vault, in regions other than Australia East, West Central US, and E
 
 ## What's soft delete?
 
-Soft delete delays permanent deletion of backup data and vaults (preview for vaults) and gives you an opportunity to recover data after deletion. This deleted data is retained for the specified soft-delete retention period. The retention period is 14 days by default. You an extend it up to 180 days.
+Soft delete delays permanent deletion of backup data and vaults (preview for vaults) and gives you an opportunity to recover data after deletion. This deleted data is retained for the specified soft-delete retention period. The retention period is 14 days by default. You can extend it up to 180 days.
 
 If you need data after it's deleted (that is, while the data is in soft-deleted state), you can restore it. This action returns the data to a **Stop protection with retain data** state. You can then use the data to perform other restore operations, or you can resume backups for this instance.
 
@@ -93,7 +93,7 @@ For a Backup vault, you must stop backups and soft delete all protected items be
 > [!NOTE]
 > Azure Backup doesn't allow the reconfiguration of a backup item to the same vault if the backup item is already in a soft-deleted state. However, you can protect the item in a different vault or restore and resume backup in the same vault for Recovery Services vaults.
 
-## Soft deletion of recovery points
+## <a name = "soft-delete-of-recovery-points"></a>Soft deletion of recovery points
 
 Soft deletion of recovery points helps you recover any recovery points that are accidentally or maliciously deleted for some operations that could lead to deletion of one or more recovery points. For example, these activities can cause a loss of certain recovery points:
 
@@ -137,7 +137,7 @@ When you restore a soft-deleted backup item, it becomes active again. Standard p
 Secure by default with soft delete is enabled by default with the latest API versions during preview for both Recovery Services vaults and Backup vaults. In GA for Recovery Services vaults, the secure-by-default behavior is enforced across *all* API versions.
 
 > [!NOTE]
-> In the preview regions, you can still use older API versions to immediately disable soft delete and delete backup items, if required.
+> In the preview regions, you can still use older API versions to immediately disable soft delete and delete backup items, if necessary.
 
 The following sections outline the API behavior across scenarios for preview and GA types.
 

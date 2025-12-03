@@ -11,7 +11,7 @@ ms.custom:
 # Customer intent: As a cloud administrator, I want to implement private endpoints for Azure Backup so that I can enhance the security of my backup operations and ensure that all data traffic remains within my virtual network.
 ---
 
-# Pivate endpoints for Azure Backup: Classic experience
+# Private endpoints for Azure Backup: Classic experience
 
 With Azure Backup, you can back up and restore your data from your Recovery Services vaults by using [private endpoints](../private-link/private-endpoint-overview.md). Private endpoints use one or more private IP addresses from your Azure virtual network to effectively bring the service into your virtual network.
 
@@ -19,7 +19,7 @@ This article helps you understand how private endpoints for Azure Backup work in
 
 Azure Backup also provides an enhanced experience for creating and using private endpoints. [Learn more](backup-azure-private-endpoints-concept.md).
 
-## Considerations
+## <a name = "before-you-start"></a>Considerations
 
 - You can create private endpoints for new Recovery Services vaults only, if no items are registered to the vault. You must create private endpoints before you try to protect any items in the vault. However, private endpoints are currently not supported for Backup vaults.
 
@@ -162,7 +162,7 @@ The workload extension running on an Azure VM requires a connection to at least 
 
 For a private endpoint-enabled vault, the Azure Backup service creates a private endpoint for these storage accounts. This action prevents any network traffic related to Azure Backup (control plane traffic to the service, and backup data to the storage blob) from leaving the virtual network. In addition to Azure Backup cloud services, the workload extension and agent require connectivity to Azure Storage accounts and Microsoft Entra ID.
 
-As a prerequisite, the Recovery Services vault requires permissions for creating additional private endpoints in the same resource group. We also recommend providing the Recovery Services vault the permissions to create DNS entries in the private DNS zones (`privatelink.blob.core.windows.net`, `privatelink.queue.core.windows.net`). The Recovery Services vault searches for private DNS zones in the resource groups where the virtual network and private endpoint are created. If it has the permissions to add DNS entries in these zones, they're created by the vault. Otherwise, you must create them manually.
+As a prerequisite, the Recovery Services vault requires permissions for creating additional private endpoints in the same resource group. We also recommend providing the Recovery Services vault the permissions to create DNS entries in the private DNS zones (`privatelink.blob.core.windows.net`, `privatelink.queue.core.windows.net`). The Recovery Services vault searches for private DNS zones in the resource groups where the virtual network and private endpoint are created. If it has the permissions to add DNS entries in these zones, the vault creates these entries. Otherwise, you must create them manually.
 
 > [!NOTE]
 > Integration with private DNS zones in different subscriptions is unsupported in this experience.
