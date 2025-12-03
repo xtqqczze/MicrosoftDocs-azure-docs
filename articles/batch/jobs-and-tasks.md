@@ -157,6 +157,12 @@ Your client application or service can obtain a task's environment variables, bo
 
 You can find a list of all service-defined environment variables in [Compute node environment variables](batch-compute-node-environment-variables.md).
 
+## Konwn limitations
+
+- Task stuck in running state: Batch service works together with compute nodes to manage task lifecyle. When a task is scheduled to a compute node for execution, the compute node is responsible to update the task's state from running all the way to completed. If a compute node is preempted or lost connectivity to Batch service, its tasks will stay in running state until Batch service can get chance to re-schedule them to run with another compute node. If there is no other compute node, these tasks may stay in running state forever. To determine if a running task falls into this issue, you can query the task to check if its associated node is unusable or deleted from the pool.
+- When a job is terminated, Batch service only terminates its running tasks with accessible compute nodes, all existing active tasks and running tasks with unusable nodes will remain current state.
+- When a task is re-queued (for example due to preempted node, or pool resize operation with `Requeue` option), it's put back to the end of its job's queue. So it's possible the task will be delayed to re-schedule when there are other active tasks waiting in the same job.
+
 ## Next steps
 
 - Learn about [files and directories](files-and-directories.md).
