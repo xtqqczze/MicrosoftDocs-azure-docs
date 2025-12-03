@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 10/31/2025
+ms.date: 12/03/2025
 ms.author: danlep
 ---
 <a name='enable-user-sign-in-using-azure-ad---portal'></a>
@@ -26,7 +26,8 @@ To simplify the configuration, API Management can automatically enable a Microso
 After the Microsoft Entra provider is enabled:
 
 * Users in your Microsoft Entra tenant can [sign into the developer portal by using a Microsoft Entra account](#log_in_to_dev_portal).
-* You can manage the Microsoft Entra configuration on the **Developer portal** > **Identities** page in the portal.
+* You can manage the Microsoft Entra identity provider configuration on the **Developer portal** > **Identities** page in the portal.
+* Optionally update the app registration in Microsoft Entra ID to support multiple tenants, as described in [Configure app registration for multiple tenants](../articles/api-management/api-management-howto-aad.md#configure-app-registration-for-multiple-tenants). The name of the default app registration created by API Management is the same as the API Management instance name.
 * Optionally configure other sign-in settings by selecting **Identities** > **Settings**. For example, you might want to redirect anonymous users to the sign-in page.
 * Republish the developer portal after any configuration change.
 
@@ -36,7 +37,7 @@ After the Microsoft Entra provider is enabled:
 
 1. In the left menu of your API Management instance, under **Developer portal**, select **Identities**.
 1. Select **+ Add** from the top to open the **Add identity provider** pane to the right.
-1. Under **Type**, select **Microsoft Entra ID** from the drop-down menu. Once selected, you'll be able to enter other necessary information. 
+1. Under **Type**, select **Microsoft Entra ID** from the drop-down menu. When you select this option, you can enter other necessary information. 
     * In the **Client library** dropdown, select **MSAL**.
     * To add **Client ID** and **Client secret**, see steps later in the article.
 1. Save the **Redirect URL** for later.
@@ -48,21 +49,21 @@ After the Microsoft Entra provider is enabled:
 1. Select **New registration**. On the **Register an application** page, set the values as follows:
     
     * Set **Name** to a meaningful name such as *developer-portal*
-    * Set **Supported account types**, make a selection appropriate for your scenarios. If you need to allow users in multiple Microsoft Entra tenants to access the developer portal, select **Accounts in any organizational directory**. 
+    * Set **Supported account types**, make a selection appropriate for your scenarios. If you need to allow users in multiple Microsoft Entra tenants to access the developer portal, select **Accounts in any organizational directory (Multitenant)**. 
     * In **Redirect URI**, select **Single-page application (SPA)** and paste the redirect URL you saved from a previous step. 
     * Select **Register**. 
 
-1. After you've registered the application, copy the **Application (client) ID** from the **Overview** page. 
+1. After you register the application, copy the **Application (client) ID** from the **Overview** page. 
 1. Switch to the browser tab with your API Management instance. 
 1. In the **Add identity provider** window, paste the **Application (client) ID** value into the **Client ID** box.
-1. Switch to the browser tab with the App registration.
+1. Switch to the browser tab with the app registration.
 1. Select the appropriate app registration.    
 1. Under the **Manage** section of the side menu, select **Certificates & secrets**. 
 1. From the **Certificates & secrets** page, select the **New client secret** button under **Client secrets**. 
     * Enter a **Description**.
     * Select any option for **Expires**.
     * Choose **Add**. 
-1. Copy the client **Secret value** before leaving the page. You will need it later. 
+1. Copy the client **Secret value** before leaving the page. You need it later. 
 1. Under **Manage** in the side menu, select **Token configuration** > **+ Add optional claim**.
     1. In **Token type**, select **ID**.
     1. Select (check) the following claims: **email**, **family_name**, **given_name**.
@@ -73,7 +74,7 @@ After the Microsoft Entra provider is enabled:
     > [!IMPORTANT]
     > Update the **Client secret** before the key expires. 
 
-1. In **Signin tenant**, specify a tenant name or ID to use for sign-in to Microsoft Entra. If no value is specified, the Common endpoint is used.
+1. In **Signin tenant**, specify a tenant name or ID to use for sign-in to Microsoft Entra. If you don't specify a value, the Common endpoint is used.
 <!-- Is this still true about Common endpoint? Is the "Organizations" endpoint an option/requirement for multitenant login? -->
 1. In **Allowed tenants**, add one or more specific Microsoft Entra tenant names or IDs for sign-in to Microsoft Entra. 
 1. After you specify the desired configuration, select **Add**.

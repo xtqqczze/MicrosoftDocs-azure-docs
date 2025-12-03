@@ -6,7 +6,7 @@ description: Learn how to enable user sign-in to the API Management developer po
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 11/20/2025
+ms.date: 12/03/2025
 ms.author: danlep
 ms.custom:
   - engagement-fy23
@@ -70,27 +70,26 @@ For steps, see [Switch redirect URIs to the single-page application type](../act
 
 <a name='add-an-external-azure-ad-group'></a>
 
-## Add another Microsoft Entra tenant
+## Configure access by more than one Microsoft Entra tenant
 
 You can enable access to the developer portal for users from multiple Microsoft Entra ID tenants. 
 
-<!-- Are these the only steps required? How do they differ from current experience? Is admin consent required for each additional tenant? -->
 
 ### Configure app registration for multiple tenants
 
-The app registration you configure for the identity provider must allow access from multiple Microsoft Entra ID tenants. 
+The app registration you configure for the identity provider must support multiple tenants. You can do this in either of the following ways:
 
 * When creating the app registration, set **Supported account types** to **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)**. 
-* If an app registration was previously configured for a single tenant, update the setting on the **Authentication** page of the app registration in the Azure portal.
+* If you previously configured an app registration for a single tenant, update the **Supported account types** setting on the **Authentication** page of the app registration.
 
 ### Update identity provider configuration for multiple tenants
 
-Then update the identity provider to add another tenant:
+Update the identity provider configuration to add another tenant:
 
-1. In the Azure portal, navigate to your API Management instance.
+1. In the Azure portal, go to your API Management instance.
 1. Under **Developer portal**, select **Identities**.
 1. Select **Microsoft Entra ID** from the list.
-1. In the **Tenant ID** field, add the additional tenant ID(s separated by commas.
+1. In the **Tenant ID** field, add the extra tenant IDs separated by commas.
 1. Select **Update**.
 1. [Republish your developer portal](developer-portal-overview.md#)publish-the-portal).
 
@@ -131,17 +130,26 @@ Users from the configured Microsoft Entra instance can now:
 
 ### Synchronize Microsoft Entra groups with API Management
 
-Groups configured in Microsoft Entra must synchronize with API Management so that you can add them to your instance. If the groups don't synchronize automatically, do one of the following to synchronize group information manually:
+Groups you configure in Microsoft Entra must synchronize with API Management so that you can add them to your instance. If the groups don't synchronize automatically, do one of the following steps to synchronize group information manually:
 
 * Sign out and sign in to Microsoft Entra ID. This activity usually triggers synchronization of groups.
 * Ensure that the Microsoft Entra sign-in tenant is specified the same way (using one of tenant ID or domain name) in your configuration settings in API Management. You specify the sign-in tenant in the Microsoft Entra ID identity provider for the developer portal and when you add a Microsoft Entra group to API Management.
 
 ## <a id="log_in_to_dev_portal"></a> Developer portal: Add Microsoft Entra account authentication
 
-In the developer portal, you can sign in with Microsoft Entra ID by using the **Sign-in button: OAuth** widget included on the sign-in page of the default developer portal content.
+In the developer portal, you can enable sign in with Microsoft Entra ID by using the **Sign-in button: OAuth** widget included on the sign-in page of the default developer portal content.
 
-:::image type="content" source="media/api-management-howto-aad/developer-portal-azure-ad-signin.png" alt-text="Screenshot showing OAuth widget in developer portal.":::
+A user can sign in with Microsoft Entra ID as follows:
 
+1. Go to the developer portal. Select **Sign in**.
+
+1. On the **Sign in** page, select **Azure Active Directory**. Selecting this button opens the Microsoft Entra ID sign-in page.
+
+    :::image type="content" source="media/api-management-howto-aad/developer-portal-azure-ad-signin.png" alt-text="Screenshot showing OAuth widget in developer portal.":::
+
+1. In the sign-in window for your Microsoft Entra tenant, respond to the prompts. After sign-in is complete, the user is redirected back to the developer portal. 
+
+The user is now signed in to the developer portal and added as a new API Management user identity in **Users**.
 
 Although a new account is automatically created when a new user signs in with Microsoft Entra ID, consider adding the same widget to the sign-up page. The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
 

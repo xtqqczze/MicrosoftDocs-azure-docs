@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 10/30/2025
+ms.date: 12/03/2025
 ms.author: danlep
 ms.custom:
 
@@ -21,9 +21,7 @@ ms.custom:
 
 For an overview of options to secure access to the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md).
 
-In this article, you learn the configuration of the Microsoft Entra ID identity provider for the following scenario: 
-
-* Integration with Microsoft Entra External ID in your *workforce tenant*. For example, if you're enabling access to the developer portal by users in your workforce tenant, such as the Contoso organization, you might want to configure Google or Facebook as an external identity provider so that these external users can also sign in using their accounts. 
+In this article, you learn how to integrate Microsoft Entra External ID in your *workforce tenant*. For example, if you're enabling access to the developer portal by users in your workforce tenant, such as the Contoso organization, you might want to configure Google or Facebook as an external identity provider so that these external users can also sign in using their accounts. 
 
 [!INCLUDE [api-management-developer-portal-entra-tenants.md](../../includes/api-management-developer-portal-entra-tenants.md)]
 
@@ -40,7 +38,7 @@ In this article, you learn the configuration of the Microsoft Entra ID identity 
 
 ## Add external identity provider to your tenant
 
-For this scenario, enable an external identity provider in a workforce tenant. Configuring the external identity provider is outside the scope of this article. For more information and links to steps, see [Identity providers for External ID in workforce tenants](/entra/external-id/identity-providers).
+For this scenario, enable an external identity provider in your workforce tenant. Configuring the external identity provider is outside the scope of this article. For more information and links to steps, see [Identity providers for External ID in workforce tenants](/entra/external-id/identity-providers).
 
 [!INCLUDE [api-management-developer-portal-entra-app.md](../../includes/api-management-developer-portal-entra-app.md)]
 
@@ -57,7 +55,7 @@ For more information and detailed steps, see [Add self-service sign-up user flow
 
 ## <a id="log_in_to_dev_portal"></a> Sign in to developer portal with Microsoft Entra External ID
 
-In the developer portal, you can sign in with Microsoft Entra External ID by using the **Sign-in button: OAuth** widget. The widget is already included on the sign-in page of the default developer portal content.
+In the developer portal, users can sign in with Microsoft Entra External ID by using the **Sign-in button: OAuth** widget. The widget is already included on the sign-in page of the default developer portal content.
 
 1. To sign in by using Microsoft Entra External ID, open a new browser window and go to the developer portal. Select **Sign in**.
 
@@ -69,7 +67,7 @@ In the developer portal, you can sign in with Microsoft Entra External ID by usi
 
     :::image type="content" source="media/api-management-howto-external-id/sign-in-options.png" alt-text="Screenshot of select external identity provider in Microsoft Entra.":::
 
-To continue sign-in, respond to the prompts. After sign-in is complete, you're redirected back to the developer portal. 
+1. To continue sign-in, respond to the prompts. After sign-in is complete, you're redirected back to the developer portal. 
 
 You're now signed in to the developer portal for your API Management service instance. You're added as a new API Management user identity in **Users**, and a new external tenant user in Microsoft Entra ID.
 
