@@ -36,7 +36,7 @@ The following list describes example useful metadata, based on artifact type:
 
 For tracking purposes and feeding B2B tracking tables or dashboards, useful metadata includes correlation properties such as interchange number, group number, transaction set ID as well as workflow run ID, partner and agreement IDs, status, and timestamps.
 
-This guide shows how to add metadata to an artifact in an integration account, find the artifact using the **Integration Account** built-in action named **Integration account artifact lookup**, and reference the metadata for that artifact from your workflow.
+This guide shows how to add metadata to an artifact in an integration account, find the artifact using the **Integration Account** built-in action named **Integration account artifact lookup**, and reference the artifact metadata in your workflow.
 
 ## Prerequisites
 
