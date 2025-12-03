@@ -40,9 +40,9 @@ The key benefits of enhanced soft delete are:
 
 - **Configurable soft-delete retention**: You can specify the retention duration for deleted backup data, with a range of 14 to 180 days. By default, the retention duration is set to 14 days (the setting for basic soft delete) for the vault. You can extend it as required. However, you're charged for any period beyond 14 days.
 
-- **Re-registration of soft-deleted items**: You can register the items in a soft-deleted state with another vault. However, you can't register the same item with two vaults for active backups.
+- **Re-registration of soft-deleted items**: You can register the items in a soft-deleted state to another vault. However, you can't register the same item to two vaults for active backups.
 
-- **Soft delete and re-registration of backup containers**: You can unregister the backup containers (which you can soft delete) if you deleted all backup items in the container. You can register such soft-deleted containers with other vaults. This ability is supported for applicable workloads only, including backup of SQL Server on Azure Virtual Machines, SAP HANA on Azure Virtual Machines, and on-premises servers.
+- **Soft delete and re-registration of backup containers**: You can unregister the backup containers (which you can soft delete) if you deleted all backup items in the container. You can register such soft-deleted containers to other vaults. This ability is supported for applicable workloads only, including backup of SQL Server on Azure Virtual Machines, SAP HANA on Azure Virtual Machines, and on-premises servers.
 
 - **Soft delete across workloads**: Enhanced soft delete applies to all vaulted data sources. Enhanced soft delete also applies to operational backups of disks, blobs, Azure Files shares, and virtual machine (VM) backup snapshots used for instant restores. However, unlike vaulted backups, these snapshots can be directly accessed and deleted before the soft-delete period expires.
 
@@ -74,7 +74,7 @@ Soft-delete retention for 14 days involves no cost. Regular backup charges apply
 
 ## Re-registration of soft-deleted items
 
-If a backup item or container is in soft-deleted state, you can register it with a vault that's different from the original one where the soft-deleted data belongs.
+If a backup item or container is in soft-deleted state, you can register it to a vault that's different from the original one where the soft-deleted data belongs.
 
 You can't actively protect one item in two vaults simultaneously. If you start protecting a backup container by using another vault, you can no longer protect the same backup container in the previous vault.
 
