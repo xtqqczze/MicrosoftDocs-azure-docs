@@ -50,7 +50,7 @@ Azure Backup also provides an enhanced experience for creating and using private
 
 ## Recommended and supported scenarios
 
-While private endpoints are enabled for the vault, they're used for backup and restore of SQL Server and SAP HANA workloads in an Azure VM, MARS agent, and System Center Data Protection Manager (DPM) only. You can also use the vault for the backup of other workloads, though they don't require private endpoints. In addition to backups of SQL Server and SAP HANA workloads and backups via the MARS agent, private endpoints are used to perform file recovery for Azure VM backups.
+While private endpoints are enabled for the vault, they're used for backup and restore of SQL Server and SAP HANA workloads in an Azure VM, MARS agent backup, and System Center Data Protection Manager (DPM) only. You can also use the vault for the backup of other workloads, though they don't require private endpoints. In addition to backups of SQL Server and SAP HANA workloads and backups via the MARS agent, private endpoints are used to perform file recovery for Azure VM backups.
 
 The following table provides more information:
 
