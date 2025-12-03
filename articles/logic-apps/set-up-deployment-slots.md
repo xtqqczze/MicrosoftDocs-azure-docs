@@ -146,7 +146,7 @@ Unavailable at this time. Follow the steps for Visual Studio Code or Azure CLI t
    1. Enter and select the name for your Standard logic app.
    1. Select the name for your deployment slot.
 
-1. In the message box that appears, confirm that you want to deploy the current code in your project to the selected slot , and select **Deploy**. This action overwrites any existing content in the selected slot.
+1. In the message box that appears, confirm that you want to deploy the current code in your project to the selected slot, and select **Deploy**. This action overwrites any existing content in the selected slot.
 
 1. After deployment completes, you can update any settings, if necessary, by selecting **Upload settings** in the message box that appears.
 
