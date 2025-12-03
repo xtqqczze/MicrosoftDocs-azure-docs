@@ -80,11 +80,11 @@ Compiles a data map and generates XSLT.  The operation uses the map name to find
 
 | Name | Type | Description | Required |
 |------|------|-------------|----------|
-| mapName | string | The data map name (without .lml extension) | Yes |
+| mapName | string | The data map file name without the .lml extension | Yes |
 
 #### Returns
 
-**`Task<byte[]>`**: A task that represents the asynchronous operation that returns the generated XSLT content as a byte array.
+**`Task<byte[]>`**: A task representing the asynchronous operation that returns the generated XSLT content as a byte array.
 
 #### Exceptions
 
@@ -99,7 +99,7 @@ var xslt = await executor.GenerateXslt("OrderToInvoice");
 
 > [!NOTE]
 >
-> This method looks for the data map file at the path: `{appDirectoryPath}\Artifacts\MapDefinitions\{mapName}.lml`
+> This method looks for the data map file in the path: `{appDirectoryPath}\Artifacts\MapDefinitions\{mapName}.lml`
 
 ### GenerateXslt(GenerateXsltInput)
 
@@ -113,7 +113,7 @@ Compiles a data map and generates XSLT from the provided map content.
 
 #### Returns
 
-**`Task<byte[]>`**: A task that represents the asynchronous operation that returns the generated XSLT content as a byte array.
+**`Task<byte[]>`**: A task representing the asynchronous operation that returns the generated XSLT content as a byte array.
 
 #### Example
 
@@ -125,7 +125,7 @@ var xslt = await executor.GenerateXslt(generateXsltInput);
 
 ### RunMapAsync(string, byte[])
 
-Executes a data map by applying the given XSLT (found by map name) to sample input data.
+Executes a data map by applying the given XSLT to sample input data. The operation uses the map name to find the XSLT.
 
 #### Parameters
 
@@ -136,7 +136,7 @@ Executes a data map by applying the given XSLT (found by map name) to sample inp
 
 #### Returns
 
-**`Task<JToken>`**: A task that represents the asynchronous operation that returns the transformed output as a JSON token.
+**`Task<JToken>`**: A task representing the asynchronous operation that returns the transformed output as a JSON token.
 
 #### Example
 
@@ -149,7 +149,7 @@ Console.WriteLine(result.ToString());
 
 > [!NOTE]
 >
-> This method looks for the XSLT file at the path: `{appDirectoryPath}\Artifacts\Maps\{mapName}.xslt`
+> This method looks for the XSLT file in the path: `{appDirectoryPath}\Artifacts\Maps\{mapName}.xslt`
 
 ### RunMapAsync(byte[], byte[])
 
