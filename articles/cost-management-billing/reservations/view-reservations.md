@@ -71,8 +71,8 @@ To purchase a reservation, enterprise agreement admins or billing profile owners
 If you're a billing role user, follow these steps to view and manage all reservations and reservation transactions in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Cost Management + Billing**.
-    - If you have an enterprise agreement account, select **Billing scopes** in the service menu. Then, select one in the list of billing scopes.
-    - If you have a Microsoft Customer Agreement account, select **Billing profiles** in the service menu. Then, select one in the list of billing profiles.
+    - If you have an enterprise agreement account, select **Billing scopes** in the service menu. Then, select one of the billing scopes.
+    - If you have a Microsoft Customer Agreement account, select **Billing profiles** in the service menu. Then, select one of the billing profiles.
 1. In the service menu, select **Products + services** > **Reservations + Hybrid Benefit**. The complete list of reservations for your enterprise agreement enrollment or Microsoft Customer Agreement billing profile appears.
 
 Users with the **Billing** role can take ownership of a reservation by selecting one or multiple reservations, and then selecting **Grant access** in the window that appears. If you have a Microsoft Customer Agreement account, the user should be in the same Microsoft Entra tenant (directory) as the reservation.
