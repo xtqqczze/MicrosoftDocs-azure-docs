@@ -1,7 +1,7 @@
 ---
 title: Bicep warnings and error codes
 description: Understand Bicep warnings and error codes.
-ms.topic: conceptual
+ms.topic: article
 ms.custom:
   - devx-track-azurecli
   - devx-track-bicep
