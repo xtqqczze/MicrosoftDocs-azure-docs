@@ -85,7 +85,7 @@ The Jira linked service supports the following properties when apply version 2.0
 | port | The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.  | No |
 | username | The user name that you use to access Jira Service.  | Yes |
 | password | The [Atlassian API token](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/) (if two-step verification is enabled on the Atlassian account) or password corresponding to the user name that you provided in the username field. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. You can use the self-hosted integration runtime and its version should be 5.61 or above. | No |
 
 
 **Example:**
@@ -349,13 +349,15 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 | GA version available | • Support `schema` and `table` in Dataset. <br><br>• Support specific Jira tables. For the supported table list, go to [Dataset properties](#dataset-properties). <br><br>• The data type mapping for the Jira linked service version 2.0 is different from that for the version 1.0. For the latest data type mapping, go to [Data type mapping for Jira](#data-type-mapping-for-jira). <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>  • OAuth 1.0 authentication is not supported. |
+| Version 2.0 | GA version available | • Support `schema` and `table` in Dataset. <br><br>• Support specific Jira tables. For the supported table list, go to [Dataset properties](#dataset-properties). <br><br>• The self-hosted integration runtime version should be 5.61 or above. <br><br>• The data type mapping for the Jira linked service version 2.0 is different from that for the version 1.0. For the latest data type mapping, go to [Data type mapping for Jira](#data-type-mapping-for-jira). <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>  • OAuth 1.0 authentication is not supported. |
 
 ### Upgrade the Jira connector from version 1.0 to version 2.0
 
 1. In **Edit linked service** page, select version 2.0 and configure the linked service by referring to [Linked service properties version 2.0](#version-20).
 
 1. The data type mapping for the Jira linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Jira](#data-type-mapping-for-jira).
+
+1. Apply a self-hosted integration runtime with version 5.61 or above.
 
 1. `query` is only supported in version 1.0. You should use `schema` and `table` instead of `query` in version 2.0.
 
