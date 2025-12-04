@@ -40,7 +40,7 @@ There's a Fluent version of the Azure Resource Manager-based libraries.
 
 ## Manage using Service Bus client libraries 
 
-Service Bus client libraries that are used for operations like send and receive messages can also be used to manage queues, topics, subscriptions, and rules in an *existing* Service Bus namespace. This feature is available via the `ServiceBusAdministrationClient` in the latest libraries and via the `ServiceBusManagementClient` in the older libraries. We recommended that you use the latest libraries.
+Service Bus client libraries that are used for operations like send and receive messages can also be used to manage queues, topics, subscriptions, and rules in an *existing* Service Bus namespace. This feature is available via the `ServiceBusAdministrationClient` in the latest libraries and via the `ServiceBusManagementClient` in the older libraries. 
 
 ### Latest Service Bus libraries
 |Language|Package|Documentation|Samples|
