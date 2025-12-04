@@ -29,47 +29,50 @@ First, check for an Azure Advisor recommendation:
 
 **If you don't see a recommendation**, your API Management resource isn't affected by the change.
 
-**If you see a recommendation**, your service is affected by the breaking change if it relies on trusted services connectivity to Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hubs, or Container Registry. If API Management has an established network line of sight for communication to these services, you aren't affected by the breaking changes.
+**If you see a recommendation**, your API Management resource is affected by the breaking change and you need to take action: 
 
-To verify if trusted connectivity is enabled, check the networking configuration of all Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hubs, and Container Registry resources that API Management connects to.
+1. Determine if your API Management resource relies on trusted service connectivity to Azure services. 
+1. If it does, update the networking configuration to eliminate the dependency on trusted service connectivity. If it doesn’t, proceed to the next step. 
+1. Disable trusted service connectivity in API Management. 
 
-### For Storage Accounts
+### Step 1: Does my API Management resource rely on trusted service connectivity? 
+
+API Management should no longer rely on trusted service connectivity to Azure services. Instead, it should establish a networking line of sight. 
+
+To verify if API Management relies on trusted connectivity to Azure services, check the networking configuration of all Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hub, and Container Registry resources that API Management connects to: 
+
+#### For Storage accounts
 
 1. Go to **Networking** under **Security + networking**.
 1. Select **Manage** in the **Public network access** tab.
-1. If **Public network access** is set to **Disable**, you are likely affected.
-1. Check if **Allow trusted Microsoft service to access this resource** is selected if:
+1. API Management may rely on trusted service connectivity if **Allow trusted Microsoft services to access this resource** is selected if:
     - **Public network access** is set to **Disable**, or
-    - If **Public network access** is set to **Enable** and **Public network access scope** is set to **Enable from selected networks**.
-1. Check if API Management is configured under **Resource instances**, if **Public network access** is set to **Enable** and **Public network access scope** is set to **Enable from selected networks**.
+    - **Public network access** is set to **Enable** and **Public network access scope** is set to **Enable from selected networks**.
+1. API Management may rely on trusted service connectivity if API Management is configured under **Resource instances**, if **Public network access** is set to **Enable** and **Public network access scope** is set to **Enable from selected networks**.
 
   :::image type="content" source="media/trusted-service-connectivity-retirement-march-2026/network-connectivity-storage.png" alt-text="Screenshot of trusted connectivity settings to Azure Storage in the portal.":::
 
-### For Event Hubs and Key Vault Managed HSM
+#### For Event Hubs and Key Vault Managed HSM
 
 1. Go to **Networking** under **Settings**.
 1. Select **Manage** in the **Public access** tab.
-1. Check if **Allow trusted Microsoft service to access this resource** is selected if:
-  - **Public network access** is set to **Disable**, or
-  - If **Public network access** is set to **Enable** and **Default action** is set to **Enable from selected networks**.
+1. API Management may rely on trusted service connectivity if **Allow trusted Microsoft service to access this resource** is selected if:
+    - **Public network access** is set to **Disable**, or
+    - **Public network access** is set to **Enable** and **Default action** is set to **Enable from selected networks**.
 
-### For Service Bus (Premium only) and Key Vault
-
-1. Go to **Networking** under **Settings**.
-1. Check if **Allow trusted Microsoft services to bypass this firewall** is selected if you're using the **Allow public access from specific virtual networks and IP addresses** or **Disable public access** options.
-
-### For Container Registry (Premium pricing plan only)
+#### For Service Bus (Premium only) and Key Vault
 
 1. Go to **Networking** under **Settings**.
-1. Check if **Allow trusted Microsoft services to access this container registry** is checked under **Firewall exception** if **Public network access** is set to **Selected networks** or **Disabled**.
+1. API Management may rely on trusted service connectivity if **Allow trusted Microsoft services to bypass this firewall** is selected if you're using the **Allow public access from specific virtual networks and IP addresses** or **Disable public access** options.
 
-## What is the deadline for the change?
+#### For Container Registry (Premium pricing plan only)
 
-After 15 March 2026, the trusted connectivity from API Management to supported Azure services - Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hubs, and Container Registry - is retired. If your API Management resource relies on this feature to establish communication with these services, the communication starts failing after that date.
+1. Go to **Networking** under **Settings**.
+1. API Management may rely on trusted service connectivity if **Allow trusted Microsoft services to access this container registry** is checked under **Firewall exception** if **Public network access** is set to **Selected networks** or **Disabled**.
 
-## What do I need to do?
+### Step 2: Eliminate dependency on trusted service connectivity  
 
-You need to establish a network line of sight for communication from API Management to the listed services and not rely on trusted service connectivity.
+If you verified that API Management relies on trusted connectivity to Azure resources, you need to eliminate this dependency by establishing a networking line of sight for communication from API Management to the listed services. 
 
 You can configure the networking of target resources to one of the following options:
 
@@ -85,11 +88,9 @@ You can configure the networking of target resources to one of the following opt
 
   - [Transition to a Network Security Perimeter in Azure](/azure/private-link/network-security-perimeter-transition)
 
-The Azure Advisor recommendation automatically disappears approximately a week after your API Management service stops relying on trusted service connectivity to the listed Azure services.
+### Step 3: Disable trusted service connectivity in API Management 
 
-### Manually disable trusted service connectivity
-
-You can disable trusted network connectivity on your API Management service to test the effect of the breaking change and ensure that no new APIs rely on it. To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.ManagedIdentity.DisableOverPrivilegedAccess` to `"True"` on the [API Management resource](/rest/api/apimanagement/api-management-service/create-or-update). For example:
+After ensuring that API Management doesn’t access other Azure services using trusted service connectivity, you must disable trusted connectivity in your API Management service. To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.ManagedIdentity.DisableOverPrivilegedAccess` to `"True"` on the API Management resource. For example: 
 
 ```json
 {
@@ -111,6 +112,12 @@ You can disable trusted network connectivity on your API Management service to t
   }
 }
 ```
+
+The Azure Advisor recommendation should disappear within a day of disabling the trusted connectivity on the API Management service. 
+
+## What is the deadline for the change?
+
+After 15 March 2026, the trusted connectivity from API Management to supported Azure services - Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hubs, and Container Registry - is retired. If your API Management resource relies on this feature to establish communication with these services, the communication will start failing after that date.
 
 ## Help and support
 
