@@ -254,11 +254,11 @@
 - name: Hyperscale Configuration
   items:
   - name: Overview
-    href: concept-hyperscale-client-config-afd.md
+    href: concept-hyperscale-client-config.md
   - name: Setup Azure Front Door integration
     href: how-to-connect-azure-front-door.md
-  - name: Connect applications to Azure Front Door
-    href: howto-configproviders-afd.md
+  - name: Load Configuration from Azure Front Door
+    href: howto-load-azure-front-door-configprovider.md
 - name: CI/CD integration
   items:
   - name: Use configuration files

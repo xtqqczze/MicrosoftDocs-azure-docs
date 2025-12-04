@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/02/2025
 ---
 
-## Load Configuration from Azure Front Door in Client Applications (Preview) 
+# Load Configuration from Azure Front Door in Client Applications (Preview) 
 
 Integrating Azure App Configuration with Azure Front Door enables your client applications to retrieve configuration from edge locations worldwide, ensuring optimal performance at any scale. The integration process involves the following steps:
 
@@ -35,46 +35,47 @@ Replace `{YOUR-AFD-ENDPOINT}` with your Azure Front Door endpoint, which looks s
 
 ### [.NET MAUI](#tab/dotnet-maui)
 
-    Use the `ConnectAzureFrontDoor` API to load configuration settings from Azure Front Door. 
+Use the `ConnectAzureFrontDoor` API to load configuration settings from Azure Front Door. 
 
-    ```cs
-    builder.Configuration.AddAzureAppConfiguration(options =>
-    {
-        options.ConnectAzureFrontDoor(new Uri("{YOUR-AFD-ENDPOINT}"))
-                .Select("App1:*")
-                .ConfigureRefresh(refreshOptions =>
-                {
-                    refreshOptions.RegisterAll()
-                                    .SetRefreshInterval(TimeSpan.FromMinutes(1));
-                });
-    });
-    ```
+```cs
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.ConnectAzureFrontDoor(new Uri("{YOUR-AFD-ENDPOINT}"))
+            .Select("App1:*")
+            .ConfigureRefresh(refreshOptions =>
+            {
+                refreshOptions.RegisterAll()
+                                .SetRefreshInterval(TimeSpan.FromMinutes(1));
+            });
+});
+```
 
-    For a complete sample app, refer to [MAUI App with Azure App Configuration and Azure Front Door](https://github.com/Azure-Samples/appconfig-maui-app-with-afd/blob/main/README.md).
+For a complete sample app, refer to [MAUI App with Azure App Configuration and Azure Front Door](https://github.com/Azure-Samples/appconfig-maui-app-with-afd/blob/main/README.md).
 
 ### [JavaScript](#tab/javascript)
 
-    Use the `loadFromAzureFrontDoor` API to load configuration settings from Azure Front Door. 
+Use the `loadFromAzureFrontDoor` API to load configuration settings from Azure Front Door. 
 
-    ```javascript
-    import { loadFromAzureFrontDoor } from "@azure/app-configuration-provider";
-    
-    const appConfig = await loadFromAzureFrontDoor("{YOUR-AFD-ENDPOINT}", {
-        selectors: [{
-            keyFilter: "App1:*"
-        }],
-        refreshOptions: {
-            enabled: true,
-            refreshIntervalInMs: 60_000
-        }
-    });
+```javascript
+import { loadFromAzureFrontDoor } from "@azure/app-configuration-provider";
 
-    const yoursetting = appConfig.get("App1:Version");
+const appConfig = await loadFromAzureFrontDoor("{YOUR-AFD-ENDPOINT}", {
+    selectors: [{
+        keyFilter: "App1:*"
+    }],
+    refreshOptions: {
+        enabled: true,
+        refreshIntervalInMs: 60_000
+    }
+});
 
-    ```
+const yoursetting = appConfig.get("App1:Version");
 
-    For a complete sample app, refer to [JavaScript App with Azure App Configuration and Azure Front Door](https://github.com/Azure-Samples/appconfig-javascript-clientapp-with-afd/blob/main/README.md).
+```
 
+For a complete sample app, refer to [JavaScript App with Azure App Configuration and Azure Front Door](https://github.com/Azure-Samples/appconfig-javascript-clientapp-with-afd/blob/main/README.md).
+
+---
 
 > [!NOTE]
 > The key-value filters used in your application must match the filters configured while creating the Azure Front Door endpoint. For example, if your endpoint is configured to allow access to keys starting with "App1:" prefix, the application code must also load keys starting with "App1:". If your application attempts to load different keys, such as "App1:Version" when only "App1:" is allowlisted in Azure Front Door rules, the request is rejected.
@@ -103,7 +104,7 @@ Replace `{YOUR-AFD-ENDPOINT}` with your Azure Front Door endpoint, which looks s
 
 ## Related Content
 
-- [Hyperscale configuration for client applications](./concept-hyperscale-client-config-afd.md)
+- [Hyperscale configuration for client applications](./concept-hyperscale-client-config.md)
 - [Setup Azure Front Door to connect to App Config](./how-to-connect-azure-front-door.md)
 - [Learn more about Azure Front Door](/azure/frontdoor/)
 - [Monitor Azure Front Door performance](/azure/frontdoor/front-door-diagnostics)

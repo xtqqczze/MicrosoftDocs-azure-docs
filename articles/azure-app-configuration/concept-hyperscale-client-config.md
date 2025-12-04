@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.date: 12/02/2025
 ---
 
-## Configuration Management for Client Applications (Preview) 
+# Configuration Management for Client Applications (Preview) 
 
 Client applications have fundamentally different configuration requirements than server applications due to their scale and direct user interaction. They serve millions of users who expect instant app launches and seamless updates. These applications run on diverse devices across unreliable networks worldwide and the system needs to be lightweight on the client side yet powerful enough to apply changes on the fly. Since client applications cannot securely store credentials, they need anonymous access to configuration data. Direct API calls from millions of clients would result in prohibitive costs and require massive backend scaling. For most client scenarios, eventual consistency is acceptable, allowing the use of edge caching strategies. Azure App Configuration integrated with Azure Front Door solves this by combining centralized management with edge delivery, ensuring your configuration reaches users instantly while keeping your applications responsive and current.
 
@@ -18,7 +18,7 @@ App Configuration gives developers a single, consistent place to define configur
 
 ## System Architecture
 
-:::image type="content" source="media/concept-afd-architecture.png" alt-text="Architecture diagram for integration of Azure Front Door with Azure App Configuration."
+:::image type="content" source="media/hyperscale-config-architecture.png" alt-text="Architecture diagram for integration of Azure Front Door with Azure App Configuration."
 
 How it works
 - The client application calls Azure Front Door anonymously, like any CDN asset.
@@ -77,5 +77,5 @@ Configure Azure Front Door cache duration to balance performance and origin load
 > [Setup Azure Front Door with App Config](./how-to-connect-azure-front-door.md)
 
 > [!div class="nextstepaction"]
-> [Load Configuration from Azure Front Door in Client Applications](./howto-configproviders-afd.md)
+> [Load Configuration from Azure Front Door in Client Applications](./howto-load-azure-front-door-configprovider.md)
 
