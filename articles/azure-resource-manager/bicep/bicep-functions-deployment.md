@@ -3,7 +3,7 @@ title: Bicep functions - deployment
 description: Describes the functions to use in a Bicep file to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 05/16/2025
+ms.date: 12/04/2025
 ---
 
 # Deployment functions for Bicep
@@ -81,6 +81,7 @@ When deploying a local Bicep file to a resource group, the function returns the 
     "template": {
       "$schema": "",
       "contentVersion": "",
+      "metadata": {},
       "parameters": {},
       "variables": {},
       "resources": [],
@@ -104,6 +105,7 @@ When you deploy to an Azure subscription, management group, or tenant, the retur
     "template": {
       "$schema": "",
       "contentVersion": "",
+      "metadata": {},
       "resources": [],
       "outputs": {}
     },

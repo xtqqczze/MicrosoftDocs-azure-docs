@@ -3,7 +3,7 @@ title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 08/05/2025
+ms.date: 12/04/2025
 ---
 
 # Deployment functions for ARM templates
@@ -81,9 +81,9 @@ In Bicep, use the [`deployment`](../bicep/bicep-functions-deployment.md#deployme
 
 This function returns the object that's  passed during deployment. The properties in the returned object differ based on if you're:
 
-- Deploying a template or a template spec.
-- Deploying a template that's  a local file or deploying a template that's  a remote file accessed through a URI.
-- Deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management groups](deploy-to-management-group.md), or [tenants](deploy-to-tenant.md)).
+* Deploying a template or a template spec.
+* Deploying a template that's  a local file or deploying a template that's  a remote file accessed through a URI.
+* Deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management groups](deploy-to-management-group.md), or [tenants](deploy-to-tenant.md)).
 
 When deploying a local template to a resource group, the function returns the following format:
 
@@ -94,6 +94,7 @@ When deploying a local template to a resource group, the function returns the fo
     "template": {
       "$schema": "",
       "contentVersion": "",
+      "metadata": {},
       "parameters": {},
       "variables": {},
       "resources": [],
@@ -119,6 +120,7 @@ If the template is remote, the `templateLink` property is included in the return
     "template": {
       "$schema": "",
       "contentVersion": "",
+      "metadata": {},
       "parameters": {},
       "variables": {},
       "resources": [],
