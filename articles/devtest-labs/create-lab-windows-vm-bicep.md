@@ -6,7 +6,7 @@ author: RoseHJM
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep, UpdateFrequency2
 ms.date: 12/03/2025
-#customer intent: As a DevTest Labs administrator, I want to learn how to use a Bicep template so I can quickly and easily create labs with VMs.
+#customer intent: As a DevTest Labs administrator, I want to learn about how to use a Bicep template so I can use Bicep to quickly and easily create labs with VMs.
 ---
 
 # Quickstart: Use Bicep to create a lab in DevTest Labs
@@ -29,12 +29,12 @@ In this quickstart, you:
 
 # [Azure CLI](#tab/CLI)
 
-- [Azure CLI installed](/cli/azure/install-azure-cli-windows).
+- [Azure CLI installed](/cli/azure/install-azure-cli-windows)
 
 # [Azure PowerShell](#tab/PowerShell)
 
 - [Azure PowerShell installed](/powershell/scripting/install/install-powershell-on-windows)
-- [Bicep installed](/azure/azure-resource-manager/bicep/install#windows).
+- [Bicep installed](/azure/azure-resource-manager/bicep/install#windows)
 
 ---
 
@@ -57,9 +57,6 @@ Review the Bicep file. The file uses the following resource types to take the fo
    - `<vm-name>`: Name for the new VM.
    - `<user-name>`: Username of a local account to create on the new VM. You're prompted to enter a password for the local account. Be sure not to use any [disallowed usernames or passwords](/rest/api/compute/virtual-machines/create-or-update#osprofile).
 
->[!NOTE]
->The deployment also creates a resource group for the VM named `<lab-name>`-`<vm-name>`-`<numerical-string>`. This resource group contains VM resources like the IP address, network interface, and disk.
-
    # [Azure CLI](#tab/CLI)
 
    ```azurecli
@@ -76,8 +73,9 @@ Review the Bicep file. The file uses the following resource types to take the fo
 
 ---
 
-A message indicates when the deployment succeeds.
-``
+The deployment also creates a resource group for the VM named `<lab-name>`-`<vm-name>`-`<numerical-string>`. This resource group contains VM resources like the IP address, network interface, and disk.
+
+When the deployment completes, the output shows data about the resources and the deployment.
 
 ## Validate the deployment
 
@@ -85,13 +83,13 @@ Use Azure CLI or Azure PowerShell to list the deployed resources in the resource
 
 # [Azure CLI](#tab/CLI)
 
-```azurecli-interactive
+```azurecli
 az resource list --resource-group exampleRG
 ```
 
 # [Azure PowerShell](#tab/PowerShell)
 
-```azurepowershell-interactive
+```azurepowershell
 Get-AzResource -ResourceGroupName exampleRG
 ```
 
@@ -105,13 +103,13 @@ If you want to manually delete the lab's resource group, you must delete the lab
 
 # [CLI](#tab/CLI)
 
-```azurecli-interactive
+```azurecli
 az group delete --name exampleRG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzResourceGroup -Name exampleRG
 ```
 
