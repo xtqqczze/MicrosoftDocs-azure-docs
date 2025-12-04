@@ -259,7 +259,7 @@ The document `{"id": "name"}` is created in the database collection specified in
 
 1. Choose the function app that you created in the first article. Because you're redeploying your project to the same app, select **Deploy** to dismiss the warning about overwriting files.
 
-1. After deployment completes, you can again use the **Execute Function Now...** feature to trigger the function in Azure.
+1. After deployment completes, you can again use the **Execute Function Now...** feature to trigger the function in Azure. This command automatically retrieves the function access key and uses it when calling the HTTP trigger endpoint.
 
 1. Again [check the documents created in your Azure Cosmos DB container](#verify-that-a-json-document-has-been-created) to verify that the output binding again generates a new JSON document.
 
