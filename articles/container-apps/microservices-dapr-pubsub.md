@@ -284,7 +284,7 @@ Take the following steps to verify that the `checkout` service is publishing mes
 
 1. On the **Log stream** page, next to **Container**, select **checkout**.
 
-   :::image type="content" source="media/microservices-dapr-azd/select-checkout-container-logs.png" alt-text="Screenshot of the Log stream page for the checkout container app. In the Container list, checkout is highlighted.":::
+   :::image type="content" source="media/microservices-dapr-azd/select-checkout-container-logs.png" alt-text="Screenshot of the Log stream page for the checkout container app. In the Container list, checkout is highlighted." lightbox="media/microservices-dapr-azd/select-checkout-container-logs.png":::
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
@@ -629,7 +629,7 @@ Take the following steps to verify that the `checkout` service is publishing mes
 
 1. On the **Log stream** page, next to **Container**, select **checkout**.
 
-   :::image type="content" source="media/microservices-dapr-azd/select-checkout-container-logs.png" alt-text="Screenshot of the Log stream page for the checkout container app. In the Container list, checkout is highlighted and selected.":::
+   :::image type="content" source="media/microservices-dapr-azd/select-checkout-container-logs.png" alt-text="Screenshot of the Log stream page for the checkout container app. In the Container list, checkout is highlighted and selected." lightbox="media/microservices-dapr-azd/select-checkout-container-logs.png":::
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
@@ -960,7 +960,7 @@ Take the following steps to verify that the `checkout` service is publishing mes
 
 1. On the **Log stream** page, next to **Container**, select **checkout**.
 
-   :::image type="content" source="media/microservices-dapr-azd/select-checkout-container-logs.png" alt-text="Screenshot of the Log stream page for the checkout container app. Above the log stream, in the Container list, checkout is highlighted.":::
+   :::image type="content" source="media/microservices-dapr-azd/select-checkout-container-logs.png" alt-text="Screenshot of the Log stream page for the checkout container app. Above the log stream, in the Container list, checkout is highlighted." lightbox="media/microservices-dapr-azd/select-checkout-container-logs.png":::
 
 1. Confirm the `checkout` container is logging the same output as in the terminal earlier.
 
