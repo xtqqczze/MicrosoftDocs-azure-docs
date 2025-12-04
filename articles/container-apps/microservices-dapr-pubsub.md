@@ -101,7 +101,7 @@ Take the following steps to run the `order-processor` subscriber service and the
 
 #### Expected output
 
-In the `checkout` terminal, the `checkout` service publishes 20 messages and then pauses.
+In the `checkout` terminal, the `checkout` service publishes 20 messages and then temporarily pauses.
 
 ```
 == APP == Published data: {"orderId":1}
@@ -180,7 +180,7 @@ cd pubsub-dapr-nodejs-servicebus
    azd init
    ```
 
-1. When prompted in the terminal, enter a unique environment name. The command uses this name as a prefix for the resource group that it creates to hold all Azure resources.
+   When prompted in the terminal, enter a unique environment name. The command uses this name as a prefix for the resource group that it creates to hold all Azure resources.
 
 1. Run `azd up` to prepare the infrastructure and deploy the application to Container Apps in a single command.
 
@@ -435,7 +435,7 @@ Take the following steps to run the `order-processor` subscriber service and the
 
 #### Expected output
 
-In the `checkout` terminal, the `checkout` service publishes 19 messages and then pauses.
+In the `checkout` terminal, the `checkout` service publishes 19 messages and then temporarily pauses.
 
 ```
 == APP == INFO:root:Published data: {"orderId": 1}
@@ -531,7 +531,7 @@ cd pubsub-dapr-python-servicebus
    azd init
    ```
 
-1. When prompted in the terminal, enter a unique environment name. The command uses this name as a prefix for the resource group that it creates to hold all Azure resources.
+   When prompted in the terminal, enter a unique environment name. The command uses this name as a prefix for the resource group that it creates to hold all Azure resources.
 
 1. Run `azd up` to prepare the infrastructure and deploy the application to Container Apps in a single command.
 
@@ -777,7 +777,7 @@ Take the following steps to run the `order-processor` subscriber service and the
 
 #### Expected output
 
-In the `checkout` terminal, the `checkout` service publishes 20 messages and then pauses.
+In the `checkout` terminal, the `checkout` service publishes 20 messages and then temporarily pauses.
 
 ```
 == APP == Published data: Order { OrderId = 1 }
@@ -856,7 +856,7 @@ cd pubsub-dapr-csharp-servicebus
    azd init
    ```
 
-1. When prompted in the terminal, enter a unique environment name. The command uses this name as a prefix for the resource group that it creates to hold all Azure resources.
+   When prompted in the terminal, enter a unique environment name. The command uses this name as a prefix for the resource group that it creates to hold all Azure resources.
 
 1. Run `azd up` to prepare the infrastructure and deploy the application to Container Apps in a single command.
 
