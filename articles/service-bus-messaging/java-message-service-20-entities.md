@@ -3,12 +3,12 @@ title: Azure Service Bus messaging - Java message service entities
 description: This article provides an overview of Azure Service Bus messaging entities accessible through the Java message service API.
 ms.topic: article
 ms.custom: devx-track-extended-java
-ms.date: 09/27/2021
+ms.date: 12/04/2025
 ---
 
 # Java message service (JMS) 2.0 entities
 
-Client applications connecting to Azure Service Bus Premium and using the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) can use the below entities.
+Client applications connecting to Azure Service Bus Premium and using the [Azure Service Bus JMS library](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms) can use the below entities.
 
 ## Queues
 
@@ -55,7 +55,7 @@ TemporaryTopic createTemporaryTopic()
 While these are semantically similar to the [Subscriptions](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) (that is, exist on a topic and enable publish/subscribe semantics), the Java Message Service spec introduces the concepts of **Shared**, **Unshared**, **Durable, and **Non-durable** attributes for a given subscription.
 
 > [!NOTE]
-> The below subscriptions are available in Azure Service Bus Premium tier for client applications connecting to Azure Service Bus using the [Azure Service Bus JMS library](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms).
+> The below subscriptions are available in Azure Service Bus Premium tier for client applications connecting to Azure Service Bus using the [Azure Service Bus JMS library](https://central.sonatype.com/artifact/com.microsoft.azure/azure-servicebus-jms).
 >
 > Only durable subscriptions can be created using the Azure portal.
 >
