@@ -38,4 +38,4 @@ Azure confidential computing enables an ecosystem of partners that build on our 
 
 - [Opaque Systems](../partner-pages/opaque.md) is a confidential computing and data clean room platform that enables secure data sharing, multi-party analytics and machine learning on encrypted data.
 
-- [Scone](../partner-pages/scone.md) confidential computing platform facilitates always encrypted execution: one can run services and applications such that  the data and the code is ever accessible as plain text - not even for root users.
+- [Scone](../partner-pages/scone.md) confidential computing platform facilitates always encrypted execution: one can run services and applications such that  the data and the code is never accessible as plain text - not even for root users.
