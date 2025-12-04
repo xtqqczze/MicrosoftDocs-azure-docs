@@ -1,20 +1,21 @@
 ---
 title: "Tutorial: Use Dapr Publish and Subscribe for Microservices Communication"
 titleSuffix: "Azure Container Apps"
-description: Enable two sample applications to send and receive messages and leverage the Dapr pub/sub API.
+description: Find out how to create a publisher/subscriber system that uses the Dapr pub/sub API to communicate. Follow steps for deploying the app to Azure Container Apps.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.service: azure-container-apps
 ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 12/04/2025
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
+# customer intent: As a developer, I want to find out how to use the Dapr pub/sub API in my publisher and subscriber microservices so that I can streamline and standardize communication.
 ---
 
-# Tutorial: Use Dapr Publish and subscribe for microservices communication 
+# Tutorial: Use Dapr publish and subscribe for microservices communication 
 
-In a publish/subscribe (pub/sub) system, you can use [Distributed Application Runtime (Dapr)](./dapr-overview.md#supported-dapr-apis-components-and-tooling) to simplify and standardize the communication between your microservices and the message broker.
+In a publish/subscribe (pub/sub) system, you can use [Distributed Application Runtime (Dapr)](./dapr-overview.md#supported-dapr-apis-components-and-tooling) to streamline and standardize the communication between your microservices and the message broker.
 
 - The publisher app publishes messages via a Dapr sidecar. The sidecar handles the actual communication with the broker.
 - The subscriber app receives messages via a Dapr sidecar. The sidecar receives messages from the broker and invokes the subscriber app's endpoint with the message payload.
@@ -24,7 +25,7 @@ This tutorial uses a sample project to show you how to run a Dapr pub/sub system
 - A message generator `checkout` service (the publisher) that generates messages of a specific topic.
 - An `order-processor` service (the subscriber) that listens for messages from the `checkout` service of a specific topic. 
 
-:::image type="content" source="media/microservices-dapr-azd/pubsub-quickstart.png" alt-text="Diagram of the pub/sub sample.":::
+:::image type="content" source="media/microservices-dapr-azd/pubsub-quickstart.png" alt-text="Diagram that shows the message flow from a checkout app to a service bus via Dapr, and from the service bus to an order-processor app via Dapr.":::
 
 In this tutorial, you:
 
@@ -34,16 +35,16 @@ In this tutorial, you:
 
 ## Prerequisites
 
-- Install the [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd).
-- [Install](https://docs.dapr.io/getting-started/install-dapr-cli/) and [initialize](https://docs.dapr.io/getting-started/install-dapr-selfhost/) Dapr.
-- Install [Docker Desktop](https://www.docker.com/products/docker-desktop/).
-- Install [Git](https://git-scm.com/downloads).
+- The [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
+- The Dapr CLI, [installed](https://docs.dapr.io/getting-started/install-dapr-cli/) and [initialized](https://docs.dapr.io/getting-started/install-dapr-selfhost/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Git](https://git-scm.com/install/)
 
 ::: zone pivot="nodejs"
 
 ## Run the Node.js applications locally
 
-Before you deploy the application to Azure Container Apps, take the steps in the following sections to run the `order-processor` and `checkout` services locally with Dapr and Azure Service Bus.
+Before you deploy the application to Container Apps, take the steps in the following sections to run the `order-processor` and `checkout` services locally with Dapr and Azure Service Bus.
 
 ### Prepare the project
 
@@ -61,7 +62,7 @@ Before you deploy the application to Azure Container Apps, take the steps in the
 
 ### Run the applications by using the Dapr CLI
 
-Start by running the `order-processor` subscriber service.
+Take the following steps to run the `order-processor` subscriber service and the `checkout` publisher service.
 
 1. From the sample root directory, go to the *order-processor* directory.
 
@@ -152,7 +153,7 @@ In the `order-processor` terminal, the `order-processor` service receives 20 mes
 
 ### Stop the applications
 
-To stop the applications, run the following commands in a separate terminal:
+To stop the applications, open a separate terminal and run the following commands:
 
 ```sh
 dapr stop --app-id checkout
@@ -161,7 +162,7 @@ dapr stop --app-id order-processor
 
 ## Deploy the application template by using the Azure Developer CLI
 
-To deploy the application to Azure Container Apps by using [`azd`](/azure/developer/azure-developer-cli/overview) commands, take the steps in the following sections.
+To deploy the application to Container Apps by using [`azd`](/azure/developer/azure-developer-cli/overview) commands, take the steps in the following sections.
 
 ### Prepare the project
 
@@ -171,7 +172,7 @@ In a new terminal window, go to the [sample](https://github.com/Azure-Samples/pu
 cd pubsub-dapr-nodejs-servicebus
 ```
 
-### Provision and deploy by using the Azure Developer CLI
+### Create and deploy by using the Azure Developer CLI
 
 1. Run `azd init` to initialize the project.
 
@@ -181,7 +182,7 @@ cd pubsub-dapr-nodejs-servicebus
 
 1. When prompted in the terminal, enter a unique environment name. The command uses this name as a prefix for the resource group that it creates to hold all Azure resources.
 
-1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
+1. Run `azd up` to prepare the infrastructure and deploy the application to Container Apps in a single command.
 
    ```azdeveloper
    azd up
@@ -191,21 +192,27 @@ cd pubsub-dapr-nodejs-servicebus
 
    | Parameter | Description |
    | --------- | ----------- |
-   | Azure subscription | The Azure subscription for your resources. |
-   | Azure location  | The Azure location for your resources. |
+   | Azure subscription | The Azure subscription for your resources |
+   | Azure location  | The Azure location for your resources |
 
    This process can take some time to finish. While the `azd up` command runs, the output displays two Azure portal links that you can use to monitor the deployment progress. The output also demonstrates how `azd up`:
 
-   - Creates and configures all necessary Azure resources via the Bicep files in the *./infra* directory by using `azd provision`. After the Azure Developer CLI deploys these resources, you can use the Azure portal to access them. The files that provision the Azure resources include:
-     - `main.parameters.json`.
-     - `main.bicep`.
-     - An `app` resources directory organized by functionality.
-     - A `core` reference library that contains the Bicep modules used by the `azd` template.
+   - Creates and configures all necessary Azure resources via the Bicep files in the *./infra* directory by using `azd provision`. After the Azure Developer CLI deploys these resources, you can use the Azure portal to access them. The files that are used to configure the Azure resources include:
+     - *main.parameters.json*.
+     - *main.bicep*.
+     - An *app* resources directory organized by functionality.
+     - A *core* reference library that contains the Bicep modules used by the `azd` template.
    - Deploys the code by using `azd deploy`.
+
+   If this step causes [error BCP420](https://aka.ms/bicep/core-diagnostics#BCP420), go to your cloned repo, open the *pubsub-dapr-nodejs-servicebus/infra/core/host/container-apps.bicep* file, and replace line 28 with the following line:
+
+   ```bicep
+   scope: resourceGroup()
+   ```
 
 #### Expected output
 
-The `azd init` command should display text that's similar to the following output:
+The `azd init` command displays output that's similar to the following lines:
 
 ```azdeveloper
 Initializing an app to run on Azure (azd init)
@@ -217,7 +224,7 @@ Initializing an app to run on Azure (azd init)
 SUCCESS: Initialized environment <environment-name>.
 ```
 
-The `azd up` command should display text that's similar to the following output:
+The `azd up` command displays output that's similar to the following lines:
 
 ```azdeveloper
 ? Select an Azure Subscription to use:  3. <subscription-name> (aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e)
@@ -265,7 +272,7 @@ SUCCESS: Your up workflow to provision and deploy to Azure completed in 5 minute
 
 ### Confirm successful deployment 
 
-Take the following steps to verify that the `checkout` service is publishing messages to the Azure Service Bus topic and the `order-processor` service is receiving the messages. 
+Take the following steps to verify that the `checkout` service is publishing messages to the Service Bus topic and the `order-processor` service is receiving the messages. 
 
 1. In the terminal output, copy the `checkout` container app name.
 
@@ -337,12 +344,12 @@ Take the following steps to verify that the `checkout` service is publishing mes
    2025-12-03T17:59:39.377157717Z Subscriber received: {"orderId":20}
    ```
 
-## What happened?
+## Understand azd up
 
 When the `azd up` command runs successfully:
 
-- The Azure Developer CLI provisions the Azure resources referenced in the [sample project ./infra directory](https://github.com/Azure-Samples/pubsub-dapr-nodejs-servicebus/tree/main/infra) to the Azure subscription you specify. You can view those Azure resources in the Azure portal.
-- The app is deployed to Azure Container Apps. From the portal, you can go to the fully functional app.
+- The Azure Developer CLI creates the Azure resources referenced in the [sample project ./infra directory](https://github.com/Azure-Samples/pubsub-dapr-nodejs-servicebus/tree/main/infra) in the Azure subscription you specify. You can find those Azure resources in the Azure portal.
+- The app is deployed to Container Apps. In the Azure portal, you can access the fully functional app.
 
 
 ::: zone-end
@@ -351,7 +358,7 @@ When the `azd up` command runs successfully:
 
 ## Run the Python applications locally
 
-Before you deploy the application to Azure Container Apps, take the steps in the following sections to run the `order-processor` and `checkout` services locally with Dapr and Azure Service Bus.
+Before you deploy the application to Container Apps, take the steps in the following sections to run the `order-processor` and `checkout` services locally with Dapr and Azure Service Bus.
 
 ### Prepare the project
 
@@ -369,7 +376,7 @@ Before you deploy the application to Azure Container Apps, take the steps in the
 
 ### Run the applications by using the Dapr CLI
 
-Start by running the `order-processor` subscriber service.
+Take the following steps to run the `order-processor` subscriber service and the `checkout` publisher service.
 
 1. From the sample root directory, go to the *order-processor* directory.
 
@@ -497,7 +504,7 @@ In the `order-processor` terminal, the `order-processor` service receives 19 mes
 
 ### Stop the applications
 
-To stop the applications, run the following commands in a separate terminal:
+To stop the applications, open a separate terminal and run the following commands:
 
 ```sh
 dapr stop --app-id checkout
@@ -506,7 +513,7 @@ dapr stop --app-id order-processor
 
 ## Deploy the application template by using the Azure Developer CLI
 
-To deploy the application to Azure Container Apps by using [`azd`](/azure/developer/azure-developer-cli/overview) commands, take the steps in the following sections.
+To deploy the application to Container Apps by using [`azd`](/azure/developer/azure-developer-cli/overview) commands, take the steps in the following sections.
 
 ### Prepare the project
 
@@ -516,7 +523,7 @@ In a new terminal window, go to the [sample](https://github.com/Azure-Samples/pu
 cd pubsub-dapr-python-servicebus
 ```
 
-### Provision and deploy by using the Azure Developer CLI
+### Create and deploy by using the Azure Developer CLI
 
 1. Run `azd init` to initialize the project.
 
@@ -526,7 +533,7 @@ cd pubsub-dapr-python-servicebus
 
 1. When prompted in the terminal, enter a unique environment name. The command uses this name as a prefix for the resource group that it creates to hold all Azure resources.
 
-1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
+1. Run `azd up` to prepare the infrastructure and deploy the application to Container Apps in a single command.
 
    ```azdeveloper
    azd up
@@ -536,21 +543,21 @@ cd pubsub-dapr-python-servicebus
 
    | Parameter | Description |
    | --------- | ----------- |
-   | Azure subscription | The Azure subscription for your resources. |
-   | Azure location  | The Azure location for your resources. |
+   | Azure subscription | The Azure subscription for your resources |
+   | Azure location  | The Azure location for your resources |
 
    This process can take some time to finish. While the `azd up` command runs, the output displays two Azure portal links that you can use to monitor the deployment progress. The output also demonstrates how `azd up`:
 
-   - Creates and configures all necessary Azure resources via the Bicep files in the *./infra* directory by using `azd provision`. After the Azure Developer CLI deploys these resources, you can use the Azure portal to access them. The files that provision the Azure resources include:
-     - `main.parameters.json`.
-     - `main.bicep`.
-     - An `app` resources directory organized by functionality.
-     - A `core` reference library that contains the Bicep modules used by the `azd` template.
+   - Creates and configures all necessary Azure resources via the Bicep files in the *./infra* directory by using `azd provision`. After the Azure Developer CLI deploys these resources, you can use the Azure portal to access them. The files that are used to configure the Azure resources include:
+     - *main.parameters.json*.
+     - *main.bicep*.
+     - An *app* resources directory organized by functionality.
+     - A *core* reference library that contains the Bicep modules used by the `azd` template.
    - Deploys the code by using `azd deploy`.
 
 #### Expected output
 
-The `azd init` command should display text that's similar to the following output:
+The `azd init` command displays output that's similar to the following lines:
 
 ```azdeveloper
 Initializing an app to run on Azure (azd init)
@@ -562,7 +569,7 @@ Initializing an app to run on Azure (azd init)
 SUCCESS: Initialized environment <environment-name>.
 ```
 
-The `azd up` command should display text that's similar to the following output:
+The `azd up` command displays output that's similar to the following lines:
 
 ```azdeveloper
 ? Select an Azure Subscription to use:  3. <subscription-name> (aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e)
@@ -610,7 +617,7 @@ SUCCESS: Your up workflow to provision and deploy to Azure completed in 5 minute
 
 ### Confirm successful deployment
 
-Take the following steps to verify that the `checkout` service is publishing messages to the Azure Service Bus topic and the `order-processor` service is receiving the messages. 
+Take the following steps to verify that the `checkout` service is publishing messages to the Service Bus topic and the `order-processor` service is receiving the messages. 
 
 1. In the terminal output, copy the `checkout` container app name.
 
@@ -699,20 +706,20 @@ Take the following steps to verify that the `checkout` service is publishing mes
    2025-12-03T20:56:42.559954290Z 127.0.0.1 - - [03/Dec/2025 20:56:42] "POST /orders HTTP/1.1" 200 -
    ```
 
-## What happened?
+## Understand azd up
 
 When the `azd up` command runs successfully:
 
-- The Azure Developer CLI provisions the Azure resources referenced in the [sample project ./infra directory](https://github.com/Azure-Samples/pubsub-dapr-python-servicebus/tree/main/infra) to the Azure subscription you specify. You can view those Azure resources in the Azure portal.
-- The app is deployed to Azure Container Apps. From the portal, you can go to the fully functional app.
-- 
+- The Azure Developer CLI creates the Azure resources referenced in the [sample project ./infra directory](https://github.com/Azure-Samples/pubsub-dapr-python-servicebus/tree/main/infra) in the Azure subscription you specify. You can find those Azure resources in the Azure portal.
+- The app is deployed to Container Apps. In the Azure portal, you can access the fully functional app.
+
 ::: zone-end
 
 ::: zone pivot="csharp"
 
 ## Run the .NET applications locally
 
-Before you deploy the application to Azure Container Apps, take the steps in the following sections to run the `order-processor` and `checkout` services locally with Dapr and Azure Service Bus.
+Before you deploy the application to Container Apps, take the steps in the following sections to run the `order-processor` and `checkout` services locally with Dapr and Azure Service Bus.
 
 ### Prepare the project
 
@@ -728,9 +735,9 @@ Before you deploy the application to Azure Container Apps, take the steps in the
    cd pubsub-dapr-csharp-servicebus
    ```
 
-### Run the applications using the Dapr CLI
+### Run the applications by using the Dapr CLI
 
-Start by running the `order-processor` subscriber service.
+Take the following steps to run the `order-processor` subscriber service and the `checkout` publisher service.
 
 1. From the sample root directory, go to the *order-processor* directory.
 
@@ -822,7 +829,7 @@ In the `order-processor` terminal, the `order-processor` service receives 20 mes
 
 ### Stop the applications
 
-To stop the applications, run the following commands in a separate terminal:
+To stop the applications, open a separate terminal and run the following commands:
 
 ```sh
 dapr stop --app-id checkout
@@ -831,7 +838,7 @@ dapr stop --app-id order-processor
 
 ## Deploy the application template by using the Azure Developer CLI
 
-To deploy the application to Azure Container Apps by using [`azd`](/azure/developer/azure-developer-cli/overview) commands, take the steps in the following sections.
+To deploy the application to Container Apps by using [`azd`](/azure/developer/azure-developer-cli/overview) commands, take the steps in the following sections.
 
 ### Prepare the project
 
@@ -841,7 +848,7 @@ In a new terminal window, go to the [sample](https://github.com/Azure-Samples/pu
 cd pubsub-dapr-csharp-servicebus
 ```
 
-### Provision and deploy using Azure Developer CLI
+### Create and deploy by using the Azure Developer CLI
 
 1. Run `azd init` to initialize the project.
 
@@ -851,7 +858,7 @@ cd pubsub-dapr-csharp-servicebus
 
 1. When prompted in the terminal, enter a unique environment name. The command uses this name as a prefix for the resource group that it creates to hold all Azure resources.
 
-1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
+1. Run `azd up` to prepare the infrastructure and deploy the application to Container Apps in a single command.
 
    ```azdeveloper
    azd up
@@ -861,21 +868,27 @@ cd pubsub-dapr-csharp-servicebus
 
    | Parameter | Description |
    | --------- | ----------- |
-   | Azure subscription | The Azure subscription for your resources. |
-   | Azure location  | The Azure location for your resources. |
+   | Azure subscription | The Azure subscription for your resources |
+   | Azure location  | The Azure location for your resources |
 
    This process can take some time to finish. While the `azd up` command runs, the output displays two Azure portal links that you can use to monitor the deployment progress. The output also demonstrates how `azd up`:
 
-   - Creates and configures all necessary Azure resources via the Bicep files in the *./infra* directory by using `azd provision`. After the Azure Developer CLI deploys these resources, you can use the Azure portal to access them. The files that provision the Azure resources include:
-     - `main.parameters.json`.
-     - `main.bicep`.
-     - An `app` resources directory organized by functionality.
-     - A `core` reference library that contains the Bicep modules used by the `azd` template.
+   - Creates and configures all necessary Azure resources via the Bicep files in the *./infra* directory by using `azd provision`. After the Azure Developer CLI deploys these resources, you can use the Azure portal to access them. The files that are used to configure the Azure resources include:
+     - *main.parameters.json*.
+     - *main.bicep*.
+     - An *app* resources directory organized by functionality.
+     - A *core* reference library that contains the Bicep modules used by the `azd` template.
    - Deploys the code by using `azd deploy`.
+
+   If this step causes [error BCP420](https://aka.ms/bicep/core-diagnostics#BCP420), go to your cloned repo, open the *pubsub-dapr-csharp-servicebus/infra/core/host/container-apps.bicep* file, and replace line 28 with the following line:
+
+   ```bicep
+   scope: resourceGroup()
+   ```
 
 #### Expected output
 
-The `azd init` command should display text that's similar to the following output:
+The `azd init` command displays output that's similar to the following lines:
 
 ```azdeveloper
 Initializing an app to run on Azure (azd init)
@@ -887,7 +900,7 @@ Initializing an app to run on Azure (azd init)
 SUCCESS: Initialized environment <environment-name>.
 ```
 
-The `azd up` command should display text that's similar to the following output:
+The `azd up` command displays output that's similar to the following lines:
 
 ```azdeveloper
 ? Select an Azure Subscription to use:  3. <subscription-name> (aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e)
@@ -935,7 +948,7 @@ SUCCESS: Your up workflow to provision and deploy to Azure completed in 6 minute
 
 ### Confirm successful deployment 
 
-In the Azure portal, verify the `checkout` service is publishing messages to the Azure Service Bus topic. 
+Take the following steps to verify that the `checkout` service is publishing messages to the Service Bus topic and the `order-processor` service is receiving the messages.
 
 1. Copy the `checkout` container app name from the terminal output.
 
@@ -1004,30 +1017,28 @@ In the Azure portal, verify the `checkout` service is publishing messages to the
    2025-12-03T21:23:12.294944386Z Subscriber received : Order { OrderId = 17 }
    2025-12-03T21:23:13.306328648Z Subscriber received : Order { OrderId = 18 }
    2025-12-03T21:23:14.322317879Z Subscriber received : Order { OrderId = 19 }
-   2025-12-03T21:23:15.322317879Z Subscriber received : Order { OrderId = 20 }
+   2025-12-03T21:23:15.076995284Z Subscriber received : Order { OrderId = 20 }
    ```
-   
 
-## What happened?
+## Understand azd up
 
 When the `azd up` command runs successfully:
 
-- The Azure Developer CLI provisions the Azure resources referenced in the [sample project ./infra directory](https://github.com/Azure-Samples/pubsub-dapr-csharp-servicebus/tree/main/infra) to the Azure subscription you specify. You can view those Azure resources in the Azure portal.
-- The app is deployed to Azure Container Apps. From the portal, you can go to the fully functional app.
+- The Azure Developer CLI creates the Azure resources referenced in the [sample project ./infra directory](https://github.com/Azure-Samples/pubsub-dapr-csharp-servicebus/tree/main/infra) in the Azure subscription you specify. You can find those Azure resources in the Azure portal.
+- The app is deployed to Container Apps. In the Azure portal, you can access the fully functional app.
 
 ::: zone-end
 
 ## Clean up resources
 
-If you're not going to continue to use this application, use the following command to delete the Azure resources you provisioned:
+If you're not going to continue to use this application, use the following command to delete the Azure resources you created:
 
 ```azdeveloper
 azd down
 ```
 
-## Next steps
+## Related content
 
-- Learn more about [deploying applications to Azure Container Apps](./microservices-dapr.md).
-- [Enable token authentication for Dapr requests.](./dapr-authentication-token.md)
-- Learn more about [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) and [making your applications compatible with `azd`](/azure/developer/azure-developer-cli/make-azd-compatible).
-- [Scale your applications using KEDA scalers](./dapr-keda-scaling.md)
+- For more information about deploying applications to Container Apps, see [Quickstart: Deploy a Dapr application to Azure Container Apps using the Azure CLI](./microservices-dapr.md).
+- For information about using a token to check that requests to your app come from Dapr, see [Enable token authentication for Dapr requests](./dapr-authentication-token.md).
+- For information about making your applications compatible with `azd`, see [Create Azure Developer CLI templates overview](/azure/developer/azure-developer-cli/make-azd-compatible).
