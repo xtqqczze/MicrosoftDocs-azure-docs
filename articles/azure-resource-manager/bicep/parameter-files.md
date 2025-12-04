@@ -116,10 +116,7 @@ param environmentSettings = {
 }
 ```
 
-You casn define user-defined data types. For example:
-
-```bicep
-Here is an example of a Bicep parameters file:
+You can define user-defined data types. For example:
 
 ```bicep
 using './main.bicep'
