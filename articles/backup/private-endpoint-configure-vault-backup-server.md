@@ -5,7 +5,7 @@ description: Learn how to configure private endpoints for Azure Backup when usin
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 11/27/2025
+ms.date: 12/01/2025
 ms.topic: how-to
 ms.service: azure-backup
 ---
@@ -223,3 +223,5 @@ When you use the MARS Agent for backup, ensure your on-premises network is peere
 
 - [About private endpoints (v1 experience) for Azure Backup](private-endpoints-overview.md).
 - [About private endpoints (v2 experience) for Azure Backup](backup-azure-private-endpoints-concept.md).
+- [Configure private endpoint in Azure Backup vaults for backup using DPM server](/system-center/dpm/private-endpoint-configure-vault-backup-server?view=sc-dpm-2025&preserve-view=true).
+- [Reregister the DPM server with Recovery Services vault using public access](/system-center/dpm/register-public-access-vault-backup-server?view=sc-dpm-2025&preserve-view=true).
