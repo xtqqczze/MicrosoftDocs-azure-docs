@@ -49,29 +49,29 @@ These scenarios previously required custom proxies. Now, they work out-of-the-bo
 
 Configuration exposed through Azure Front Door is publicly accessible without authentication, making proper security controls essential. Implement the following strategies to protect your configuration data from unintended exposure.
 
-#### Limit exposure through multiple App Configuration stores
+##### Use separate App Configuration store
 
 Consider using a dedicated App Configuration store for client-facing configuration delivered through Azure Front Door. This store should contain only nonsensitive settings that are safe for public consumption. This isolation strategy limits potential impact if configuration is inadvertently exposed, ensuring that sensitive data remains protected in separate stores.
 
-#### Role Based Access Control using Managed Identity
+##### Role Based Access Control using Managed Identity
 
 Azure Front Door accesses App Configuration data using either its system-assigned managed identity or a user-assigned managed identity. The selected identity requires the `App Configuration Data Reader` role to retrieve configuration data. When you create the Azure Front Door endpoint through the App Configuration portal, this role assignment occurs automatically. The portal displays a warning if the role assignment encounters any issues. Restrict the managed identity to the `App Configuration Data Reader` role only and avoid assigning any roles with write permissions.
 
 ### Request Scoping
 
-Configure one or more filters to control which requests are allowed to pass through Azure Front Door. This prevents accidental exposure of sensitive configuration and ensures only the settings your application needs are accessible.
+Configure one or more filters to control which requests are allowed to pass through Azure Front Door.This prevents anonymous clients from bypassing the CDN cache through excessive or malformed requests that could overwhelm App Configuration and trigger service throttling.
 
-#### Request scoping through key-value filters
+##### Request scoping through key-value filters
 
-- Configure Azure Front Door filters to precisely match your application's configuration requirements. Only expose the exact key patterns your application uses. For example, if your application loads keys with the `"App1:"` prefix, configure the Azure Front Door rule to allow only `"App1:"` keys, not broader patterns like `"App"`. Loose filtering increases security risks by exposing unintended data, bypasses cache optimizations, and might cause service throttling due to excessive requests to your App Configuration store.
+- Configure Azure Front Door filters to precisely match your application's configuration requirements. Only expose the exact key patterns your application uses. For example, if your application loads keys with the `"App1:"` prefix, configure the Azure Front Door rule to allow only `"App1:"` keys, not broader patterns like `"App"`.
 
 - If your application loads feature flags, provide `".appconfig.featureflag/{YOUR-FEATURE-FLAG-PREFIX}"` filter for the Key with *Starts with* operator.
 
 - If you're using App Configuration provider libraries and your application loads ONLY feature flags, you should add two key filters in the Azure Front Door rules - one for `ALL` keys with no label and second for all keys starting with `".appconfig.featureflag/{YOUR-FEATURE-FLAG-PREFIX}"`. This is because App Configuration provider libraries load all key-values with no label by default when no key-value selector is specified. 
 
-#### Request scoping through multiple Azure Front Door endpoints
+##### Request scoping through multiple Azure Front Door endpoints
 
-Create separate Azure Front Door endpoints for applications with different configuration requirements. This approach improves security by isolating each application's configuration access and simplifies filter management. Rather than combining multiple filter rules in a single endpoint - which increases complexity and security risks - each application connects to its dedicated endpoint with precisely scoped filters. This approach prevents applications from accessing each other's configuration data and makes access control more manageable.
+Create separate Azure Front Door endpoints for applications with different configuration requirements. Rather than combining multiple filter rules in a single endpoint, each application connects to its dedicated endpoint with precisely scoped filters. This approach prevents applications from accessing each other's configuration data and simplifies filter management.
 
 ### Failover and Load Balancing
 
