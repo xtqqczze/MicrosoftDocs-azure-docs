@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: netapp-manishc
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/06/2025
+ms.date: 12/03/2025
 ms.author: anfdocs
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to create a cache volume in Azure NetApp Files, so that I can leverage scalable storage solutions and reduce cost.
@@ -25,6 +25,7 @@ Write-back allows the write to be committed to stable storage at the cache and a
 * When creating a cache volume, ensure that there's sufficient space in the capacity pool to accommodate the new cache volume.
 * You should ensure that the protocol type is the same for the cache volume and origin volume. The security style and the Unix permissions are inherited from the origin volume. For example, creating a cache volume with NFSv3 or NFSv4 when origin is UNIX, and SMB when the origin is NTFS.
 * You should enable encryption on the origin volume.
+* The source cluster must be running ONTAP 9.15.1 or later version.
 * You should configure an Active Directory (AD) or LDAP connection within the NetApp account to create an LDAP-enabled cache volume.
 * You can't move a cache volume to another capacity pool.
 * The `globalFileLocking` parameter value must be the same on all cache volumes that share the same origin volume. Global file locking can be enabled when creating the first cache volume by setting `globalFileLocking` to true. The subsequent cache volumes from the same origin volume must have this setting set to true. To change the global file locking setting on existing cache volumes, you must update the origin volume first. After updating the origin volume, the change propagates to all the cache volumes associated with that origin volume. The `volume flexcache origin config modify -is-global-file-locking-enabled` command should be executed on the source cluster to change the setting on the origin volume.
@@ -45,7 +46,6 @@ If you're enabling write-back on the external origin volume:
 * Each external origin system node has at least 128 GB of RAM and 20 CPUs to absorb the write-back messages initiated by write-back enabled caches. This is the equivalent of an A400 or greater. If the origin cluster serves as the origin to multiple write-back enabled Azure NetApp Files cache volumes, it requires more CPUs and RAM.
 * Testing is executed for files smaller than 100 GB and WAN roundtrip times between the cache and origin not exceeding 100 milliseconds. Any workloads outside of these limits might result in unexpected performance characteristics.
 * The external origin must remain less than 80% full. Cache volumes aren't granted exclusive lock delegations if there isn't at least 20% space remaining in the origin volume. Calls to a write-back-enabled cache are forwarded to the origin in this situation. This helps prevent running out of space at the origin, which would result in leaving dirty data orphaned at a write-back-enabled cache.
-* You shouldn't configure qtree, user, or group quotas at an origin volume with write-back enabled cache volumes. This may incur a significant latency increase.
 
 ### Interoperability considerations 
 
