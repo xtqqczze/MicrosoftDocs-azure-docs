@@ -4,7 +4,7 @@ description: This article explains how you can authenticate managed identities t
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/26/2025
+ms.date: 12/04/2025
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -364,7 +364,11 @@ If you encounter issues when mounting your file share on Linux, follow [these SM
 
 ---
 
-## Client library installation and integration options for Windows
+## Client library installation and integration options
+
+The following information is intended for developers who need to integrate managed identities into their applications.
+
+### [Windows](#tab/windows)
 
 For developers who need to integrate managed identities into their Windows applications, multiple implementation approaches are available depending on your application architecture and requirements.
 
@@ -397,6 +401,50 @@ extern "C" AZFILESSMBMI_API HRESULT SmbClearCredential(
     _In_ PCWSTR pwszFileEndpointUri 
 ); 
 ```
+
+### [Linux](#tab/linux)
+
+Linux developers can use the shared library that's automatically installed with the azfilesauth package. You can link against the library in your C/C++ applications for direct API access.
+
+Be sure to include the [public header](https://github.com/Azure/AzFilesAuthenticator/blob/main/include/azfilesauth.h).
+
+For more information, see the [AzFilesAuthenticator project](https://github.com/Azure/AzFilesAuthenticator/blob/main/README.md).
+
+### Shared library API methods
+
+The shared library exports the following core methods for credential management:
+
+```bash
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+int extern_smb_set_credential_oauth_token(char* file_endpoint_uri,
+                                                char* auth_token,
+                                                unsigned int* credential_expires_in_seconds);
+
+int extern_smb_clear_credential(char* file_endpoint_uri);
+
+int extern_smb_list_credential(bool is_json);
+
+const char* extern_smb_version();
+
+#ifdef __cplusplus
+}
+#endif
+```
+
+### API description
+
+The following table lists the API commands and their usage. Return values follow standard C conventions (0 for success, non-zero for errors).
+
+| **Command** | **Description** |
+| extern_smb_set_credential_oauth_token() | Sets OAuth token credentials for a specific storage endpoint |
+| extern_smb_clear_credential() | Removes stored credentials for a storage endpoint |
+| extern_smb_list_credential() | Lists all stored credentials |
+| extern_smb_version() | Returns the version string of the azfilesauth library |
+
+---
 
 ## See also
  
