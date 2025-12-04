@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: how-to
-ms.date: 12/02/2025
+ms.date: 12/04/2025
 
 #customer intent: As a platform engineer, I want to configure elevated privilege management for dev boxes so that users don't need administrative privileges to manage their dev boxes.
 ---
@@ -36,7 +36,7 @@ To license and configure the Microsoft Intune Endpoint Privilege Management add-
 
 ### Assign the Intune administrator role
 
-1. In the Intune admin center, go to **Users** and select yourself as the user.
+1. In the [Microsoft Intune admin center](https://intune.microsoft.com), go to **Users** and select yourself as the user.
 1. Select **Assigned roles** in the left navigation menu, select **Add assignments**, and then select and assign the **Intune Administrator** role.
 
    :::image type="content" source="media/how-to-elevate-privilege-dev-box/tenant-admin.png" alt-text="Screenshot that shows assigning the Microsoft Intune Administrator role.":::
@@ -45,7 +45,7 @@ To license and configure the Microsoft Intune Endpoint Privilege Management add-
 
 ### License the Endpoint Privilege Management add-on
 
-1. In the [Microsoft Intune admin center](https://intune.microsoft.com), go to **Tenant administration** > **Intune add-ons** and select the **View details** link next to **Endpoint Privilege Management**.
+1. In the [Intune admin center](https://intune.microsoft.com), go to **Tenant administration** > **Intune add-ons** and select the **View details** link next to **Endpoint Privilege Management**.
 1. On the details screen, select the link to the [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home?#/catalog).
 1. In the Microsoft 365 admin center, go to **Billing** > **Licenses**, select **Microsoft Intune Endpoint Privilege Management**, and purchase the number of licenses you need.
 
