@@ -31,7 +31,7 @@ The following code demonstrates how to load configuration from Azure Front Door.
 Replace `{YOUR-AFD-ENDPOINT}` with your Azure Front Door endpoint, which looks something like `https://xxxx.azurefd.net`.
 
 > [!NOTE]
-> If your application loads only feature flags, you should add 2 key filters in the Azure Front Door rules - one for ALL keys with no label and second for all keys starting with ".appconfig.featureflag/{YOUR-FEATURE-FLAG-PREFIX}".
+> If your application loads only feature flags, you should add two key filters in the Azure Front Door rules - one for ALL keys with no label and second for all keys starting with ".appconfig.featureflag/{YOUR-FEATURE-FLAG-PREFIX}".
 
 ### [.NET MAUI](#tab/dotnet-maui)
 
@@ -88,7 +88,7 @@ For a complete sample app, refer to [JavaScript App with Azure App Configuration
 - Make sure the correct scoping filters are set when configuring the Azure Front Door endpoint. These filters (for key-values, snapshots, and feature flags) define the regex rules that block requests that don't match specified filters. If your app can’t access its configuration, review Azure Front Door rules to find any blocking regex patterns. Update the rule with the right filter or create a new AFD endpoint from the App Configuration portal. Learn more about [Azure Front Door routing rules](/azure/frontdoor/front-door-rules-engine).
 
 ### Configuration doesn't refresh
-- Azure Front Door manages caching behavior, so updates from App Configuration aren’t immediately available to the application. Even if your app checks for changes frequently, AFD might serve cached data until its own cache expires. For example, if AFD caches for 10 minutes, your app will not see updates for at least 10 minutes, even though the app might be configured to refresh every minute. This design ensures eventual consistency, not real-time updates, which is expected for any CDN-based solution. Learn more about [Caching with Azure Front Door](/azure/frontdoor/front-door-caching).
+- Azure Front Door manages caching behavior, so updates from App Configuration aren’t immediately available to the application. Even if your app checks for changes frequently, AFD might serve cached data until its own cache expires. For example, if AFD caches for 10 minutes, your app won't see updates for at least 10 minutes, even though the app might be configured to refresh every minute. This design ensures eventual consistency, not real-time updates, which is expected for any CDN-based solution. Learn more about [Caching with Azure Front Door](/azure/frontdoor/front-door-caching).
 
 
 ## Language availability

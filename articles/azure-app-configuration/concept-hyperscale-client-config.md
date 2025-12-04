@@ -10,7 +10,7 @@ ms.date: 12/02/2025
 
 # Configuration Management for Client Applications (Preview) 
 
-Client applications have fundamentally different configuration requirements than server applications due to their scale and direct user interaction. They serve millions of users who expect instant app launches and seamless updates. These applications run on diverse devices across unreliable networks worldwide and the system needs to be lightweight on the client side yet powerful enough to apply changes on the fly. Since client applications can't securely store credentials, they need anonymous access to configuration data. Direct API calls from millions of clients would result in prohibitive costs and require massive backend scaling. For most client scenarios, eventual consistency is acceptable, allowing the use of edge caching strategies. The integration of Azure App Configuration with Azure Front Door combines centralized configuration management with edge-based content delivery, providing unified control and instant global access of your configuration.
+Client applications have fundamentally different configuration requirements than server applications due to their scale and direct user interaction. They serve millions of users who expect instant app launches and seamless updates. These applications run on diverse devices across unreliable networks worldwide and the system needs to be lightweight on the client side yet powerful enough to apply changes on the fly. Since client applications can't securely store credentials, they need anonymous access to configuration data. For most client scenarios, eventual consistency is acceptable, allowing the use of edge caching strategies. The integration of Azure App Configuration with Azure Front Door combines centralized configuration management with edge-based content delivery, providing unified control and instant global access of your configuration.
 
 ## CDN-Accelerated Configuration Delivery with Azure Front Door
 
@@ -53,6 +53,10 @@ Client applications rely on Azure Front Door for failover and load balancing, as
 
 Configuration exposed through Azure Front Door is publicly accessible without authentication, making proper security controls essential. Implement the following strategies to protect your configuration data from unintended exposure.
 
+#### Access scoping through multiple App Configuration stores
+
+Consider using a dedicated App Configuration store for client-facing configuration delivered through Azure Front Door. This store should contain only nonsensitive settings that are safe for public consumption. This isolation strategy limits potential impact if configuration is inadvertently exposed, ensuring that sensitive data remains protected in separate stores.
+
 #### Access scoping through Managed Identity
 
 Azure Front Door accesses App Configuration data using either its system-assigned managed identity or a user-assigned managed identity. The selected identity requires the `App Configuration Data Reader` role to retrieve configuration data. When you create the Azure Front Door endpoint through the App Configuration portal, this role assignment occurs automatically. The portal displays a warning if the role assignment encounters any issues. Restrict the managed identity to the `App Configuration Data Reader` role only and avoid assigning any roles with write permissions.
@@ -70,10 +74,6 @@ Configure one or more filters to control which requests are allowed to pass thro
 #### Access scoping through multiple Azure Front Door endpoints
 
 Create separate Azure Front Door endpoints for applications with different configuration requirements. This approach improves security by isolating each application's configuration access and simplifies filter management. Rather than combining multiple filter rules in a single endpoint - which increases complexity and security risks - each application connects to its dedicated endpoint with precisely scoped filters. This approach prevents applications from accessing each other's configuration data and makes access control more manageable.
-
-#### Access scoping through multiple App Configuration stores
-
-Consider using a dedicated App Configuration store for client-facing configuration delivered through Azure Front Door. This store should contain only nonsensitive settings that are safe for public consumption. This isolation strategy limits potential impact if configuration is inadvertently exposed, ensuring that sensitive data remains protected in separate stores.
 
 ### Cache duration
 
