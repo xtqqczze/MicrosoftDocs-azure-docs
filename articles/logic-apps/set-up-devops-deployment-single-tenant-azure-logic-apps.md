@@ -268,14 +268,14 @@ For more information, review [Continuous delivery by using GitHub Action](../azu
 
 ### [Azure DevOps](#tab/azure-devops)
 
-For Azure DevOps deployments, you can deploy your logic app by using the [Azure Function App Deploy task](/azure/devops/pipelines/tasks/deploy/azure-function-app?view=azure-devops&preserve-view=true) in Azure Pipelines. This action requires that you pass through the following information:
+For Azure DevOps deployments, you can deploy your logic app by using the [Azure Function App Deploy task](/azure/devops/pipelines/tasks/reference/azure-function-app-v2?view=azure-devops&preserve-view=true) in Azure Pipelines. This action requires that you pass along the following information:
 
 - The logic app name to use for deployment
 - The zip file that contains your actual build artifacts, including all workflow folders, configuration files such as **host.json**, **connections.json**, **local.settings.json**, and any other related files.
 - Your [publish profile](../azure-functions/functions-how-to-github-actions.md#generate-deployment-credentials), which is used for authentication
 
 ```yaml
-- task: AzureFunctionApp@1
+- task: AzureFunctionApp@2
   displayName: 'Deploy logic app workflows'
   inputs:
      azureSubscription: 'MyServiceConnection'
@@ -283,7 +283,20 @@ For Azure DevOps deployments, you can deploy your logic app by using the [Azure 
      appName: 'MyLogicAppName'
      package: 'MyBuildArtifact.zip'
      deploymentMethod: 'zipDeploy'
+     appSettings: '-SettingName1 SettingValue1 -SettingName2 SettingValue2'
 ```
+
+You can optionally create or update application settings during deployment by using the `appSettings` parameter. This parameter accepts each setting in `-<key-name> <key-value>` format, for example:
+
+```yaml
+appSettings: '-AzureWebJobsStorage $(StorageConnectionString) -WORKFLOWS_SUBSCRIPTION_ID $(SubscriptionId)'
+```
+
+For more information about the `appSettings` parameter syntax, see [Azure Function App Deploy v2 task](/azure/devops/pipelines/tasks/reference/azure-function-app-v2).
+
+> [!NOTE]
+>
+> If you don't use the `appSettings` parameter in your pipeline, you must manually create these settings in the Azure portal after deployment based on the **local.settings.json** file in your logic app project.
 
 For more information, review [Deploy an Azure Function using Azure Pipelines](/azure/devops/pipelines/targets/azure-functions-windows).
 
@@ -430,7 +443,13 @@ az logicapp deployment source config-zip --name MyLogicAppName
 
 ## After deployment to Azure
 
-Each API connection has access policies. After the zip deployment completes, you must open your Standard logic app resource in the Azure portal, and create access policies for each API connection to set up permissions for the deployed logic app. The zip deployment doesn't create app settings for you. After deployment, you must create these app settings based on the **local.settings.json** file in your logic app project.
+Each API connection has access policies. After the zip deployment completes, you must open your Standard logic app resource in the Azure portal, and create access policies for each API connection to set up permissions for the deployed logic app.
+
+For application settings, you have two options:
+
+- **Pipeline deployment (recommended)**: Use the `appSettings` parameter in the Azure Function App Deploy task for Azure DevOps or an equivalent configuration in GitHub Actions to automatically create app settings during deployment. For more information, see the deployment examples in the previous sections.
+
+- **Manual configuration**: Create app settings manually in the Azure portal after deployment based on the **local.settings.json** file in your logic app project.
 
 ## Related content
 
