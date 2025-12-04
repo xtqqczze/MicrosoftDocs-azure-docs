@@ -153,7 +153,7 @@ If the `spec.featureFlag.selectors` property isn't set, feature flags are not do
 |---|---|---|---|
 |keyFilter|The key filter for querying feature flags. This property and the `snapshotName` property should not be set at the same time.|alternative|string|
 |labelFilter|The label filter for querying feature flags. This property and the `snapshotName` property should not be set at the same time.|false|string|
-|tagFilters|The tag filters for querying key-values. This property and the `snapshotName` property should not be set at the same time. Tag filter must be formatted as `tag1=value1`.|false|string array|
+|tagFilters|The tag filters for querying feature flags. This property and the `snapshotName` property should not be set at the same time. Tag filter must be formatted as `tag1=value1`.|false|string array|
 |snapshotName|The name of a snapshot from which feature flags are loaded. This property should not be used in conjunction with other properties.|alternative|string|
 
 The `spec.featureFlag.refresh` property has the following child properties.
