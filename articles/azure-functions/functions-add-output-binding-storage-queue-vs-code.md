@@ -96,7 +96,7 @@ To write to an Azure Storage queue:
     {
         methods: ['GET', 'POST'],
         extraOutputs: [sendToQueue], // add output binding to HTTP trigger
-        authLevel: 'anonymous',
+        authLevel: 'function',
         handler: () => {}
     }
     ```
@@ -117,7 +117,7 @@ To write to an Azure Storage queue:
     {
         methods: ['GET', 'POST'],
         extraOutputs: [sendToQueue], // add output binding to HTTP trigger
-        authLevel: 'anonymous',
+        authLevel: 'function',
         handler: () => {}
     }
     ```

@@ -235,7 +235,7 @@ import uuid
 app = func.FunctionApp()
 
 @app.function_name(name="HttpTrigger1")
-@app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
+@app.route(route="hello", auth_level=func.AuthLevel.FUNCTION)
 @app.generic_output_binding(arg_name="toDoItems", type="sql", CommandText="dbo.ToDo", ConnectionStringSetting="SqlConnectionString",data_type=DataType.STRING)
 def test_function(req: func.HttpRequest, toDoItems: func.Out[func.SqlRow]) -> func.HttpResponse:
      logging.info('Python HTTP trigger function processed a request.')
