@@ -1,7 +1,7 @@
 ---
 title: Bicep warnings and error codes
 description: Understand Bicep warnings and error codes.
-ms.topic: conceptual
+ms.topic: article
 ms.custom:
   - devx-track-azurecli
   - devx-track-bicep
@@ -323,7 +323,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP333' />[BCP333](./diagnostics/bcp333.md) | Error/Warning | The provided value (whose length will always be less than or equal to `<string-length>`) is too short to assign to a target for which the minimum allowable length is `<min-length>`. |
 | <a id='BCP334' />BCP334 | Warning | The provided value can have a length as small as `{sourceMinLength}` and may be too short to assign to a target with a configured minimum length of `{targetMinLength}`. |
 | <a id='BCP335' />[BCP335](./diagnostics/bcp335.md) | Warning | The provided value can have a length as large as `{sourceMaxLength}` and may be too long to assign to a target with a configured maximum length of `{targetMaxLength}`. |
-| <a id='BCP337' />BCP337 | Error | This declaration type isn't valid for a Bicep Parameters file. Specify a `{LanguageConstants.UsingKeyword}`, `{LanguageConstants.ParameterKeyword}` or `{LanguageConstants.VariableKeyword}` declaration. |
+| <a id='BCP337' />[BCP337](./diagnostics/bcp337.md) | Error | This declaration type is not valid for a Bicep Parameters file. Supported declarations: "using", "extends", "param", "var", "type". |
 | <a id='BCP338' />[BCP338](./diagnostics/bcp338.md) | Error | Failed to evaluate parameter `<parameter-name>: <error-message>` |
 | <a id='BCP339' />BCP339 | Error | The provided array index value of `{indexSought}` isn't valid. Array index should be greater than or equal to 0. |
 | <a id='BCP340' />BCP340 | Error | Unable to parse literal YAML value. Ensure that it's well-formed. |
