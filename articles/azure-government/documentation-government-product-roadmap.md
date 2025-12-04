@@ -2,7 +2,7 @@
 title: Azure Government product General Availability (GA) roadmap
 description: Overview of Azure Government product General Availability (GA) by authorization level
 ms.service: azure-government
-ms.topic: conceptual
+ms.topic: article
 ms.author: russellkirk
 author: krussell09
 recommendations: false
@@ -323,4 +323,4 @@ For comprehensive information about compliance in Azure Government clouds, see [
 - [Azure Government DoD overview](./documentation-government-overview-dod.md)
 - [Azure security fundamentals documentation](../security/fundamentals/index.yml)
 - [Azure Policy regulatory compliance built-in initiatives](/azure/governance/policy/samples/index#regulatory-compliance)
-- [Azure Product Availability by Region](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/table)
+- [Azure Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table)
