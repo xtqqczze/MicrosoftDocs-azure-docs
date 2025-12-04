@@ -161,7 +161,7 @@ If you encounter issues while connecting Azure Front Door to your App Configurat
 > [Configuration Management for Client Applications](./concept-hyperscale-client-config.md)
 
 > [!div class="nextstepaction"]
-> [Load Configuration from Azure Front Door in Client Applications](./howto-load-azure-front-door-configprovider.md)
+> [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configprovider.md)
 
 ## Related content
 

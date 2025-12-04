@@ -258,7 +258,7 @@
   - name: Setup Azure Front Door integration
     href: how-to-connect-azure-front-door.md
   - name: Load Configuration from Azure Front Door
-    href: howto-load-azure-front-door-configprovider.md
+    href: how-to-load-azure-front-door-configprovider.md
 - name: CI/CD integration
   items:
   - name: Use configuration files
