@@ -439,6 +439,7 @@ const char* extern_smb_version();
 The following table lists the API commands and their usage. Return values follow standard C conventions (0 for success, non-zero for errors).
 
 | **Command** | **Description** |
+|-------------|-----------------|
 | extern_smb_set_credential_oauth_token() | Sets OAuth token credentials for a specific storage endpoint |
 | extern_smb_clear_credential() | Removes stored credentials for a storage endpoint |
 | extern_smb_list_credential() | Lists all stored credentials |
