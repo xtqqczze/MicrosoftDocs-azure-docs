@@ -63,7 +63,7 @@ Business Process Solutions is delivered as a Fabric workload, which runs entirel
 | Israel Central | Australia East |
 | UAE Central | Australia East |
 | UAE North | Australia East |
-1
+
 
 ## Deploying Business Process Solution in Microsoft Fabric
 
