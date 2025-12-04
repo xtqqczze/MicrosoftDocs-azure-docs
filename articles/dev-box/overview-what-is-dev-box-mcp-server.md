@@ -9,7 +9,7 @@ ms.ai-usage: ai-assisted
 ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 11/18/2025
+ms.date: 12/04/2025
 
 #Customer intent: As a developer, I want to understand what the Dev Box MCP Server is and how it can help me manage my dev boxes through AI agents.
 ---
@@ -45,7 +45,7 @@ For a complete list of supported operations and their scope patterns, see the [D
 
 ## Authentication
 
-The Dev Box MCP Server uses [DefaultAzureCredential](https://learn.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) and [Web Account Manager (WAM)](https://learn.microsoft.com/entra/identity-platform/scenario-desktop-acquire-token-wam) based brokered authentication for seamless Azure integration.
+The Dev Box MCP Server uses [DefaultAzureCredential](/javascript/api/@azure/identity/defaultazurecredential) and [Web Account Manager (WAM)](/entra/identity-platform/scenario-desktop-acquire-token-wam) based brokered authentication for seamless Azure integration.
 
 ## Next steps
 
