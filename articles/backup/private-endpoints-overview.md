@@ -25,7 +25,7 @@ Azure Backup also provides an enhanced experience for creating and using private
 
 - Customer-managed keys (CMKs) with a network-restricted key vault aren't supported with a vault that's enabled for private endpoints.
 
-- One virtual network can contain private endpoints for multiple Recovery Services vaults. Also, one Recovery Services vault can have private endpoints for it in multiple virtual networks. You can create a maximum of 12 private endpoints for a vault.
+- One virtual network can contain private endpoints for multiple Recovery Services vaults. Also, one Recovery Services vault can have private endpoints in multiple virtual networks. You can create a maximum of 12 private endpoints for a vault.
 
 - If public network access for the vault is set to **Allow from all networks**, the vault allows backups and restores from any machine registered to the vault. If public network access for the vault is set to **Deny**, the vault allows backups and restores only from the machines registered to the vault that are requesting backups/restores via private IPs allocated for the vault.
 
@@ -44,7 +44,7 @@ Azure Backup also provides an enhanced experience for creating and using private
 
 - You need to re-register the Recovery Services resource provider with the subscription if you registered it before May 1, 2020. To re-register the provider, go to your subscription in the Azure portal, go to **Resource provider** on the left menu, and then select **Microsoft.RecoveryServices** > **Re-register**.
 
-- [Cross-region restore](backup-create-rs-vault.md#set-cross-region-restore) for SQL Server and SAP HANA database backups aren't supported if the vault has private endpoints enabled.
+- [Cross-region restore](backup-create-rs-vault.md#set-cross-region-restore) for SQL Server and SAP HANA database backups isn't supported if the vault has private endpoints enabled.
 
 - When you move a Recovery Services vault that's already using private endpoints to a new tenant, you need to update the Recovery Services vault to re-create and reconfigure the vault's managed identity. Create private endpoints in the new tenant as needed. If you don't do these tasks, the backup and restore operations will start failing. Also, any Azure role-based access control (Azure RBAC) permissions set up within the subscription need to be reconfigured.
 
@@ -56,8 +56,8 @@ The following table provides more information:
 
 | Scenario | Recommendations |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Backup of workloads in an Azure VM (SQL Server, SAP HANA); backup via MARS agent or DPM | We recommend the use of private endpoints to allow backup and restore without needing to add to an allow list any IPs or FQDNs for Azure Backup or Azure Storage from your virtual networks. In that scenario, ensure that VMs that host SQL databases can reach Microsoft Entra IPs or FQDNs. |
-| Azure VM backup                                         | A VM backup doesn't require you to allow access to any IPs or FQDNs. So, it doesn't require private endpoints for backup and restore of disks.  <br><br>   However, file recovery from a vault that contains private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br> When you're using unmanaged disks in an access control list (ACL), ensure that the storage account that contains the disks allows access to *trusted Microsoft services* if it's in an ACL. |
+| Backup of workloads in an Azure VM (SQL Server, SAP HANA), backup via MARS agent, DPM server | We recommend the use of private endpoints to allow backup and restore without needing to add to an allow list any IPs or FQDNs for Azure Backup or Azure Storage from your virtual networks. In that scenario, ensure that VMs that host SQL databases can reach Microsoft Entra IPs or FQDNs. |
+| Azure VM backup                                         | A VM backup doesn't require you to allow access to any IPs or FQDNs. So, it doesn't require private endpoints for backup and restore of disks.  <br><br>   However, file recovery from a vault that contains private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br> When you're using unmanaged disks in an access control list (ACL), ensure that the storage account that contains the disks allows access to trusted Microsoft services if it's in an ACL. |
 | Azure Files backup                                      | An Azure Files backup is stored in the local storage account. So it doesn't require private endpoints for backup and restore. |
 | Changed virtual network for a private endpoint in the vault and virtual machine | Stop backup protection and configure backup protection in a new vault with private endpoints enabled. |
 
@@ -100,7 +100,7 @@ When the workload extension or MARS agent is installed for a Recovery Services v
 
 To automatically update the MARS agent, allow access to `download.microsoft.com/download/MARSagent/*`.
 
-For a Recovery Services vault with private endpoint set up, the name resolution for the FQDNs (`privatelink.<geo>.backup.windowsazure.com`, `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`) should return a private IP address. You can achieve this by using:
+For a Recovery Services vault with private endpoint setup, the name resolution for the FQDNs (`privatelink.<geo>.backup.windowsazure.com`, `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`) should return a private IP address. You can achieve this by using:
 
 - Azure Private DNS zones.
 - Custom DNS.
@@ -110,7 +110,7 @@ For a Recovery Services vault with private endpoint set up, the name resolution 
 The private endpoints for blobs and queues follow a standard naming pattern. They start with `<name of the private endpoint>_ecs` or `<name of the private endpoint>_prot`, and they're suffixed with `_blob` and `_queue` (respectively).
 
 > [!NOTE]
-> We recommend that you use Azure Private DNS zones. They enable you to manage the DNS records for blobs and queues by using Azure Backup. The managed identity assigned to the vault is used to automate the addition of DNS record whenever a new storage account is allocated for backup data.
+> We recommend that you use Azure Private DNS zones. They enable you to manage the DNS records for blobs and queues by using Azure Backup. The managed identity assigned to the vault is used to automate the addition of DNS records whenever a new storage account is allocated for backup data.
 
 If you configured a DNS proxy server by using third-party proxy servers or firewalls, the preceding domain names must be allowed and redirected to one of these choices:
 
@@ -162,7 +162,7 @@ The workload extension running on an Azure VM requires a connection to at least 
 
 For a private endpoint-enabled vault, the Azure Backup service creates a private endpoint for these storage accounts. This action prevents any network traffic related to Azure Backup (control plane traffic to the service, and backup data to the storage blob) from leaving the virtual network. In addition to Azure Backup cloud services, the workload extension and agent require connectivity to Azure Storage accounts and Microsoft Entra ID.
 
-As a prerequisite, the Recovery Services vault requires permissions for creating additional private endpoints in the same resource group. We also recommend providing the Recovery Services vault the permissions to create DNS entries in the private DNS zones (`privatelink.blob.core.windows.net`, `privatelink.queue.core.windows.net`). The Recovery Services vault searches for private DNS zones in the resource groups where the virtual network and private endpoint are created. If it has the permissions to add DNS entries in these zones, the vault creates these entries. Otherwise, you must create them manually.
+As a prerequisite, the Recovery Services vault requires permissions for creating additional private endpoints in the same resource group. We also recommend providing the Recovery Services vault the permissions to create DNS entries in the private DNS zones (`privatelink.blob.core.windows.net`, `privatelink.queue.core.windows.net`). The Recovery Services vault searches for private DNS zones in the resource groups where the virtual network and private endpoint are created. If it has the permissions to add DNS entries in these zones, it creates these entries. Otherwise, you must create them manually.
 
 > [!NOTE]
 > Integration with private DNS zones in different subscriptions is unsupported in this experience.

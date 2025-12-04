@@ -38,7 +38,7 @@ This article describes how the enhanced capabilities of private endpoints for Az
 
 - You can't upgrade vaults (that contain private endpoints) created via the classic experience to the new experience. You can delete all existing private endpoints, and then create new private endpoints with the enhanced experience.
 
-- One virtual network can contain private endpoints for multiple Recovery Services vaults. Also, one Recovery Services vault can have private endpoints for it in multiple virtual networks. You can create a maximum of 12 private endpoints for a vault.
+- One virtual network can contain private endpoints for multiple Recovery Services vaults. Also, one Recovery Services vault can have private endpoints in multiple virtual networks. You can create a maximum of 12 private endpoints for a vault.
 
 - A private endpoint for a vault uses 10 private IPs, and the count might increase over time. We recommend that you have enough private IPs (/25) available when you try to create private endpoints for Azure Backup.
 
@@ -63,7 +63,7 @@ The following table lists the scenarios and recommendations:
 
 | Scenario | Recommendation |
 | --- | --- |
-| Backup of workloads in an Azure VM (SQL Server, SAP HANA); backup via MARS agent or DPM | We recommend the use of private endpoints to allow backup and restore without needing to add to an allow list any IPs or FQDNs for Azure Backup or Azure Storage from your virtual networks. In that scenario, ensure that VMs that host SQL databases can reach Microsoft Entra IPs or FQDNs. |
+| Backup of workloads in an Azure VM (SQL Server, SAP HANA), backup via MARS agent, DPM server | We recommend the use of private endpoints to allow backup and restore without needing to add to an allow list any IPs or FQDNs for Azure Backup or Azure Storage from your virtual networks. In that scenario, ensure that VMs that host SQL databases can reach Microsoft Entra IPs or FQDNs. |
 | Azure VM backup | A VM backup doesn't require you to allow access to any IPs or FQDNs. So, it doesn't require private endpoints for backup and restore of disks.  <br><br>   However, file recovery from a vault that contains private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br> When you're using unmanaged disks in an access control list (ACL), ensure that the storage account that contains the disks allows access to trusted Microsoft services if it's in an ACL. |
 | Azure Files backup | An Azure Files backup is stored in the local storage account. So it doesn't require private endpoints for backup and restore. |
 | Changed virtual network for a private endpoint in the vault and virtual machine | Stop backup protection and configure backup protection in a new vault with private endpoints enabled. |
@@ -107,7 +107,7 @@ When the workload extension or MARS agent is installed for a Recovery Services v
 
 To automatically update the MARS agent, allow access to `download.microsoft.com/download/MARSagent/*`.
 
-For a Recovery Services vault with private endpoint set up, the name resolution for the FQDNs (`privatelink.<geo>.backup.windowsazure.com`, `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`) should return a private IP address. You can achieve this by using:
+For a Recovery Services vault with private endpoint setup, the name resolution for the FQDNs (`privatelink.<geo>.backup.windowsazure.com`, `*.blob.core.windows.net`, `*.queue.core.windows.net`, `*.blob.storage.azure.net`) should return a private IP address. You can achieve this by using:
 
 - Azure Private DNS zones.
 - Custom DNS.

@@ -27,7 +27,7 @@ Threat detection for Azure VM backups includes the following benefits:
 
 - **Seamless integration**: The feature works natively with [Defender for Servers Plan 1 and Plan 2](/azure/defender-for-cloud/defender-for-servers-overview#plan-protection-features) to provide a unified and consistent security experience across Azure workloads.
 
-## Source scan status for Azure VM backups
+## Source-scan status for Azure VM backups
 
 You can use the Azure portal to monitor the status of source scans for Azure VM backups. There are two status categories: configuration and summary.
 
@@ -51,7 +51,7 @@ The following table describes the available summary statuses for source scans in
 | **No Threats Reported**   | Defender for Cloud didn't find any malware or ransomware threats for a backup recovery point (RP).<br><br>If all RPs for a backup item in the last seven days show no threats, the backup item is marked as **No Threats Reported**. |
 | **Suspicious RPs found**  | Defender for Cloud detected ransomware or malware threats for a backup RP.<br><br>If a minimum of one backup RP is found to be suspicious in the last seven days, the summary for the backup item is marked as **Suspicious RPs Found**. |
 | **Not Applicable**        | If the Defender for Servers plan is downgraded for the source virtual machine, the status for the RP is marked as **Not Applicable**.<br><br>If all RPs for a backup item aren't applicable in the last seven days, the summary is marked as **Not Applicable**. |
-| **Unknown (-)**           | Source scan integration isn't configured or failed. The summary for both backup RPs and the backup item is marked as **Unknown (-)**. |
+| **Unknown (-)**           | Source-scan integration isn't configured or failed. The summary for both backup RPs and the backup item is marked as **Unknown (-)**. |
 
 ## Supported regions
 
@@ -65,7 +65,7 @@ The preview feature has the following limitations and known issues:
 
 - **Update for active ransomware alerts**: After you enable threat detection, if the VM has any active ransomware alerts, the backup scan summary might take up to 48 hours to correctly update the status to **Suspicious**.
 
-- **Defender for Cloud pricing disabled for a VM or subscription**: When you disable Defender for Cloud pricing for a virtual machine or subscription, the protected item's status changes to **Configuration Failed**. Subsequent backups appear in an **Unknown (-)** state, and the source scan summary for the protected item appears as **Unknown**.
+- **Defender for Cloud pricing disabled for a VM or subscription**: When you disable Defender for Cloud pricing for a virtual machine or subscription, the protected item's status changes to **Configuration Failed**. Subsequent backups appear in an **Unknown (-)** state, and the source-scan summary for the protected item appears as **Unknown**.
 
 ## Related content
 

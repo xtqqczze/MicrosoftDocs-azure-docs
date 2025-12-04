@@ -12,8 +12,7 @@ ms.author: v-mallicka
 
 You can use multiuser authorization (MUA) for Azure Backup to add a layer of protection to critical operations on your Recovery Services vaults and Backup vaults. For MUA, Azure Backup uses another Azure resource called Resource Guard to ensure that critical operations are performed only with applicable authorization.
 
-> [!NOTE]
-> Multiuser authorization using Resource Guard for a Backup vault is now generally available.
+Multiuser authorization using Resource Guard for a Backup vault is now generally available.
 
 ## Permissions
 
@@ -37,25 +36,25 @@ The following table lists the operations that are defined as critical and that R
 
 | Operation | Mandatory/ Optional | Description |
 | --- | --- | --- |
-| Disable soft delete or security features | Mandatory | Disable the soft-delete setting on a vault. |
-| Remove MUA protection | Mandatory | Disable MUA protection on a vault. |
-| Delete protection | Optional | Delete protection by stopping backups and deleting data. |
-| Modify protection | Optional | Add a new backup policy with reduced retention, or change policy frequency to increase [recovery point objective (RPO)](azure-backup-glossary.md#recovery-point-objective-rpo). |
-| Modify policy | Optional | Modify the backup policy to reduce retention, or change the policy frequency to increase RPO. |
-| Get backup security PIN | Optional | Change the Microsoft Azure Recovery Services (MARS) security PIN. |
-| Stop backup and retain data | Optional | Delete protection by stopping backups and retaining data forever or retaining data according to policy. |
-| Disable immutability | Optional | Disable the immutability setting on a vault. |
+| **Disable soft delete or security features** | Mandatory | Disable the soft-delete setting on a vault. |
+| **Remove MUA protection** | Mandatory | Disable MUA protection on a vault. |
+| **Delete protection** | Optional | Delete protection by stopping backups and deleting data. |
+| **Modify protection** | Optional | Add a new backup policy with reduced retention, or change policy frequency to increase [recovery point objective (RPO)](azure-backup-glossary.md#recovery-point-objective-rpo). |
+| **Modify policy** | Optional | Modify the backup policy to reduce retention, or change the policy frequency to increase RPO. |
+| **Get backup security PIN** | Optional | Change the Microsoft Azure Recovery Services (MARS) security PIN. |
+| **Stop backup and retain data** | Optional | Delete protection by stopping backups and retaining data forever or retaining data according to policy. |
+| **Disable immutability** | Optional | Disable the immutability setting on a vault. |
 
 # [Backup vault](#tab/backup-vault)
 
 | Operation | Mandatory/ Optional | Description |
 | --- | --- | --- |
-| Disable soft delete | Mandatory | Disable the soft-delete setting on a vault. |
-| Remove MUA protection | Mandatory | Disable MUA protection on a vault. |
-| Delete backup | Optional | Delete protection by stopping backups and deleting data. |
-| Stop backup and retain forever | Optional | Delete protection by stopping backups and retaining data forever. |
-| Stop backup and retain as per policy | Optional | Delete protection by stopping backups and retaining data according to policy. |
-| Disable immutability | Optional | Disable the immutability setting on a vault. |
+| **Disable soft delete** | Mandatory | Disable the soft-delete setting on a vault. |
+| **Remove MUA protection** | Mandatory | Disable MUA protection on a vault. |
+| **Delete Backup Instance** | Optional | Delete protection by stopping backups and deleting data. |
+| **Stop backup and retain forever** | Optional | Delete protection by stopping backups and retaining data forever. |
+| **Stop backup and retain as per policy** | Optional | Delete protection by stopping backups and retaining data according to policy. |
+| **Disable immutability** | Optional | Disable the immutability setting on a vault. |
 
 ---
 
@@ -81,7 +80,7 @@ Here's the flow of events in a typical scenario:
 
    The Resource Guard instance can be in a different subscription or a different tenant with respect to the vault. Ensure that the backup admin doesn't have Contributor, Backup MUA Admin, or Backup MUA Operator permissions on Resource Guard.
 
-3. The security admin grants the Reader role to the backup admin for Resource Guard (or a relevant scope). The backup admin requires the reader role to enable MUA on the vault.
+3. The security admin grants the Reader role to the backup admin for Resource Guard (or a relevant scope). The backup admin requires the Reader role to enable MUA on the vault.
 
 4. The backup admin configures MUA to help protect the vault via Resource Guard.
 
@@ -89,7 +88,7 @@ Here's the flow of events in a typical scenario:
 
    The backup admin can contact the security admin for details on gaining access to perform such operations. They can do this by using privileged identity management (PIM) or other processes that the organization mandates.
 
-   The backup admin can request the Backup MUA Operator RBAC role. This role allows users to perform only critical operations protected by Resource Guard. It doesn't allow the deletion of the Resource Guard instance.
+   The backup admin can request the Backup MUA Operator RBAC role. This role allows users to perform only critical operations that Resource Guard protects. It doesn't allow the deletion of the Resource Guard instance.
 
 6. The security admin temporarily grants the Backup MUA Operator role on Resource Guard to the backup admin to perform critical operations.
 
