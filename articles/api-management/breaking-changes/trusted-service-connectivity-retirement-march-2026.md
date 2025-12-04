@@ -15,7 +15,7 @@ ai-usage: ai-assisted
 
 [!INCLUDE [api-management-availability-all-tiers](../../../includes/api-management-availability-all-tiers.md)]
 
-Effective 15 March 2026, Azure API Management is retiring trusted service connectivity to supported Azure services - Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hub, and Container Registry. If your API Management resource relies on this feature to communicate with these services after 15 March 2026, the communication fails. Use alternative networking options to securely connect to those services.
+Effective 15 March 2026, Azure API Management is retiring trusted service connectivity to supported Azure services - Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hub, and Container Registry. If your API Management resource relies on this feature to communicate with these services after 15 March 2026, the communication will fail. Use alternative networking options to securely connect to those services.
 
 API Management services created on or after 1 December 2025 no longer support trusted service connectivity. Contact Azure support if you need to enable trusted service connectivity in those services.
 
@@ -25,13 +25,13 @@ First, check for an Azure Advisor recommendation:
 
 1. Go to Advisor in the Azure portal. (<https://ms.portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/overview>)
 1. Select the **Recommendations > Operational excellence** category.
-1. Search for "**TODO:title**".
+1. Search for "**Eliminate dependency on trusted service connectivity from API Management to other Azure services**".
 
-If you don't see a recommendation, your API Management resource isn't affected by the change.
+**If you don't see a recommendation**, your API Management resource isn't affected by the change.
 
-If you see a recommendation, your service is affected by the breaking change if it relies on trusted services connectivity to Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hub, or Container Registry. If API Management has an established network line of sight for communication to these services, you aren't affected by the breaking changes.
+**If you see a recommendation**, your service is affected by the breaking change if it relies on trusted services connectivity to Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hubs, or Container Registry. If API Management has an established network line of sight for communication to these services, you aren't affected by the breaking changes.
 
-To verify if trusted connectivity is enabled, check the networking configuration of all Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hub, and Container Registry resources that API Management connects to.
+To verify if trusted connectivity is enabled, check the networking configuration of all Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hubs, and Container Registry resources that API Management connects to.
 
 ### For Storage Accounts
 
@@ -39,11 +39,11 @@ To verify if trusted connectivity is enabled, check the networking configuration
 1. Select **Manage** in the **Public network access** tab.
 1. If **Public network access** is set to **Disable**, you are likely affected.
 1. Check if **Allow trusted Microsoft service to access this resource** is selected if:
-  - **Public network access** is set to **Disable**, or
-  - If **Public network access** is set to **Enable** and **Public network access scope** is set to **Enable from selected networks**.
-1. Check if API Management is configured under **Resource instances** if **Public network access** is set to **Enable** and **Public network access scope** is set to **Enable from selected networks**.
+    - **Public network access** is set to **Disable**, or
+    - If **Public network access** is set to **Enable** and **Public network access scope** is set to **Enable from selected networks**.
+1. Check if API Management is configured under **Resource instances**, if **Public network access** is set to **Enable** and **Public network access scope** is set to **Enable from selected networks**.
 
-    :::image type="content" source="media/trusted-service-connectivity-retirement-march-2026/network-connectivity-storage.png" alt-text="Screenshot of trusted connectivity settings to Azure Storage in the portal.":::
+  :::image type="content" source="media/trusted-service-connectivity-retirement-march-2026/network-connectivity-storage.png" alt-text="Screenshot of trusted connectivity settings to Azure Storage in the portal.":::
 
 ### For Event Hubs and Key Vault Managed HSM
 
@@ -89,7 +89,7 @@ The Azure Advisor recommendation automatically disappears approximately a week a
 
 ### Manually disable trusted service connectivity
 
-You can disable trusted network connectivity on your API Management service to test the effect of the breaking change and ensure that no new APIs rely on it. To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.ManagedIdentity.DisableOverPrivilegedAccess` to `"True"` on the [API Management resource](https://learn.microsoft.com/en-u/rest/api/apimanagement/api-management-service/create-or-update?view=rest-apimanagement-2025-03-01-preview&tabs=HTTP). For example:
+You can disable trusted network connectivity on your API Management service to test the effect of the breaking change and ensure that no new APIs rely on it. To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.ManagedIdentity.DisableOverPrivilegedAccess` to `"True"` on the [API Management resource](/rest/api/apimanagement/api-management-service/create-or-update). For example:
 
 ```json
 {
@@ -114,7 +114,7 @@ You can disable trusted network connectivity on your API Management service to t
 
 ## Help and support
 
-If you have questions, get answers from community experts in [Microsoft Q&A](https://learn.microsoft.com/en-us/answers). If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/%7E/overview).
+If you have questions, get answers from community experts in [Microsoft Q&A](/answers). If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/%7E/overview).
 
 1. Under **Issue type**, select **Technical**.
 1. Under **Subscription**, select your subscription.
