@@ -125,7 +125,7 @@ items:
   - name: Deploy with Availability zones
     items:
     - name: Deploy with Availability Zones
-      href: deploy-availability-zone-powershell.md
+      href: deploy-availability-zone.md
     - name: Bicep
       href: deploy-bicep.md
     - name: Terraform
