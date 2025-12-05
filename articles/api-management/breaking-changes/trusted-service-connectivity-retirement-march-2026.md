@@ -95,7 +95,7 @@ After ensuring that API Management doesn’t access other Azure services using t
 To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.ManagedIdentity.DisableOverPrivilegedAccess` to `"True"` on the API Management resource. For example: 
 
 
-```diff
+```json
 {
   "type": "Microsoft.ApiManagement/service",
   "apiVersion": "2025-03-01-preview",
