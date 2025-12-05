@@ -29,6 +29,8 @@ items:
     href: code-repository-connect.md
   - name: Scheduled tasks
     href: scheduled-tasks.md
+  - name: Knowledge retention
+    href: memory-system.md
   - name: Incident management
     items:
       - name: Overview
