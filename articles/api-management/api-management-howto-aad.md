@@ -143,10 +143,11 @@ A user can then sign in with Microsoft Entra ID as follows:
 
 1. On the **Sign in** page, select **Azure Active Directory**. Selecting this button opens the Microsoft Entra ID sign-in page.
 
-> [!TIP]
-> If more than one tenant is configured for access, more than one Azure Active Directory button appears on the sign-in page. Each button is labeled with the tenant name.
 
     :::image type="content" source="media/api-management-howto-aad/developer-portal-azure-ad-signin.png" alt-text="Screenshot showing OAuth widget in developer portal.":::
+
+    > [!TIP]
+    > If more than one tenant is configured for access, more than one Azure Active Directory button appears on the sign-in page. Each button is labeled with the tenant name.
 
 1. In the sign-in window for your Microsoft Entra tenant, respond to the prompts. After sign-in is complete, the user is redirected back to the developer portal. 
 
