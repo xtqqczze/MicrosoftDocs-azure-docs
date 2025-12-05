@@ -6,7 +6,7 @@ ms.service: dev-box
 ms.custom: devx-track-azurepowershell
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 12/03/2025
+ms.date: 12/05/2025
 ms.topic: how-to
 ai-usage: ai-assisted
 ---
@@ -90,11 +90,12 @@ To use VM Image Builder, the following Azure resource providers must be register
 - `Microsoft.Network`
 - `Microsoft.Storage`
 - `Microsoft.KeyVault`
+- `Microsoft.ContainerInstance`
 
 1. Check the provider registrations by running the following command:
 
    ```azurepowershell
-     Get-AzResourceProvider -ProviderNamespace "Microsoft.VirtualMachineImages", "Microsoft.Compute", "Microsoft.Network", "Microsoft.Storage", "Microsoft.KeyVault" `
+     Get-AzResourceProvider -ProviderNamespace "Microsoft.VirtualMachineImages", "Microsoft.Compute", "Microsoft.Network", "Microsoft.Storage", "Microsoft.KeyVault", Microsoft.ContainerInstance`
      | Format-table -Property ProviderNamespace,RegistrationState
    ```
 
