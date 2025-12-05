@@ -83,9 +83,11 @@ In Active-Active databases, multi-key write commands (`DEL`, `MSET`, `UNLINK`) c
 
 ### Sharding configuration
 
-Each SKU of Azure Managed Redis is configured to run a specific number of Redis server processes, called _shards_, in parallel. The relationship between throughput performance, the number of shards, and number of vCPUs available on each instance is complicated. Azure Managed Redis is a managed service, so you can't change the number of shards.
+Each SKU of Azure Managed Redis is configured to run a specific number of Redis server processes, called _shards_, in parallel. The relationship between throughput performance, the number of shards, and number of vCPUs available on each instance is complex. Azure Managed Redis is a managed service, so you can't change manually the number of shards.
 
-To increase the number of shards, use a higher tier in a SKU. The following table shows a typical relationship of vCPUs/primary shards: 
+The SKU with the highest amount of vCPUs and shards is Compute Optimized.
+
+To increase the number of shards, use a higher tier in a SKU. The following table shows a typical relationship of vCPUs/primary shards:
 
 | Size (GB) | vCPUs/primary shards  |
 |:---------:|:---------------------:|
@@ -96,12 +98,11 @@ To increase the number of shards, use a higher tier in a SKU. The following tabl
 | 12        | 4/2                   |
 | 24        | 8/6                   |
 
+This table is not general example of the relationship of Size to vCPUs/primary shards. It does not represent a specific SKU.
 
 Increasing the number of shards generally increases performance as Redis operations can be run in parallel. But if no vCPUs are available to execute commands, performance can drop. 
 
-These shards are mapped to optimize the usage of each vCPU while reserving vCPU cycles for Redis server process, management agent, and OS system tasks which also affect performance. The client applications you create interact with Azure Managed Redis as if it were a single logical database; the service handles routing across the vCPUs and shards.
-
-The SKU with the highest amount of vCPUs and shards is Compute Optimized. 
+Shards are mapped to optimize the usage of each vCPU while, at the same time, reserving vCPU cycles for Redis server process, management agent, and OS system tasks which also affect performance. The client applications you create interact with Azure Managed Redis as if it were a single logical database; the service handles routing across the vCPUs and shards.
 
 > [!NOTE]
 > Azure Managed Redis optimizes performance over time by changing the number of shards and vCPUs used on each SKU.
@@ -109,45 +110,6 @@ The SKU with the highest amount of vCPUs and shards is Compute Optimized.
 
 [!INCLUDE [tier-preview](includes/tier-preview.md)]
 
-#### Memory optimized, Balanced, and Compute optimized SKUs
-
-
-| Tiers     | Memory Optimized     | Balanced             | Compute Optimized    |
-|:---------:|:--------------------:|:--------------------:|:--------------------:|
-| Size (GB) | vCPUs/primary shards | vCPUs/primary shards | vCPUs/primary shards |
-| 0.5       | -                    | 2/1                  | -                    |
-| 1         | -                    | 2/1                  | -                    |
-| 3         | -                    | 2/2                  | 4/2                  |
-| 6         | -                    | 2/2                  | 4/2                  |
-| 12        | 2/2                  | 4/2                  | 8/6                  |
-| 24        | 4/2                  | 8/6                  | 16/12                |
-| 60        | 8/6                  | 16/12                | 32/24                |
-| 120       | 16/12                | 32/24                | 64/48                |
-| 175       | 24/24                | 48/48                | 96/96                |
-| 235       | 32/24                | 64/48                | 128/96               |
-| 360 *     | 48/48                | 96/96                | 192/192              |
-| 480 *     | 64/48                | 128/96               | 256/192              |
-| 720 *     | 96/96                | 192/192              | 384/384              |
-| 960 *     | 128/192              | 256/192              | -                    |
-| 1440 *    | 192/192              | -                    | -                    |
-| 1920 *    | 256/192              | -                    | -                    |
-
-  \* These tiers are in Public Preview.
-
-#### Flash optimized SKU
-
-| Tiers     | Flash Optimized (preview) |
-|:---------:|:-------------------------:|
-| Size (GB) | vCPUs/primary shards      |
-| 235 *     | 8/6                       |
-| 480 *     | 16/12                     |
-| 720 *     | 24/24                     |
-| 960 *     | 32/24                     |
-| 1440 *    | 48/48                     |
-| 1920 *    | 64/48                     |
-| 4500 *    | 144/96                    |
-
-\* These tiers are in Public Preview.
 
 ## Running without high availability mode enabled
 
