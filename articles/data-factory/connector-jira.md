@@ -148,13 +148,14 @@ The Jira linked service supports the following properties when apply version 1.0
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Jira dataset.
 
-To copy data from Jira version 2.0, set the type property of the dataset to **JiraObject**. The following properties are supported:
+To copy data from Jira, set the type property of the dataset to **JiraObject**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **JiraObject** | Yes |
-| schema | Name of the schema. | No (if "query" in activity source is specified) |
-| table | Name of the table. | No (if "query" in activity source is specified) |
+| schema | Name of the schema. | Yes for version 2.0. |
+| table | Name of the table. | Yes for version 2.0. |
+| tableName | Name of the table. | No for version 1.0 (if "query" in activity source is specified) |
 
 **Example**
 
@@ -163,10 +164,7 @@ To copy data from Jira version 2.0, set the type property of the dataset to **Ji
     "name": "JiraDataset",
     "properties": {
         "type": "JiraObject",
-        "typeProperties": {
-            "schema": "Api", 
-            "table": "<Table name>" 
-        },
+        "typeProperties": {},
         "schema": [],
         "linkedServiceName": {
             "referenceName": "<Jira linked service name>",
@@ -175,6 +173,7 @@ To copy data from Jira version 2.0, set the type property of the dataset to **Ji
     }
 }
 ```
+
 The connector version 2.0 supports the following Jira tables:
 
 - AdvancedSettings
@@ -253,35 +252,11 @@ The connector version 2.0 supports the following Jira tables:
 - TrashedFieldsPaginated 
 - UserDefaultColumns 
 
-To copy data from Jira version 1.0, set the type property of the dataset to **JiraObject**. The following properties are supported:
-
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **JiraObject** | Yes |
-| tableName | Name of the table. | No (if "query" in activity source is specified) |
-
-**Example**
-
-```json
-{
-    "name": "JiraDataset",
-    "properties": {
-        "type": "JiraObject",
-        "typeProperties": {},
-        "schema": [],
-        "linkedServiceName": {
-            "referenceName": "<Jira linked service name>",
-            "type": "LinkedServiceReference"
-        }
-    }
-}
-```
-
 ## Copy activity properties
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Jira source.
 
-### JiraSource as source
+### Jira as source
 
 To copy data from Jira, set the source type in the copy activity to **JiraSource**. The following properties are supported in the copy activity **source** section:
 
