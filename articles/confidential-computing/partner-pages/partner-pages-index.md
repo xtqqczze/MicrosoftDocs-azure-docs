@@ -34,7 +34,7 @@ Azure confidential computing enables an ecosystem of partners that build on our 
 
 - [Habu](../partner-pages/habu.md) works with a wide range of collaborators across the ecosystem including leading platforms for activation, data and identity companies, agencies and consultancies, and major clouds. Fast-track business growth with a platform that integrates with your existing tools and technology investments.
 
-- [Mithril Security](../partner-pages/mithril.md) helps software vendors sell SaaS to enterprises with their secure enclave deployment tooling. It provides SaaS on-prem levels of security and control for customers.
+- [Mithril Security](../partner-pages/mithril.md) helps software vendors sell SaaS to enterprises with their secure enclave deployment tooling. It provides SaaS on-premises levels of security and control for customers.
 
 - [Opaque Systems](../partner-pages/opaque.md) is a confidential computing and data clean room platform that enables secure data sharing, multi-party analytics and machine learning on encrypted data.
 
