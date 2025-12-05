@@ -47,7 +47,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP031' />BCP031 | Error | The parameter type isn't valid. Specify one of the following types: `{ToQuotedString(validTypes)}`. |
 | <a id='BCP032' />BCP032 | Error | The value must be a compile-time constant. |
 | <a id='BCP033' />[BCP033](./diagnostics/bcp033.md) | Error/Warning | Expected a value of type `<data-type>`, but the provided value is of type `<data-type>`. |
-| <a id='BCP034' />BCP034 | Error/Warning | The enclosing array expected an item of type `{expectedType}`, but the provided item was of type `{actualType}`. |
+| <a id='BCP034' />[BCP034](./diagnostics/bcp034.md) | Error/Warning | The enclosing array expected an item of type `{expectedType}`, but the provided item was of type `{actualType}`. |
 | <a id='BCP035' />[BCP035](./diagnostics/bcp035.md) | Error/Warning | The specified `<data-type>` declaration is missing the following required properties: `<property-name>`. |
 | <a id='BCP036' />[BCP036](./diagnostics/bcp036.md) | Error/Warning | The property `<property-name>` expected a value of type `<data-type>`, but the provided value is of type `<data-type>`. |
 | <a id='BCP037' />[BCP037](./diagnostics/bcp037.md) | Error/Warning | The property `<property-name>` isn't allowed on objects of type `<type-definition>`. |
