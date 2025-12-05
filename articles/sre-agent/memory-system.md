@@ -236,9 +236,3 @@ Documents are automatically processed with the following settings:
 - Searches across all memory sources simultaneously.
 - Returns top K most relevant chunks based on semantic and keyword similarity.
 - Combines retrieved information with conversation context for informed responses.
-
-## Next steps
-
-- [Advanced agent configuration](../advanced-configuration.md)
-- [TSG Crawler setup guide](tsg-crawler-setup.md)
-- [Context engineering best practices](context-engineering.md)
