@@ -159,7 +159,7 @@ Use the Azure portal to follow the instructions following to add `publicNetworkA
 
 ### API changes
 
-The `publicNetworkAccess` property is introduced in [Microsoft.Cache redisEnterprise 2025-07-01](/azure/templates/microsoft.cache/2025-07-01/redisenterprise?pivots=deployment-language-bicep). Since this change is a security-related breaking change, API versions before 2025-07-01 will be deprecated in October 2026.
+The `publicNetworkAccess` property is introduced in [Microsoft.Cache redisEnterprise 2025-07-01](/rest/api/redis/redisenterprisecache/redis-enterprise/create?view=rest-redis-redisenterprisecache-2025-07-01&tabs=dotnet). Since this change is a security-related breaking change, API versions before 2025-07-01 will be deprecated in October 2026.
 
 After October 2026:
 
