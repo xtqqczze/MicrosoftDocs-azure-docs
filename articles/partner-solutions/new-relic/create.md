@@ -56,9 +56,14 @@ There are required fields (identified with a red asterisk) in each section that 
     > [!NOTE]
     > If you choose to associate your resource with an existing organization, the resource is billed to that organization's plan. 
 
-    Select the **Change plan** link to [change your billing plan](manage.md#change-billing-plan). 
+    Select **Choose plan** to [change the billing plan](manage.md#change-billing-plan). 
 
-    The remaining fields update to reflect the details of the plan you selected for this new organization.
+    In the **Choose Plan** pane, you can choose a Marketplace plan or an existing SaaS resource. 
+
+    - To choose an existing resource, select the **SaaS Resources** tab. The resource must be in a **Subscribed** or **PendingFullfillmentStart** state. Select the resource and then select **Choose SaaS**.
+    - To choose a Marketplace plan, Select the **Marketplace Plans** tab and then select **Change plan**.  
+
+    The remaining fields update to reflect the details of the plan you selected for the new organization.
 
 1. Select the **Next** button at the bottom of the page.
 
