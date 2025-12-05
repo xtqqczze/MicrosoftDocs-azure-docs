@@ -1,8 +1,8 @@
 ---
 title: Develop WebAssembly Modules and Graph Definitions for Data Flow Graphs
 description: Learn how to develop WebAssembly modules and graph definitions in Rust and Python for custom data processing in Azure IoT Operations data flow graphs.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -17,6 +17,8 @@ This article shows you how to develop custom WebAssembly (WASM) modules and grap
 
 > [!IMPORTANT]
 > Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+
+To learn how to develop WASM modules using the VS Code extension, see [Build WASM modules with VS Code extension](./howto-build-wasm-modules-vscode.md).
 
 ## Overview
 
@@ -489,7 +491,7 @@ fn my_operator_init(configuration: ModuleConfiguration) -> bool {
 }
 ```
 
-For detailed information about defining configuration parameters in graph definitions, see [Module configuration parameters](howto-configure-wasm-graph-definitions.md#module-configuration-parameters).
+For detailed information about defining configuration parameters in graph definitions, see [Module configuration parameters](../connect-to-cloud/howto-configure-wasm-graph-definitions.md#module-configuration-parameters).
 
 #### Host APIs
 
@@ -558,7 +560,7 @@ class Map(exports.Map):
         return message
 ```
 
-For detailed information about defining configuration parameters in graph definitions, see [Module configuration parameters](howto-configure-wasm-graph-definitions.md#module-configuration-parameters).
+For detailed information about defining configuration parameters in graph definitions, see [Module configuration parameters](../connect-to-cloud/howto-configure-wasm-graph-definitions.md#module-configuration-parameters).
 
 Logging through imports:
 ```python
@@ -581,7 +583,7 @@ except Exception as e:
 
 ### ONNX inference with WASM
 
-To embed and run small ONNX models inside your modules for in-band inference, see [Run ONNX inference in WebAssembly data flow graphs](howto-wasm-onnx-inference.md). That article covers packaging models with modules, enabling the wasi-nn feature in graph definitions, and limitations.
+To embed and run small ONNX models inside your modules for in-band inference, see [Run ONNX inference in WebAssembly data flow graphs](./howto-wasm-onnx-inference.md). That article covers packaging models with modules, enabling the wasi-nn feature in graph definitions, and limitations.
 
 ### WebAssembly Interface Types (WIT)
 
@@ -648,7 +650,7 @@ interface accumulate {
 
 Graph definitions define how your WASM modules connect to processing workflows. They specify the operations, connections, and parameters that create complete data processing pipelines.
 
-For comprehensive information about creating and configuring graph definitions, including detailed examples of simple and complex workflows, see [Configure WebAssembly graph definitions for data flow graphs](howto-configure-wasm-graph-definitions.md).
+For comprehensive information about creating and configuring graph definitions, including detailed examples of simple and complex workflows, see [Configure WebAssembly graph definitions for data flow graphs](../connect-to-cloud/howto-configure-wasm-graph-definitions.md).
 
 Key topics covered in the graph definitions guide:
 
@@ -661,11 +663,11 @@ Key topics covered in the graph definitions guide:
 ## Next steps
 
 - See complete examples and advanced patterns in the [Azure IoT Operations WASM samples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm) repository.
-- Learn how to deploy your modules in [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md).
-- Configure your data flow endpoints in [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
+- Learn how to deploy your modules in [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
+- Configure your data flow endpoints in [Configure data flow endpoints](../connect-to-cloud/howto-configure-dataflow-endpoint.md).
 
 ## Related content
 
-- [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md)
-- [Configure registry endpoints](howto-configure-registry-endpoint.md)
-- [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)
+- [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)
+- [Configure registry endpoints](../connect-to-cloud/howto-configure-registry-endpoint.md)
+- [Configure MQTT data flow endpoints](../connect-to-cloud/howto-configure-mqtt-endpoint.md)
