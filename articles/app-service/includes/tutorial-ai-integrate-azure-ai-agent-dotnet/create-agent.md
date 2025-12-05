@@ -22,4 +22,4 @@ ms.service: azure-app-service
 1. Select **Save**.
 
 > [!TIP]
-> In this tutorial, the OpenAPI tool is configured to call your app anonymously without authentication. For production scenarios, you should secure the tool with managed identity authentication. For step-by-step instructions, see [Secure OpenAPI endpoints for Foundry Agent Service](../../articles/app-service/configure-authentication-ai-foundry-openapi-tool.md).
+> In this tutorial, the OpenAPI tool is configured to call your app anonymously without authentication. For production scenarios, you should secure the tool with managed identity authentication. For step-by-step instructions, see [Secure OpenAPI endpoints for Foundry Agent Service](../../configure-authentication-ai-foundry-openapi-tool.md).

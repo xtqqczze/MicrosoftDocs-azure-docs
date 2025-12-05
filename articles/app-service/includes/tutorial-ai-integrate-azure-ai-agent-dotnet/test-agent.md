@@ -13,4 +13,4 @@ ms.service: azure-app-service
     - Create a task called "Come up with three lettuce jokes."
     - Change that to "Come up with three knock-knock jokes."
     
-    :::image type="content" source="../../articles/app-service/media/tutorial-ai-integrate-azure-ai-agent-dotnet/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
+    :::image type="content" source="../../media/tutorial-ai-integrate-azure-ai-agent-dotnet/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
