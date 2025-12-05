@@ -23,15 +23,15 @@ The following example shows the basic structure of an *artifactfile.json* artifa
 ```json
   {
     "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
-    "title": "<name>",
+    "title": "<title>",
     "description": "<description>",
     "iconUri": "",
-    "targetOsType": "<Windows or Linux>",
+    "targetOsType": "<os>",
     "parameters": {
-      "<parameter name>": {
-        "type": "<parameter type>",
-        "displayName": "<parameter display name>",
-        "description": "<parameter description>"
+      "<paramName>": {
+        "type": "<type>",
+        "displayName": "<display name>",
+        "description": "<description>"
       }
     },
     "runCommand": {
@@ -48,27 +48,27 @@ The definition has the following required and optional elements:
 | `title` | **Required** artifact name to display. |
 | `description` | **Required** artifact description. |
 | `iconUri` | Artifact icon URI to display.|
-| `targetOsType` | **Required** operating system to install on. Supported values are `Windows` or `Linux`. |
+| `targetOsType` | **Required** operating system to install on. The supported values are `Windows` or `Linux`. |
 | `parameters` | Available artifact customizations during installation.|
 | `runCommand` | **Required** command to install the artifact on the VM. |
 
 ### Artifact parameters
 
-The `parameters` section of the definition file specifies the options and values a user can input when installing the artifact. You can refer to these values in the `runcommand`.
+The `parameters` section of the definition file defines the options and values a user can specify when they install the artifact. You can refer to these values in the `runcommand`.
 
 The following structure defines a parameter:
 
 ```json
   "parameters": {
-    "<parameter name>": {
-      "type": "<parameter type>",
-      "displayName": "<name to display>",
+    "<name>": {
+      "type": "<type>",
+      "displayName": "<display name>",
       "description": "<description>"
     }
   }
 ```
 
-The parameter definition requires the following elements:
+Each parameter requires a name. The parameter definition requires the following elements:
 
 | Element name | Description |
 | --- | --- |
@@ -76,16 +76,17 @@ The parameter definition requires the following elements:
 | `displayName` | **Required** parameter name to display to the user. |
 | `description` | **Required** parameter description.|
 
-### Secrets as secure strings
+### Secure string parameters
 
-To declare secrets as secure strings and mask the characters in the UI, use the following syntax in the `parameters` section of the *artifactfile.json* file:
+To include secrets in the artifact definition, declare the secrets as secure strings by using the `secureStringParam` syntax in the `parameters` section of the definition file. The `description` element allows any text string, including spaces, and presents it in the UI as masked characters.
+
 
 ```json
 
     "securestringParam": {
       "type": "securestring",
       "displayName": "Secure String Parameter",
-      "description": "Any text string is allowed, including spaces, and will be presented in UI as masked characters.",
+      "description": "<any text string>",
       "allowEmpty": false
     },
 ```
