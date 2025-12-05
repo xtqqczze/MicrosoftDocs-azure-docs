@@ -15,6 +15,8 @@ To simplify the configuration, API Management can automatically enable a Microso
 
 ### Automatically enable Microsoft Entra application and identity provider
 
+Follow these steps to automatically enable Microsoft Entra ID in the developer portal:
+
 1. In the left menu of your API Management instance, under **Developer portal**, select **Portal overview**.
 1. On the **Portal overview** page, scroll down to **Enable user sign-in with Microsoft Entra ID**. 
 1. Select **Enable Microsoft Entra ID**.
@@ -34,6 +36,8 @@ After the Microsoft Entra provider is enabled:
 <a name='manually-enable-azure-ad-application-and-identity-provider'></a>
 
 ### Manually enable Microsoft Entra application and identity provider 
+
+Alternatively, manually enable Microsoft Entra ID in the developer portal by registering an application yourself in Microsoft Entra ID and configuring the identity provider for the developer portal.
 
 1. In the left menu of your API Management instance, under **Developer portal**, select **Identities**.
 1. Select **+ Add** from the top to open the **Add identity provider** pane to the right.
