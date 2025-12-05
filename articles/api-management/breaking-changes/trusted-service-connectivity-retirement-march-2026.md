@@ -4,7 +4,7 @@ description: Azure API Management is retiring trusted service connectivity to su
 #customer intent: As an Azure admin, I want to determine if my API Management service is affected by the trusted service connectivity retirement so that I can plan necessary changes.
 author: dlepow
 ms.author: danlep
-ms.date: 12/03/2025
+ms.date: 12/05/2025
 ms.topic: reference
 ms.service: azure-api-management
 ai-usage: ai-assisted
@@ -17,7 +17,7 @@ ai-usage: ai-assisted
 
 Effective 15 March 2026, Azure API Management is retiring trusted service connectivity to supported Azure services - Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hub, and Container Registry. If your API Management resource relies on this feature to communicate with these services after 15 March 2026, the communication will fail. Use alternative networking options to securely connect to those services.
 
-API Management services created on or after 1 December 2025 no longer support trusted service connectivity. Contact Azure support if you need to enable trusted service connectivity in those services.
+API Management services created on or after 1 December 2025 no longer support trusted service connectivity. Contact Azure support if you need to enable trusted service connectivity in those services until the retirement date.
 
 ## Is my service affected by this change?
 
@@ -90,9 +90,12 @@ You can configure the networking of target resources to one of the following opt
 
 ### Step 3: Disable trusted service connectivity in API Management 
 
-After ensuring that API Management doesn’t access other Azure services using trusted service connectivity, you must disable trusted connectivity in your API Management service. To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.ManagedIdentity.DisableOverPrivilegedAccess` to `"True"` on the API Management resource. For example: 
+After ensuring that API Management doesn’t access other Azure services using trusted service connectivity, you must explicitly disable trusted connectivity in your API Management service to acknowledge you have verified that the service no longer depends on trusted connectivity.
 
-```json
+To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.ManagedIdentity.DisableOverPrivilegedAccess` to `"True"` on the API Management resource. For example: 
+
+
+```diff
 {
   "type": "Microsoft.ApiManagement/service",
   "apiVersion": "2025-03-01-preview",
@@ -113,7 +116,7 @@ After ensuring that API Management doesn’t access other Azure services using t
 }
 ```
 
-The Azure Advisor recommendation should disappear within a day of disabling the trusted connectivity on the API Management service. 
+The Azure Advisor recommendation should disappear within a day or two of disabling the trusted connectivity on the API Management service. 
 
 ## What is the deadline for the change?
 

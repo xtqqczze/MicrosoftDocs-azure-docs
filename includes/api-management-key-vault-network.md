@@ -21,7 +21,7 @@ If [Key Vault firewall](/azure/key-vault/general/network-security) is enabled on
     
     - Secure traffic from API Management with Private Link connectivity.
 
-    - Use a [network security perimeter?](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to secure your key vault and allow traffic from API Management. 
+    - Use a [network security perimeter](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to secure your key vault and allow traffic from API Management. 
 
 * Ensure that your local client IP address is allowed to access the key vault temporarily while you select a certificate or secret to add to Azure API Management. For more information, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
@@ -29,7 +29,6 @@ If [Key Vault firewall](/azure/key-vault/general/network-security) is enabled on
 
 > [!IMPORTANT]
 > Starting March 2026, trusted service connectivity to Azure Key Vault from API Management by enabling the **Allow Trusted Microsoft Services to bypass this firewall** key vault firewall setting will no longer be supported. To continue using Key Vault with API Management after this change, ensure that you choose a supported network access option as described above.
-
 
 #### Virtual network requirements
 

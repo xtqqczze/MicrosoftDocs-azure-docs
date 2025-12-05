@@ -32,7 +32,7 @@ The following table lists all the upcoming breaking changes and feature retireme
 | [Managed certificates suspension][managed-certificates-suspension-august-2025] | August 15, 2025 - March 15, 2026|
 | [ADAL-based Microsoft Entra ID identity provider retirement][msal2025] | September 30, 2025 |
 | [CAPTCHA endpoint update][captcha2025] | September 30, 2025 |
-| [Trusted service connectivity retirement][trustedservice2026] | March 31, 2026 |
+| [Trusted service connectivity retirement][trustedservice2026] | March 15, 2026 |
 | [Built-in analytics dashboard retirement][analytics2027] | March 15, 2027 |
 
 <!-- Links -->
