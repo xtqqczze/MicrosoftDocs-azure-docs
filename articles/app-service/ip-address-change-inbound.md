@@ -30,7 +30,7 @@ If you received a notification that the inbound IP address of your Azure App Ser
 
 ## Find the new inbound IP address in the Azure portal
 
-The new inbound IP address for your app is in the portal in the **Virtual IP address** field. Both this new IP address and the old one are connected to your app now, and later the old one will be disconnected.
+Both the new inbound IP address and the old one are connected to your app now, and later the old one will be disconnected.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -38,7 +38,7 @@ The new inbound IP address for your app is in the portal in the **Virtual IP add
 
 1. If the app is a function app, see [Function app inbound IP address](../azure-functions/ip-addresses.md#function-app-inbound-ip-address).
 
-1. Under **Settings** in the sidebar menu, select **Properties** and find the section labeled **Virtual IP address**.
+1. Under **Settings** in the sidebar menu, select **Networking** and find the section labeled **Inbound addresses**.
 
 1. Copy the IP address and reconfigure your domain record or IP mechanism.
 
