@@ -71,10 +71,12 @@ When you add or remove subscriptions for Datadog monitoring, the system updates 
 
 **Prerequisites**
 
-To perform these actions, you must have both of the following Azure permissions:
+- To perform these actions, you must have both of the following Azure permissions:
 
-- `Microsoft.Authorization/roleAssignments/write`
-- `Microsoft.Authorization/roleAssignments/delete`
+   - `Microsoft.Authorization/roleAssignments/write`
+   - `Microsoft.Authorization/roleAssignments/delete`
+
+- Ensure that the resource provider for Datadog (Microosoft.Datadog) is registered in the target subscription.
 
 To monitor multiple subscriptions:
 
