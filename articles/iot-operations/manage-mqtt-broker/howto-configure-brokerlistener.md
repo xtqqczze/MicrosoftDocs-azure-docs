@@ -8,10 +8,9 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.date: 04/09/2025
 ms.custom:
-  - ignite-2023
   - sfi-image-nochange
 
-#CustomerIntent: As an operator, I want to understand options to secure MQTT communications for my Azure IoT Operations solution.
+# CustomerIntent: As an operator, I want to understand options to secure MQTT communications for my Azure IoT Operations solution.
 ---
 
 # Secure MQTT broker communication by using BrokerListener
