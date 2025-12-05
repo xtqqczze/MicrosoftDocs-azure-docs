@@ -21,7 +21,7 @@ This article describes how to create artifacts that provision lab VMs. An artifa
 
 ## Understand artifact definition files
 
-An artifact definition file consists of a JSON expressions that specifies the action to take on a VM. The file defines an artifact name, a command to run, and parameters available for the command. If the artifact contains other script files, you can refer to the files by name in the artifact definition file.
+An artifact definition file consists of a JSON expression that specifies the action to take on a VM. The file defines an artifact name, a command to run, and parameters available for the command. If the artifact contains other script files, you can refer to the files by name in the artifact definition file.
 
 The following example shows the basic structure of an *artifactfile.json* artifact definition file.
 
@@ -59,7 +59,7 @@ The definition has the following required and optional elements:
 
 ### Artifact parameters
 
-The `parameters` section of the definition file defines the options and values users can specify when they install the artifact. You can refer to these values in the `runcommand`.
+The `parameters` section of the definition file defines the options and values users can specify when they install the artifact. You can refer to these parameters in the `runCommand`.
 
 The following structure defines a parameter:
 
@@ -96,7 +96,7 @@ To include secrets in an artifact definition, declare the secrets as secure stri
     },
 ```
 
-The following `runCommand` uses a PowerShell script that takes the secure string created by using the `ConvertTo-SecureString` command. The script captures output for debugging, so don't log the output to the console.
+The following `runCommand` uses a PowerShell script that takes the secure string created by using the `ConvertTo-SecureString` command. The script captures output for debugging, so for security don't log the output to the console.
 
 ```json
   "runCommand": {
@@ -136,7 +136,7 @@ You can create a custom artifact by starting from a sample *artifactfile.json* d
 
 1. Download the *artifactfile.json* definition file and *artifact.ps1* PowerShell script from [https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
 
-1. Edit the artifact definition file to make some velid changes to elements and values. In VS Code, you can use IntelliSense to see valid elements and value options. For example, when you edit the `targetOsType` element, IntelliSense shows you `Windows` or `Linux` options.
+1. Edit the artifact definition file to make some valid changes to elements and values. In Visual Studio Code, you can use IntelliSense to see valid elements and value options. For example, when you edit the `targetOsType` element, IntelliSense shows you `Windows` or `Linux` options.
 
 1. Store your artifact in a public or private Git artifact repository.
 
@@ -147,14 +147,16 @@ You can create a custom artifact by starting from a sample *artifactfile.json* d
 
    ![Screenshot that shows an example artifact folder.](./media/devtest-lab-artifact-author/git-repo.png)
 
->![NOTE]
->To add your custom artifacts to the public [DevTest Labs artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), open a pull request against the repo.
-
+   >[!NOTE]
+   >To add your custom artifacts to the public [DevTest Labs artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), open a pull request against the repo.
 
 ## Next steps
 
-To add your private artifact repository to a lab, see [Add an artifact repository to your lab in DevTest Labs](add-artifact-repository.md).
-
 - [Add artifacts to DevTest Labs VMs](add-artifact-vm.md)
+- [Specify mandatory artifacts to be added to all lab VMs](devtest-lab-mandatory-artifacts.md)
+- [Add an artifact repository to a lab](add-artifact-repository.md).
+
+## Related content
+
 - [Diagnose artifact failures in the lab](devtest-lab-troubleshoot-artifact-failure.md)
 - [Troubleshoot issues when applying artifacts](devtest-lab-troubleshoot-apply-artifacts.md)
