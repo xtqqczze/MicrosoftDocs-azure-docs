@@ -259,7 +259,7 @@ items:
         displayName: parameters,variables,resources,outputs,condition,syntax
       - name: Data types
         href: data-types.md
-        displayName: supported types,arrays,booleans,integers,objects,strings,secure,interpolation
+        displayName: any,supported types,arrays,booleans,integers,objects,strings,secure,interpolation
       - name: Parameters (param)
         href: parameters.md
         displayName: decorators,secure,objects,constraints
@@ -267,6 +267,7 @@ items:
         href: variables.md
         displayName: configuration
       - name: Resources (resource)
+        displayName: batchsize,onlyifnotexists,description,decorators
         href: resource-declaration.md
       - name: Outputs (output)
         href: outputs.md
@@ -492,6 +493,8 @@ items:
                 displayName: linter
               - name: No deployments resources
                 href: linter-rule-no-deployments-resources.md
+              - name: No explicit Any
+                href: linter-rule-no-explicit-any.md
                 displayName: linter
               - name: No hardcoded environment URLs
                 href: linter-rule-no-hardcoded-environment-urls.md
@@ -702,6 +705,8 @@ items:
             href: diagnostics/bcp132.md
           - name: BCP135
             href: diagnostics/bcp135.md
+          - name: BCP138
+            href: diagnostics/bcp138.md
           - name: BCP139
             href: diagnostics/bcp139.md
           - name: BCP144
@@ -748,6 +753,8 @@ items:
             href: diagnostics/bcp333.md
           - name: BCP335
             href: diagnostics/bcp335.md
+          - name: BCP337
+            href: diagnostics/bcp337.md
           - name: BCP338
             href: diagnostics/bcp338.md
           - name: BCP401
