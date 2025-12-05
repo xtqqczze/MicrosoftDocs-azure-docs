@@ -105,16 +105,16 @@ Follow these steps to find the artifact and associated metadata in your integrat
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
-   | - Consumption: **artifactName** <br>- Standard: **Artifact name** | Yes | <*artifact-name*> | The artifact name, which you can enter as a hardcoded name or as dynamic output from the trigger or previous action in the workflow. |
-   | - Consumption: **artifactType** <br>- Standard: **Artifact type** | Yes | **Agreement**, **Map**, **Partner**, or **Schema** | The artifact type. |
+   | - Consumption: **artifactName** <br><br>- Standard: **Artifact name** | Yes | <*artifact-name*> | The artifact name, which you can enter as a hardcoded name or as dynamic output from the trigger or previous action in the workflow. |
+   | - Consumption: **artifactType** <br><br>- Standard: **Artifact type** | Yes | **Agreement**, **Map**, **Partner**, or **Schema** | The artifact type. |
 
-   1. To get an artifact name provided as dynamic output from the trigger or previous action, follow these steps:
+   1. To provide the artifact name as output from the trigger or previous action, follow these steps:
    
       1. Select inside the **artifactName** or **Artifact name** box, then select the lightning icon to open the dynamic content list.
 
       1. In the dynamic list, under the trigger or action name, select the output that specifies the artifact name.
 
-   1. For **artifactType** or **Artifact type**, select artifact type, which is **Partner** in this example.
+   1. For **artifactType** or **Artifact type**, select the artifact type. In this example, the type is **Partner**.
 
       :::image type="content" source="media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png" alt-text="Screenshot shows the Integration Account Artifact Lookup action with the artifact type and artifact name parameters highlighted." lightbox="media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png":::
 
@@ -128,9 +128,9 @@ Follow these steps to use the retrieved artifact metadata in your workflow. The 
 
    This example continues with the **HTTP** built-in action, which sends an HTTP request from the workflow to a specified destination.
 
-1. In the action information pane, provide the following information about what to do with the artifact metadata:
+1. In the action pane, provide information about how you want to use the artifact metadata.
 
-   This example uses the `routingUrl` metadata from earlier steps as the HTTP request destination. The following table specifies sample values for the **HTTP** action in this example scenario:
+   This example uses the `routingUrl` metadata as the HTTP request destination. The following table specifies sample values for the **HTTP** action in this example:
 
    | Parameter | Required | Value | Description | Example value |
    |-----------|----------|-------|-------------|---------------|
