@@ -32,9 +32,9 @@ The following cmdlets are used when you run Hive queries in a remote HDInsight c
 - `Connect-AzAccount`: Authenticates Azure PowerShell to your Azure subscription.
 - `New-AzHDInsightHiveJobDefinition`: Creates a *job definition* by using the specified HiveQL statements.
 - `Start-AzHDInsightJob`: Sends the job definition to HDInsight and starts the job. A *job* object is returned.
-- `Wait-AzHDInsightJob`: Uses the job object to check the status of the job. It waits until the job finishes, or the wait time is exceeded.
+- `Wait-AzHDInsightJob`: Uses the job object to check the status of the job. It waits until the job finishes or the wait time is exceeded.
 - `Get-AzHDInsightJobOutput`: Retrieves the output of the job.
-- `Invoke-AzHDInsightHiveJob`: Runs HiveQL statements. This cmdlet blocks the query completes, and then returns the results.
+- `Invoke-AzHDInsightHiveJob`: Runs HiveQL statements. This cmdlet submits a Hive query and then returns the results.
 - `Use-AzHDInsightCluster`: Sets the current cluster so that it can be used for the `Invoke-AzHDInsightHiveJob` command.
 
 ## Set up a secure bearer access token
@@ -181,7 +181,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
      ```
 
 > [!NOTE]  
-> For longer HiveQL queries, you can use the Azure PowerShell `Here-Strings` cmdlet or HiveQL script files. The following snippet shows you how to use the `Invoke-Hive` cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to `wasbs://.Invoke-AzHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`. Learn more about [`Here-Strings`](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings).
+> For longer HiveQL queries, you can use the Azure PowerShell `Here-Strings` cmdlet or HiveQL script files. The following snippet shows you how to use the `Invoke-Hive` cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to `wasbs://.Invoke-AzHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`. [Learn more about `Here-Strings`](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings).
 
 ## Troubleshoot
 
@@ -197,7 +197,7 @@ Get-AzHDInsightJobOutput `
 
 ```
 
-This cmdlet returns the information that is written to `STDERR` during job processing.
+This cmdlet returns the information that's written to `STDERR` during job processing.
 
 ## Summary
 
