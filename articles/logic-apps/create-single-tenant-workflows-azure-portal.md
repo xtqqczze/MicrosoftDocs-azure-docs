@@ -222,7 +222,7 @@ For optimal designer responsiveness and performance, review and follow these gui
    > For example, if your selected region reaches a quota for resources that you're 
    > trying to create, you might have to try a different region.
 
-   After Azure finishes deployment, your logic app resource is automatically live but doesn't do anything yet because the resource is empty, and you haven't added any workflows yet.
+   After Azure finishes deployment, your logic app resource is automatically live but doesn't do anything yet because the resource is empty, and you didn't add any workflows yet.
 
 1. On the deployment completion page, select **Go to resource** so that you can add a blank workflow.
 
@@ -280,7 +280,7 @@ This example workflow continues with the [Office 365 Outlook managed connector a
 
    The **Add an action** pane opens so that you can select an action.
 
-1. By using **office 365 outlook send email** as the search term, [follow these steps to add the Office 365 Outlook action that's named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
+1. By using **office 365 outlook send email** as the search term, [follow these steps to add the Office 365 Outlook action named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
 
 1. In the action's information pane, under **Create a new connection**, select **Sign in** so that you can create a connection to your email account.
 
