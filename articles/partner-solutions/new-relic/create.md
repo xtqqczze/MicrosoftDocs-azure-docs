@@ -16,7 +16,12 @@ In this quickstart, you create an instance of Azure Native New Relic Service.
 
 ## Create a New Relic resource
 
-[!INCLUDE [create-resource](../includes/create-resource.md)]
+Begin by signing in to the [Azure portal](https://portal.azure.com/).
+
+1. In the Azure portal, in the search box, enter **Marketplace**. Select **Marketplace**. 
+1. In the Marketplace search box, enter **New Relic**.
+1. In the **New Relic Observability Platform - Private Offers** card, select **Subscribe** and then select a plan.
+1. Select **Create** in the **Create a New Relic resouce** card.
 
 > [!NOTE]
 > If you already created New Relic resources, you can link to those resources for monitoring purposes by selecting the **Create** button under *Link an existing New Relic resource*. 
