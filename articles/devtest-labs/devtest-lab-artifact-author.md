@@ -1,6 +1,6 @@
 ---
-title: Create custom artifacts for virtual machines
-description: Learn how to create and use artifacts to deploy and set up applications on DevTest Labs virtual machines.
+title: Create custom artifacts for VMs
+description: Learn how to create and use artifacts to deploy and set up applications on DevTest Labs virtual machines (VMs).
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
@@ -8,19 +8,23 @@ ms.date: 09/30/2023
 ms.custom: UpdateFrequency2
 ---
 
-# Create custom artifacts for DevTest Labs
+# Create custom artifacts for DevTest Labs VMs
 
-This article describes how to create custom artifact files for Azure DevTest Labs virtual machines (VMs). DevTest Labs artifacts specify actions to take to provision a VM. An artifact consists of an artifact definition file and other script files that you store in a folder in a Git repository.
+This article describes how to create artifacts that specify how to provision Azure DevTest Labs VMs. An artifact consists of an artifact definition JSON file and other script files stored in a Git repository folder.
 
-- For information about adding your artifact repositories to labs, see [Add an artifact repository to your lab](add-artifact-repository.md).
-- For information about adding the artifacts you create to VMs, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
-- For information about specifying mandatory artifacts to be added to all lab VMs, see [Specify mandatory artifacts for DevTest Labs VMs](devtest-lab-mandatory-artifacts.md).
+After you create an artifact, you can:
+
+- [Add your artifact repository to your lab](add-artifact-repository.md).
+- [Add your artifacts to DevTest Labs VMs](add-artifact-vm.md).
+- [Specify mandatory artifacts to be added to all lab VMs](devtest-lab-mandatory-artifacts.md).
 
 ## Artifact definition files
 
-Artifact definition files are JSON expressions that specify what you want to install on a VM. The files define the name of an artifact, a command to run, and available parameters for the command. You can refer to other script files by name in the artifact definition file.
+An artifact definition file consists of a JSON expressions that specifies what to install on a VM. The file defines an artifact name, a command to run, and parameters available for the command. You can refer to other script files by name in the file.
 
-The following example shows the sections that make up the basic structure of an *artifactfile.json* artifact definition file:
+## Understand artifact definition file
+
+The following example shows the basic structure of an *artifactfile.json* artifact definition file:
 
 ```json
   {
@@ -44,17 +48,17 @@ The following example shows the sections that make up the basic structure of an 
 
 | Element name | Description |
 | --- | --- |
-| `$schema` |Location of the JSON schema file. The JSON schema file can help you test the validity of the definition file.|
-| `title` |Name of the artifact to display in the lab. **Required.**|
-| `description` |Description of the artifact to display in the lab. **Required.**|
-| `iconUri` |URI of the artifact icon to display in the lab.|
-| `targetOsType` |Operating system of the VM to install the artifact on. Supported values: `Windows`, `Linux`. **Required.**|
-| `parameters` |Values to customize the artifact when installing on the VM.|
-| `runCommand` |The artifact install command to execute on the VM. **Required.**|
+| `$schema` | Location of the JSON schema file, which can help you test the validity of the definition file.|
+| `title` | **Required** name of the artifact. |
+| `description` | **Required** description of the artifact. |
+| `iconUri` | URI of the artifact icon to display in the lab.|
+| `targetOsType` | **Required** operating system of the VM to install the artifact on. Supported values are `Windows` or `Linux`. |
+| `parameters` | Values to customize the artifact when installing on the VM.|
+| `runCommand` | **Required** artifact install command to run on the VM. |
 
-### Artifact parameters
+### Specify artifact parameters
 
-In the parameters section of the definition file, specify the values a user can input when installing an artifact. You can refer to these values in the artifact install command.
+In the parameters section of the definition file, specify the parameters and values a user can input when installing the artifact. You can refer to these values in the artifact install `runcommand`.
 
 To define parameters, use the following structure:
 
@@ -70,7 +74,7 @@ To define parameters, use the following structure:
 
 | Element name | Description |
 | --- | --- |
-| `type` |Type of parameter value. **Required.**|
+| `type` | **Required.**Type of parameter value. |
 | `displayName` |Name of the parameter to display to the lab user. **Required.**|
 | `description` |Description of the parameter to display to the lab user. **Required.**|
 
@@ -83,7 +87,7 @@ The allowed parameter value types are:
 |`bool`|Any valid JSON boolean|
 |`array`|Any valid JSON array|
 
-### Secrets as secure strings
+### Declare secrets as secure strings
 
 To declare secrets as secure string parameters with masked characters in the UI, use the following syntax in the `parameters` section of the *artifactfile.json* file:
 
@@ -107,9 +111,9 @@ The artifact install command to run the PowerShell script takes the secure strin
 
 Don't log secrets to the console, because the script captures output for user debugging.
 
-### Artifact expressions and functions
+### Use artifact expressions and functions
 
-You can use expressions and functions to construct the artifact install command. Expressions evaluate when the artifact installs. Expressions can appear anywhere in a JSON string value, and always return another JSON value. Enclose expressions with brackets, \[ \]. If you need to use a literal string that starts with a bracket, use two brackets \[\[.
+You can use expressions and functions to construct the artifact install command. Expressions evaluate when the artifact installs. Expressions can appear anywhere in a JSON string value, and always return another JSON value. Enclose expressions with brackets, `[ ]`. If you need to use a literal string that starts with a bracket, use two brackets `[[`.
 
 You usually use expressions with functions to construct a value. Function calls are formatted as `functionName(arg1, arg2, arg3)`.
 
