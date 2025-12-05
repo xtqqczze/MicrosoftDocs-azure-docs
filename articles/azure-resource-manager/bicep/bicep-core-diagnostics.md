@@ -100,7 +100,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP088' />[BCP088](./diagnostics/bcp088.md) | Error/Warning | The property `<property-name>` expected a value of type `<type-name>`, but the provided value is of type `<type-name>`. Did you mean `<type-name>`? |
 | <a id='BCP089' />[BCP089](./diagnostics/bcp089.md) | Error/Warning | The property `<property-name>` isn't allowed on objects of type `<resource-type>`. Did you mean `<property-name>`? |
 | <a id='BCP090' />BCP090 | Error | This module declaration is missing a file path reference. |
-| <a id='BCP091' />BCP091 | Error | An error occurred reading file. `{failureMessage}` |
+| <a id='BCP091' />[BCP091](./diagnostics/bcp091.md) | Error | An error occurred reading file. Could not find a part of the path `<file-path>`.|
 | <a id='BCP092' />BCP092 | Error | String interpolation isn't supported in file paths. |
 | <a id='BCP093' />BCP093 | Error | File path `{filePath}` couldn't be resolved relative to `{parentPath}`. |
 | <a id='BCP094' />BCP094 | Error | This module references itself, which isn't allowed. |
