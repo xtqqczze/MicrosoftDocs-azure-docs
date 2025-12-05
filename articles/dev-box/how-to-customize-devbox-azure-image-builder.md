@@ -95,8 +95,7 @@ To use VM Image Builder, the following Azure resource providers must be register
 1. Check the provider registrations by running the following command:
 
    ```azurepowershell
-     Get-AzResourceProvider -ProviderNamespace "Microsoft.VirtualMachineImages", "Microsoft.Compute", "Microsoft.Network", "Microsoft.Storage", "Microsoft.KeyVault", "Microsoft.ContainerInstance" `
-     | Format-table -Property ProviderNamespace,RegistrationState
+     Get-AzResourceProvider -ProviderNamespace "Microsoft.VirtualMachineImages", "Microsoft.Compute", "Microsoft.Network", "Microsoft.Storage", "Microsoft.KeyVault", "Microsoft.ContainerInstance" | Format-table -Property ProviderNamespace,RegistrationState
    ```
 
 1. If any of the provider registrations don't return `Registered`, register the provider by running the `Register-AzResourceProvider` command. The following example registers the `Microsoft.VirtualMachineImages` resource provider.
