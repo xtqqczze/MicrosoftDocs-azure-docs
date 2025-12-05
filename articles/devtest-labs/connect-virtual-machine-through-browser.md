@@ -30,7 +30,7 @@ This article describes how to connect to your DevTest Labs virtual machine (VM) 
 1. In the **Connect via Bastion** pane, enter the username and password for the VM, and select whether you want the VM to open in a new browser window.
 1. Select **Connect**.
 
-:::image type="content" source="./media/connect-virtual-machine-through-browser/lab-vm-browser-connect.png" alt-text="Screenshot of the VM Overview screen with the Browser connect button highlighted.":::
+:::image type="content" source="./media/connect-virtual-machine-through-browser/lab-vm-browser-connect.png" alt-text="Screenshot of the VM Overview screen with the Bastion connect button highlighted.":::
 
 > [!NOTE]
 > If you don't see **Connect via Bastion** on the VM's top menu, the lab isn't set up for Azure Bastion. You can select **Connect** to connect via [RDP](connect-windows-virtual-machine.md) or [SSH](connect-linux-virtual-machine.md).
