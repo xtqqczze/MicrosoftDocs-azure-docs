@@ -5,11 +5,12 @@ description: Overview of the Microsoft Dev Box Model Context Protocol (MCP) Serv
 services: dev-box
 ms.service: dev-box
 ms.custom: devx-track-javascript
-ms.ai-usage: ai-assisted
+ms.ai-usage: ai-generated
+ms.update-cycle: 90-days
 ms.topic: overview
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/04/2025
+ms.date: 12/05/2025
 
 #Customer intent: As a developer, I want to understand what the Dev Box MCP Server is and how it can help me manage my dev boxes through AI agents.
 ---

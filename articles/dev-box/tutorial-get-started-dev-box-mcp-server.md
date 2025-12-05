@@ -1,11 +1,12 @@
 ---
-title: 'Tutorial: Get started with the Microsoft Dev Box MCP Server'
+title: "Tutorial: Get started with the Microsoft Dev Box MCP Server"
 titleSuffix: Microsoft Dev Box
 description: Learn how to use the Microsoft Dev Box MCP Server to manage your dev boxes through AI agents with step-by-step guidance and practical examples.
 services: dev-box
 ms.service: dev-box
 ms.custom: devx-track-javascript
-ms.ai-usage: ai-assisted
+ms.ai-usage: ai-generated
+ms.update-cycle: 90-days
 ms.topic: tutorial
 ms.author: rosemalcolm
 author: RoseHJM
