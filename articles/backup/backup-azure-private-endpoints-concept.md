@@ -1,7 +1,7 @@
 ---
 title: 'Private Endpoints Overview: Enhanced Experience'
 description: This article explains the concept of private endpoints for Azure Backup, which can help you perform backups while maintaining the security of your resources.
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-backup
 ms.date: 09/09/2025
 author: AbhishekMallick-MS

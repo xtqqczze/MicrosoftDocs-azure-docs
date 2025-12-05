@@ -1,7 +1,7 @@
 ---
 title: Concept of Immutable Vault for Azure Backup
 description: This article explains the concept of an immutable vault for Azure Backup, and how it helps protect data from malicious actors.
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-backup
 ms.custom: references_regions, engagement-fy24, ignite-2024
 ms.date: 06/19/2025

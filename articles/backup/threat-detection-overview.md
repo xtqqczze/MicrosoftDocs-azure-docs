@@ -6,7 +6,7 @@ author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
 ms.date: 11/10/2025
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-backup
 ms.custom: references_regions
 ---

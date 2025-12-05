@@ -1,7 +1,7 @@
 ---
 title: Secure by Default with Soft Delete for Azure Backup
 description: Learn how secure by default with soft delete works for Azure Backup.
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 11/10/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
