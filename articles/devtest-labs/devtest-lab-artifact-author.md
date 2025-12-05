@@ -10,86 +10,75 @@ ms.custom: UpdateFrequency2
 
 # Create custom artifacts for DevTest Labs VMs
 
-This article describes how to create artifacts that specify how to provision Azure DevTest Labs VMs. An artifact consists of an artifact definition JSON file and other script files stored in a Git repository folder.
+This article describes how to create custom artifacts that specify how to provision Azure DevTest Labs VMs. An artifact consists of an artifact definition JSON file and other script files stored in a Git repository folder. You can [add your artifact repository to your lab](add-artifact-repository.md).
 
-After you create an artifact, you can:
+You can [add artifacts to labs VMs](add-artifact-vm.md) or [specify mandatory artifacts to be added to all lab VMs](devtest-lab-mandatory-artifacts.md).
 
-- [Add your artifact repository to your lab](add-artifact-repository.md).
-- [Add your artifacts to DevTest Labs VMs](add-artifact-vm.md).
-- [Specify mandatory artifacts to be added to all lab VMs](devtest-lab-mandatory-artifacts.md).
+## Understand artifact definition files
 
-## Artifact definition files
-
-An artifact definition file consists of a JSON expressions that specifies what to install on a VM. The file defines an artifact name, a command to run, and parameters available for the command. You can refer to other script files by name in the file.
-
-## Understand artifact definition file
+An artifact definition file consists of a JSON expressions that specifies what to install on a VM. The file defines an artifact name, a command to run, and parameters available for the command. If the artifact contains other script files, you can refer to them by name in the artifact definition file.
 
 The following example shows the basic structure of an *artifactfile.json* artifact definition file:
 
 ```json
   {
     "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
-    "title": "",
-    "description": "",
+    "title": "<name>",
+    "description": "<description>",
     "iconUri": "",
-    "targetOsType": "",
+    "targetOsType": "<Windows or Linux>",
     "parameters": {
-      "<parameterName>": {
-        "type": "",
-        "displayName": "",
-        "description": ""
+      "<parameter name>": {
+        "type": "<parameter type>",
+        "displayName": "<parameter display name>",
+        "description": "<parameter description>"
       }
     },
     "runCommand": {
-      "commandToExecute": ""
+      "commandToExecute": "<command>"
     }
   }
 ```
+
+The definition has the following required and optional elements:
 
 | Element name | Description |
 | --- | --- |
 | `$schema` | Location of the JSON schema file, which can help you test the validity of the definition file.|
-| `title` | **Required** name of the artifact. |
-| `description` | **Required** description of the artifact. |
-| `iconUri` | URI of the artifact icon to display in the lab.|
-| `targetOsType` | **Required** operating system of the VM to install the artifact on. Supported values are `Windows` or `Linux`. |
-| `parameters` | Values to customize the artifact when installing on the VM.|
-| `runCommand` | **Required** artifact install command to run on the VM. |
+| `title` | **Required** artifact name to display. |
+| `description` | **Required** artifact description. |
+| `iconUri` | Artifact icon URI to display.|
+| `targetOsType` | **Required** operating system to install on. Supported values are `Windows` or `Linux`. |
+| `parameters` | Available artifact customizations during installation.|
+| `runCommand` | **Required** command to install the artifact on the VM. |
 
-### Specify artifact parameters
+### Artifact parameters
 
-In the parameters section of the definition file, specify the parameters and values a user can input when installing the artifact. You can refer to these values in the artifact install `runcommand`.
+The `parameters` section of the definition file specifies the options and values a user can input when installing the artifact. You can refer to these values in the `runcommand`.
 
-To define parameters, use the following structure:
+The following structure defines a parameter:
 
 ```json
   "parameters": {
-    "<parameterName>": {
-      "type": "<type-of-parameter-value>",
-      "displayName": "<display-name-of-parameter>",
-      "description": "<description-of-parameter>"
+    "<parameter name>": {
+      "type": "<parameter type>",
+      "displayName": "<name to display>",
+      "description": "<description>"
     }
   }
 ```
 
+The parameter definition requires the following elements:
+
 | Element name | Description |
 | --- | --- |
-| `type` | **Required.**Type of parameter value. |
-| `displayName` |Name of the parameter to display to the lab user. **Required.**|
-| `description` |Description of the parameter to display to the lab user. **Required.**|
+| `type` | **Required** parameter value type. The type can be any valid JSON `string`, integer `int`, boolean `bool`, or `array`. |
+| `displayName` | **Required** parameter name to display to the user. |
+| `description` | **Required** parameter description.|
 
-The allowed parameter value types are:
+### Secrets as secure strings
 
-| Type | Description |
-| --- | --- |
-|`string`|Any valid JSON string|
-|`int`|Any valid JSON integer|
-|`bool`|Any valid JSON boolean|
-|`array`|Any valid JSON array|
-
-### Declare secrets as secure strings
-
-To declare secrets as secure string parameters with masked characters in the UI, use the following syntax in the `parameters` section of the *artifactfile.json* file:
+To declare secrets as secure strings and mask the characters in the UI, use the following syntax in the `parameters` section of the *artifactfile.json* file:
 
 ```json
 
