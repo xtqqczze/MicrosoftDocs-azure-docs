@@ -73,6 +73,8 @@ The message "Your SaaS subscription is in progress" appears. When the deployment
 
 1. After the resource is activated,  
 
+what happens? now we document the previous expereince of creating the Azure resource? 
+
 ### Metrics and logs tab (optional)
 
 If you wish, you can configure resources to send metrics/logs to New Relic. 
