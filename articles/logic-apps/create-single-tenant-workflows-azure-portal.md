@@ -258,11 +258,11 @@ Now, add a trigger that starts your workflow.
 
 ## Add a trigger
 
-This example workflow starts with the [built-in **Request** trigger](../connectors/connectors-native-reqres.md) named **When a HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in operations run natively and directly within the Azure Logic Apps runtime.
+This example workflow starts with the [built-in **Request** trigger](../connectors/connectors-native-reqres.md) named **When an HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in operations run natively and directly within the Azure Logic Apps runtime.
 
-1. In the workflow designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected on the designer surface.
+1. On the designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected.
 
-1. By using **request** as the search term, [follow these steps to add the built-in **Request** trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
+1. By using **request** as the search term, [follow these steps to add the built-in **Request** trigger named **When an HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
 
    When the trigger appears on the designer, the trigger's information pane opens to show the trigger's properties, settings, and other actions.
 
@@ -372,7 +372,7 @@ To find the fully qualified domain names (FQDNs) for connections, follow these s
 
 In this example, the workflow runs when the **Request** trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, Azure Logic Apps automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
 
-1. On the workflow designer, select the **Request** trigger that's named **When a HTTP request is received**.
+1. On the workflow designer, select the **Request** trigger that's named **When an HTTP request is received**.
 
 1. After the information pane opens, on the **Parameters** tab, find the **HTTP URL** property.
 
@@ -538,7 +538,7 @@ The following steps turn on run history data collection in the Azure portal for 
 
 The following steps turn on the capability to view the run history in the Azure portal for your stateless workflow.
 
-1. From your open Standard logic app resource, on the logic app sidebar, under **Workflows**, select **Workflows**.
+1. From your open Standard logic app resource, on the logic app sidebar, under Workflows, selects **Workflows**.
 
 1. From the workflows list, select your stateless workflow.
 
