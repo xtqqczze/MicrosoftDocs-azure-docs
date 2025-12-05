@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Tutorial: Troubleshoot an App Service app with Azure Monitor
 
-This tutorial shows how to troubleshoot an [App Service](overview.md) app by using [Azure Monitor](/azure/azure-monitor/overview). The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem by using Azure Monitor. When you're finished, you have a sample app running on App Service on Linux integrated with Azure Monitor.
+This tutorial shows how to troubleshoot an Azure App Service app by using [Azure Monitor](/azure/azure-monitor/overview). The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem by using Azure Monitor. When you're finished, you have a sample app running on App Service on Linux integrated with Azure Monitor.
 
 Azure Monitor maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on system-generated logs from your cloud and on-premises environments.
 
@@ -38,7 +38,7 @@ You can follow the steps in this tutorial on macOS, Linux, or Windows.
 First, run several commands to set up a sample app to use with this tutorial. The following commands create Azure resources, create a deployment user, and deploy the sample app to Azure. You're prompted for the password supplied as a part of the creation of the deployment user.
 
 ```azurecli
-az group create --name myResourceGroup --location "West US 2"
+az group create --name myResourceGroup --location "South Central US"
 az webapp deployment user set --user-name <username> --password <password>
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|8.4" --deployment-local-git
@@ -101,7 +101,7 @@ To convert images, select **Tools** and then choose **Convert to PNG**.
 
 Select the first two images and choose **Convert**. This converts successfully.
 
-:::image type="content" source="media/tutorial-azure-monitor/sample-monitor-app-convert-two-images.png" alt-text="Screenshot showing available images to convert, with first two images slected.":::
+:::image type="content" source="media/tutorial-azure-monitor/sample-monitor-app-convert-two-images.png" alt-text="Screenshot showing available images to convert, with first two images selected.":::
 
 ### Break the app
 
@@ -173,7 +173,7 @@ referer: http://<app-name>.azurewebsites.net/
 
 ### Join AppServiceHTTPLogs and AppServiceConsoleLogs
 
-After you identify both HTTP 500 and standard errors, you need to confirm if there's a correlation between these messages. Join the tables together based on the time stamp, `TimeGenerated`.
+After you identify both HTTP 500 and standard errors, you need to confirm if there's a correlation between these messages. Join the tables together based on the time stamp `TimeGenerated`.
 
 > [!NOTE]
 > A query was prepared for you that does the following:
@@ -201,11 +201,11 @@ PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted
 referer: http://<app-name>.azurewebsites.net/
 ```
 
-The message states memory has been exhausted on line 20 of `process.php`. You've now confirmed that the application produced an HTTP 500 error. Let's take a look at the code to identify the problem.
+The message states memory has been exhausted on line 20 of *process.php*. You've now confirmed that the application produced an HTTP 500 error. Let's take a look at the code to identify the problem.
 
 ## Identify the error
 
-In the local directory, open the `process.php` and look at line 20. 
+In the local directory *App-Service-Troubleshoot-Azure-Monitor*, open *process.php* and look at line 20. 
 
 ```php
 imagepng($imgArray[$x], $filename);
@@ -217,7 +217,7 @@ The first argument, `$imgArray[$x]`, is a variable holding all JPGs (in-memory) 
 
 ### Update locally and redeploy the code
 
-Make the following changes to `process.php` to handle the memory exhaustion:
+Make the following changes to *process.php* to handle the memory exhaustion:
 
 ```php
 <?php
