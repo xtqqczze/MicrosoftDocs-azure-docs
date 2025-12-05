@@ -14,25 +14,21 @@ In this quickstart, you create an instance of Azure Native New Relic Service.
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
 - You must [subscribe to New Relic](overview.md#subscribe-to-new-relic).
 
-## Create a New Relic resource
+## Create a New Relic SaaS resource
 
 Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
 1. In the Azure portal, in the search box, enter **Marketplace**. Select **Marketplace**. 
 1. In the Marketplace search box, enter **New Relic**.
-1. In the **New Relic Observability Platform - Private Offers** card, select **Subscribe** and then select a plan.
-1. Select **Create** in the **Create a New Relic resouce** card.
-
-> [!NOTE]
-> If you already created New Relic resources, you can link to those resources for monitoring purposes by selecting the **Create** button under *Link an existing New Relic resource*. 
+1. Select the **New Relic Observability Platform - Private Offers** card.
+1. On the **New Relice Observability Platform - Private Offers** page, select **Subscribe**.
 
 ### Basics tab
 
-The *Basics* tab has three sections:
+The *Basics* tab has two sections:
 
 - Project details
-- Azure resource details
-- New Relic account details
+- SaaS details
 
 :::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a New Relic resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
@@ -45,32 +41,37 @@ There are required fields (identified with a red asterisk) in each section that 
     | Subscription        | Select a subscription from your existing subscriptions.   |
     | Resource group      | Use an existing resource group or create a new one.       |
 
-1. Enter the values for each required setting under *Azure Resource details*.
+1. Enter the values for each required setting under *SaaS details*.
 
     | Field              | Action                                    |
     |--------------------|-------------------------------------------|
-    | Resource name      | Specify a unique name for the resource.   |
-    | Region             | Select a region to deploy your resource.  |
+    |     Name   |   Enter a name for the SaaS subscription.  | 
 
-1. Enter the values for each required setting under *New Relic account details*.
+### Tags tab (optional)
 
-    | Field             | Action                                                                                           |
-    |-------------------|--------------------------------------------------------------------------------------------------|
-    | Organization      | Choose to create a new organization, or associate your resource with an existing organization.   |
+Optionally, you can create tags for your resource. Then select **Review + subscribe**.
 
-    > [!NOTE]
-    > If you choose to associate your resource with an existing organization, the resource is billed to that organization's plan. 
+### Review + subscribe tab 
 
-    Select **Choose plan** to [change the billing plan](manage.md#change-billing-plan). 
+If the review finds no errors, the **Subscribe** button becomes active. Select Create.
 
-    In the **Choose Plan** pane, you can choose a Marketplace plan or an existing SaaS resource. 
+If the review identifies errors, a red dot appears next to each section where errors exist. To fix errors:
 
-    - To choose an existing resource, select the **SaaS Resources** tab. The resource must be in a **Subscribed** or **PendingFullfillmentStart** state. Select the resource and then select **Choose SaaS**.
-    - To choose a Marketplace plan, Select the **Marketplace Plans** tab and then select **Change plan**.  
+1. Open each section that has errors and fix the errors.
 
-    The remaining fields update to reflect the details of the plan you selected for the new organization.
+1. Fields with errors are highlighted in red.
 
-1. Select the **Next** button at the bottom of the page.
+1. Select **Review + subscribe** again.
+
+1. Select **Subscribe**.
+
+The message "Your SaaS subscription is in progress" appears. When the deployment is complete, the message "Almost done! Next, configure your account on the publisher's website" appears in the upper-right corner of the Azure portal.
+ 
+1. Select **Configure account now**.
+
+1. On the **SaaS Overview** page, you'll see your new resource. Select the checkbox next to the resource, and then select **Activate Resource**. 
+
+1. After the resource is activated,  
 
 ### Metrics and logs tab (optional)
 
