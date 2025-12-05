@@ -11,7 +11,7 @@ ms.date: 08/20/2025
 
 # Run Apache Hive queries by using PowerShell on Microsoft Entra ID-enabled HDInsight clusters
 
-Apache Hive provides a powerful SQL-like interface that you can use to query and analyze data in Azure HDInsight. By using Microsoft Entra ID-enabled HDInsight clusters, you can securely authenticate and run Hive queries by using your organizational identity, which helps you achieve centralized access control and compliance.
+Apache Hive provides a powerful SQL-like interface that you can use to query and analyze data in Azure HDInsight. With Microsoft Entra ID-enabled HDInsight clusters, you can securely authenticate and run Hive queries by using your organizational identity. This process can help you achieve centralized access control and compliance.
 
 This guide walks you through how to connect to a Microsoft Entra ID-enabled HDInsight cluster from PowerShell, authenticate with Microsoft Entra ID, and run Hive queries to analyze your data. By using PowerShell, you can automate Hive operations, integrate with scripts, and manage workloads more efficiently.
 
@@ -185,7 +185,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 ### Troubleshoot
 
-If no information is returned when the job finishes, view the error logs. To view error information for this job, add the following to the end of the `hivejob.ps1` file, save it, and then run it again.
+If no information is returned when the job finishes, view the error logs. To view error information for this job, add the following code to the end of the `hivejob.ps1` file, save it, and then run it again.
 
 ```powershell
   # Print the output of the Hive job

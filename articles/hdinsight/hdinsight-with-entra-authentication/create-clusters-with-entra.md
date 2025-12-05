@@ -19,20 +19,17 @@ With this capability, organizations can enforce role-based access, streamline us
 
 ## Prerequisites
 
-Before you begin, ensure the following requirements are met:
-
-- **Azure subscription**: You must have an active Azure subscription with sufficient permissions to create HDInsight clusters.
-- **Microsoft Entra ID tenant**:
-  - Access to a Microsoft Entra ID tenant linked to your Azure subscription
+- An active Azure subscription with sufficient permissions to create HDInsight clusters
+- Access to a Microsoft Entra ID tenant linked to your Azure subscription
   - Permissions to create and assign Microsoft Entra ID groups and roles
-- **Resource group**: A resource group in Azure where the HDInsight cluster can be deployed.
-- **HDInsight cluster requirements**:
+- A resource group in Azure where the HDInsight cluster can be deployed
+- HDInsight cluster requirements:
   - The HDInsight cluster type (for example, Hadoop, Spark, HBase, or Kafka) that you're using for deployment
   - A region that supports Microsoft Entra ID integration
 
-## Overview
+## Setting up Microsoft Entra ID authentication during cluster creation
 
-To set up Microsoft Entra ID authentication when you create an HDInsight cluster, do the following steps:
+To set up Entra ID authentication when creating an HDInsight cluster, follow these steps:
 
 1. Select the **Entra ID** authentication method.
 
@@ -44,30 +41,30 @@ To set up Microsoft Entra ID authentication when you create an HDInsight cluster
 
 You can assign Microsoft Entra ID-enabled users one of two profiles:
 
-- **Cluster Admin**: Admin permission.
+- **Cluster Administrator**: Admin permission.
 - **Cluster User**: View-only permission.
 
->[!Note]
-> You can only use one method of authentication for each cluster.
->
-> - If you choose Microsoft Entra ID authentication when you create a cluster, all users in the cluster must be authenticated by using Microsoft Entra ID. During the entire lifecycle of that particular cluster, only Microsoft Entra ID authentication can be used.
-> - If you choose basic authentication when you create a cluster, all users in the cluster must be authenticated by using basic authentication. During the entire lifecycle of that particular cluster, only basic authentication can be used.
+You can only use one method of authentication for each cluster.
 
-  :::image type="content" source="./media/create-clusters-with-entra/select-entra-button.png" alt-text="Screenshot that shows the HDInsight landing page and the Microsoft Entra ID option." border="true" lightbox="./media/create-clusters-with-entra/select-entra-button.png":::
+If you choose Microsoft Entra ID authentication when you create a cluster, all users in the cluster must be authenticated by using Microsoft Entra ID. During the entire lifecycle of that particular cluster, only Microsoft Entra ID authentication can be used.
 
-  :::image type="content" source="./media/create-clusters-with-entra/select-entra-user.png" alt-text="Screenshot that shows how to select the user's Microsoft Entra ID when you choose a cluster admin."  border="true" lightbox="./media/create-clusters-with-entra/select-entra-user.png":::
+If you choose basic authentication when you create a cluster, all users in the cluster must be authenticated by using basic authentication. During the entire lifecycle of that particular cluster, only basic authentication can be used.
+
+:::image type="content" source="./media/create-clusters-with-entra/select-entra-button.png" alt-text="Screenshot that shows the HDInsight landing page and the Microsoft Entra ID option." border="true" lightbox="./media/create-clusters-with-entra/select-entra-button.png":::
+
+:::image type="content" source="./media/create-clusters-with-entra/select-entra-user.png" alt-text="Screenshot that shows how to select the user's Microsoft Entra ID when you choose a cluster admin."  border="true" lightbox="./media/create-clusters-with-entra/select-entra-user.png":::
 
 ## Sign-in options
 
-Users can sign in via multifactor authentication (MFA) after they enter their Microsoft Entra ID.
+Users can sign in via multifactor authentication (MFA) after entering their Microsoft Entra ID.
 
-## Add users with an API
+## Adding users with an API
 
-Admin can add multiple users at the same time by using an API, which is ideal to manage large clusters.
+An admin can add multiple users at the same time by using an API, which is ideal for managing large clusters.
 
 This operation allows users to change the cluster gateway HTTP credentials.
 
-| **Method** | **Request URI** |
+| Method | Request URI |
 |------------|-----------------|
 | POST | `https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{resourceGroup Name}/providers/Microsoft.HDInsight/clusters/{cluster name}/updateGatewaySettings?api-version={api-version}` |
 | Entra ID cluster API version| Greater than or equal to `2025-01-15-preview`|
@@ -95,14 +92,14 @@ The authentication process varies based on the method that you choose when you c
 If you choose Microsoft Entra ID:
 
 - The cluster creator provides an ID for the default cluster administrator user in Ambari.
-- The default admin can add Ambari users after they create a cluster. Users might have either **Cluster Administrator** or **Cluster User** permissions. You can set these permissions via the Ambari UI or the REST API.
-  - The cluster admin also has to fill in the **Object ID** and **Display name** fields, and then select **Save**.
+- The default admin can add Ambari users after cluster creation. Users might have either **Cluster Administrator** or **Cluster User** permissions. You can set these permissions via the Ambari UI or the REST API.
+  - The cluster admin also has to fill in the object ID and display name, and then select **Save**.
 
  	:::image type="content" source="./media/create-clusters-with-entra/add-users.png" alt-text="Screenshot that shows users in the Ambari portal." border="true" lightbox="./media/create-clusters-with-entra/add-users.png":::
 
   :::image type="content" source="./media/create-clusters-with-entra/user-roles.png" alt-text="Screenshot that shows the Ambari pane where the cluster admin selects roles of newly added users." border="true" lightbox="./media/create-clusters-with-entra/user-roles.png":::
 
-  - A multifactor authentication prompt appears when the user logs in with their Microsoft Entra ID.
+  - A multifactor authentication prompt appears when the user logs in with their Microsoft Entra ID credentials.
 
 ## Basic authentication
 
@@ -110,26 +107,26 @@ If you choose basic authentication:
 
 - The user provides a user ID and password for the default admin user.
 - You can create new users with various roles, similar to the current functionality.
-- Users are prompted to enter their User ID and password after they sign in.
+- Users are prompted to enter their user ID and password after signing in.
 
-## Add an object ID in the Ambari UI
+## Adding an object ID in the Ambari UI
 
 1. Sign in to the Ambari portal.
 
-  :::image type="content" source="./media/create-clusters-with-entra/login-page.png" alt-text="Screenshot the shows the Ambari landing page."  border="true" lightbox="./media/create-clusters-with-entra/login-page.png":::
+   :::image type="content" source="./media/create-clusters-with-entra/login-page.png" alt-text="Screenshot the shows the Ambari landing page."  border="true" lightbox="./media/create-clusters-with-entra/login-page.png":::
 
 2. Go to **Manage Ambari**.
 
-  :::image type="content" source="./media/create-clusters-with-entra/click-manage.png" alt-text="Screenshot that shows the Manage Ambari button on the Ambari landing page." border="true" lightbox="./media/create-clusters-with-entra/click-manage.png":::
+   :::image type="content" source="./media/create-clusters-with-entra/click-manage.png" alt-text="Screenshot that shows the Manage Ambari button on the Ambari landing page." border="true" lightbox="./media/create-clusters-with-entra/click-manage.png":::
 
-3. Select the user tab to see all the current users.
+3. Select the **Users** tab to see all the current users.
 
-  :::image type="content" source="./media/create-clusters-with-entra/open-user-tab.png" alt-text="Screenshot that shows the User tab." border="true" lightbox="./media/create-clusters-with-entra/open-user-tab.png":::
+   :::image type="content" source="./media/create-clusters-with-entra/open-user-tab.png" alt-text="Screenshot that shows the users tab." border="true" lightbox="./media/create-clusters-with-entra/open-user-tab.png":::
 
 4. To add new users, select the **Add User** tab.
 
-  :::image type="content" source="./media/create-clusters-with-entra/add-users.png" alt-text="Screenshot that shows users in the Ambari portal." border="true" lightbox="./media/create-clusters-with-entra/add-users.png":::
+   :::image type="content" source="./media/create-clusters-with-entra/add-users.png" alt-text="Screenshot that shows users in the Ambari portal." border="true" lightbox="./media/create-clusters-with-entra/add-users.png":::
 
-5. Complete the fields for **Object ID** and **Display name**. Define the user's access level by selecting **Cluster Administrator** or **Cluster User**. Select **Save**.
+5. Enter the values for **Object ID** and **Display name**. Define the user's access level by selecting **Cluster Administrator** or **Cluster User**. Select **Save**.
 
-  :::image type="content" source="./media/create-clusters-with-entra/add-object-id.png" alt-text="Screenshot that shows the Add users tab in the Ambari portal."  border="true" lightbox="./media/create-clusters-with-entra/add-object-id.png":::
+   :::image type="content" source="./media/create-clusters-with-entra/add-object-id.png" alt-text="Screenshot that shows the tab where you add users in the Ambari portal."  border="true" lightbox="./media/create-clusters-with-entra/add-object-id.png":::

@@ -9,7 +9,7 @@ ms.reviewer: nijelsf
 ms.date: 08/20/2025
 ---
 
-# Run Apache Hive queries in Azure HDInsight by using the REST API
+# Run Apache Hive queries in HDInsight by using the REST API
 
 Apache Hive enables you to query and analyze large datasets in Azure HDInsight by using a familiar SQL-like language. The REST API in HDInsight provides a programmatic way to submit Hive queries, monitor execution, and retrieve results. You don't need to directly sign in to the cluster or use manual tools.
 
@@ -21,15 +21,15 @@ With the REST API, you can integrate Hive query execution into applications, scr
 - A REST client. This document uses [cURL](https://curl.haxx.se/).
 - If you use Bash, use the command-line JSON processor jq. See [Download jq](https://jqlang.org/download/).
 
-### Base URI for REST API
+## Base URI for REST API
 
 The base Uniform Resource Identifier (URI) for the REST API on HDInsight is `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, where `CLUSTERNAME` is the name of your cluster. Cluster names in URIs are *case-sensitive*. While the cluster name in the fully qualified domain name (FQDN) part of the URI (`CLUSTERNAME.azurehdinsight.net`) is case-insensitive, other occurrences in the URI are case-sensitive.
 
-### Authentication
+## Authentication
 
 When using cURL or any other REST communication with WebHCat, you must authenticate the requests by providing the bearer token for the HDInsight cluster administrator. The REST API is secured via OAuth 2.0. To help ensure that your credentials are securely sent to the server, always make requests by using secure HTTP (HTTPS).
 
-### Set up a secure bearer access token
+### Setting up a secure bearer access token
 
 You need a bearer token to send the cURL or any REST communication. To get the token, take the following actions:
 
@@ -57,10 +57,10 @@ Execute an `HTTP GET` request to the OAuth 2.0 token endpoint with the following
 
 A successful request returns a JSON object that contains:
 
-- `token_type`: Always *bearer*
-- `expires_in`: Token validity duration in seconds
-- `ext_expires_in`: Extended expiration time in seconds
-- `access_token`: The bearer token for authentication
+- `token_type`: Always **Bearer**.
+- `expires_in`: Token validity duration in seconds.
+- `ext_expires_in`: Extended expiration time in seconds.
+- `access_token`: The bearer token for authentication.
 
   ```bash
       {
@@ -71,14 +71,14 @@ A successful request returns a JSON object that contains:
       }
   ```
 
-### Run a Hive query
+## Running a Hive query
 
 1. Verify that you can connect to your HDInsight cluster by using the following command.
 
    The command uses these parameters:
 
-   - u: The username and password used to authenticate the request.
-   - G: Indication that this request is a GET operation.
+   - `u`: The username and password used to authenticate the request.
+   - `G`: Indication that this request is a `GET` operation.
 
    ```bash
       curl -H "Authorization: Bearer $TOKEN" -G https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/status
@@ -109,11 +109,11 @@ A successful request returns a JSON object that contains:
      curl -s -H "Authorization: Bearer $TOKEN" -d user.name=admin -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/hive | jq -r .id
    ```
 
-   This request uses the power on self-test (POST) method, which sends data as part of the request to the REST API. The following data values are sent with the request:
+   This request uses the power on self-test (`POST`) method, which sends data as part of the request to the REST API. The following data values are sent with the request:
 
-   - `user.name`: The user running the command
-   - `execute`: The HiveQL statements to run
-   - `statusdir`: The directory where you want to write the job status
+   - `user.name`: The user running the command.
+   - `execute`: The HiveQL statements to run.
+   - `statusdir`: The directory where you want to write the job status.
 
    These statements perform the following actions:
 
@@ -127,16 +127,18 @@ A successful request returns a JSON object that contains:
 
 See the following definitions:
 
-- `ROW FORMAT`: How the data is formatted. The fields in each log are separated by a space.
+- `ROW FORMAT`: How the data is formatted. The values in each log are separated by a space.
 - `STORED AS TEXTFILE LOCATION`: Shows where the data is stored (the example or data directory). Shows that the data is stored as text.
 - `SELECT`: Selects a count of all rows where column `t4` contains the value `[ERROR]`. This statement returns a value of `3` because there are 3 rows that contain this value.
 
 > [!NOTE]  
-> The cURL code replaces the spaces between HiveQL statements with the `+` character, which shouldn't replace quoted values that contain a space, like the delimiter.
+> The cURL code replaces the spaces between HiveQL statements with the `+` character. The code shouldn't replace quoted values that contain a space, like the delimiter.
 
  This command returns a job ID that can be used to check the status of the job.
 
-### To check the status of the job, use the following command:
+## Checking the status of the job
+
+Check job status by using this code:
 
  ```bash
  	curl -H "Authorization: Bearer $TOKEN" -d user.name=admin -G 		     https://$CLUSTER_NAME.azurehdinsight.net/templeton/v1/jobs/$jobid | jq .status.state
@@ -144,4 +146,4 @@ See the following definitions:
 
 If the job finishes, the state should be `SUCCEEDED`.
 
-Once the state of the job changes to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file, which in this case is `/example/rest`. This address stores the output in the `example/curl` directory in the cluster's default storage.
+After the state of the job changes to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob Storage. The `statusdir` parameter passed with the query contains the location of the output file, which in this case is `/example/rest`. This address stores the output in the `example/curl` directory in the cluster's default storage.
