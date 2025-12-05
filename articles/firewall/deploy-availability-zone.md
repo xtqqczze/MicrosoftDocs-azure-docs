@@ -2,7 +2,7 @@
 title: Deploy Azure Firewall with Availability Zones
 description: In this article, you learn how to deploy an Azure Firewall with Availability Zones. 
 services: firewall
-author: duongau, vekannan
+author: duongau
 ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 12/05/2025
