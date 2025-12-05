@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Deploy a Python Django web app with PostgreSQL'
-description: Create a Python Django web app with a PostgreSQL database and deploy it to Azure. The tutorial uses either the Django framework and the app is hosted on Azure App Service on Linux.
+description: Create a Python Django web app with a PostgreSQL database and deploy it to Azure. The app is hosted on Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 04/17/2025
+ms.date: 12/08/2025
 ms.update-cycle: 180-days
 ms.author: msangapu
 author: msangapu-msft
@@ -11,51 +11,52 @@ ms.custom: mvc, cli-validate, devx-track-python, devdivchpfy22, vscode-azure-ext
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
 ms.service: azure-app-service
+#customer intent:  As an Azure Web App developer, I want to host a Python web app with a PostgreSQL database in Azure App Services.
 ---
 
 # Deploy a Python Django web app with PostgreSQL in Azure
 
-In this tutorial, you deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)**) to **[Azure App Service](./overview.md)** with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment. If you want, see the [Flask tutorial](tutorial-python-postgresql-app-flask.md) or the [FastAPI tutorial](tutorial-python-postgresql-app-fastapi.md) instead.
+In this tutorial, you deploy a data-driven Python web app to [Azure App Service](./overview.md) that uses the [Azure Database for PostgreSQL](/azure/postgresql/) relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment. This article uses [Django](https://www.djangoproject.com/). Alternatives include [Flask](tutorial-python-postgresql-app-flask.md) or the [FastAPI tutorial](tutorial-python-postgresql-app-fastapi.md).
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app-django/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app-django/python-postgresql-app-architecture.png" alt-text="Diagram that shows the architecture of an App Service with a PostgreSQL database in Azure.":::
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a secure-by-default App Service, PostgreSQL, and Redis cache architecture.
-> * Secure connection secrets using a managed identity and Key Vault references.
-> * Deploy a sample Python app to App Service from a GitHub repository.
-> * Access App Service connection strings and app settings in the application code.
-> * Make updates and redeploy the application code.
-> * Generate database schema by running database migrations.
-> * Stream diagnostic logs from Azure.
-> * Manage the app in the Azure portal.
-> * Provision the same architecture and deploy by using Azure Developer CLI.
-> * Optimize your development workflow with GitHub Codespaces and GitHub Copilot.
+> - Create a secure-by-default App Service, PostgreSQL, and Redis cache architecture.
+> - Secure connection secrets using a managed identity and Key Vault references.
+> - Deploy a sample Python app to App Service from a GitHub repository.
+> - Access App Service connection strings and app settings in the application code.
+> - Make updates and redeploy the application code.
+> - Generate database schema by running database migrations.
+> - Stream diagnostic logs from Azure.
+> - Manage the app in the Azure portal.
+> - Provision the same architecture and deploy by using Azure Developer CLI.
+> - Optimize your development workflow with GitHub Codespaces and GitHub Copilot.
 
 ## Prerequisites
 
 ::: zone pivot="azure-portal"
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-* A GitHub account. you can also [get one for free](https://github.com/join).
-* Knowledge of Python with Django development.
-* **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
+- An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- A GitHub account. you can also [get one for free](https://github.com/join).
+- Knowledge of Python with Django development.
+- **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
 ::: zone-end
 
 ::: zone pivot="azure-developer-cli"
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-* [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
-* Knowledge of [Python with Django development](/training/paths/django-create-data-driven-websites/).
-* **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
+- An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
+- Knowledge of [Python with Django development](/training/paths/django-create-data-driven-websites/).
+- **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
 ::: zone-end
 
 ## Skip to the end
 
-If you just want to see the sample app in this tutorial running in Azure, just run the following commands in the [Azure Cloud Shell](https://shell.azure.com), and follow the prompt:
+If you just want to see the sample app in this tutorial running in Azure, run the following commands in the [Azure Cloud Shell](https://shell.azure.com), and follow the prompt:
 
 ```bash
 mkdir msdocs-django-postgresql-sample-app
@@ -66,7 +67,7 @@ azd up
 
 ## Run the sample
 
-First, you set up a sample data-driven app as a starting point. For your convenience, the [sample repository](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app), includes a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The dev container has everything you need to develop an application, including the database, cache, and all environment variables needed by the sample application. The dev container can run in a [GitHub codespace](https://docs.github.com/en/codespaces/overview), which means you can run the sample on any computer with a web browser.
+As a starting point, set up a sample data-driven app. For your convenience, the [sample repository](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app), includes a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The dev container has everything you need to develop an application, including the database, cache, and all environment variables that the sample application needs. The dev container can run in a [GitHub codespace](https://docs.github.com/en/codespaces/overview), so you can run the sample on any computer with a web browser.
 
 > [!NOTE]
 > If you follow along with this tutorial with your own app, look at the *requirements.txt* file description in [README.md](https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app/blob/main/README.md) to see what packages you need.
@@ -80,7 +81,7 @@ First, you set up a sample data-driven app as a starting point. For your conveni
         1. Select **Create fork**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-run-sample-application-1.png" alt-text="A screenshot showing how to create a fork of the sample GitHub repository." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-run-sample-application-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-run-sample-application-1.png" alt-text="Screenshot that shows how to create a fork of the sample GitHub repository." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-run-sample-application-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -88,10 +89,10 @@ First, you set up a sample data-driven app as a starting point. For your conveni
         **Step 2:** In the GitHub fork:
         1. Select **main** > **starter-no-infra** for the starter branch. This branch contains just the sample project and no Azure-related files or configuration.
         1. Select **Code** > **Create codespace on starter-no-infra**.
-        The codespace takes a few minutes to set up, and it runs `pip install -r requirements.txt` for your repository at the end. Also, the provided *.env* file already contains a dummy [`SECRET_KEY` variable that Django needs to run locally](https://docs.djangoproject.com/en/5.1/ref/settings/#secret-key). 
+        The codespace takes a few minutes to set up. It runs `pip install -r requirements.txt` for your repository. The provided *.env* file already contains a dummy [`SECRET_KEY` variable](https://docs.djangoproject.com/en/5.1/ref/settings/#secret-key) that Django needs to run locally.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-run-sample-application-2.png" alt-text="A screenshot showing how to create a codespace in GitHub." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-run-sample-application-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-run-sample-application-2.png" alt-text="Screenshot that shows how to create a codespace in GitHub." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-run-sample-application-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -104,15 +105,15 @@ First, you set up a sample data-driven app as a starting point. For your conveni
         To stop the application, type `Ctrl`+`C`.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-run-sample-application-3.png" alt-text="A screenshot showing how to run the sample application inside the GitHub codespace." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-run-sample-application-3.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-run-sample-application-3.png" alt-text="Screenshot that shows how to run the sample application in the GitHub codespace." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-run-sample-application-3.png":::
     :::column-end:::
 :::row-end:::
 
 > [!TIP]
 > You can ask [GitHub Copilot](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) about this repository. For example:
 >
-> * *@workspace What does this project do?*
-> * *@workspace What does the .devcontainer folder do?*
+> - *@workspace What does this project do?*
+> - *@workspace What does the .devcontainer folder do?*
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -120,31 +121,31 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## Create App Service, database, and cache
 
-In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure Database for PostgreSQL, and Azure Cache. For the creation process, you specify:
+In this step, create the Azure resources. This tutorial creates a set of secure-by-default resources that include App Service, Azure Database for PostgreSQL, and Azure Cache. For the creation process, you specify:
 
-* The **Name** for the web app. It's used as part of the DNS name for your app.
-* The **Region** to run the app physically in the world. It's also part of the DNS name for your app.
-* The **Runtime stack** for the app. It's where you select the version of Python to use for your app.
-* The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
-* The **Resource Group** for the app. A resource group lets you group (in a logical container) all the Azure resources needed for the application.
+- The **Name** for the web app. It's used as part of the DNS name for your app.
+- The **Region** to run the app physically in the world. It's also part of the DNS name for your app.
+- The **Runtime stack** for the app. You select the version of Python to use for your app.
+- The **Hosting plan** for the app. The pricing tier includes the set of features and scaling capacity for your app.
+- The **Resource Group** for the app. A resource group lets you group all the Azure resources needed for the application in a logical container.
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
+Sign in to the [Azure portal](https://portal.azure.com/). Follow these steps to create your Azure App Service resources.
 
 :::row:::
     :::column span="2":::
         **Step 1:** In the Azure portal:
-        1. Enter "web app database" in the search bar at the top of the Azure portal.
-        1. Select the item labeled **Web App + Database** under the **Marketplace** heading.
-        You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
+        1. At the top of the Azure portal, in the search box, enter *web app database*.
+        1. Under the **Marketplace** heading, select the item labeled **Web App + Database**.
+        You can also navigate to [Creaet Web app](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-1.png" alt-text="Screenshot that shows how to use the search box in the top tool bar to find the Web App + Database creation wizard (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
         **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
-        1. *Resource Group*: Select **Create new** and use a name of **msdocs-django-postgres-tutorial**.
+        1. *Resource Group*: Select **Create new** and enter *msdocs-django-postgres-tutorial*.
         1. *Region*: Any Azure region near you.
         1. *Name*: **msdocs-python-postgres-XYZ**.
         1. *Runtime stack*: **Python 3.14**.
@@ -155,54 +156,54 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. After validation completes, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-2.png" alt-text="Screenshot that shows how to configure a new app and database in the Web App + Database wizard (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
+        **Step 3:** The deployment takes a few minutes to complete. After deployment completes, select **Go to resource**. Deployment creates the following resources:
         - **Resource group**: The container for all the created resources.
-        - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
+        - **App Service plan**: Defines the compute resources for App Service. This instance is a Linux plan in the *Basic* tier.
         - **App Service**: Represents your app and runs in the App Service plan.
         - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
         - **Private endpoint**: Access endpoint for the Redis cache in the virtual network.
-        - **Network interfaces**: Represents private IP addresses, one for each of the private endpoints.
-        - **Azure Database for PostgreSQL flexible server**: Accessible only from within the virtual network. A database and a user are created for you on the server.
-        - **Azure Cache for Redis**: Accessible only from behind its private network.
+        - **Network interfaces**: Private IP addresses, one for each of the private endpoints.
+        - **Azure Database for PostgreSQL flexible server**: Accessible only from within the virtual network. Deployment creates a database and a user on the server.
+        - **Azure Cache for Redis**: Accessible only from its private network.
         - **Private DNS zones**: Enables DNS resolution of the database server the Redis cache in the virtual network.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-3.png" alt-text="A screenshot showing the deployment process completed (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-3.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-3.png" alt-text="Screenshot that shows the deployment process completed (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-3.png":::
     :::column-end:::
 :::row-end:::
 
 ## Secure connection secrets and add SECRET_KEY
 
-The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). The security best practice is to keep secrets out of App Service completely. Move your secrets to a key vault and change your app setting to [Key Vault references](app-service-key-vault-references.md) with the help of Service Connectors.
+The deployment process generates the connectivity variables for you as [app settings](configure-common.md#configure-app-settings). The security best practice is to keep secrets out of App Service completely. Move your secrets to a key vault and change your app setting to [Key Vault references](app-service-key-vault-references.md) with the help of Service Connectors.
 
 :::row:::
     :::column span="2":::
         **Step 1: Retrieve the existing connection string** 
-        1. In the left menu of the App Service page, select **Settings > Environment variables**. 
+        1. In the left menu of the App Service page, select **Settings** > **Environment variables**. 
         1. Select **AZURE_POSTGRESQL_CONNECTIONSTRING**. 
         1. In **Add/Edit application setting**, in the **Value** field, find the *password=* part at the end of the string.
         1. Copy the password string after *password=* for use later.
-        This app setting lets you connect to the Postgres database and the Redis cache secured behind private endpoints. However, the secrets are saved directly in the App Service app, which isn't the best. You'll change this configuration. You also add a `SECRET_KEY` setting, which your Django app requires.
+        This app setting lets you connect to the Postgres database and the Redis cache secured behind private endpoints. The secrets are saved directly in the App Service app, which isn't the best approach. You'll change this configuration. You also add a `SECRET_KEY` setting, which your Django app requires.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-1.png" alt-text="Screenshot that shows how to see the value of an app setting." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
         **Step 2:  Create a key vault for secure management of secrets**
-        1. In the top search bar, type "*key vault*", then select **Marketplace** > **Key Vault**.
+        1. In the top search bar, enter *key vault*, then select **Marketplace** > **Key Vault**.
         1. In **Resource Group**, select **msdocs-python-postgres-tutorial**.
-        1. In **Key vault name**, type a name that consists of only letters and numbers.
-        1. In **Region**, set it to the same location as the resource group.
+        1. In **Key vault name**, enter a name that consists of only letters and numbers.
+        1. In **Region**, select the same location as the resource group.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-2.png" alt-text="A screenshot showing how to create a key vault." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-2.png" alt-text="Screenshot that shows how to create a key vault." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -217,27 +218,27 @@ The creation wizard generated the connectivity variables for you already as [app
         1. In **Virtual network**, select **msdocs-python-postgres-XYZVnet**.
         1. In **Subnet**, **msdocs-python-postgres-XYZSubnet**.
         1. Select **OK**.
-        1. Select **Review + create**, then select **Create**. Wait for the key vault deployment to finish. You should see "Your deployment is complete."
+        1. Select **Review + create**, then select **Create**. Wait for the key vault deployment to finish. You should see *Your deployment is complete*.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how to secure a key vault with a private endpoint." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-3.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-3.png" alt-text="Screenshot that shows how to secure a key vault with a private endpoint." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
         **Step 4: Configure the PostgreSQL connector**
-        1. In the top search bar, type *msdocs-python-postgres*, then select the App Service resource called **msdocs-python-postgres-XYZ**.
-        1. In the App Service page, in the left menu, select **Settings > Service Connector**. There are already two connectors, which the app creation wizard created for you.
+        1. In the top search bar, enter *msdocs-python-postgres*, then select your App Service resource **msdocs-python-postgres-XYZ**.
+        1. In the **App Service** page, in the left menu, select **Settings** > **Service Connector**. There are already two connectors, which the app creation process created for you.
         1. Select checkbox next to the PostgreSQL connector, then select **Edit**.
         1. In **Client type**, select **Django**. The [Django client type in the PostgreSQL service connector](/azure/service-connector/how-to-integrate-postgres?tabs=django#connection-string) gives you database variables in separate settings instead of one connection string. The separate variables are easier for you to use in Django's [database settings](https://docs.djangoproject.com/en/5.1/ref/settings/#databases).
-        1. Select the **Authentication** tab.
+        1. Select **Authentication**.
         1. In **Password**, paste the password you copied earlier.
         1. Select **Store Secret in Key Vault**.
         1. Under **Key Vault Connection**, select **Create new**. 
-        A **Create connection** dialog is opened on top of the edit dialog.
+        This action opens a **Create connection** dialog on top of the edit dialog.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-4.png" alt-text="A screenshot showing how to edit a service connector with a key vault connection." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-4.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-4.png" alt-text="Screenshot that shows how to edit a service connector with a key vault connection." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-4.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -248,33 +249,33 @@ The creation wizard generated the connectivity variables for you already as [app
         1. When validation completes, select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-5.png" alt-text="A screenshot showing how to configure a key vault service connector." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-5.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-5.png" alt-text="Screenshot that shows how to configure a key vault service connector." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-5.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
         **Step 6: Finalize the PostgreSQL connector settings** 
-        1. You're back in the edit dialog for **defaultConnector**. In the **Authentication** tab, wait for the key vault connector to be created. The **Key Vault Connection** dropdown list automatically selects it.
+        1. You're back in the edit dialog for **defaultConnector**. Under **Authentication**, wait for the key vault connector to be created. The **Key Vault Connection** dropdown list automatically selects it.
         1. Select **Next: Networking**.
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-6.png" alt-text="A screenshot showing the key vault connection selected in the defaultConnector." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-6.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-6.png" alt-text="Screenshot that shows the key vault connection selected in the defaultConnector." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-6.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
         **Step 7: Configure the Redis connector to use Key Vault secrets** 
-        1. In the Service Connectors page, select the checkbox next to the Cache for Redis connector, then select **Edit**.
-        1. Select the **Authentication** tab.
+        1. In the **Service Connectors** page, select the checkbox next to the Cache for Redis connector, then select **Edit**.
+        1. Select **Authentication**.
         1. Select **Store Secret in Key Vault**.
         1. Under **Key Vault Connection**, select the key vault you created. 
         1. Select **Next: Networking**.
-        1. Select **Configure firewall rules to enable access to target service**. The app creation wizard already secured the SQL database with a private endpoint.
+        1. Select **Configure firewall rules to enable access to target service**. The app creation process already secured the SQL database with a private endpoint.
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to edit the Cache for Redis service connector with a key vault connection." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-7.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-7.png" alt-text="Screenshot that shows how to edit the Cache for Redis service connector with a key vault connection." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-7.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -285,7 +286,7 @@ The creation wizard generated the connectivity variables for you already as [app
         1. To verify the Redis connection string, select **Show value** next to **AZURE_REDIS_CONNECTIONSTRING**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-8.png" alt-text="A screenshot showing how to see the value of PostgreSQL password in Azure." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-8.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-8.png" alt-text="Screenshot that shows how to see the value of PostgreSQL password in Azure." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-8.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -297,7 +298,7 @@ The creation wizard generated the connectivity variables for you already as [app
         1. Select **Apply**, then **Apply** again, then **Confirm**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-9.png" alt-text="A screenshot showing the Add/Edit application setting dialog." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-9.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-9.png" alt-text="Screenshot that shows the Add/Edit application setting dialog." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-9.png":::
     :::column-end:::
 :::row-end:::
 
@@ -317,19 +318,19 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## Deploy sample code
 
-In this step, you configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository kicks off the build and deploy action.
+In this section, configure GitHub deployment using GitHub Actions. It's one of many ways to deploy to App Service. It's a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository kicks off the build and deploy action.
 
 :::row:::
     :::column span="2":::
         **Step 1:** In the left menu, select **Deployment** > **Deployment Center**. 
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-1.png" alt-text="A screenshot showing how to open the deployment center in App Service." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-1.png" alt-text="Screenshot that shows how to open the deployment center in App Service." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:** In the Deployment Center page:
+        **Step 2:** In the **Deployment Center** page:
         1. In **Source**, select **GitHub**. By default, **GitHub Actions** is selected as the build provider.        
         1. Sign in to your GitHub account and follow the prompt to authorize Azure.
         1. In **Organization**, select your account.
@@ -337,11 +338,11 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         1. In **Branch**, select **starter-no-infra**. This branch is the same one that you worked in with your sample app, without any Azure-related files or configuration.
         1. For **Authentication type**, select **User-assigned identity**.
         1. In the top menu, select **Save**. 
-        App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
-        By default, the deployment center [creates a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity) for the workflow to authenticate using Microsoft Entra (OIDC authentication). For alternative authentication options, see [Deploy to App Service using GitHub Actions](deploy-github-actions.md).
+        App Service commits a workflow file into the GitHub repository in the `.github/workflows` directory.
+        By default, the deployment center [creates a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity) for the workflow to authenticate using Microsoft Entra (OIDC authentication). For other authentication options, see [Deploy to App Service using GitHub Actions](deploy-github-actions.md).
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-2.png" alt-text="A screenshot showing how to configure CI/CD using GitHub Actions (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-2.png" alt-text="Screenshot that shows how to configure CI/CD using GitHub Actions (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -350,7 +351,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         This command pulls the newly committed workflow file into your codespace.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-3.png" alt-text="A screenshot showing git pull inside a GitHub codespace." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-3.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-3.png" alt-text="Screenshot that shows git pull in a GitHub codespace." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -362,10 +363,10 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         1. Open *azureproject/production.py* in the explorer and add the code suggestion.
         1. Ask, "@workspace My App Service app also uses Azure Service Connector to connect to a Cache for Redis using the Django client type. What are the environment variable names I need to use?" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps following and even tell you to make the change in the *azureproject/production.py* file. 
         1. Add the code suggestion.
-        GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
+        GitHub Copilot doesn't give you the same response every time. Responses aren't always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/tutorial-python-postgresql-app-django/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-python-postgresql-app-django/github-copilot-1.png":::
+        :::image type="content" source="media/tutorial-python-postgresql-app-django/github-copilot-1.png" alt-text="Screenshot that shows how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-python-postgresql-app-django/github-copilot-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -376,7 +377,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         This code creates PostgreSQL and Redis connections by using `AZURE_POSTGRESQL_USER`, `AZURE_POSTGRESQL_PASSWORD`, `AZURE_POSTGRESQL_HOST`, `AZURE_POSTGRESQL_NAME`, and `AZURE_REDIS_CONNECTIONSTRING`.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-4.png" alt-text="A screenshot showing a GitHub codespace and azureproject/production.py opened." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-4.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-4.png" alt-text="Screenshot that shows a GitHub codespace and azureproject/production.py opened." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-4.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -388,26 +389,26 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-5.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-5.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-5.png" alt-text="Screenshot that shows the changes being committed and pushed to GitHub." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-5.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
         **Step 6:**
-        Back in the Deployment Center page in the Azure portal:
-        1. Select the **Logs** tab, then select **Refresh** to see the new deployment run.
+        Back in **Deployment Center** in the Azure portal:
+        1. Select **Logs**, then select **Refresh** to see the new deployment run.
         1. In the log item for the deployment run, select the **Build/Deploy Logs** entry with the latest timestamp.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-6.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-6.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-6.png" alt-text="Screenshot that shows how to open deployment logs in the deployment center." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-6.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Success**. It takes about 5 minutes.
+        **Step 7:** You're taken to your GitHub repository. The GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Success**. It takes about 5 minutes.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-7.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-7.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-7.png" alt-text="Screenshot that shows a GitHub run in progress." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-7.png":::
     :::column-end:::
 :::row-end:::
 
@@ -419,12 +420,12 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 :::row:::
     :::column span="2":::
-        **Step 1:** Back in the App Service page, in the left menu, 
+        **Step 1:** Back in the **App Service** page, in the left menu: 
         1. Select **Development Tools** > **SSH**.
         1. Select **Go**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-1.png" alt-text="A screenshot showing how to open the SSH shell for your app from the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-1.png" alt-text="Screenshot that shows how to open the SSH shell for your app from the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -432,12 +433,14 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
         **Step 2:** In the SSH session, run `python manage.py migrate`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-2.png" alt-text="Screenshot that shows the commands to run in the SSH shell and their output (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-2.png":::
     :::column-end:::
 :::row-end:::
 
 > [!TIP]
-> In the SSH session, only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted. The SSH session is useful for running common `python manage.py` commands, such as user creation with the `python manage.py createsuperuser`. For more information, see the documentation for [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site. 
+> In the SSH session, only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
+
+The SSH session is useful for running common `python manage.py` commands, such as user creation with the `python manage.py createsuperuser`. For more information, see [django django-admin and manage.py](https://docs.djangoproject.com/en/1.8/ref/django-admin/). Use the superuser account to access the `/admin` portion of the web site. 
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -445,18 +448,18 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 :::row:::
     :::column span="2":::
-        **Step 1:** In the App Service page:
+        **Step 1:** In the **App Service** page:
         1. From the left menu, select **Overview**.
         1. Select the URL of your app.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-browse-app-1.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-browse-app-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-browse-app-1.png" alt-text="Screenshot that shows how to launch an App Service from the Azure portal (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-browse-app-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
         **Step 2:** Add a few restaurants to the list.
-        Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
+        Congratulations! You're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-browse-app-2-django.png" alt-text="A screenshot of the Django web app with PostgreSQL running in Azure showing restaurants and restaurant reviews (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-browse-app-2.png":::
@@ -471,13 +474,13 @@ Azure App Service captures all console logs to help you diagnose issues with you
 
 :::row:::
     :::column span="2":::
-        **Step 1:** In the App Service page:
+        **Step 1:** In the **App Service** page:
         1. From the left menu, select **Monitoring** > **App Service logs**.
         1. Under **Application logging**, select **File System**.
         1. In the top menu, select **Save**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-stream-diagnostic-logs-1.png" alt-text="A screenshot showing how to enable native logs in App Service in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-stream-diagnostic-logs-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-stream-diagnostic-logs-1.png" alt-text="Screenshot that shows how to enable native logs in App Service in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-stream-diagnostic-logs-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -485,11 +488,11 @@ Azure App Service captures all console logs to help you diagnose issues with you
         **Step 2:** From the left menu, select **Log stream**. You see the logs for your app, including platform logs and logs from inside the container.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-stream-diagnostic-logs-2.png" alt-text="A screenshot showing how to view the log stream in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-stream-diagnostic-logs-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-stream-diagnostic-logs-2.png" alt-text="Screenshot that shows how to view the log stream in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-stream-diagnostic-logs-2.png":::
     :::column-end:::
 :::row-end:::
 
-Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
+For more information about logging in Python apps, see [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
 
 ## Clean up resources
 
@@ -502,7 +505,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
         1. Select the resource group.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-1.png" alt-text="A screenshot showing how to search for and navigate to a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-1.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-1.png" alt-text="Screenshot that shows how to search for and navigate to a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -510,7 +513,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
         **Step 2:** In the resource group page, select **Delete resource group**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-2.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-2.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-2.png" alt-text="Screenshot that shows the location of the Delete Resource Group button in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -530,7 +533,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 
 ## Create Azure resources and deploy a sample app
 
-In this step, you create the Azure resources and deploy a sample app to App Service on Linux. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure Database for PostgreSQL, and Azure Cache for Redis.
+In this section, create the Azure resources and deploy a sample app to App Service on Linux. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure Database for PostgreSQL, and Azure Cache for Redis.
 
 The dev container already has the [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) (AZD).
 
@@ -674,7 +677,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 1. In the SSH session, run `python manage.py migrate`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
 
-    :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-2.png":::
+    :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-2.png" alt-text="Screenshot that shows the commands to run in the SSH shell and their output (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-2.png":::
 
     > [!NOTE]
     > Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
