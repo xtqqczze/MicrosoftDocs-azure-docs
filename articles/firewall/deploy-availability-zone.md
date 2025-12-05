@@ -71,6 +71,7 @@ New-AzFirewall `
 
 - Azure Firewall with Availability Zones is supported only in regions that offer Availability Zones.
 - In regions with zonal restrictions due to capacity constraints, deploying a Zone Redundant Firewall may fail. In such cases, you can deploy the firewall in a single zone or in available zones to proceed with the deployment.
+- Zonal Restrictions are documented in the [Azure Firewall known issues](firewall-known-issues.md) page. 
 
 By configuring Availability Zones, you can achieve higher availability and ensure your network security infrastructure is more resilient. 
 
