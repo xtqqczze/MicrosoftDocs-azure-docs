@@ -334,7 +334,7 @@ For resources in these services that are protected by an IP firewall, ensure tha
 - Use a [network security perimeter](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to secure the resource and allow traffic from API Management. 
 
 > [!IMPORTANT]
-> Starting March 2026, trusted service connectivity to Azure services from API Management by enabling the **Allow Trusted Microsoft Services to bypass this firewall** firewall setting will no longer be supported. To continue accessing these services from API Management after this change, ensure that you choose a supported network access option as described above.
+> Starting March 2026, trusted service connectivity to Azure services from API Management by enabling the **Allow Trusted Microsoft Services to bypass this firewall** firewall setting will no longer be supported. To continue accessing these services from API Management after this change, ensure that you choose a supported network access option as described above. [Learn more](breaking-changes/trusted-service-connectivity-retirement-march-2026.md)
 
 ### Log events to an event hub
 

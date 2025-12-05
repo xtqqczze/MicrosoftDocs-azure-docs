@@ -23,9 +23,9 @@ API Management services created on or after 1 December 2025 no longer support tr
 
 First, check for an Azure Advisor recommendation:
 
-1. Go to Advisor in the Azure portal. (<https://ms.portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/overview>)
+1. In the Azure portal, go to [Advisor](https://ms.portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/overview)
 1. Select the **Recommendations > Operational excellence** category.
-1. Search for "**Eliminate dependency on trusted service connectivity from API Management to other Azure services**".
+1. Search for "**Disable trusted service connectivity in API Management**".
 
 **If you don't see a recommendation**, your API Management resource isn't affected by the change.
 
@@ -92,7 +92,7 @@ You can configure the networking of target resources to one of the following opt
 
 After ensuring that API Management doesn’t access other Azure services using trusted service connectivity, you must explicitly disable trusted connectivity in your API Management service to acknowledge you have verified that the service no longer depends on trusted connectivity.
 
-To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.ManagedIdentity.DisableOverPrivilegedAccess` to `"True"` on the API Management resource. For example: 
+To do so, set a custom property `Microsoft.WindowsAzure.ApiManagement.Gateway.ManagedIdentity.DisableOverPrivilegedAccess` to `"True"` on the [API Management resource](/rest/api/apimanagement/api-management-service/create-or-update). For example: 
 
 
 ```json
