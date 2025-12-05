@@ -120,10 +120,10 @@ A successful request returns a JSON object that contains:
    - `DROP TABLE`: Deletes the table (if it already exists).
    - `CREATE EXTERNAL TABLE`: Creates a new *external* table in Hive. External tables store only the table definition in Hive. The data is left in the original location.
 
-   > [!NOTE]  
-   > Use external tables when an external source updates the underlying data. For example, an automated data upload process or another `MapReduce` operation.
+     > [!NOTE]  
+     > Use external tables when an external source updates the underlying data. For example, an automated data upload process or another `MapReduce` operation.
 
-   Dropping an external table only deletes the table definition and *does not* delete the data.
+     Dropping an external table only deletes the table definition and *does not* delete the data.
 
 See the following definitions:
 

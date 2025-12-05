@@ -183,7 +183,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 > [!NOTE]  
 > For longer HiveQL queries, you can use the Azure PowerShell `Here-Strings` cmdlet or HiveQL script files. The following snippet shows you how to use the `Invoke-Hive` cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to `wasbs://.Invoke-AzHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`. Learn more about [`Here-Strings`](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings).
 
-### Troubleshoot
+## Troubleshoot
 
 If no information is returned when the job finishes, view the error logs. To view error information for this job, add the following code to the end of the `hivejob.ps1` file, save it, and then run it again.
 

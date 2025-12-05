@@ -95,9 +95,9 @@ If you choose Microsoft Entra ID:
 - The default admin can add Ambari users after cluster creation. Users might have either **Cluster Administrator** or **Cluster User** permissions. You can set these permissions via the Ambari UI or the REST API.
   - The cluster admin also has to fill in the object ID and display name, and then select **Save**.
 
- 	:::image type="content" source="./media/create-clusters-with-entra/add-users.png" alt-text="Screenshot that shows users in the Ambari portal." border="true" lightbox="./media/create-clusters-with-entra/add-users.png":::
+ 	  :::image type="content" source="./media/create-clusters-with-entra/add-users.png" alt-text="Screenshot that shows users in the Ambari portal." border="true" lightbox="./media/create-clusters-with-entra/add-users.png":::
 
-  :::image type="content" source="./media/create-clusters-with-entra/user-roles.png" alt-text="Screenshot that shows the Ambari pane where the cluster admin selects roles of newly added users." border="true" lightbox="./media/create-clusters-with-entra/user-roles.png":::
+    :::image type="content" source="./media/create-clusters-with-entra/user-roles.png" alt-text="Screenshot that shows the Ambari pane where the cluster admin selects roles of newly added users." border="true" lightbox="./media/create-clusters-with-entra/user-roles.png":::
 
   - A multifactor authentication prompt appears when the user logs in with their Microsoft Entra ID credentials.
 
