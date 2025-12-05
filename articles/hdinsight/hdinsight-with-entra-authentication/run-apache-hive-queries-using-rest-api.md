@@ -23,17 +23,17 @@ With the REST API, you can integrate Hive query execution into applications, scr
 
 ## Base URI for REST API
 
-The base Uniform Resource Identifier (URI) for the REST API on HDInsight is `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, where `CLUSTERNAME` is the name of your cluster. Cluster names in URIs are *case-sensitive*. While the cluster name in the fully qualified domain name (FQDN) part of the URI (`CLUSTERNAME.azurehdinsight.net`) is case-insensitive, other occurrences in the URI are case-sensitive.
+The base Uniform Resource Identifier (URI) for the REST API on HDInsight is `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, where `CLUSTERNAME` is the name of your cluster. Cluster names in URIs are *case-sensitive*. Although the cluster name in the fully qualified domain name (FQDN) part of the URI (`CLUSTERNAME.azurehdinsight.net`) is case-insensitive, other occurrences in the URI are case-sensitive.
 
 ## Authentication
 
-When using cURL or any other REST communication with WebHCat, you must authenticate the requests by providing the bearer token for the HDInsight cluster administrator. The REST API is secured via OAuth 2.0. To help ensure that your credentials are securely sent to the server, always make requests by using secure HTTP (HTTPS).
+When you use cURL or any other REST communication with WebHCat, you must authenticate the requests by providing the bearer token for the HDInsight cluster administrator. The REST API is secured via OAuth 2.0. To help ensure that your credentials are securely sent to the server, always make requests by using secure HTTP (HTTPS).
 
 ### Setting up a secure bearer access token
 
-You need a bearer token to send the cURL or any REST communication. To get the token, take the following actions:
+You need a bearer token to send the cURL or any REST communication. To get the token, take the following actions.
 
-Execute an `HTTP GET` request to the OAuth 2.0 token endpoint with the following specifications:
+Execute an `HTTP GET` request to the OAuth 2.0 token endpoint with the following specifications.
 
 ### URL
 
@@ -57,7 +57,7 @@ Execute an `HTTP GET` request to the OAuth 2.0 token endpoint with the following
 
 A successful request returns a JSON object that contains:
 
-- `token_type`: Always **Bearer**.
+- `token_type`: Always `Bearer`.
 - `expires_in`: Token validity duration in seconds.
 - `ext_expires_in`: Extended expiration time in seconds.
 - `access_token`: The bearer token for authentication.
@@ -71,7 +71,7 @@ A successful request returns a JSON object that contains:
       }
   ```
 
-## Running a Hive query
+## Steps to run a Hive query
 
 1. Verify that you can connect to your HDInsight cluster by using the following command.
 
@@ -129,14 +129,14 @@ See the following definitions:
 
 - `ROW FORMAT`: How the data is formatted. The values in each log are separated by a space.
 - `STORED AS TEXTFILE LOCATION`: Shows where the data is stored (the example or data directory). Shows that the data is stored as text.
-- `SELECT`: Selects a count of all rows where column `t4` contains the value `[ERROR]`. This statement returns a value of `3` because there are 3 rows that contain this value.
+- `SELECT`: Selects a count of all rows where column `t4` contains the value `[ERROR]`. This statement returns a value of `3` because there are three rows that contain this value.
 
 > [!NOTE]  
 > The cURL code replaces the spaces between HiveQL statements with the `+` character. The code shouldn't replace quoted values that contain a space, like the delimiter.
 
  This command returns a job ID that can be used to check the status of the job.
 
-## Checking the status of the job
+## Job status
 
 Check job status by using this code:
 
