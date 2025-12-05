@@ -19,7 +19,7 @@ This article provides detailed descriptions and requirements for components of A
 - An Application Gateway for Containers resource is an Azure parent resource that deploys the control plane.
 - The control plane orchestrates proxy configuration based on customer intent.
 - Application Gateway for Containers has two child resources: associations and frontends.
-  - Child resources are exclusive to their parent Application Gateway for Containers and can't be referenced by another Application Gateway for Containers resource.
+  - Child resources belong exclusively to their parent Application Gateway for Containers and can't be shared with other Application Gateway for Containers resources.
 
 ### Application Gateway for Containers frontends
 
@@ -39,7 +39,7 @@ This article provides detailed descriptions and requirements for components of A
 - During creation of an association, the underlying data plane is provisioned and connected to a subnet within the defined virtual network's subnet.
 - Each association should assume at least 256 addresses are available in the subnet at time of provisioning.
   - A minimum /24 subnet mask for each deployment (assuming no resources are previously provisioned in the subnet).
-    - If you provision n number of Application Gateway for Containers, with the assumption each Application Gateway for Containers contains one association, and you intend to share the same subnet, the available required addresses should be n*256.
+    - If you plan to deploy multiple Application Gateway for Containers resources that share the same subnet, calculate the required addresses as *n×256*, where *n* equals the number of Application Gateway for Containers resources. This assumes each contains one association.
   - All Application Gateway for Containers association resources should match the same region as the Application Gateway for Containers parent resource.
 
 ### Application Gateway for Containers ALB Controller
