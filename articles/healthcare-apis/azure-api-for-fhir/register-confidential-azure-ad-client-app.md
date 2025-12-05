@@ -4,7 +4,7 @@ description: Register a confidential client application in Microsoft Entra ID th
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
+ms.topic: article
 ms.date: 12/05/2025
 ms.author: kesheth
 ms.custom: sfi-image-nochange
