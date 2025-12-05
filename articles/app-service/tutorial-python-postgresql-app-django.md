@@ -136,7 +136,7 @@ Sign in to the [Azure portal](https://portal.azure.com/). Follow these steps to 
         **Step 1:** In the Azure portal:
         1. At the top of the Azure portal, in the search box, enter *web app database*.
         1. Under the **Marketplace** heading, select the item labeled **Web App + Database**.
-        You can also navigate to [Creaet Web app](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
+        You can also navigate to [Create Web app](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-1.png" alt-text="Screenshot that shows how to use the search box in the top tool bar to find the Web App + Database creation wizard (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-1.png":::
@@ -563,17 +563,17 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd provision
     ```  
 
-    The `azd provision` command takes about 15 minutes to complete. The Redis cache takes the most time. Later, you modify your code to work with App Service and deploy the changes with `azd deploy`. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure.
+    The `azd provision` command takes about 15 minutes to complete. The Redis cache takes the most time. Later, modify your code to work with App Service and deploy the changes with `azd deploy`. While it's running, the command provides messages about the provisioning and deployment process. The output includes a link to the deployment in Azure.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
     - **Resource group**: The container for all the created resources.
-    - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
+    - **App Service plan**: Defines the compute resources for App Service. It creates a Linux plan in the *Basic* tier.
     - **App Service**: Represents your app and runs in the App Service plan.
     - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
     - **Private endpoints**: Access endpoints for the key vault and the Redis cache in the virtual network.
-    - **Network interfaces**: Represents private IP addresses, one for each of the private endpoints.
-    - **Azure Database for PostgreSQL flexible server**: Accessible only from within the virtual network. A database and a user are created for you on the server.
+    - **Network interfaces**: Private IP addresses, one for each of the private endpoints.
+    - **Azure Database for PostgreSQL flexible server**: Accessible only from in the virtual network. It creates a database and a user on the server.
     - **Private DNS zone**: Enables DNS resolution of the PostgreSQL server in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
     - **Azure Cache for Redis**: Accessible only from behind its private endpoint.
@@ -585,7 +585,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## Use the database connection string
 
-The AZD template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs the them to the terminal for your convenience. App settings are one way to keep connection secrets out of your code repository.
+The AZD template you use generated the connectivity variables for you as [app settings](configure-common.md#configure-app-settings). It outputs them to the terminal. App settings are one way to keep connection secrets out of your code repository.
 
 1. In the AZD output, find the settings `AZURE_POSTGRESQL_USER`, `AZURE_POSTGRESQL_PASSWORD`, `AZURE_POSTGRESQL_HOST`, `AZURE_POSTGRESQL_NAME`, and `AZURE_REDIS_CONNECTIONSTRING`. To keep secrets safe, only the setting names are displayed. They look like this in the AZD output:
 
@@ -616,7 +616,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. Open *azureproject/production.py* in the explorer and add the code suggestion.
 
-    GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
+    GitHub Copilot doesn't give you the same response every time. Responses aren't always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
 
 1. In the terminal, run `azd deploy`.
  
@@ -671,11 +671,11 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
-    <pre>
-    Open SSH session to App Service container at: &lt;URL>
-    </pre>
+    ```bash
+    Open SSH session to App Service container at: <URL>
+    ```
 
-1. In the SSH session, run `python manage.py migrate`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
+1. In the SSH session, run `python manage.py migrate`. If the command succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
 
     :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-2.png" alt-text="Screenshot that shows the commands to run in the SSH shell and their output (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-generate-db-schema-django-2.png":::
 
@@ -689,18 +689,18 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. In the AZD output, find the URL of your app and navigate to it in the browser. The URL looks like this in the AZD output:
 
-    <pre>
+    ```bash
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: &lt;URL>
-    </pre>
+      - Endpoint: <URL>
+    ```
 
 2. Add a few restaurants to the list.
 
     :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-browse-app-2-django.png" alt-text="A screenshot of the Django web app with PostgreSQL running in Azure showing restaurants and restaurant reviews (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-browse-app-2.png":::
 
-    Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
+    Congratulations! You're running a web app in Azure App Service, with secure connectivity to Azure Database for PostgreSQL.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -714,9 +714,9 @@ The sample application includes `print()` statements to demonstrate this capabil
 
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser.
 
-<pre>
-Stream App Service logs at: &lt;URL>
-</pre>
+```bash
+Stream App Service logs at: <URL>
+```
 
 Learn more about logging in Python apps in the series on [setting up Azure Monitor for your Python application](/azure/azure-monitor/app/opencensus-python).
 
@@ -738,7 +738,7 @@ Here are issues you might encounter while trying to work through this tutorial a
 
 #### I can't connect to the SSH session
 
-If you can't connect to the SSH session, then the app itself fails to start. Check the [diagnostic logs](#7-stream-diagnostic-logs) for details. For example, if you see an error like `KeyError: 'AZURE_POSTGRESQL_HOST'`, it might mean that the environment variable is missing. You might have removed the app setting.
+If you can't connect to the SSH session, then the app itself fails to start. Check the [diagnostic logs](#stream-diagnostic-logs) for details. For example, if you see an error like `KeyError: 'AZURE_POSTGRESQL_HOST'`, it might mean that the environment variable is missing. You might have removed the app setting.
 
 #### I get an error when running database migrations
 
@@ -783,7 +783,7 @@ Pricing for the created resources is as follows:
 #### How do I connect to the PostgreSQL server that's secured behind the virtual network with other tools?
 
 - For basic access from a command-line tool, you can run `psql` from the app's SSH session.
-- To connect from a desktop tool, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
+- To connect from a desktop tool, your machine must be within the virtual network. For example, it could be an Azure virtual machine that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
 - You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
 
 #### How does local app development work with GitHub Actions?
@@ -852,10 +852,10 @@ az webapp config appsettings set \
 
 You can also do the same thing in the portal. For more information, see:
 
-1. [Key Vault scope role assignment](/azure/key-vault/general/rbac-guide?tabs=azure-portal)
-1. [Add a secret to Key Vault](/azure/key-vault/secrets/quick-create-portal)
-1. [Retrieve a secret from Key Vault](/azure/key-vault/secrets/quick-create-portal)
-1. [Configure app settings](configure-common.md?tabs=portal#configure-app-settings)
+- [Key Vault scope role assignment](/azure/key-vault/general/rbac-guide?tabs=azure-portal)
+- [Add a secret to Key Vault](/azure/key-vault/secrets/quick-create-portal)
+- [Retrieve a secret from Key Vault](/azure/key-vault/secrets/quick-create-portal)
+- [Configure app settings](configure-common.md?tabs=portal#configure-app-settings)
 
 ::: zone-end
 
