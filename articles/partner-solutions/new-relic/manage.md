@@ -52,7 +52,7 @@ The columns in the table denote valuable information for your resource:
 
 ## Reconfigure rules for metrics and logs
 
-To change the configuration rules for metrics and [logs](overview.md#logs), select **New Relic account config** > **Metrics and logs** from the *Service menu*. 
+To change the configuration rules for metrics and logs, select **New Relic account config** > **Metrics and logs** from the *Service menu*. 
 
 :::image type="content" source="media/manage/resource-overview-monitoring.png" alt-text="A screenshot of a New Relic resource's Metrics and logs displayed in the working pane of the Azure portal.":::
 
