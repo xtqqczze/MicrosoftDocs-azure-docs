@@ -73,6 +73,7 @@ The message "Your SaaS subscription is in progress" appears. When the deployment
 
 1. After the resource is activated,  
 
+<!--
 what happens? now we document the previous expereince of creating the Azure resource? 
 
 ### Metrics and logs tab (optional)
@@ -108,6 +109,8 @@ To filter the set of Azure resources that send logs to New Relic, use inclusion 
 ### Review + create tab
 
 [!INCLUDE [review-create](../includes/review-create.md)]
+
+-->
 
 ## Next steps
 
