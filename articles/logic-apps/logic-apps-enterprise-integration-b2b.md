@@ -81,7 +81,7 @@ To start the workflow in this example, add the [**Request** trigger](../connecto
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-   This step generates the **HTTP POST URL**, which you later use to send a request that triggers the workflow.
+   This step generates the **HTTP URL**, which you later use to send a request that triggers the workflow.
 
    :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/request-trigger-generated-url.png" alt-text="Screenshot shows workflow designer, Request trigger parameters, and generated URL for Request trigger." lightbox="./media/logic-apps-enterprise-integration-b2b/request-trigger-generated-url.png":::
 
@@ -114,7 +114,7 @@ Follow these steps to add the [**AS2 (v2)** decode action](logic-apps-enterprise
 
         > [!NOTE]
         >
-        > If **Body** doesn't appear in the dynamic property list, next to the **When an HTTP request is received** section label, select **See more**.
+        > If **Body** doesn't appear in the dynamic content list, next to the **When an HTTP request is received** section label, select **See more**.
 
    - To enter an expression that references the content in the `body` property from the **Request** trigger output, follow these steps:
    
@@ -138,7 +138,7 @@ Follow these steps to add the [**AS2 (v2)** decode action](logic-apps-enterprise
 
       :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/header-expression.png" alt-text="Screenshot shows the Message headers box with an expression that references the headers in trigger output." lightbox="./media/logic-apps-enterprise-integration-b2b/header-expression.png":::
 
-   1. To resolve the expression into `Headers` token, on the designer toolbar, select **Code view** > **Designer**.
+   1. To resolve the expression into the `Headers` token, on the designer toolbar, select **Code view**, then select **Designer**.
 
 <a name="add-response-action"></a>
 
@@ -220,7 +220,7 @@ These steps specify the actions to take and the responses to return based on whe
       >
       > Make sure the AS2 decode action name and output names matches the names for your selected AS2 action.
 
-      For example, the **Response** action looks like the following example:
+      The following example shows how the **Response** action looks:
 
       :::image type="content" source="./media/logic-apps-enterprise-integration-b2b/response-success-resolved-expression.png" alt-text="Screenshot shows Response action and resolved expressions that access the AS2 MDN.":::
 
@@ -282,7 +282,7 @@ Follow these steps to decode X12 messages.
 
 1. Save your workflow.
 
-   To get the expression to resolve as this token, switch between code view and designer view. In the designer menu, select **Code view**, then select **Designer**.
+1. To resolve the expression into a token, switch between code view and designer view. On the designer toolbar, select **Code view**, then select **Designer**.
 
 You're now done setting up this example B2B workflow. In a real world app, you might want to store the decoded X12 content in a line-of-business (LOB) app or data store.
 
@@ -291,7 +291,7 @@ For more information, see:
 - [Connect to SAP systems from Azure Logic Apps](logic-apps-using-sap-connector.md)
 - [Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps](../connectors/connectors-sftp-ssh.md)
 
-To connect your own LOB apps and use these APIs in your logic app, you can add more actions or [write custom APIs](logic-apps-create-api-app.md).
+To connect your own LOB apps and use these APIs in your workflow, add more actions or [write custom APIs](logic-apps-create-api-app.md).
 
 ## Related content
 
