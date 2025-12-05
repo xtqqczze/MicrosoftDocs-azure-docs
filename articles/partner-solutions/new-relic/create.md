@@ -2,7 +2,7 @@
 title: "Quickstart: Get started with Azure Native New Relic Service"
 description: Learn how to create an Azure Native New Relic Service in the Azure portal.
 ms.topic: quickstart
-ms.date: 12/10/2025
+ms.date: 12/11/2025
 ---
 
 # Quickstart: Get started with Azure Native New Relic Service
