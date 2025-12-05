@@ -76,7 +76,7 @@ When you add or remove subscriptions for Datadog monitoring, the system updates 
    - `Microsoft.Authorization/roleAssignments/write`
    - `Microsoft.Authorization/roleAssignments/delete`
 
-- Ensure that the resource provider for Datadog (Microosoft.Datadog) is registered in the target subscription.
+- The resource provider for Datadog (Microosoft.Datadog) must be registered in the target subscription.
 
 To monitor multiple subscriptions:
 
