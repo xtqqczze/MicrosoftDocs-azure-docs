@@ -36,7 +36,7 @@ The following table describes RosettaNet concepts and terms:
 
 | Concept | Description |
 |---------|-------------|
-| **PIP** | A PIP provides common business process definitions for all RosettaNet message exchanges. PIPs are categorized by a high-level business function, or *cluster*, and a subfunction, or *segment*. For example, "3A4" is the PIP for Purchase Order, while "3" is the Order Management function, and "3A" is the Quote & Order Entry subfunction. <br><br>Each PIP specification provides a document type definition (DTD) file and a message guideline document. The DTD file defines the service-content message structure. The message guideline document is a human-readable HTML file that specifies element-level constraints. Together, the PIP and DTD files provide a complete definition of the business process. <br><br>For more information, see the [RosettaNet site](https://www.gs1us.org/resources/rosettanet). |
+| **PIP** | A PIP provides common business process definitions for all RosettaNet message exchanges. PIPs are categorized by a high-level business function, or *cluster*, and a subfunction, or *segment*. For example, "3A4" is the PIP for Purchase Order, while "3" is the Order Management function, and "3A" is the Quote & Order Entry subfunction. <br><br>Each PIP specification provides a document type definition (DTD) file and a message guideline document. The DTD file defines the service-content message structure. The message guideline document is a human-readable HTML file that specifies element-level constraints. Together, the PIP and DTD files provide a complete definition of the business process. <br><br>For more information, visit the [RosettaNet website](https://www.gs1us.org/resources/rosettanet). |
 | **Action** | Action messages are part of a PIP and are business messages partners exchange with each other. |
 | **Signal** | Signal messages are part of a PIP and are acknowledgments sent in response to action messages. |
 | **Single action and double action** | For a PIP with a single action, the only response is an acknowledgment signal message. For a double-action PIP, the initiator receives a response message and replies with an acknowledgment along with the single-action message flow. |
@@ -48,7 +48,7 @@ The RosettaNet connector has different versions, based on [logic app type and ho
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
 | **Consumption** | Multitenant Azure Logic Apps | RosettaNet managed connector, which appears in the connector gallery under **Shared**. The RosettaNet connector provides only actions. You can use any trigger that works for your scenario. For more information, see: <br><br>- [RosettaNet operations](#rosettanet-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) |
-| **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), and hybrid deployment | RosettaNet built-in connector, which appears in the connector gallery under **Built-in**. The RosettaNet connector provides only actions. You can use any trigger that works for your scenario. <br><br>The built-in version works in the following ways: <br><br>- The built-in version can directly access Azure virtual networks. You don't need an on-premises data gateway. <br><br>For more information, see: <br><br>- [RosettaNet operations](#rosettanet-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) |
+| **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), and hybrid deployment | RosettaNet built-in connector, which appears in the connector gallery under **Built-in**. The RosettaNet connector provides only actions. You can use any trigger that works for your scenario. <br><br>The built-in connector can directly access Azure virtual networks. You don't need an on-premises data gateway. <br><br>For more information, see: <br><br>- [RosettaNet operations](#rosettanet-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) |
 
 <a name="rosettanet-operations"></a>
 
@@ -98,9 +98,9 @@ The **RosettaNet** connector has no triggers. The following table describes the 
     >
     > Make sure that you select **DUNS**, which you can find near the bottom of the **Qualifier** list, and not **1 - D-U-N-S (Dun & Bradstreet)**.
 
-  - Contains a PIP process configuration that stores all the PIP configuration characteristics. You use this configuration when you create an agreement between partners. If you don't have a process configuration, [add a PIP process configuration](#add-pip).
+  - Contains a [PIP process configuration](#add-pip) that stores all the PIP configuration characteristics. You use this configuration when you create an agreement between partners. If you don't have a process configuration, [add a PIP process configuration](#add-pip).
 
-  - Defines a [RosettaNet agreement](#create-rosettanet-agreement) between the trading partners that participate in the RosettaNet operation. An agreement requires a host partner and a guest partner. The content in the messages between partners must match the agreement type.
+  - Defines a [RosettaNet agreement](#create-rosettanet-agreement) between the trading partners that participate in the RosettaNet operation. An agreement requires a host partner and a guest partner. The content in the messages between partners must match the agreement type. See [Create a RosettaNet agreement](#create-rosettanet-agreement).
 
 - Before you start working with RosettaNet operations, you must [link your Consumption logic app](enterprise-integration/create-integration-account.md?tabs=consumption#link-account) or [link your Standard logic app](enterprise-integration/create-integration-account.md?tabs=standard#link-account) to the integration account.
 
