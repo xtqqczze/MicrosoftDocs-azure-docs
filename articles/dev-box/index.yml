@@ -14,10 +14,22 @@ metadata:
   ms.topic: landing-page
   ms.author: rosemalcolm
   author: RoseHJM
-  ms.date: 07/09/2025
+  ms.date: 12/05/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
+  # Card
+  - title: Overview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Microsoft Dev Box?
+            url: overview-what-is-microsoft-dev-box.md
+          - text: Compare Dev Box with Windows 365
+            url: dev-box-windows-365-announcement.md
+          - text: Microsoft Dev Box Roadmap
+            url: dev-box-roadmap.md
+
   # Card
   - title: Get started
     linkLists:
@@ -35,31 +47,32 @@ landingContent:
             url: https://learn.microsoft.com/training/modules/explore-microsoft-dev-box-deployment-guidelines-best-practices/
 
   # Card
-  - title: Dev Box deployment at scale
+  - title: What's new & hot topics
     linkLists:
-      - linkListType: concept
+      - linkListType: whats-new
         links:
-          - text: What is Microsoft Dev Box?
-            url: overview-what-is-microsoft-dev-box.md
-          - text: Microsoft Dev Box concepts
-            url: concept-dev-box-concepts.md
-          - text: Architecture overview
-            url: concept-dev-box-architecture.md
-          - text: Microsoft Dev Box Roadmap
-            url: dev-box-roadmap.md
-      - linkListType: deploy
-        links:
-          - text: Design Dev Box deployment architecture
-            url: concept-dev-box-deployment-guide.md
-          
+          - text: Windows 365 adds Microsoft Dev Box capabilities
+            url: dev-box-windows-365-announcement.md
+          - text: Hibernate a dev box to save costs
+            url: how-to-hibernate-your-dev-box.md
+          - text: Open a dev box in VS Code with Dev Tunnels
+            url: how-to-set-up-dev-tunnels.md
+          - text: Self-service snapshot and restore
+            url: how-to-restore-from-snapshot.md
+          - text: Get Started with the quick start template
+            url: quickstart-get-started-template.md
+          - text: Configure team customizations
+            url: how-to-configure-team-customizations.md
 
   # Card
   - title: Configure ready-to-code dev boxes
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: concept
         links:
           - text: What are Dev Box Customizations
             url: concept-what-are-dev-box-customizations.md
+      - linkListType: how-to-guide
+        links:
           - text: Configure team customizations
             url: how-to-configure-team-customizations.md
           - text: Configure dev center imaging
@@ -72,6 +85,20 @@ landingContent:
             url: how-to-create-customization-tasks-catalog.md
           - text: 'Reference: imagedefinition.yaml and task.yaml files'
             url: reference-dev-box-customizations.md
+
+  # Card
+  - title: Dev Box deployment at scale
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Microsoft Dev Box concepts
+            url: concept-dev-box-concepts.md
+          - text: Architecture overview
+            url: concept-dev-box-architecture.md
+      - linkListType: deploy
+        links:
+          - text: Design Dev Box deployment architecture
+            url: concept-dev-box-deployment-guide.md
   
   # Card
   - title: Dev Box cost management
@@ -118,6 +145,24 @@ landingContent:
             url: how-to-enable-single-sign-on.md
           - text: Configure access policies for Dev tunnels
             url: how-to-conditional-access-dev-tunnels-service.md
+
+  # Card
+  - title: Additional resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Windows 365 documentation
+            url: https://learn.microsoft.com/windows-365/
+          - text: Microsoft Intune documentation
+            url: https://learn.microsoft.com/mem/intune/
+          - text: Microsoft Entra ID documentation
+            url: https://learn.microsoft.com/entra/identity/
+          - text: Azure Deployment Environments
+            url: https://learn.microsoft.com/azure/deployment-environments/
+          - text: GitHub Copilot for customizations
+            url: https://github.com/features/copilot
+          - text: Microsoft Dev Box community
+            url: https://aka.ms/DevBox/Feedback
 
    # Card
   - title: Support & Reference
