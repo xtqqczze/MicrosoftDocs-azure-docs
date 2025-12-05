@@ -9,7 +9,7 @@ ms.ai-usage: ai-assisted
 ms.topic: tutorial
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 11/18/2025
+ms.date: 12/05/2025
 
 #Customer intent: As a developer, I want to learn how to use the Dev Box MCP Server through a hands-on tutorial so that I can efficiently manage my dev boxes using natural language commands.
 ---
@@ -54,19 +54,19 @@ Start by opening your AI agent and testing the connection to your Dev Box resour
 
 Now that you confirmed connectivity, explore your Dev Box resources to understand your environment.
 
-1. **View your dev boxes** across all projects:
+**View your dev boxes** across all projects:
 
    ```
    Show me all my dev boxes
    ```
 
-2. **Get details about a specific project** (replace "YourProjectName" with an actual project name):
+**Get details about a specific project** (replace "YourProjectName" with an actual project name):
 
    ```
    Show me details about the YourProjectName project
    ```
 
-3. **List available dev box pools** in a project:
+**List available dev box pools** in a project:
 
    ```
    What dev box pools are available in the YourProjectName project?
@@ -80,13 +80,13 @@ Practice common dev box management tasks using natural language commands.
 
 ### Check dev box status
 
-1. **Check the status of a specific dev box**:
+**Check the status of a specific dev box**:
 
    ```
    What's the status of my DevBoxName dev box?
    ```
 
-2. **Get detailed information** about a dev box:
+**Get detailed information** about a dev box:
 
    ```
    Show me detailed information about DevBoxName including its configuration and current state
@@ -94,13 +94,13 @@ Practice common dev box management tasks using natural language commands.
 
 ### Start or stop a dev box
 
-1. **Start a stopped dev box**:
+**Start a stopped dev box**:
 
    ```
    Start my DevBoxName dev box
    ```
 
-2. **Stop a running dev box**:
+**Stop a running dev box**:
 
    ```
    Stop my DevBoxName dev box
@@ -111,13 +111,13 @@ Practice common dev box management tasks using natural language commands.
 
 ### Work with schedules
 
-1. **Check shutdown schedules**:
+**Check shutdown schedules**:
 
    ```
    When is my DevBoxName dev box scheduled to shut down?
    ```
 
-2. **Delay a scheduled shutdown**:
+**Delay a scheduled shutdown**:
 
    ```
    Delay the shutdown of my DevBoxName dev box until 6 PM today
@@ -127,19 +127,19 @@ Practice common dev box management tasks using natural language commands.
 
 Confirm that your operations completed successfully by checking the results.
 
-1. **Check operation status** for long-running tasks:
+**Check operation status** for long-running tasks:
 
    ```
    What's the status of the operation I just started?
    ```
 
-2. **Verify dev box state changes**:
+**Verify dev box state changes**:
 
    ```
    Show me the current status of DevBoxName
    ```
 
-3. **Confirm schedule changes**:
+**Confirm schedule changes**:
 
    ```
    Show me the updated schedule for DevBoxName
@@ -199,13 +199,13 @@ If you encounter issues during this tutorial:
 
 If you created test resources during this tutorial:
 
-1. **Delete test dev boxes** you no longer need:
+**Delete test dev boxes** you no longer need:
 
    ```
    Delete the FeatureWork dev box from DevelopmentProject
    ```
 
-2. **Stop running dev boxes** to save costs:
+**Stop running dev boxes** to save costs:
 
    ```
    Stop all my running dev boxes
