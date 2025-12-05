@@ -688,7 +688,7 @@
         {
             "path_to_root": "app-service-agentic-semantic-kernel-ai-foundry-agent",
             "url": "https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-ai-foundry-agent",
-            "branch": "main",
+            "branch": "agentfx",
             "branch_mapping": {}
         },
         {
