@@ -1004,7 +1004,7 @@ The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule`
 
 The rest of your application continues to work with `ILogger` and `ILogger<T>`. However, by default, the Application Insights SDK adds a logging filter that instructs the logger to capture only warnings and more severe logs. You can configure log levels either in your code or in the `appsettings.json` configuration file. Configuring log levels in `appsettings.json` is useful when you want to set different log levels for different categories without modifying code.
 
-##### [Code-based](#tab/ihostapplicationbuilder/code)
+##### [Code-based](#tab/code/ihostapplicationbuilder)
 
 To disable the default behavior and capture all log levels, remove the filter rule as part of service configuration:
 
@@ -1034,7 +1034,7 @@ builder.Logging.Services.Configure<LoggerFilterOptions>(options =>
 builder.Build().Run();
 ```
 
-##### [Code-based](#tab/hostbuilder/code)
+##### [Code-based](#tab/code/hostbuilder)
 
 To disable the default behavior and capture all log levels, remove the filter rule as part of service configuration:
 
@@ -1067,7 +1067,7 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-##### [Configuration](#tab/ihostapplicationbuilder/config)
+##### [Configuration](#tab/config/ihostapplicationbuilder)
 
 `FunctionsApplication.CreateBuilder()` automatically loads configuration from `appsettings.json` files. You can add logging configuration to your `appsettings.json` file:
 
@@ -1106,7 +1106,7 @@ builder.Services
 builder.Build().Run();
 ```
 
-##### [IHostBuilder](#tab/hostbuilder/config)
+##### [IHostBuilder](#tab/config/hostbuilder)
 
 When you use `new HostBuilder()`, configuration files like `appsettings.json` aren't loaded automatically. To load these files, use `ConfigureAppConfiguration()`:
 
