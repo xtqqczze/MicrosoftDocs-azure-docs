@@ -80,7 +80,7 @@ The 2.x versions of the core packages change the supported frameworks and bring 
 
 - Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker.Sdk]:
     - The SDK includes default configurations for [SDK container builds](/dotnet/core/docker/publish-as-container).
-    - The SDK includes support for [`dotnet run`](/dotnet/core/tools/dotnet-run) when the [Azure Functions Core Tools](./functions-develop-local.md) is installed. On Windows, install the Core Tools through a mechanism other than NPM.
+    - The SDK includes support for [`dotnet run`](/dotnet/core/tools/dotnet-run) when [Azure Functions Core Tools](./functions-develop-local.md) is installed. On Windows, install Core Tools through a mechanism other than NPM.
 - Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker]:
     - This version adds support for `IHostApplicationBuilder`. Some examples in this guide include tabs to show alternatives using `IHostApplicationBuilder`. These examples require the 2.x versions.
     - Service provider scope validation is included by default if run in a development environment. This behavior matches ASP.NET Core.
