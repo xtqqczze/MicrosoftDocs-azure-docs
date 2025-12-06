@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 12/01/2025
+ms.date: 12/05/2025
 ms.author: danlep
 ms.custom: sfi-image-nochange
 # Customer intent: As an Azure service administrator, I want to learn how to configure common credential providers in the API Management credential manager.
@@ -81,7 +81,7 @@ API Management supports several providers for popular SaaS offerings, including 
 Required settings for these providers differ, depending on the provider, but are similar to those for the [generic OAuth providers](#generic-oauth-providers). Consult the developer documentation for each provider.
 
 > [!NOTE]
-> Currently, the Salesforce provider doesn't include an expiry claim in its tokens. As a result, Credential Manager can't detect when these tokens expire and doesn't expose a mechanism to force refresh. You need custom refresh logic to manually reauthorize the connection to get a new token when the current token expires.
+> Currently, the Salesforce provider doesn't include an expiry claim in its tokens. As a result, Credential Manager can't detect when these tokens expire and doesn't expose a mechanism to force refresh. With the Salesforce provider, you need custom refresh logic to manually reauthorize the connection to get a new token when the current token expires.
 
 
 ## Related content

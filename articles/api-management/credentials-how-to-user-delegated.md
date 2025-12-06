@@ -6,7 +6,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 12/02/2025
+ms.date: 12/05/2025
 ms.author: danlep
 ---
 
@@ -82,7 +82,7 @@ Create a Microsoft Entra ID application for user delegation and give it the appr
     1. Set the **Redirect URI** to **Web** and enter `https://www.postman-echo.com/get`.
     1. Select **Register**.
 1. On the left menu, select **Manage** > **API permissions**, then select **+ Add a permission**.
-    1. Select the **APIs my organization uses** tab, type *Azure API Management Data plane*, and select it.
+    1. Select the **APIs my organization uses** tab, type *Azure API Management Data Plane*, and select it.
     1. Under **Permissions**, select **Authorizations.Read**, and then select **Add permissions**.
 1. On the left menu, select **Overview**. On the **Overview** page, find the **Application (client) ID** value and record it for use in a later step.
 1. On the left menu, select **Manage** > **Certificates & secrets**, and then select **+ New client secret**.
@@ -93,7 +93,7 @@ Create a Microsoft Entra ID application for user delegation and give it the appr
 
 ## Step 3: Configure a credential provider in API Management
 
-In this step, create a credential provider for your backend OAuth 2.0 API that you want to access on behalf of the user or group. For example, follow the steps to create a credential provider for the [GitHub API](credentials-how-to-github.md). Brief steps follow:
+In this step, create a credential provider for your backend OAuth 2.0 API that you want to access on behalf of the user or group. For example, follow the steps to create a [credential provider for the GitHub API](credentials-how-to-github.md). Brief steps follow:
 
 1. Create an OAuth app in GitHub for the API and give it the appropriate permissions for the requests that you want to call.
 1. Sign into the [Azure portal](https://portal.azure.com) and go to your API Management instance.

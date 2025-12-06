@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 12/02/2025
+ms.date: 12/05/2025
 ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
