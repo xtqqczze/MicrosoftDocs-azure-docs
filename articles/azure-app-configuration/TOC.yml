@@ -32,7 +32,7 @@
     - name: Dynamic configuration
       href: enable-dynamic-configuration-aspire.md
     - name: Feature management
-      href: quickstart-aspire-feature-flag.md
+      href: quickstart-feature-flag-aspire.md
   - name: .NET
     items:
     - name: Configuration

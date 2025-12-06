@@ -148,7 +148,7 @@ landingContent:
         - text: ASP.NET Core app
           url: quickstart-feature-flag-aspnet-core.md
         - text: Aspire app
-          url: quickstart-aspire-feature-flag.md
+          url: quickstart-feature-flag-aspire.md
         - text: .NET/.NET Framework app
           url: quickstart-feature-flag-dotnet.md
         - text: Spring Boot app

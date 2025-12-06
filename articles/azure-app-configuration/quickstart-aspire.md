@@ -5,6 +5,7 @@ services: azure-app-configuration
 author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 12/3/2025
 ms.author: zhiyuanliang
@@ -23,15 +24,15 @@ In this quickstart, you'll use Azure App Configuration to externalize storage an
 
 ## Test the app locally
 
-The Aspire Starter template includes a frontend Blazor app that communicates with a Minimal API project. The API project is used to provide fake weather data to the frontend. The frontend app is configured to use service discovery to connect to the API project. There is also an [`AppHost`](/dotnet/aspire/fundamentals/app-host-overview) project which orchestrates all distributed applications in the Aspire solution.
+The Aspire Starter template includes a frontend web app that communicates with a Minimal API project. The API project is used to provide fake weather data to the frontend. The frontend app is configured to use service discovery to connect to the API project. There is also an [`AppHost`](/dotnet/aspire/fundamentals/app-host-overview) project which orchestrates all distributed applications in the Aspire solution.
 
 1. Run the `AppHost` project. You see the Aspire dashboard in your browser.
 
-    :::image type="content" source="media/aspire/dashboard-init.jpg" alt-text="Screenshot of the Aspire dashboard with web frontend and api service resources.":::
+    :::image type="content" source="media/aspire/dashboard-init.png" alt-text="Screenshot of the Aspire dashboard with web frontend and api service resources.":::
 
 1. Click the URL of the web frontend. You see a page with a welcome message.
 
-    :::image type="content" source="media/aspire/webfrontend-init.jpg" alt-text="Screenshot of a Blazor app with a welcome message.":::
+    :::image type="content" source="media/aspire/webfrontend-init.png" alt-text="Screenshot of a web app with a welcome message.":::
 
 ## Add Azure App Configuration to the Aspire solution
 
@@ -63,22 +64,22 @@ The Aspire Starter template includes a frontend Blazor app that communicates wit
     > [!IMPORTANT]
     > When you call `AddAzureAppConfiguration`, it implicitly calls `AddAzureProvisioning`, which adds support for generating Azure resources dynamically during app startup. The app must configure the appropriate subscription and location. For more information, see [Local Azure provisioning](https://aspire.dev/integrations/cloud/azure/local-provisioning/#configuration).
     > If you are using the latest Aspire SDK, you can configure the subscription information through the aspire dashboard.
-    > :::image type="content" source="media/aspire/azure-subscription.jpg" alt-text="Screenshot of Aspire dashboard asking for Azure Subscription information.":::
+    > :::image type="content" source="media/aspire/azure-subscription.png" alt-text="Screenshot of Aspire dashboard asking for Azure Subscription information.":::
 
     > [!TIPS]
     > You can reference existing App Configuration resources by chaining a call `RunAsExisting()` on `builder.AddAzureAppConfiguration("appconfig")`. For more information, go to [Use existing Azure resources](https://aspire.dev/integrations/cloud/azure/overview/#use-existing-azure-resources).
 
 1. Run the `AppHost` project. You see the Azure App Configuration resource is provisioning.
 
-    :::image type="content" source="media/aspire/resource-provisioning.jpg" alt-text="Screenshot of Aspire dashboard provisioning Azure App Configuration resource.":::
+    :::image type="content" source="media/aspire/resource-provisioning.png" alt-text="Screenshot of Aspire dashboard provisioning Azure App Configuration resource.":::
 
 1. Wait for a few minutes and you see the Azure App Configuration resource is provisioned and is running.
 
-    :::image type="content" source="media/aspire/resource-provisioned.jpg" alt-text="Screenshot of Aspire dashboard with Azure App Configuration resource running.":::
+    :::image type="content" source="media/aspire/resource-provisioned.png" alt-text="Screenshot of Aspire dashboard with Azure App Configuration resource running.":::
 
 1. Go to the Azure portal by clicking the deployment URL on the Aspire dashboard. You see the deployment is complete and you can go to your Azure App Configuration resource.
 
-    :::image type="content" source="media/aspire/deployment-complete.jpg" alt-text="Screenshot of Azure portal showing the App Configuration deployment is complete.":::
+    :::image type="content" source="media/aspire/deployment-complete.png" alt-text="Screenshot of Azure portal showing the App Configuration deployment is complete.":::
 
 > [!TIPS]
 > You can use the App Configuration emulator for local development in Aspire. For more information, go to [Use App Configuration emulator in Aspire](./use-emulator-aspire.md).
@@ -106,7 +107,7 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
 1. Open the *Components/Pages/Home.razor* file and add the following code.
 
-    ```csharp
+    ```cs
     @page "/"
 
     @inject IConfiguration Configuration
@@ -137,11 +138,11 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
 1. Restart the `AppHost` project. Go to the Aspire dashboard and click the URL of the web frontend. 
 
-    :::image type="content" source="media/aspire/dashboard-updated.jpg" alt-text="Screenshot of Aspire dashboard showing resources.":::
+    :::image type="content" source="media/aspire/dashboard-updated.png" alt-text="Screenshot of Aspire dashboard showing resources.":::
 
 1. You see a page with a welcome message from Azure App Configuration.
 
-    :::image type="content" source="media/aspire/webfrontend-app-config.jpg" alt-text="Screenshot of a Blazor app with a welcome message from Azure App Configuration.":::
+    :::image type="content" source="media/aspire/webfrontend-app-config.png" alt-text="Screenshot of a web app with a welcome message from Azure App Configuration.":::
 
 ## Next steps
 
@@ -155,3 +156,8 @@ To learn how to configure your Aspire app to dynamically refresh configuration s
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./quickstart-aspire-configuration-refresh.md)
+
+To learn how to use feature flag in your Aspire app, continue to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Use feature flag in Aspire](./quickstart-feature-flag-aspire.md)

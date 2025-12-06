@@ -6,6 +6,7 @@ services: azure-app-configuration
 author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 12/4/2025
 ms.author: zhiyuanliang
@@ -28,7 +29,7 @@ Finish the quickstart: [Create an Aspire solution with App Configuration](./quic
 
 ## Reload data from App Configuration
 
-1. Go to the `Web` project. Add the [`Microsoft.Azure.AppConfiguration.AspNetCore`](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) Nuget package. 
+1. Navigate into the `Web` project's directory (created in the [Prerequisites](./enable-dynamic-configuration-aspire.md#prerequisites) steps). Add the [`Microsoft.Azure.AppConfiguration.AspNetCore`](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) Nuget package. 
 
 1. Open *Program.cs*, and update the `AddAzureAppConfiguration` method you added during the quickstart.
 
@@ -97,11 +98,11 @@ The configuration refresh is triggered by the incoming requests to your web app.
 - The configuration refresh happens asynchronously to the processing of your app's incoming requests. It will not block or slow down the incoming request that triggered the refresh. The request that triggered the refresh may not get the updated configuration values, but later requests will get new configuration values.
 - To ensure the middleware is triggered, call the `app.UseAzureAppConfiguration()` method as early as appropriate in your request pipeline so another middleware won't skip it in your app.
 
-## Build and run the app locally
+## Run the app locally
 
 1. Run the `AppHost` project. Go to the Aspire dashboard and open the web app.
 
-    :::image type="content" source="media/aspire/original-message.jpg" alt-text="Screenshot of a Blazor app with the original message from Azure App Configuration.":::
+    :::image type="content" source="media/aspire/original-message.png" alt-text="Screenshot of a web app with the original message from Azure App Configuration.":::
 
 1. In the Azure portal, navigate to the **Configuration explorer** of your App Configuration store, and update the value of the following key.
 
@@ -111,11 +112,11 @@ The configuration refresh is triggered by the incoming requests to your web app.
 
 1. Refresh the browser a few times. When the refresh interval elapses after 30 seconds, the page shows with updated content.
 
-    :::image type="content" source="media/aspire/refreshed-message.jpg" alt-text="Screenshot of a Blazor app with the updated message from Azure App Configuration.":::
+    :::image type="content" source="media/aspire/refreshed-message.png" alt-text="Screenshot of a web app with the updated message from Azure App Configuration.":::
 
 1. Go to the Aspire dashboard and open the structured logs. You see that the `webfront` resource has a log with message "Configuration reloaded.".
 
-    :::image type="content" source="media/aspire/dashboard-logs.jpg" alt-text="Screenshot of the Aspire dashboard showing structured logs.":::
+    :::image type="content" source="media/aspire/dashboard-logs.png" alt-text="Screenshot of the Aspire dashboard showing structured logs.":::
 
 
 ## Next steps
