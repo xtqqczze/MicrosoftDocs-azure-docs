@@ -6,7 +6,7 @@ manager: pmwongera
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 12/05/2025
+ms.date: 12/08/2025
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: sfi-image-nochange
@@ -15,7 +15,7 @@ ms.custom: sfi-image-nochange
 # Azure classic subscription administrators
 
 > [!IMPORTANT]
-> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. Starting on **April 30, 2025**, any Co-Administrator or Service Administrator role assignments will lose access. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately.
+> As of **August 31, 2024**, Azure classic administrator roles (along with Azure classic resources and Azure Service Manager) are retired and no longer supported. If you still have active Co-Administrator or Service Administrator role assignments, convert these role assignments to Azure RBAC immediately. Starting in **December 2025**, existing Co-Administrator or Service Administrator role assignments will be converted automatically to the Owner role.
 
 Microsoft recommends that you manage access to Azure resources using Azure role-based access control (Azure RBAC). If you're still using the classic deployment model, you'll need to migrate your resources from classic deployment to Resource Manager deployment. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/management/deployment-models.md).
 
@@ -27,9 +27,13 @@ What happens to classic administrator role assignments after August 31, 2024?
 
 - Co-Administrator and Service Administrator roles are retired and no longer supported. You should convert these role assignments to Azure RBAC immediately.
 
-What happens to classic administrator role assignments after April 30, 2025?
+What happens to classic administrator role assignments after December 2025?
 
-- Co-Administrator and Service Administrator role assignments will lose access. If you don't have an Owner role assignment at subscription scope, you will lose access to manage the subscription.
+- Co-Administrator and Service Administrator role assignments will be converted automatically to the Owner role.
+
+How can I tell if a classic administrator role assignment has been converted to the Owner role?
+
+- Co-Administrator and Service Administrator role assignments that have been converted to the Owner role will have the description **The Classic Admin role was converted to an Azure Owner role on behalf of the user due to Classic Admin retirement.**
 
 How do I know what subscriptions have classic administrators?
 
