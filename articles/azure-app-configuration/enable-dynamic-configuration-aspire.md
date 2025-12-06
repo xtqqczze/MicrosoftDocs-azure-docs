@@ -31,7 +31,7 @@ Finish the quickstart: [Create an Aspire solution with App Configuration](./quic
 
 1. Navigate into the `Web` project's directory (created in the [Prerequisites](./enable-dynamic-configuration-aspire.md#prerequisites) steps). Add the [`Microsoft.Azure.AppConfiguration.AspNetCore`](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) Nuget package. 
 
-1. Open *Program.cs*, and update the `AddAzureAppConfiguration` method you added during the quickstart.
+1. Open *AppHost.cs*, and update the `AddAzureAppConfiguration` method you added during the quickstart.
 
     ```csharp
     builder.AddAzureAppConfiguration(

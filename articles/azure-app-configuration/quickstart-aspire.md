@@ -88,8 +88,8 @@ The Aspire Starter template includes a frontend web app that communicates with a
 
 Add the following key-value to your App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-| Key       | Value                                |
-|-----------|--------------------------------------|
+| Key                        | Value                                 |
+|----------------------------|---------------------------------------|
 | *TestApp:Settings:Message* | *Hello from Azure App Configuration!* |
 
 ## Use App Configuration in the web application

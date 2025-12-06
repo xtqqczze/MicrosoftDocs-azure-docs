@@ -8,7 +8,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 12/05/2025
+ms.date: 12/5/2025
 ms.author: zhiyuanliang
 #Customer intent: As an Aspire developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
