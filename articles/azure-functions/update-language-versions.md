@@ -19,26 +19,29 @@ To help ensure your function apps continue to receive support, follow the instru
 - The [hosting plan](./functions-scale.md).
 
 ::: zone pivot="programming-language-csharp"   
-
 > [!NOTE]
 > This article shows you how to update the .NET version of a function app that uses the [isolated worker model](dotnet-isolated-process-guide.md). If your function app runs on an older version of .NET and uses the [in-process model](functions-dotnet-class-library.md), consider the following options:
 >
 > - [Update to target .NET 8](./functions-dotnet-class-library.md#updating-to-target-net-8).
 > - [Migrate from the in-process model to the isolated worker model](migrate-dotnet-to-isolated-model.md).
-
 ::: zone-end  
-
-## Prerequisites
-
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- A function app that's hosted in one of the following Functions plans:
-  - Premium
-  - Dedicated
-  - Consumption
 
 ## Prepare your function app
 
 Before you update the stack configuration for your function app in Azure, complete the tasks in the following sections.
+
+### Review dependencies
+
+Before updating language versions, review these potential dependencies:
+
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript,programming-language-powershell" 
+- **Extension bundles**: Verify that your `host.json` file references a compatible [extension bundle version](functions-bindings-register.md#extension-bundles). Version 4.x bundles are recommended for most scenarios.
+::: zone-end  
+- **Binding extensions**: Update any explicit binding extension references to versions compatible with your new language version.
+
+- **Package dependencies**: Review and update all package dependencies to versions that support your target language version.
+
+- **Local tools**: Ensure your local development tools, such as Azure Functions Core Tools, SDKs, and IDEs, support the new language version.
 
 ### Verify your function app locally
 
@@ -60,16 +63,7 @@ Use these steps to update the project on your local computer:
 1. Make any updates to your project code that the new .NET version requires. Check the version's release notes for specific information. You can also use the [.NET Upgrade Assistant](/dotnet/core/porting/upgrade-assistant-overview) to help update your code in response to changes across major versions.
 
 After you make those changes, rebuild your project and test it to confirm your function app runs as expected.
-
-::: zone-end
-
-> [!IMPORTANT]
-> When updating language versions, also check the following dependencies:
->
-> - **Extension bundles**: Verify that your `host.json` file references a compatible [extension bundle version](functions-bindings-register.md#extension-bundles). Version 4.x bundles are recommended for most scenarios.
-> - **Binding extensions**: Update any explicit binding extension references to versions compatible with your new language version.
-> - **Package dependencies**: Review and update all package dependencies (NuGet, npm, pip, etc.) to versions that support your target language version.
-> - **Local tools**: Ensure your local development tools (Azure Functions Core Tools, SDKs, IDEs) support the new language version.
+::: zone-end  
 
 ### Move to the latest Functions runtime
 
@@ -352,12 +346,7 @@ az functionapp show --name "<FUNCTION_APP_NAME>" --resource-group "<RESOURCE_GRO
 
 ---
 
-After verifying the version, test your functions to ensure they work correctly:
-
-1. In the Azure portal, go to your function app and select **Functions** on the side menu.
-1. Select a function and choose **Code + Test**.
-1. Select **Test/Run** and execute a test request to verify the function runs successfully.
-1. Check the **Logs** pane for any errors or warnings.
+After verifying the version, also verify that your functions work as expected.
 
 ## Swap slots
 
