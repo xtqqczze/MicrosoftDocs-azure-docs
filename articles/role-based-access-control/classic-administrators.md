@@ -33,7 +33,7 @@ What happens to classic administrator role assignments after December 2025?
 
 How can I tell if a classic administrator role assignment has been converted to the Owner role?
 
-- Co-Administrator and Service Administrator role assignments that have been converted to the Owner role will have the description **The Classic Admin role was converted to an Azure Owner role on behalf of the user due to Classic Admin retirement.**
+- Co-Administrator and Service Administrator role assignments that were converted to the Owner role have the description **The Classic Admin role was converted to an Azure Owner role on behalf of the user due to Classic Admin retirement** and were created by the principal **0469d4cd-df37-4d93-8a61-f8c75b809164**.
 
 How do I know what subscriptions have classic administrators?
 
