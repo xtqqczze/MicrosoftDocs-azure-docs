@@ -1,18 +1,17 @@
 ---
-title: Quickstart for Azure App Configuration with .NET Aspire
-description: Create an Aspire project with Azure App Configuration to centralize storage and management of application settings.
+title: Quickstart for Azure App Configuration with Aspire
+description: Create an Aspire solution with Azure App Configuration to centralize storage and management of application settings.
 services: azure-app-configuration
 author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-other, engagement-fy23
 ms.topic: quickstart
 ms.date: 12/3/2025
 ms.author: zhiyuanliang
 #Customer intent: As an Aspire developer, I want to learn the centralized configuration cloud-native solution for Aspire.
 ---
 
-# Quickstart: Create an Aspire project with Azure App Configuration
+# Quickstart: Create an Aspire solution with Azure App Configuration
 
 In this quickstart, you'll use Azure App Configuration to externalize storage and management of your app settings for an Aspire project. You will use Azure App Configuration Aspire integration libraries to provision an App Configuration resource and use App Configuration in each distributed app.
 
@@ -38,11 +37,11 @@ The Aspire Starter template includes a frontend Blazor app that communicates wit
 
 1. Go to the `AppHost` project. Add the [`Aspire.Hosting.Azure.AppConfiguration`](https://www.nuget.org/packages/Aspire.Hosting.Azure.AppConfiguration) Nuget package. 
 
-1. Go the `*.AppHost.csproj` Make sure that the `Aspire.Hosting.AppHost` package version is not ealier than the version you installed. Otherwise, you need to upgrade the `Aspire.Hosting.AppHost` package.
+1. Open the *AppHost.csproj*. Make sure that the `Aspire.Hosting.AppHost` package version is not ealier than the version you installed. Otherwise, you need to upgrade the `Aspire.Hosting.AppHost` package.
 
-1. Open the `AppHost.cs` file and add the following code.
+1. Open the *AppHost.cs* file and add the following code.
 
-    ```c#
+    ```csharp
     var builder = DistributedApplication.CreateBuilder(args);
 
     // Add an Azure App Configuration resource
@@ -51,7 +50,7 @@ The Aspire Starter template includes a frontend Blazor app that communicates wit
 
 1. Add the reference of App Configuration resource and configure the `webfrontend` project to wait for it.
 
-    ```c#
+    ```csharp
     builder.AddProject<Projects.AspireApp_Web>("webfrontend")
         .WithExternalHttpEndpoints()
         .WithHttpHealthCheck("/health")
@@ -90,24 +89,24 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
 | Key       | Value                                |
 |-----------|--------------------------------------|
-| *Message* | *Hello from Azure App Configuration!* |
+| *TestApp:Settings:Message* | *Hello from Azure App Configuration!* |
 
 ## Use App Configuration in the web application
 
 1. Go to the `Web` project. Add the [`Aspire.Microsoft.Extensions.Configuration.AzureAppConfiguration`](https://www.nuget.org/packages/Aspire.Microsoft.Extensions.Configuration.AzureAppConfiguration) Nuget package. 
 
-1. Open the `Program.cs` file and add the following code.
+1. Open the *Program.cs* file and add the following code.
 
-    ```c#
+    ```csharp
     var builder = WebApplication.CreateBuilder(args);
 
     // Use Azure App Configuration
     builder.AddAzureAppConfiguration("appconfiguration"); // use the resource name defined in AppHost project
     ```
 
-1. Open the `Components/Pages/Home.razor` file and add the following code.
+1. Open the *Components/Pages/Home.razor* file and add the following code.
 
-    ```c#
+    ```csharp
     @page "/"
 
     @inject IConfiguration Configuration
@@ -130,13 +129,13 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
         protected override void OnInitialized()
         {
-            var configured = Configuration["Message"];
+            var configured = Configuration["TestApp:Settings:Message"];
             message = string.IsNullOrWhiteSpace(configured) ? null : configured;
         }
     }
     ```
 
-1. Restart the `AppHost` project. Click the URL of the web frontend. 
+1. Restart the `AppHost` project. Go to the Aspire dashboard and click the URL of the web frontend. 
 
     :::image type="content" source="media/aspire/dashboard-updated.jpg" alt-text="Screenshot of Aspire dashboard showing resources.":::
 

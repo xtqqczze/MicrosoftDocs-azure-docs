@@ -96,7 +96,7 @@ landingContent:
         - text: Use dynamic config in ASP.NET (.NET Framework)
           url: enable-dynamic-configuration-aspnet-netfx.md
         - text: Use dynamic config in Aspire
-          url: quickstart-aspire-configuration-refresh.md
+          url: enable-dynamic-configuration-aspire.md
         - text: Use dynamic config in .NET
           url: enable-dynamic-configuration-dotnet-core.md
         - text: Use dynamic config in .NET Framework

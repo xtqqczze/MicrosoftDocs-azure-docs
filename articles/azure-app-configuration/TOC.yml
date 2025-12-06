@@ -30,7 +30,7 @@
     - name: Configuration
       href: quickstart-aspire.md
     - name: Dynamic configuration
-      href: quickstart-aspire-configuration-refresh.md
+      href: enable-dynamic-configuration-aspire.md
     - name: Feature management
       href: quickstart-aspire-feature-flag.md
   - name: .NET
@@ -480,6 +480,8 @@
     items:
     - name: Overview
       href: emulator-overview.md
+    - name: Use local emulator in Aspire
+      href: use-emulator-aspire.md
   - name: Deployment
     items:
     - name: ARM template
