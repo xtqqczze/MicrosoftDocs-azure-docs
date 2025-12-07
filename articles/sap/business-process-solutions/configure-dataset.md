@@ -4,8 +4,7 @@ description: Learn how to configure datasets in Business Process Solutions, incl
 author: mohitmakhija1
 ms.service: sap-on-azure
 ms.subservice:
-ms.topic: overview
-ms.custom: subject-monitoring
+ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: momakhij
 ---
@@ -13,6 +12,16 @@ ms.author: momakhij
 # Configure dataset in Business Process Solutions
 
 Datasets are collections of objects used as sources for data extraction from the business application. Business Process Solutions provides prebuilt templates to accelerate analytics for selected functional areas. You can also create custom datasets to cover additional requirements. In this article, we describe the steps required to configure Dataset in Business Process Solutions. This document contains steps on how you can set up the dataset by importing template datasets depending on the source system you configure in your Business Process Solution item.
+Prebuilt Power BI dashboards in Business Process Solutions rely on specific datasets as their foundation. The table below shows the required mapping between dashboards and datasets:
+
+| Power BI Dashboard                        | Dataset                                             |
+|-------------------------------------------|-----------------------------------------------------|
+| Record to Report - Financial Insights     | Record to Report - Financial Insights               |
+| Record to Report - Account Payables       | Record to Report - Account Payables Insights        |
+| Record to Report - Account Receivables    | Record to Report - Account Receivables Insights     |
+| Procure to Pay - Spend Insights           | Procure to Pay - Spend Insights                     |
+| Order to Cash - Sales Insights            | Order to Cash - Sales Insights                      |
+| Order to Cash - Opportunity Insights      | Order to Cash - Opportunities Insights              |
 
 ## Import dataset from template
 
@@ -81,6 +90,11 @@ To create new relationships between tables, follow the steps:
 
 To delete existing relationships between tables, you can select the relationship and click on the **Delete** button. This removes the relationship from the dataset, but this won't delete the surrogate keys which are already created in the fact tables.
    :::image type="content" source="./media/configure-dataset/delete-relationship.png" alt-text="Screenshot showing how to delete a relationship." lightbox="./media/configure-dataset/delete-relationship.png":::
+
+### Edit relationships
+
+To edit existing relationships between tables, you can select the relationship and scroll to the right to the action column, click on the **Edit** button. This allows you to modify the relationship details.
+   :::image type="content" source="./media/configure-dataset/edit-relationship.png" alt-text="Screenshot showing how to edit a relationship." lightbox="./media/configure-dataset/edit-relationship.png":::
 
 ## Next steps
 

@@ -4,8 +4,7 @@ description: Learn how to configure insights in Business Process Solutions, incl
 author: mohitmakhija1
 ms.service: sap-on-azure
 ms.subservice:
-ms.topic: overview
-ms.custom: subject-monitoring
+ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: momakhij
 ---

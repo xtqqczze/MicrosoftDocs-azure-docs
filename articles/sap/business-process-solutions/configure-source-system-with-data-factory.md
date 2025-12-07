@@ -4,8 +4,7 @@ description: Learn how to configure SAP source systems with Azure Data Factory i
 author: mohitmakhija1
 ms.service: sap-on-azure
 ms.subservice:
-ms.topic: overview
-ms.custom: subject-monitoring
+ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: momakhij
 ---
@@ -23,6 +22,15 @@ Before implementing Business Process Solutions, review the following SAP Notes t
 - 2930269 - ABAP CDS CDC : Common issues, troubleshooting and components (all notes listed in the point 9 of this SAP Note).
 - 3077184 - Use new CDS-Views for SAP S/4HANA SD and Billing Document Data.
 - 3031375 - Customer specific setting for bucket size in CDC extraction.
+
+### Collect information about your source SAP system:
+
+To create a source system and establish connectivity you’ll require following information:
+
+- Hostname or the IP address of the SAP system
+- System number
+- System ID (SID)
+- Credentials
 
 ### Register services in Azure Subscription
 

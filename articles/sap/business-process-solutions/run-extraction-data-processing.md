@@ -4,8 +4,7 @@ description: This article provides detailed instructions for running data extrac
 author: mohitmakhija1
 ms.service: sap-on-azure
 ms.subservice:
-ms.topic: overview
-ms.custom: subject-monitoring
+ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: momakhij
 ---

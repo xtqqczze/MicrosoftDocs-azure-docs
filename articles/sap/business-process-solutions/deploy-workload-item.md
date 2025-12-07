@@ -4,8 +4,7 @@ description: Learn the prerequisites and steps to get started with Business Proc
 author: mohitmakhija1
 ms.service: sap-on-azure
 ms.subservice:
-ms.topic: overview
-ms.custom: subject-monitoring
+ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: momakhij
 ---
@@ -20,50 +19,43 @@ Business Process Solutions is delivered as a Fabric workload, which runs entirel
 
 | Fabric capacity region | BPS Service Region |
 |------------------------|------------------------|
-| East US | East US |
-| Central US | East US |
-| North Central US | East US |
-| West Central US | East US |
-| East US 2 | East US |
-| South Central US | East US |
-| West US | East US |
-| West US 2 | East US |
-| North Europe | West Europe |
-| West Europe | West Europe |
-| Germany West Central | West Europe |
-| Germany Central | West Europe |
-| Germany Northeast | West Europe |
-| Germany North | West Europe |
-| Italy North | West Europe |
-| Norway East | West Europe |
-| Norway West | West Europe |
-| Poland Central | West Europe |
-| Spain Central | West Europe |
-| Sweden Central | West Europe |
-| Switzerland North | West Europe |
-| Switzerland West | West Europe |
-| UK South | West Europe |
-| UK West | West Europe |
-| France Central | West Europe |
-| Southeast Asia | Australia East |
-| East Asia | Australia East |
-| Japan East | Australia East |
-| Japan West | Australia East |
-| Korea Central | Australia East |
-| Korea South | Australia East |
-| China North | Australia East |
-| China North 2 | Australia East |
-| China North 3 | Australia East |
-| China East | Australia East |
-| China East 2 | Australia East |
-| China East 3 | Australia East |
-| Central India | Australia East |
-| South India | Australia East |
-| West India | Australia East |
-| Israel Central | Australia East |
-| UAE Central | Australia East |
-| UAE North | Australia East |
-
+| East US                | East US                |
+| Central US             | East US                |
+| North Central US       | East US                |
+| West Central US        | East US                |
+| East US 2              | East US                |
+| South Central US       | East US                |
+| West US                | East US                |
+| West US 2              | East US                |
+| North Europe           | West Europe            |
+| West Europe            | West Europe            |
+| Germany West Central   | West Europe            |
+| Germany Central        | West Europe            |
+| Germany Northeast      | West Europe            |
+| Germany North          | West Europe            |
+| Italy North            | West Europe            |
+| Norway East            | West Europe            |
+| Norway West            | West Europe            |
+| Poland Central         | West Europe            |
+| Spain Central          | West Europe            |
+| Sweden Central         | West Europe            |
+| Switzerland North      | West Europe            |
+| Switzerland West       | West Europe            |
+| UK South               | West Europe            |
+| UK West                | West Europe            |
+| France Central         | West Europe            |
+| Southeast Asia         | Australia East         |
+| East Asia              | Australia East         |
+| Japan East             | Australia East         |
+| Japan West             | Australia East         |
+| Korea Central          | Australia East         |
+| Korea South            | Australia East         |
+| Central India          | Australia East         |
+| South India            | Australia East         |
+| West India             | Australia East         |
+| Israel Central         | Australia East         |
+| UAE Central            | Australia East         |
+| UAE North              | Australia East         |
 
 ## Deploying Business Process Solution in Microsoft Fabric
 
