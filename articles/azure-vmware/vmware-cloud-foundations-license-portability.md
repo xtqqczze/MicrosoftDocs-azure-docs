@@ -28,20 +28,20 @@ When using portable VCF (BYOL), you must still request capacity (quotas) for Azu
 
 Always ensure your Broadcom purchased VCF core count covers the scale you need. 
 
-For further details on how to request host quotas for AVS, refer here. 
+For further details on how to request host quotas for AVS, refer [here](https://learn.microsoft.com/en-us/azure/azure-vmware/request-host-quota-azure-vmware-solution). 
 
 ## Trials on Azure VMware Solution
 
-Trials on Azure VMware Solution were previously available for partners and customers for 30 days duration. We are now making Azure VMware 3 node trials available for 60 days to customers and partners. You are required to register a valid trial VCF key purchased from Broadcom on your trial Azure VMware Solution private cloud. Refer to this [section]() to see how to register.  
+Trials on Azure VMware Solution were previously available for partners and customers for 30 days duration. Azure VMware 3 node trials are now available for 60 days to customers and partners. Customers are required to provide a valid trial VCF key from Broadcom before the Azure VMware Solution trial can be deployed. Existing trials in progress before Nov 1 are required to update their VCF key in the azure portal on their Azure VMware Solution private cloud.  
 
-The trials once deployed and reaching the 60-day time limit will automatically switch to billed hosts unless the trial deployment is deleted before the 60th day. If you don’t already have a VCF-included RI purchased, you are required to provide your Broadcom purchased VCF (BYOL) before your trial ends. Lack of compliance can impact the continuity of your Azure VMware Solution private cloud. 
+After 60 days, deployed trials automatically switch to billed hosts unless you delete the deployment before 60 days elapses. If you don’t already have a VCF-included RI purchased, you are required to provide your Broadcom purchased VCF (BYOL) before your trial ends. Adherence to licensing compliance will ensure successful continuity of your Azure VMware Solution private cloud. 
 
 ## How to configure Portable VCF (BYOL) on your AVS Private Cloud 
 
 Register the portable VCF details on your Azure VMware Solution private cloud through Azure portal. This feature is currently only available through the Azure portal.
 This can be done in one of two ways: 
-1. Configure portable VCF (BYOL) while creating a new Azure VMware Solution private cloud.
-2. Enable portable VCF (BYOL) on an existing Azure VMware Solution private cloud.
+  * Configure portable VCF (BYOL) while creating a new Azure VMware Solution private cloud.
+  * Enable portable VCF (BYOL) on an existing Azure VMware Solution private cloud.
 
 ### Configure portable VCF (BYOL) while creating a new Azure VMware Solution private cloud
 
@@ -49,13 +49,13 @@ When you create a new AVS Private Cloud via the Azure portal, you will be presen
 
 :::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-create-new-private-cloud-with-vcf-byol.png" alt-text="Screenshot of how to register your VCF portable subscription entitlements with Microsoft." border="false":::
 
-Click on the “Configure” and provide all the required details: 
-1. VCF license/subscription key (the 25-character key from Broadcom) <insert-link-where-to-find-key-whats-the-right-key>
+Click on “Configure” and provide all the required details: 
+1. VCF license/subscription key (the 25-character key from Broadcom, refer [here](https://knowledge.broadcom.com/external/article/145804/download-license-keys-for-broadcom-ca-sy.html))
 2. Number of cores you wish to bring to this AVS Private Cloud (Note: this cannot exceed the cores purchased under the provided VCF key from Broadcom). 
 3. License expiration date (the end date of your VCF subscription purchased from Broadcom). 
 4. Broadcom Site ID associated with your contract. 
 
-Where to find the all the above requirement information: <insert-link-to-brdcm-support>
+Refer [here](https://knowledge.broadcom.com/external/article/145804/download-license-keys-for-broadcom-ca-sy.html) to find the all the above requirement information.
 
 :::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-create-new-private-cloud-with-vcf-byol-side-pane.png" alt-text="Screenshot of how to register your VCF portable subscription entitlements with Microsoft." border="false":::
 
@@ -67,7 +67,7 @@ You can convert an already running AVS Private Cloud to use your own VCF without
 :::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-manage-pane.png" alt-text="Screenshot of how to register your VCF portable subscription entitlements with Microsoft." border="false":::
 
 Click on the “Configure” under “VCF license details” and provide all the required details: 
-1. VCF license/subscription key (the 25-character key from Broadcom) <<insert link to which key>>
+1. VCF license/subscription key (the 25-character key from Broadcom. refer [here](https://knowledge.broadcom.com/external/article/145804/download-license-keys-for-broadcom-ca-sy.html))
 2. Number of cores you wish to bring to this AVS Private Cloud (Note: this cannot exceed the cores purchased under the provided VCF key from Broadcom). 
 3. License expiration date (the end date of your VCF subscription purchased from Broadcom). 
 4. Broadcom Site ID associated with your contract.
@@ -84,7 +84,7 @@ This applies to all host types: VCF-included hosts and portable VCF (BYOL) hosts
 
 If you attempt to enable firewall features without having a Broadcom firewall subscription (or without registering it), you will be out of compliance. Microsoft holds the right to suspend your Azure VMware Solution private cloud under these circumstances until resolution.  
 
-More information on the VMware vDefend Firewall feature set can be found on Broadcom documention <insert-link>.  Please note that all listed firewall features may not be supported on Azure VMware Solution. Please check with the Microsoft team for additional details. 
+More information on the VMware vDefend Firewall feature set can be found on Broadcom documention [here](https://knowledge.broadcom.com/external/article/145804/download-license-keys-for-broadcom-ca-sy.html).  Please note that all listed firewall features may not be supported on Azure VMware Solution. Please check with the Microsoft team for additional details. 
 
 :::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-manage-firewall-configure.png" alt-text="Screenshot of how to register your VCF portable subscription entitlements with Microsoft." border="false":::
 
@@ -106,7 +106,10 @@ If you intend to utilize vDefend Firewall with Advanced Threat Prevention, pleas
 
 2. Mutiply the number of hosts by cores per host:
    * Example if you want to use portable VCF for 3 AV64 hosts in your Azure VMware Solution private cloud, the portable VCF cores required: 3 hosts * 64 cores per host = 192 cores
-<Add-note-for-mixed-billing-on-a-private-cloud>
+3. Mixed billing scenario
+  * If your AVS private cloud has 3 AV36P hosts and you want to add 4 more AV36P VCF BYOL hosts
+  * Total VCF cores required = (3 * 36) from AVS license included + (4 * 36) from BYOL license = 108 + 144 = 252
+  * Register 144 cores ONLY for BYOL though you purchased the license for more than 144 cores. This will help you receive the 100% RI utilization benefit.
 
 >[!NOTE]
 > Always confirm your Broadcom license covers the total cores for your planned deployment. 
@@ -232,7 +235,7 @@ Tip: After reconfiguring, always check back to confirm your registration status 
 If you continue to experience issues, please contact your Microsoft Support for assistance. 
 
 ## Frequently Asked Questions
-#### 1. Is the portable VCF (BYOL) offering available in all regions and clouds, including Government (Azure Gov) Cloud? 
+#### 1. Is the portable VCF (BYOL) offering available in all regions and clouds, including Azure Government Cloud? 
 Portable VCF (BYOL) is available in all Azure public and Gov regions where AVS is supported. 
  
 #### 2. What if my VCF subscription expires before my AVS Reserved Instance (RI) term ends?
