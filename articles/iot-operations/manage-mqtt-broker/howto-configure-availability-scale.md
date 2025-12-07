@@ -5,13 +5,10 @@ author: sethmanheim
 ms.author: sethm
 ms.topic: how-to
 ms.subservice: azure-mqtt-broker
-ms.custom:
-  - ignite-2023
-  - build-2025
 ms.date: 05/14/2025
-
-#CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ms.service: azure-iot-operations
+
+# CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ---
 
 # Configure broker settings for high availability, scaling, and memory usage
