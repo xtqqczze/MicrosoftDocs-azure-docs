@@ -1,21 +1,21 @@
 ---
-title: Configure object REST API access in Azure NetApp Files 
-description: Learn how to configure object REST API access to manage S3 objects in Azure NetApp Files. 
+title: Configure object REST API in Azure NetApp Files 
+description: Learn how to configure object REST API to manage S3 objects in Azure NetApp Files. 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/17/2025
+ms.date: 10/29/2025
 ms.author: anfdocs
 ---
 
-# Configure object REST API access in Azure NetApp Files (preview)
+# Configure object REST API in Azure NetApp Files (preview)
 
 Azure NetApp Files supports access to S3 objects with the [object REST API](object-rest-api-introduction.md) feature. With the object REST API feature, you can connect to services including Azure AI Search, Azure AI Foundry, Azure Databricks, OneLake, and others.
 
 ## Register the feature 
 
-The object REST API feature in Azure NetApp Files is currently in preview. You must submit a [waitlist request](https://forms.office.com/r/pTpTESUSZb) to use the object REST API feature. Activation takes approximately one week. An email notification is sent to confirm your enrollment in the preview. 
+The object REST API feature in Azure NetApp Files is currently in preview. You must submit a [waitlist request](https://aka.ms/ANF-object-REST-API-signup) to use the object REST API feature. Activation takes approximately one week. An email notification is sent to confirm your enrollment in the preview. 
 
 ## Create the self-signed certificate
 
@@ -79,7 +79,8 @@ To enable object REST API, you must create a bucket.
         Specify the name for your bucket. Refer to [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftnetapp) for naming conventions.
     * **Path**
 
-        The subdirectory path for object REST API access. For full volume access, leave this field blank or use `/` for the root directory.
+        The subdirectory path for object REST API. For full volume access, leave this field blank or use `/` for the root directory.
+        
     * **User ID (UID)**
 
         The UID used to read the bucket.
