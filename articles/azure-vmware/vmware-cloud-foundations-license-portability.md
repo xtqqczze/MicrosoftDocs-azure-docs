@@ -24,7 +24,7 @@ If you have an active RI for VCF-included hosts and want to add new hosts, you c
 The VMware vDefend Firewall is an add-on feature for Azure VMware Solution. Those with active RIs for VCF-included hosts and vDefend Firewall enabled prior to October 16th may continue to use the same number of eligible vDefend firewall cores until the RI expires. After your RI expires, or if your vDefend Firewall core usage exceeds the eligible VCF-included cores as of October 15th, 2025, you must provide your own VCF vDefend Firewall add-on license key for continued or additional usage. 
 
 ## Quota request for portable VCF (BYOL) 
-When using portable VCF (BYOL), you must still request capacity (quotas) for Azure VMware Solution hosts as usual. Microsoft needs to ensure you don’t deploy more nodes than you have licensed, so the approved quota may be capped by your entitled cores.  
+When using portable VCF (BYOL), you must still request capacity (quotas) for Azure VMware Solution hosts as usual. 
 
 Always ensure your Broadcom purchased VCF core count covers the scale you need. 
 
