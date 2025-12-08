@@ -1,11 +1,12 @@
 ---
-title: Set up a scale-out process server during disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs'
+title: "Set up a scale-out process server during disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs"
+ms.reviewer: v-gajeronika
 description: This article describes how to set up scale-out process server during disaster recovery of VMware VMs and physical servers.
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: v-gajeronika
-ms.date: 09/11/2024
+ms.date: 12/08/2025
 ms.custom:
   - sfi-image-nochange
   - sfi-ropc-nochange
@@ -54,7 +55,7 @@ Download the installation file for the process server as follows:
 3. Select the configuration server to drill down into the server details. Then click **+ Process Server**.
 4. In **Add Process server** >  **Choose where you want to deploy your process server**, select **Deploy a Scale-out Process Server on-premises**.
 
-   ![Add Servers Page](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+   :::image type="content" source="./media/vmware-azure-set-up-process-server-scale/add-process-server.png" alt-text="Screenshot of Add Servers Page.":::
 1. Click **Download the Microsoft Azure Site Recovery Unified Setup**. This downloads the latest version of the installation file.
 
    > [!WARNING]
@@ -100,4 +101,5 @@ If you need to set up a proxy, the ProxySettingsFilePath parameter takes a file 
 ```
 
 ## Next steps
+
 Learn about [managing process server settings](vmware-azure-manage-process-server.md)
