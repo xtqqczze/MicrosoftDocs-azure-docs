@@ -4,7 +4,7 @@ description: Complete service policy for Azure CycleCloud. See release types, re
 services: azure cyclecloud
 author: adriankjohnson
 ms.topic: concept-article
-ms.date: 11/21/2025
+ms.date: 12/08/2025
 ms.author: padmalathas
 ---
 
@@ -42,7 +42,7 @@ If your Azure CycleCloud installation is behind by more than two major release u
 
 For example, the two most recent update versions are:
 
-* Version 8:  8.7.2, 8.7.3
+* Version 8:  8.7.3, 8.8.0
 
 In this example, all versions listed are supported, and earlier versions are out of support.
 
