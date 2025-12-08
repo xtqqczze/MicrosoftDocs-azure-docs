@@ -58,7 +58,7 @@ This app-level setting also controls your plan's minimum instances. For example,
 
 #### [Portal](#tab/portal)
 
-You can configure the number of always ready instances in the Azure portal by selecting your **Function App**, going to the **Platform Features** tab, and selecting the **Scale Out** options. In the function app edit window, always ready instances are specific to that app.
+You can configure the number of always ready instances in the Azure portal by selecting your **Function App**, going to the **Scale Out** tab from the menu options on the left, and editing the **Elastic** **Scale Out** options. In the function app edit window, always ready instances are specific to that app.
 
 :::image type="content" source="media/functions-premium-plan/scale-out.png" alt-text="Screenshot that shows the elastic scale settings in the portal.":::
 
@@ -164,7 +164,7 @@ If your app requires instances beyond the always ready instances, it can continu
 
 ### [Portal](#tab/portal)
 
-You can configure the plan size and maximums in the Azure portal by selecting the **Scale Out** options under **Settings** of a function app deployed to that plan.
+You can configure the plan size and maximums in the Azure portal by selecting your **Function App** deployed to that plan, going to the **Scale Out** tab from the menu options on the left, and editing the **Elastic** **Scale Out** options.
 
 :::image type="content" source="media/functions-premium-plan/scale-out.png" alt-text="Screenshot showing the elastic plan size settings in the portal.":::
 
@@ -194,7 +194,7 @@ In most circumstances, this autocalculated minimum is sufficient. However, scali
 
 ### [Portal](#tab/portal)
 
-You can configure the minimum instances in the Azure portal by selecting the **Scale Out** options under **Settings** of a function app deployed to that plan.
+You can configure the minimum instances in the Azure portal by selecting your **Function App** deployed to that plan, going to the **Scale Out** tab from the menu options on the left, and editing the **Elastic** **Scale Out** options.
 
 :::image type="content" source="media/functions-premium-plan/scale-out.png" alt-text="Screenshot of the minimum instance settings in the portal.":::
 
