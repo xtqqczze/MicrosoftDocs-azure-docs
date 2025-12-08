@@ -136,6 +136,8 @@ landingContent:
         links:
           - text: Use the explorer
             url: use-explorer.md
+          - text: Build a web application
+            url: build-web-application.md
       - linkListType: how-to-guide
         links:
           - text: Application authentication

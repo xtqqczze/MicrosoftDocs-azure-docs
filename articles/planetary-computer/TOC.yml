@@ -81,6 +81,8 @@
     href: use-explorer.md
   - name: Application authentication
     href: application-authentication.md
+  - name: Build a web application
+    href: build-web-application.md
   - name: Connect to ArcGIS Pro
     href: create-connection-arc-gis-pro.md
   - name: Connect to QGIS

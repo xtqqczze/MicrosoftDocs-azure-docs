@@ -13,7 +13,36 @@ ms.date: 12/08/2024
 
 # Quickstart: Build a web application with Microsoft Planetary Computer Pro
 
-In this quickstart, you learn how to build a web application that authenticates users via Microsoft Entra ID and displays geospatial data from a Microsoft Planetary Computer Pro GeoCatalog. The patterns shown here work with any modern JavaScript framework (React, Vue, Angular) or vanilla JavaScript.
+In this quickstart, you build a web application that displays satellite imagery and geospatial data from your GeoCatalog on an interactive map. You'll authenticate users with Microsoft Entra ID, query STAC collections, and render map tiles—all from browser JavaScript.
+
+**What you'll learn:**
+
+- Authenticate users and acquire access tokens using MSAL.js
+- Query the STAC API to discover collections and items
+- Display raster tiles on a MapLibre GL map with authorization headers
+- Create seamless mosaic layers across entire collections
+- Download raw assets using SAS tokens
+
+The code patterns work with any modern JavaScript framework (React, Vue, Angular) or vanilla JavaScript. GeoCatalog APIs have full CORS support, so you can call them directly from `localhost` during development—no proxy required.
+
+## Table of contents
+
+- [Architecture overview](#architecture-overview)
+- [Prerequisites](#prerequisites)
+- Setup
+  - [Register your application in Microsoft Entra ID](#register-your-application-in-microsoft-entra-id)
+  - [Configure your application](#configure-your-application)
+  - [Install dependencies](#install-dependencies)
+  - [Implement MSAL authentication](#implement-msal-authentication)
+- API examples
+  - [STAC API: Query collections and items](#stac-api-query-collections-and-items)
+  - [Tile URLs: Build URLs for map visualization](#tile-urls-build-urls-for-map-visualization)
+  - [Map integration: Display tiles with MapLibre GL](#map-integration-display-tiles-with-maplibre-gl)
+  - [Mosaic tiles: Display collection-wide imagery](#mosaic-tiles-display-collection-wide-imagery)
+  - [SAS tokens: Download raw assets](#sas-tokens-download-raw-assets)
+- [Development considerations](#development-considerations)
+- [Troubleshooting](#troubleshooting)
+- [Next steps](#next-steps)
 
 ## Architecture overview
 
@@ -26,13 +55,11 @@ A typical GeoCatalog web application follows this architecture:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed [GeoCatalog resource](./deploy-geocatalog-resource.md) with at least one collection containing items.
+- Your user identity must have **GeoCatalog Reader** (or higher) access to the GeoCatalog resource. See [Manage access to a GeoCatalog resource](./manage-access.md).
 - [Node.js](https://nodejs.org/) version 18 or later.
-- A code editor such as [Visual Studio Code](https://code.visualstudio.com/).
 
-> [!TIP]
-> A complete reference implementation is available at [GitHub: MPC Pro Web Application](https://github.com/Azure/microsoft-planetary-computer-pro/tree/main/samples/web-application). You can use it as a starting point or reference while following this quickstart.
 
-## Step 1: Register your application in Microsoft Entra ID
+## Register your application in Microsoft Entra ID
 
 Before your web application can authenticate users, you need to register it in Microsoft Entra ID. This quickstart uses a **Single Page Application (SPA)** registration, which is ideal for client-side JavaScript applications and local development. The API integration patterns shown in later steps work with any application type.
 
@@ -41,12 +68,12 @@ Before your web application can authenticate users, you need to register it in M
 
 ### Register as a single-page application
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/).
-1. Go to **Identity** > **Applications** > **App registrations**.
+1. Go to **Microsoft Entra ID** in the Azure Portal. 
+1. Select **App registrations** from the side panel.
 1. Select **New registration**.
 1. Enter a name for your application (for example, "GeoCatalog Web App").
 5. Under **Supported account types**, select **Accounts in this organizational directory only**.
-1. Under **Redirect URI**, select **Single-page application (SPA)** and enter your development URL (for example, `http://localhost:3000` or `http://localhost:5173`).
+1. Under **Redirect URI**, select **Single-page application (SPA)** and enter your development URL (for example, `http://localhost:5173`).
 1. Select **Register**.
 
 After registration, note the following values from the **Overview** page:
@@ -63,7 +90,7 @@ Your application needs permission to call the GeoCatalog API on behalf of signed
 1. Select **Add permissions**.
 1. If you're an admin, select **Grant admin consent** to consent on behalf of all users in your tenant.
 
-## Step 2: Configure your application
+## Configure your application
 
 Your application needs the following configuration values. How you provide these values depends on your build tooling (environment variables, config files, and so on):
 
@@ -72,25 +99,29 @@ Your application needs the following configuration values. How you provide these
 | Catalog URL | `https://{name}.{region}.geocatalog.spatio.azure.com` | Your GeoCatalog endpoint |
 | Tenant ID | From app registration | Your Microsoft Entra tenant |
 | Client ID | From app registration | Your application's client ID |
-| API Scope | `https://geocatalog.spatio.azure.com/.default` | **Always use this exact value** |
+| API Scope | `https://geocatalog.spatio.azure.com/.default` | Always use this exact value |
 
-> [!IMPORTANT]
-> The API scope is `https://geocatalog.spatio.azure.com/.default`, **not** your GeoCatalog URL.
+## Install dependencies
 
-## Step 3: Install dependencies
-
-Install the Microsoft Authentication Library (MSAL) for browser applications, an HTTP client, and a map library:
+Install the Microsoft Authentication Library (MSAL) for browser applications and a map library:
 
 ```bash
-npm install @azure/msal-browser @azure/msal-react axios maplibre-gl
+npm install @azure/msal-browser maplibre-gl
 ```
 
 - **@azure/msal-browser** - Handles OAuth 2.0 authentication with Microsoft Entra ID
-- **@azure/msal-react** - React bindings for MSAL (optional, for React applications)
-- **axios** - HTTP client for API calls
 - **maplibre-gl** - Open-source map library for tile visualization
 
-## Step 4: Implement MSAL authentication
+> [!TIP]
+> **Project structure:** The code samples in this quickstart are standalone functions you can organize however you prefer. A common pattern:
+> - `auth.js` — MSAL configuration and token functions
+> - `api.js` — STAC API, Tiler API, and SAS token functions
+> - `map.js` — MapLibre initialization and tile layer management
+> - `App.js` or `main.js` — Wire everything together with your UI
+>
+> Each function receives its dependencies (access tokens, URLs) as parameters, making them easy to integrate into any framework or project structure.
+
+## Implement MSAL authentication
 
 [ ![Screenshot showing the authentication flow in a sample web application.](media/sample-authentication.gif) ](media/sample-authentication.gif#lightbox)
 
@@ -161,14 +192,9 @@ function logout() {
 }
 ```
 
-> [!TIP]
-> For React applications, the `@azure/msal-react` package provides hooks like `useMsal()` and components like `MsalProvider` that integrate MSAL with React's component lifecycle. See the [MSAL React documentation](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react) for details.
-
----
-
 ## STAC API: Query collections and items
 
-The GeoCatalog STAC API provides endpoints for discovering and querying geospatial data. All requests require an `Authorization` header with a Bearer token obtained from [Step 4](#step-4-implement-msal-authentication).
+The GeoCatalog STAC API provides endpoints for discovering and querying geospatial data. All requests require an `Authorization` header with a Bearer token obtained from [Implement MSAL authentication](#implement-msal-authentication).
 
 ### List collections
 
@@ -611,44 +637,29 @@ Handle common error scenarios:
 
 ## Troubleshooting
 
-### "AADSTS50011: Reply URL mismatch"
-
-The redirect URI in your code doesn't match the URI registered in Microsoft Entra ID. Add your development URL (for example, `http://localhost:3000`) as a SPA redirect URI in your app registration.
-
-### "Invalid scope" error during authentication
-
-You're using the wrong API scope. The scope must be `https://geocatalog.spatio.azure.com/.default`, not your GeoCatalog URL.
-
-### 401 Unauthorized on tile requests
-
-Map libraries don't automatically include authorization headers. Ensure:
-- You're using `transformRequest` (MapLibre) or equivalent to add the Bearer token.
-- The token is current and not expired.
-- The token variable is accessible to the request interceptor.
-
-### Tiles don't align with the basemap
-
-Ensure you're using `tileMatrixSetId=WebMercatorQuad` in your tile URLs. This setting matches the Web Mercator projection (EPSG:3857) used by most web basemaps.
-
-### "Could not decode image" errors
-
-The tile server might return an error response instead of an image:
-- **Wrong asset name**: Check the collection's `item_assets` for valid asset names
-- **Multiband imagery**: Use `asset_bidx=image|1,2,3` to select RGB bands.
-- **Outside data extent**: Tiles return 404/424 outside coverage area (expected)
+| Error | Cause | Solution |
+|-------|-------|----------|
+| "AADSTS50011: Reply URL mismatch" | Redirect URI in code doesn't match Microsoft Entra ID registration | Add your development URL (for example, `http://localhost:3000`) as a SPA redirect URI in your app registration |
+| "Invalid scope" error | Using GeoCatalog URL instead of API scope | Use `https://geocatalog.spatio.azure.com/.default` as the scope |
+| 401 Unauthorized on tile requests | Map library not including auth headers | Use `transformRequest` (MapLibre) to add the Bearer token; ensure token is current |
+| Tiles don't align with basemap | Wrong tile matrix set | Use `tileMatrixSetId=WebMercatorQuad` for Web Mercator projection (EPSG:3857) |
+| "Could not decode image" | Wrong asset name, multiband imagery, or outside data extent | Check `item_assets` for valid names; use `asset_bidx=image\|1,2,3` for RGB; 404/424 outside coverage is expected |
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure render options for collections](./render-configuration.md)
+> [Explore authentication patterns for different application types](./application-authentication.md)
 
 > [!div class="nextstepaction"]
-> [Learn about mosaic configurations](./mosaic-configurations-for-collections.md)
+> [View the data visualization sample gallery](./data-visualization-samples.md)
+
+> [!div class="nextstepaction"]
+> [Get started with data cubes for geospatial analysis](./data-cube-quickstart.md)
 
 ## Related content
 
 - [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md)
-- [Configure application authentication](./application-authentication.md)
-- [STAC specification](https://stacspec.org/)
+- [Use the GeoCatalog Explorer](./use-explorer.md)
+- [GeoCatalog REST API reference](/rest/api/planetarycomputer)
 - [MapLibre GL JS documentation](https://maplibre.org/maplibre-gl-js/docs/)
 - [MSAL.js documentation](https://github.com/AzureAD/microsoft-authentication-library-for-js)
