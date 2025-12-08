@@ -13,9 +13,9 @@ ms.date: 12/08/2024
 
 # Quickstart: Build a web application with Microsoft Planetary Computer Pro
 
-In this quickstart, you build a web application that displays satellite imagery and geospatial data from your GeoCatalog on an interactive map. You'll authenticate users with Microsoft Entra ID, query STAC collections, and render map tiles—all from browser JavaScript.
+In this quickstart, you build a web application that displays satellite imagery and geospatial data from your GeoCatalog on an interactive map. You authenticate users with Microsoft Entra ID, query STAC collections, and render map tiles—all from browser JavaScript.
 
-**What you'll learn:**
+**What you learn:**
 
 - Authenticate users and acquire access tokens using MSAL.js
 - Query the STAC API to discover collections and items
@@ -68,7 +68,7 @@ Before your web application can authenticate users, you need to register it in M
 
 ### Register as a single-page application
 
-1. Go to **Microsoft Entra ID** in the Azure Portal. 
+1. Go to **Microsoft Entra ID** in the Azure portal. 
 1. Select **App registrations** from the side panel.
 1. Select **New registration**.
 1. Enter a name for your application (for example, "GeoCatalog Web App").
@@ -114,10 +114,10 @@ npm install @azure/msal-browser maplibre-gl
 
 > [!TIP]
 > **Project structure:** The code samples in this quickstart are standalone functions you can organize however you prefer. A common pattern:
-> - `auth.js` — MSAL configuration and token functions
-> - `api.js` — STAC API, Tiler API, and SAS token functions
-> - `map.js` — MapLibre initialization and tile layer management
-> - `App.js` or `main.js` — Wire everything together with your UI
+> - `auth.js`: MSAL configuration and token functions
+> - `api.js`: STAC API, Tiler API, and SAS token functions
+> - `map.js`: MapLibre initialization and tile layer management
+> - `App.js` or `main.js`: Wire everything together with your UI
 >
 > Each function receives its dependencies (access tokens, URLs) as parameters, making them easy to integrate into any framework or project structure.
 
@@ -643,7 +643,7 @@ Handle common error scenarios:
 | "Invalid scope" error | Using GeoCatalog URL instead of API scope | Use `https://geocatalog.spatio.azure.com/.default` as the scope |
 | 401 Unauthorized on tile requests | Map library not including auth headers | Use `transformRequest` (MapLibre) to add the Bearer token; ensure token is current |
 | Tiles don't align with basemap | Wrong tile matrix set | Use `tileMatrixSetId=WebMercatorQuad` for Web Mercator projection (EPSG:3857) |
-| "Could not decode image" | Wrong asset name, multiband imagery, or outside data extent | Check `item_assets` for valid names; use `asset_bidx=image\|1,2,3` for RGB; 404/424 outside coverage is expected |
+| "Couldn't decode image" | Wrong asset name, multiband imagery, or outside data extent | Check `item_assets` for valid names; use `asset_bidx=image\|1,2,3` for RGB; 404/424 outside coverage is expected |
 
 ## Next steps
 
