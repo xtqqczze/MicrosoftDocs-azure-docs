@@ -6,9 +6,8 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/30/2025
+ms.date: 12/08/2025
 ai-usage: ai-assisted
-
 ---
 
 # Develop WebAssembly (WASM) modules and graph definitions for data flow graphs
@@ -16,9 +15,9 @@ ai-usage: ai-assisted
 This article shows you how to develop custom WebAssembly (WASM) modules and graph definitions for Azure IoT Operations data flow graphs. Create modules in Rust or Python to implement custom processing logic. Define graph configurations that specify how your modules connect into complete processing workflows.
 
 > [!IMPORTANT]
-> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported. For more information, see [Known issues](./troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
 
-To learn how to develop WASM modules using the VS Code extension, see [Build WASM modules with VS Code extension](./howto-build-wasm-modules-vscode.md).
+To learn how to develop WASM modules using the VS Code extension, see [Build WASM modules with VS Code extension](./wasm/howto-build-wasm-modules-vscode.md).
 
 ## Overview
 
@@ -112,21 +111,23 @@ The separation allows you to:
 ## Prerequisites
 
 Choose your development language and set up the required tools:
-
 # [Rust](#tab/rust)
 
 - **Rust toolchain**: Install with:
   ```bash
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   ```
+- **Why**: Provides `cargo`, `rustc`, and the standard library needed to compile operators.
 - **WASM target**: Add with:
   ```bash
   rustup target add wasm32-wasip2
   ```
+- **Why**: Azure IoT Operations runs WASM components built for the `wasm32-wasip2` target; without this target the build will fail.
 - **Build tools**: Install with:
   ```bash
   cargo install wasm-tools --version '=1.201.0' --locked
   ```
+- **Why**: `wasm-tools` provides utilities used by the builders and CI to validate and package WASM artifacts.
 
 # [Python](#tab/python)
 
@@ -135,27 +136,25 @@ Choose your development language and set up the required tools:
   ```bash
   pip install "componentize-py==0.14"
   ```
+- **Why**: Generates bindings and produces WASM components from Python sources that match the Azure IoT Operations WIT schemas.
 
 ---
 
 ## Configure development environment
 
 # [Rust](#tab/rust)
+The WASM Rust SDK is available through a custom Azure DevOps registry. Configure access with a workspace config file instead of environment variables:
 
-The WASM Rust SDK is available through a custom Azure DevOps registry. Configure access by setting these environment variables:
+```toml
+# .cargo/config.toml (at your workspace root)
+[registries]
+aio-wg = { index = "sparse+https://pkgs.dev.azure.com/azure-iot-sdks/iot-operations/_packaging/preview/Cargo/index/" }
 
-```bash
-export CARGO_REGISTRIES_AZURE_VSCODE_TINYKUBE_INDEX="sparse+https://pkgs.dev.azure.com/azure-iot-sdks/iot-operations/_packaging/preview/Cargo/index/"
-export CARGO_NET_GIT_FETCH_WITH_CLI=true
+[net]
+git-fetch-with-cli = true
 ```
 
-Add the following environment variables to your shell profile for persistent access:
-
-```bash
-echo 'export CARGO_REGISTRIES_AZURE_VSCODE_TINYKUBE_INDEX="sparse+https://pkgs.dev.azure.com/azure-iot-sdks/iot-operations/_packaging/preview/Cargo/index/"' >> ~/.bashrc
-echo 'export CARGO_NET_GIT_FETCH_WITH_CLI=true' >> ~/.bashrc
-source ~/.bashrc
-```
+This mirrors the sample layout at `samples/wasm/.cargo/config.toml` and keeps registry settings in version control.
 
 # [Python](#tab/python)
 
@@ -188,7 +187,6 @@ cd temperature-converter
 ### Configure Cargo.toml
 
 Edit the `Cargo.toml` file to include dependencies for the WASM SDK and other libraries:
-
 ```toml
 [package]
 name = "temperature-converter"
@@ -200,7 +198,7 @@ edition = "2021"
 wit-bindgen = "0.22"
 
 # Azure IoT Operations WASM SDK - provides operator macros and host APIs
-tinykube_wasm_sdk = { version = "0.2.0", registry = "azure-vscode-tinykube" }
+wasm_graph_sdk = { version = "=1.1.3", registry = "aio-wg" }
 
 # JSON serialization/deserialization for data processing
 serde = { version = "1", default-features = false, features = ["derive"] }
@@ -211,10 +209,14 @@ serde_json = { version = "1", default-features = false, features = ["alloc"] }
 crate-type = ["cdylib"]
 ```
 
+Notes on versions and registry:
+- The SDK version (`=1.1.3`) aligns with the current samples; keeping it pinned avoids breaking changes.
+- `registry = "aio-wg"` matches the registry entry defined in `.cargo/config.toml`.
+
 Key dependencies explained:
 
 - **`wit-bindgen`**: Generates Rust bindings from WebAssembly Interface Types (WIT) definitions, enabling your code to interface with the WASM runtime
-- **`tinykube_wasm_sdk`**: Azure IoT Operations SDK providing operator macros (`#[map_operator]`, `#[filter_operator]`, etc.) and host APIs for logging, metrics, and state management
+- **`wasm_graph_sdk`**: Azure IoT Operations SDK providing operator macros (`#[map_operator]`, `#[filter_operator]`, etc.) and host APIs for logging, metrics, and state management
 - **`serde` + `serde_json`**: JSON processing libraries for parsing and generating data payloads; `default-features = false` optimizes for WASM size constraints
 - **`crate-type = ["cdylib"]`**: Compiles the Rust library as a C-compatible dynamic library, which is required for WASM module generation
 
@@ -236,7 +238,6 @@ Python WASM modules don't require other project configuration files. The Python 
 Create a simple module that converts temperature from Celsius to Fahrenheit. This example demonstrates the basic structure and processing logic for both Rust and Python implementations.
 
 # [Rust](#tab/rust)
-
 ```rust
 use serde_json::{json, Value};
 
@@ -244,7 +245,7 @@ use wasm_graph_sdk::logger::{self, Level};
 use wasm_graph_sdk::macros::map_operator;
 
 fn fahrenheit_to_celsius_init(_configuration: ModuleConfiguration) -> bool {
-    logger::log(Level::Info, "temperature-converter", "Init invoked");
+    logger::log(Level::Info, "temperature-converter", "Init invoked"); // one-time module init
     true
 }
 
@@ -256,17 +257,18 @@ fn fahrenheit_to_celsius(input: DataModel) -> Result<DataModel, Error> {
         });
     };
 
-    let payload = &result.payload.read();
+    let payload = &result.payload.read(); // payload bytes from inbound message
     if let Ok(data_str) = std::str::from_utf8(payload) {
         if let Ok(mut data) = serde_json::from_str::<Value>(data_str) {
             if let Some(temp) = data["temperature"]["value"].as_f64() {
-                let fahrenheit = (temp * 9.0 / 5.0) + 32.0;
+                let fahrenheit = (temp * 9.0 / 5.0) + 32.0; // Celsius -> Fahrenheit
                 data["temperature"] = json!({
                     "value_fahrenheit": fahrenheit,
                     "original_celsius": temp
                 });
 
                 if let Ok(output_str) = serde_json::to_string(&data) {
+                    // Replace payload with owned bytes so the host receives the updated JSON
                     result.payload = BufferOrBytes::Bytes(output_str.into_bytes());
                 }
             }
@@ -293,41 +295,34 @@ class Map(exports.Map):
         return True
 
     def process(self, message: types.DataModel) -> types.DataModel:
-        # Ensure the input is of the expected type  
+        # Expect a typed message
         if not isinstance(message, types.DataModel_Message):
-            imports.logger.log(imports.logger.Level.ERROR, "temperature-converter", "Unexpected input type")
-            return message
+            raise ValueError("Unexpected input type: Expected DataModel_Message")
 
-        # Extract and decode the payload
-        buffer = message.value.payload.value
-        payload = buffer.read()
-        data_str = payload.decode('utf-8')
-        
-        try:
-            data = json.loads(data_str) 
-            # Process temperature conversion logic
-            if 'value' in data and 'temperature' in data['value']:
-                celsius = float(data['value']['temperature'])
-                fahrenheit = (celsius * 9/5) + 32
-                
-                output = {
-                    'value': {
-                        'temperature_fahrenheit': fahrenheit,
-                        'original_celsius': celsius
-                    }
-                }
-                
-                output_str = json.dumps(output)
-                output_bytes = output_str.encode('utf-8')
-                
-                # Update the message payload
-                message.value.payload = types.BufferOrBytes_Bytes(value=output_bytes)
-            
-            return message  # Return the modified message
-            
-        except Exception as e:
-            imports.logger.log(imports.logger.Level.ERROR, "temperature-converter", f"Error: {e}")
-            return message
+        # Extract payload (Buffer from host or Bytes inline)
+        payload_variant = message.value.payload
+        if isinstance(payload_variant, types.BufferOrBytes_Buffer):
+            payload = payload_variant.value.read()
+        elif isinstance(payload_variant, types.BufferOrBytes_Bytes):
+            payload = payload_variant.value
+        else:
+            raise ValueError("Unexpected payload type")
+
+        decoded = payload.decode("utf-8")
+        data = json.loads(decoded)
+
+        # Convert Fahrenheit to Celsius if present
+        if "temperature" in data and "value" in data["temperature"]:
+            temp_f = data["temperature"]["value"]
+            if isinstance(temp_f, (int, float)):
+                temp_c = (temp_f - 32) * 5.0 / 9.0
+                data["temperature"]["value"] = temp_c
+                data["temperature"]["unit"] = "C"
+
+                updated_payload = json.dumps(data).encode("utf-8")
+                message.value.payload = types.BufferOrBytes_Bytes(value=updated_payload)
+
+        return message
 ```
 
 ---
@@ -341,10 +336,9 @@ Choose between local development builds or containerized builds based on your de
 Build directly on your development machine for fastest iteration during development and when you need full control over the build environment.
 
 # [Rust](#tab/rust)
-
 ```bash
 # Build WASM module
-cargo build --release --target wasm32-wasip2
+cargo build --release --target wasm32-wasip2  # target required for Azure IoT Operations WASM components
 
 # Find your module  
 ls target/wasm32-wasip2/release/*.wasm
@@ -435,7 +429,6 @@ For comprehensive examples, see the [Python examples](https://github.com/Azure-S
 ---
 
 ## SDK reference and APIs
-
 # [Rust](#tab/rust)
 
 The WASM Rust SDK provides comprehensive development tools:
@@ -443,8 +436,8 @@ The WASM Rust SDK provides comprehensive development tools:
 #### Operator macros
 
 ```rust
-use tinykube_wasm_sdk::macros::{map_operator, filter_operator, branch_operator};
-use tinykube_wasm_sdk::{DataModel, HybridLogicalClock};
+use wasm_graph_sdk::macros::{map_operator, filter_operator, branch_operator};
+use wasm_graph_sdk::{DataModel, HybridLogicalClock};
 
 // Map operator - transforms each data item
 #[map_operator(init = "my_init_function")]
@@ -470,8 +463,8 @@ fn my_branch(input: DataModel, timestamp: HybridLogicalClock) -> bool {
 Your WASM operators can receive runtime configuration parameters through the `ModuleConfiguration` struct passed to the `init` function. These parameters are defined in the graph definition and allow runtime customization without rebuilding modules.
 
 ```rust
-use tinykube_wasm_sdk::logger::{self, Level};
-use tinykube_wasm_sdk::ModuleConfiguration;
+use wasm_graph_sdk::logger::{self, Level};
+use wasm_graph_sdk::ModuleConfiguration;
 
 fn my_operator_init(configuration: ModuleConfiguration) -> bool {
     // Access required parameters
@@ -500,7 +493,7 @@ Use the SDK to work with distributed services:
 State store for persistent data:
 
 ```rust
-use tinykube_wasm_sdk::state_store;
+use wasm_graph_sdk::state_store;
 
 // Set value
 state_store::set(key.as_bytes(), value.as_bytes(), None, None, options)?;
@@ -515,7 +508,7 @@ state_store::del(key.as_bytes(), None, None)?;
 Structured logging:
 
 ```rust
-use tinykube_wasm_sdk::logger::{self, Level};
+use wasm_graph_sdk::logger::{self, Level};
 
 logger::log(Level::Info, "my-operator", "Processing started");
 logger::log(Level::Error, "my-operator", &format!("Error: {}", error));
@@ -524,7 +517,7 @@ logger::log(Level::Error, "my-operator", &format!("Error: {}", error));
 OpenTelemetry-compatible metrics:
 
 ```rust
-use tinykube_wasm_sdk::metrics;
+use wasm_graph_sdk::metrics;
 
 // Increment counter
 metrics::add_to_counter("requests_total", 1.0, Some(labels))?;
