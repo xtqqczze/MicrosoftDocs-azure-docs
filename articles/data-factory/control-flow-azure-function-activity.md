@@ -7,7 +7,7 @@ ms.author: abnarain
 ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/08/2024
 ai-usage: ai-assisted
 
@@ -48,7 +48,7 @@ Function Key provides secure access to function name with each one having separa
 | Authentication   | The authentication method used for calling the Azure Function. The supported values are [System-assigned managed identity](#system-assigned-managed-identity-authentication) or 'anonymous'.| Yes          |
 | Resource ID  | The App (client) ID of the Azure Function. Switch to **Authentication** section for the respective function, and get the App (client) ID under **Identity provider**. This property is displayed when you use system-assigned managed identity. For more information, see [Configure your App Service or Azure Functions app to use Microsoft Entra login](../app-service/configure-authentication-provider-aad.md).| No*         |
 
-//* The `resourceId` property is required when you use system-assigned managed identity authentication.
+/* The `resourceId` property is required when you use system-assigned managed identity authentication.
 
 ### System-assigned managed identity authentication
 
