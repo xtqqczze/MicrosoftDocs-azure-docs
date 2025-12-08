@@ -40,7 +40,7 @@ Both Microsoft Agent Framework and Foundry Agent Service enable you to build age
 | Scalability        | App-managed                    | Azure-managed, autoscaled             |
 | Security guardrails | Custom implementation required | Built-in content safety and moderation |
 | Identity     | Custom implementation required | Built-in agent ID and authentication   |
-| Enterprise     | Custom integration required    | Built-in Micrsooft 365/Teams deployment and Microsoft 365 integrated tool calls.      |
+| Enterprise     | Custom integration required    | Built-in Microsoft 365/Teams deployment and Microsoft 365 integrated tool calls.      |
 
 In this tutorial, you learn how to:
 
@@ -98,13 +98,13 @@ The `FoundryAgentProvider` provider is initialized in *Services/FoundryAgentProv
 - Creates a conversation for the browser session.
 - Gets a `ProjectResponsesClient` for the agent and conversation.
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/FoundryAgentProvider.cs" range="54-74" highlight="4,7,10,13" :::
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/FoundryAgentProvider.cs" range="54-74" highlight="4,7,10,13,16" :::
 
 This initialization code doesn't define any functionality for the agent, because you would typically build the agent in the Foundry portal. As part of the example scenario, it also follows the OpenAPI pattern shown in [Add an App Service app as a tool in Foundry Agent Service (.NET)](tutorial-ai-integrate-azure-ai-agent-dotnet.md), and makes its CRUD functionality available as an OpenAPI endpoint. This lets you add it to the agent later as a callable tool.
 
 The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API defines the operation ID with *WithName()*, as required by the [OpenAPI spec tool in Microsoft Foundry](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites), and `WithDescription()` helps the agent determine how to call the API:
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Program.cs" range="48-53" highlight="4-5" :::
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Program.cs" range="48-53" highlight="5-6" :::
 
 -----
 
