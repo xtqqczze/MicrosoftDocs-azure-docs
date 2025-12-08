@@ -261,9 +261,147 @@ The final version of the code looks like [DatasetSamplerProvider](https://raw.gi
 
 Next, build the project to confirm there are no errors. Use the VS Code command `Azure IoT Operations Akri Connectors: Build an Akri Connector` and choose the `Release` mode. This command shows the build progress in the `OUTPUT` console and notifies you when the build completes. You can then see a new Docker image named <connector_name> with tag `release` locally in Docker Desktop.
 
-[!INCLUDE [test-local-connector](../includes/test-local-connector.md)]
+# [Rust](#tab/rust)
 
-## Debug a .NET Akri connector
+In this example, you create an HTTP/REST connector using the Rust language, build a Docker image, and then run the connector application by using the VS Code extension:
+
+1. Press `Ctrl+Shift+P` to open the command palette and search for the `Azure IoT Operations Akri Connectors: Create a New Akri Connector` command. Create a new folder called `my-connectors` and select it, select `Rust` as the language, enter a name for the connector like `rest_connector`, and select `PollingTelemetryConnector` as the connector type.
+
+1. The extension creates a new workspace named by using the connector name you chose in the previous step. The workspace includes the scaffolding for a polling telemetry connector written in the Rust language. You can try out the connector with the scaffolding code. To see logs from your connector crate, replace the tag `sample_connector_scaffolding` with your connector name in the `DEFAULT_LOG_LEVEL` variable in the `main.rs` file.
+
+Next, build the project to confirm there are no errors. Use the VS Code command `Azure IoT Operations Akri Connectors: Build an Akri Connector` and choose the `Release` mode. This command shows the build progress in the `OUTPUT` console and notifies you when the build completes. You can then see a new Docker image named <connector_name> with tag `release` locally in Docker Desktop.
+
+---
+
+To test the new connector locally, follow these steps:
+
+1. Create a local endpoint that acts as a REST server for the connector to connect to. In the `explore-iot-operation` repository you cloned previously, run the following commands to build a local REST server for testing:
+
+    <!-- TODO: Make sure this path is correct -->
+
+    ```bash
+    cd samples/sample-rest-server
+    docker build -t rest-server:latest .
+    ```
+
+    You can see the image in Docker Desktop.
+
+1. Run the following command to start the REST server in a local container:
+
+    ```bash
+    docker run -d --rm --network aio_akri_network --name restserver rest-server:latest
+    ```
+
+1. You can see the container running in Docker Desktop. The REST server is accessible at `http://restserver:3000` for containers running on `aio_akri_network`.
+
+1. In your connector workspace in VS Code, add a file called `rest-server-device-definition.yaml` to the **Devices** folder with the following content. This device resource defines an endpoint connection to the REST server:
+
+    ```yml
+    apiVersion: namespaces.deviceregistry.microsoft.com/v1
+    kind: Device
+    metadata:
+      name: my-rest-thermostat-device-name
+      namespace: azure-iot-operations
+    spec:
+      attributes:
+        deviceId: my-thermostat
+        deviceType: thermostat-device-type
+      enabled: true
+      endpoints:
+        inbound:
+          my-rest-thermostat-endpoint-name:
+            additionalConfiguration: '{}'
+            address: http://restserver:3000
+            authentication:
+              method: Anonymous
+            endpointType: rest-thermostat-endpoint-type
+      uuid: 1234-5678-9012-3456
+      version: 2
+    ```
+
+1. In your connector workspace in VS Code, add a file called `rest-server-asset1-definition.yaml` to the **Assets** folder with the following content. This asset publishes temperature information from the device to an MQTT topic:
+
+    ```yml
+    apiVersion: namespaces.deviceregistry.microsoft.com/v1
+    kind: Asset
+    metadata:
+      name: my-rest-thermostat-asset1
+      namespace: azure-iot-operations
+    spec:
+      attributes:
+        assetId: my-rest-thermostat-asset1
+        assetType: rest-thermostat-asset
+      datasets:
+        - name: thermostat_status
+          dataPoints:
+            - dataSource: /api/thermostat/current
+              name: currentTemperature
+              dataPointConfiguration: |-
+               {
+                  "HttpRequestMethod": "GET",
+               }
+            - dataSource: /api/thermostat/desired
+              name: desiredTemperature
+              dataPointConfiguration: |-
+               {
+                  "HttpRequestMethod": "GET",
+               }
+          dataSource: /thermostat
+          destinations:
+            - configuration:
+                topic: mqtt/machine/asset1/status
+              target: Mqtt
+      deviceRef:
+        deviceName: my-rest-thermostat-device-name
+        endpointName: my-rest-thermostat-endpoint-name
+      version: 1
+    ```
+
+1. In your connector workspace in VS Code, add a file called `rest-server-asset2-definition.yaml` to the **Assets** folder with the following content. This asset publishes temperature information from the device to the state store:
+
+    ```yml
+    apiVersion: namespaces.deviceregistry.microsoft.com/v1
+    kind: Asset
+    metadata:
+      name: my-rest-thermostat-asset2
+      namespace: azure-iot-operations
+    spec:
+      attributes:
+        assetId: my-rest-thermostat-asset2
+        assetType: rest-thermostat-asset
+      datasets:
+        - name: thermostat_status
+          dataPoints:
+            - dataSource: /api/thermostat/current
+              name: currentTemperature
+              dataPointConfiguration: |-
+               {
+                  "HttpRequestMethod": "GET",
+               }
+            - dataSource: /api/thermostat/desired
+              name: desiredTemperature
+              dataPointConfiguration: |-
+               {
+                  "HttpRequestMethod": "GET",
+               }
+          dataSource: /thermostat
+          destinations:
+            - configuration:
+                key: RestThermostatKey
+              target: BrokerStateStore
+      deviceRef:
+        deviceName: my-rest-thermostat-device-name
+        endpointName: my-rest-thermostat-endpoint-name
+      version: 1
+    ```
+
+1. To test the connector, go to the `Run and Debug` panel in the VS Code workspace and select the `Run an Akri Connector` configuration. This configuration launches a terminal that runs the prelaunch tasks to start the `aio-broker` container and the REST connector you developed in another container called `<connector_name>_release`. This process takes several minutes. You can see the telemetry data flow from the REST server to the MQ broker through the REST connector in the terminal window in VS Code. The container logs are also visible in Docker Desktop.
+
+1. You can stop the execution anytime by using the `Stop` button on the debug command panel. This command cleans up and deletes the running containers `aio-broker` and `<connector_name>_release`.
+
+## Debug an Akri connector
+
+# [.NET](#tab/dotnet)
 
 To debug a .NET based Akri connector, make sure you have the `C#` VS Code extension installed. Use the same REST connector you created previously:
 
@@ -279,18 +417,6 @@ To debug a .NET based Akri connector, make sure you have the `C#` VS Code extens
 > The Akri VS Code extension launches the DevX container in a Run/Debug scenario with a timeout period of three minutes. If the container doesn't complete the launch within the timeout period, the extension terminates the container.
 
 # [Rust](#tab/rust)
-
-In this example, you create an HTTP/REST connector using the Rust language, build a Docker image, and then run the connector application by using the VS Code extension:
-
-1. Press `Ctrl+Shift+P` to open the command palette and search for the `Azure IoT Operations Akri Connectors: Create a New Akri Connector` command. Create a new folder called `my-connectors` and select it, select `Rust` as the language, enter a name for the connector like `rest_connector`, and select `PollingTelemetryConnector` as the connector type.
-
-1. The extension creates a new workspace named by using the connector name you chose in the previous step. The workspace includes the scaffolding for a polling telemetry connector written in the Rust language. You can try out the connector with the scaffolding code. To see logs from your connector crate, replace the tag `sample_connector_scaffolding` with your connector name in the `DEFAULT_LOG_LEVEL` variable in the `main.rs` file.
-
-Next, build the project to confirm there are no errors. Use the VS Code command `Azure IoT Operations Akri Connectors: Build an Akri Connector` and choose the `Release` mode. This command shows the build progress in the `OUTPUT` console and notifies you when the build completes. You can then see a new Docker image named <connector_name> with tag `release` locally in Docker Desktop.
-
-[!INCLUDE [test-local-connector](../includes/test-local-connector.md)]
-
-## Debug a Rust Akri connector
 
 To debug a Rust-based Akri connector, make sure you have the `C/C++` VS Code extension installed. Use the same REST connector you created previously:
 
