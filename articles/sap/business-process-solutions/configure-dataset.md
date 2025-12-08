@@ -25,17 +25,17 @@ Prebuilt Power BI dashboards in Business Process Solutions rely on specific data
 
 ## Import dataset from template
 
-Before starting data extraction, enable the datasets that represent the functional areas you want to process. Follow the steps below to import a dataset from template.
+Before starting data extraction, enable the datasets that represent the functional areas you want to process. Use the following steps to import a dataset from template.
 
 1. Open your Business Process Solution item and click on the **Set up your Datasets** button.
    :::image type="content" source="./media/configure-dataset/set-up-datasets.png" alt-text="Screenshot showing how to navigate to the Dataset tab." lightbox="./media/configure-dataset/set-up-datasets.png":::
-2. Click on Import from template use an existing template.
+2. Choose **Import from template** to use an existing template.
 3. Once the dialog opens select your source system and enter the name of the dataset, make sure to enter a unique name.
-4. Select the dataset you would like to enable. Click on import.
+4. Select the dataset you want to enable then choose **Import**.
    :::image type="content" source="./media/configure-dataset/import-dataset-template.png" alt-text="Screenshot showing how to import a dataset from a template." lightbox="./media/configure-dataset/import-dataset-template.png":::
 5. After the dataset creation is completed successfully, the dataset is in Disabled state, we need to enable this dataset. Select the dataset and click on Activate datasets button.
    :::image type="content" source="./media/configure-dataset/enable-dataset.png" alt-text="Screenshot showing how to activate a dataset." lightbox="./media/configure-dataset/enable-dataset.png":::
-6. Now, your dataset is ready for extraction and processing.
+6. Your dataset is now ready for extraction and processing.
 
 ## Modify dataset tables and relationships
 
@@ -43,7 +43,7 @@ Once the dataset is deployed, you can view it and explore the enabled tables. Yo
 
 ### Update dataset tables
 
-To update the dataset tables, follow the steps:
+Use the following steps to update the dataset tables:
 
 1. Open your Business Process Solution item.
 2. Click on the 'Set up your datasets' button.

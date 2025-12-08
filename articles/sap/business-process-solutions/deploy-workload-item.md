@@ -3,6 +3,7 @@ title: Deploy workload item
 description: Learn the prerequisites and steps to get started with Business Process Solutions in Microsoft Fabric, including deployment requirements and initial setup.
 author: mohitmakhija1
 ms.service: sap-on-azure
+ms.custom: how-to, references_regions
 ms.subservice:
 ms.topic: how-to
 ms.date: 11/07/2025

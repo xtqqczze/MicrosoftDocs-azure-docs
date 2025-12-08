@@ -5,182 +5,87 @@ author: mohitmakhija1
 ms.service: sap-on-azure
 ms.subservice:
 ms.topic: overview
-ms.custom: subject-monitoring
+ms.custom: compliance, security
 ms.date: 11/07/2025
 ms.author: momakhij
 ---
 
 # Attestation Document
 
-This document provides details on how our BPS workload complies with the requirements for publishing in the Microsoft Fabric Workload Hub. The information outlined here will be kept up-to-date and linked in the Workload metadata manifest.
+This document provides details on how our Business Process Solutions workload complies with the requirements for publishing in the Microsoft Fabric Workload Hub. The information outlined here will be kept up-to-date and linked in the Workload metadata manifest.
 
-## Section I (ISV Information)
+## Business Requirements
 
-BPS workload is developed and maintained by Microsoft.
+This section outlines the business requirements for the Business Process Solutions workload.
 
-## Section II (Attestation Declaration)
+### Value To Customers
 
-Microsoft confirms that the requirements in Section III have been reviewed. We attest that the BPS workload meets and complies with all listed requirements.
-
-## Section III (Requirements Checklist)
-
-The following section address the Attestation of the publication requirements outlined in the Microsoft Fabric Workload Development Kit (WDK).
-
-**Business Requirements**:
-Value To Customers: The workload provides the following value to customers -
+The workload provides the following value to customers -
 Business Process Solutions delivers a unified data foundation for business applications that accelerates AI adoption, simplifies automation and reduces risk – empowering businesses to unlock the full potential of unified data analytics and agentic intelligence. It includes prebuilt data models in Microsoft Fabric, data mapping and transformations, as well as prebuilt Power BI dashboards and data agents. With Business Process Solutions we ensure data can be interacted with in a reliable and high-performant way, whether working with massive volumes or complex data structures.
 
-**Trial**: We provide an easy and fast trial experience. The trial is available to the customer without waiting time (less than 5 seconds) and provides a free and easy way to explore the offered workload for a limited time in accordance with Microsoft guidelines for Trials.
+### Trial
 
-- [] Yes
-- [✔] No
+We provide an easy and fast trial experience. The trial is available to the customer without waiting time (less than 5 seconds) and provides a free and easy way to explore the offered workload for a limited time in accordance with Microsoft guidelines for Trials.
 
-**Monetization**: The workload is available on the marketplace for the customer to procure with or without a trial in accordance with the monetization guidelines
+### Monetization
 
-- [] Yes
-- [✔] No
+The workload is available on the marketplace for the customer to procure with or without a trial in accordance with the monetization guidelines
 
-**Technical Requirements**:
-Microsoft Entra Access: One or more workloads use Microsoft Entra authentication and authorization.
+## Technical Requirements
 
-- [✔] No other authentication and authorization mechanisms are used
-- [] Other authentication and authorization mechanisms are used for stored data In Fabric
+This section outlines the technical requirements for the Business Process Solutions workload.
 
-**One Lake**: Workloads integrate with One Lake to store data in the standard formats supported by the Fabric platform so that other services can take advantage of it.
+### Microsoft Entra Access
 
-- [] All data and metadata is stored in One Lake or Fabric Data Stores
-- [✔]  Not all data and metadata is stored in One Lake or Fabric Data Stores[AJ1.1][BM1.2][AJ1.3]
+To begin using the workload, Business Process Solutions for Microsoft Fabric no additional authentication and authorization mechanisms are needed.
 
-**Microsoft Entra Conditional Access**: Enterprise customers require centralized control and management of the identities and credentials used to access their resources and data and via Microsoft Entra to further secure their environment via conditional access⁵.
+### One Lake
 
-- [✔] The service works in its entirety even if customers enable this functionality
-- []  The service works in with limitations if customers enable this functionality
-- [] The service doesn't work with Microsoft Entra Conditional Access
+Workloads integrate with One Lake to store data in the standard formats supported by the Fabric platform so that other services can take advantage of it. In case of our workload metadata is stored in One Lake.
 
-**Admin REST API**: Admin REST APIs are an integral part of Fabric admin and governance process.
+### Microsoft Entra Conditional Access
 
-- []  Microsoft Fabric Admin APIs are being used (/admin/*)
-- [✔] No Microsoft Fabric Admin APIs are being used
+Enterprise customers require centralized control and management of the identities and credentials used to access their resources and data and via Microsoft Entra to further secure their environment via conditional access. The service works in its entirety even if customers enable this functionality
 
-**Customer Facing Monitoring & Diagnostic**: Health and telemetry data needs to be stored for a minimum for 30 days including activity ID for customer support purposes.
+### Admin REST API
 
-- [✔] Minimum 30 days requirement is adhered to
+Admin REST APIs are an integral part of Fabric admin and governance process. For our workload, no Microsoft Fabric Admin APIs are being used.
 
-**Performance**: The Workload implementation takes measures to test and track performance of their Items
+### Customer Facing Monitoring & Diagnostic
 
-- [] Performance Metrics on workload performance are available via the monitoring hub
-- [✔] Performance tracking isn't currently available to the end user however workload team support can monitor, test, track performance via their internal instrumentation and monitoring systems.
+Health and telemetry data needs to be stored for a minimum for 30 days including activity ID for customer support purposes.WE store the data for a minimum of 180 days.
 
-**Presence**: To ensure that customer expectations independent of their home or capacity region are met, workload team needs to align with fabric regions and clouds.
+### Performance
 
-- Service availability and colocation/alignment in the following fabric regions: West Europe, North Europe, EastUS, Germany West Central, Central US.
-Public APIs: Fabric Public APIs are the backbone of automation, enabling seamless communication and integration for both customers and partners within the Fabric ecosystem.
-- The workload uses Fabric Public APIs
+The Workload implementation takes measures to test and track performance of their items. Performance tracking isn't currently available to the end user however workload team support can monitor, test, track performance via their internal instrumentation and monitoring systems.
 
-**Design / UX Requirements**:
-Common UX: The workload and all item types the partner provides as part of it comply with the Fabric UX guidelines⁹.
+## Design / UX Requirements
 
-- [✔] Yes
-- [] No
-**Item Creation Experience**: The item creation experience is in accordance with the Fabric UX System.
+- **Common UX**: Business Process Solutions complies with the Fabric UX guidelines.
+- **Item Creation Experience**: The item creation experience is in accordance with the Fabric UX System.
+- **Monitoring Hub**¹¹: All Long running operations need to integrate with Fabric Monitoring Hub.
+- **Trial Experience**: The workload does not provide a trial experience for users.
+- **World Readiness / Internationalization**: English is supported as the default language.
+- **Item Settings**: Item settings are implemented as a part of the ribbon as outlined in the UX guidelines
+- **Samples**: No sample datasets are provided for preconfigure of items of their type to help customers get started more easily.
+- **Custom Actions**: Custom actions aren't implemented.
+- **Workspace settings**: Workspace settings provide a way that workloads can be configured on a workspace level. This is currently not implemented for our workload.
+**Global Search**: Searching for items in Fabric is supported through the top search bar. This is currently not implemented for our workload.
 
-- [✔] Yes
-- [] No
+## Security / Compliance Requirements
 
-**Monitoring Hub**¹¹: All Long running operations need to integrate with Fabric Monitoring Hub.
+Protection of customer data and metadata is of paramount importance. Our process includes comprehensive security reviews and assessments, which are periodically performed. Any identified security issues that could impact customers are addressed with priority. Partners that build workloads also have a responsibility to protect that data when they access it.
+For our workload, the following security and compliance requirements are met:
 
-- [] Yes
-- [✔] No
+- Business Process Solutions workload uses only essential HTTP-only cookies only after positively authenticating the user.
+- Our workload does not rely on third-party cookies.
+- Our workload obtains Microsoft Entra token using the JavaScript APIs provided by the Fabric Workload Client SDK.
 
-**Trial Experience**: The workload provides a Trial Experience for users as outlined in the design guidelines¹²
+## Data Residency
 
-- [] Trial Supported
-- [✔] Trial Not Supported
-
-**Monetization Experience**: The monetization experience is in line with the design guidelines¹³ provided
-
-- [] The monetization experience is completely integrated with the marketplace and compliant with the guidelines
-- [] Bring Your Own License (BYOL)
-- [✔] Free / Freemium
-- [] Other
-
-**Accessibility**: The user experience is in compliance with the Fabric UX design guidelines for Accessibility¹⁴
-
-- [✔] The user experience is compliant with the guidelines
-- [] The following limitations exist
-
-**World Readiness / Internationalization**: English is supported as the default language.
-
-- [✔] English is the only supported language
-- [] The following are the other languages supported
-
-**Item Settings**: Item settings are implemented as a part of the ribbon as outlined in the UX guidelines
-
-- [✔] Yes
-- [] No
-
-**Samples**: Samples are optionally if preconfigure items of their type to help customers get started more easily.
-
-- [✔] Samples not provided
-- [] Samples for preconfiguration of items provided
-
-Custom Actions: Custom actions can be optionally provided as a part of the item editor.
-
-- [✔] Custom Actions aren't implemented
-- [] Custom Actions implemented as part of Workload
-
-**Workspace settings**: Workspace settings provide a way that workloads can be configured on a workspace level.
-
-- [] Supported
-- [✔] Not Supported
-
-**Global Search**: Searching for items in Fabric is supported through the top search bar.
-
-- [] Supported
-- [✔] Not supported
-
-**Security / Compliance Requirements**:
-Security general: Protection of customer data and metadata is of paramount importance. Our process includes comprehensive security reviews and assessments, which are periodically performed. Any identified security issues that could impact customers are addressed with priority.
-Privacy: Partners that build workloads also have a responsibility to protect that data when they access it.
-
-**Extra Requirements**:
-
-[✔] Publisher attests that only essential HTTP-only cookies are used by the Workload and only after positively authenticating the user.
-[✔] Partner workloads aren't to use, write, or rely on third-party cookies
-[✔] Publisher attests that is obtaining any Microsoft Entra token using the JavaScript APIs provided by the Fabric Workload Client SDK
-
-**Data Residency**: Microsoft Fabric is making an Enterprise Promise around data not leaving the geography of the tenant.
+Microsoft Fabric is making an Enterprise Promise around data not leaving the geography of the tenant.
 Our service is deployed in a single region within each geographic area, and service metadata is maintained in accordance with the workspace's designated capacity region.
 
-**Compliance**: The publisher attests to the following security, data, and compliance regulations and standards. BPS is committed to ensuring Customers can trust our products and practices and meet their compliance obligations.
+## Compliance
 
-**Support**:
-Live site: Partner workloads are an integral part of Fabric that requires the Microsoft support teams need to be aware of how to contact you in case customers are reaching out to us directly.
-
-**ICM Contact Team**:  Azure Workloads Platform as Service/Azure Monitor for SAP - Engineering
-
-**Fabric Features**:
-Application Life Cycle Management (ALM): Microsoft Fabric's lifecycle management tools enable efficient product development, continuous updates, fast releases, and ongoing feature enhancements.
-
-- [] Supported
-- [✔] Not Supported
-
-**Private Links**: In Fabric, you can configure and use an endpoint that allows your organization to access Fabric privately.
-
-- [] Supported
-- [✔] Not Supported
-
-**Data Hub**: The OneLake data hub²⁵ makes it easy to find, explore, and use the Fabric data items in your organization that you have access to.
-
-- [] Supported
-- [✔] Not Supported
-
-**Data Lineage**: Understanding the flow of data from the data source to its destination.
-
-- [] Supported
-- [✔] Not Supported
-
-**Sensitivity labels**: Sensitivity labels from Microsoft Purview Information Protection on items can guard your sensitive content against unauthorized data access and leakage.
-
-- [] Supported
-- [✔] Not Supported
+Business Process Solutions is committed to ensuring Customers can trust our products and practices and meet their compliance obligations.
