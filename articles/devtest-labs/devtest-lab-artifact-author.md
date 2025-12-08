@@ -18,6 +18,7 @@ This article describes how to create artifacts that provision lab VMs. An artifa
 ## Prerequisites
 
 - To create and work with artifact definition files, you need a JSON editor. [Visual Studio Code](https://code.visualstudio.com/) is available for Windows, Linux, and macOS.
+- To store the artifact definition and script files, you need a GitHub account.
 
 ## Understand artifact definition files
 
