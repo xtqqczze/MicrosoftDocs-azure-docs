@@ -1,5 +1,6 @@
 ---
 title: Use App Configuration emulator in an Aspire solution
+description: In this tutorial, you learn how to use App Configuration emulator for Aspire solutions.
 services: azure-app-configuration
 author: zhiyuanliang-ms
 ms.service: azure-app-configuration
@@ -62,7 +63,7 @@ Azure App Configuration provides an official local [emulator](./emulator-overvie
 
 1. Add a new key `TestApp:Settings:Message`. Then, click the `Save` button.
 
-    :::image type="content" source="media/aspire/emulator-create-keyvalue.png" alt-text="Screenshot of the App Configuration emulator UI of creating a new key value.":::
+    :::image type="content" source="media/aspire/emulator-create-key.png" alt-text="Screenshot of the App Configuration emulator UI of creating a new key value.":::
 
 1. Go back to the Aspire dashboard and open the web app. Refresh the browser a few times. You see the message from the emulator.
 

@@ -87,8 +87,6 @@ landingContent:
           url: quickstart-javascript-provider.md
         - text: Code a Go app
           url: quickstart-go-console-app.md
-        - text: Code a Go web app using Gin
-          url: quickstart-go-web-app.md
       - linkListType: tutorial
         links:  
         - text: Use dynamic config in ASP.NET Core

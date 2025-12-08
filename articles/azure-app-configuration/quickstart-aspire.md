@@ -28,11 +28,11 @@ The Aspire Starter template includes a frontend web app that communicates with a
 
 1. Run the `AppHost` project. You see the Aspire dashboard in your browser.
 
-    :::image type="content" source="media/aspire/dashboard-init.png" alt-text="Screenshot of the Aspire dashboard with web frontend and api service resources.":::
+    :::image type="content" source="media/aspire/dashboard.png" alt-text="Screenshot of the Aspire dashboard with web frontend and api service resources.":::
 
 1. Click the URL of the web frontend. You see a page with a welcome message.
 
-    :::image type="content" source="media/aspire/webfrontend-init.png" alt-text="Screenshot of a web app with a welcome message.":::
+    :::image type="content" source="media/aspire/web-app.png" alt-text="Screenshot of a web app with a welcome message.":::
 
 ## Add Azure App Configuration to the Aspire solution
 
@@ -142,7 +142,7 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
 1. You see a page with a welcome message from Azure App Configuration.
 
-    :::image type="content" source="media/aspire/webfrontend-app-config.png" alt-text="Screenshot of a web app with a welcome message from Azure App Configuration.":::
+    :::image type="content" source="media/aspire/web-app-message.png" alt-text="Screenshot of a web app with a welcome message from Azure App Configuration.":::
 
 ## Next steps
 
@@ -155,7 +155,7 @@ In this quickstart, you:
 To learn how to configure your Aspire app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Enable dynamic configuration](./quickstart-aspire-configuration-refresh.md)
+> [Enable dynamic configuration](./enable-dynamic-configuration-aspire.md)
 
 To learn how to use feature flag in your Aspire app, continue to the next tutorial.
 
