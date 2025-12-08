@@ -54,6 +54,8 @@ The retirement takes effect globally across all Azure regions.
 >
 > Be aware that **transaction pricing differs** in GPv2. Workloads with frequent operations may incur **higher charges** unless cost-optimization strategies are applied.
 
+>[!NOTE]
+> 
 
 ### Estimate costs before upgrading
 >[!TIP]
