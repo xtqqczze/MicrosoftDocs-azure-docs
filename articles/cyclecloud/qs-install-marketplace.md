@@ -60,7 +60,8 @@ On Linux, follow [these instructions on GitHub](https://help.github.com/articles
 
 The image has many recommended default settings, including **Size** and built-in **Network Security Groups**. You can modify these settings if necessary.
 
-![Customize CycleCloud instance](~/articles/cyclecloud/images/customize-marketplace-image.png)
+:::image type="content" source="./images/ccws/marketplace-basics.png" alt-text="Customize CycleCloud instance.":::
+ 
 
 ## Assign managed identity
 
