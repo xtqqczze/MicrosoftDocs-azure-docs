@@ -22,7 +22,7 @@ If your web application already has useful features, like shopping, hotel bookin
 ### [Microsoft Agent Framework](#tab/agentframework)
 
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a Microsoft Agent Framework agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/semantic-kernel-agent.png" alt-text="Screenshot showing the Microsoft Agent Framework agent chat interface with a conversation about task management.":::
 
 ### [Foundry Agent Service](#tab/aifoundry)
 
@@ -153,7 +153,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 1. In the [Foundry portal](https://ai.azure.com), make sure the top **New Foundry** radio button is set to active and create a project. 
 
-1. Deploy a model of your choice (see [Microsoft Foundry Quickstart: Create resources](/azure/ai-foundry/quickstarts/get-started-code?view=foundry#create-resources)).
+1. Deploy a model of your choice (see [Microsoft Foundry Quickstart: Create resources](/azure/ai-foundry/quickstarts/get-started-code?view=foundry&preserve-view=true#create-resources)).
 
 1. From top of the model playground, copy the model name.
 
@@ -169,9 +169,9 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 1. Select **Start building** > **Create agent** and follow the prompt.
 
-1. In the new agent's playground, create an OpenAPI tool to call your web app by selecting **Tools** > **Add** > **Custom** > **OpenAPI tool** > **Create**. In the **Setup** pane, add an action with the OpenAPI spec tool. Use the OpenAPI schema that you get from the deployed web app and **anonymous** authentication. For detailed steps, see [How to use the OpenAPI spec tool](/azure/ai-foundry/agents/how-to/tools/openapi?view=foundry).
+1. In the new agent's playground, create an OpenAPI tool to call your web app by selecting **Tools** > **Add** > **Custom** > **OpenAPI tool** > **Create**. In the **Setup** pane, add an action with the OpenAPI spec tool. Use the OpenAPI schema that you get from the deployed web app and **anonymous** authentication. For detailed steps, see [How to use the OpenAPI spec tool](/azure/ai-foundry/agents/how-to/tools/openapi?view=foundry&preserve-view=true).
 
-    Your application code is already configured to include the server's `url` and `operationId`, which are needed by the agent. For more information, see [Connect to OpenAPI Specification](/azure/ai-foundry/agents/how-to/tools/openapi?view=foundry#prerequisites).
+    Your application code is already configured to include the server's `url` and `operationId`, which are needed by the agent. For more information, see [Connect to OpenAPI Specification](/azure/ai-foundry/agents/how-to/tools/openapi?view=foundry&preserve-view=true#prerequisites).
 
 1. Be sure to select **Save**.
 
@@ -272,7 +272,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 ### [Microsoft Agent Framework](#tab/agentframework)
 
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/microsoft-agent-framework.png" alt-text="Screenshot of a chat completion session with a Microsoft Agent Framework agent.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/microsoft-agent-framework.png" alt-text="Screenshot showing the deployed Microsoft Agent Framework agent successfully managing tasks in the web app.":::
 
 ### [Foundry Agent Service](#tab/aifoundry)
 

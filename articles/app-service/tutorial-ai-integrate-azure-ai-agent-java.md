@@ -125,11 +125,11 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 ## Create an agent in Microsoft Foundry
 
-[!INCLUDE [create-agent](../../includes/tutorial-ai-integrate-azure-ai-agent-dotnet/create-agent.md)]
+[!INCLUDE [create-agent](includes/tutorial-ai-integrate-azure-ai-agent-dotnet/create-agent.md)]
 
 ## Test the agent
 
-[!INCLUDE [test-agent](../../includes/tutorial-ai-integrate-azure-ai-agent-dotnet/test-agent.md)]
+[!INCLUDE [test-agent](includes/tutorial-ai-integrate-azure-ai-agent-dotnet/test-agent.md)]
 
 ## Security best practices
 

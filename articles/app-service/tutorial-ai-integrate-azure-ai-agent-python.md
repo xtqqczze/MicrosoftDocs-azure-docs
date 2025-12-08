@@ -140,7 +140,7 @@ FasAPI already contains OpenAPI functionality at the default path `/openapi.json
 
 ## Create an agent in Microsoft Foundry
 
-[!INCLUDE [create-agent](../../includes/tutorial-ai-integrate-azure-ai-agent-dotnet/create-agent.md)]
+[!INCLUDE [create-agent](includes/tutorial-ai-integrate-azure-ai-agent-dotnet/create-agent.md)]
 
 ## Test the agent
 
