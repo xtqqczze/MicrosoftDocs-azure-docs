@@ -189,19 +189,17 @@ To create a registry endpoint in the Azure portal, follow these steps.
 
 #### Create registry endpoints with anonymous authentication
 
-You can create a new registry endpoint by specifying the host details of an Azure Container Registry (ACR), enable anonymous access for public image retrieval, and store the configuration for reuse.
+You can create a new registry endpoint by specifying the host details of an Azure Container Registry (ACR), enable anonymous access for public image retrieval, and store the configuration for reuse. First, select the type of authentication you want to use. In this example, we use anonymous authentication:
 
-:::image type="content" source="media/portal-registry-endpoints/image3.png" alt-text="Screenshot of the registry endpoint creation form with anonymous authentication selected.":::
+:::image type="content" source="media/howto-create-dataflow-graph/select-authentication.png" alt-text="Screenshot of the completed anonymous authentication configuration for registry endpoint.":::
 
-:::image type="content" source="media/portal-registry-endpoints/image4.png" alt-text="Screenshot of the completed anonymous authentication configuration for registry endpoint.":::
+:::image type="content" source="media/howto-create-dataflow-graph/authentication-anonymous.png" alt-text="Screenshot of the completed anonymous authentication configuration for registry endpoint.":::
 
 #### Create registry endpoints with system managed identity authentication
 
 You can create a new registry endpoint by specifying the host details of an ACR, authenticate using a system-assigned managed identity for secure access, and store the configuration for reuse.
 
-:::image type="content" source="media/portal-registry-endpoints/image5.png" alt-text="Screenshot of the registry endpoint creation form with system managed identity authentication selected.":::
-
-:::image type="content" source="media/portal-registry-endpoints/image6.png" alt-text="Screenshot of the completed system managed identity authentication configuration for registry endpoint.":::
+:::image type="content" source="media/howto-create-dataflow-graph/system-managed-identity.png" alt-text="Screenshot of the completed system managed identity authentication configuration for registry endpoint.":::
 
 #### Create registry endpoints with user managed identity
 
@@ -210,9 +208,7 @@ You can create a new registry endpoint by specifying the host details of an ACR,
 > [!NOTE]
 > The client and tenant IDs are required to enable user managed identity. 
 
-:::image type="content" source="media/portal-registry-endpoints/image7.png" alt-text="Screenshot of the registry endpoint creation form with user managed identity authentication selected.":::
-
-:::image type="content" source="media/portal-registry-endpoints/image8.png" alt-text="Screenshot of the completed user managed identity authentication configuration for registry endpoint.":::
+:::image type="content" source="media/howto-create-dataflow-graph/user-managed-identity.png" alt-text="Screenshot of the completed user managed identity authentication configuration for registry endpoint.":::
 
 #### Create registry endpoints with artifact secrets
 
@@ -220,14 +216,11 @@ Artifact secrets are used to authenticate with private container registries like
 
 You can create a new registry endpoint by specifying the host details of an ACR, authenticate using artifact secrets for secure access, and store the configuration for reuse:
 
-:::image type="content" source="media/portal-registry-endpoints/image9.png" alt-text="Screenshot of the registry endpoint creation form with artifact secrets authentication selected.":::
-
-:::image type="content" source="media/portal-registry-endpoints/image10.png" alt-text="Screenshot of the Azure Key Vault secret selection interface for artifact secrets.":::
+:::image type="content" source="media/howto-create-dataflow-graph/secrets.png" alt-text="Screenshot of the Azure Key Vault secret selection interface for artifact secrets.":::
 
 You set up artifact secrets from Azure Key Vault by creating new secrets and storing them in Azure Key Vault:
 
-:::image type="content" source="media/portal-registry-endpoints/image11.png" alt-text="Screenshot of the create new secret form in Azure Key Vault for artifact secrets.":::
-
+:::image type="content" source="media/howto-create-dataflow-graph/secret-form.png" alt-text="Screenshot of the create new secret form in Azure Key Vault for artifact secrets.":::
 ### Get extension name
 
 ```azurecli
