@@ -23,12 +23,16 @@ SRE Agent is a service that brings automation and intelligence to site reliabili
 SRE Agent can manage all Azure services through the Azure CLI and REST APIs. This capability includes comprehensive support for:
 
 - **Compute services**: Virtual machines, App Service, Container Apps, Azure Kubernetes Service (AKS), Azure Functions, and more
+
 - **Storage services**: Blob storage, file shares, managed disks, and storage accounts
+
 - **Networking services**: Virtual networks, load balancers, application gateways, and network security groups
+
 - **Database services**: Azure SQL Database, Cosmos DB, PostgreSQL, MySQL, and Redis
+
 - **Monitoring and management**: Azure Monitor, Log Analytics, Application Insights, and Resource Manager
 
-You can automate any operation you perform with the Azure CLI or Azure PowerShell through SRE Agent by using custom runbooks and subagents.
+You can automate any operation you perform with the Azure CLI or Azure PowerShell through SRE Agent by using custom runbooks and [subagents](subagent-builder-overview.md).
 
 ## Primary use cases
 
