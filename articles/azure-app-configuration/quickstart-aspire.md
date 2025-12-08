@@ -63,10 +63,10 @@ The Aspire Starter template includes a frontend web app that communicates with a
 
     > [!IMPORTANT]
     > When you call `AddAzureAppConfiguration`, it implicitly calls `AddAzureProvisioning`, which adds support for generating Azure resources dynamically during app startup. The app must configure the appropriate subscription and location. For more information, see [Local Azure provisioning](https://aspire.dev/integrations/cloud/azure/local-provisioning/#configuration).
-    > If you are using the latest Aspire SDK, you can configure the subscription information through the aspire dashboard.
+    > If you are using the latest Aspire SDK, you can configure the subscription information through the Aspire dashboard.
     > :::image type="content" source="media/aspire/azure-subscription.png" alt-text="Screenshot of Aspire dashboard asking for Azure Subscription information.":::
 
-    > [!TIPS]
+    > [!TIP]
     > You can reference existing App Configuration resources by chaining a call `RunAsExisting()` on `builder.AddAzureAppConfiguration("appconfig")`. For more information, go to [Use existing Azure resources](https://aspire.dev/integrations/cloud/azure/overview/#use-existing-azure-resources).
 
 1. Run the `AppHost` project. You see the Azure App Configuration resource is provisioning.
@@ -81,7 +81,7 @@ The Aspire Starter template includes a frontend web app that communicates with a
 
     :::image type="content" source="media/aspire/deployment-complete.png" alt-text="Screenshot of Azure portal showing the App Configuration deployment is complete.":::
 
-> [!TIPS]
+> [!TIP]
 > You can use the App Configuration emulator for local development in Aspire. For more information, go to [Use App Configuration emulator in Aspire](./use-emulator-aspire.md).
 
 ## Add a key-value
