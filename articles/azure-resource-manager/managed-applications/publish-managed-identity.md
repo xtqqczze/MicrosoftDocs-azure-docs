@@ -281,7 +281,7 @@ A sample main template that sets the network profile to an existing network inte
       "name": "myLinkedResourceVM",
       "location": "[resourceGroup().location]",
       "properties": {
-        â€¦,
+        ...,
         "networkProfile": {
           "networkInterfaces": [
             {
@@ -335,10 +335,10 @@ Content-Type: application/json
 {
   "value": [
     {
-      "access_token": "eyJ0eXAiâ€¦",
-      "expires_in": "2â€¦",
-      "expires_on": "1557â€¦",
-      "not_before": "1557â€¦",
+      "access_token": "eyJ0eXAi...,
+      "expires_in": "2...,
+      "expires_on": "1557...,
+      "not_before": "1557...,
       "authorizationAudience": "https://management.azure.com/",
       "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}",
       "token_type": "Bearer"

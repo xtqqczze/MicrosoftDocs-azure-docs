@@ -35,7 +35,7 @@ The convert phase consists of two steps, which you complete in sequence:
 1. **If required, convert the JSON representation to Bicep using the _decompile_ command.** [The Bicep tooling includes the `decompile` command to convert templates.](decompile.md) You can invoke the `decompile` command from [Visual Studio Code with the Bicep extension](./visual-studio-code.md#decompile-into-bicep-command), the [Azure CLI](./bicep-cli.md#decompile), or from the [Bicep CLI](./bicep-cli.md#decompile). The decompilation process is a best-effort process and doesn't guarantee a full mapping from JSON to Bicep. You may need to revise the generated Bicep file to meet your template best practices before using the file to deploy resources.
 
 > [!NOTE]
-> You can import a resource by opening the Visual Studio Code command palette. Press **<kbd>Ctrl+Shift+P</kbd>** on Windows and Linux and **<kbd>âŒ˜+Shift+P</kbd>** on macOS.
+> You can import a resource by opening the Visual Studio Code command palette. Press **<kbd>Ctrl+Shift+P</kbd>** on Windows and Linux and **<kbd>⌘+Shift+P</kbd>** on macOS.
 >
 > Visual Studio Code enables you to paste JSON as Bicep. For more information, see [Paste JSON as Bicep command](./visual-studio-code.md#paste-json-as-bicep-command).
 
