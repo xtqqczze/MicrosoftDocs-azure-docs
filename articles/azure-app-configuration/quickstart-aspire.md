@@ -8,6 +8,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 12/3/2025
+zone_pivot_groups: appconfig-aspire
 ms.author: zhiyuanliang
 #Customer intent: As an Aspire developer, I want to learn the centralized configuration cloud-native solution for Aspire.
 ---
@@ -21,6 +22,7 @@ In this quickstart, you'll use Azure App Configuration to externalize storage an
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Set up the development environment](https://aspire.dev/get-started/prerequisites) for Aspire.
 - [Create a new Aspire solution](https://aspire.dev/get-started/first-app/?lang=csharp) using the Aspire Starter template.
+- An OCI compliant container runtime, such as [Docker Desktop](https://www.docker.com/products/docker-desktop).
 
 ## Test the app locally
 
@@ -33,6 +35,8 @@ The Aspire Starter template includes a frontend web app that communicates with a
 1. Click the URL of the web frontend. You see a page with a welcome message.
 
     :::image type="content" source="media/aspire/web-app.png" alt-text="Screenshot of a web app with a welcome message.":::
+
+:::zone target="docs" pivot="azure"
 
 ## Add Azure App Configuration to the Aspire solution
 
@@ -49,6 +53,14 @@ The Aspire Starter template includes a frontend web app that communicates with a
     var appConfiguration = builder.AddAzureAppConfiguration("appconfiguration");
     ```
 
+    > [!IMPORTANT]
+    > When you call `AddAzureAppConfiguration`, it implicitly calls `AddAzureProvisioning`, which adds support for generating Azure resources dynamically during app startup. The app must configure the appropriate subscription and location. For more information, see [Local Azure provisioning](https://aspire.dev/integrations/cloud/azure/local-provisioning/#configuration).
+    > If you are using the latest Aspire SDK, you can configure the subscription information through the Aspire dashboard.
+    > :::image type="content" source="media/aspire/azure-subscription.png" alt-text="Screenshot of Aspire dashboard asking for Azure Subscription information.":::
+
+    > [!TIP]
+    > You can reference existing App Configuration resources by chaining a call `RunAsExisting()` on `builder.AddAzureAppConfiguration("appconfig")`. For more information, go to [Use existing Azure resources](https://aspire.dev/integrations/cloud/azure/overview/#use-existing-azure-resources).
+
 1. Add the reference of App Configuration resource and configure the `webfrontend` project to wait for it.
 
     ```csharp
@@ -60,14 +72,6 @@ The Aspire Starter template includes a frontend web app that communicates with a
         .WithReference(appConfiguration) // reference the App Configuration resource
         .WaitFor(appConfiguration); // wait for the App Configuration resource to enter the Running state before starting the resource
     ```
-
-    > [!IMPORTANT]
-    > When you call `AddAzureAppConfiguration`, it implicitly calls `AddAzureProvisioning`, which adds support for generating Azure resources dynamically during app startup. The app must configure the appropriate subscription and location. For more information, see [Local Azure provisioning](https://aspire.dev/integrations/cloud/azure/local-provisioning/#configuration).
-    > If you are using the latest Aspire SDK, you can configure the subscription information through the Aspire dashboard.
-    > :::image type="content" source="media/aspire/azure-subscription.png" alt-text="Screenshot of Aspire dashboard asking for Azure Subscription information.":::
-
-    > [!TIP]
-    > You can reference existing App Configuration resources by chaining a call `RunAsExisting()` on `builder.AddAzureAppConfiguration("appconfig")`. For more information, go to [Use existing Azure resources](https://aspire.dev/integrations/cloud/azure/overview/#use-existing-azure-resources).
 
 1. Run the `AppHost` project. You see the Azure App Configuration resource is provisioning.
 
@@ -81,9 +85,6 @@ The Aspire Starter template includes a frontend web app that communicates with a
 
     :::image type="content" source="media/aspire/deployment-complete.png" alt-text="Screenshot of Azure portal showing the App Configuration deployment is complete.":::
 
-> [!TIP]
-> You can use the App Configuration emulator for local development in Aspire. For more information, go to [Use App Configuration emulator in Aspire](./use-emulator-aspire.md).
-
 ## Add a key-value
 
 Add the following key-value to your App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
@@ -91,6 +92,76 @@ Add the following key-value to your App Configuration store and leave **Label** 
 | Key                        | Value                                 |
 |----------------------------|---------------------------------------|
 | *TestApp:Settings:Message* | *Hello from Azure App Configuration!* |
+
+:::zone-end
+
+:::zone target="docs" pivot="emulator"
+
+## Add Azure App Configuration to the Aspire solution
+
+1. Go to the `AppHost` project. Add the [`Aspire.Hosting.Azure.AppConfiguration`](https://www.nuget.org/packages/Aspire.Hosting.Azure.AppConfiguration) Nuget package. 
+
+1. Open the *AppHost.csproj*. Make sure that the `Aspire.Hosting.AppHost` package version is not ealier than the version you installed. Otherwise, you need to upgrade the `Aspire.Hosting.AppHost` package.
+
+1. Open the *AppHost.cs* file and add the following code.
+
+    ```csharp
+    var builder = DistributedApplication.CreateBuilder(args);
+
+    // Add an Azure App Configuration resource
+    var appConfiguration = builder.AddAzureAppConfiguration("appconfiguration")
+        .RunAsEmulator(emulator => { // use the App Configuration emulator
+            emulator.WithDataBindMount();
+        });
+    ```
+
+    > [!IMPORTANT]
+    > When you call `RunAsEmulator`, it pulls the [App Configuration emulator image](https://mcr.microsoft.com/artifact/mar/azure-app-configuration/app-configuration-emulator/about) and runs a container as the App Configuration resource. Make sure that you have an OCI compliant container runtime on your machine. For more information, go to [Aspire Container Runtime](https://aspire.dev/get-started/prerequisites/#install-an-oci-compliant-container-runtime).
+
+    > [!TIP]
+    > You can call `WithDataBindMount` or `WithDataVolume` to configure the emulator resource for persistent container storage so that you don't need to recreate key values each time.
+
+1. Add the reference of App Configuration resource and configure the `webfrontend` project to wait for it.
+
+    ```csharp
+    builder.AddProject<Projects.AspireApp_Web>("webfrontend")
+        .WithExternalHttpEndpoints()
+        .WithHttpHealthCheck("/health")
+        .WithReference(apiService)
+        .WaitFor(apiService)
+        .WithReference(appConfiguration) // reference the App Configuration resource
+        .WaitFor(appConfiguration); // wait for the App Configuration resource to enter the Running state before starting the resource
+    ```
+
+1. Start your container runtime. In this tutorial, we use Docker Desktop.
+
+1. Run the `AppHost` project. Go to the Aspire dashboard. You see the App Configuration emulator resource is running.
+
+    :::image type="content" source="media/aspire/dashboard-emulator.png" alt-text="Screenshot of the Aspire dashboard showing the App Configuration emulator resource.":::
+
+   A container is started to run the App Configuration emulator.
+
+   :::image type="content" source="media/aspire/docker.png" alt-text="Screenshot of the docker desktop running a container.":::
+
+## Add a key-value
+
+1. Click the URL of the `appconfiguration` resource. You see the App Configuration emulator UI.
+
+1. Click the `Create` button on the upper-right corner.
+
+    :::image type="content" source="media/aspire/emulator-ui.png" alt-text="Screenshot of the App Configuration emulator UI.":::
+
+1. Add the following key-value.
+
+    | Key                        | Value                                 |
+    |----------------------------|---------------------------------------|
+    | *TestApp:Settings:Message* | *Hello from Azure App Configuration!* |
+
+1. Click the `Save` button.
+
+    :::image type="content" source="media/aspire/emulator-create-key.png" alt-text="Screenshot of the App Configuration emulator UI of creating a new key value.":::
+
+:::zone-end
 
 ## Use App Configuration in the web application
 
@@ -136,7 +207,7 @@ Add the following key-value to your App Configuration store and leave **Label** 
     }
     ```
 
-1. Restart the `AppHost` project. Go to the Aspire dashboard and click the URL of the web frontend. 
+1. **Restart** the `AppHost` project. Go to the Aspire dashboard and click the URL of the web frontend. 
 
     :::image type="content" source="media/aspire/dashboard-updated.png" alt-text="Screenshot of Aspire dashboard showing resources.":::
 
@@ -148,9 +219,9 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
 In this quickstart, you:
 
-* Add an App Configuration store in an Aspire solution.
-* Read your App Configuration store's key-values with the App Configuration Aspire integration library.
-* Displayed a web page using the settings you configured in your App Configuration store.
+* Add an Azure App Configuration resource in an Aspire solution.
+* Read your key-values from Azure App Configuration with the App Configuration Aspire integration library.
+* Displayed a web page using the settings you configured in your App Configuration.
 
 To learn how to configure your Aspire app to dynamically refresh configuration settings, continue to the next tutorial.
 
@@ -161,3 +232,8 @@ To learn how to use feature flag in your Aspire app, continue to the next tutori
 
 > [!div class="nextstepaction"]
 > [Use feature flag in Aspire](./quickstart-feature-flag-aspire.md)
+
+To learn more about App Configuration emualtor, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [Azure App Configuration emulator overview](./emulator-overview.md)

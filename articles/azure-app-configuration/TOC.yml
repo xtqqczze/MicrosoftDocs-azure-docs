@@ -480,8 +480,6 @@
     items:
     - name: Overview
       href: emulator-overview.md
-    - name: Use local emulator in Aspire
-      href: use-emulator-aspire.md
   - name: Deployment
     items:
     - name: ARM template
