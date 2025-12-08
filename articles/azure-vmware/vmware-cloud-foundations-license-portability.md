@@ -35,7 +35,7 @@ For further details on how to request host quotas for Azure VMware Solution, ref
 
 ## Trials on Azure VMware Solution
 
-Trials on Azure VMware Solution were previously available for partners and customers for 30 days duration. Azure VMware 3 node trials are now available for 60 days to customers and partners. Customers are required to provide a valid trial VCF key from Broadcom before the Azure VMware Solution trial can be deployed. Existing trials in progress before November 1 are required to update their VCF key in the azure portal on their Azure VMware Solution private cloud.  
+Trials on Azure VMware Solution were previously available for partners and customers for 30 days duration. Azure VMware 3 node trials are now available for 60 days to customers and partners. Customers are required to provide a valid trial VCF key from Broadcom before the Azure VMware Solution trial can be deployed. Existing trials in progress before November 1 are required to update their VCF key in the Azure portal on their Azure VMware Solution private cloud.  
 
 After 60 days, deployed trials automatically switch to billed hosts unless you delete the deployment before 60 days elapses. If you don’t already have a VCF-included RI purchased, you are required to provide your Broadcom purchased VCF (BYOL) before your trial ends. Adherence to licensing compliance ensures successful continuity of your Azure VMware Solution private cloud. 
 
