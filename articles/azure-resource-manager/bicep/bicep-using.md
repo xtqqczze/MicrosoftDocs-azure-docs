@@ -10,7 +10,7 @@ ms.custom: devx-track-bicep
 
 A `using` or a `using none` declaration must be present in all Bicep parameters files.
 
-A Bicep parameter file typically uses a `using` statement to tie the file to a [Bicep file](./file.md), a [JSON Azure Resource Manager template (ARM template)](../templates/syntax.md), a [Bicep module](./modules.md), or a [template spec](./template-specs.md). This linkage allows the Bicep language server and compiler to validate the parameter file-checking for correct names, types, and required values based on the templateâ€™s inputs.
+A Bicep parameter file typically uses a `using` statement to tie the file to a [Bicep file](./file.md), a [JSON Azure Resource Manager template (ARM template)](../templates/syntax.md), a [Bicep module](./modules.md), or a [template spec](./template-specs.md). This linkage allows the Bicep language server and compiler to validate the parameter file-checking for correct names, types, and required values based on the template's inputs.
 
 In contrast, the `using none` statement explicitly indicates that the parameter file isn't tied to any particular template at compile time. This means the parameters aren't validated against a specific template and are instead intended for more general use-such as being consumed by external tools or serving as shared, reusable parameter sets.
 

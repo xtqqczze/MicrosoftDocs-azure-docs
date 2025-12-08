@@ -119,7 +119,7 @@ The following example would accept `{"foo": "string", "bar": 1}`, but reject `{"
 }
 ```
 
-All properties are required unless the propertyâ€™s type definition has the ["nullable": true](#nullable-constraint) constraint. To make both properties in the preceding example optional, it would look like:
+All properties are required unless the property's type definition has the ["nullable": true](#nullable-constraint) constraint. To make both properties in the preceding example optional, it would look like:
 
 ```json
 "definitions": {
