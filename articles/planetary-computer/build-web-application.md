@@ -19,18 +19,8 @@ In this quickstart, you learn how to build a web application that authenticates 
 
 A typical GeoCatalog web application follows this architecture:
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                         Browser Application                              │
-│                                                                          │
-│  User ──► MSAL.js ──► Microsoft Entra ID ──► Access Token               │
-│                                                                          │
-│  App ──► STAC API (/stac/collections, /stac/search)                     │
-│      ──► Tiler API (/data/.../tiles/{z}/{x}/{y})                        │
-│                                                                          │
-│  Map Library (MapLibre, Leaflet, OpenLayers) ◄── Tile Responses         │
-└─────────────────────────────────────────────────────────────────────────┘
-```
+[ ![Diagram showing the architecture of a GeoCatalog web application with a browser client connecting to Microsoft Entra ID for authentication and to GeoCatalog APIs for data access.](media/web-application-architecture.png) ](media/web-application-architecture.png#lightbox)
+
 
 ## Prerequisites
 
@@ -101,6 +91,9 @@ npm install @azure/msal-browser @azure/msal-react axios maplibre-gl
 - **maplibre-gl** - Open-source map library for tile visualization
 
 ## Step 4: Implement MSAL authentication
+
+[ ![Screenshot showing the authentication flow in a sample web application.](media/sample-authentication.gif) ](media/sample-authentication.gif#lightbox)
+
 
 Configure MSAL for browser authentication. The following example shows the key configuration and token acquisition pattern:
 
@@ -179,6 +172,9 @@ The GeoCatalog STAC API provides endpoints for discovering and querying geospati
 
 ### List collections
 
+[ ![Screenshot showing the list of STAC collections in a sample web application.](media/list-stac-collections.gif) ](media/list-stac-collections.gif#lightbox)
+
+
 ```javascript
 const API_VERSION = '2025-04-30-preview';
 
@@ -202,6 +198,8 @@ async function listCollections(accessToken, catalogUrl) {
 
 ### List items in a collection
 
+[ ![Screenshot showing the list of STAC items in a sample web application.](media/list-stac-items.gif) ](media/list-stac-items.gif#lightbox)
+
 ```javascript
 const API_VERSION = '2025-04-30-preview';
 
@@ -224,6 +222,8 @@ async function listItems(accessToken, catalogUrl, collectionId, limit = 10) {
 ```
 
 ### Search across collections
+
+[ ![Screenshot showing how to use the STAC search to return items of interest.](media/stac-search-demo.gif) ](media/stac-search-demo.gif#lightbox)
 
 ```javascript
 const API_VERSION = '2025-04-30-preview';
@@ -263,6 +263,8 @@ const results = await searchItems(token, catalogUrl, {
 The GeoCatalog Tiler API serves raster data as map tiles. You construct tile URLs with the following pattern:
 
 ### Single item tiles
+
+[ ![Screenshot showing how to display tiles for a single item.](media/tile-single-image.gif) ](media/tile-single-image.gif#lightbox)
 
 ```
 {catalogUrl}/data/collections/{collectionId}/items/{itemId}/tiles/{z}/{x}/{y}@1x.png
@@ -410,6 +412,9 @@ function addTileLayer(map, tileUrl, bounds) {
 
 ## Mosaic tiles: Display collection-wide imagery
 
+[ ![Screenshot showing how to display mosaic tiles for a collection.](media/display-mosaic.gif) ](media/display-mosaic.gif#lightbox)
+
+
 To view all items in a collection as a seamless layer, register a mosaic search and use the returned search ID:
 
 ```javascript
@@ -468,6 +473,8 @@ The SAS API provides time-limited tokens for downloading raw asset files (GeoTIF
 
 > [!IMPORTANT]
 > SAS tokens enable **downloads only** in browser applications. Due to Azure Blob Storage CORS policies, browsers can't read blob data via JavaScript `fetch()`. See [Browser limitations](#browser-limitations) section.
+
+[ ![Screenshot showing how to download assets using a SAS token.](media/download-via-sas-token.gif) ](media/download-via-sas-token.gif#lightbox)
 
 ### Get a SAS token
 
@@ -601,14 +608,6 @@ Handle common error scenarios:
 | 401 | Token expired or invalid | Refresh the access token |
 | 404 | Item or collection not found | Verify IDs exist |
 | 424 | Tile outside data extent | Expected - handle gracefully |
-
-## Run and test
-
-1. Start your development server (the command depends on your build tool).
-1. Open your browser to the development URL.
-1. Select **Sign In** to authenticate with Microsoft Entra ID.
-1. Browse collections and items.
-1. Select an item to view its tiles on the map.
 
 ## Troubleshooting
 
