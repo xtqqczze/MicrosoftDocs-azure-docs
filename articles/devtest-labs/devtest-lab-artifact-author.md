@@ -154,7 +154,7 @@ You can create a custom artifact by starting from a sample *artifactfile.json* d
 
 - [Add artifacts to DevTest Labs VMs](add-artifact-vm.md)
 - [Specify mandatory artifacts to be added to all lab VMs](devtest-lab-mandatory-artifacts.md)
-- [Add an artifact repository to a lab](add-artifact-repository.md).
+- [Add an artifact repository to a lab](add-artifact-repository.md)
 
 ## Related content
 
