@@ -7,6 +7,7 @@ ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 12/01/2025
 zone_pivot_groups: service-portal-azcli-powershell
+---
 
 # Configure IoT Hub file uploads using the Azure portal
 
