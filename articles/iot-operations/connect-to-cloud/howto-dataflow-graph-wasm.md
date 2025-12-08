@@ -54,17 +54,17 @@ The WASM data flow implementation follows this workflow:
 
 These examples show how to set up and deploy WASM data flow graphs for common scenarios. The examples use hardcoded values and simplified configurations so you can get started quickly.
 
-### Set up container registry
+## Set up container registry
 
 Azure IoT Operations needs a container registry to pull WASM modules and graph definitions. You can use Azure Container Registry (ACR) or another OCI-compatible registry.
 
 To create and configure an Azure Container Registry, see [Deploy Azure Container Registry](/azure/container-registry/container-registry-get-started-portal).
 
-### Install ORAS CLI
+## Install ORAS CLI
 
 Use the ORAS CLI to push WASM modules and graph definitions to your container registry. For installation instructions, see [Install ORAS](https://oras.land/docs/installation).
 
-### Pull sample modules from public registry
+## Pull sample modules from public registry
 
 Use prebuilt sample modules:
 
@@ -82,7 +82,7 @@ oras pull ghcr.io/azure-samples/explore-iot-operations/enrichment:1.0.0
 oras pull ghcr.io/azure-samples/explore-iot-operations/filter:1.0.0
 ```
 
-### Push modules to your registry
+## Push modules to your registry
 
 Once you have the sample modules and graphs, push them to your container registry. Replace `<YOUR_ACR_NAME>` with the name of your Azure Container Registry.
 
@@ -106,7 +106,7 @@ oras push <YOUR_ACR_NAME>.azurecr.io/filter:1.0.0 --artifact-type application/vn
 > [!TIP]
 > You can also push your own modules and create custom graphs, see [Configuration of custom data flow graphs](#configuration-of-custom-data-flow-graphs).
 
-### Create a registry endpoint
+## Create a registry endpoint
 
 A registry endpoint defines the connection to your container registry. Data flow graphs use registry endpoints to pull WASM modules and graph definitions from container registries. For detailed information about configuring registry endpoints with different authentication methods and registry types, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
 
@@ -171,6 +171,62 @@ spec:
 
 > [!NOTE]
 > You can reuse registry endpoints across multiple data flow graphs and other Azure IoT Operations components, like Akri connectors.
+
+### Azure portal
+
+To create registry endpoints, you can also use the Azure portal. The portal experience allows you to specify and provide host details of an ACR, and optionally provide credentials. Before you begin, ensure that you have the following information:
+
+- Registry endpoint name.
+- A host name for the ACR.
+- Four types of authentication are supported:
+  - Anonymous
+  - System managed identity
+  - User managed identity
+  - Artifact secret
+
+
+To create a registry endpoint in the Azure portal, follow these steps.
+
+#### Create registry endpoints with anonymous authentication
+
+You can create a new registry endpoint by specifying the host details of an Azure Container Registry (ACR), enable anonymous access for public image retrieval, and store the configuration for reuse.
+
+:::image type="content" source="media/portal-registry-endpoints/image3.png" alt-text="Screenshot of the registry endpoint creation form with anonymous authentication selected.":::
+
+:::image type="content" source="media/portal-registry-endpoints/image4.png" alt-text="Screenshot of the completed anonymous authentication configuration for registry endpoint.":::
+
+#### Create registry endpoints with system managed identity authentication
+
+You can create a new registry endpoint by specifying the host details of an ACR, authenticate using a system-assigned managed identity for secure access, and store the configuration for reuse.
+
+:::image type="content" source="media/portal-registry-endpoints/image5.png" alt-text="Screenshot of the registry endpoint creation form with system managed identity authentication selected.":::
+
+:::image type="content" source="media/portal-registry-endpoints/image6.png" alt-text="Screenshot of the completed system managed identity authentication configuration for registry endpoint.":::
+
+#### Create registry endpoints with user managed identity
+
+You can create a new registry endpoint by specifying the host details of an ACR, authenticate using a user-assigned managed identity for secure access, and store the configuration for reuse.
+
+> [!NOTE]
+> The client and tenant IDs are required to enable user managed identity. 
+
+:::image type="content" source="media/portal-registry-endpoints/image7.png" alt-text="Screenshot of the registry endpoint creation form with user managed identity authentication selected.":::
+
+:::image type="content" source="media/portal-registry-endpoints/image8.png" alt-text="Screenshot of the completed user managed identity authentication configuration for registry endpoint.":::
+
+#### Create registry endpoints with artifact secrets
+
+Artifact secrets are used to authenticate with private container registries like ACR, Docker Hub, or MCR, when pulling container images. Secrets are essential when the registry requires credentials, and the image is not publicly accessible. This scenario enables you to manage data flow graphs across Azure IoT Operations and the operations experience. You can set up artifact secrets from Azure Key Vault by selecting existing secrets.
+
+You can create a new registry endpoint by specifying the host details of an ACR, authenticate using artifact secrets for secure access, and store the configuration for reuse:
+
+:::image type="content" source="media/portal-registry-endpoints/image9.png" alt-text="Screenshot of the registry endpoint creation form with artifact secrets authentication selected.":::
+
+:::image type="content" source="media/portal-registry-endpoints/image10.png" alt-text="Screenshot of the Azure Key Vault secret selection interface for artifact secrets.":::
+
+You set up artifact secrets from Azure Key Vault by creating new secrets and storing them in Azure Key Vault:
+
+:::image type="content" source="media/portal-registry-endpoints/image11.png" alt-text="Screenshot of the create new secret form in Azure Key Vault for artifact secrets.":::
 
 ### Get extension name
 
