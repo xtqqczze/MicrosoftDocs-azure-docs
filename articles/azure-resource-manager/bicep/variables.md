@@ -1,7 +1,7 @@
----
+﻿---
 title: Variables in Bicep
 description: Describes how to define variables in Bicep
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
 ms.date: 05/30/2025
 ---
@@ -84,7 +84,7 @@ Starting with [Bicep CLI version 0.36.X](https://github.com/Azure/bicep/releases
 - **Error detection**: The Bicep compiler validates that assigned values match the declared type, catching errors early.
 - **Code clarity**: Explicit types make it clear what kind of data a variable holds.
 - **Intellisense support**: Tools like Visual Studio Code provide better autocompletion and validation for typed variables.
-- **Refactoring safety**: Ensures that changes to variable assignments don’t inadvertently break type expectations.
+- **Refactoring safety**: Ensures that changes to variable assignments donâ€™t inadvertently break type expectations.
 
 To define a typed variable, use the `var` keyword followed by the variable name, the type, and the assigned value:
 
@@ -246,3 +246,4 @@ output instanceCount int = environmentSettings[environmentName].instanceCount
 
 - To learn about the available properties for variables, see [Understand the structure and syntax of Bicep files](file.md).
 - To learn about using loop syntax, see [Iterative loops in Bicep](loops.md).
+
