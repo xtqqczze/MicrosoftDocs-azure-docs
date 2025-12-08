@@ -136,7 +136,7 @@ Choose your development language and set up the required tools:
 
 ---
 
-## Configure development environment
+<!-- ## Configure development environment
 
 # [Rust](#tab/rust)
 
@@ -170,7 +170,7 @@ The schemas are located at `explore-iot-operations/samples/wasm/python/schema/` 
 
 You don't need any other environment configuration beyond installing the prerequisites and obtaining the WIT schemas.
 
----
+--- -->
 
 ## Create project
 
@@ -198,7 +198,7 @@ edition = "2021"
 wit-bindgen = "0.22"
 
 # Azure IoT Operations WASM SDK - provides operator macros and host APIs
-wasm_graph_sdk = { version = "1.1.3", registry = "azure-vscode-tinykube" }
+wasm_graph_sdk = { version = "1.1.3", registry = "azure-vscode-wasm" }
 
 # JSON serialization/deserialization for data processing
 serde = { version = "1", default-features = false, features = ["derive"] }
