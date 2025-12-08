@@ -15,104 +15,49 @@ Registry endpoints serve as authenticated access points to Azure Container Regis
 
 Key capabilities include:
 
-**Creation & Configuration**: Create registry endpoints through the Azure portal or Azure CLI. Select an ACR, specify authentication (anonymous, artifact secret, system or user managed identity), and optionally provide credentials.
+**Creation and configuration**: Create registry endpoints through the Azure portal or Azure CLI. Select an Azure Container Registry (ACR), specify authentication (anonymous, artifact secret, system or user managed identity), and optionally provide credentials.
 **Authentication UI**: A wizard-based UI that guides you through authentication setup. It dynamically adjusts fields based on the selected method.
 **Integration with DOE**: DOE dynamically pulls data from registry endpoints to display available dataflow graphs. You can filter and search these graphs.
 **Connector templates**: Registry endpoints are foundational for connector templates. They enable developers to upload metadata and images that define connector behavior.
 
 ## Customer scenarios
 
-Jobs to be Done (IT): Create Azure container registry:
+The following customer scenarios illustrate how registry endpoints are used:
 
-- **Job**: Microsoft developers, partner developers, or customer developers successfully create and publish connector and discovery handler container images, along with associated dataflow graphs, to an Azure Container Registry (ACR).
+### Create Azure container registry
 
-- **Outcome**: Enables integration into downstream platforms such as DOE and AIO for deployment and runtime execution.
+- **Job**: Developers successfully create and publish connector and discovery handler container images, along with associated dataflow graphs, to an ACR.
+- **Outcome**: Enables integration into downstream platforms such as DOE and Azure IoT Operations for deployment and runtime execution.
 
-Jobs to be Done (IT): Create registry endpoint
+### Create registry endpoint
 
-- **Job**: When a developer or IT admin needs to enable secure access to container images for use in DOE and AIO, they want to create a registry endpoint that connects to an Azure Container Registry (ACR) or external registry, so that downstream systems can authenticate and pull artifacts reliably and securely.
+- **Job**: When a developer or IT admin needs to enable secure access to container images for use in DOE and Azure IoT Operations, they create a registry endpoint that connects to an ACR or external registry, so that downstream systems can authenticate and pull artifacts reliably and securely.
+- **Outcome**: A registry endpoint is successfully created and configured with the appropriate authentication method (such as managed identity, username/secret, or anonymous) and trust settings. This setup enables downstream platforms like Azure IoT Operations to discover, validate, and deploy containerized artifacts without manual intervention or security exceptions.
 
-- **Outcome**: A registry endpoint is successfully created and configured with the appropriate authentication method (such as managed identity, username/secret, or anonymous) and trust settings. This setup enables downstream platforms like AIO to discover, validate, and deploy containerized artifacts without manual intervention or security exceptions.
+### Save configuration in resource provider
 
-Jobs to be Done (IT): Save configuration in AIO RP
+- **Job**: Customer IT saves the registry endpoint and credentials in Azure IoT Operations resource provider.
+- **Outcome**: Securely store configuration details to enable seamless integration and operations with Azure IoT Operations.
 
-- **Job**: Customer IT saves the registry endpoint and credentials in AIO RP.
-
-- **Outcome**: Securely store configuration details to enable seamless integration and operations with AIO.
-
-Jobs to be Done (Developer): Create connector metadata and connector image
+### Create connector metadata and connector image
 
 - **Job**: Customer developer creates connector metadata and connector images.
-
 - **Outcome**: Develop and package the necessary connector metadata and connector images to enable connectivity.
 
-Jobs to be Done (Developer): Upload connector metadata and connector image to ACR
+### Upload connector metadata and connector image to ACR
 
 - **Job**: Customer developer uploads the connector metadata and connector image to Azure container registry (ACR).
-
 - **Outcome**: Store the connector metadata and connector images securely in ACR for easy access and management.
 
-Jobs to be Done (Developer): Create dataflow graph artifact
+### Create dataflow graph artifact
 
 - **Job**: Customer developer creates dataflow graph artifact and the operator images for each graph node.
-
 - **Outcome**: Develop and package the necessary dataflow graph artifacts and operator images to enable efficient data processing.
 
-Jobs to be Done (Developer): Upload dataflow graphs to ACR
+### Upload dataflow graphs to ACR
 
 - **Job**: Customer developer uploads the dataflow graphs to Azure container registry (ACR).
-
 - **Outcome**: Store the dataflow graphs securely in ACR for easy access and management.
-
-# User stories
-
-**Developer User Stories** – Creating, signing, and publishing artifacts (out of scope for this spec).
-
-**As a Microsoft developer**,
-
-- I want to build and containerize a connector image, so that I can deploy it to ACR and use it in downstream platforms like DOE and AIO.
-
-**As a partner developer**,
-
-- I want to push discovery handler images to a trusted ACR, so that IT admins can configure endpoints without needing to modify the artifact.
-
-**As a customer developer**,
-
-- I want to define and validate a dataflow graph, so that it aligns with schema requirements and can be integrated into runtime environments.
-
-As a **Site IT engineer**
-
-- I want to create a registry endpoint and provide credentials
-
-  - **Job**: I want to create a registry endpoint that connects to a specific ACR, so that DOE and AIO can securely pull container images.
-
-  - **Outcome**: Ensure AIO can access and retrieve necessary graphs and operators from the registry.
-
-As a **Site OT engineer (out of scope for this spec)**
-
-- I want to view a catalog of data transformation graphs.
-
-  - **Job**: I want to view a catalog of data transformation graphs built by my company developers
-
-  - **Outcome**: Easily browse through available data transformation graphs created by developers.
-
-- Select graph to create dataflow.
-
-  - **Job**: I want to select a graph to create dataflow, to process the data and send the data to my desired destinations.
-
-  - **Outcome**: Easily choose a pre-built graph to set up data processing workflows and direct data to specific destinations.
-
-# Metrics
-
-| Metric | Description | Priority |
-|----|----|----|
-| \# of registry endpoints created | Ability to track registry endpoints created | 0 |
-
-# Timelines
-
-2508 (TBD)
-
-1x
 
 # Functional Requirements Summary
 
@@ -202,37 +147,3 @@ Set up artifact secrets from Azure key vault by selecting existing secrets.
 Set up artifact secrets from Azure key vault by creating new secrets and storing them in Azure key vault.
 
 :::image type="content" source="media/portal-registry-endpoints/image11.png" alt-text="Screenshot of the create new secret form in Azure Key Vault for artifact secrets.":::
-
-# E2E error scenarios
-
-This feature empowers operations teams to choose pre-configured user secrets that they can access, thus
-
-| # | Error Scenario |
-|---|----------------|
-| 1. | Validate host names and registry endpoint names |
-| 1. | Client ID and Tenant ID are required for user managed identity authentication type |
-
-# Q/A
-
-| Q. No | Question | Answer |
-|-------|----------|--------|
-|       |          |        |
-|       |          |        |
-
-# Dependencies and Risks
-
-## Dependencies
-
-| **Dependency (Team + Owner)**    | **Status**        | **Timeline** |
-|----------------------------------|-------------------|--------------|
-| DATAFLOW (John, Venkat, Varun)   | RP APIs in review |              |
-| AIO RP (Ramit, Christian, Nonso) | RP APIs in review |              |
-
-## Risks 
-
-| **Risk**               | **Mitigation** | **Owner** |
-|------------------------|----------------|-----------|
-| AIO RP still in review |                |           |
-|                        |                |           |
-
-# Appendix:
