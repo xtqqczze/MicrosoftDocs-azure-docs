@@ -44,9 +44,9 @@ This article focuses on the actions consumers take to enable JIT access and appr
 
    By default, a managed application with JIT enabled has the following settings:
 
-   - Approval mode â€“ automatic
-   - Maximum access duration â€“ 8 hours
-   - Approvers â€“ none
+   - Approval mode - automatic
+   - Maximum access duration - 8 hours
+   - Approvers - none
 
    When the approval mode is set to **automatic**, the approvers receive a notification for each request but the request is automatically approved. When set to **manual**, the approvers receive a notification for each request, and one of them must approve it.
 

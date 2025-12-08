@@ -465,7 +465,7 @@ output result object = deploymentScript.properties.outputs
 
 ## Work with outputs
 
-The approach to handling outputs varies based on the type of script you're usingâ€”the Azure CLI or Azure PowerShell.
+The approach to handling outputs varies based on the type of script you're using-the Azure CLI or Azure PowerShell.
 
 # [CLI](#tab/CLI)
 

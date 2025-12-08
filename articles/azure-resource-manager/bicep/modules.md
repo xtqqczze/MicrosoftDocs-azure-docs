@@ -551,7 +551,7 @@ With Bicep version 0.35.1 and later, the `@secure()` decorator can be applied to
 
 ## Module identity
 
-Starting with Bicep version 0.36.1, you can assign a user-assigned managed identity to a module. This makes the identity available within the moduleâ€”for example, to access a Key Vault. However, this capability is intended for future use and is not yet supported by backend services.
+Starting with Bicep version 0.36.1, you can assign a user-assigned managed identity to a module. This makes the identity available within the module-for example, to access a Key Vault. However, this capability is intended for future use and is not yet supported by backend services.
 
 ```bicep
 param identityId string

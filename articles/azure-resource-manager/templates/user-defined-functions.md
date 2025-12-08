@@ -8,7 +8,7 @@ ms.date: 07/17/2025
 
 # User-defined functions in ARM template
 
-User-defined functions help simplify and reuse complex expressions in your ARM templates. By encapsulating logic in custom functions, you can improve template readability, maintainability, and scalabilityâ€”especially when the same logic appears in multiple places. These functions are distinct from the [built-in template functions](template-functions.md) that are always available. To define user-defined functions in Bicep, see [User-defined functions in Bicep](../bicep/user-defined-functions.md).
+User-defined functions help simplify and reuse complex expressions in your ARM templates. By encapsulating logic in custom functions, you can improve template readability, maintainability, and scalability-especially when the same logic appears in multiple places. These functions are distinct from the [built-in template functions](template-functions.md) that are always available. To define user-defined functions in Bicep, see [User-defined functions in Bicep](../bicep/user-defined-functions.md).
 
 ## Define the function
 
