@@ -27,7 +27,7 @@ Automatic device management operates by applying desired properties to groups of
 
 * The **metrics** component provides summary counts for configuration states like **Success**, **In Progress**, and **Error**. You can define custom metrics using queries on twin reported properties, while system metrics automatically track update status, including how many twins are targeted and how many are successfully updated.
 
-Automatic configurations run for the first time shortly after the configuration is created and then at five-minute intervals. Metrics queries run each time the automatic configuration runs. A maximum of 100 automatic configurations is supported on standard tier IoT hubs; 10 on free tier IoT hubs. Throttling limits also apply. To learn more, see [Quotas and Throttling](iot-hub-devguide-quotas-throttling.md).
+Automatic configurations run for the first time shortly after the configuration is created and then at five-minute intervals. Metrics queries run each time the automatic configuration runs. A maximum of 100 automatic configurations is supported on standard tier IoT hubs; 10 on free tier IoT hubs. Throttling limits also apply. To learn more, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 :::zone pivot="azure-portal"
 

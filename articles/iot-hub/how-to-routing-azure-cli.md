@@ -17,7 +17,7 @@ ms.custom:
 
 This article shows you how to manage Azure IoT Hub routes and endpoints by using the Azure CLI. Learn how to use the Azure CLI to create routes and endpoints for Azure Event Hubs, Azure Service Bus queues and topics, Azure Storage, and Cosmos DB.
 
-To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](./iot-hub-devguide-messages-d2c.md). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](./tutorial-routing.md?tabs=cli).
+To learn more about how routing works in IoT Hub, see [Use IoT Hub message routing to send device-to-cloud messages to Azure services](./iot-hub-devguide-messages-d2c.md). To walk through setting up a route that sends messages to storage and then testing on a simulated device, see [Tutorial: Send device data to Azure Storage using IoT Hub message routing](./tutorial-routing.md?tabs=cli).
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ This article uses the Azure CLI to work with IoT Hub and other Azure services. Y
 
 ### IoT Hub
 
-Have an IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
+Have an IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md#create-an-iot-hub).
 
 ### Endpoint service
 
@@ -45,7 +45,7 @@ Decide which Azure service you want to use as an endpoint to receive routed devi
 
 # [Event Hubs](#tab/eventhubs)
 
-1. Create an Event Hubs namespace and an event hub. For more information, see [Quickstart: Create an event hub by using the Azure CLI](../event-hubs/event-hubs-quickstart-cli.md).
+1. Create an Event Hubs namespace and an event hub. For more information, see [Quickstart: Create an event hub using Azure CLI](../event-hubs/event-hubs-quickstart-cli.md).
 
 1. Create an authorization rule that is used to give IoT Hub permission to send data to the event hub.
 
@@ -76,7 +76,7 @@ Create a Service Bus namespace, topic, and subscription. For more information, s
 
 # [Azure Storage](#tab/azurestorage)
 
-1. Create a storage account. For more information, see [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli).
+1. Create a storage account. For more information, see [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-cli).
 
 1. Create a container in your storage account. For more information, see [Manage blob containers using Azure CLI](../storage/blobs/blob-containers-cli.md)
 
@@ -272,7 +272,7 @@ az iot hub message-endpoint delete --hub-name {iothub_name} --endpoint-type stor
 
 ## Create an IoT Hub route
 
-In IoT Hub, you can create a route to send messages or capture events. Each route has a data source and an endpoint. The data source is where messages or event logs originate. The endpoint is where the messages or event logs end up. You choose locations for the data source and endpoint when you create a new route in your IoT hub. Optionally, you can [Add queries to message routes](iot-hub-devguide-routing-query-syntax.md) to filter messages or events before they go to the endpoint.
+In IoT Hub, you can create a route to send messages or capture events. Each route has a data source and an endpoint. The data source is where messages or event logs originate. The endpoint is where the messages or event logs end up. You choose locations for the data source and endpoint when you create a new route in your IoT hub. Optionally, you can [add queries to message routes](iot-hub-devguide-routing-query-syntax.md) to filter messages or events before they go to the endpoint.
 
 > [!NOTE]
 > This article uses the [az iot hub message-route](/cli/azure/iot/hub/message-route) command group, which was introduced in version 0.19.0 of the azure-iot extension for the Azure CLI. Previous versions of the azure-iot extension used the `az iot hub route` command group, which is no longer supported.
@@ -364,4 +364,4 @@ az iot hub message-route fallback set --hub-name {iothub_name} --enabled {true_f
 
 In this how-to article, you learned how to create a route and endpoint for Event Hubs, Service Bus queues and topics, and Azure Storage.
 
-To learn more about message routing, see [Tutorial: Send device data to Azure Storage by using IoT Hub message routing](./tutorial-routing.md?tabs=cli). In the tutorial, you create a storage route and test it with a device in your IoT hub.
+To learn more about message routing, see [Tutorial: Send device data to Azure Storage using IoT Hub message routing](./tutorial-routing.md?tabs=cli). In the tutorial, you create a storage route and test it with a device in your IoT hub.

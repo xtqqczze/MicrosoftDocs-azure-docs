@@ -106,14 +106,14 @@ In this section, you register a device in your new IoT hub and then send message
 
 1. Drill down into the storage account until you find files.
 
-   ![Look at the storage account files](./media/horizontal-arm-route-messages/07-see-storage.png)
+   :::image type="content" source="./media/horizontal-arm-route-messages/07-see-storage.png" alt-text="Screenshot showing a list of files for an Azure Storage account in the Azure portal.":::
 
 1. Select one of the files and select **Download** and download the file to a location you can find later. It has a name that's numeric, like 47. Add _.txt_ to the end and then double-click on the file to open it.
 
 1. When you open the file, each row is for a different message; the body of each message is also encrypted. It must be in order for you to perform queries against the body of the message.
 
-   ![View the sent messages](./media/horizontal-arm-route-messages/08-messages.png)
-
+   :::image type="content" source="./media/horizontal-arm-route-messages/08-messages.png" alt-text="Screenshot of sent device-to-cloud messages, from a file in an Azure Storage account.":::
+   
    > [!NOTE]
    > These messages are encoded in UTF-32 and base64. If you read the message back, you have to decode it from base64 and utf-32 in order to read it as ASCII. If you're interested, you can use the method ReadOneRowFromFile in the Routing Tutorial to read one for from one of these message files and decode it into ASCII. ReadOneRowFromFile is in the IoT C# SDK repository that you unzipped for this quickstart. Here's the path from the top of that folder: *./iothub/device/samples/getting started/RoutingTutorial/SimulatedDevice/Program.cs.* Set the boolean `readTheFile` to true, and hardcode the path to the file on disk, and it opens and translates the first row in the file.
 
@@ -121,7 +121,7 @@ In this quickstart, you deployed an ARM template to create an IoT hub and a stor
 
 ## Clean up resources
 
-To remove the resources added during this quickstart, sign in to the [Azure portal](https://portal.azure.com). Select **Resource Groups**, then find the resource group you used for this quickstart. Select the resource group and then select *Delete*. When the group is deleted, so are all of the resources in the group.
+To remove the resources added during this quickstart, sign in to the [Azure portal](https://portal.azure.com). Select **Resource Groups**, then find the resource group you used for this quickstart. Select the resource group and then select _Delete_. When the group is deleted, so are all of the resources in the group.
 
 ## Next steps
 
