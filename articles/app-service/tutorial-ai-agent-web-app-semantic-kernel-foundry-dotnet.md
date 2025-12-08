@@ -22,7 +22,7 @@ If your web application already has useful features, like shopping, hotel bookin
 ### [Microsoft Agent Framework](#tab/agentframework)
 
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/semantic-kernel-agent.png" alt-text="Screenshot showing the Microsoft Agent Framework agent chat interface with a conversation about task management.":::
+:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/microsoft-agent-framework.png" alt-text="Screenshot showing the Microsoft Agent Framework agent chat interface with a conversation about task management.":::
 
 ### [Foundry Agent Service](#tab/aifoundry)
 
@@ -38,6 +38,9 @@ Both Microsoft Agent Framework and Foundry Agent Service enable you to build age
 | Development        | Full code, maximum control     | Low code, rapid integration            |
 | Testing            | Manual/unit tests in code      | Built-in playground for quick testing  |
 | Scalability        | App-managed                    | Azure-managed, autoscaled             |
+| Security guardrails | Custom implementation required | Built-in content safety and moderation |
+| Identity     | Custom implementation required | Built-in agent ID and authentication   |
+| Enterprise     | Custom integration required    | Built-in Micrsooft 365/Teams deployment and Microsoft 365 integrated tool calls.      |
 
 In this tutorial, you learn how to:
 
@@ -82,8 +85,9 @@ The `AgentFrameworkProvider` is initialized in *Services/AgentFrameworkProvider.
 - Creates an `IChatClient` from Azure OpenAI using the `AzureOpenAIClient`.
 - Gets the `TaskCrudTool` instance that encapsulates the functionality of the CRUD application (in *Tools/TaskCrudTool.cs*). The `Description` attributes on the tool methods help the agent determine how to call them.
 - Creates an AI agent using `CreateAIAgent()` with instructions and tools registered via `AIFunctionFactory.Create()`.
+- Creates a thread for the agent to persist conversation across navigation.
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/AgentFrameworkProvider.cs" range="28-73" highlight="6-49" :::
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/AgentFrameworkProvider.cs" range="40-71" highlight="4-31" :::
 
 ### [Foundry Agent Service](#tab/aifoundry)
 
@@ -94,13 +98,13 @@ The `FoundryAgentProvider` provider is initialized in *Services/FoundryAgentProv
 - Creates a conversation for the browser session.
 - Gets a `ProjectResponsesClient` for the agent and conversation.
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/FoundryAgentProvider.cs" range="39-74" highlight="5-30" :::
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/FoundryAgentProvider.cs" range="54-74" highlight="4,7,10,13" :::
 
 This initialization code doesn't define any functionality for the agent, because you would typically build the agent in the Foundry portal. As part of the example scenario, it also follows the OpenAPI pattern shown in [Add an App Service app as a tool in Foundry Agent Service (.NET)](tutorial-ai-integrate-azure-ai-agent-dotnet.md), and makes its CRUD functionality available as an OpenAPI endpoint. This lets you add it to the agent later as a callable tool.
 
 The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API defines the operation ID with *WithName()*, as required by the [OpenAPI spec tool in Microsoft Foundry](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites), and `WithDescription()` helps the agent determine how to call the API:
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Program.cs" range="46-51" highlight="5-6" :::
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Program.cs" range="48-53" highlight="4-5" :::
 
 -----
 
