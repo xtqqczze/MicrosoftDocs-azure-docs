@@ -3,7 +3,7 @@ title: Install VMware HCX in Azure VMware Solution
 description: Install VMware HCX in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 02/26/2025
+ms.date: 12/08/2025
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
