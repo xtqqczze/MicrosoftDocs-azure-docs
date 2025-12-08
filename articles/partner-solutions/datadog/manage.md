@@ -78,6 +78,8 @@ When you add or remove subscriptions for Datadog monitoring, the system updates 
 
 - The resource provider for Datadog (Microosoft.Datadog) must be registered in the target subscription.
 
+### Add a subscription
+
 To monitor multiple subscriptions:
 
 1. Select **Datadog organization configurations > Monitored Subscriptions**.
