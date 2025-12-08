@@ -4,7 +4,7 @@ description: Learn how to build WebAssembly (WASM) modules using Visual Studio C
 author: dominicbetts 
 ms.author: dobett 
 ms.topic: how-to
-ms.date: 12/05/2025
+ms.date: 12/08/2025
 ms.service: azure-iot-operations
 
 # CustomerIntent: As a developer, I want to understand how to use the VS Code extension to build and deploy WASM modules to use in data flow graphs or the HTTP/REST connector.

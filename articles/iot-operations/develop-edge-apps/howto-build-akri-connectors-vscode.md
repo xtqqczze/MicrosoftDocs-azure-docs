@@ -4,7 +4,7 @@ description: Learn how to build Akri connectors for Azure IoT Operations using t
 author: dominicbetts 
 ms.author: dobett 
 ms.topic: how-to
-ms.date: 12/05/2025
+ms.date: 12/08/2025
 ms.service: azure-iot-operations
 
 # CustomerIntent: As a developer, I want to understand how to use the VS Code extension to build and deploy custom Akri connectors.
@@ -72,7 +72,9 @@ docker volume create akri_devx_docker_volume
 > [!NOTE]
 > Currently, launching the DevX image as a container from WSL without Docker Desktop installed causes the container to hang forever.
 
-## Author and validate a .NET Akri connector
+## Author and validate an Akri connector
+
+# [.NET](#tab/dotnet)
 
 In this example, you create an HTTP/REST connector using the C# language, build a docker image, and then run the connector application by using the VS Code extension:
 
@@ -400,7 +402,7 @@ To debug a .NET based Akri connector, make sure you have the `C#` VS Code extens
 > [!NOTE]
 > The Akri VS Code extension launches the DevX container in a Run/Debug scenario with a timeout period of three minutes. If the container doesn't complete the launch within the timeout period, the extension terminates the container.
 
-## Author and validate a Rust Akri connector
+# [Rust](#tab/rust)
 
 In this example, you create an HTTP/REST connector using the Rust language, build a Docker image, and then run the connector application by using the VS Code extension:
 
@@ -551,6 +553,8 @@ To debug a Rust-based Akri connector, make sure you have the `C/C++` VS Code ext
 > [!NOTE]
 > The Akri VS Code extension launches the DevX container in a Run/Debug scenario with a timeout period of three minutes. If the container doesn't complete the launch within the timeout period, the extension terminates the container.
 
+---
+
 ## Apply configuration updates
 
 You can dynamically update the device and asset configurations in the local runtime environment while you're running your connector. This capability lets you verify that your connector responds to configuration changes. Use the following VS Code extension commands to make these changes:
@@ -559,7 +563,6 @@ You can dynamically update the device and asset configurations in the local runt
 - `Azure IoT Operations Akri Connectors: Apply Asset YAML on cluster`
 - `Azure IoT Operations Akri Connectors: Delete Device YAML from cluster`
 - `Azure IoT Operations Akri Connectors: Delete Asset YAML from cluster`
-
 
 ## Capture connector state
 
