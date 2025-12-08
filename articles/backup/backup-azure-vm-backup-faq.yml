@@ -442,6 +442,10 @@ sections:
         answer: |
           Azure Backup backs up the secrets and KEK data of the key version during backup, and restores the same. However, booting ADE VMs with older version keys are also possible.
 
+      - question: How often are Microsoft managed keys rotated for Azure Backup?
+        answer: |
+          Microsoft-managed keys are rotated appropriately per compliance requirements. If you have specific key rotation requirements, Microsoft recommends that you move to customer-managed keys so that you can manage and audit the rotation yourself. Refer to [Azure Storage encryption documentation](..\storage\common\storage-service-encryption.md) for more information.
+
       - question: When Vault is configured with CRR, what happens to the secondary data if the primary region fails?
         answer: |
           Backup data fully replicated to the secondary region before the failure of the primary region will remain intact. This remains the case even after the primary region has recovered from the failure. In other words, the virtual machine can be recovered in the secondary region with the data it had before the failure as per the replication schedule. Note that the RPO for the secondary region is 36 hours i.e., data takes approximately 36 hours to be fully replicated from primary to the secondary region.
