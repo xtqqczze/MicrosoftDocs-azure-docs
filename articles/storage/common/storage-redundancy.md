@@ -40,7 +40,7 @@ The redundancy setting for a storage account is shared for all storage services 
 
 Azure Storage offers two options for how your data is replicated in the primary region:
 
-- **Locally redundant storage (LRS)** replicates the data within your storage accounts to one or more Azure availability zones located in the primary region of your choice.
+- **Locally redundant storage (LRS)** replicates the data within your storage accounts to a single physical datacenter located in the primary region of your choice.
 
 - **Zone-redundant storage (ZRS)** copies your data synchronously across three or more Azure availability zones in the primary region. For applications requiring high availability, Microsoft recommends using ZRS in the primary region, and also replicating to a secondary region.
 
@@ -200,7 +200,7 @@ The following table shows the redundancy options supported by each Azure Storage
 <sup>2</sup> ZRS managed disks have certain limitations. See the [Limitations](/azure/virtual-machines/disks-redundancy#limitations) section of the redundancy options for managed disks article for details.<br/>
 
 > [!NOTE]
-> For storage accounts that utilize the smart tier public preview, redundancy conversions and account failover scenarios have additional dependencies. For more information, see [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
+> For storage accounts that utilize the smart tier public preview, redundancy conversions and account failover scenarios have dependencies. For more information, see [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
 
 ### Supported storage account types
 
