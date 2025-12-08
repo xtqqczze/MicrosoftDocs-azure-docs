@@ -444,7 +444,7 @@ sections:
 
       - question: How often are Microsoft managed keys rotated for Azure Backup?
         answer: |
-          Microsoft-managed keys are rotated appropriately per compliance requirements. If you have specific key rotation requirements, Microsoft recommends that you move to customer-managed keys so that you can manage and audit the rotation yourself. Refer to [Azure Storage encryption documentation](..\storage\common\storage-service-encryption.md) for more information.
+          Microsoft-managed keys are rotated as per compliance requirements. If you have specific key rotation requirements, we recommend that you move to customer-managed keys so that you can manage and audit the rotation manually. Learn more [about Azure Storage encryption] (..\storage\common\storage-service-encryption.md).
 
       - question: When Vault is configured with CRR, what happens to the secondary data if the primary region fails?
         answer: |
