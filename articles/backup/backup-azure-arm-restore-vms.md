@@ -387,7 +387,6 @@ If you choose to select system-assigned or user-assigned managed identities, che
                     "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
                     "Microsoft.Storage/storageAccounts/blobServices/containers/read",
                     "Microsoft.Storage/storageAccounts/blobServices/containers/write",
-                    "Microsoft.Storage/storageAccounts/listKeys/action",
                     "Microsoft.Storage/storageAccounts/read",
                     "Microsoft.Storage/storageAccounts/write"
                 ],
