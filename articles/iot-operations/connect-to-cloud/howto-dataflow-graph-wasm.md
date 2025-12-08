@@ -112,7 +112,7 @@ A registry endpoint defines the connection to your container registry. Data flow
 
 For quick setup with Azure Container Registry, create a registry endpoint with system-assigned managed identity authentication:
 
-# [Operations experience](#tab/portal)
+# [Azure portal](#tab/portal)
 
 Currently, you can't create registry endpoints in the operations experience. You must use Bicep or Kubernetes manifests. After you create a registry endpoint, the graphs you [pushed to your container registry](#push-modules-to-your-registry) are ready to be used in operations experience in data flow graphs.
 
