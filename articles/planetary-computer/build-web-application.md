@@ -15,24 +15,6 @@ ms.date: 12/08/2024
 
 In this quickstart, you learn how to build a web application that authenticates users via Microsoft Entra ID and displays geospatial data from a Microsoft Planetary Computer Pro GeoCatalog. The patterns shown here work with any modern JavaScript framework (React, Vue, Angular) or vanilla JavaScript.
 
-## In this article
-
-- [Prerequisites](#prerequisites)
-- [Architecture overview](#architecture-overview)
-- Setup
-  - [Step 1: Register your application in Microsoft Entra ID](#step-1-register-your-application-in-microsoft-entra-id)
-  - [Step 2: Configure your application](#step-2-configure-your-application)
-  - [Step 3: Install dependencies](#step-3-install-dependencies)
-  - [Step 4: Implement MSAL authentication](#step-4-implement-msal-authentication)
-- API Reference
-  - [STAC API: Query collections and items](#stac-api-query-collections-and-items)
-  - [Tile URLs: Build URLs for map visualization](#tile-urls-build-urls-for-map-visualization)
-  - [Map integration: Display tiles with MapLibre GL](#map-integration-display-tiles-with-maplibre-gl)
-  - [Mosaic tiles: Display collection-wide imagery](#mosaic-tiles-display-collection-wide-imagery)
-  - [SAS tokens: Download raw assets](#sas-tokens-download-raw-assets)
-- [Development considerations](#development-considerations)
-- [Troubleshooting](#troubleshooting)
-
 ## Architecture overview
 
 A typical GeoCatalog web application follows this architecture:
