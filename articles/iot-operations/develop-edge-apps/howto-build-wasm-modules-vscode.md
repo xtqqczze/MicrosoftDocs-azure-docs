@@ -38,7 +38,7 @@ Development environment:
 - (Optional) [RedHat YAML extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml) for VS Code
 - [VS Code extension for WASM module development](https://github.com/Azure/azure-iot-operations-preview/releases/download/v0.4.13/azure-iot-operations-data-flow-vscode-0.4.13.vsix)
 - [CodeLLDB extension](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) for VS Code to enable debugging of WASM modules
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
+- [Azure CLI](/cli/azure/install-azure-cli)
 - [ORAS CLI](https://oras.land/docs/installation/)
 - Docker
 
