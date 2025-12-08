@@ -28,7 +28,7 @@ When using portable VCF (BYOL), you must still request capacity (quotas) for Azu
 
 Always ensure your Broadcom purchased VCF core count covers the scale you need. 
 
-For further details on how to request host quotas for Azure VMware Solution, refer [here](https://learn.microsoft.com/en-us/azure/azure-vmware/request-host-quota-azure-vmware-solution). 
+For further details on how to request host quotas for Azure VMware Solution, refer [here](./request-host-quota-azure-vmware-solution.md). 
 
 ## Trials on Azure VMware Solution
 
