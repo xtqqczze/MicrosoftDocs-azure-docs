@@ -1,9 +1,9 @@
 ---
 title: Monitor Azure Functions
 description: Start here to learn how to monitor Azure Functions.
-ms.date: 03/08/2024
+ms.date: 12/08/2025
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-functions
 ---
 
