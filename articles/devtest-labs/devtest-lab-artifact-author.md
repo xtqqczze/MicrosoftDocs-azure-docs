@@ -4,14 +4,14 @@ description: Learn how to create and use artifacts to deploy and set up applicat
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 09/30/2023
+ms.date: 12/08/2025
 ms.custom: UpdateFrequency2
 #customer intent: As an Azure DevTest Labs user, I want to learn how to create and store artifact definition files so I can use them to install tools or take other actions on my lab VMs.
 ---
 
 # Create custom artifacts for DevTest Labs VMs
 
-Artifacts are tools, actions, or software you can add to Azure DevTest Labs VMs. For example, artifacts can run scripts, install tools, or take actions like joining a domain. DevTest Lab users can [add artifacts to their VMs](add-artifact-vm.md), and lab administrators can [specify mandatory artifacts to be added to all lab VMs](devtest-lab-mandatory-artifacts.md).
+Artifacts are tools, actions, or software you can add to Azure DevTest Labs VMs. For example, artifacts can run scripts, install tools, or take actions like joining a domain. DevTest Labs users can [add artifacts to their VMs](add-artifact-vm.md), and lab administrators can [specify mandatory artifacts to be added to all lab VMs](devtest-lab-mandatory-artifacts.md).
 
 This article describes how to create artifacts that provision lab VMs. An artifact consists of an artifact definition JSON file and other script files stored in a Git repository folder. You can store artifacts in a private or public Git repository. Lab administrators can [add artifact repositories to labs](add-artifact-repository.md) so all lab users can access them.
 
