@@ -153,9 +153,9 @@ To copy data from Jira, set the type property of the dataset to **JiraObject**. 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **JiraObject** | Yes |
-| schema | Name of the schema. | Yes for version 2.0. |
-| table | Name of the table. | Yes for version 2.0. |
-| tableName | Name of the table. | No for version 1.0 (if "query" in activity source is specified) |
+| schema | Name of the schema. This property is only supported in version 2.0. | Yes |
+| table | Name of the table. This property is only supported in version 2.0. | Yes |
+| tableName | Name of the table. This property is only supported in version 1.0.| No (if "query" in activity source is specified) |
 
 **Example**
 
