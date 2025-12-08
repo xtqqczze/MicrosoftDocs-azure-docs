@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 08/14/2025
+ms.date: 11/24/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -36,7 +36,7 @@ Azure Backup provides several ways to restore a VM.
 
 Some details about storage accounts:
 
-- **Create VM**: When you create a new VM with managed disks, nothing is placed in the storage account you specify. If using unmanaged disks, the VHD files for the VM's disks will be placed in the storage account you specify.
+- **Create VM**: When you create a new VM, VHD files are also copied when restoring VMs with disks < 4 TB or VMs containing < 16 disks from a Vault-Standard recovery point. These files are then moved to Managed storage. To prevent extra charges, delete VHDs from the Staging Storage Account.
 - **Restore disk**: The VM restore job generates a template, which you can download and use to specify custom VM settings. VHD files are also copied when restoring managed disks **< 4 TB** or VMs containing **< 16 disks** from a Vault-Standard recovery point, or when restoring unmanaged disks. These files are then moved to Managed storage. To prevent extra charges, delete VHDs from the Staging Storage Account.
 - **Replace disk**: When replacing a managed disk from a Vault-Standard recovery point that's **< 4 TB** or a VM containing **< 16 disks**, a VHD file is created in the specified storage account. After replacement, source VM disks remain in the designated Resource Group, and VHDs stay in the storage account; you can delete or retain the source disk and the VHDs as needed.
 - **Storage account location**: The storage account must be in the same region as the vault. Only these accounts are displayed. If there are no storage accounts in the location, you need to create one.
@@ -58,7 +58,7 @@ If you don't have permissions, you can [restore a disk](#restore-disks), and the
 
 To select a restore point for a VM restore, follow these steps:
 
-1. Go to **Business Continuity Center** in the [Azure portal](https://portal.azure.com/) and select **Recover**.
+1. Go to **Resiliency** in the [Azure portal](https://portal.azure.com/) and select **Recover**.
 
     :::image type="content" source="./media/backup-azure-arm-restore-vms/select-recover.png" alt-text="Screenshot shows how to start VM restore." lightbox="./media/backup-azure-arm-restore-vms/select-recover.png":::
 
@@ -169,7 +169,7 @@ After the disk is restored, use the template that was generated as part of the r
 
 1. Go to the **Recovery Services vault**, and then select **Monitoring** > **Backup Jobs**.
 
-   Alternatively, you can go to **Business Continuity Center**, and then select **Monitoring + Reporting** > **Jobs**. 
+   Alternatively, you can go to **Resiliency**, and then select **Monitoring + Reporting** > **Jobs**. 
 
 1. On the **Backup Jobs** pane, select the relevant restore job.
 
@@ -339,7 +339,7 @@ For more information, see [Back up and restore Active Directory domain controlle
 
 Managed identities eliminate the need for the user to maintain the credentials. Managed identities provide an identity for applications to use when connecting to resources that support Microsoft Entra authentication.  
 
-Azure Backup offers the flexibility to restore the managed Azure VM with [managed identities](../active-directory/managed-identities-azure-resources/overview.md). You can choose to select [system-managed identities](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) or user-managed identities as shown in the figure below. This is introduced as one of the input parameters in the [**Restore configuration** pane](#create-a-vm) of Azure VM. Managed identities are used for accessing the storage accounts and automated cleanup of any resources created during restore process in case of restore failures. These managed identities have to be associated to the vault.
+Azure Backup offers the flexibility to restore the managed Azure VM with [managed identities](../active-directory/managed-identities-azure-resources/overview.md). You can choose to select [system-managed identities](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) or user-managed identities as shown in the figure below. This is introduced as one of the input parameters in the [**Restore configuration** pane](#create-a-vm) of Azure VM. Managed identities are used for accessing the storage accounts and automated cleanup of any resources created during restore process. These managed identities have to be associated to the vault.
 
 :::image type="content" source="./media/backup-azure-arm-restore-vms/select-system-managed-identities-or-user-managed-identities.png" alt-text="Screenshot for choice to select system-managed identities or user-managed identities.":::
 
@@ -387,7 +387,6 @@ If you choose to select system-assigned or user-assigned managed identities, che
                     "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
                     "Microsoft.Storage/storageAccounts/blobServices/containers/read",
                     "Microsoft.Storage/storageAccounts/blobServices/containers/write",
-                    "Microsoft.Storage/storageAccounts/listKeys/action",
                     "Microsoft.Storage/storageAccounts/read",
                     "Microsoft.Storage/storageAccounts/write"
                 ],
@@ -439,6 +438,7 @@ After you trigger the restore operation, the backup service creates a job for tr
 There are a few things to note after restoring a VM:
 
 - Extensions present during the backup configuration are installed, but not enabled. If you see an issue, reinstall the extensions. In the case of disk replacement, reinstallation of extensions is not required.
+- When you choose Create a new VM (or restore disks and then create a VM), the restored VM is a new resource. RBAC role assignments that were scoped to the original VM do not carry over; reassign roles on the new VM as needed.
 - If the backed-up VM had a static IP address, the restored VM will have a dynamic IP address to avoid conflict. You can [add a static IP address to the restored VM](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description).
 - A restored VM doesn't have an availability set. If you use the restore disk option, then you can [specify an availability set](/azure/virtual-machines/windows/tutorial-availability-sets) when you create a VM from the disk using the provided template or PowerShell.
 - If you use a cloud-init-based Linux distribution, such as Ubuntu, for security reasons the password is blocked after the restore. Use the `VMAccess` extension on the restored VM to [reset the password](/troubleshoot/azure/virtual-machines/reset-password). We recommend using SSH keys on these distributions, so you don't need to reset the password after the restore.

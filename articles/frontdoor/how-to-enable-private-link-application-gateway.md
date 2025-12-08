@@ -19,7 +19,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ::: zone pivot="front-door-portal"
 
@@ -59,6 +59,10 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 ::: zone-end
 
+> [!NOTE]
+> While configuring via Azure portal, the region chosen in Azure Front Door origin configuration must be the same region where the Application Gateway is located in.
+> If you want the Azure Front Door origin region and the Application Gateway region to be different, use CLI/PowerShell. This will be needed in cases where the Application Gateway is located in a region where Azure Front Door doesn't support Private Link.
+
 ::: zone pivot="front-door-portal"
 
 ## Enable private connectivity to Azure Application Gateway
@@ -69,7 +73,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 1. Under **Settings**, select **Private Link**. Note down the name of the private link service seen under the **Name** column in **Private link configurations** tab
 
-1. Construct the resource ID of the private link service using the values from previous steps. The format is `subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/privateLinkServices/_e41f87a2_{applicationGatewayName}_{privateLinkResource.Name}`. This resource ID is used while configuring the Front Door origin.
+1. Construct the resource ID of the private link service using the values from previous steps. The format is `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/privateLinkServices/_e41f87a2_{applicationGatewayName}_{privateLinkResource.Name}`. This resource ID is used while configuring the Front Door origin.
 
 ## Create an origin group and add the application gateway as an origin
 
@@ -96,7 +100,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
     | Private link | Enable private link service |
     | Select a private link | By ID or alias |
     | ID/alias | Enter the private link service resource ID obtained while configuring the Application Gateway. |
-    | Region | Select the region that matches or is closest to your origin. |
+    | Region | Select the region where Application Gateway is located. |
     | Request message | Enter a custom message to display while approving the Private Endpoint.  |
 
    :::image type="content" source="media/private-link/application-gateway-private-link.png" alt-text="Screenshot of origin settings for configuring Application Gateway as a private origin.":::    
@@ -334,6 +338,8 @@ The following are common mistakes when configuring an Azure Application Gateway 
 3. Providing an incorrect Azure Application Gateway frontend IP configuration name as the value for `private-link-sub-resource-type`.
 
 ::: zone-end
+
+4. The combined length of the Application Gateway name and Private Link configuration name must not exceed 70 characters to avoid deployment failures.
 
 ## Next step
 

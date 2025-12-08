@@ -111,6 +111,8 @@
     items:
     - name: App Service & Azure Functions
       href: /azure/app-service/app-service-configuration-references
+    - name: Azure Front Door
+      href: how-to-connect-azure-front-door.md
   - name: Deployment
     items:
     - name: Overview
@@ -154,6 +156,8 @@
       href: concept-snapshots.md
     - name: Create and use snapshots
       href: howto-create-snapshots.md
+    - name: Snapshot references
+      href: concept-snapshot-references.md
   - name: Push notifications
     items:
     - name: Overview
@@ -182,6 +186,8 @@
       href: howto-chat-completion-config.md
     - name: .NET
       href: quickstart-chat-completion-dotnet.md
+    - name: Go
+      href: quickstart-chat-completion-go.md
 - name: Feature management
   items:
   - name: Overview
@@ -222,6 +228,8 @@
       href: howto-targetingfilter-javascript.md
     - name: Go Gin
       href: howto-targetingfilter-go.md
+    - name: Python
+      href: how-to-targeting-filter-python.md
   - name: Use variant feature flags
     items:
     - name: Overview
@@ -238,6 +246,8 @@
     items:
     - name: Overview
       href: howto-telemetry.md
+    - name: ASP.NET Core
+      href: how-to-telemetry-aspnet-core.md
     - name: Python
       href: howto-telemetry-python.md
     - name: JavaScript
@@ -394,11 +404,13 @@
         href: https://go.microsoft.com/fwlink/?linkid=2180917
       - name: Azure SDK for Java
         href: https://go.microsoft.com/fwlink/?linkid=2098196
-      - name: Migration guide to version 4.7
+      - name: Upgrade guide to version 6
         href: howto-convert-to-the-new-spring-boot.md
     - name: Python
       items:
       - name: Feature reference
+        href: ./reference-python-provider.md
+      - name: Pypi
         href: https://pypi.org/project/azure-appconfiguration-provider/
       - name: Azure SDK for Python
         href: https://go.microsoft.com/fwlink/?linkid=2103727

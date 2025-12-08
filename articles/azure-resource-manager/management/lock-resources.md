@@ -1,7 +1,7 @@
----
+﻿---
 title: Lock your Azure resources to protect your infrastructure
 description: Learn how to lock all users and roles to protect your Azure resources from updates or deletions.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/06/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 content_well_notification: AI-contribution
@@ -17,7 +17,7 @@ You can set locks that prevent either deletions or modifications. In the portal,
 - **CanNotDelete** means authorized users can read and modify a resource, but they can't delete it.
 - **ReadOnly** means authorized users can read a resource, but they can't delete or update it. Applying this lock is similar to restricting all authorized users to the permissions that the **Reader** role provides.
 
-Unlike with role-based access control (RBAC), you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure RBAC](../../role-based-access-control/role-assignments-portal.yml).
+Unlike with role-based access control (RBAC), you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure RBAC](/azure/role-based-access-control/role-assignments-portal).
 
 ## Lock inheritance
 
@@ -660,3 +660,4 @@ In the request, include a JSON object that specifies the lock properties.
 - To learn how to logically organize your resources, see [Use tags to organize your Azure resources and management hierarchy](tag-resources.md).
 - You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../../governance/policy/overview.md).
 - For guidance on how to use the Azure portal to manage subscription policies, see [Manage Azure subscription policies](/azure/cost-management-billing/manage/manage-azure-subscription-policy).
+
