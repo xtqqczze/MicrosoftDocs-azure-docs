@@ -130,7 +130,7 @@ To configure system assigned identity follow the instructions below:
 1. Turn on system assigned identity for the function app
     - Go to the function app's **Identity** section and in the **System Assigned** tab, toggle the **Status** switch to on.
 
-      :::image type="content" source="./media/durable-functions-event-publishing/enabling-system-assigned-identity.png" alt-text="Screenshot of enabling system assigned identity in the function app." border="true":::
+      :::image type="content" source="./media/durable-functions-event-publishing/enable-system-assigned-identity.png" alt-text="Screenshot of enabling system assigned identity in the function app." border="true":::
 
 2. In the Event Grid topic resource, give the function app the EventGrid Data Sender role.
     - Go to the **Access Control (IAM)** section, click **+ Add**.
@@ -161,21 +161,21 @@ To configure user assigned managed identity follow the instructions below:
 
     - Create a user assigned managed identity (UAMI) and select **Review + create**.
   
-      :::image type="content" source="./media/durable-functions-event-publishing/create-uami.png" alt-text="Screenshot of creating user assigned managed identity." border="true":::
+      :::image type="content" source="./media/durable-functions-event-publishing/create-user-assigned-managed-identity.png" alt-text="Screenshot of creating user assigned managed identity." border="true":::
 
 2. Attach the UAMI to the function app resource
      - Go to the function app, **Identity** section, click **Add +**.
   
-       :::image type="content" source="./media/durable-functions-event-publishing/function-app-add-uami.png" alt-text="Screenshot of the function app identity section for user assigned managed identity." border="true":::
+       :::image type="content" source="./media/durable-functions-event-publishing/function-app-add-user-assigned-managed-identity.png" alt-text="Screenshot of the function app identity section for user assigned managed identity." border="true":::
 
     - Choose the UAMI created above, then click **Add**.
 
-       :::image type="content" source="./media/durable-functions-event-publishing/function-app-add-specific-uami.png" alt-text="Screenshot of selecting specific user assigned managed identity." border="true":::
+       :::image type="content" source="./media/durable-functions-event-publishing/function-app-add-specific-user-assigned-managed-identity.png" alt-text="Screenshot of selecting specific user assigned managed identity." border="true":::
 
 3. Attach the UAMI to the event grid topic resource.
     - Go to the event grid topic resource, **Identity** section, choose the **User assigned** tab, then click **Add +**. Choose the user assigned managed identity, then click **Add**.
 
-      :::image type="content" source="./media/durable-functions-event-publishing/add-uami-to-event-grid-topic.png" alt-text="Screenshot of adding a user assigned managed identity to event grid topic." border="true":::
+      :::image type="content" source="./media/durable-functions-event-publishing/add-user-assigned-managed-identity-to-event-grid-topic.png" alt-text="Screenshot of adding a user assigned managed identity to event grid topic." border="true":::
 
 4. Create an Event Grid subscription and select an endpoint.
     - In the **Overview** tab of the Event Grid Topic resource, select **+ Event Subscription**, and create the event subscription.
