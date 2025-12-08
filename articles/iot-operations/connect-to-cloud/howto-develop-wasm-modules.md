@@ -364,8 +364,8 @@ componentize-py -d ./schema/ -w map-impl componentize temperature_converter -o t
 file temperature_converter.wasm  # Should show: WebAssembly (wasm) binary module
 ```
 
-> [!NOTE]
-> Make sure you've already cloned the repository as described in the [Configure development environment](#configure-development-environment) section to access the WIT schemas.
+<!-- > [!NOTE]
+> Make sure you've already cloned the repository as described in the [Configure development environment](#configure-development-environment) section to access the WIT schemas. -->
 
 ---
 
