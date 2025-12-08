@@ -21,7 +21,10 @@ You now have full flexibility to apply portable VCF (BYOL) on a per–Azure VMwa
 
 If you have an active RI for VCF-included hosts and want to add new hosts, you can register portable VCF (BYOL) only for those more hosts. You can continue using your existing VCF-included hosts until the end of their RI term. 
 
-The VMware vDefend Firewall is an add on feature for Azure VMware Solution. Those with active RIs for VCF-included hosts and vDefend Firewall enabled before October 16 may continue to use the same number of eligible vDefend firewall cores until the RI expires. After your RI expires, or if your vDefend Firewall core usage exceeds the eligible VCF-included cores as of October 15, 2025, you must provide your own VCF vDefend Firewall add on license key for continued or more usage. 
+The VMware vDefend Firewall is an add on feature for Azure VMware Solution. Those with active RIs for VCF-included hosts and vDefend Firewall enabled before October 16 may continue to use the same number of eligible vDefend firewall cores until the RI expires. 
+If either of the below scenarios happen, you must provide your own VCF vDefend Firewall add-on license key for continued usage:
+ * Your license included RI expires
+ * If your vDefend Firewall core usage exceeds the eligible VCF included cores as of October 15, 2025.
 
 ## Quota request for portable VCF (BYOL) 
 When using portable VCF (BYOL), you must still request capacity (quotas) for Azure VMware Solution hosts as usual. 
