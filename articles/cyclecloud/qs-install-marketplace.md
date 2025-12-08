@@ -64,7 +64,7 @@ The image has many recommended default settings, including **Size** and built-in
 
 ## Assign managed identity
 
-If you use Managed Identities for authentication, follow the [Managed Identities Guide](./how-to/managed-identities.md) to assign the system managed identity to the new application VM.
+If you use Managed Identities for authentication, follow the [Managed Identities Guide](./how-to/managed-identities.md) to assign the system assigned or user defined managed identity to the new application VM.
 
 ## Log into the CycleCloud application server
 
@@ -109,8 +109,12 @@ Create a CycleCloud admin user for the application server. Use the same username
 ::: moniker-end
 
 After you create your user, set your SSH key so you can more easily access any Linux VMs that CycleCloud creates. To add an SSH key, edit your profile by selecting your name in the upper right corner of the screen.
+//HOLD
+Next, you need to set up the account that Cyclecloud will use to manage resources in Azure.
+It is recommended that you use a Managed Identity.
+Use the same Managed Identity that you added to the machine Identity earlier.
+//HOLD
 
-You need to set up your Azure provider account in CycleCloud. You can either use [Managed Identities](./how-to/managed-identities.md) or [Service Principals](./how-to/service-principals.md).
 
 You now have a running CycleCloud application that lets you create and run clusters.
 
