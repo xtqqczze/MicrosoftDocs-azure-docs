@@ -574,7 +574,7 @@ kubectl logs -n azure-iot-operations -l app.kubernetes.io/instance=aio-dataflow-
 To view module management logs, run the following command:
 
 ```bash
-kubectl logs -n azure-iot-operations -l app.kubernetes.io/instance=aio-dataflow-tinykube-controller
+kubectl logs -n azure-iot-operations -l app.kubernetes.io/instance=aio-dataflow-graph-controller
 ```
 
 ### Recovery procedures
