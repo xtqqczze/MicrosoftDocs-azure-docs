@@ -46,7 +46,7 @@ This tutorial assumes that you already completed the following tutorials:
     1. **Are you using System Center VMM to manage your Hyper-V hosts?**, select **Yes**.
 1. Select **OK**.
 
-   :::image type="content" source="./media/hyper-v-vmm-azure-tutorial/replication-goal.png" alt-text="Scrrenshot of Replication goal.":::
+   :::image type="content" source="./media/hyper-v-vmm-azure-tutorial/replication-goal.png" alt-text="Screenshot of Replication goal.":::
 
 ## Confirm deployment planning
 
