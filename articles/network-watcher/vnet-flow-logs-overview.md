@@ -16,7 +16,7 @@ ms.custom: build-2025
 
 Virtual network flow logs are a feature of Azure Network Watcher. You can use them to log information about IP traffic flowing through a virtual network.
 
-Flow data from virtual network flow logs is sent to Azure Storage. From there, you can access the data and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS). Virtual network flow logs overcome some of the limitations of [Network security group flow logs](nsg-flow-logs-overview.md).
+Flow data from virtual network flow logs is sent to Azure Storage. From there, you can access the data and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS). Virtual network flow logs overcome some of the limitations of [Network security group flow logs](nsg-flow-logs-overview.md) and is more cost efficient.
 
 ## Why use flow logs?
 
