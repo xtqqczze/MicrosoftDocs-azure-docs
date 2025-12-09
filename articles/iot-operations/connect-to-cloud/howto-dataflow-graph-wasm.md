@@ -199,6 +199,9 @@ resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2
 
 # [Kubernetes](#tab/kubernetes)
 
+> [!IMPORTANT]
+> This section includes instructions for managing Azure IoT Operations components using Kubernetes deployment manifests, which is in **preview**. This feature is provided with [several limitations](/azure/iot-operations/deploy-iot-ops/howto-manage-update-uninstall#preview-manage-components-using-kubernetes-deployment-manifests), and shouldn't be used for production workloads.
+
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
 kind: RegistryEndpoint
