@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 12/08/2025
+ms.date: 12/09/2025
 ai-usage: ai-assisted
 
 ---
@@ -45,7 +45,7 @@ The WASM data flow implementation follows this workflow:
 1. **Develop graph definition**: Define how data moves through the modules by using YAML configuration files. For detailed information, see [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md).
 1. **Store artifacts in registry**: Push the compiled WASM modules to a container registry by using OCI-compatible tools such as ORAS.
 1. **Configure registry endpoints**: Set up authentication and connection details so Azure IoT Operations can access the container registry.
-1. **Create data flow**: Define data sources, the artifact name, and destinations.
+1. **Create data flow graph**: Define data sources, the artifact name, and destinations.
 1. **Deploy and execute**: Azure IoT Operations pulls WASM modules from the registry and runs them based on the graph definition.
 
 <!-- TODO: Add general system architecture content -->
