@@ -6,7 +6,7 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 11/19/2025
+ms.date: 12/09/2025
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -96,7 +96,7 @@ The following properties are supported for Amazon Redshift linked service:
 | database |Name of the Amazon Redshift database. |Yes |
 | username |Name of user who has access to the database. |Yes |
 | password |Password for the user account. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. For version 2.0, your self-hosted integration runtime version should be 5.60 or above.|No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. If the self-hosted integration runtime version is 5.60 or above, you don't need to manually install any driver to use this connector for version 2.0. |No |
 
 **Example: version 2.0**
 
@@ -303,7 +303,7 @@ The following table shows the release stage and change logs for different versio
 | Version | Release stage | Change log |
 | :----------- | :------- | :------- |
 | Version 1.0 | GA version available | / |
-| Version 2.0 | GA version available | • The self-hosted integration runtime version should be 5.60 or above. <br><br>• BOOLEAN is read as Boolean data type.  |
+| Version 2.0 | GA version available | • Beginning with the self-hosted integration runtime version 5.60, you don't need to manually install any driver to use this connector for version 2.0.  <br><br>• BOOLEAN is read as Boolean data type.  |
 
 ### <a name="upgrade-the-amazon-redshift-connector"></a> Upgrade the Amazon Redshift connector from version 1.0 to version 2.0
 
@@ -311,7 +311,7 @@ The following table shows the release stage and change logs for different versio
 
 2. The data type mapping for the Amazon Redshift linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Amazon Redshift](#data-type-mapping-for-amazon-redshift).
 
-3. Apply a self-hosted integration runtime with version 5.60 or above. 
+3. Apply a self-hosted integration runtime with version 5.60 or above, then you don't need to manually install any driver to use this connector for version 2.0. 
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
