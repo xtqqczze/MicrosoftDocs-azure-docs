@@ -3,7 +3,7 @@ title: Azure Functions Scale and Hosting
 description: Compare the various options you need to consider when choosing a hosting plan in which to run your function app in Azure Functions.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: limits-and-quotas
-ms.date: 02/02/2025
+ms.date: 12/09/2025
 ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023, build-2024, ignite-2024
 #customer intent: As a cloud developer or platform engineer, I want guidance on Functions scaling and hosting so I can choose the best hosting plan for performance and cost-efficiency when running my code in Azure.
 ---
@@ -128,13 +128,13 @@ In some cases, when trying to create a new hosting plan for your function app in
 
 These errors can occur when the following conditions are met:
 
-- You create a function app in an existing resource group in which another function app or web app hs never been contained. For example, Linux Consumption apps aren't supported in the same resource group as Linux Dedicated or Linux Premium plans.
+- You create a function app in an existing resource group that has yet to contain another function app or web app. For example, Linux Consumption apps aren't supported in the same resource group as Linux Dedicated or Linux Premium plans.
 - Your new function app is created in the same region as the previous app.
 - The previous app is in some way incompatible with your new app. This incompatibility can occur between versions, operating systems, or is due to other platform-level features, such as availability zone support.
 
-Function app and web app plans are mapped to different pools of resources when they're created. Different plans require a different set of infrastructure capabilities. When you create an app in a resource group, that resource group is mapped and assigned to a specific pool of resources. If you try to create another plan in that resource group and the mapped pool doesn't have the required resources, this error occurs.
+Function app and web app plans are mapped to different pools of resources when they're created. Different plans require a different set of infrastructure capabilities. When you create an app in a resource group, that resource group is mapped and assigned to a specific pool of resources. If you try to create another plan in that resource group and the mapped pool doesn't have the required resources, the previously mentioned errors occur.
 
-When this error occurs, create your function app and hosting plan in a new resource group instead.
+If this situation happens, create your function app and hosting plan in a new resource group instead.
 
 ## Next steps
 
