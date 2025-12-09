@@ -101,6 +101,7 @@ If you intend to utilize vDefend Firewall with Advanced Threat Prevention, pleas
 ### VCF cores for Azure VMware Solution private cloud
 
 1. Check your Azure VMware Solution host type:
+
 | Host type | Number of cores per host |
 | --------- | ------------------------ |
 | AV36(P) | 36 |
