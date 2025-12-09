@@ -119,7 +119,6 @@ If the template is remote, the `templateLink` property is included in the return
     "template": {
       "$schema": "",
       "contentVersion": "",
-      "metadata": {},
       "parameters": {},
       "variables": {},
       "resources": [],
