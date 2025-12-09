@@ -114,7 +114,55 @@ For quick setup with Azure Container Registry, create a registry endpoint with s
 
 # [Azure portal](#tab/portal)
 
-Currently, you can't create registry endpoints in the operations experience. You must use Bicep or Kubernetes manifests. After you create a registry endpoint, the graphs you [pushed to your container registry](#push-modules-to-your-registry) are ready to be used in operations experience in data flow graphs.
+Currently, you can't create registry endpoints in the operations experience. You must use the Azure portal, Bicep, or Kubernetes manifests. After you create a registry endpoint, the graphs you [pushed to your container registry](#push-modules-to-your-registry) are ready to be used in operations experience in data flow graphs.
+
+To create registry endpoints, you can also use the Azure portal. The portal experience allows you to specify and provide host details of an ACR, and optionally provide credentials. Before you begin, ensure that you have the following information:
+
+- Registry endpoint name.
+- A host name for the ACR.
+- Four types of authentication are supported:
+  - Anonymous
+  - System managed identity
+  - User managed identity
+  - Artifact secret
+
+
+To create a registry endpoint in the Azure portal, follow these steps.
+
+#### Create registry endpoints with anonymous authentication
+
+You can create a new registry endpoint by specifying the host details of an Azure Container Registry (ACR), enable anonymous access for public image retrieval, and store the configuration for reuse. First, select the type of authentication you want to use. In this example, we use anonymous authentication:
+
+:::image type="content" source="media/howto-create-dataflow-graph/select-authentication.png" alt-text="Screenshot of the select authentication form." lightbox="media/howto-create-dataflow-graph/select-authentication.png":::
+
+:::image type="content" source="media/howto-create-dataflow-graph/authentication-anonymous.png" alt-text="Screenshot of the completed anonymous authentication configuration for registry endpoint." lightbox="media/howto-create-dataflow-graph/authentication-anonymous.png":::
+
+#### Create registry endpoints with system managed identity authentication
+
+You can create a new registry endpoint by specifying the host details of an ACR, authenticate using a system-assigned managed identity for secure access, and store the configuration for reuse.
+
+:::image type="content" source="media/howto-create-dataflow-graph/system-managed-identity.png" alt-text="Screenshot of the completed system managed identity authentication configuration for registry endpoint." lightbox="media/howto-create-dataflow-graph/system-managed-identity.png":::
+
+#### Create registry endpoints with user managed identity
+
+You can create a new registry endpoint by specifying the host details of an ACR, authenticate using a user-assigned managed identity for secure access, and store the configuration for reuse.
+
+> [!NOTE]
+> The client and tenant IDs are required to enable user managed identity. 
+
+:::image type="content" source="media/howto-create-dataflow-graph/user-managed-identity.png" alt-text="Screenshot of the completed user managed identity authentication configuration for registry endpoint." lightbox="media/howto-create-dataflow-graph/user-managed-identity.png":::
+
+#### Create registry endpoints with artifact secrets
+
+Artifact secrets are used to authenticate with private container registries like ACR, Docker Hub, or MCR, when pulling container images. Secrets are essential when the registry requires credentials, and the image is not publicly accessible. This scenario enables you to manage data flow graphs across Azure IoT Operations and the operations experience. You can set up artifact secrets from Azure Key Vault by selecting existing secrets.
+
+You can create a new registry endpoint by specifying the host details of an ACR, authenticate using artifact secrets for secure access, and store the configuration for reuse:
+
+:::image type="content" source="media/howto-create-dataflow-graph/secrets.png" alt-text="Screenshot of the Azure Key Vault secret selection interface for artifact secrets." lightbox="media/howto-create-dataflow-graph/secrets.png":::
+
+You set up artifact secrets from Azure Key Vault by creating new secrets and storing them in Azure Key Vault:
+
+:::image type="content" source="media/howto-create-dataflow-graph/secret-form.png" alt-text="Screenshot of the create new secret form in Azure Key Vault for artifact secrets." lightbox="media/howto-create-dataflow-graph/secret-form.png":::
 
 # [Bicep](#tab/bicep)
 
@@ -171,56 +219,6 @@ spec:
 
 > [!NOTE]
 > You can reuse registry endpoints across multiple data flow graphs and other Azure IoT Operations components, like Akri connectors.
-
-### Azure portal
-
-To create registry endpoints, you can also use the Azure portal. The portal experience allows you to specify and provide host details of an ACR, and optionally provide credentials. Before you begin, ensure that you have the following information:
-
-- Registry endpoint name.
-- A host name for the ACR.
-- Four types of authentication are supported:
-  - Anonymous
-  - System managed identity
-  - User managed identity
-  - Artifact secret
-
-
-To create a registry endpoint in the Azure portal, follow these steps.
-
-#### Create registry endpoints with anonymous authentication
-
-You can create a new registry endpoint by specifying the host details of an Azure Container Registry (ACR), enable anonymous access for public image retrieval, and store the configuration for reuse. First, select the type of authentication you want to use. In this example, we use anonymous authentication:
-
-:::image type="content" source="media/howto-create-dataflow-graph/select-authentication.png" alt-text="Screenshot of the select authentication form." lightbox="media/howto-create-dataflow-graph/select-authentication.png":::
-
-:::image type="content" source="media/howto-create-dataflow-graph/authentication-anonymous.png" alt-text="Screenshot of the completed anonymous authentication configuration for registry endpoint." lightbox="media/howto-create-dataflow-graph/authentication-anonymous.png":::
-
-#### Create registry endpoints with system managed identity authentication
-
-You can create a new registry endpoint by specifying the host details of an ACR, authenticate using a system-assigned managed identity for secure access, and store the configuration for reuse.
-
-:::image type="content" source="media/howto-create-dataflow-graph/system-managed-identity.png" alt-text="Screenshot of the completed system managed identity authentication configuration for registry endpoint." lightbox="media/howto-create-dataflow-graph/system-managed-identity.png":::
-
-#### Create registry endpoints with user managed identity
-
-You can create a new registry endpoint by specifying the host details of an ACR, authenticate using a user-assigned managed identity for secure access, and store the configuration for reuse.
-
-> [!NOTE]
-> The client and tenant IDs are required to enable user managed identity. 
-
-:::image type="content" source="media/howto-create-dataflow-graph/user-managed-identity.png" alt-text="Screenshot of the completed user managed identity authentication configuration for registry endpoint." lightbox="media/howto-create-dataflow-graph/user-managed-identity.png":::
-
-#### Create registry endpoints with artifact secrets
-
-Artifact secrets are used to authenticate with private container registries like ACR, Docker Hub, or MCR, when pulling container images. Secrets are essential when the registry requires credentials, and the image is not publicly accessible. This scenario enables you to manage data flow graphs across Azure IoT Operations and the operations experience. You can set up artifact secrets from Azure Key Vault by selecting existing secrets.
-
-You can create a new registry endpoint by specifying the host details of an ACR, authenticate using artifact secrets for secure access, and store the configuration for reuse:
-
-:::image type="content" source="media/howto-create-dataflow-graph/secrets.png" alt-text="Screenshot of the Azure Key Vault secret selection interface for artifact secrets." lightbox="media/howto-create-dataflow-graph/secrets.png":::
-
-You set up artifact secrets from Azure Key Vault by creating new secrets and storing them in Azure Key Vault:
-
-:::image type="content" source="media/howto-create-dataflow-graph/secret-form.png" alt-text="Screenshot of the create new secret form in Azure Key Vault for artifact secrets." lightbox="media/howto-create-dataflow-graph/secret-form.png":::
 
 ### Get extension name
 
