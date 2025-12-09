@@ -68,10 +68,12 @@ For steps, see [Switch redirect URIs to the single-page application type](../act
 
 <a name='add-an-external-azure-ad-group'></a>
 
-## Configure access by more than one Microsoft Entra tenant
+## Configure access by users in more than one Microsoft Entra tenant
 
-You can enable access to the developer portal by users from more than one Microsoft Entra ID tenant. 
+You can enable access to the developer portal by users from more than one Microsoft Entra ID tenant. To do this:
 
+* Configure app registration for multiple tenants.
+* Update the identity provider configuration for the developer portal to add another tenant.
 
 ### Configure app registration for multiple tenants
 
