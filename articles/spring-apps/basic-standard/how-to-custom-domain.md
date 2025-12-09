@@ -41,7 +41,7 @@ The IP addresses for Azure Spring Apps management aren't yet part of the Azure T
 | Mooncake | - `52.131.254.89`<br/>- `52.131.41.48`<br/>- `159.27.26.25`  | N/A                                          |
 
 > [!NOTE]
-> The IP addresses of Azure Spring Apps control plane may change without notice. Therefore, it's highly recommended to use service tag rather than IP addresses in your firewall.
+> The IP addresses of Azure Spring Apps control plane may change without notice. Therefore, it's highly recommended to use the service tag rather than the IP addresses in your firewall.
 
 ## Import certificate
 
