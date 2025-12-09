@@ -3,7 +3,7 @@ title: "Quickstart: Create an Informatica Intelligent Data Management Cloud depl
 description: This article describes how to use the Azure portal to create an  Informatica Intelligent Data Management Cloud organization.
 
 ms.topic: quickstart
-ms.date: 09/16/2025
+ms.date: 12/10/2025
 #Customer intent: As an information professional, I want to set up my Informatica Intelligent Data Management Cloud using an Azure Native ISV Service.
 ---
 # QuickStart: Get started with Informatica – An Azure Native ISV Service
