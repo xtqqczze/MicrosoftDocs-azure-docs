@@ -3,7 +3,7 @@ title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 12/04/2025
+ms.date: 12/09/2025
 ---
 
 # Deployment functions for ARM templates
@@ -94,7 +94,6 @@ When deploying a local template to a resource group, the function returns the fo
     "template": {
       "$schema": "",
       "contentVersion": "",
-      "metadata": {},
       "parameters": {},
       "variables": {},
       "resources": [],
@@ -191,6 +190,7 @@ When deploying a [languageVersion 2.0](./syntax.md#languageversion-20) template,
   "properties": {
     "template": {
       "contentVersion": ""
+      "metadata": {}
     },
     "templateLink": {
       "id": "",
