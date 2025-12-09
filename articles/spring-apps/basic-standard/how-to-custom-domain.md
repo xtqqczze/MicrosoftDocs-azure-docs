@@ -41,7 +41,7 @@ The IP addresses for Azure Spring Apps management aren't yet part of the Azure T
 | Mooncake | - `52.131.254.89`<br/>- `52.131.41.48`<br/>- `159.27.26.25`  | N/A                                          |
 
 > [!NOTE]
-> Azure Spring Apps is going to replace the above IP addresses **in Public cloud** with new IP addresses tagged with `SystemServiceAzureSpringAppsResourceProvider`, for security compliance. To avoid service disruption, please add the service tag in your firewall as soon as possible.
+> For security compliance, Azure Spring Apps is going to replace these IP addresses in the public cloud with new IP addresses tagged with `SystemServiceAzureSpringAppsResourceProvider`. To avoid service disruption, add the service tag in your firewall as soon as possible.
 
 ## Import certificate
 
