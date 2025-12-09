@@ -94,7 +94,7 @@ Only users with the Global Administrator role can assign these roles from the [A
 1. Select a reservation that you can access.
 1. At the top of the page, select **Role Assignment**.
 1. Select the **Roles** tab.
-1. To make modifications, add a user as with the Reservations Administrator, Reservations Contributor, or Reservations Reader roles by using access control.
+1. To make modifications, add a user as a Reservations Administrator, Reservations Contributor, or Reservations Reader by using access control.
 
 ### Add a Reservations Administrator role at the tenant level by using an Azure PowerShell script
 
