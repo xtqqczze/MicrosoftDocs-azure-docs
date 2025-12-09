@@ -14,15 +14,15 @@ ms.author: liuyizhu
 
 ---
 
-# Grant role-based access control with Azure reservations by using PowerShell
+# Grant RBAC access to Azure reservations by using PowerShell
 
-This article shows you how to use role-based access control (RBAC) with reservations by using Azure PowerShell. To view and manage RBAC access in the Azure portal, see [Permissions to view and manage Azure reservations](view-reservations.md).
+This article shows you how to grant role-based access control (RBAC) access to Azure reservations by using Azure PowerShell. To view and manage RBAC access in the Azure portal, see [Permissions to view and manage Azure reservations](view-reservations.md).
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Grant access by using PowerShell
 
-The following user types can delegate access management for all reservation orders they can access:
+The following user types can delegate access management for all reservation orders that they can access:
 
 - Users that have owner access for reservations orders
 - Users with elevated access
@@ -59,7 +59,7 @@ When you use the PowerShell script to assign the ownership role and it runs succ
 
 ### Parameters
 
-The `-ObjectId` parameter is the  Microsoft Entra `ObjectId` of the user, group, or service principal.
+The `-ObjectId` parameter is the Microsoft Entra `ObjectId` of the user, group, or service principal.
 
 - **Type**: String
 - **Aliases**: `Id`, `PrincipalId`
@@ -76,9 +76,9 @@ The `-TenantId` parameter is the tenant's unique identifier.
 - **Accept pipeline input**: False
 - **Accept wildcard characters**: False
 
-## Tenant-level access
+## Grant tenant-level access
 
-You need [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator)-level rights before you can grant users or groups the following roles at the tenant level:
+You need [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights before you can grant users or groups the following roles at the tenant level:
 
 - Reservations Administrator
 - Reservations Contributor
