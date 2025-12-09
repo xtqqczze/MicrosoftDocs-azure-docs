@@ -73,7 +73,7 @@ As described in the [prerequisites](#access-to-the-destination-ea) section, you 
 After the EA account owner is created the subscription account Administrator, who is also now an EA account owner, receives an email. It notifies the user that they're now an EA Account Owner. If the user doesn't have access to an email mailbox associated with the account specified, there's no need to worry. The email is only a notification. Information in the email isn't required to proceed. However, an email mailbox is advised for future notifications about the subscription.
 
 ### Complete the subscription transfer
-To complete the subscription transfer, a new EA Account owner need to [activate account](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/direct-ea-administration#to-confirm-account-ownership-1) on Azure Portal.
+To complete the subscription transfer, a new EA Account owner needs to [activate account](direct-ea-administration.md#to-confirm-account-ownership-1) on the Azure portal.
 
 The warning states the following:
 ***When a user is added as an account owner, any Azure subscriptions associated with the account owner that are based on either the MOSP (PAYG) Dev/Test offer or the monthly credit offers for Visual Studio subscribers will be converted to the EA Dev/Test offer. Subscriptions based on other offer types, such as MOSP (PAYG), associated with the Account Owner will be converted to the standard EA subscription offer.***
