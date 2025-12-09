@@ -27,7 +27,7 @@ Some Insights require additional transformations delivered through SQL views on 
 
 ## Deploy Power BI Report
 
-To create a new Power BI report, make sure you have enabled the dataset for the report and ran the extraction and processing of data successfully. Once that is done, Navigate to the Insights page and follow the instructions:
+To create a new Power BI report, make sure you have enabled the dataset for the report and ran the extraction and processing of data successfully. Once that is done, navigate to the Insights page and use the following instructions:
 
 1. Click on the **Deploy Insights** tab and click on the **New Insights** button.
 2. Select the report/semantic model you would like to deploy. Click on the **Deploy** button.

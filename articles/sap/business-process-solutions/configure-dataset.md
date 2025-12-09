@@ -75,7 +75,7 @@ You can add a new table in an existing dataset or import a table from the existi
 
 ### Create new relationships
 
-To create new relationships between tables, follow the steps:
+To create new relationships between tables, use the following steps:
 
 1. Open your Business Process Solution item.
 2. Click on the **'Set up your datasets'** button.
@@ -91,12 +91,12 @@ To create new relationships between tables, follow the steps:
 
 ### Delete relationships
 
-To delete existing relationships between tables, you can select the relationship and click on the **Delete** button. This removes the relationship from the dataset, but this won't delete the surrogate keys which are already created in the fact tables.
+To delete existing relationships between tables, select the relationship and click on the **Delete** button. This removes the relationship from the dataset, but this won't delete the surrogate keys which are already created in the fact tables.
    :::image type="content" source="./media/configure-dataset/delete-relationship.png" alt-text="Screenshot showing how to delete a relationship." lightbox="./media/configure-dataset/delete-relationship.png":::
 
 ### Edit relationships
 
-To edit existing relationships between tables, you can select the relationship and scroll to the right to the action column, click on the **Edit** button. This allows you to modify the relationship details.
+To edit existing relationships between tables, select the relationship and scroll to the right to the action column, click on the **Edit** button. This allows you to modify the relationship details.
    :::image type="content" source="./media/configure-dataset/edit-relationship.png" alt-text="Screenshot showing how to edit a relationship." lightbox="./media/configure-dataset/edit-relationship.png":::
 
 ## Next steps

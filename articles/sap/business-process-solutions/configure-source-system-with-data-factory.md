@@ -11,7 +11,7 @@ ms.author: momakhij
 
 # Configure SAP source system with Azure Data Factory
 
-In this article, we'll describe the steps required to configure SAP source system with Azure Data Factory. This document contains steps on prerequisites needed in your Azure environment and details on how to set up the connection in your Business Process Solution item.
+In this article, learn about the steps required to configure SAP source system with Azure Data Factory. This document contains steps on prerequisites needed in your Azure environment and details on how to set up the connection in your Business Process Solution item.
 
 ## Prerequisites
 
@@ -23,9 +23,9 @@ Before implementing Business Process Solutions, review the following SAP Notes t
 - 3077184 - Use new CDS-Views for SAP S/4HANA SD and Billing Document Data.
 - 3031375 - Customer specific setting for bucket size in CDC extraction.
 
-### Collect information about your source SAP system:
+### Collect information about your source SAP system
 
-To create a source system and establish connectivity you’ll require following information:
+To create a source system and establish connectivity, you'll need the following information:
 
 - Hostname or the IP address of the SAP system
 - System number
@@ -63,7 +63,7 @@ The following permissions are required:
 
 ### Create Service Principal
 
-In this step, you will set up the service principal, which enables Azure Data Factory to access object metadata within Business Process Solutions. Follow the steps below to complete the setup.
+In this section, you'll set up the service principal, which enables Azure Data Factory to access object metadata within Business Process Solutions. Follow the steps below to complete the setup.
 We create the following resources using the following processes:
 
 - Create a new service principle.
@@ -101,20 +101,20 @@ First step of configuration is setting up the source system; this step deploys t
 6. Once done, click on **Create** Button. You can monitor the deployment status by refreshing the page using the refresh button.
 7. Once the deployment is done, you should be able to see the resources deployed to your workspace and also the resources deployed in your Azure resource group.
 
-## Deploy Self-Hosted Integration Runtime on Azure VM
+## Deploy self-hosted integration runtime on Azure virtual machine (VM)
 
-In this section, we will deploy the self hosted integration runtime on a Azure virtual machine. You can follow detailed instructions on how to deploy and configure Self-Hosted Integration Runtime in the the article - [Shared Integration Runtime](https://learn.microsoft.com/azure/data-factory/sap-change-data-capture-shir-preparation). This article covers detailed steps on how to prepare your virtual machine and how to perform connectivity tests. You can also use the following steps to configure your virtual machine:
+In this section, we will deploy the self-hosted integration runtime on a Azure virtual machine. You can follow detailed instructions on how to deploy and configure Self-Hosted Integration Runtime in the the article - [Shared Integration Runtime](https://learn.microsoft.com/azure/data-factory/sap-change-data-capture-shir-preparation). This article covers detailed steps on how to prepare your virtual machine and how to perform connectivity tests. You can also use the following steps to configure your virtual machine:
 
-1. Deploy Azure VM in the same network / subnet as your SAP system. Direct connectivity between Self-Hosted Integration Runtime and SAP system is required to extract data.
+1. Deploy Azure virtual machine in the same network / subnet as your SAP system. Direct connectivity between Self-Hosted Integration Runtime and SAP system is required to extract data.
 2. Install SAP .NET Connector.
 3. Install the Java Runtime: [Download Java runtime](https://aka.ms/download-jdk/microsoft-jdk-11.0.19-windows-x64.msi).
 4. Ensure that the JAVA_HOME system environment variable is set to the JDK folder (not just the JRE folder) you may also need to add the bin folder to your system's PATH environment variable.
-5. Install Self-Hosted Integration Runtime. Stop at the registration step.
+5. Install self-hosted integration runtime. Stop at the registration step.
 6. Open the Azure Data Factory and navigate to **Manage** -> **Integration Runtimes**.
-7. Select Integration Runtime – SAP-IR.
-8. Use the Authentication Key to continue with the Self-Hosted Integration Runtime installation process. Copy the key to and complete the set-up for integration runtime on your VM.
-   :::image type="content" source="./media/configure-source-system-with-data-factory/integration-runtime-setting.png" alt-text="Screenshot showing the Self-Hosted Integration Runtime authentication key." lightbox="./media/configure-source-system-with-data-factory/integration-runtime-setting.png":::
-9. Once the registration completes, the status of the Self-Hosted Integration Runtime should change to running in the Azure Data Factory.
+7. Select integration runtime – SAP-IR.
+8. Use the Authentication Key to continue with the Self-Hosted Integration Runtime installation process. Copy the key to and complete the set-up for integration runtime on your virtual machine.
+   :::image type="content" source="./media/configure-source-system-with-data-factory/integration-runtime-setting.png" alt-text="Screenshot showing the self-hosted integration runtime authentication key." lightbox="./media/configure-source-system-with-data-factory/integration-runtime-setting.png":::
+9. Once the registration completes, the status of the self-hosted integration runtime should change to running in the Azure Data Factory.
 
 ## Next steps
 

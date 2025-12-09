@@ -15,7 +15,7 @@ In this article, we'll describe the steps required to configure Salesforce sourc
 
 ## Prerequisites
 
-Before we create source system for salesforce, we need to create a connection to the salesforce system from Microsoft Fabric. Follow the steps:
+Before we create source system for salesforce, use the following steps to create a connection to the salesforce system from Microsoft Fabric:
 
 1. To create a new connection, navigate to your workspace and click on the settings button on the top right of the page.
 2. Click on the **Manage connections and gateways** button.

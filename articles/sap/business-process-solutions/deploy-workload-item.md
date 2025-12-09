@@ -16,7 +16,7 @@ In this article, we'll describe the steps required to get started with Business 
 
 ## Supported Regions
 
-Business Process Solutions is delivered as a Fabric workload, which runs entirely within the selected Fabric capacity region. All business data processed and transformed by the solution remains within the chosen Fabric capacity and does not leave that region. To support orchestration and management, a backend service operates in each geography. This backend stores only artifact metadata, such as object list or source system definition. The backend exists solely to enable workload functionality and does not process or retain customer business content. Bellow table summarizes the regional availability of the solution and the associated backed infrastructure.
+Business Process Solutions is delivered as a Fabric workload, which runs entirely within the selected Fabric capacity region. All business data processed and transformed by the solution remains within the chosen Fabric capacity and does not leave that region. To support orchestration and management, a backend service operates in each geography. This backend stores only artifact metadata, such as object list or source system definition. The backend exists solely to enable workload functionality and does not process or retain customer business content. The following table summarizes the regional availability of the solution and the associated backed infrastructure.
 
 | Fabric capacity region | BPS Service Region |
 |------------------------|------------------------|
@@ -79,7 +79,7 @@ Before proceeding with either manual or automated deployment of Enterprise Insig
 
 ### Enable Business Process Solutions workload
 
-To enable Business Process Solutions workload in Microsoft Fabric, follow the steps below:
+Use the following steps to enable Business Process Solutions workload in Microsoft Fabric:
 
 1. Open the workloads page by clicking on the more option.
    :::image type="content" source="./media/deploy-workload-item/open-workspace-menu.png" alt-text="Screenshot showing how to open the workloads page." lightbox="./media/deploy-workload-item/open-workspace-menu.png":::
@@ -92,7 +92,7 @@ To enable Business Process Solutions workload in Microsoft Fabric, follow the st
 
 ### Deploy Business Process Solutions
 
-To deploy Business Process Solutions, follow the steps below:
+Use the following steps to deploy Business Process Solutions:
 
 1. Navigate to the workspace you created earlier.
 2. Click on the **New Item** button.
@@ -104,7 +104,7 @@ To deploy Business Process Solutions, follow the steps below:
 
 ### Set up Fabric SQL Database Connection
 
-Business Process Solutions uses a Fabric SQL Database connection to read and orchestrate data processing. This connection must be created before configuring source system connections. Follow the steps below to set it up.
+Business Process Solutions uses a Fabric SQL Database connection to read and orchestrate data processing. This connection must be created before configuring source system connections. Use the following steps to set up the connection.
 
 1. To create a new connection navigate to your workspace and click on the settings button on the top right of the page.
 2. Click on the **Manage connections and gateways** button.
