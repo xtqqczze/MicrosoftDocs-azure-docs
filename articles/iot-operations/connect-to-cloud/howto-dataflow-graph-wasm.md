@@ -50,9 +50,7 @@ The WASM data flow implementation follows this workflow:
 
 <!-- TODO: Add general system architecture content -->
 
-## Get started with examples
-
-These examples show how to set up and deploy WASM data flow graphs for common scenarios. The examples use hardcoded values and simplified configurations so you can get started quickly.
+The following examples show how to set up and deploy WASM data flow graphs for common scenarios. The examples use hardcoded values and simplified configurations so you can get started quickly.
 
 ## Set up container registry
 
@@ -129,7 +127,7 @@ You can use the Azure portal to create registry endpoints. The portal experience
 
 To create a registry endpoint in the Azure portal, follow these steps.
 
-#### Create registry endpoints with anonymous authentication
+### Create registry endpoints with anonymous authentication
 
 You can create a new registry endpoint by specifying the host details of an Azure Container Registry (ACR), enable anonymous access for public image retrieval, and store the configuration for reuse. First, select the type of authentication you want to use. In this example, we use anonymous authentication:
 
@@ -137,13 +135,13 @@ You can create a new registry endpoint by specifying the host details of an Azur
 
 :::image type="content" source="media/howto-create-dataflow-graph/authentication-anonymous.png" alt-text="Screenshot of the completed anonymous authentication configuration for registry endpoint." lightbox="media/howto-create-dataflow-graph/authentication-anonymous.png":::
 
-#### Create registry endpoints with system managed identity authentication
+### Create registry endpoints with system managed identity authentication
 
 You can create a new registry endpoint by specifying the host details of an ACR, authenticate using a system-assigned managed identity for secure access, and store the configuration for reuse.
 
 :::image type="content" source="media/howto-create-dataflow-graph/system-managed-identity.png" alt-text="Screenshot of the completed system managed identity authentication configuration for registry endpoint." lightbox="media/howto-create-dataflow-graph/system-managed-identity.png":::
 
-#### Create registry endpoints with user managed identity
+### Create registry endpoints with user managed identity
 
 You can create a new registry endpoint by specifying the host details of an ACR, authenticate using a user-assigned managed identity for secure access, and store the configuration for reuse.
 
@@ -152,7 +150,7 @@ You can create a new registry endpoint by specifying the host details of an ACR,
 
 :::image type="content" source="media/howto-create-dataflow-graph/user-managed-identity.png" alt-text="Screenshot of the completed user managed identity authentication configuration for registry endpoint." lightbox="media/howto-create-dataflow-graph/user-managed-identity.png":::
 
-#### Create registry endpoints with artifact secrets
+### Create registry endpoints with artifact secrets
 
 Artifact secrets are used to authenticate with private container registries like ACR, Docker Hub, or MCR, when pulling container images. Secrets are essential when the registry requires credentials, and the image is not publicly accessible. This scenario enables you to manage data flow graphs across Azure IoT Operations and the operations experience. You can set up artifact secrets from Azure Key Vault by selecting existing secrets.
 
