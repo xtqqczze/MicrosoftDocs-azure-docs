@@ -35,22 +35,21 @@ In this article, you'll learn how to:
 
 To view an assessment, follow these steps:
 
-1. On the Azure Migrate project **Overview** page, under **Decide and Plan**, select **Assessments**. 
+1. On the Azure Migrate project **Overview** page, under **Decide and Plan**, select **Assessments**. Search for the assessment using the **Workloads** filter and select it.
 
     :::image type="content" source="./media/review-web-app-assessment/assessment-overview.png" alt-text="Screenshot displays assessment details." lightbox="./media/review-web-app-assessment/assessment-overview.png":::
 
-1. Search for the assessment using the **Workloads** filter and select it.
-
-    :::image type="content" source="./media/review-web-app-assessment/assessed-workloads.png" alt-text="Screenshot displays assessed workloads." lightbox="./media/review-web-app-assessment/assessed-workloads.png":::
-
 1. On the assessment **Overview** page, you see summarized insights on assessed workloads, recommended migration path, and target-specific migration path (that is, if you wanted to migrate all assessed apps to that target).
+    
+    :::image type="content" source="./media/review-web-app-assessment/overview.png" alt-text="Screenshot displays overview of the assessment." lightbox="./media/review-web-app-assessment/overview.png":::
+
    1. **Assessed workloads**: Surfaces the collection of workloads assessed. Click view details to shows the distribution across web server and web app types. 
    1. **Recommended path**: It provides the most optimal path for migrating web apps across Azure targets, based on your preferred targets, cloud readiness and cost. It captures the readiness distribution, migration strategy (Replatform vs Rehost) and monthly cost estimate for running the web apps across the targets.
    1. **Target-specific migration path**: This section provides the path for migrating all web apps to a specific target. It allows you to see the readiness warnings or issues for migrating the apps to that target and captures the monthly cost estimate.
-    
-    :::image type="content" source="./media/review-web-app-assessment/recommended-path.png" alt-text="Screenshot shows the recommended path." lightbox="./media/review-web-app-assessment/recommended-path.png":::
-
+ 
 1. The web apps can take one of the following readiness states: 
+
+      :::image type="content" source="./media/review-web-app-assessment/readiness.png" alt-text="Screenshot displays readiness for the web app for each Azure target." lightbox="./media/review-web-app-assessment/readiness.png":::
 
    | **Status**| **Definition**|
    |----------|--------|
@@ -61,6 +60,9 @@ To view an assessment, follow these steps:
 
 1. Select the **Recommended path** tab or **View details** in the recommended path report to get deeper insights. This screen displays the distribution of the web apps across the Azure targets. It also provides other details such as the number of target instances (App Service instance, AKS clusters), migration strategy and readiness distribution. Select a line item to drill down further.
 **App Service Container**: The target drill down shows granular details for the web apps recommended to this target. 
+
+    :::image type="content" source="./media/review-web-app-assessment/view-recommended-path.png" alt-text="Screenshot displays recommended path for the assessment." lightbox="./media/review-web-app-assessment/view-recommended-path.png":::
+
     1. Top level insights include the cost distribution by App Service Plan SKUs and top migration issues or warnings. 
     1. The report also shows how the web apps are packed into App Service plans. Selecting the plan brings up the plan details, rightsized based on the assessed web apps.
     1. Selecting the readiness status shows the migration issues or warnings, their root causes and recommended remediation steps.
@@ -70,6 +72,7 @@ To view an assessment, follow these steps:
     1. Selecting the cluster brings up the cluster details, right sized based on the assessed web apps. 
 1. Select a web app from the target drill downs opens the web app drill down. On the **Summary** tab, you can see discovered metadata such as protocols, connection strings, application directories and tags assigned to this workload.
 1. On the **Readiness** tab, you can see the readiness for this web app for each Azure target, the migration issues or warnings and the recommended Azure target.
+1. 
 1. Navigate back to the **Overview** page. Select the **Export** option to download an excel containing the assessment details.
 
 ## Next steps 
