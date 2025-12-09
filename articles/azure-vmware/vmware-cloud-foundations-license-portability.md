@@ -103,8 +103,8 @@ If you intend to utilize vDefend Firewall with Advanced Threat Prevention, pleas
 1. Check your Azure VMware Solution host type:
 
 | Host type | Number of cores per host |
-| --------- | ------------------------ |
-| AV36(P) | 36 |
+|-------------|--------------------------|
+| AV36, AV36P | 36 |
 | AV48 | 48 |
 | AV52 | 52 |
 | AV64 | 64 |
