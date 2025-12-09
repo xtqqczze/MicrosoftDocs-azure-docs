@@ -53,7 +53,7 @@ The following table describes the available summary statuses for source scans in
 | **Not Applicable**        | If the Defender for Servers plan is downgraded for the source virtual machine, the status for the RP is marked as **Not Applicable**.<br><br>If all RPs for a backup item aren't applicable in the last seven days, the summary is marked as **Not Applicable**. |
 | **Unknown (-)**           | Source-scan integration isn't configured or failed. The summary for both backup RPs and the backup item is marked as **Unknown (-)**. |
 
-## Supported regions
+## Supported regions for threat detection for Azure VM backups
 
 Threat detection for Azure VM backups is available in preview in these regions: West Central US, Australia East, North Europe, Switzerland North, West Europe, Central US, East US, East US2, West US, UK South, UK West, Canada Central.
 
