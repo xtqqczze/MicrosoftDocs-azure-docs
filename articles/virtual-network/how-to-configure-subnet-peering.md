@@ -29,7 +29,7 @@ The following limitations apply when using subnet peering:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- To enable access to this feature, Register your subscription through the allowlisting process
+- To enable access to this feature, register your subscription through the allowlisting process
 
 ## Configure subnet peering
 
