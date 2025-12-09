@@ -89,3 +89,7 @@ Our service is deployed in a single region within each geographic area, and serv
 ## Compliance
 
 Business Process Solutions is committed to ensuring Customers can trust our products and practices and meet their compliance obligations.
+
+## Summary
+
+In this document, we have outlined the attestation for Business Process Solutions workload in Microsoft Fabric. This includes business, technical, design, security, and compliance requirements that are met to ensure a reliable and secure experience for our customers. We will continue to maintain and update this attestation as needed to reflect any changes or improvements to the workload.

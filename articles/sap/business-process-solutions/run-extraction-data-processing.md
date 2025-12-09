@@ -31,8 +31,8 @@ This section is applicable for source systems where you have configured Azure Da
 
 Before you start extracting data, you need to process field metadata from the source system to ensure correct data mapping. This pipeline copies the table schema from the DD03ND table in SAP system to the Fabric SQL database:
 
-1. Open Azure Data Factory and navigate to Get field metadata pipeline.
-2. Click Add Trigger to start the processing.
+1. Open Azure Data Factory and navigate to **Get field metadata** pipeline.
+2. Click** Add Trigger** to start the processing.
    :::image type="content" source="./media/run-extraction-data-processing/get-field-meta-data.png" alt-text="Screenshot showing how to trigger the Get field metadata pipeline." lightbox="./media/run-extraction-data-processing/get-field-meta-data.png":::
 3. The extraction takes couple of minutes, and it fills metadata table. Once completed, you can start data extraction.
 

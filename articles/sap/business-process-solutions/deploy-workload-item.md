@@ -72,7 +72,7 @@ To deploy Business process solutions, you need:
 Before proceeding with either manual or automated deployment of Enterprise Insights you need to create a Microsoft Fabric workspace. Follow the steps below to set up your workspace:
 
 1. Open Microsoft Fabric: [Power BI](https://app.powerbi.com/).
-2. From the left menu choose Workspaces and choose new workspace.
+2. From the left menu choose **Workspaces** and choose **New workspace**.
    :::image type="content" source="./media/deploy-workload-item/new-workspace.jpg" alt-text="Screenshot showing how to create a new Microsoft Fabric workspace." lightbox="./media/deploy-workload-item/new-workspace.jpg":::
 3. Provide the Name of the workspace. Open the Advanced settings and choose **Large Semantic Model Storage Format**. Confirm by clicking **Apply**.
    :::image type="content" source="./media/deploy-workload-item/workspace-details.jpg" alt-text="Screenshot showing the new workspace details configuration." lightbox="./media/deploy-workload-item/workspace-details.jpg":::
@@ -107,15 +107,15 @@ To deploy Business Process Solutions, follow the steps below:
 Business Process Solutions uses a Fabric SQL Database connection to read and orchestrate data processing. This connection must be created before configuring source system connections. Follow the steps below to set it up.
 
 1. To create a new connection navigate to your workspace and click on the settings button on the top right of the page.
-2. Click on the Manage connections and gateways button.
+2. Click on the **Manage connections and gateways** button.
    :::image type="content" source="./media/deploy-workload-item/open-settings.png" alt-text="Screenshot showing how to open the settings page." lightbox="./media/deploy-workload-item/open-settings.png":::
 3. Click on New Button.
 
    :::image type="content" source="./media/deploy-workload-item/new-connection.jpg" alt-text="Screenshot showing how to create a new connection." lightbox="./media/deploy-workload-item/new-connection.jpg":::
-4. In the new connection input, select the Type as Cloud.
+4. In the new connection input, select the Type as **Cloud**.
 5. Enter the connection name.
-6. Select Connection type as Fabric SQL Database.
-7. For the authentication method, select OAuth and click on Edit Credentials and enter the details.
+6. Select Connection type as **Fabric SQL Databas**e.
+7. For the authentication method, select **OAuth** and click on **Edit Credentials** and enter the details.
 8. Click on Create Button to create the connection.
 
    :::image type="content" source="./media/deploy-workload-item/enter-connection-details.jpg" alt-text="Screenshot showing how to enter connection details for a new connection." lightbox="./media/deploy-workload-item/enter-connection-details.jpg":::

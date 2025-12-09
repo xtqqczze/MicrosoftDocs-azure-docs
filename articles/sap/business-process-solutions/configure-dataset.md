@@ -33,11 +33,14 @@ Before starting data extraction, enable the datasets that represent the function
 3. Once the dialog opens select your source system and enter the name of the dataset, make sure to enter a unique name.
 4. Select the dataset you want to enable then choose **Import**.
    :::image type="content" source="./media/configure-dataset/import-dataset-template.png" alt-text="Screenshot showing how to import a dataset from a template." lightbox="./media/configure-dataset/import-dataset-template.png":::
-5. After the dataset creation is completed successfully, the dataset is in Disabled state, we need to enable this dataset. Select the dataset and click on Activate datasets button.
+5. After the dataset creation is completed successfully, the dataset is in **Disabled** state, we need to enable this dataset. Select the dataset and click on **Activate datasets** button.
    :::image type="content" source="./media/configure-dataset/enable-dataset.png" alt-text="Screenshot showing how to activate a dataset." lightbox="./media/configure-dataset/enable-dataset.png":::
 6. Your dataset is now ready for extraction and processing.
 
 ## Modify dataset tables and relationships
+
+> [!NOTE]
+> The below sections describe how to update dataset tables and relationships, these steps are optional and can be skipped if you don't want to make any changes to the dataset.
 
 Once the dataset is deployed, you can view it and explore the enabled tables. You can also review the relationships between fact and dimension tables.
 
@@ -46,13 +49,13 @@ Once the dataset is deployed, you can view it and explore the enabled tables. Yo
 Use the following steps to update the dataset tables:
 
 1. Open your Business Process Solution item.
-2. Click on the 'Set up your datasets' button.
+2. Click on the **Set up your datasets** button.
    :::image type="content" source="./media/configure-dataset/set-up-datasets.png" alt-text="Screenshot showing how to navigate to the Dataset tab." lightbox="./media/configure-dataset/set-up-datasets.png":::
 3. To view the tables enabled for extraction, expand the source system and dataset in the explorer menu.
    :::image type="content" source="./media/configure-dataset/expand-dataset.png" alt-text="Screenshot showing how to expand the dataset to see tables." lightbox="./media/configure-dataset/expand-dataset.png":::
 4. You can delete tables by selecting multiple tables and clicking the **Delete** button.
    :::image type="content" source="./media/configure-dataset/delete-table.png" alt-text="Screenshot showing how to delete a table from the dataset." lightbox="./media/configure-dataset/delete-table.png":::
-5. You can also change the table details by opening the context menu and clicking on Edit.
+5. You can also change the table details by opening the context menu and clicking on **Edit**.
    :::image type="content" source="./media/configure-dataset/edit-table.png" alt-text="Screenshot showing how to edit a table in the dataset." lightbox="./media/configure-dataset/edit-table.png":::
 6. Click on the **Save** button to save the changes.
 
@@ -61,24 +64,24 @@ Use the following steps to update the dataset tables:
 You can add a new table in an existing dataset or import a table from the existing tables. follow the steps to add or import a new table in your dataset.
 
 1. Open your Business Process Solution item.
-2. Click on the 'Set up your datasets' button.
+2. Click on the **Set up your datasets** button.
 3. To view the tables enabled for extraction, expand the source system and dataset in the explorer menu.
 4. Click on the **Import tables** button.
    :::image type="content" source="./media/configure-dataset/import-tables.png" alt-text="Screenshot showing how to import tables into the dataset." lightbox="./media/configure-dataset/import-tables.png":::
 5. In the Import Tables dialog, you can either select a existing table to import to your dataset or add a new table.
 6. To add a new table, click on the **New Table** button.
    :::image type="content" source="./media/configure-dataset/new-dataset-table.png" alt-text="Screenshot showing how to add a new table to the dataset." lightbox="./media/configure-dataset/new-dataset-table.png":::
-7. Enter the details of the new table and click on the Save button.
+7. Enter the details of the new table and click on the **Save** button.
 
 ### Create new relationships
 
 To create new relationships between tables, follow the steps:
 
 1. Open your Business Process Solution item.
-2. Click on the 'Set up your datasets' button.
+2. Click on the **'Set up your datasets'** button.
    :::image type="content" source="./media/configure-dataset/set-up-datasets.png" alt-text="Screenshot showing how to navigate to the Dataset tab." lightbox="./media/configure-dataset/set-up-datasets.png":::
 3. To view the tables enabled for extraction, expand the source system and dataset in the explorer menu.
-4. Click on the Manage relationship button.
+4. Click on the **Manage relationship** button.
    :::image type="content" source="./media/configure-dataset/manage-relationship.png" alt-text="Screenshot showing the manage relationships button." lightbox="./media/configure-dataset/manage-relationship.png":::
 5. In the Manage Relationships dialog, click on the **New Relationship** button.
    :::image type="content" source="./media/configure-dataset/create-new-relationship.png" alt-text="Screenshot showing the new relationship button." lightbox="./media/configure-dataset/create-new-relationship.png":::
