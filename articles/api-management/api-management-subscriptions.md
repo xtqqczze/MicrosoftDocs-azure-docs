@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 09/29/2025
+ms.date: 12/09/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -93,9 +93,12 @@ Creating a subscription without assigning an owner makes it a standalone subscri
 - Manually share the subscription key.
 - Use a custom system to make the subscription key available to your team.
 
+> [!NOTE]
+> Subscriptions in API Management aren't directly assignable to Microsoft Entra ID security groups. To provide subscription access to multiple users in a group, create a standalone subscription and distribute the subscription keys to group members, or integrate with Microsoft Entra ID for authentication and use policies to control API access based on group membership.
+
 ## Create and manage subscriptions in Azure portal
 
-API publishers can [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal. 
+API publishers (administrators or developers with appropriate permissions) can [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal by signing in to their API Management instance. API consumers cannot create subscriptions through the Azure portal; they typically request subscriptions through the developer portal or receive them from API publishers.
 
 When created in the portal, a subscription is in the **Active** state, meaning a subscriber can call an associated API using a valid subscription key. You can change the state of the subscription as needed. For example, you can suspend, cancel, or delete any subscription (including the built-in all-access subscription) to prevent API access.
 

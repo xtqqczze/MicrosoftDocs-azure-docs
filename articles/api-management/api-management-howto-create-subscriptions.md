@@ -6,9 +6,10 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/30/2025
+ms.date: 12/09/2025
 ms.author: danlep
 ---
+
 # Create subscriptions in Azure API Management
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
@@ -29,11 +30,17 @@ To take the steps in this article, the prerequisites are as follows:
 
 ## Create a new subscription
 
+> [!NOTE]
+> Subscriptions are created and managed by API publishers (administrators or users with appropriate permissions to the API Management instance). API consumers typically request subscriptions through the developer portal or receive them directly from API publishers.
+
 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com).
 1. Under **APIs** in the sidebar menu, select **Subscriptions**, then choose **Add subscription**.
 1. Provide a **Name** and optional **Display name** for the subscription.
 1. Select a **Scope** of the subscription from the dropdown list. To learn more, see [Scope of subscriptions](api-management-subscriptions.md#scope-of-subscriptions).
-1. Optionally, choose if the subscription should be associated with a **User** and whether to send a notification for use with the developer portal.
+1. Optionally, choose if the subscription should be associated with a **User**. 
+    * If you don't associate the subscription with a specific user, it becomes a standalone subscription that can be shared among multiple developers or teams.
+    * Subscriptions cannot be directly assigned to Microsoft Entra ID security groups. To provide access to group members, create a standalone subscription and distribute the keys, or use Microsoft Entra ID authentication with policies for group-based access control.
+1. Optionally, choose whether to send a notification for use with the developer portal.
 1. Select **Create**.
 
 :::image type="content" source="media/api-management-howto-create-subscriptions/create-subscription.png" alt-text="Screenshot showing how to create an API Management subscription in the portal." lightbox="media/api-management-howto-create-subscriptions/create-subscription.png":::
@@ -45,3 +52,4 @@ After you create the subscription, it appears in the list on the **Subscriptions
 * [Azure API Management terminology](api-management-terminology.md)
 * [Tutorial: Import and publish your first API](import-and-publish.md)
 * [Azure API Management FAQs](api-management-faq.yml)
+* [Securely access products and APIs with Microsoft Entra applications](applications.md)
