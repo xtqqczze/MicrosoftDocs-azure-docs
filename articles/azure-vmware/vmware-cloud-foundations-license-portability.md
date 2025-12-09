@@ -185,7 +185,7 @@ Customer license data is handled in accordance with Microsoft’s data privacy a
 Customers are accountable for managing their VCF subscription cores and ensuring compliance with their Broadcom entitlements across all Azure VMware Solution private clouds. If you have questions about your configuration or compliance status, contact your Microsoft account team or open a support ticket for assistance. 
 
 ## Customers using VCF BYOL on their Azure subscription before Nov 2025 
-If you're an existing Azure VMware Solution customer using VCF BYOL before November 2025 and registered your VCF keys through the registerAzure VMware Solutionvcfbyol@microsoft.com email, you'll need to update your configuration through the new Azure portal based VCF BYOL system latest by March 31, 2026. There will be NO disruption to your private cloud in this process.  
+If you're an existing Azure VMware Solution customer using VCF BYOL before November 2025 and registered your VCF keys through the registeravsvcfbyol@microsoft.com email, you'll need to update your configuration through the new Azure portal based VCF BYOL system latest by March 31, 2026. There will be NO disruption to your private cloud in this process.  
 
 **Why is this important?**
 
