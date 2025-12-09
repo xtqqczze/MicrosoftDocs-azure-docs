@@ -218,7 +218,6 @@ You receive confirmation once your migration is complete.
 
 >[!IMPORTANT]
 > Until you complete re-registration through Azure portal, you'll continue to receive support through the legacy system until March 31, 2026. 
-
 > Need Help? If you have questions or need assistance during migration, contact Microsoft support team. 
 
 ## Resolving VCF BYOL registration failures 
