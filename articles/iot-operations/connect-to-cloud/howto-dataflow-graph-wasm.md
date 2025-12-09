@@ -84,7 +84,7 @@ oras pull ghcr.io/azure-samples/explore-iot-operations/filter:1.0.0
 
 ### Push modules to your registry
 
-Once you have the sample modules and graphs, push them to your container registry. Replace `<YOUR_ACR_NAME>` with the name of your Azure Container Registry.
+Once you have the sample modules and graphs, push them to your container registry. Replace `<YOUR_ACR_NAME>` with the name of your Azure Container Registry. To ensure the graphs and modules are visible in the operations experience web UI, add the `--config` and `--artifact-type` flags as shown in the following example:
 
 ```bash
 # Log in to your ACR
