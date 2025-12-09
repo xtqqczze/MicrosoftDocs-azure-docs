@@ -18,7 +18,7 @@ Azure Managed Redis runs on the [Redis Enterprise](https://redis.io/technology/a
 
 ## Comparison with Azure Cache for Redis
 
-The Basic, Standard, and Premium tiers of Azure Cache for Redis run on the community edition of Redis. This community edition of Redis has several significant limitations, including being single-threaded. This limitation reduces performance significantly and makes scaling less efficient becauase the service doesn't fully utilize more vCPUs. A typical Azure Cache for Redis instance uses an architecture like this:
+The Basic, Standard, and Premium tiers of Azure Cache for Redis run on the community edition of Redis. This community edition of Redis has several significant limitations, including being single-threaded. This limitation reduces performance significantly and makes scaling less efficient because the service doesn't fully utilize more vCPUs. A typical Azure Cache for Redis instance uses an architecture like this:
 
 :::image type="content" source="media/architecture/cache-architecture.png" alt-text="Diagram showing the architecture of the Azure Cache for Redis offering.":::
 
@@ -44,7 +44,7 @@ Each Azure Managed Redis instance is internally configured to use clustering, ac
 
 ### Cluster policies
 
-Azure Managed Redis offers three clustering policies: _OSS_, _Enterprise_, and Non-Clustered. _OSS_ cluster policy is recommended for most applications because it supports higher maximum throughput, but there are advantages and disadvantages to each version.
+Azure Managed Redis offers three clustering policies: _OSS_, _Enterprise_, and Non-Clustered. The _OSS_ cluster policy is best for most applications because it supports higher maximum throughput, but each version has its own advantages and disadvantages.
 
 - If you're moving from a Basic, Standard, or Premium nonclustered topology, consider using OSS clustering to improve performance. Use nonclustered configurations only if your application can't support either OSS or Enterprise topologies. The **OSS clustering policy** implements the same API as Redis open-source software. The [Redis Cluster API](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/) allows the Redis client to connect directly to shards on each Redis node, minimizing latency and optimizing network throughput. Throughput scales near-linearly as the number of shards and vCPUs increases. The OSS clustering policy generally offers the best latency and throughput performance. However, the OSS cluster policy requires your client library to support the Redis Cluster API. Today, almost all Redis clients support the Redis Cluster API, but compatibility might be an issue for older client versions or specialized libraries.
 
@@ -52,7 +52,7 @@ You can't use OSS clustering policy with the [RediSearch module](redis-modules.m
 
 The OSS clustering protocol requires the client to make the correct shard connections. The initial connection is through port 10000. Connecting to individual nodes uses ports in the 85XX range. The 85xx ports can change over time, and you shouldn't hardcode them into your application. Redis clients that support clustering use the [CLUSTER NODES](https://redis.io/commands/cluster-nodes/) command to determine the exact ports used for the primary and replica shards and make the shard connections for you.
 
-The **Enterprise clustering policy** is a simpler configuration that utilizes a single endpoint for all client connections. Using the Enterprise clustering policy routes all requests to a single Redis node that acts as a proxy, internally routing requests to the correct node in the cluster. The advantage of this approach is that it makes Azure Managed Redis look non-clustered to users. That means that Redis client libraries don't need to support Redis Clustering to gain some of the performance advantages of Redis Enterprise. Using a single endpoint boosts backward compatibility and makes connection simpler. The downside is that the single node proxy can be a bottleneck in either compute utilization or network throughput.
+The **Enterprise clustering policy** is a simpler configuration that uses a single endpoint for all client connections. When you use the Enterprise clustering policy, it routes all requests to a single Redis node that acts as a proxy. This node internally routes requests to the correct node in the cluster. The advantage of this approach is that it makes Azure Managed Redis look non-clustered to users. That means that Redis client libraries don't need to support Redis Clustering to gain some of the performance advantages of Redis Enterprise. Using a single endpoint boosts backward compatibility and makes connection simpler. The downside is that the single node proxy can be a bottleneck in either compute utilization or network throughput.
 
 The Enterprise clustering policy is the only one that you can use with the [RediSearch module](redis-modules.md). While the Enterprise cluster policy makes an Azure Managed Redis instance appear to be non-clustered to users, it still has some limitations with [Multi-key commands](#multi-key-commands).
 
@@ -71,13 +71,13 @@ The considerations for using Nonclustered policy are:
 
 ### Scaling out or adding nodes
 
-The core Redis Enterprise software can scale up by using larger VMs or scale out by adding more nodes or VMs. Both scaling options add more memory, more vCPUs, and more shards. Because of this redundancy, Azure Managed Redis doesn't provide the ability to control the specific number of nodes used in each configuration. This implementation detail is abstracted to avoid confusion, complexity, and suboptimal configurations. Instead, each SKU is designed with a node configuration that maximizes vCPUs and memory. Some SKUs of Azure Managed Redis use two nodes, while others use more.
+The core Redis Enterprise software scales up by using larger VMs or scales out by adding more nodes or VMs. Both scaling options add more memory, more vCPUs, and more shards. Because of this redundancy, Azure Managed Redis doesn't provide the ability to control the specific number of nodes used in each configuration. This implementation detail is abstracted to avoid confusion, complexity, and suboptimal configurations. Instead, each SKU is designed with a node configuration that maximizes vCPUs and memory. Some SKUs of Azure Managed Redis use two nodes, while others use more.
   
 ### Multi-key commands
 
-Because Azure Managed Redis instances use a clustered configuration, you might see `CROSSSLOT` exceptions on commands that operate on multiple keys. Behavior varies depending on the clustering policy used. If you use the OSS clustering policy, all keys in multi-key commands must map to [the same hash slot](https://docs.redis.com/latest/rs/databases/configure/oss-cluster-api/#multi-key-command-support).
+Because Azure Managed Redis instances use a clustered configuration, you might see `CROSSSLOT` exceptions on commands that operate on multiple keys. Behavior varies depending on the clustering policy used. If you use the OSS clustering policy, all keys in multikey commands must map to [the same hash slot](https://docs.redis.com/latest/rs/databases/configure/oss-cluster-api/#multi-key-command-support).
 
-You might also see `CROSSSLOT` errors with Enterprise clustering policy. Only the following multi-key commands are allowed across slots with Enterprise clustering: `DEL`, `MSET`, `MGET`, `EXISTS`, `UNLINK`, and `TOUCH`.
+You might also see `CROSSSLOT` errors with Enterprise clustering policy. Only the following multikey commands are allowed across slots with Enterprise clustering: `DEL`, `MSET`, `MGET`, `EXISTS`, `UNLINK`, and `TOUCH`.
 
 In Active-Active databases, multikey write commands (`DEL`, `MSET`, `UNLINK`) can only run on keys that are in the same slot. However, the following multikey commands are allowed across slots in Active-Active databases: `MGET`, `EXISTS`, and `TOUCH`. For more information, see [Database clustering](https://docs.redis.com/latest/rs/databases/durability-ha/clustering/#multikey-operations).
 
@@ -85,7 +85,7 @@ In Active-Active databases, multikey write commands (`DEL`, `MSET`, `UNLINK`) ca
 
 Each SKU of Azure Managed Redis runs a specific number of Redis server processes, called _shards_, in parallel. The relationship between throughput performance, the number of shards, and number of vCPUs available on each instance is complex. You can't manually change the number of shards.
 
-For a given memory size, the Memory Optimized SKU has the least number of vCPUs and shards, while the Compute Optimized SKU has the highest.
+For a given memory size, the Memory Optimized version has the least number of vCPUs and shards, while the Compute Optimized version has the highest.
 
 Increasing the number of shards generally increases performance as Redis operations can run in parallel. But, if no vCPUs are available to execute commands, performance can drop.
 
@@ -93,13 +93,13 @@ Shards are mapped to optimize the usage of each vCPU while reserving vCPU cycles
 
 To increase the number of shards in a SKU, use a larger tier in a SKU. 
 
-The following table shows the ratio of vCPUs to primary shards at a given tier size. The data in the columns does not represent a guarantee that this is the number of vCPUs or shards for SKU. The tables are for illustration only.
+The following table shows the ratio of vCPUs to primary shards at a given tier size. The data in the columns doesn't represent a guarantee that this is the number of vCPUs or shards for version. The tables are for illustration only.
 
 > [!NOTE]
 > Azure Managed Redis optimizes performance over time by changing the number of shards and vCPUs used on each SKU.
 >
 
-#### Memory optimized, Balanced, and Compute optimized SKUs
+#### Memory optimized, Balanced, and Compute optimized versions
 
 This table shows a general example of the relationship of _Size_ to _vCPUs/primary shards_.
 
@@ -125,7 +125,7 @@ This table shows a general example of the relationship of _Size_ to _vCPUs/prima
 
   \* These tiers are in public preview.
 
-#### Flash optimized SKU
+#### Flash optimized version
 
 This table shows a general example of the relationship of _Size_ to _vCPUs/primary shards_.
 
