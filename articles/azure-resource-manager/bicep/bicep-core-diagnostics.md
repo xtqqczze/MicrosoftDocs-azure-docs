@@ -47,7 +47,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP031' />BCP031 | Error | The parameter type isn't valid. Specify one of the following types: `{ToQuotedString(validTypes)}`. |
 | <a id='BCP032' />BCP032 | Error | The value must be a compile-time constant. |
 | <a id='BCP033' />[BCP033](./diagnostics/bcp033.md) | Error/Warning | Expected a value of type `<data-type>`, but the provided value is of type `<data-type>`. |
-| <a id='BCP034' />BCP034 | Error/Warning | The enclosing array expected an item of type `{expectedType}`, but the provided item was of type `{actualType}`. |
+| <a id='BCP034' />[BCP034](./diagnostics/bcp034.md) | Error/Warning | The enclosing array expected an item of type `{expectedType}`, but the provided item was of type `{actualType}`. |
 | <a id='BCP035' />[BCP035](./diagnostics/bcp035.md) | Error/Warning | The specified `<data-type>` declaration is missing the following required properties: `<property-name>`. |
 | <a id='BCP036' />[BCP036](./diagnostics/bcp036.md) | Error/Warning | The property `<property-name>` expected a value of type `<data-type>`, but the provided value is of type `<data-type>`. |
 | <a id='BCP037' />[BCP037](./diagnostics/bcp037.md) | Error/Warning | The property `<property-name>` isn't allowed on objects of type `<type-definition>`. |
@@ -100,7 +100,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP088' />[BCP088](./diagnostics/bcp088.md) | Error/Warning | The property `<property-name>` expected a value of type `<type-name>`, but the provided value is of type `<type-name>`. Did you mean `<type-name>`? |
 | <a id='BCP089' />[BCP089](./diagnostics/bcp089.md) | Error/Warning | The property `<property-name>` isn't allowed on objects of type `<resource-type>`. Did you mean `<property-name>`? |
 | <a id='BCP090' />BCP090 | Error | This module declaration is missing a file path reference. |
-| <a id='BCP091' />BCP091 | Error | An error occurred reading file. `{failureMessage}` |
+| <a id='BCP091' />[BCP091](./diagnostics/bcp091.md) | Error | An error occurred reading file. Could not find a part of the path `<file-path>`.|
 | <a id='BCP092' />BCP092 | Error | String interpolation isn't supported in file paths. |
 | <a id='BCP093' />BCP093 | Error | File path `{filePath}` couldn't be resolved relative to `{parentPath}`. |
 | <a id='BCP094' />BCP094 | Error | This module references itself, which isn't allowed. |
@@ -139,7 +139,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP127' />[BCP127](./diagnostics/bcp127.md) | Error | Function `<function-name>` can't be used as a resource decorator. |
 | <a id='BCP128' />[BCP128](./diagnostics/bcp128.md) | Error | Function `<function-name>` can't be used as a module decorator. |
 | <a id='BCP129' />[BCP129](./diagnostics/bcp129.md) | Error | Function `<function-name>` can't be used as an output decorator. |
-| <a id='BCP130' />BCP130 | Error | Decorators aren't allowed here. |
+| <a id='BCP130' />[BCP130](./diagnostics/bcp130.md) | Error | Decorators aren't allowed here. |
 | <a id='BCP132' />[BCP132](./diagnostics/bcp132.md) | Error | Expected a declaration after the decorator. |
 | <a id='BCP133' />BCP133 | Error | The unicode escape sequence isn't valid. Valid unicode escape sequences range from \\u{0} to \\u{10FFFF}. |
 | <a id='BCP134' />BCP134 | Error | Scope `<scope-name>` isn't valid for this module. Permitted scopes: `<scope-name>`. |
@@ -285,7 +285,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP290' />[BCP290](./diagnostics/bcp290.md) | Error | Expected a parameter or type declaration after the decorator. |
 | <a id='BCP291' />BCP291 | Error | Expected a parameter or output declaration after the decorator. |
 | <a id='BCP292' />[BCP292](./diagnostics/bcp292.md) | Error | Expected a parameter, output, or type declaration after the decorator. |
-| <a id='BCP293' />BCP293 | Error | All members of a union type declaration must be literal values. |
+| <a id='BCP293' />[BCP293](./diagnostics/bcp293.md) | Error | All members of a union type declaration must be literal values. |
 | <a id='BCP294' />[BCP294](./diagnostics/bcp294.md) | Error | Type unions must be reducible to a single ARM type (such as `string`, `int`, or `bool`).      |
 | <a id='BCP295' />BCP295 | Error | The `{decoratorName}` decorator may not be used on targets of a union or literal type. The allowed values for this parameter or type definition will be derived from the union or literal type automatically. |
 | <a id='BCP296' />BCP296 | Error | Property names on types must be compile-time constant values. |
