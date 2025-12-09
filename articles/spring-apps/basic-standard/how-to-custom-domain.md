@@ -33,7 +33,7 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 
 ## Key Vault private link considerations
 
-The IP addresses for Azure Spring Apps management aren't yet part of the Azure Trusted Microsoft services. Therefore, to enable Azure Spring Apps to load certificates from a Key Vault protected with private endpoint connections, you must add the IP addresses of Azure Spring Apps control plane or the service tag (**highly recommended**) to Azure Key Vault firewall.
+The IP addresses for Azure Spring Apps management aren't yet part of the Azure Trusted Microsoft services. Therefore, to enable Azure Spring Apps to load certificates from a Key Vault protected with private endpoint connections, you must add the IP addresses of Azure Spring Apps control plane **AND** the service tag to Azure Key Vault firewall.
 
 | Cloud    | IP Addresses                                                 | Service Tag                                  |
 | -------- | ------------------------------------------------------------ | -------------------------------------------- |
@@ -41,7 +41,7 @@ The IP addresses for Azure Spring Apps management aren't yet part of the Azure T
 | Mooncake | - `52.131.254.89`<br/>- `52.131.41.48`<br/>- `159.27.26.25`  | N/A                                          |
 
 > [!NOTE]
-> The IP addresses of Azure Spring Apps control plane may change without notice. Therefore, it's highly recommended to use the service tag rather than the IP addresses in your firewall.
+> Azure Spring Apps is going to replace the above IP addresses **in Public cloud** with new IP addresses tagged with `SystemServiceAzureSpringAppsResourceProvider`, for security complaince. To avoid disruption, it's highly recommended to add the service tag in your firewall as soon as possible.
 
 ## Import certificate
 
