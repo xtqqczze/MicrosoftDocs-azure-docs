@@ -82,7 +82,7 @@ Perform one of the following options for your Windows Server 2012 R2 servers pri
   - Allow up to 30 minutes for the Azure portal to reflect the updated server status.
 
 >[!Warning]
-> Do not unregister the server before the upgrade. Unregistering removes all server endpoints, and if any data is still tiered, this can leave files orphaned. Ensure all data is fully recalled before removing server endpoints or unregistering a server.
+> Do not unregister the server before the upgrade. Unregistering removes all server endpoints, and if any data is still tiered, this can leave files orphaned.
 
 - Option #2: Deploy a new Azure File Sync server that's running a [supported operating system version](file-sync-planning.md#operating-system-requirements) to replace your Windows 2012 R2 servers. For guidance, see [Replace an Azure File Sync server](file-sync-replace-server.md).
 
@@ -123,6 +123,7 @@ For more information on how to install and configure the Azure File Sync agent w
   - Perform the in-place upgrade to any supported Windows Server version.
   - Install the Azure File Sync agent that matches the new operating system.
   - Allow up to 30 minutes for the Azure portal to reflect the updated server status.
+  - Do not unregister the server before the upgrade. Unregistering removes all server endpoints, and if any data is still tiered, this can leave files orphaned.
 - The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
 - The agent uses TLS 1.2 or 1.3 (Windows Server 2022 or newer) by default. TLS 1.0 and 1.1 aren't supported.
 - Server registration using the [Register-AzStorageSyncServer](/powershell/module/az.storagesync/register-azstoragesyncserver) and ServerRegistration.exe require .NET Framework 4.7.2. or higher.
