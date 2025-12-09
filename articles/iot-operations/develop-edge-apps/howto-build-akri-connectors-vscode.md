@@ -354,7 +354,7 @@ Use the **Azure IoT Operations Akri connectors: Publish Akri Connector Image or 
 
 ## Author connector metadata configuration
 
-Use the VS Code workspace created from the **Create an Akri Connector** command to author the `connector-metadata.json` file. You can place this file anywhere in your connector workspace. The extension provides a static validation capability using the `connector-metadata.json` file and shows warnings in the `PROBLEMS` panel if any required properties are missing.
+Use the VS Code workspace created from the **Create an Akri Connector** command to author the `connector-metadata.json` file that complies with the [JSON schema for Azure IoT Operations Connector Metadata 9.0-preview](https://raw.githubusercontent.com/SchemaStore/schemastore/refs/heads/master/src/schemas/json/aio-connector-metadata-9.0-preview.json) schema. You can place this file anywhere in your connector workspace. The extension provides a static validation capability using the `connector-metadata.json` file and shows warnings in the `PROBLEMS` panel if any required properties are missing.
 
 ## Publish metadata artifacts
 
