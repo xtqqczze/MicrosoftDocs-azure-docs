@@ -72,7 +72,7 @@ To start replicating all the IIS web farm virtual machines to Azure, follow the 
 
 If you are using a static IP address, you can specify the IP address that you want the virtual machine to take. To set the IP address, go to  **Network settings** > **TARGET IP**.
 
-:::image type="content" source="./media/site-recovery-active-directory/dns-target-ip.png" alt-text="Screenshot that shows how to set the target IP in the Site Recovery Network pane.":::
+:::image type="content" source="./media/site-recovery-active-directory/target-ip-dns.png" alt-text="Screenshot that shows how to set the target IP in the Site Recovery Network pane.":::
 
 ## Create a recovery plan
 
