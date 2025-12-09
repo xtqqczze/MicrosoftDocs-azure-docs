@@ -1,7 +1,7 @@
 ---
 title: Authorize Access to API Management Developer Portal by using Microsoft Entra External ID
 titleSuffix: Azure API Management
-description: Learn how to authorize users of the developer portal in Azure API Management by using Microsoft Entra External ID
+description: Learn how to authorize external users of the developer portal in Azure API Management by using Microsoft Entra External ID
 services: api-management
 author: dlepow
 
@@ -13,7 +13,7 @@ ms.custom:
 
 ---
 
-# How to authorize developer accounts by using external identities in Microsoft Entra ID
+# How to authorize developer accounts by using external identity providers in Microsoft Entra External ID
 
 [!INCLUDE [premium-dev-standard-premiumv2-standardv2-basicv2.md](../../includes/api-management-availability-premium-dev-standard-premiumv2-standardv2-basicv2.md)]
 
@@ -38,7 +38,7 @@ Currently, API Management supports external identity providers in Microsoft Entr
 
 ## Add external identity provider to your tenant
 
-For this scenario, you must enable an identity provider for External ID in your workforce tenant. Configuring the external identity provider is outside the scope of this article. For options and links to steps, see [Identity providers for External ID in workforce tenants](/entra/external-id/identity-providers).
+For this scenario, you must enable an identity provider for External ID in your workforce tenant. Configuring the external identity provider depends on the specific provider and is outside the scope of this article. For options and links to steps, see [Identity providers for External ID in workforce tenants](/entra/external-id/identity-providers).
 
 [!INCLUDE [api-management-developer-portal-entra-app.md](../../includes/api-management-developer-portal-entra-app.md)]
 
@@ -65,7 +65,7 @@ A user can then sign in with Microsoft Entra External ID as follows:
     :::image type="content" source="media/api-management-howto-external-id/developer-portal-sign-in.png" alt-text="Screenshot of selecting Azure Active Directory on Sign in page in developer portal.":::
 
     > [!TIP]
-    > If you configure more than one tenant for access, more than one Azure Active Directory button appears on the sign-in page. Each button is labeled with the tenant name.
+    > If you configure more than one Microsoft Entra tenant for access, more than one Azure Active Directory button appears on the sign-in page. Each button is labeled with the tenant name.
 
 1. In the sign-in window for your Microsoft Entra tenant, select **Sign-in options**. Select the external identity provider configured in your Microsoft Entra tenant to sign in. For example, if you configured Google as an identity provider, select **Sign in with Google**.
 
