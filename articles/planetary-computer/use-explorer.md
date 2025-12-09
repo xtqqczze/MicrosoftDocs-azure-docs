@@ -160,6 +160,7 @@ You can set a thumbnail for a collection, the image that represents that collect
 
 ## Related content
 
+* [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md)
 * [Create a GeoCatalog](./deploy-geocatalog-resource.md)
 * [Create a collection](./create-stac-collection.md)
 * [Ingest STAC items](./ingestion-source.md)

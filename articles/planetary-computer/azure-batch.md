@@ -212,6 +212,8 @@ az batch task file download \
 
 ## Related content
 
+- [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md)
+- [Configure application authentication for Microsoft Planetary Computer Pro](./application-authentication.md)
 - For more information about managed identities in batch pools, see [Configure managed identities in Batch pools](/azure/batch/managed-identity-pools) documentation.
 
 - For more information about how to deploy files to your Batch account, see [Copy applications and data to pool nodes](/azure/batch/batch-applications-to-pool-nodes), [Deploy applications to compute nodes with Batch application packages](/azure/batch/batch-application-packages), and [Creating and using resource files](/azure/batch/resource-files).

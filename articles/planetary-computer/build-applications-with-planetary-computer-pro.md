@@ -38,15 +38,17 @@ The primary way to integrate with Planetary Computer Pro is through its REST API
 | SAS API       | Generate secure, time-limited access tokens for sharing geospatial data.                     |
 | Ingestion API | Ingest and transform new geospatial datasets into the GeoCatalog.      |
 
-These APIs support [standard authentication through Microsoft Entra ID](/entra/architecture/guide-for-independent-software-developers), enabling secure access to your resources. Integrating your web application requires the use of [application authentication](./application-authentication.md). Once your app is registered with Microsoft Entra, it can securely use the APIs to access all data inside a GeoCatalog. 
+These APIs support [standard authentication through Microsoft Entra ID](/entra/architecture/guide-for-independent-software-developers), enabling secure access to your resources. Integrating your application requires the use of [application authentication](./application-authentication.md). Once your app is registered with Microsoft Entra, it can securely use the APIs to access all data inside a GeoCatalog.
+
+For a complete walkthrough of building a browser-based application that uses these APIs, see [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md).
 
 The [REST API is detailed in the API reference](/rest/api/planetarycomputer).
 
-### Fist Party Application Support
+### First-party application support
 
-Planetary Computer Pro has a built-in application called Explorer which allows users to visualize ingested data in a GeoCatalog resource from their browser. Once the data is [configured for visualization](./collection-configuration-concept.md), it can be [used in the explorer](./use-explorer.md).
+Planetary Computer Pro has a built-in application called Explorer that allows users to visualize ingested data in a GeoCatalog resource from their browser. Once the data is [configured for visualization](./collection-configuration-concept.md), it can be [used in the Explorer](./use-explorer.md).
 
-In more, by using [the API services](#direct-api-integration), data in Planetary Computer Pro can be integrated with first party Microsoft applications such as [Fabric](/fabric) and [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). 
+By using [the API services](#direct-api-integration), data in Planetary Computer Pro can be integrated with first-party Microsoft applications such as [Fabric](/fabric) and [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). 
 
 ### GIS application connectivity
 
@@ -79,8 +81,23 @@ All applications that interact with Planetary Computer Pro must authenticate pro
 
 For detailed authentication guidance, see [Set up application authentication for Planetary Computer Pro](./application-authentication.md).
 
+## Choose your integration path
+
+Select the approach that best fits your use case:
+
+| Use case | Recommended approach | Get started |
+|----------|---------------------|-------------|
+| **Explore data without coding** | Use the built-in Explorer web application | [Use the Explorer](./use-explorer.md) |
+| **Build a custom web application** | Browser-based app with JavaScript/TypeScript using MSAL.js | [Build a web application](./build-web-application.md) |
+| **Desktop GIS with ArcGIS Pro** | Connect ArcGIS Pro directly to GeoCatalog | [Configure ArcGIS Pro](./create-connection-arc-gis-pro.md) |
+| **Desktop GIS with QGIS** | Connect QGIS to GeoCatalog via STAC | [Configure QGIS](./configure-qgis.md) |
+| **Batch processing on Azure** | Run processing jobs with Azure Batch and managed identity | [Use Azure Batch](./azure-batch.md) |
+| **Backend/server-side integration** | Python applications using managed identity or service principal | [Configure application authentication](./application-authentication.md) |
 
 ## Related content
 
+- [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md)
+- [Use Azure Batch with Microsoft Planetary Computer Pro](./azure-batch.md)
 - [Connect ArcGIS Pro to Microsoft Planetary Computer Pro](./create-connection-arc-gis-pro.md)
+- [Configure QGIS to access a GeoCatalog resource](./configure-qgis.md)
 - [Manage access to Microsoft Planetary Computer Pro](./manage-access.md)

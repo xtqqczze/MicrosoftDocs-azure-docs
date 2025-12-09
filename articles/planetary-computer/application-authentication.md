@@ -119,8 +119,10 @@ If you can't use `DefaultAzureCredentials()` and instead use other methods such 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build Applications with Microsoft Planetary Computer Pro](./use-explorer.md)
+> [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md)
 
 ## Related content
 
+- [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md)
+- [Use Azure Batch with Microsoft Planetary Computer Pro](./azure-batch.md)
 - [Manage access for Microsoft Planetary Computer Pro](./manage-access.md)

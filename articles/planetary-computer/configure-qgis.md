@@ -153,6 +153,8 @@ If you want to search for data or run a STAC filter in your catalog, the STAC AP
 
 ## Related content
 
+- [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md)
+- [Configure ArcGIS Pro to access a GeoCatalog](./create-connection-arc-gis-pro.md)
 - [Configure the Planetary Computer collection web interface](./configure-collection-web-interface.md)
 - [Create a connection from ArcGIS Pro to the STAC API](./create-connection-arc-gis-pro.md)
 - [Use the Planetary Computer Explorer](./use-explorer.md)

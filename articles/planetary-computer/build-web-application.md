@@ -85,7 +85,7 @@ After registration, note the following values from the **Overview** page:
 Your application needs permission to call the GeoCatalog API on behalf of signed-in users:
 
 1. In your app registration, select **API permissions** > **Add a permission**.
-1. Select **APIs my organization uses** and search for **Azure Orbital Planetary Computer**.
+1. Select **APIs my organization uses** and search for **Azure Orbital Spatio**.
 1. Select **Delegated permissions** and check **user_impersonation**.
 1. Select **Add permissions**.
 1. If you're an admin, select **Grant admin consent** to consent on behalf of all users in your tenant.
