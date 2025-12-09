@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 12/03/2025
+ms.date: 10/30/2025
 ai-usage: ai-assisted
 
 ---
@@ -198,7 +198,7 @@ edition = "2021"
 wit-bindgen = "0.22"
 
 # Azure IoT Operations WASM SDK - provides operator macros and host APIs
-wasm_graph_sdk = { version = "1.1.3", registry = "azure-vscode-wasm" }
+tinykube_wasm_sdk = { version = "0.2.0", registry = "azure-vscode-tinykube" }
 
 # JSON serialization/deserialization for data processing
 serde = { version = "1", default-features = false, features = ["derive"] }
@@ -212,7 +212,7 @@ crate-type = ["cdylib"]
 Key dependencies explained:
 
 - **`wit-bindgen`**: Generates Rust bindings from WebAssembly Interface Types (WIT) definitions, enabling your code to interface with the WASM runtime
-- **`wasm_graph_sdk`**: Azure IoT Operations SDK providing operator macros (`#[map_operator]`, `#[filter_operator]`, etc.) and host APIs for logging, metrics, and state management
+- **`tinykube_wasm_sdk`**: Azure IoT Operations SDK providing operator macros (`#[map_operator]`, `#[filter_operator]`, etc.) and host APIs for logging, metrics, and state management
 - **`serde` + `serde_json`**: JSON processing libraries for parsing and generating data payloads; `default-features = false` optimizes for WASM size constraints
 - **`crate-type = ["cdylib"]`**: Compiles the Rust library as a C-compatible dynamic library, which is required for WASM module generation
 
@@ -364,8 +364,8 @@ componentize-py -d ./schema/ -w map-impl componentize temperature_converter -o t
 file temperature_converter.wasm  # Should show: WebAssembly (wasm) binary module
 ```
 
-<!-- > [!NOTE]
-> Make sure you've already cloned the repository as described in the [Configure development environment](#configure-development-environment) section to access the WIT schemas. -->
+> [!NOTE]
+> Make sure you've already cloned the repository as described in the [Configure development environment](#configure-development-environment) section to access the WIT schemas.
 
 ---
 
@@ -441,24 +441,24 @@ The WASM Rust SDK provides comprehensive development tools:
 #### Operator macros
 
 ```rust
-use wasm_graph_sdk::macros::{map_operator, filter_operator, branch_operator};
-use wasm_graph_sdk::{DataModel, HybridLogicalClock};
+use tinykube_wasm_sdk::macros::{map_operator, filter_operator, branch_operator};
+use tinykube_wasm_sdk::{DataModel, HybridLogicalClock};
 
 // Map operator - transforms each data item
 #[map_operator(init = "my_init_function")]
-fn my_map(input: DataModel) -> Result<DataModel, Error> {
+fn my_map(input: DataModel) -> DataModel {
     // Transform logic here
 }
 
 // Filter operator - allows/rejects data based on predicate  
 #[filter_operator(init = "my_init_function")]
-fn my_filter(input: DataModel) -> Result<bool, Error> {
+fn my_filter(input: DataModel) -> bool {
     // Return true to pass data through, false to filter out
 }
 
 // Branch operator - routes data to different arms
 #[branch_operator(init = "my_init_function")]
-fn my_branch(input: DataModel, timestamp: HybridLogicalClock) -> Result<bool, Error> {
+fn my_branch(input: DataModel, timestamp: HybridLogicalClock) -> bool {
     // Return true for "True" arm, false for "False" arm
 }
 ```
@@ -468,8 +468,8 @@ fn my_branch(input: DataModel, timestamp: HybridLogicalClock) -> Result<bool, Er
 Your WASM operators can receive runtime configuration parameters through the `ModuleConfiguration` struct passed to the `init` function. These parameters are defined in the graph definition and allow runtime customization without rebuilding modules.
 
 ```rust
-use wasm_graph_sdk::logger::{self, Level};
-use wasm_graph_sdk::ModuleConfiguration;
+use tinykube_wasm_sdk::logger::{self, Level};
+use tinykube_wasm_sdk::ModuleConfiguration;
 
 fn my_operator_init(configuration: ModuleConfiguration) -> bool {
     // Access required parameters
@@ -498,7 +498,7 @@ Use the SDK to work with distributed services:
 State store for persistent data:
 
 ```rust
-use wasm_graph_sdk::state_store;
+use tinykube_wasm_sdk::state_store;
 
 // Set value
 state_store::set(key.as_bytes(), value.as_bytes(), None, None, options)?;
@@ -513,7 +513,7 @@ state_store::del(key.as_bytes(), None, None)?;
 Structured logging:
 
 ```rust
-use wasm_graph_sdk::logger::{self, Level};
+use tinykube_wasm_sdk::logger::{self, Level};
 
 logger::log(Level::Info, "my-operator", "Processing started");
 logger::log(Level::Error, "my-operator", &format!("Error: {}", error));
@@ -522,7 +522,7 @@ logger::log(Level::Error, "my-operator", &format!("Error: {}", error));
 OpenTelemetry-compatible metrics:
 
 ```rust
-use wasm_graph_sdk::metrics;
+use tinykube_wasm_sdk::metrics;
 
 // Increment counter
 metrics::add_to_counter("requests_total", 1.0, Some(labels))?;
@@ -625,12 +625,12 @@ Each operator type implements a specific WIT interface:
 // Core operator interfaces
 interface map {
     use types.{data-model};
-    process: func(message: data-model) -> result<data-model, error>;
+    process: func(message: data-model) -> data-model;
 }
 
 interface filter {
     use types.{data-model};
-    process: func(message: data-model) -> result<data-model, error>;
+    process: func(message: data-model) -> bool;
 }
 
 interface branch {
@@ -663,3 +663,9 @@ Key topics covered in the graph definitions guide:
 - See complete examples and advanced patterns in the [Azure IoT Operations WASM samples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm) repository.
 - Learn how to deploy your modules in [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md).
 - Configure your data flow endpoints in [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
+
+## Related content
+
+- [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md)
+- [Configure registry endpoints](howto-configure-registry-endpoint.md)
+- [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)
