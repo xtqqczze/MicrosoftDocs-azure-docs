@@ -88,7 +88,7 @@ The limits indicate the number of failovers that are supported by Site Recovery 
 
 What does comply mean? To start an Azure VM, Azure requires some drivers to be in boot start state, and services like DHCP to be set to start automatically.
 - Machines that comply will already have these settings in place.
-- For machines running Windows, you can proactively check compliance, and make them compliant if needed. [Learn more](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
+- For machines running Windows, you can proactively check compliance, and make them compliant if needed. [Learn more](site-recovery-failover-to-azure-troubleshoot.md#failover-errors).
 - Linux machines are only brought into compliance at the time of failover.
 
 **Machine complies with Azure?** | **Azure VM limits (managed disk failover)**
@@ -199,7 +199,7 @@ To run a large-scale failover, we recommend the following:
     - Each recovery plan can trigger failover of up to 100 machines.
     - [Learn more](recovery-plan-overview.md) about recovery plans.
 2. Add Azure Automation runbook scripts to recovery plans, to automate any manual tasks on Azure. Typical tasks include configuring load balancers, updating DNS etc. [Learn more](site-recovery-runbook-automation.md)
-2. Before failover, prepare Windows machines so that they comply with the Azure environment. [Failover limits](#plan-azure-subscriptions-and-quotas) are higher for machines that comply. [Learn more](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010) about runbooks.
+2. Before failover, prepare Windows machines so that they comply with the Azure environment. [Failover limits](#plan-azure-subscriptions-and-quotas) are higher for machines that comply. [Learn more](site-recovery-failover-to-azure-troubleshoot.md#failover-errors) about runbooks.
 4.	Trigger failover with the [Start-AzRecoveryServicesAsrPlannedFailoverJob](/powershell/module/az.recoveryservices/start-azrecoveryservicesasrplannedfailoverjob) PowerShell cmdlet, together with a recovery plan.
 
 ## Next steps
