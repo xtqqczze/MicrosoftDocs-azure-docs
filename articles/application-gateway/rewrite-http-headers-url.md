@@ -17,7 +17,11 @@ The HTTP header and URL rewrite features are only available for the [**Applicati
 
 ### Request and response headers
 
-Application Gateway allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and backend pools. HTTP headers let a client and server pass extra information with a request or response. By rewriting these headers, you can accomplish important tasks, such as adding security-related header fields like HSTS and X-XSS-Protection, removing response header fields that might reveal sensitive information, and removing port information from X-Forwarded-For headers. 
+Application Gateway allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and backend pools. HTTP headers let a client and server pass extra information with a request or response. By rewriting these headers, you can accomplish important tasks including:
+
+-  Adding security-related header fields like HSTS and X-XSS-Protection
+-  Removing response header fields that might reveal sensitive information
+-  Removing port information from X-Forwarded-For headers
 
 You can rewrite all headers in requests and responses, except for the `Connection` and `Upgrade` headers. You can also use the application gateway to **create custom headers** and add them to the requests and responses being routed through it. To learn how to rewrite request and response headers with Application Gateway by using Azure portal, see [here](rewrite-http-headers-portal.md).
 
@@ -45,7 +49,7 @@ A rewrite set is a collection of a routing rule, condition, and action.
 
 * **Request routing rule association:** The rewrite configuration associates to a source listener through its routing rule. When you use a routing rule of the type Basic, the rewrite configuration associates with its listener and works as a global rewrite. When you use a Path-based routing rule, you define the rewrite configuration according to the URL path map. In the latter case, it applies only to a specific path area of a site. You can apply a rewrite set to multiple routing rules, but a routing rule can have only one rewrite associated with it.
 
-* **Rewrite Condition:** This configuration is optional. Based on the conditions that you define, the Application Gateway evaluates the contents of the HTTP(S) requests and responses. The subsequent "rewrite action" occurs if the HTTP(S) request or response matches this condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, it is a logical AND operation.
+* **Rewrite Condition:** This configuration is optional. Based on the conditions that you define, the Application Gateway evaluates the contents of the HTTP(S) requests and responses. The subsequent "rewrite action" occurs if the HTTP(S) request or response matches this condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, it's a logical AND operation.
 You can use rewrite conditions to evaluate the content of HTTP(S) requests and responses. This optional configuration enables you to perform a rewrite only when one or more conditions are met. The application gateway uses these types of variables to evaluate the content of requests and responses:
 
   You can choose the following types to look for a condition:
@@ -59,7 +63,7 @@ You can use rewrite conditions to evaluate the content of HTTP(S) requests and r
   An action can have the following value types or their combinations:
   * Text.
   * Request header's value - To use a captured request header's value, specify the syntax as `{http_req_headerName}`.
-  * Response header's value - To use a captured response header's value from the preceding condition, specify the syntax as `{http_resp_headerName}`. The Rewrite Action block also supports the "Header Value Matcher" field for Set-Cookie header. This optional field lets you match as well as capture the value of a specific header when multiple Set-Cookie headers with the same name exist. To manipulate that specific cookie's captured value, you can then use `{capt_header_value_matcher}`. Learn more about [capture under Action set](#syntax-for-capturing).
+  * Response header's value - To use a captured response header's value from the preceding condition, specify the syntax as `{http_resp_headerName}`. The Rewrite Action block also supports the "Header Value Matcher" field for Set-Cookie header. This optional field lets you match and capture the value of a specific header when multiple Set-Cookie headers with the same name exist. To manipulate that specific cookie's captured value, you can then use `{capt_header_value_matcher}`. Learn more about [capture under Action set](#syntax-for-capturing).
   * Server variable - To use a server variable, specify the syntax as `{var_serverVariable}`. [List of supported Server variables](#server-variables).
 
 > [!NOTE]
@@ -100,9 +104,9 @@ Once captured, you can use them in the Action Set value using the following form
 * For a server variable, you must use {var_serverVariableName_groupNumber}. For example, {var_uri_path_1} or {var_uri_path_2}
 
 > [!NOTE]
-> * Use of / to prefix and suffix the pattern should not be specified in the pattern to match value. For example, (\d)(\d) will match two digits. /(\d)(\d)/ won't match two digits.
-> * The case of the condition variable needs to match case of the capture variable. For example, if my condition variable is User-Agent, my capture variable must be for User-Agent (i.e. {http_req_User-Agent_2}). If my condition variable is defined as user-agent, my capture variable must be for user-agent (i.e. {http_req_user-agent_2}).
-> * If you want to use the whole value, you should not mention the number. Simply use the format {http_req_headerName}, etc. without the groupNumber.
+> * Use of / to prefix and suffix the pattern shouldn't be specified in the pattern to match value. For example, (\d)(\d) will match two digits. /(\d)(\d)/ won't match two digits.
+> * The case of the condition variable needs to match case of the capture variable. For example, if my condition variable is User-Agent, my capture variable must be for User-Agent (that is {http_req_User-Agent_2}). If my condition variable is defined as user-agent, my capture variable must be for user-agent (that is {http_req_user-agent_2}).
+> * If you want to use the whole value, you shouldn't mention the number. Simply use the format {http_req_headerName}, etc. without the groupNumber.
 
 ## Server variables
 
@@ -124,7 +128,7 @@ Application gateway supports the following server variables:
 | http_method               | The method used to make the URL request. For example, GET   or POST. |
 | http_status               | The session status. For example, 200, 400, or 403.           |
 | http_version              | The request protocol. Usually HTTP/1.0, HTTP/1.1, or   HTTP/2.0. |
-| query_string              | The list of variable/value pairs that follows the   "?" in the requested URL. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, query_string value is `id=123&title=fabrikam` |
+| query_string              | The list of variable/value pairs that follows the `?` in the requested URL. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, query_string value is `id=123&title=fabrikam` |
 | received_bytes            | The length of the request (including the request line,   header, and request body). |
 | request_query             | The arguments in the request line.                           |
 | request_scheme            | The request scheme: http or https.                           |
@@ -133,11 +137,11 @@ Application gateway supports the following server variables:
 | server_port               | The port of the server that accepted a request.              |
 | ssl_connection_protocol   | The protocol of an established TLS connection.               |
 | ssl_enabled               | "On" if the connection operates in TLS mode. Otherwise, an   empty string. |
-| uri_path                  | Identifies the specific resource in the host that the web client wants to access. The variable refers to the original URL path, prior to any manipulation. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the uri_path value is `/article.aspx`. |
+| uri_path                  | Identifies the specific resource in the host that the web client wants to access. The variable refers to the original URL path before any manipulation. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the uri_path value is `/article.aspx`. |
 
 ### Mutual authentication server variables
 
-Application Gateway supports the following server variables for mutual authentication scenarios. Use these server variables the same way as above with the other server variables. 
+Application Gateway supports the following server variables for mutual authentication scenarios. Use these server variables as you would other server variables. 
 
 |   Variable name    |                   Description                                           |
 | ------------------------- | ------------------------------------------------------------ |
@@ -255,7 +259,7 @@ For a URL redirect, Application Gateway sends a redirect response to the client 
 ## Limitations
 
 - Rewrites aren't supported when the application gateway is configured to redirect the requests or to show a custom error page.
-- Request header names can contain alphanumeric characters and hyphens. Headers names containing other characters are discarded when a request is sent to the backend target.
+- Request header names can contain alphanumeric characters and hyphens. Header names containing other characters are discarded when a request is sent to the backend target.
 - Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27).
 - You can't rewrite `X-Original-Host`, `Connection`, and `upgrade` headers.
 - Rewrites aren't supported for 4xx and 5xx responses generated directly from Application Gateway.
