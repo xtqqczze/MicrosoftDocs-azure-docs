@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: Test the Foundry agent
+description: Test your Foundry agent in the playground with sample prompts to verify the OpenAPI tool integration.
 ms.author: cephalin
 ms.topic: include
 ms.date: 12/03/2025

@@ -6,7 +6,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/05/2025
+ms.date: 12/09/2025
 ms.custom:
   - devx-track-dotnet
 ms.collection: ce-skilling-ai-copilot
@@ -104,7 +104,7 @@ This initialization code doesn't define any functionality for the agent, because
 
 The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API defines the operation ID with *WithName()*, as required by the [OpenAPI spec tool in Microsoft Foundry](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites), and `WithDescription()` helps the agent determine how to call the API:
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Program.cs" range="48-53" highlight="5-6" :::
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Program.cs" range="46-53" highlight="7-8" :::
 
 -----
 
@@ -155,33 +155,11 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 ### [Microsoft Agent Framework](#tab/agentframework)
 
-1. In the [Foundry portal](https://ai.azure.com), make sure the top **New Foundry** radio button is set to active and create a project. 
-
-1. Deploy a model of your choice (see [Microsoft Foundry Quickstart: Create resources](/azure/ai-foundry/quickstarts/get-started-code?view=foundry&preserve-view=true#create-resources)).
-
-1. From top of the model playground, copy the model name.
-
-1. The easiest way to get the Azure OpenAI endpoint is still from the classic portal. Select the **New Foundry** radio button, then **Azure OpenAI**, and then copy the URL in **Azure OpenAI endpoint** for later.
-
-    :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/foundry-project-openai-endpoint.png" alt-text="Screenshot showing how to copy the OpenAI endpoint and the foundry project endpoint in the foundry portal.":::
+[!INCLUDE [create-model](includes/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/create-model.md)]
 
 ### [Foundry Agent Service](#tab/aifoundry)
 
-1. In the [Foundry portal](https://ai.azure.com), make sure the top **New Foundry** radio button is set to active and create a project. 
-
-1. In the home page, copy the **Project endpoint** for later.
-
-1. Select **Start building** > **Create agent** and follow the prompt.
-
-1. In the new agent's playground, create an OpenAPI tool to call your web app by selecting **Tools** > **Add** > **Custom** > **OpenAPI tool** > **Create**. In the **Setup** pane, add an action with the OpenAPI spec tool. Use the OpenAPI schema that you get from the deployed web app and **anonymous** authentication. For detailed steps, see [How to use the OpenAPI spec tool](/azure/ai-foundry/agents/how-to/tools/openapi?view=foundry&preserve-view=true).
-
-    Your application code is already configured to include the server's `url` and `operationId`, which are needed by the agent. For more information, see [Connect to OpenAPI Specification](/azure/ai-foundry/agents/how-to/tools/openapi?view=foundry&preserve-view=true#prerequisites).
-
-1. Be sure to select **Save**.
-
-1. Select **Try in playground** and test your Foundry agent with prompts like "*Show me all the tasks*" and "*Please add a task.*"
-
-    If you get a valid response, the agent is making tool calls to the OpenAPI endpoint on your deployed web app.
+[!INCLUDE [create-agent](includes/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/create-agent.md)]
 
 -----
 
@@ -189,35 +167,11 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 ### [Microsoft Agent Framework](#tab/agentframework)
 
-1. From the top menu of the new Foundry portal, select **Operate**, then select **Admin**. In the row for your Foundry project, you should see two links. The one in the **Name** column is the Foundry project resource, and the one in the **Parent resource** column is the Foundry resource.
-
-    :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/select-foundry-and-foundry-project.png" alt-text="Screenshot showing how to quickly go to the foundry resource or foundry project resource.":::
-
-1. Select the Foundry resource in the **Parent resource** and then select **Manage this resource in the Azure portal**. From the Azure portal, you can assign role-based access for the resource to the deployed web app.
-
-1. Add the following role for the App Service app's managed identity:
-
-    | Target resource                | Required role                       | Needed for              |
-    |--------------------------------|-------------------------------------|-------------------------|
-    | Foundry               | Cognitive Services OpenAI User      | The chat completion service in Microsoft Agent Framework. |
-
-    For instructions, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+[!INCLUDE [configure-model-permissions](includes/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/configure-model-permissions.md)]
 
 ### [Foundry Agent Service](#tab/aifoundry)
 
-1. From the top menu of the new Foundry portal, select **Operate**, then select **Admin**. In the row for your Foundry project, you should see two links. The one in the **Name** column is the Foundry project resource, and the one in the **Parent resource** column is the Foundry resource.
-
-    :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/select-foundry-and-foundry-project.png" alt-text="Screenshot showing how to quickly go to the foundry resource or foundry project resource.":::
-
-1. Select the Foundry project resource in the **Name** column and then select **Manage this resource in the Azure portal**. From the Azure portal, you can assign role-based access for the resource to the deployed web app.
-
-1. Add the following role for the App Service app's managed identity:
-
-    | Target resource                | Required role                       | Needed for              |
-    |--------------------------------|-------------------------------------|-------------------------|
-    | Foundry Project       | Azure AI User                       | Reading and calling the Foundry agent. |
-
-    For instructions, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+[!INCLUDE [configure-agent-permissions](includes/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/configure-agent-permissions.md)]
 
 -----
 

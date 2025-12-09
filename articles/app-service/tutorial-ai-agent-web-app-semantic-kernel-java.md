@@ -6,7 +6,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 11/10/2025
+ms.date: 12/09/2025
 ms.custom:
   - devx-track-java
 ms.collection: ce-skilling-ai-copilot
@@ -15,20 +15,39 @@ ms.update-cycle: 180-days
 
 # Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel (Spring Boot)
 
-This tutorial demonstrates how to add agentic capability to an existing data-driven Spring Boot WebFlux CRUD application. It does this using Microsoft Semantic Kernel.
+This tutorial demonstrates how to add agentic capability to an existing data-driven Spring Boot WebFlux CRUD application. It does this using Microsoft Semantic Kernel and Foundry Agent Service.
 
-If your web application already has useful features, like shopping, hotel booking, or data management, it's relatively straightforward to add agent functionality to your web application by wrapping those functionalities in a plugin (for Semantic Kernel). In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent in an App Service app.
+If your web application already has useful features, like shopping, hotel booking, or data management, it's relatively straightforward to add agent functionality to your web application by wrapping those functionalities in a plugin (for LangGraph) or as an OpenAPI endpoint (for Foundry Agent Service). In this tutorial, you start with a simple to-do list app. By the end, you'll be able to create, update, and manage tasks with an agent in an App Service app.
+
+### [Semantic Kernel](#tab/semantic-kernel)
 
 :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-java/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
 
-> [!NOTE]
-> Foundry Agent Service currently doesn't have a Java SDK, so isn't included in the scope of this article.
+### [Foundry Agent Service](#tab/aifoundry)
+
+:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-java/foundry-agent.png" alt-text="Screenshot of a chat completion session with a Microsoft Foundry agent.":::
+
+-----
+
+Both Semantic Kernel and Foundry Agent Service enable you to build agentic web applications with AI-driven capabilities. The following table shows some of the considerations and trade-offs:
+
+| Consideration      | Semantic Kernel                | Foundry Agent Service         |
+|--------------------|-------------------------------|----------------------------------------|
+| Performance        | Fast (runs locally)            | Slower (managed, remote service)       |
+| Development        | Full code, maximum control     | Low code, rapid integration            |
+| Testing            | Manual/unit tests in code      | Built-in playground for quick testing  |
+| Scalability        | App-managed                    | Azure-managed, autoscaled             |
+| Security guardrails | Custom implementation required | Built-in content safety and moderation |
+| Identity     | Custom implementation required | Built-in agent ID and authentication   |
+| Enterprise     | Custom integration required    | Built-in Microsoft 365/Teams deployment and Microsoft 365 integrated tool calls.      |
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Convert existing app functionality into a plugin for Semantic Kernel.
 > * Add the plugin to a Semantic Kernel agent and use it in a web app.
+> * Convert existing app functionality into an OpenAPI endpoint for Foundry Agent Service.
+> * Call a Foundry agent in a web app.
 > * Assign the required permissions for managed identity connectivity.
 
 ## Prerequisites
@@ -58,6 +77,8 @@ The easiest way to get started is by using GitHub Codespaces, which provides a c
 
 ## Review the agent code
 
+### [Semantic Kernel](#tab/semantic-kernel)
+
 The Semantic Kernel agent is initialized in [src/main/java/com/example/crudtaskswithagent/controller/AgentController.java](https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java/blob/main/src/main/java/com/example/crudtaskswithagent/controller/AgentController.java), when the user enters the first prompt in a new browser session. 
 
 You can find the initialization code in the `SemanticKernelAgentService` constructor (in [src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java](https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java/blob/main/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java)). The initialization code does the following: 
@@ -72,6 +93,12 @@ You can find the initialization code in the `SemanticKernelAgentService` constru
 Each time the prompt is received, the server code uses `ChatCompletionAgent.invokeAsync()` to invoke the agent with the user prompt and the agent thread. The agent thread keeps track of the chat history.
 
 :::code language="csharp" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="109-158" highlight="8" :::
+
+### [Foundry Agent Service](#tab/aifoundry)
+
+[TODO]
+
+-----
 
 ## Deploy the sample application
 
@@ -116,41 +143,51 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 ## Create and configure the Microsoft Foundry resource
 
-1. In the [Foundry portal](https://ai.azure.com), deploy a model of your choice (see [Quickstart: Get started with Microsoft Foundry](/azure/ai-foundry/quickstarts/get-started-code?tabs=azure-ai-foundry&pivots=fdp-project)). A project and a model deployment are created for you in the process.
+### [Semantic Kernel](#tab/semantic-kernel)
 
-1. From the left menu, select **Overview**.
+[!INCLUDE [create-model](includes/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/create-model.md)]
 
-1. Select **Azure OpenAI** and copy the URL in **Azure OpenAI endpoint** for later.
+### [Foundry Agent Service](#tab/aifoundry)
 
-    :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-java/foundry-openai-endpoint.png" alt-text="Screenshot showing how to copy the OpenAI endpoint in the foundry portal.":::
+[!INCLUDE [create-agent](includes/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/create-agent.md)]
 
-1. Select **Models + endpoints** and copy the name of the model deployment for later.
-
-    :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-java/foundry-model-deployment.png" alt-text="Screenshot showing how to copy the model deployment name in the foundry portal.":::
+-----
 
 ## Assign required permissions
 
-1. At the upper right corner of the foundry portal, select the name of the resource, then select **Resource Group** to open it in the Azure portal. 
+### [Semantic Kernel](#tab/semantic-kernel)
 
-    :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/go-to-azure-portal.png" alt-text="Screenshot showing how to quickly go to the resource group view for the foundry resource in the Azure portal.":::
+[!INCLUDE [configure-model-permissions](includes/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/configure-model-permissions.md)]
 
-1. Add a role for each of the two resources for the App Service app's manage identity using the following table:
+### [Foundry Agent Service](#tab/aifoundry)
 
-    | Target resource                | Required role                       | Needed for              |
-    |--------------------------------|-------------------------------------|-------------------------|
-    | Microsoft Foundry               | Cognitive Services OpenAI User      | The chat completion service in the semantic kernel. |
+[!INCLUDE [configure-agent-permissions](includes/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/configure-agent-permissions.md)]
 
-    For instructions, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+-----
 
 ## Configure connection variables in your sample application
 
 1. Open *src/main/resources/application.properties*. Using the values you copied earlier from the Foundry portal, configure the following variables: 
 
+    ### [Semantic Kernel](#tab/semantic-kernel)
+
     | Variable                      | Description                                              |
     |-------------------------------|----------------------------------------------------------|
-    | `azure.openai.endpoint`         | Azure OpenAI endpoint (copied from the Overview page). This is needed by the Semantic Kernel agent. |
-    | `azure.openai.deployment`             | Model name in the deployment (copied from the Models + endpoints page). This is needed by the Semantic Kernel agent. |
+    | `azure.openai.endpoint`         | Azure OpenAI endpoint (copied from the classic Foundry portal). |
+    | `azure.openai.deployment`             | Model name in the deployment (copied from the model playground in the new Foundry portal). |
     
+    > [!NOTE]
+    > To keep the tutorial simple, you'll use these variables in *.env* instead of overwriting them with app settings in App Service.
+
+    ### [Foundry Agent Service](#tab/aifoundry)
+
+    | Variable                      | Description                                              |
+    |-------------------------------|----------------------------------------------------------|
+    | `foundry.project.endpoint`      | Microsoft Foundry project endpoint from the new Foundry portal. |
+    | `foundry.project.endpoint`            | Agent name (from the agent playground in the Foundry portal). |
+    
+    -----
+
     > [!NOTE]
     > To keep the tutorial simple, you'll use these variables in *src/main/resources/application.properties* instead of overwriting them with app settings in App Service.
 
@@ -180,8 +217,16 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 1. Navigate to the deployed application again and test the chat agents.
 
-:::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-java/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
-
+    ### [Semantic Kernel](#tab/semantic-kernel)
+    
+    :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-java/semantic-kernel-agent.png" alt-text="Screenshot of a chat completion session with a semantic kernel agent.":::
+    
+    ### [Foundry Agent Service](#tab/aifoundry)
+    
+    :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-java/foundry-agent.png" alt-text="Screenshot of a chat completion session with a Microsoft Foundry agent.":::
+    
+    -----
+    
 ## Clean up resources
 
 When you're done with the application, you can delete the App Service resources to avoid incurring further costs:
