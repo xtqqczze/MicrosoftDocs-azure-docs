@@ -21,7 +21,7 @@ When you create a function app in Azure, you must choose a hosting option for yo
 
 [!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
-Azure Functions hosting options are facilitated by Azure App Service infrastructure on both Linux and Windows virtual machines. The hosting option you choose dictates the following behaviors:
+The Azure App Service infrastructure on both Linux and Windows virtual machines facilitate the Azure Functions hosting options. The hosting option you choose dictates the following behaviors:
 
 - How your function app is scaled.
 - The resources available to each function app instance.
@@ -128,7 +128,7 @@ In some cases, when trying to create a new hosting plan for your function app in
 
 These errors can occur when the following conditions are met:
 
-- You create a function app in an existing resource group that has never contained another function app or web app. For example, Linux Consumption apps aren't supported in the same resource group as Linux Dedicated or Linux Premium plans.
+- You create a function app in an existing resource group in which another function app or web app hs never been contained. For example, Linux Consumption apps aren't supported in the same resource group as Linux Dedicated or Linux Premium plans.
 - Your new function app is created in the same region as the previous app.
 - The previous app is in some way incompatible with your new app. This incompatibility can occur between versions, operating systems, or is due to other platform-level features, such as availability zone support.
 
