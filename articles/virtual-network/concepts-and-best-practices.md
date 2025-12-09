@@ -39,7 +39,7 @@ As you build your network in Azure, it's important to keep in mind the following
 
 - Your subnets shouldn't cover the entire address space of the virtual network. Plan ahead and reserve some address space for the future.
 
-- Use a few large virtual networks instead of multiple small ones to reduce management overhead.
+- Use a few large virtual networks instead of multiple small ones to reduce management overhead within a single Azure subscription.
     
     -  You should also follow the [Azure landing zone design principle of Subscription Democratization](/azure/cloud-adoption-framework/ready/landing-zone/design-principles#subscription-democratization) meaning it is recommended to have many subscriptions, each with their own virtual network (possibly multiple), to help you achieve and implement [Zero Trust](/security/zero-trust/azure-networking-overview) in your Azure networking.
     -  Commonly a hub and spoke architecture is used to implement this at scale with a [traditional virtual network approach](/azure/architecture/networking/architecture/hub-spoke) or [Virtual WAN](/azure/architecture/networking/architecture/hub-spoke-virtual-wan-architecture)
