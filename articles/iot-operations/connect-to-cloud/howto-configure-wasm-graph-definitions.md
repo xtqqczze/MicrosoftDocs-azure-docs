@@ -75,9 +75,9 @@ moduleRequirements:
 
 ## Example 1: Simple graph definition
 
-The [simple graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/graph-simple.yaml) demonstrates a basic three-stage pipeline that converts temperature data from Fahrenheit to Celsius:
+The [simple graph definition](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/graph-simple.yaml) demonstrates a basic three-stage pipeline that converts temperature data from Fahrenheit to Celsius:
 
-<!-- :::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/rust/graph-simple.yaml"::: -->
+:::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/graph-simple.yaml":::
 
 For step-by-step deployment instructions and testing guidance for this example, see [Example 1: Basic deployment with one WASM module](howto-dataflow-graph-wasm.md#example-1-basic-deployment-with-one-wasm-module).
 
@@ -89,7 +89,7 @@ This graph creates a straightforward data processing pipeline:
 2. **Map operation**: Processes data with the temperature WASM module (`temperature:1.0.0`)
 3. **Sink operation**: Sends converted data to the data flow's destination endpoint
 
-The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/examples/temperature/src/lib.rs) converts Fahrenheit to Celsius using the standard formula `(F - 32) × 5/9 = C`.
+The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/operators/temperature/src/lib.rs) converts Fahrenheit to Celsius using the standard formula `(F - 32) × 5/9 = C`.
 
 **Input format:**
 ```json
@@ -103,9 +103,9 @@ The [temperature module](https://github.com/Azure-Samples/explore-iot-operations
 
 ## Example 2: Complex graph definition
 
-The [complex graph definition](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/rust/graph-complex.yaml) demonstrates a sophisticated multi-sensor processing workflow that handles temperature, humidity, and image data with advanced analytics:
+The [complex graph definition](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/graph-complex.yaml) demonstrates a sophisticated multi-sensor processing workflow that handles temperature, humidity, and image data with advanced analytics:
 
-<!-- :::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/rust/graph-complex.yaml"::: -->
+:::code language="yaml" source="~/azure-iot-operations-samples/samples/wasm/graph-complex.yaml":::
 
 For step-by-step deployment instructions and testing guidance for this example, see [Example 2: Deploy a complex graph](howto-dataflow-graph-wasm.md#example-2-deploy-a-complex-graph).
 
@@ -170,7 +170,7 @@ As shown in the diagram, data flows from a single source through multiple proces
    - Aggregates multi-sensor results
    - Adds metadata and overtemperature alerts
 
-The graph uses specialized modules from the [Rust examples](https://github.com/Azure-Samples/explore-iot-operations/tree/wasm/samples/wasm/rust/examples):
+The graph uses specialized modules from the [Rust examples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators):
 
 - Window module for time-based processing delays
 - Temperature modules for conversion, filtering, and statistical analysis
@@ -269,7 +269,7 @@ moduleConfigurations:
 
 These parameters are passed to your WASM operator's `init` function at runtime, enabling dynamic configuration without rebuilding modules. For detailed examples of how to access and use these parameters in your Rust and Python code, see [Module configuration parameters](howto-develop-wasm-modules.md#module-configuration-parameters).
 
-For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/python/examples/branch), which demonstrates parameter usage for conditional routing logic.
+For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python/operators/branch), which demonstrates parameter usage for conditional routing logic.
 
 ## Next steps
 
