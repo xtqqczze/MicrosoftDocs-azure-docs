@@ -83,11 +83,21 @@ In Active-Active databases, multikey write commands (`DEL`, `MSET`, `UNLINK`) ca
 
 ### Sharding configuration
 
-Each SKU of Azure Managed Redis runs a specific number of Redis server processes, called _shards_, in parallel. The relationship between throughput performance, the number of shards, and number of vCPUs available on each instance is complex. Azure Managed Redis is a managed service, so you can't manually change the number of shards.
+Each SKU of Azure Managed Redis runs a specific number of Redis server processes, called _shards_, in parallel. The relationship between throughput performance, the number of shards, and number of vCPUs available on each instance is complex. You can't manually change the number of shards.
 
 For a given memory size, the Memory Optimized SKU has the least number of vCPUs and shards, while the Compute Optimized SKU has the highest.
 
-To increase the number of shards in a SKU, use a larger tier in a SKU. The following table shows a typical ratio of vCPUs to primary shards at a given tier size. 
+Increasing the number of shards generally increases performance as Redis operations can run in parallel. But, if no vCPUs are available to execute commands, performance can drop.
+
+Shards are mapped to optimize the usage of each vCPU while reserving vCPU cycles for the Redis server process, management agent, and OS system tasks that also affect performance. The client applications you create interact with Azure Managed Redis as if it's a single logical database. The service handles routing across the vCPUs and shards.
+
+To increase the number of shards in a SKU, use a larger tier in a SKU. 
+
+The following table shows the ratio of vCPUs to primary shards at a given tier size. The data in the columns does not represent a guarantee that this is the number of vCPUs or shards for SKU. The tables are for illustration only.
+
+> [!NOTE]
+> Azure Managed Redis optimizes performance over time by changing the number of shards and vCPUs used on each SKU.
+>
 
 #### Memory optimized, Balanced, and Compute optimized SKUs
 
@@ -132,13 +142,7 @@ This table shows a general example of the relationship of _Size_ to _vCPUs/prima
 
 \* These tiers are in public preview.
 
-Increasing the number of shards generally increases performance as Redis operations can run in parallel. But if no vCPUs are available to execute commands, performance can drop.
 
-Shards are mapped to optimize the usage of each vCPU while reserving vCPU cycles for the Redis server process, management agent, and OS system tasks that also affect performance. The client applications you create interact with Azure Managed Redis as if it's a single logical database. The service handles routing across the vCPUs and shards.
-
-> [!NOTE]
-> Azure Managed Redis optimizes performance over time by changing the number of shards and vCPUs used on each SKU.
->
 
 [!INCLUDE [tier-preview](includes/tier-preview.md)]
 
