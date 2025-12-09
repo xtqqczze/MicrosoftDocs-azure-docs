@@ -221,7 +221,7 @@ spec:
 > [!NOTE]
 > You can reuse registry endpoints across multiple data flow graphs and other Azure IoT Operations components, like Akri connectors.
 
-### Get extension name
+## Get extension name
 
 ```azurecli
 # Get extension name
@@ -235,7 +235,7 @@ az k8s-extension list \
 
 The first command returns the extension name (for example, `azure-iot-operations-4gh3y`).
 
-### Configure managed identity permissions
+## Configure managed identity permissions
 
 To let Azure IoT Operations pull WASM modules from your container registry, give the managed identity the right permissions. The IoT Operations extension uses a system-assigned managed identity that needs the `AcrPull` role on your Azure Container Registry. Make sure you have the following prerequisites:
 
