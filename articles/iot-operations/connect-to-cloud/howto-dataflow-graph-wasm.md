@@ -108,7 +108,7 @@ oras push <YOUR_ACR_NAME>.azurecr.io/filter:1.0.0 --artifact-type application/vn
 
 A registry endpoint defines the connection to your container registry. Data flow graphs use registry endpoints to pull WASM modules and graph definitions from container registries. For detailed information about configuring registry endpoints with different authentication methods and registry types, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
 
-To create registry endpoints in the operations experience, you can use the Azure portal, Bicep, or Kubernetes manifests. After you create a registry endpoint, the graphs you [pushed to your container registry](#push-modules-to-your-registry) are ready to be used in operations experience in data flow graphs.
+To create registry endpoints, you can use the Azure portal, Bicep, or Kubernetes manifests. After you create a registry endpoint, the graphs you [pushed to your container registry](#push-modules-to-your-registry) are ready to be used in operations experience in data flow graphs.
 
 For quick setup with Azure Container Registry, create a registry endpoint with system-assigned managed identity authentication:
 
