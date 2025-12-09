@@ -12,13 +12,11 @@ ms.author: msangapu
 ms.custom: mvc, devx-track-azurecli
 ms.service: azure-app-service
 ---
-# Create an App Service app with continuous deployment from an Azure DevOps repository using Azure CLI
+# Set up continuous deployment from an Azure DevOps repository using Azure CLI
 
 This sample script creates an app in App Service with its related resources, and then sets up continuous deployment from an Azure DevOps repository.
 
 ## Prerequisites
-
-For this sample, you need:
 
 * An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
