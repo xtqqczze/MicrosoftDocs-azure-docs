@@ -46,8 +46,7 @@ You can delete a container that has a container-level WORM policy only by using 
 > [!NOTE]
 > Unlocked policies don't provide delete protection.  
 > This applies to both:
-> - Containers protected by an **active** time-based retention policy and/or legal hold (Scenario 1)
-> - Containers protected by an **expired** time-based retention policy (Scenario 2)
+> - Containers protected by an active, unlocked time-based retention policy and/or legal hold (Scenario 1)"
 
 <sup>1</sup>    Azure Storage permits the [Put Blob](/rest/api/storageservices/put-blob) operation to create a new blob. Subsequent overwrite operations on an existing blob path in an immutable container aren't allowed.
 
