@@ -171,17 +171,6 @@ See any of the following resources:
 
 <a id="previous-version"></a>
 
-## Use a previous version (deprecated)
-
-If you need to use a previous version of AzCopy, see either of the following links:
-
-- [AzCopy on Windows (v8)](/previous-versions/azure/storage/storage-use-azcopy)
-
-- [AzCopy on Linux (v7)](/previous-versions/azure/storage/storage-use-azcopy-linux)
-
-> [!NOTE]
-> These versions of AzCopy are deprecated. Microsoft recommends using AzCopy v10.
-
 ## Next steps
 
 If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy).
