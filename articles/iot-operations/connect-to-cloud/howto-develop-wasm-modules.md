@@ -136,7 +136,7 @@ Choose your development language and set up the required tools:
 
 ---
 
-<!-- ## Configure development environment
+## Configure development environment
 
 # [Rust](#tab/rust)
 
@@ -170,7 +170,7 @@ The schemas are located at `explore-iot-operations/samples/wasm/python/schema/` 
 
 You don't need any other environment configuration beyond installing the prerequisites and obtaining the WIT schemas.
 
---- -->
+---
 
 ## Create project
 
