@@ -44,7 +44,7 @@ To use a different management platform, first disconnect Azure Monitor as the ag
 
 # [PagerDuty](#tab/pagerduty)
 
-To set up PagerDuty requires an API to handle communication with Azure SRE Agent. PagerDuty provides two types of API keys:
+To set up PagerDuty you need an API key to handle communication with Azure SRE Agent. PagerDuty provides two types of API keys:
 
 * **General API key**: Used for development work and general API access. This key type cannot acknowledge incidents on behalf of the agent.
 
@@ -62,6 +62,8 @@ To create a User API key in PagerDuty:
 1. Copy the generated User API key and use it in the SRE Agent configuration.
 
 Once you have the API key correctly configured, you can setup PagerDuty in SRE Agent.
+
+1. Go to your SRE Agent in the Azure portal.
 
 1. Select the **Incident platform** tab and enter the following settings:
 
