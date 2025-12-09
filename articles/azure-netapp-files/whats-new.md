@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 11/20/2025
+ms.date: 12/09/2025
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -17,9 +17,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## December 2025
+
 * [Advanced ransomware protection](ransomware-configure.md) (preview)
 
-    Azure NetApp Files advanced ransomware protection can be enabled for key volumes to protect against ransomware attacks. When an attack is detected, backup and snapshots are generated to preserve data integrity. 
+    Azure NetApp Files advanced ransomware protection is designed to help organizations proactively detect, respond to, and recover from ransomware threats on cloud volumes. Advanced ransomware protection monitors Azure NetApp Files volumes for suspicious activity using file extension profiling, entropy, and I/OPS patterns. When a threat is detected, the system creates a point-in-time snapshot, enabling rapid evaluation and recovery. Notifications are sent through the Azure Activity log, and attack reports are retained for 30 days. Advanced ransomware protection is currently in preview. 
     
 ## November 2025
 
