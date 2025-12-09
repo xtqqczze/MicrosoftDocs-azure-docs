@@ -51,10 +51,10 @@ Data transfer between endpoints requires creation of several flows in addition t
 
 ## Flow limits and active connections recommendations
 
-Today, the Azure networking stack supports at least 500K total connections (500k inbound + 500k outbound flows) for all VM sizes. Recommended connection limits vary based on the VM vCPU count and are shared below.
+Today, the Azure networking stack supports at least 500K total connections (500k inbound + 500k outbound flows) for all VM sizes. For the smallest sizes (2-7 vCPU), we recommend that your workload utilizes 100K or fewer total connections. Recommended connection limits vary based on the VM vCPU count and are shared below.
 
-### Azure Boost with MANA
-| VM SKU Size(#vCPUs) | Recommended Active connection limits
+### Azure Boost VM Sizes with MANA
+| VM Size(#vCPUs) | Recommended Connection limit
 | ------------------- |  ------------------ |
 | 2-7                 |  100,000            |
 | 8-15                |  500,000            |
@@ -62,8 +62,8 @@ Today, the Azure networking stack supports at least 500K total connections (500k
 | 32-63               |  800,000            |
 | 64+                 |  2,000,000          |
 
-### Azure Boost with ConnectX-5 and older sizes 
-| VM SKU Size(#vCPUs) | Recommended Active connection limits
+### VM sizes with ConnectX-3,4,5 Network Adapters
+| VM Size(#vCPUs) | Recommended Connection limit
 | ------------------- |  ------------------ |
 | 2-7                 |  100,000            |
 | 8-15                |  500,000            |
@@ -71,6 +71,7 @@ Today, the Azure networking stack supports at least 500K total connections (500k
 | 32-63               |  800,000            |
 | 64+                 |  1,000,000          |
 
+For information on Network Optimized VM connection limits see [the following article](/azure/virtual-network/network-optimized-vm-network-connection-acceleration)
 
 Above the recommended limit, connections may be dropped or encounter reduced performance. Connection establishment and termination rates can also affect network performance as connection establishment and termination shares CPU with packet processing routines. We recommend that you benchmark workloads against expected traffic patterns and scale out workloads appropriately to match your performance needs. Microsoft has released a tool to make this easier, see [NCPS Tool](https://aka.ms/ncps) for more details. 
 
