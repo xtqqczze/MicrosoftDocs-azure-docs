@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/24/2025
+ms.date: 12/09/2025
 ms.author: anfdocs 
 # Customer intent: As a cloud administrator, I want to configure cross-zone-region replication for Azure NetApp Files, so that I can ensure data accessibility and disaster recovery across multiple regions and availability zones.
 ---
