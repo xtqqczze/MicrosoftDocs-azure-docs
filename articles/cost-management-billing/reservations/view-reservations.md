@@ -126,8 +126,8 @@ If you have reservation-specific RBAC roles (Reservations Administrator, Purchas
 1. Sign in to the Azure portal.
 1. Select **Home** > **Reservations** to list reservations to which you have access.
 
-> [!TIP]
-> If you can't see your reservations, ensure you're signed in with the account that has the appropriate permissions. For cross-tenant scenarios, make sure you're in the correct tenant context.
+   > [!TIP]
+   > If you can't see your reservations, ensure you're signed in with the account that has the appropriate permissions. For cross-tenant scenarios, make sure you're in the correct tenant context.
 
 ### Delegate Azure reservation RBAC roles
 

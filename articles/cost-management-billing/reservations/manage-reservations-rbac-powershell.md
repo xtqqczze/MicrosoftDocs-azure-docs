@@ -68,7 +68,7 @@ The `-ObjectId` parameter is the  Microsoft Entra `ObjectId` of the user, group,
 - **Accept pipeline input**: True
 - **Accept wildcard characters**:	False
 
-The **-TenantId** parameter is the tenant's unique identifier.
+The `-TenantId` parameter is the tenant's unique identifier.
 
 - **Type**:	String
 - **Position**:	5
@@ -80,9 +80,9 @@ The **-TenantId** parameter is the tenant's unique identifier.
 
 You need [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator)-level rights before you can grant users or groups the following roles at the tenant level:
 
-- **Reservations Administrator**
-- **Reservations Contributor**
-- **Reservations Reader**
+- Reservations Administrator
+- Reservations Contributor
+- Reservations Reader
 
 To get User Access Administrator rights at the tenant level, follow the steps to [elevate access](../../role-based-access-control/elevate-access-global-admin.md).
 
