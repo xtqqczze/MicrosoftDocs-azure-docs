@@ -103,7 +103,7 @@ This procedure presumes that the on-premises VM isn't available.
    on-premises.
        - Use this option if the on-premises VM has been deleted or doesn't exist, and you need to create
    new disks.
-       - This setting is ignored if the disks already exists, but you do need to specify a
+       - This setting is ignored if the disks already exist, but you do need to specify a
    value.
 5. Select the master target retention drive. The failback policy is automatically selected.
 6. Click **OK** to begin reprotection. A job begins to replicate the Azure VM to

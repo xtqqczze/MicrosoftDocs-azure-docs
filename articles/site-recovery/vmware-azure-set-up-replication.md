@@ -35,7 +35,7 @@ Associate the replication policy with your on-premises configuration server.
 
 1. Select the replication policy.
     
-    :::image type="content" source="./media/vmware-azure-set-up-replication/replication-policy-listing.png" alt-text="Replication policy listing.":::
+    :::image type="content" source="./media/vmware-azure-set-up-replication/replication-policy-listing.png" alt-text="Screenshot of Replication policy listing.":::
 2. Click **Associate**.
     
     :::image type="content" source="./media/vmware-azure-set-up-replication/associate1.png" alt-text="Screenshot of Associate configuration server.":::

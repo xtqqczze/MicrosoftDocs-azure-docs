@@ -132,7 +132,7 @@ If you need to add a new configuration server, follow these instructions:
 As you set up a configuration server, note that:
 
 - When you set up a configuration server, it's important to consider the subscription and vault within which it resides, since these shouldn't be changed after setup. If you do need to change the vault, you have to disassociate the configuration server from the vault, and reregister it. This stops replication of VMs in the vault.
-- If you want to set up a configuration server with multiple network adapters, you should do this during set up. You can't do this after the registering the configuration server in the vault.
+- If you want to set up a configuration server with multiple network adapters, you should do this during setup. You can't do this after the registering the configuration server in the vault.
 
 ## Set up a process server
 

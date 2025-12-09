@@ -37,7 +37,7 @@ To set up VMware replication, you need to do the following:
 3. On the page that opens, click the **Add customer** button.
 4. In **New Customer** page, fill in the account information details for the tenant.
 
-	:::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png" alt-text="The Account Info page.":::
+	:::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png" alt-text="Screenshot of the Account Info page.":::
 
 5. Then click **Next: Subscriptions**.
 6. On the subscriptions selection page, select **Microsoft Azure** check box. You can add other subscriptions now or at any other time.
@@ -54,11 +54,11 @@ You can access the tenant’s subscription through the Microsoft Partner Center 
 2. In the **Subscriptions** page of the tenant account, you can monitor the existing account subscriptions and add more subscriptions, as required.
 3. To manage the tenant’s disaster-recovery operations, select **All resources (Azure portal)**. This grants you access to the tenant’s Azure subscriptions.
 
-	:::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png" alt-text="The All Resources link.":::
+	:::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png" alt-text="Screenshot of the All Resources link.":::
 
 4. You can verify access by clicking the Microsoft Entra ID link on the top right of the Azure portal.
 
-	:::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/aad-admin-display.png" alt-text="Microsoft Entra ID link.":::
+	:::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/aad-admin-display.png" alt-text="Screenshot of Microsoft Entra ID link.":::
 
 You can now perform and manage all Site Recovery operations for the tenant in the Azure portal. To access the tenant subscription through CSP for managed disaster recovery, follow the previously described process.
 
@@ -71,7 +71,7 @@ You can add a new user to the tenant subscription through the CSP portal as foll
 
 1. Go to the tenant’s CSP subscription page, and then select the **Users and licenses** option.
 
-    :::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-licences.png" alt-text="The tenant's CSP subscription page.":::
+    :::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-licences.png" alt-text="Screenshot of the tenant's CSP subscription page.":::
 
 1. Create a new user by entering the relevant details and selecting permissions, or by uploading the list of users in a CSV file.
 
@@ -91,7 +91,7 @@ The following steps describe how to assign a role to a user. For detailed steps,
 
     For most management operations, the *Contributor* role is sufficient. Users with this access level can do everything on a subscription except change access levels (for which *Owner*-level access is required).
 
-    Site Recovery also has three [predefined user roles](site-recovery-role-based-linked-access-control.md), that can be used to further restrict access levels as required.
+    Site Recovery also has three [predefined user roles](site-recovery-role-based-linked-access-control.md) that can be used to further restrict access levels as required.
 
     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png" alt-text="Screenshot that shows Add role assignment page with the Role tab selected.":::
 

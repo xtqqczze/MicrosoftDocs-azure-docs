@@ -50,11 +50,11 @@ As an example, here's the scenario where replication appliance 1 (RA1) has becom
 
    The list of available appliances and their health is displayed. For example, RA2 is healthy here.
 
-   :::image type="content" source="./media/switch-replication-appliance-modernized/appliance-health.png" alt-text="Healthy replication appliances list.":::
+   :::image type="content" source="./media/switch-replication-appliance-modernized/appliance-health.png" alt-text="Screenshot of healthy replication appliances list.":::
 
 2. Select the replication appliance (RA1) and select  **Switch appliance**.
 
-   :::image type="content" source="./media/switch-replication-appliance-modernized/select-switch-appliance.png" alt-text="Select replication appliance to switch.":::
+   :::image type="content" source="./media/switch-replication-appliance-modernized/select-switch-appliance.png" alt-text="Screenshot of select replication appliance to switch.":::
 
 
 3. Under  **Select machines**, select the machines that you want to failover to another replication appliance (RA2). Select **Next**.
@@ -62,18 +62,18 @@ As an example, here's the scenario where replication appliance 1 (RA1) has becom
    >[!NOTE]
    > Only those machine which have been protected by the current appliance will be visible in the list. Failed over machines will not be present here  
 
-    :::image type="content" source="./media/switch-replication-appliance-modernized/select-machines.png" alt-text="Select machines for switching.":::
+    :::image type="content" source="./media/switch-replication-appliance-modernized/select-machines.png" alt-text="Screenshot of select machines for switching.":::
 
 4. Under **Source settings**  page, for each of the selected machines, select a different replication appliance.
 
-   :::image type="content" source="./media/switch-replication-appliance-modernized/source-settings.png" alt-text="Source settings for replication appliance.":::
+   :::image type="content" source="./media/switch-replication-appliance-modernized/source-settings.png" alt-text="Screenshot of source settings for replication appliance.":::
 
    >[!NOTE]
    > If your current appliance has burnt down, then you will be required to select the credentials to access the machines. Otherwise, the field will be disabled.
 
 5. Review the selection and then select **Switch appliance**.
 
-   :::image type="content" source="./media/switch-replication-appliance-modernized/review-switch-appliance.png" alt-text="review replication appliance.":::
+   :::image type="content" source="./media/switch-replication-appliance-modernized/review-switch-appliance.png" alt-text="Screenshot of review replication appliance.":::
 
    Once the resync is complete, the replication status turns healthy for the VMs that are moved to a new appliance.
 

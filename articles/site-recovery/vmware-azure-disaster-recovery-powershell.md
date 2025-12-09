@@ -42,7 +42,7 @@ Before you start:
 
 ## Log in to Azure
 
-Log into your Azure subscription using the Connect-AzAccount cmdlet:
+Log in to your Azure subscription using the Connect-AzAccount cmdlet:
 
 ```azurepowershell
 Connect-AzAccount
@@ -416,7 +416,7 @@ Failover settings for protected machines can be updated using the Set-ASRReplica
 * Name of the virtual machine to be created on failover
 * VM size of the virtual machine to be created on failover
 * Azure virtual network and subnet that the NICs of the virtual machine should be connected to on failover
-* Failover to managed disks
+* Fail over to managed disks
 * Apply Azure Hybrid Use Benefit
 * Assign a static IP address from the target virtual network to be assigned to the virtual machine on failover.
 
