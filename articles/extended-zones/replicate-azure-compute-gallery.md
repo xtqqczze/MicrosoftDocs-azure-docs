@@ -2,7 +2,7 @@
 title: "Tutorial: Replicate 3rd Party (3P) Images into an Azure Extended Zone with Azure Compute Gallery"
 description: Learn how to Replicate 3rd Party (3P) Images into an Azure Extended Zone with Azure Compute Gallery.
 author: svaldesgzz
-ms.author: svaldesgzz
+ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: tutorial
 ms.date: 08/26/2025

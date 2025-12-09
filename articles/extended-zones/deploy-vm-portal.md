@@ -2,7 +2,7 @@
 title: "Quickstart: Deploy a virtual machine in an Extended Zone - Azure portal"
 description: Learn how to deploy a virtual machine (VM) in an Azure Extended Zone using the Azure portal.
 author: svaldesgzz
-ms.author: svaldesgzz
+ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: quickstart
 ms.date: 12/08/2025
