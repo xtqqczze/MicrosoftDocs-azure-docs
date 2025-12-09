@@ -8,7 +8,7 @@ ms.author: rossgrambo
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/23/2025
 # customer intent: As a developer, I want to access reference information about the .NET feature management library so that I can control feature availability in my app without redeploying the app.
 ---

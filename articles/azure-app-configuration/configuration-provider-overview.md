@@ -48,8 +48,8 @@ This is an overview of each feature and its current status for different framewo
 
 Feature | .NET | Spring | Kubernetes | Python | JavaScript | Go |
 ------- | ---- | ------ | ---------- | ------ | ---------- | -- |
-Connection String Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration) | [GA](./reference-go-provider.md#connection-string)
-Entra ID Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration) | [GA](./reference-go-provider.md#microsoft-entra-id)
+Connection String Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration) | [GA](./reference-go-provider.md#load-configuration)
+Entra ID Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration) | [GA](./reference-go-provider.md#load-configuration)
 Dynamic Refresh (Poll Mode) | [GA](./reference-dotnet-provider.md#refresh-on-sentinel-key) | GA | GA | GA | [GA](./reference-javascript-provider.md#refresh-on-sentinel-key) | [GA](./reference-go-provider.md#refresh-on-sentinel-key)
 Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A | N/A
 Dynamic Refresh (Collection Monitoring) | [GA](./reference-dotnet-provider.md#configuration-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#configuration-refresh) | [GA](./reference-go-provider.md#configuration-refresh)
