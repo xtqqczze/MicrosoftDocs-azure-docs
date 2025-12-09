@@ -78,18 +78,22 @@ For a complete sample app, refer to [JavaScript App with Azure App Configuration
 ---
 
 > [!NOTE]
-> The key-value filters used in your application must match the filters configured while creating the Azure Front Door endpoint. For example, if your endpoint is configured to allow access to keys starting with "App1:" prefix, the application code must also load keys starting with "App1:". If your application attempts to load different keys, such as "App1:Version" when only "App1:" is allowlisted in Azure Front Door rules, the request is rejected.
+> The key-value filters used by your application must match exactly the filters configured for the Azure Front Door endpoint; any mismatch will cause the request to be rejected. For example, if your endpoint is configured to allow access to keys starting with "App1:" prefix, the application code must also load keys starting with "App1:". If your application attempts to load different keys, such as "App1:Version" when only "App1:" is allowlisted in Azure Front Door rules, the request is rejected.
 
 ## Troubleshooting
 
 ### Configuration doesn't load
-- Verify Azure Front Door endpoint URL is correctly configuration in application code
+
+- Verify Azure Front Door endpoint URL is correctly configured in application code.
 - Check for warnings in the App Config Portal and fix the issues if any.
 - Make sure the correct scoping filters are set when configuring the Azure Front Door endpoint. These filters (for key-values, snapshots, and feature flags) define the regex rules that block requests that don't match specified filters. If your app can’t access its configuration, review Azure Front Door rules to find any blocking regex patterns. Update the rule with the right filter or create a new AFD endpoint from the App Configuration portal. Learn more about [Azure Front Door routing rules](/azure/frontdoor/front-door-rules-engine).
 
-### Configuration doesn't refresh
-- Azure Front Door manages caching behavior, so updates from App Configuration aren’t immediately available to the application. Even if your app checks for changes frequently, AFD might serve cached data until its own cache expires. For example, if AFD caches for 10 minutes, your app won't see updates for at least 10 minutes, even though the app might be configured to refresh every minute. This design ensures eventual consistency, not real-time updates, which is expected for any CDN-based solution. Learn more about [Caching with Azure Front Door](/azure/frontdoor/front-door-caching).
+> [!NOTE]
+> To modify Azure Front Door endpoint rules, use the Azure Front Door portal. Editing these settings from the App Configuration portal will be available in a future release. 
 
+### Configuration doesn't refresh
+
+- Verify that both the application refresh interval and Azure Front Door cache TTL are properly configured. For details on configuration refresh timing, see [Caching behavior in hyperscale configuration](./concept-hyperscale-client-config.md#caching).
 
 ## Language availability
 

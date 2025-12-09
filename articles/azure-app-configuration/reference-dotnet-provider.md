@@ -699,6 +699,10 @@ The .NET provider will be considered as unhealthy when the last load or refresh 
 
 For more information about health checks in .NET, see the [.NET health monitoring documentation](/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health).
 
+## Connect to Azure Front Door
+
+The Azure Front Door integration allows client applications to fetch configuration from edge-cached endpoints rather than directly from App Configuration. This architecture delivers secure, scalable configuration access with the performance benefits of global CDN distribution. For setup instructions, see [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configprovider.md).
+
 ## Next steps
 
 To learn how to use the .NET configuration provider, continue to the following tutorial.

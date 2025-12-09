@@ -21,9 +21,9 @@ App Configuration gives developers a single, consistent place to define configur
 :::image type="content" source="media/hyperscale-config-architecture.png" alt-text="Architecture diagram for integration of Azure Front Door with Azure App Configuration."
 
 How it works
-- The client application calls Azure Front Door anonymously, so no secrets or credentials are shipped to the client.
-- Azure Front Door uses Managed Identity to access Azure App Configuration securely.
-- Only selected key-values, feature flags, or snapshots are exposed through Azure Front Door.
+- Client applications retrieve configuration through Azure Front Door endpoints without authentication, eliminating the security risk of embedding credentials in client-side code.
+- Azure Front Door uses Managed Identity to authenticate with Azure App Configuration securely.
+- Only scoped key-values, feature flags, or snapshots are exposed through Azure Front Door.
 - Edge caching enables high throughput and low latency configuration delivery.
 
 This architecture eliminates the need for custom proxies or gateways while providing secure, efficient configuration delivery to client applications.
@@ -41,7 +41,7 @@ CDN-delivered configuration unlocks a range of rich client application scenarios
 These scenarios previously required custom proxies. Now, they work out-of-the-box with Azure App Configuration and Azure Front Door integration.
 
 > [!NOTE]
-> This feature is only available in the Azure public cloud.
+> This feature is only available in the Azure public cloud. Support for other Azure clouds is planned for future releases.
 
 ## Recommendations and Considerations
 
@@ -51,7 +51,7 @@ Configuration exposed through Azure Front Door is publicly accessible without au
 
 ##### Use separate App Configuration store
 
-Consider using a dedicated App Configuration store for client-facing configuration delivered through Azure Front Door. This store should contain only nonsensitive settings that are safe for public consumption. This isolation strategy limits potential impact if configuration is inadvertently exposed, ensuring that sensitive data remains protected in separate stores.
+Consider using a dedicated App Configuration store for client-facing configuration delivered through Azure Front Door. This store should contain only nonsensitive settings that are safe for public consumption. This isolation strategy limits potential impact if configuration is inadvertently exposed, ensuring that sensitive data remains protected.
 
 ##### Role Based Access Control using Managed Identity
 
@@ -79,13 +79,21 @@ Client applications rely on Azure Front Door for failover and load balancing, as
 
 ### Caching
 
-Configure Azure Front Door cache duration to balance performance and origin load. We recommend a minimum TTL of 10 minutes, but you can choose a value that fits your application. Content loaded from AFD is eventually consistent. Setting the cache duration too short might increase origin requests and lead to throttling. 
+Configure Azure Front Door cache duration to balance configuration freshness and origin load. Azure Front Door controls the caching behavior, which means updates from App Configuration can only be seen by your application after the Front Door cache expires. This cache expiration time effectively becomes the minimum time before your app can observe new configuration values, regardless of how frequently the app checks for changes. 
+
+We recommend setting Azure Front Door cache TTL to at least 10 minutes and application refresh interval to at least 1 minute. With these settings, configuration updates may take up to 11 minutes to propagate: Azure Front Door 10 minute cache TTL plus up to 1 minute until the next application refresh. 
+
+You can choose appropriate refresh interval values that fit your application. Shorter cache durations will increase the number of requests routed through Azure Front Door. This model provides eventual consistency, not real-time propagation, which is expected for CDN-based delivery. Learn more about [Caching with Azure Front Door](/azure/frontdoor/front-door-caching).
+
+> [!NOTE]
+> Azure Front Door makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content isn't frequently used. Additionally, if App Configuration is unreachable, Azure Front Door may continue serving stale data from cache to maintain application availability. 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Setup Azure Front Door with App Config](./how-to-connect-azure-front-door.md)
 
-> [!div class="nextstepaction"]
-> [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configprovider.md)
+## Related Content
+
+- [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configprovider.md)
 
