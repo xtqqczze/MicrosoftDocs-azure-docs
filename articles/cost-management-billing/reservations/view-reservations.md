@@ -25,66 +25,66 @@ By default, the following users can view and manage reservations:
 
 - The user who buys a reservation
 - The account administrator of the billing subscription used to buy the reservation
-- Enterprise agreement and Microsoft Customer Agreement billing administrators
+- Enterprise Agreement and Microsoft Customer Agreement billing administrators
 - Users with elevated access to manage all Azure subscriptions and management groups
-- Users with the **Reservations Administrator** or **Reservations Contributor** roles, for reservations in their Microsoft Entra tenant (directory)
+- Users with the Reservations Administrator or Reservations Contributor role, for reservations in their Microsoft Entra tenant (directory)
 
-Users with the **Reservations Reader** role have read-only access to reservations in their Microsoft Entra tenant (directory).
+Users with the Reservations Reader role have read-only access to reservations in their Microsoft Entra tenant (directory).
 
-The reservation lifecycle is independent of an Azure subscription. A reservation isn't a resource under the Azure subscription. It's a tenant-level resource with its own Azure role-based access control permission that's separate from subscriptions. Reservations don't inherit permissions from subscriptions after the purchase.
+The reservation lifecycle is independent of an Azure subscription. A reservation isn't a resource under the Azure subscription. It's a tenant-level resource with its own role-based access control permission that's separate from subscriptions. Reservations don't inherit permissions from subscriptions after the purchase.
 
 ## View and manage reservations
 
 A user's ability to view, manage, and delegate permissions to reservations depends on two authorization methods:
 
 - Billing admin roles
-- Azure reservation role-based access control (Azure RBAC) roles
+- Azure reservation role-based access control (RBAC) roles
 
 ## Billing admin roles
 
-You can view, manage, and delegate permissions to reservations by using built-in billing admin roles. To learn more about Microsoft Customer Agreement and enterprise agreement billing roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](../manage/understand-mca-roles.md) and [Managing Azure enterprise agreement roles](../manage/understand-ea-roles.md), respectively.
+You can view, manage, and delegate permissions to reservations by using built-in billing admin roles. To learn more about Microsoft Customer Agreement and Enterprise Agreement billing roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](../manage/understand-mca-roles.md) and [Managing Azure Enterprise Agreement roles](../manage/understand-ea-roles.md), respectively.
 
 ### Billing Admin roles required for reservation actions
 
 #### View reservations
 
-- **Microsoft Customer Agreement**: Users with the billing profile **Reader** role or higher
-- **Enterprise agreement**: Users with the **Enterprise Administrator (read-only)** role or higher
+- **Microsoft Customer Agreement**: Users with the billing profile Reader role or higher
+- **Enterprise Agreement**: Users with the Enterprise Administrator (read-only) role or higher
 - **Microsoft Partner Agreement**: Not supported
 
 #### Manage reservations (delegate permissions for the full billing profile or enrollment)
 
-- **Microsoft Customer Agreement**: Users with the billing profile **Contributor** role or higher
-- **Enterprise agreement**: Users with the enterprise agreement **Administrator** role or higher
-- **Microsoft partner agreement**: Not supported
+- **Microsoft Customer Agreement**: Users with the billing profile Contributor role or higher
+- **Enterprise Agreement**: Users with the Enterprise Agreement Administrator role or higher
+- **Microsoft Partner Agreement**: Not supported
 
 #### Delegate reservation permissions
 
-- **Microsoft Customer Agreement**: Users with the billing profile **Contributor** role or higher
-- **Enterprise agreement**: Users with the enterprise agreement **Purchaser** role or higher
-- **Microsoft partner agreement**: Not supported
+- **Microsoft Customer Agreement**: Users with the billing profile Contributor role or higher
+- **Enterprise Agreement**: Users with the Enterprise Agreement Purchaser role or higher
+- **Microsoft Partner Agreement**: Not supported
 
-To purchase a reservation, enterprise agreement admins or billing profile owners must have **Owner** or **Reservations Purchaser** access on at least one enterprise agreement or Microsoft Customer Agreement subscription. This option is useful for enterprises that want a centralized team to purchase reservations. For more information, see [Buy an Azure reservation](prepare-buy-reservation.md).
+To purchase a reservation, Enterprise Agreement admins or billing profile owners must have Owner or Reservations Purchaser access on at least one Enterprise Agreement or Microsoft Customer Agreement subscription. This option is useful for enterprises that want a centralized team to purchase reservations. For more information, see [Buy an Azure reservation](prepare-buy-reservation.md).
 
 ### View and manage reservations as a Billing Admin
 
 If you're a billing role user, follow these steps to view and manage all reservations and reservation transactions in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Cost Management + Billing**.
-    - If you have an enterprise agreement account, select **Billing scopes** in the service menu. Then, select one of the billing scopes.
-    - If you have a Microsoft Customer Agreement account, select **Billing profiles** in the service menu. Then, select one of the billing profiles.
-1. In the service menu, select **Products + services** > **Reservations + Hybrid Benefit**. The complete list of reservations for your enterprise agreement enrollment or Microsoft Customer Agreement billing profile appears.
+    - If you have an Enterprise Agreement account, select **Billing scopes** on the service menu. Then, select one of the billing scopes.
+    - If you have a Microsoft Customer Agreement account, select **Billing profiles** on the service menu. Then, select one of the billing profiles.
+1. On the service menu, select **Products + services** > **Reservations + Hybrid Benefit**. The complete list of reservations for your Enterprise Agreement enrollment or Microsoft Customer Agreement billing profile appears.
 
 Users with the **Billing** role can take ownership of a reservation by selecting one or multiple reservations, and then selecting **Grant access** in the window that appears. If you have a Microsoft Customer Agreement account, the user should be in the same Microsoft Entra tenant (directory) as the reservation.
 
 ### Add billing admins
 
-Add a user as billing administrator to an enterprise agreement or a Microsoft Customer Agreement in the Azure portal.
+Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement in the Azure portal.
 
-- **Enterprise agreement**: Users with the **Enterprise administrator** role can view and manage all reservation orders that apply to the enterprise agreement. Users with the **Enterprise administrator** role can view and manage reservations in **Cost Management + Billing**.
-  - Users with the **Enterprise administrator (read-only)** role can only view the reservation from **Cost Management + Billing**.
+- **Enterprise Agreement**: Users with the Enterprise administrator role can view and manage all reservation orders that apply to the Enterprise Agreement. Users with the Enterprise administrator role can view and manage reservations in **Cost Management + Billing**.
+  - Users with the Enterprise administrator (read-only) role can only view the reservation from **Cost Management + Billing**.
   - Department admins and account owners can't view reservations _unless_ you explicitly add them to the reservation by using the **Access control (IAM)** option. For more information, see [Manage Azure Enterprise roles](../manage/understand-ea-roles.md).
-- **Microsoft Customer Agreement**: Users with the billing profile **Owner** role or the billing profile **Contributor** role can manage all reservation purchases made by using the billing profile.
+- **Microsoft Customer Agreement**: Users with the billing profile Owner role or the billing profile Contributor role can manage all reservation purchases made by using the billing profile.
   - Billing profile readers and invoice managers can view all reservations that are paid for with the billing profile. However, they can't make changes to reservations. For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## Azure reservation RBAC roles
@@ -93,35 +93,35 @@ Add a user as billing administrator to an enterprise agreement or a Microsoft Cu
 
 Azure provides four reservation-specific RBAC roles with different permission levels:
 
-- **Reservations Administrator**: Users with this role can manage one or more reservations in their Microsoft Entra Tenant (directory). They can also [delegate Azure RBAC roles](/azure/role-based-access-control/role-assignments-portal) to other users.
+- **Reservations Administrator**: Users with this role can manage one or more reservations in their Microsoft Entra tenant (directory). They can also [delegate RBAC roles](/azure/role-based-access-control/role-assignments-portal) to other users.
 - **Reservations Purchaser**: Users with this role can purchase reservations with a specified subscription (even non-subscription owners).
-- **Reservations Contributor**: Users with this role can manage one or more reservations in their Microsoft Entra tenant (directory) but they can't delegate Azure RBAC roles to other users.
+- **Reservations Contributor**: Users with this role can manage one or more reservations in their Microsoft Entra tenant (directory) but can't delegate RBAC roles to other users.
 - **Reservations Reader**: Users with this role have read-only access to one or more reservations in their Microsoft Entra tenant (directory).
 
-These roles can be scoped to either a specific resource entity (for example, subscription or reservation) or the Microsoft Entra tenant. To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
+These roles can be scoped to either a specific resource entity (for example, subscription or reservation) or the Microsoft Entra tenant. To learn more about RBAC, see [What is role-based access control (RBAC)?](../../role-based-access-control/overview.md).
 
 ### Azure reservation RBAC roles that you need for reservation actions
 
 #### View reservations
 
-- **Tenant scope**: Users with the **Reservations Reader** role or higher
+- **Tenant scope**: Users with the Reservations Reader role or higher
 - **Reservation scope**: Built-in reader roles or higher
 
 #### Manage reservations
 
-- **Tenant scope**: Users with the **Reservations Contributor** role or higher
-- **Reservation scope**: Built-in contributor or owner roles, or **Reservations contributor** or higher
+- **Tenant scope**: Users with the Reservations Contributor role or higher
+- **Reservation scope**: Built-in contributor or owner roles, or Reservations contributor or higher
 
 #### Delegate reservation permissions
 
-- **Tenant scope**: You need [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights to grant Azure RBAC roles to all reservations in the tenant. To gain these rights, follow [Elevate access steps](../../role-based-access-control/elevate-access-global-admin.md).
-- **Reservation scope**: Users with the **Reservations Administrator** or **User Access Administrator** roles.
+- **Tenant scope**: You need [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) rights to grant RBAC roles to all reservations in the tenant. To gain these rights, follow [Elevate access steps](../../role-based-access-control/elevate-access-global-admin.md).
+- **Reservation scope**: Users with the Reservations Administrator or User Access Administrator role.
 
-In addition, users who held the subscription **Owner** role when the subscription was used to purchase a reservation can also view, manage, and delegate permissions for the purchased reservation.
+In addition, users who held the subscription Owner role when the subscription was used to purchase a reservation can also view, manage, and delegate permissions for the purchased reservation.
 
-### View and manage reservations with Azure RBAC access
+### View and manage reservations with RBAC access
 
-If you have reservation-specific Azure RBAC roles (**Reservations Administrator**, **Purchaser**, **Contributor**, or **Reader**), if you purchased reservations, or if you were added as an owner to reservations, follow these steps to view and manage reservations in the Azure portal:
+If you have reservation-specific RBAC roles (Reservations Administrator, Purchaser, Contributor, or Reader), if you purchased reservations, or if you were added as an owner to reservations, follow these steps to view and manage reservations in the Azure portal:
 
 1. Sign in to the Azure portal.
 1. Select **Home** > **Reservations** to list reservations to which you have access.
@@ -133,25 +133,25 @@ If you have reservation-specific Azure RBAC roles (**Reservations Administrator*
 
 In this section, you learn how to:
 
-- Delegate the **Reservations Purchaser** role to a specific subscription.
-- Delegate the **Reservations Administrator**, **Contributor**, or **Reader** roles to a specific reservation.
-- Delegate the **Reservations Administrator**, **Contributor**, or **Reader** roles to all reservations.
+- Delegate the Reservations Purchaser role to a specific subscription.
+- Delegate the Reservations Administrator, Contributor, or Reader roles to a specific reservation.
+- Delegate the Reservations Administrator, Contributor, or Reader roles to all reservations.
 
-Users and groups who gain the ability to purchase, manage, or view reservations via Azure RBAC roles must access reservations from **Home** > **Reservation**.
+Users and groups who gain the ability to purchase, manage, or view reservations via RBAC roles must access reservations from **Home** > **Reservation**.
 
 > [!NOTE]
 > Enterprise administrators can take ownership of a reservation order. They can add other users to a reservation by using the **Access control (IAM)** option.
 
 #### Delegate the Reservation Purchaser role to a specific subscription
 
-To delegate the **Reservations Purchaser** role to a specific subscription, first make sure you have elevated access. Then, follow these steps:
+To delegate the Reservations Purchaser role to a specific subscription, first make sure you have elevated access. Then, follow these steps:
 
 1. Go to **Home** > **Reservations** to see all reservations in the tenant.
 2. To make modifications to the reservation, add yourself as an owner of the reservation order by using the **Access control (IAM)** option.
 
 #### Delegate Reservation Administrator, Contributor, or Reader roles to a specific reservation
 
-To delegate the **Administrator**, **Contributor**, or **Reader** roles to a specific reservation:
+To delegate the Administrator, Contributor, or Reader roles to a specific reservation:
 
 1. Go to **Home** > **Reservations**.
 1. Select the reservation.
@@ -160,9 +160,9 @@ To delegate the **Administrator**, **Contributor**, or **Reader** roles to a spe
 
 #### Delegate Reservation Administrator, Contributor, or Reader roles to all reservations
 
-You need [User Access administrator rights](../../role-based-access-control/built-in-roles.md#user-access-administrator) to grant Azure RBAC roles at the tenant level. To get **User Access administrator** rights, [follow the steps to elevate access](../../role-based-access-control/elevate-access-global-admin.md?toc=/azure/cost-management-billing/reservations/toc.json).
+You need [User Access administrator rights](../../role-based-access-control/built-in-roles.md#user-access-administrator) to grant RBAC roles at the tenant level. To get User Access administrator rights, [follow the steps to elevate access](../../role-based-access-control/elevate-access-global-admin.md?toc=/azure/cost-management-billing/reservations/toc.json).
 
-To delegate the **Administrator**, **Contributor**, or **Reader** role to all reservations in a tenant:
+To delegate the Administrator, Contributor, or Reader role to all reservations in a tenant:
 
 1. Go to **Home** > **Reservations**.
 1. Select **Role assignment** from the top navigation bar and choose the role you want.
@@ -173,26 +173,26 @@ Users who have owner access on the reservations and billing administrators can d
 
 To allow other people to manage reservations, you have two options:
 
-- **Delegate access management for an individual reservation order** by assigning the **Owner** role to a user at the resource scope of the reservation order. If you want to give limited access, select a different role.
-  For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+- Delegate access management for an individual reservation order by assigning the Owner role to a user at the resource scope of the reservation order. If you want to give limited access, select a different role.
+  For detailed steps, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
-- **Add a user as billing administrator** to an enterprise agreement or a Microsoft Customer Agreement:
-  - **Enterprise agreement**: Users with the **Enterprise Administrator** role can view and manage all reservation orders that apply to the enterprise agreement. Users with the **Enterprise Administrator (read-only)** role can only view the reservation.
+- Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
+  - **Enterprise Agreement**: Users with the Enterprise Administrator role can view and manage all reservation orders that apply to the Enterprise Agreement. Users with the Enterprise Administrator (read-only) role can only view the reservation.
     - Department admins and account owners can't view reservations _unless_ you explicitly add them to the reservation by using the **Access control (IAM)** option. For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
-  - **Microsoft Customer Agreement**: Users with the billing profile **Owner** role or the billing profile **Contributor** role can manage all reservation purchases made by using the billing profile. Billing profile readers and invoice managers can view all reservations that are paid for with the billing profile. However, they can't make changes to reservations. For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
+  - **Microsoft Customer Agreement**: Users with the billing profile Owner role or the billing profile Contributor role can manage all reservation purchases made by using the billing profile. Billing profile readers and invoice managers can view all reservations that are paid for with the billing profile. However, they can't make changes to reservations. For more information, see [Billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 > [!NOTE]
 > Enterprise administrators can take ownership of a reservation order. They can add other users to a reservation by using the **Access control (IAM)** option.
 
 ## Grant access by using PowerShell
 
-Users that have owner access for reservations orders, users with elevated access, and users with the **User Access Administrator** role can delegate access management for all reservation orders they have access to.
+Users that have owner access for reservations orders, users with elevated access, and users with the User Access Administrator role can delegate access management for all reservation orders they have access to.
 
 Access that you grant by using PowerShell isn't shown in the Azure portal. Instead, you use the `get-AzRoleAssignment` command in the following section to view assigned roles.
 
-For details on granting access with PowerShell, see [Grant Azure RBAC access to reservations by using PowerShell](manage-reservations-rbac-powershell.md).
+For details on granting access with PowerShell, see [Grant RBAC access to reservations by using PowerShell](manage-reservations-rbac-powershell.md).
 
 ## Related content
 
-- [Manage Azure reservations](manage-reserved-vm-instance.md).
-- [Understand how reservation discounts are applied](reservation-discount-application.md).
+- [Manage Azure reservations](manage-reserved-vm-instance.md)
+- [Understand how reservation discounts are applied](reservation-discount-application.md)

@@ -1,5 +1,5 @@
 ---
-title: Grant Azure RBAC Access to Reservations by Using PowerShell
+title: Grant RBAC Access to Reservations by Using PowerShell
 description: Learn how to delegate access management for Azure reservations by using PowerShell.
 author: dekadays
 ms.reviewer: liuyizhu
@@ -10,13 +10,13 @@ ms.topic: how-to
 ms.date: 08/21/2025
 ms.author: liuyizhu
 
-#CustomerIntent: As a billing administrator, I want to learn how to grant Azure RBAC access to reservations by using PowerShell so that I can effectively assign permissions.
+#CustomerIntent: As a billing administrator, I want to learn how to grant RBAC access to reservations by using PowerShell so that I can effectively assign permissions.
 
 ---
 
 # Grant role-based access control with Azure reservations by using PowerShell
 
-This article shows you how to use Azure role-based access control (Azure RBAC) with reservations by using Azure PowerShell. To view and manage Azure RBAC access in the Azure portal, see [Permissions to view and manage Azure reservations](view-reservations.md).
+This article shows you how to use role-based access control (RBAC) with reservations by using Azure PowerShell. To view and manage RBAC access in the Azure portal, see [Permissions to view and manage Azure reservations](view-reservations.md).
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
@@ -32,7 +32,7 @@ When you grant access by using PowerShell, you can't view the roles in the Azure
 
 ## Assign the owner role for all reservations
 
-Use the following PowerShell script to give a user Azure RBAC access to all reservation orders in their Microsoft Entra tenant (directory).
+Use the following PowerShell script to give a user RBAC access to all reservation orders in their Microsoft Entra tenant (directory).
 
 ```azurepowershell
 
@@ -59,7 +59,7 @@ When you use the PowerShell script to assign the ownership role and it runs succ
 
 ### Parameters
 
-The **-ObjectId** parameter is the  Microsoft Entra **ObjectId** of the user, group, or service principal.
+The `-ObjectId` parameter is the  Microsoft Entra `ObjectId` of the user, group, or service principal.
 
 - **Type**: String
 - **Aliases**: `Id`, `PrincipalId`
@@ -84,21 +84,21 @@ You need [User Access Administrator](../../role-based-access-control/built-in-ro
 - **Reservations Contributor**
 - **Reservations Reader**
 
-To get **User Access Administrator** rights at the tenant level, follow the steps to [elevate access](../../role-based-access-control/elevate-access-global-admin.md).
+To get User Access Administrator rights at the tenant level, follow the steps to [elevate access](../../role-based-access-control/elevate-access-global-admin.md).
 
 ### Add a Reservations Administrator role, Reservations Contributor role, or Reservations Reader role at the tenant level
 
-Only users with the **Global Administrator** role can assign these roles from the [Azure portal](https://portal.azure.com).
+Only users with the Global Administrator role can assign these roles from the [Azure portal](https://portal.azure.com).
 
 1. Sign in to the Azure portal and go to **Reservations**.
 1. Select a reservation that you can access.
 1. At the top of the page, select **Role Assignment**.
 1. Select the **Roles** tab.
-1. To make modifications, add a user as with the **Reservations Administrator**, **Reservations Contributor**, or **Reservations Reader** roles by using access control.
+1. To make modifications, add a user as with the Reservations Administrator, Reservations Contributor, or Reservations Reader roles by using access control.
 
 ### Add a Reservations Administrator role at the tenant level by using an Azure PowerShell script
 
-Use the following Azure PowerShell script to add a **Reservations Administrator** role at the tenant level.
+Use the following Azure PowerShell script to add a Reservations Administrator role at the tenant level.
 
 ```azurepowershell
 Import-Module Az.Accounts
@@ -109,7 +109,7 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <Object
 
 #### Parameters
 
-The **-ObjectId** parameter is the Microsoft Entra **ObjectId** of the user, group, or service principal.
+The `-ObjectId` parameter is the Microsoft Entra `ObjectId` of the user, group, or service principal.
 
 - **Type**:	String
 - **Aliases**: `Id`, `PrincipalId`
@@ -118,7 +118,7 @@ The **-ObjectId** parameter is the Microsoft Entra **ObjectId** of the user, gro
 - **Accept pipeline input**: True
 - **Accept wildcard characters**: False
 
-The **-TenantId** parameter is the tenant's unique identifier.
+The `-TenantId` parameter is the tenant's unique identifier.
 
 - **Type**:	String
 - **Position**:	5
@@ -128,7 +128,7 @@ The **-TenantId** parameter is the tenant's unique identifier.
 
 ### Add a Reservations Contributor role at the tenant level by using an Azure PowerShell script
 
-Use the following Azure PowerShell script to add a **Reservations Contributor** role at the tenant level.
+Use the following Azure PowerShell script to add a Reservations Contributor role at the tenant level.
 
 ```azurepowershell
 Import-Module Az.Accounts
@@ -139,7 +139,7 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <Object
 
 #### Parameters
 
-The **-ObjectId** parameter is the Microsoft Entra **ObjectId** of the user, group, or service principal.
+The `-ObjectId` parameter is the Microsoft Entra `ObjectId` of the user, group, or service principal.
 
 - **Type**:	String
 - **Aliases**: `Id`, `PrincipalId`
@@ -148,7 +148,7 @@ The **-ObjectId** parameter is the Microsoft Entra **ObjectId** of the user, gro
 - **Accept pipeline input**: True
 - **Accept wildcard characters**: False
 
-The **-TenantId** parameter is the tenant's unique identifier.
+The `-TenantId` parameter is the tenant's unique identifier.
 
 - **Type**:	String
 - **Position**:	5
@@ -158,7 +158,7 @@ The **-TenantId** parameter is the tenant's unique identifier.
 
 ### Assign a Reservations Reader role at the tenant level by using an Azure PowerShell script
 
-Use the following Azure PowerShell script to assign the **Reservations Reader** role at the tenant level.
+Use the following Azure PowerShell script to assign the Reservations Reader role at the tenant level.
 
 ```azurepowershell
 
@@ -172,7 +172,7 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <Object
 
 #### Parameters
 
-The **-ObjectId** parameter is the Microsoft Entra **ObjectId** of the user, group, or service principal.
+The `-ObjectId` parameter is the Microsoft Entra `ObjectId` of the user, group, or service principal.
 
 - **Type**:	String
 - **Aliases**: `Id`, `PrincipalId`
@@ -181,7 +181,7 @@ The **-ObjectId** parameter is the Microsoft Entra **ObjectId** of the user, gro
 - **Accept pipeline input**: True
 - **Accept wildcard characters**: False
 
-**-TenantId** Tenant unique identifier.
+The `-TenantId` parameter is the tenant's unique identifier.
 
 - **Type**:	String
 - **Position**:	5
