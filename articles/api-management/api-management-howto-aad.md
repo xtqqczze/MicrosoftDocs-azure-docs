@@ -6,7 +6,7 @@ description: Learn how to enable user sign-in to the API Management developer po
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 12/03/2025
+ms.date: 12/08/2025
 ms.author: danlep
 ms.custom:
   - engagement-fy23
@@ -21,7 +21,7 @@ ms.custom:
 
 In this article, you learn how to:
 > [!div class="checklist"]
-> * Enable access to the developer portal for users from Microsoft Entra ID in your organization's tenant (*workforce tenant*) or other Microsoft Entra tenants.
+> * Enable access to the developer portal for users in your organization's Microsoft Entra ID tenant or other Microsoft Entra ID workforce tenants.
 > * Manage groups of Microsoft Entra users by adding external groups that contain the users.
 
 For an overview of options to secure the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md).
@@ -128,7 +128,7 @@ Users from the configured Microsoft Entra instance can now:
 
 ### Synchronize Microsoft Entra groups with API Management
 
-Groups you configure in Microsoft Entra must synchronize with API Management so that you can add them to your instance. If the groups don't synchronize automatically, do one of the following steps to synchronize group information manually:
+Groups you configure in Microsoft Entra must synchronize with API Management so that you can add them to your instance. If the groups don't synchronize automatically, use one of the following steps to manually synchronize group information:
 
 * Sign out and sign in to Microsoft Entra ID. This activity usually triggers synchronization of groups.
 * Ensure that the Microsoft Entra sign-in tenant is specified the same way (using one of tenant ID or domain name) in your configuration settings in API Management. You specify the sign-in tenant in the Microsoft Entra ID identity provider for the developer portal and when you add a Microsoft Entra group to API Management.

@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/20/2025
+ms.date: 12/08/2025
 ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
@@ -22,17 +22,17 @@ API Management has a fully customizable, standalone, managed [developer portal](
 
 ## Authentication options
 
-* **External users** - To enable access to the developer portal for external users, use [Microsoft Entra External ID](/entra/external-id/external-identities-overview). 
+* **External users** - To enable access to the developer portal for external users, use external identity providers enabled through [Microsoft Entra External ID](/entra/external-id/external-identities-overview). 
     * For example, you want users to access the developer portal by using existing social media accounts.  
     * The service provides features to enable the end user sign-up and sign-in experience. 
     
-    For scenarios and steps to enable Microsoft Entra External ID authentication in the developer portal, see [How to authorize developer accounts by using Microsoft Entra External ID](api-management-howto-entra-external-id.md).
+    Currently, API Management supports external identity providers when configured in your Microsoft Entra ID workforce tenant, not in an external tenant. For more information, see [How to authorize developer accounts by using Microsoft Entra External ID](api-management-howto-entra-external-id.md).
 
     [!INCLUDE [api-management-active-directory-b2c-support](../../includes/api-management-active-directory-b2c-support.md)]
 
     [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
-* **Internal users** - To enable access to the developer portal for internal users, use your corporate Microsoft Entra ID. Microsoft Entra ID provides a seamless single sign-on (SSO) experience for corporate users who need to access and discover APIs through the developer portal. 
+* **Internal users** - To enable access to the developer portal for internal users, use your corporate (workforce) Microsoft Entra ID tenant. Microsoft Entra ID provides a seamless single sign-on (SSO) experience for corporate users who need to access and discover APIs through the developer portal. 
 
     For steps to enable Microsoft Entra authentication in the developer portal, see [How to authorize developer accounts by using Microsoft Entra ID in Azure API Management](api-management-howto-aad.md).
     
@@ -40,7 +40,7 @@ API Management has a fully customizable, standalone, managed [developer portal](
 * **Basic authentication** - Use the built-in developer portal [username and password](developer-portal-basic-authentication.md) provider. This option allows developers to register directly in API Management and sign in by using API Management user accounts. User registration through this option is protected by a CAPTCHA service. 
 
     > [!CAUTION]
-    > While you can use basic authentication to secure users' access to the developer portal, we recommend configuring a more secure authentication method such as [Microsoft Entra ID](api-management-howto-aad.md) or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam).
+        > While you can use basic authentication to secure users' access to the developer portal, configure a more secure authentication method such as [Microsoft Entra ID](api-management-howto-aad.md).
 
 
 ## Developer portal test console
