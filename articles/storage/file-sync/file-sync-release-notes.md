@@ -96,7 +96,7 @@ The following release notes are for Azure File Sync version 22.0.0.0 (released D
 
 **New metric to monitor Azure File Sync agent expiration**
 
-A new agentVersionExpiration metric provides visibility into how many days remain before an agent reaches expiration. Customers can configure Azure Monitor alerts when an agent is within 90 days of expiry, enabling proactive management and reducing the risk of unexpected service interruptions. To learn more, see [Azure File Sync agent Metrics documentation](file-sync-monitoring#metric-charts)
+A new agentVersionExpiration metric provides visibility into how many days remain before an agent reaches expiration. Customers can configure Azure Monitor alerts when an agent is within 90 days of expiry, enabling proactive management and reducing the risk of unexpected service interruptions. To learn more, see [Azure File Sync Monitoring Metric Charts](file-sync-monitoring.md)
 
 **Generally Available: Azure File Sync in Poland Central, Spain Central, and New Zealand North**
 
