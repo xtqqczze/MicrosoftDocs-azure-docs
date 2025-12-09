@@ -1,10 +1,10 @@
----
+﻿---
 title: Use deployment scripts in Azure Resource Manager templates 
 description: Use deployment scripts in Azure Resource Manager templates.
 ms.custom:
   - devx-track-arm-template
   - build-2025
-ms.topic: conceptual
+ms.topic: article
 ms.date: 10/27/2025
 ---
 
@@ -47,7 +47,7 @@ If you would rather learn about deployment scripts through step-by-step guidance
 
 For deployment script API version 2020-10-01 or later, there are two principals involved in deployment script execution:
 
-- **Deployment principal** (the principal used to deploy the template): this principal is used to create underlying resources required for the deployment script resource to execute — a storage account and an Azure container instance. To configure the least-privilege permissions, assign a custom role with the following properties to the deployment principal:
+- **Deployment principal** (the principal used to deploy the template): this principal is used to create underlying resources required for the deployment script resource to execute - a storage account and an Azure container instance. To configure the least-privilege permissions, assign a custom role with the following properties to the deployment principal:
 
     ```json
     {
@@ -90,7 +90,7 @@ The following JSON is an example. For more information, see the latest [template
 ```json
 {
   "type": "Microsoft.Resources/deploymentScripts",
-  "apiVersion": "2020-10-01",
+  "apiVersion": "2023-08-01",
   "name": "runPowerShellInline",
   "location": "[resourceGroup().location]",
   "tags": {
@@ -221,7 +221,7 @@ The following template has one resource defined with the `Microsoft.Resources/de
   "resources": [
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2023-08-01",
       "name": "runPowerShellInlineWithOutput",
       "location": "[resourceGroup().location]",
       "kind": "AzurePowerShell",
@@ -328,7 +328,7 @@ The following template shows how to pass values between two `deploymentScripts` 
   "resources": [
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2023-08-01",
       "name": "scriptInTemplate1",
       "location": "[resourceGroup().location]",
       "kind": "AzurePowerShell",
@@ -350,7 +350,7 @@ The following template shows how to pass values between two `deploymentScripts` 
     },
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2023-08-01",
       "name": "scriptInTemplate2",
       "location": "[resourceGroup().location]",
       "kind": "AzurePowerShell",
@@ -408,7 +408,7 @@ In contrast to the Azure PowerShell deployment scripts, CLI/bash doesn't expose 
   "resources": [
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2023-08-01",
       "name": "runBashWithOutputs",
       "location": "[resourceGroup().location]",
       "kind": "AzureCLI",
@@ -883,7 +883,7 @@ The following ARM template shows how to configure the environment for running a 
   "resources": [
     {
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2023-09-01",
+      "apiVersion": "2025-01-01",
       "name": "[parameters('vnetName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -918,7 +918,7 @@ The following ARM template shows how to configure the environment for running a 
     },
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2023-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -1043,3 +1043,4 @@ In this article, you learned how to use deployment scripts. To walk through a de
 
 > [!div class="nextstepaction"]
 > [Learn module: Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts/)
+

@@ -95,6 +95,11 @@ Use the following steps to help diagnose a test not finishing:
 1. [Download the test results](./how-to-export-test-results.md) to identify issues with individual requests.
 1. Run the test in [debug mode](./how-to-run-tests-in-debug-mode.md) to get debug logs and request and response data for failed requests. 
 
+You can also view AI-based error insights for your test run after a test run completes. The insights generated contain the cause of error and more actionable recommendations. This feature is turned on by default and can be turned off in the error blade settings. Refer to [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839).
+
+> [!NOTE]
+> By agreeing to use AI-based error insights, you agree that the log files for your test run will be used by AI to generate recommendations. 
+
 ### Load test completed
 
 A load test might run the test script until the end, but might not pass all the [test fail criteria](./how-to-define-test-criteria.md). If at least one of the test criteria didn't pass, the *status* of the test run is set to *Failed*.

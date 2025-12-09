@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 07/31/2025
+ms.date: 12/05/2025
 ms.custom: sfi-image-nochange
 ---
 
@@ -25,7 +25,7 @@ This reference guide describes the limits and configuration information for Azur
 
 The following table briefly summarizes differences between a Consumption logic app and a Standard logic app.
 
-[!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
+[!INCLUDE [Logic app resource type and environment differences](includes/logic-apps-resource-environment-differences-table.md)]
 
 <a name="definition-limits"></a>
 
@@ -407,11 +407,9 @@ The following tables list the values for a single inbound or outbound call:
 
 ### Time-out duration
 
-By default, the HTTP action and API connection actions follow the [standard asynchronous operation pattern](/azure/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. Some managed connector operations make asynchronous calls or listen for webhook requests, so the time-out for these operations might be longer than the following limits. For more information, review [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors) and also the [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) documentation.
+By default, the HTTP action and API connection actions follow the [standard asynchronous operation pattern](/azure/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. Some managed connector operations make asynchronous calls or listen for webhook requests, so the time-out for these operations might be longer than the following limits. For more information, see [each connector's technical reference page](/connectors/connector-reference/connector-reference-logicapps-connectors) and the [Workflow triggers and actions page](logic-apps-workflow-actions-triggers.md#http-action).
 
-> [!NOTE]
->
-> For a Standard logic app resource in single-tenant Azure Logic Apps, stateless workflows can only run *synchronously*.
+For Standard logic app resources in single-tenant Azure Logic Apps, stateless workflows can only run *synchronously*. Stateless workflows only save each action's inputs, outputs, and states in memory, not external storage. As a result, stateless workflows perform faster with quicker response times, provide higher throughput, reduce running costs from not using external storage, and shorter runs usually finish in 5 minutes or less. However, if outages happen, interrupted runs aren't automatically restored. The caller must manually resubmit interrupted runs. For the best performance, make sure that a stateless workflow handles data or content that doesn't exceed 64 KB in total file size. Larger sizes, such as multiple large attachments, might significantly slow workflow performance or even cause the workflow to crash from out-of-memory exceptions. If you require a workflow to handle larger file sizes, create a stateful workflow instead.
 
 | Name | Multitenant | Single-tenant | Notes |
 |------|-------------|---------------|-------|
@@ -599,7 +597,7 @@ Before you set up your firewall with IP addresses, review these considerations:
   | Service tag | Description |
   |-------------|-------------|
   | **LogicAppsManagement** | Inbound IP address prefixes for the Azure Logic Apps service. |
-  | **LogicApps** | Outbound IP address prefixes for the Azure Logic Apps service. |
+  | **LogicApps** | Outbound IP address prefixes for the multitenant Azure Logic Apps service. |
   | **AzureConnectors** | IP address prefixes required for managed connectors that make inbound webhook callbacks to the Azure Logic Apps service and outbound calls to their respective services, such as Azure Blob Storage or Azure Event Hubs. This tag and its IP addresses also apply to any customer connector operations in your workflows. |
 
 * For Standard logic app workflows in single-tenant Azure Logic Apps, you must allow access for any trigger or action connections in your workflows. To allow traffic, use [service tags](/azure/virtual-network/service-tags-overview) and the same level of restrictions or policies as Azure App Service. You must also find and use the fully qualified domain names (FQDNs) for your connections. For more information, see the corresponding sections in the following documentation:
@@ -714,10 +712,10 @@ This section lists the inbound IP addresses that Azure Logic Apps requires for t
 
 | Azure Government region | Azure Logic Apps IP |
 |-------------------------|---------------------|
-| US Gov Arizona | 52.244.67.164, 52.244.67.64, 52.244.66.82, 52.126.52.254, 52.126.53.145, 52.244.187.241, 52.244.17.238, 52.244.23.110, 52.244.20.213, 52.244.16.162, 52.244.15.25, 52.244.16.141, 52.244.15.26 |
-| US Gov Texas | 52.238.119.104, 52.238.112.96, 52.238.119.145, 52.245.171.151, 52.245.163.42, 52.238.78.169, 52.238.164.135, 52.238.164.111, 52.238.164.44, 52.243.250.114, 52.243.248.33, 52.243.253.54, 52.243.253.44, 52.127.38.96, 52.127.38.97 |
-| US Gov Virginia | 52.227.159.157, 52.227.152.90, 23.97.4.36, 13.77.239.182, 13.77.239.190, 20.159.220.127, 62.10.96.217, 62.10.102.236, 62.10.102.136, 62.10.111.137, 62.10.111.152, 62.10.111.128, 62.10.111.123 |
-| US DoD Central | 52.182.49.204, 52.182.52.106, 52.182.49.105, 52.182.49.175, 52.180.225.24, 52.180.225.43, 52.180.225.50, 52.180.252.28, 52.180.225.29, 52.180.231.56, 52.180.231.50, 52.180.231.65 |
+| US Gov Arizona | 52.244.187.241, 52.244.17.238, 52.244.23.110, 52.244.20.213, 52.244.16.162, 52.244.15.25, 52.244.16.141, 52.244.15.26 |
+| US Gov Texas | 52.238.78.169, 52.238.164.135, 52.238.164.111, 52.238.164.44, 52.243.250.114, 52.243.248.33, 52.243.253.54, 52.243.253.44, 52.127.38.96, 52.127.38.97 |
+| US Gov Virginia | 20.159.220.127, 62.10.96.217, 62.10.102.236, 62.10.102.136, 62.10.111.137, 62.10.111.152, 62.10.111.128, 62.10.111.123 |
+| US DoD Central | 52.180.225.24, 52.180.225.43, 52.180.225.50, 52.180.252.28, 52.180.225.29, 52.180.231.56, 52.180.231.50, 52.180.231.65 |
 
 <a name="outbound"></a>
 
@@ -813,10 +811,10 @@ This section lists the outbound IP addresses that Azure Logic Apps requires for 
 
 | Region | Azure Logic Apps IP |
 |--------|---------------------|
-| US DoD Central | 52.182.48.215, 52.182.92.143, 52.182.53.147, 52.182.52.212, 52.182.49.162, 52.182.49.151, 52.180.225.0, 52.180.251.16, 52.180.250.135, 52.180.251.20, 52.180.231.89, 52.180.224.251, 52.180.252.222, 52.180.225.21 |
-| US Gov Arizona | 52.244.67.143, 52.244.65.66, 52.244.65.190, 52.126.50.197, 52.126.49.223, 52.126.53.144, 52.126.36.100, 52.244.187.5, 52.244.19.121, 52.244.18.105, 52.244.51.113, 52.244.17.113, 52.244.26.122, 52.244.22.195, 52.244.19.137 |
-| US Gov Texas | 52.238.114.217, 52.238.115.245, 52.238.117.119, 20.141.120.209, 52.245.171.152, 20.141.123.226, 52.245.163.1, 52.238.164.53, 52.238.72.216, 52.238.164.123, 52.238.160.255, 52.243.237.44, 52.249.101.31, 52.243.251.37, 52.243.252.22, 52.127.38.64, 52.127.38.65 |
-| US Gov Virginia | 13.72.54.205, 52.227.138.30, 52.227.152.44, 13.77.239.177, 13.77.239.140, 13.77.239.187, 13.77.239.184, 20.159.219.180, 62.10.96.177, 62.10.102.138, 62.10.102.94, 62.10.111.134, 62.10.111.151, 62.10.110.102, 62.10.109.190 |
+| US DoD Central | 52.182.52.212, 52.182.49.151, 52.180.225.0, 52.180.251.16, 52.180.250.135, 52.180.251.20, 52.180.231.89, 52.180.224.251, 52.180.252.222, 52.180.225.21 |
+| US Gov Arizona | 52.126.49.223, 52.126.53.144, 52.126.36.100, 52.244.187.5, 52.244.19.121, 52.244.18.105, 52.244.51.113, 52.244.17.113, 52.244.26.122, 52.244.22.195, 52.244.19.137 |
+| US Gov Texas | 52.245.171.152, 20.141.123.226, 52.245.163.1, 52.238.164.53, 52.238.72.216, 52.238.164.123, 52.238.160.255, 52.243.237.44, 52.249.101.31, 52.243.251.37, 52.243.252.22, 52.127.38.64, 52.127.38.65 |
+| US Gov Virginia | 13.77.239.140, 13.77.239.184, 20.159.219.180, 62.10.96.177, 62.10.102.138, 62.10.102.94, 62.10.111.134, 62.10.111.151, 62.10.110.102, 62.10.109.190 |
 
 ## Related content
 

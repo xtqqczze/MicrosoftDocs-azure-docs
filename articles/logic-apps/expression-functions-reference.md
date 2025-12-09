@@ -3902,7 +3902,7 @@ slice('Hello World', 3, 3) // Returns ''.
 
 ### sort
 
-Sort items in a collection. You can sort the collection objects using any key that contains a simple type.
+Sort items in a collection. You can sort the collection objects using any key that contains a primitive data type supported by the Workflow Definition Language, such as **int**, **float**, **string**, or **bool**.
 
 ```
 sort([<collection>], <sortBy>?)
@@ -4983,7 +4983,7 @@ xml(
 )
 ```
 
-If you have a JSON array, like the following example, you have two options.
+If you have a JSON array, like the following example, you have three options.
 
 ```json
 [
@@ -4997,9 +4997,7 @@ Option 1: Store the JSON array in a **Compose** action named **Compose1**. Then 
 
 ```
 {
-  "root": {
-    "array": @{outputs('Compose1')}
-  }
+  "root": { "array": @{outputs('Compose1')} }
 }
 ```
 
@@ -5021,9 +5019,26 @@ xml(
     )
   )
 )
+
 ```
 
-All three examples, which include the JSON string data example, option 1, and option 2, return the following XML result:
+Option 3: Store the JSON array in a **Compose** action named **Compose1**. You can then use the `outputs()`, `json()`, `addProperty()`, and `xml()` functions to create XML from the JSON object output, for example: 
+
+```
+xml(
+  addProperty(
+    json('{}'),
+    'root',
+    addProperty(
+      json('{}'),
+      'array',
+      outputs('Compose1')
+    )
+  )
+)
+```
+
+All examples, which include the JSON string data example and options 1 to 3, return the following XML result:
 
 ```xml
 <root>
