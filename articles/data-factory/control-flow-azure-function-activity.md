@@ -8,7 +8,7 @@ ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: how-to
-ms.date: 12/08/2024
+ms.date: 12/08/2025
 ai-usage: ai-assisted
 
 ---
