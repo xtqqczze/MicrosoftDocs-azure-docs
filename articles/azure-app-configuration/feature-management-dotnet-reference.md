@@ -1317,6 +1317,9 @@ The `telemetry` section of a feature flag has the following properties:
 | `enabled` | A Boolean value that specifies whether telemetry should be published for the feature flag. |
 | `metadata` | A collection of key-value pairs, modeled as a dictionary, that you can use to attach custom metadata about the feature flag to evaluation events. |
 
+> [!NOTE]
+> When you use the .NET configuration provider with Azure App Configuration, [additional telemetry metadata](./reference-dotnet-provider.md#feature-flag-telemetry) is added to feature flag evaluation when telemetry is enabled.
+
 ### Custom telemetry publishing
 
 The feature manager has its own `ActivitySource` instance named `Microsoft.FeatureManagement`. If telemetry is enabled for a feature flag:
