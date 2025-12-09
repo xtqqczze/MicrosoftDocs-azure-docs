@@ -6,7 +6,7 @@ author: amit916new
 ms.author: amitmishra
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 12/03/2024
+ms.date: 12/09/2025
 
 #customer intent: As a network administrator, I want to configure subnet peering between two virtual networks in azure
 
@@ -197,8 +197,9 @@ The following diagram displays the checks performed while configuring subnet pee
 1. There can be **only one peering link between any two virtual networks**. If you want to add or remove subnets from the peering link, then the same peering link is required to be updated. **Multiple exclusive peering between set of subnets are not possible**.<br>
 **A given peering link type cannot be changed**. If there's a virtual network peering between virtual network A and virtual network B, and the user wants to change that to subnet peering, the existing virtual network peering link must be deleted, and a new peering must be created with the required parameters for subnet peering and vice versa.
 
-1. **Number of subnets that can be part of a peering link should be less than or equal to 400 (200 limit from each local and remote side).**
-    - For example, in the virtual network A and virtual network B peering link (illustrated by blue arrow headed line), total number of subnets participating in the peering here's 4 (two from virtual network A and two from virtual network B side). This number should be <=400.
+1. **The number of subnets participating in a single peering link is limited to 200 per side** (200 from the local virtual network and 200 from the remote virtual network). Additionally, **the total number of subnets that can be peered across all peering links for a given virtual network should not exceed 1,000**.
+    - For example, in the virtual network A and virtual network B peering link (illustrated by blue arrow headed line), total number of subnets participating in the peering from VNET A should be <=200 and likewise from the VNET B side should be <= 200.
+    - Total number of subnets across all the spokes (VNET B and VNET C) that can be peered with VNET A should be <= 1000. In the figure above it is 3 in total (2 from VNET B side, 1 from VNET C side)
 
 1. In the present release (feature remains behind subscription flag), **forward route from non-peered subnet to peered subnet exists** - In the current scenario virtual network A and virtual network B peering, even though Subnet 2 from virtual network A side isn't peered, but it will still have route for Subnet 1 and Subnet 2 in virtual network B.
     - In the subnet peering for virtual network A and virtual network B, customer would expect only Subnet 1 and Subnet 3 from virtual network A to have route for Subnet 1 and Subnet 2 in remote virtual network B, however, Subnet 2 and Subnet 4 (from local side virtual network A which isn't peered) also have route for Subnet 1 and Subnet 2 in remote side (virtual network B), meaning the nonpeered subnets can send packet to destination node in the peered subnet, although the packet is dropped and doesn't reach the virtual machine.
@@ -210,6 +211,8 @@ The following diagram displays the checks performed while configuring subnet pee
     If two virtual networks are connected in 'Connected Group', and if Subnet peering is configured over these two virtual networks, subnet peering takes preference and the connectivity between nonpeered subnets gets dropped.
     - AVNM Connectivity Configuration<br>
     AVNM today can't differentiate between virtual network peering and subnet peering. If Subnet peering exists between virtual network A and virtual network B, and later an AVNM user tries to establish a virtual network peering between virtual network A and virtual network B through some AVNM connectivity configuration (Hub and Spoke deployment), AVNM would assume that peering between virtual network A and virtual network B already exists and would ignore the new peering request. We recommend that users exercise caution in such conflicting scenarios while using AVNM and Subnet peering
+
+1. For production deployments, ensure you use V5 SKUs (5th generation VM SKUs) or migrate to them to prevent potential outages that may occur with older generation SKUs.
 
 ## Next steps
 
