@@ -72,7 +72,6 @@ To view an assessment, follow these steps:
     1. Selecting the cluster brings up the cluster details, right sized based on the assessed web apps. 
 1. Select a web app from the target drill downs opens the web app drill down. On the **Summary** tab, you can see discovered metadata such as protocols, connection strings, application directories and tags assigned to this workload.
 1. On the **Readiness** tab, you can see the readiness for this web app for each Azure target, the migration issues or warnings and the recommended Azure target.
-1. 
 1. Navigate back to the **Overview** page. Select the **Export** option to download an excel containing the assessment details.
 
 ## Next steps 
