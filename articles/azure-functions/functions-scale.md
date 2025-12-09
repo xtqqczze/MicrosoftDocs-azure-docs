@@ -21,7 +21,7 @@ When you create a function app in Azure, you must choose a hosting option for yo
 
 [!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
-The Azure App Service infrastructure on both Linux and Windows virtual machines facilitate the Azure Functions hosting options. The hosting option you choose dictates the following behaviors:
+The Azure App Service infrastructure on both Linux and Windows virtual machines facilitates the Azure Functions hosting options. The hosting option you choose dictates the following behaviors:
 
 - How your function app is scaled.
 - The resources available to each function app instance.
