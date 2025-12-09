@@ -15,9 +15,9 @@ ai-usage: ai-assisted
 This article shows you how to develop custom WebAssembly (WASM) modules and graph definitions for Azure IoT Operations data flow graphs. Create modules in Rust or Python to implement custom processing logic. Define graph configurations that specify how your modules connect into complete processing workflows.
 
 > [!IMPORTANT]
-> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported. For more information, see [Known issues](./troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Azure Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and local storage aren't supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
 
-To learn how to develop WASM modules using the VS Code extension, see [Build WASM modules with VS Code extension](./wasm/howto-build-wasm-modules-vscode.md).
+To learn how to develop WASM modules by using the VS Code extension, see [Build WASM modules with VS Code extension](howto-build-wasm-modules-vscode.md).
 
 ## Overview
 
@@ -39,7 +39,7 @@ Data flow graphs build on the [Timely dataflow](https://docs.rs/timely/latest/ti
 - **Progress tracking**: The system knows when computations are complete
 - **Distributed coordination**: Multiple processing nodes stay synchronized
 
-### Why timely dataflow?
+### Why use timely dataflow?
 
 Traditional stream processing systems have several challenges. Out-of-order data means events can arrive later than expected. Partial results make it hard to know when computations finish. Coordination issues happen when synchronizing distributed processing.
 
@@ -56,6 +56,7 @@ Every data item carries a timestamp representing its logical time. The system tr
 #### Hybrid logical clock
 
 The timestamp mechanism uses a hybrid approach:
+
 ```rust
 pub struct HybridLogicalClock {
     pub physical_time: u64,  // Wall-clock time when event occurred
@@ -77,12 +78,12 @@ Understanding the distinction between operators and modules is essential for WAS
 
 Operators are the fundamental processing units based on [Timely dataflow operators](https://docs.rs/timely/latest/timely/dataflow/operators/index.html). Each operator type serves a specific purpose:
 
-- **[Map](https://docs.rs/timely/latest/timely/dataflow/operators/map/trait.Map.html)**: Transform each data item (such as converting temperature units)
-- **[Filter](https://docs.rs/timely/latest/timely/dataflow/operators/filter/trait.Filter.html)**: Allow only certain data items to pass through based on conditions (such as removing invalid readings)
-- **[Branch](https://docs.rs/timely/latest/timely/dataflow/operators/branch/trait.Branch.html)**: Route data to different paths based on conditions (such as separating temperature and humidity data)
-- **[Accumulate](https://docs.rs/timely/latest/timely/dataflow/operators/count/trait.Accumulate.html)**: Collect and aggregate data within time windows (such as computing statistical summaries)
-- **[Concatenate](https://docs.rs/timely/latest/timely/dataflow/operators/core/concat/trait.Concatenate.html)**: Merge multiple data streams while preserving temporal order
-- **[Delay](https://docs.rs/timely/latest/timely/dataflow/operators/delay/trait.Delay.html)**: Control timing by advancing timestamps
+- [Map](https://docs.rs/timely/latest/timely/dataflow/operators/map/trait.Map.html): Transform each data item (such as converting temperature units)
+- [Filter](https://docs.rs/timely/latest/timely/dataflow/operators/filter/trait.Filter.html): Allow only certain data items to pass through based on conditions (such as removing invalid readings)
+- [Branch](https://docs.rs/timely/latest/timely/dataflow/operators/branch/trait.Branch.html): Route data to different paths based on conditions (such as separating temperature and humidity data)
+- [Accumulate](https://docs.rs/timely/latest/timely/dataflow/operators/count/trait.Accumulate.html): Collect and aggregate data within time windows (such as computing statistical summaries)
+- [Concatenate](https://docs.rs/timely/latest/timely/dataflow/operators/core/concat/trait.Concatenate.html): Merge multiple data streams while preserving temporal order
+- [Delay](https://docs.rs/timely/latest/timely/dataflow/operators/delay/trait.Delay.html): Control timing by advancing timestamps
 
 ### Modules
 
@@ -103,7 +104,8 @@ Graph Definition → References Module → Provides Operator → Processes Data
 "temperature:1.0.0" → temperature.wasm → map function → °F to °C
 ```
 
-The separation allows you to:
+This separation enables:
+
 - **Module reuse**: Deploy the same WASM module in different graph configurations
 - **Independent versioning**: Update graph definitions without rebuilding modules
 - **Dynamic configuration**: Pass different parameters to the same module for different behaviors
@@ -111,39 +113,43 @@ The separation allows you to:
 ## Prerequisites
 
 Choose your development language and set up the required tools:
+
 # [Rust](#tab/rust)
 
-- **Rust toolchain**: Install with:
+- Rust toolchain provides `cargo`, `rustc`, and the standard library needed to compile operators. Install with:
+
   ```bash
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   ```
-- **Why**: Provides `cargo`, `rustc`, and the standard library needed to compile operators.
-- **WASM target**: Add with:
+
+- WASM `wasm32-wasip2` target required to build Azure IoT Operations WASM components. Add with:
+
   ```bash
   rustup target add wasm32-wasip2
   ```
-- **Why**: Azure IoT Operations runs WASM components built for the `wasm32-wasip2` target; without this target the build will fail.
-- **Build tools**: Install with:
+
+- Build tools provide utilities used by the builders and CI to validate and package WASM artifacts. Install with:
+
   ```bash
   cargo install wasm-tools --version '=1.201.0' --locked
   ```
-- **Why**: `wasm-tools` provides utilities used by the builders and CI to validate and package WASM artifacts.
 
 # [Python](#tab/python)
 
-- **Python 3.8 or later**
-- **componentize-py**: Install with:
+- Python 3.8 or later
+- `componentize-py` generates bindings and produces WASM components from Python sources that match the Azure IoT Operations WIT schemas. Install with:
+
   ```bash
   pip install "componentize-py==0.14"
   ```
-- **Why**: Generates bindings and produces WASM components from Python sources that match the Azure IoT Operations WIT schemas.
 
 ---
 
 ## Configure development environment
 
 # [Rust](#tab/rust)
-The WASM Rust SDK is available through a custom Azure DevOps registry. Configure access with a workspace config file instead of environment variables:
+
+You can access the WASM Rust SDK through a custom Microsoft Azure DevOps registry. Instead of using environment variables, configure access with a workspace config file:
 
 ```toml
 # .cargo/config.toml (at your workspace root)
@@ -154,20 +160,20 @@ aio-wg = { index = "sparse+https://pkgs.dev.azure.com/azure-iot-sdks/iot-operati
 git-fetch-with-cli = true
 ```
 
-This mirrors the sample layout at `samples/wasm/.cargo/config.toml` and keeps registry settings in version control.
+This setup mirrors the sample layout at `samples/wasm/.cargo/config.toml` and keeps registry settings in version control.
 
 # [Python](#tab/python)
 
 Python development uses componentize-py with WebAssembly Interface Types (WIT) for code generation. The WIT schemas define the interfaces between your Python code and the WASM runtime.
 
-**Get the WIT schemas**: The required schemas are available in the [Azure IoT Operations samples repository](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python/schema). Clone or download these schemas to your development environment:
+**Get the WIT schemas**: You can find the required schemas in the [Azure IoT Operations samples repository](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python/schema). Clone or download these schemas to your development environment:
 
 ```bash
 # Clone the repository to access WIT schemas
 git clone https://github.com/Azure-Samples/explore-iot-operations.git
 ```
 
-The schemas are located at `explore-iot-operations/samples/wasm-python/schema/` and include interface definitions for all supported operator types (map, filter, branch, etc.).
+The schemas are located at `explore-iot-operations/samples/wasm-python/schema/` and include interface definitions for all supported operator types such as map, filter, and branch.
 
 You don't need any other environment configuration beyond installing the prerequisites and obtaining the WIT schemas.
 
@@ -187,6 +193,7 @@ cd temperature-converter
 ### Configure Cargo.toml
 
 Edit the `Cargo.toml` file to include dependencies for the WASM SDK and other libraries:
+
 ```toml
 [package]
 name = "temperature-converter"
@@ -215,10 +222,10 @@ Notes on versions and registry:
 
 Key dependencies explained:
 
-- **`wit-bindgen`**: Generates Rust bindings from WebAssembly Interface Types (WIT) definitions, enabling your code to interface with the WASM runtime
-- **`wasm_graph_sdk`**: Azure IoT Operations SDK providing operator macros (`#[map_operator]`, `#[filter_operator]`, etc.) and host APIs for logging, metrics, and state management
-- **`serde` + `serde_json`**: JSON processing libraries for parsing and generating data payloads; `default-features = false` optimizes for WASM size constraints
-- **`crate-type = ["cdylib"]`**: Compiles the Rust library as a C-compatible dynamic library, which is required for WASM module generation
+- `wit-bindgen`: Generates Rust bindings from WebAssembly Interface Types (WIT) definitions, enabling your code to interface with the WASM runtime.
+- `wasm_graph_sdk`: Azure IoT Operations SDK providing operator macros, such as `#[map_operator]` and `#[filter_operator]`, and host APIs for logging, metrics, and state management.
+- `serde` + `serde_json`: JSON processing libraries for parsing and generating data payloads. `default-features = false` optimizes for WASM size constraints.
+- `crate-type = ["cdylib"]`: Compiles the Rust library as a C-compatible dynamic library, which is required for WASM module generation.
 
 # [Python](#tab/python)
 
@@ -238,6 +245,7 @@ Python WASM modules don't require other project configuration files. The Python 
 Create a simple module that converts temperature from Celsius to Fahrenheit. This example demonstrates the basic structure and processing logic for both Rust and Python implementations.
 
 # [Rust](#tab/rust)
+
 ```rust
 use serde_json::{json, Value};
 
@@ -336,6 +344,7 @@ Choose between local development builds or containerized builds based on your de
 Build directly on your development machine for fastest iteration during development and when you need full control over the build environment.
 
 # [Rust](#tab/rust)
+
 ```bash
 # Build WASM module
 cargo build --release --target wasm32-wasip2  # target required for Azure IoT Operations WASM components
@@ -361,7 +370,7 @@ file temperature_converter.wasm  # Should show: WebAssembly (wasm) binary module
 ```
 
 > [!NOTE]
-> Make sure you've already cloned the repository as described in the [Configure development environment](#configure-development-environment) section to access the WIT schemas.
+> To access the WIT schemas, make sure you already cloned the repository as described in the [Configure development environment](#configure-development-environment) section.
 
 ---
 
@@ -371,7 +380,7 @@ Build using containerized environments with all dependencies and schemas preconf
 
 # [Rust](#tab/rust)
 
-The Rust Docker builder is maintained in the Azure IoT Operations samples repository and includes all necessary dependencies. For detailed documentation, see [Rust Docker builder usage](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm#rust-builds-docker-builder).
+The Azure IoT Operations samples repository maintains the Rust Docker builder and includes all necessary dependencies. For detailed documentation, see [Rust Docker builder usage](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm#rust-builds-docker-builder).
 
 ```bash
 # Build release version (optimized for production)
@@ -387,7 +396,7 @@ docker run --rm -v "$(pwd):/workspace" ghcr.io/azure-samples/explore-iot-operati
 
 # [Python](#tab/python)
 
-The Python Docker builder is maintained in the Azure IoT Operations samples repository and includes all necessary dependencies and schemas. For detailed documentation, see [Python Docker builder usage](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python#using-the-streamlined-docker-builder).
+The Azure IoT Operations samples repository maintains the Python Docker builder and includes all necessary dependencies and schemas. For detailed documentation, see [Python Docker builder usage](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python#using-the-streamlined-docker-builder).
 
 ```bash
 # Build release version (optimized for production)
@@ -429,6 +438,7 @@ For comprehensive examples, see the [Python examples](https://github.com/Azure-S
 ---
 
 ## SDK reference and APIs
+
 # [Rust](#tab/rust)
 
 The WASM Rust SDK provides comprehensive development tools:
@@ -441,26 +451,26 @@ use wasm_graph_sdk::{DataModel, HybridLogicalClock};
 
 // Map operator - transforms each data item
 #[map_operator(init = "my_init_function")]
-fn my_map(input: DataModel) -> DataModel {
+fn my_map(input: DataModel) -> Result<DataModel, Error> {
     // Transform logic here
 }
 
 // Filter operator - allows/rejects data based on predicate  
 #[filter_operator(init = "my_init_function")]
-fn my_filter(input: DataModel) -> bool {
+fn my_filter(input: DataModel) -> Result<bool, Error> {
     // Return true to pass data through, false to filter out
 }
 
 // Branch operator - routes data to different arms
 #[branch_operator(init = "my_init_function")]
-fn my_branch(input: DataModel, timestamp: HybridLogicalClock) -> bool {
+fn my_branch(input: DataModel, timestamp: HybridLogicalClock) -> Result<bool, Error> {
     // Return true for "True" arm, false for "False" arm
 }
 ```
 
 #### Module configuration parameters
 
-Your WASM operators can receive runtime configuration parameters through the `ModuleConfiguration` struct passed to the `init` function. These parameters are defined in the graph definition and allow runtime customization without rebuilding modules.
+Your WASM operators can receive runtime configuration parameters through the `ModuleConfiguration` struct passed to the `init` function. You define these parameters in the graph definition, which lets you customize the runtime without rebuilding modules.
 
 ```rust
 use wasm_graph_sdk::logger::{self, Level};
@@ -528,11 +538,12 @@ metrics::record_to_histogram("processing_duration", duration_ms, Some(labels))?;
 
 # [Python](#tab/python)
 
-Python WASM development doesn't use a traditional SDK. Instead, you use generated bindings from WebAssembly Interface Types (WIT). The WIT schemas are available from the [Azure IoT Operations samples repository](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python/schema).
+Python WASM development doesn't use a traditional SDK. Instead, you use generated bindings from WebAssembly Interface Types (WIT). You can find the WIT schemas in the [Azure IoT Operations samples repository](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python/schema).
 
-These bindings give you:
+These bindings provide:
 
 Typed interfaces for operators:
+
 ```python
 from map_impl import exports, imports
 from map_impl.imports import types
@@ -556,6 +567,7 @@ class Map(exports.Map):
 For detailed information about defining configuration parameters in graph definitions, see [Module configuration parameters](../connect-to-cloud/howto-configure-wasm-graph-definitions.md#module-configuration-parameters).
 
 Logging through imports:
+
 ```python
 # Access to structured logging
 imports.logger.log(imports.logger.Level.INFO, "my-operator", "Processing started")
@@ -563,6 +575,7 @@ imports.logger.log(imports.logger.Level.ERROR, "my-operator", f"Error: {error}")
 ```
 
 Error handling:
+
 ```python
 try:
     # Processing logic
@@ -582,11 +595,11 @@ To embed and run small ONNX models inside your modules for in-band inference, se
 
 All operators implement standardized interfaces defined using [WebAssembly Interface Types (WIT)](https://github.com/WebAssembly/component-model/blob/main/design/mvp/WIT.md). WIT provides language-agnostic interface definitions that ensure compatibility between WASM modules and the host runtime.
 
-The complete WIT schemas for Azure IoT Operations are available in the [samples repository](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python/schema). These schemas define all the interfaces, types, and data structures you'll work with when developing WASM modules.
+You can find the complete WIT schemas for Azure IoT Operations in the [samples repository](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python/schema). These schemas define all the interfaces, types, and data structures you work with when developing WASM modules.
 
 ### Data model and interfaces
 
-All WASM operators work with standardized data models defined using WebAssembly Interface Types (WIT):
+All WASM operators work with standardized data models defined by using WebAssembly Interface Types (WIT):
 
 #### Core data model
 
@@ -620,28 +633,28 @@ Each operator type implements a specific WIT interface:
 // Core operator interfaces
 interface map {
     use types.{data-model};
-    process: func(message: data-model) -> data-model;
+    process: func(message: data-model) -> result<data-model, error>;
 }
 
 interface filter {
     use types.{data-model};
-    process: func(message: data-model) -> bool;
+    process: func(message: data-model) -> result<bool, error>;
 }
 
 interface branch {
     use types.{data-model, hybrid-logical-clock};
-    process: func(timestamp: hybrid-logical-clock, message: data-model) -> bool;
+    process: func(timestamp: hybrid-logical-clock, message: data-model) -> result<bool, error>;
 }
 
 interface accumulate {
     use types.{data-model};
-    process: func(staged: data-model, message: list<data-model>) -> data-model;
+    process: func(staged: data-model, message: list<data-model>) -> result<data-model, error>;
 }
 ```
 
 ## Graph definitions and WASM integration
 
-Graph definitions define how your WASM modules connect to processing workflows. They specify the operations, connections, and parameters that create complete data processing pipelines.
+Graph definitions show how your WASM modules connect to processing workflows. They specify the operations, connections, and parameters that create complete data processing pipelines.
 
 For comprehensive information about creating and configuring graph definitions, including detailed examples of simple and complex workflows, see [Configure WebAssembly graph definitions for data flow graphs](../connect-to-cloud/howto-configure-wasm-graph-definitions.md).
 
@@ -658,9 +671,3 @@ Key topics covered in the graph definitions guide:
 - See complete examples and advanced patterns in the [Azure IoT Operations WASM samples](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm) repository.
 - Learn how to deploy your modules in [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
 - Configure your data flow endpoints in [Configure data flow endpoints](../connect-to-cloud/howto-configure-dataflow-endpoint.md).
-
-## Related content
-
-- [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)
-- [Configure registry endpoints](../connect-to-cloud/howto-configure-registry-endpoint.md)
-- [Configure MQTT data flow endpoints](../connect-to-cloud/howto-configure-mqtt-endpoint.md)

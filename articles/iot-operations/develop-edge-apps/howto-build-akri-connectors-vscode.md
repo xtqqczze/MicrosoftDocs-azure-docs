@@ -39,7 +39,7 @@ Software and services:
 Development environment:
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Azure IoT Operations Akri connectors](https://github.com/Azure/azure-iot-operations-preview/releases/tag/akri-v0.2.10) VS Code extension
+- [Azure IoT Operations Akri connectors](https://marketplace.visualstudio.com/items?itemName=ms-azureiotoperations.azure-iot-operations-akri-connectors-vscode) VS Code extension
 - [.NET SDK](https://dotnet.microsoft.com/download)
 - To debug .NET based connectors - [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 - To debug Rust based connectors - [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-VS Code.cpptools)
@@ -68,9 +68,6 @@ The DevX container uses a custom volume `akri_devx_docker_volume` to store clust
 docker volume rm akri_devx_docker_volume // delete the volume created from any previous release
 docker volume create akri_devx_docker_volume
 ```
-
-> [!NOTE]
-> Currently, launching the DevX image as a container from WSL without Docker Desktop installed causes the container to hang forever.
 
 ## Author and validate an Akri connector
 
@@ -362,3 +359,27 @@ Use the VS Code workspace created from the **Create an Akri Connector** command 
 ## Publish metadata artifacts
 
 Use the **Azure IoT Operations Akri connectors: Publish Akri Connector Image or Metadata** command to publish metadata folders to an ACR registry. The command uses the Azure CLI and `oras` commands. To publish to an ACR registry, you need your Azure subscription ID and ACR registry name. Currently, the extension expects files called `connector-metadata.json` and `additionalConfig.json` to be present in any folder you push.
+
+
+## Known Issues
+
+- The configuration updates that result from the `Delete/Apply Asset/Device YAML` VS Code commands currently don't work in Windows due limitations of CIFS implementation in Linux kernel. Any file change events in mounted folders on the host aren't propagated to the container by Docker for Windows.
+
+-  When you delete an asset or device from the cluster by using the VS Code commands, the .NET connector currently throws the following 404 error:
+
+    ```
+    Unhandled exception. Azure.Iot.Operations.Protocol.Retry.RetryExpiredException: Retry expired while attempting the operation. Last known exception is the inner exception.
+    ---> Azure.Iot.Operations.Services.AssetAndDeviceRegistry.Models.AkriServiceErrorException: ApiError: assets.namespaces.deviceregistry.microsoft.com "my-rest-thermostat-asset2" not found: NotFound (ErrorResponse { status: "Failure", message: "assets.namespaces.deviceregistry.microsoft.com \"my-rest-thermostat-asset2\" not found", reason: "NotFound", code: 404 })
+    at Azure.Iot.Operations.Services.AssetAndDeviceRegistry.AdrServiceClient.<>c__DisplayClass19_0.<<SetNotificationPreferenceForAssetUpdatesAsync>b__0>d.MoveNext()
+    --- End of stack trace from previous location ---
+    at Azure.Iot.Operations.Services.AssetAndDeviceRegistry.AdrServiceClient.RunWithRetryAsync[TResult](Func`1 taskFunc, CancellationToken cancellationToken)
+    --- End of inner exception stack trace ---
+    at Azure.Iot.Operations.Services.AssetAndDeviceRegistry.AdrServiceClient.RunWithRetryAsync[TResult](Func`1 taskFunc, CancellationToken cancellationToken)
+    at Azure.Iot.Operations.Services.AssetAndDeviceRegistry.AdrServiceClient.SetNotificationPreferenceForAssetUpdatesAsync(String deviceName, String inboundEndpointName, String assetName, NotificationPreference notificationPreference, Nullable`1 commandTimeout, CancellationToken cancellationToken)
+    at Azure.Iot.Operations.Connector.AdrClientWrapper.AssetFileChanged(Object sender, AssetFileChangedEventArgs e)
+    at System.Threading.Tasks.Task.<>c.<ThrowAsync>b__128_1(Object state)
+    at System.Threading.ThreadPoolWorkQueue.Dispatch()
+    at System.Threading.PortableThreadPool.WorkerThread.WorkerThreadStart()
+    ```
+
+- Currently, launching the DevX image as a container from WSL without Docker Desktop installed causes the container to hang forever.
