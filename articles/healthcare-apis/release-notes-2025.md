@@ -33,8 +33,6 @@ This article describes features, enhancements, and bug fixes released in 2025 fo
 ## November 2025
 ### FHIR service
 
-**In-place versioning updates for metadata-only changes**: Introduced new query parameter "_meta-history" for PUT updates that allows changes that only update metadata fields to happen without adding a historical version. "_meta-history = true" is the default and creates a historical version if metadata is changed. "_meta-history=false" will not record a historical version, but version ID and last updated time will still change.
-
 **Metadata-only updates and versioning configuration**: Introduced new query parameter "_meta-history" for PUT updates when versioning policy is set to either "versioned" or "version-update" to configure whether or not the old version is saved as a historical record. "_meta-history = true" is the default. By default, the resource version is incremented, a new version is created, and the old version is saved as a historical record. "_meta-history=false" can be configured so that the resource version is incremented, a new version is created, but the old version is not saved as a historical record. For more information, visit [metadata-only updates and versioning](./fhir/fhir-versioning-policy-and-history-management.md#metadata-only-updates-and-versioning).
 
 **Composite search parameter collation fix**:  Corrected inconsistent collation handling for Token-String composite search parameters.
