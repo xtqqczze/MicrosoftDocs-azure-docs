@@ -4,7 +4,7 @@ description: This article explains how you can authenticate managed identities t
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/04/2025
+ms.date: 12/10/2025
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -19,11 +19,11 @@ This article explains how you can use [managed identities](/entra/identity/manag
 
 A managed identity is an identity in Microsoft Entra ID that is automatically managed by Azure. You typically use managed identities when developing cloud applications to manage the credentials for authenticating to Azure services. 
 
-By the end of this guide, you'll have a storage account with SMB OAuth configured and a VM configured with a managed identity. Then you'll mount a file share using identity-based authentication, with no need to use a storage account key.
+By the end of this guide, you'll have a storage account ready to access with a managed identity. You'll also know how to use a VM, your application, or the Azure Kubernetes Service (AKS) CSI driver to create a managed identity and generate an OAuth token for it. Then you'll mount a file share using managed identity-based authentication and authorization, eliminating the need to use a storage account key.
 
 ## Why authenticate using a managed identity?
 
-For security reasons, using storage account keys to access a file share isn't recommended. When you assign a managed identity to a VM, you can use that identity to authenticate the VM.
+For security reasons, using storage account keys to access a file share isn't recommended. When you assign a managed identity to a VM or application, you can use that identity to authenticate to Azure Files.
 
 Benefits include:
 
@@ -33,9 +33,9 @@ Benefits include:
 
 - **Fine-grained access control:** Role-based access at the identity level
 
-- **Automation friendly:** Easy to integrate with CI/CD pipelines and applications
+- **Automation friendly:** Easy to integrate with CI/CD pipelines, AKS workloads, and customer applications
 
-- **Cost effective:** Managed identities can be used at no extra cost
+- **Cost effective:** Managed identities can be used at no extra storage cost
 
 ## System assigned and user assigned managed identities
 
@@ -50,6 +50,8 @@ Windows VMs can have both user assigned and system assigned managed identities c
 ## Prerequisites
 
 This article assumes that you have an Azure subscription with permissions to create storage accounts and assign Azure Role-Based Access Control (RBAC) roles.
+
+In addition, the clients that need to authenticate using a managed identity shouldn't be joined to any domain.
 
 ### Prepare your PowerShell environment
 
@@ -90,11 +92,11 @@ You can also select your subscription by specifying your subscription name:
 Set-AzContext -Subscription "<subscription-name>" 
 ```
 
-## Configure SMB OAuth on your storage account
+## Configure the managed identity access property on your storage account
 
-In order to authenticate a managed identity, you must enable the SMB OAuth property on the storage account that contains the Azure file share you want to access. We recommend creating a new storage account for this purpose. You can use an existing storage account only if it doesn't have Microsoft Entra Kerberos enabled as the identity source.
+In order to authenticate a managed identity, you must enable a property called **SMB OAuth** on the storage account that contains the Azure file share you want to access. We recommend creating a new storage account for this purpose. You can use an existing storage account only if it doesn't have any other identity source configured.
 
-To create a new storage account with SMBOAuth enabled, run the following PowerShell command as administrator. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your values. You can specify a different SKU if needed.
+To create a new storage account with **SMBOAuth** enabled, run the following PowerShell command as administrator. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your values. You can specify a different SKU if needed.
 
 ```powershell
 New-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -SkuName Standard_LRS -Location <region> -EnableSmbOAuth $true
