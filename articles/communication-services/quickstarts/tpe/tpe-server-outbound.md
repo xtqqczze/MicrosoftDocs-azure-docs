@@ -12,6 +12,7 @@ services: azure-communication-services
 ---
 
 
+
 # Place Server-Initiated Outbound Calls with Teams Phone Extensibility
 
 Teams Phone Extensibility (TPE) lets applications place outbound calls through Microsoft Teams using **Call Automation APIs**. Use this feature for automated notifications, customer callbacks, or workflow integration.
@@ -27,24 +28,18 @@ Before you start:
   - A valid **callback URI** to receive events
 - See:
   - [Call Automation concepts](/azure/communication-services/concepts/call-automation)
-  - [Action-event model](/azure/communication-services/concepts/call-automation#action-event-model)
-- Learn about the [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like `TeamsExtensionUser` and `PhoneNumberIdentifier`.
-
-For all the code samples, `client` is the `CallAutomationClient` object that you can create. Also, `callConnection` is the `CallConnection` object that you obtain from the `Answer` or `CreateCall` response. You can also obtain it from callback events that your application receives.
+  - [Action-event programming model](/azure/communication-services/concepts/call-automation#action-event-model)
+- Review [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) such as `TeamsExtensionUser` and `PhoneNumberIdentifier`.
 
 ## License Requirement
+Starting **November 1, 2025**, Calling Plan licenses on Teams Resource Accounts will no longer support On-Behalf-Of PSTN outbound calls or server-initiated outbound calls. A **[Pay-As-You-Go Calling Plan](/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)** is required.
 
-As of **November 1, 2025**, Calling Plan licenses on Teams resource accounts will no longer be supported for On-Behalf-Of PSTN outbound calls as well as server initiated outbound calls. A **[Pay-As-You-Go license](/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)** will be required.
-Expand the sections below for more information.
-<details><summary>For Calling Plan customers who received MC1123835</summary>
-Starting November 1, 2025, a Pay-As-You-Go license will be required for Teams Resource Accounts, provisioned for Teams Phone extensibility and that use Calling Plan numbers for outbound PSTN calls.
-If Pay-As-You-Go licenses aren't assigned to the relevant Teams Resource Accounts by November 1, 2025, outbound calls will fail.
+<details><summary>For Calling Plan customers (MC1123835)</summary>
+Assign a Pay-As-You-Go license to Teams Resource Accounts that use Calling Plan numbers for outbound PSTN calls. If licenses aren't assigned by November 1, 2025, outbound calls will fail.
 </details>
 
-<details>
-<summary>For Operator Connect customers who received MC1123837</summary>
-
-On November 1, 2025, the On-Behalf-Of PSTN outbound calls as well as server initiated outbound calls, may no longer be available depending on your carrier/operator. Coordinate with your carrier/operator to ensure you continue to have uninterrupted service for these scenarios. If the appropriate arrangements aren't made with your carrier/operator, then outbound calls made by agents on behalf of Teams resource accounts via the Teams Phone Extensibility will fail. Your carrier/operator provides the details on what adjustments may be required.
+<details><summary>For Operator Connect customers (MC1123837)</summary>
+On November 1, 2025, On-Behalf-Of PSTN outbound calls and server-initiated outbound calls may no longer be available depending on your carrier. Coordinate with your carrier to maintain service. Without adjustments, outbound calls made via Teams Phone Extensibility will fail.
 </details>
 
 **Note:** Direct Routing phone numbers remain unchanged.
