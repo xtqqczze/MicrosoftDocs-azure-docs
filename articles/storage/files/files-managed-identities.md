@@ -19,11 +19,11 @@ This article explains how you can use [managed identities](/entra/identity/manag
 
 A managed identity is an identity in Microsoft Entra ID that is automatically managed by Azure. You typically use managed identities when developing cloud applications to manage the credentials for authenticating to Azure services. 
 
-By the end of this guide, you'll have a storage account ready to access with a managed identity. You'll also know how to create a managed identity for your VM or application and generate an OAuth token for it. Then you'll mount a file share using managed identity-based authentication and authorization, eliminating the need to use a storage account key.
+By the end of this guide, you'll have a storage account ready to access with a managed identity. You'll also know how to create a managed identity for a VM and generate an OAuth token for it. Then you'll mount a file share using managed identity-based authentication and authorization, eliminating the need to use a storage account key.
 
 ## Why authenticate using a managed identity?
 
-For security reasons, using storage account keys to access a file share isn't recommended. When you assign a managed identity to a VM or application, you can use that identity to authenticate to Azure Files.
+For security reasons, using storage account keys to access a file share isn't recommended. When you assign a managed identity to a VM or use an application identity, you can use that identity to authenticate to Azure Files.
 
 Benefits include:
 
@@ -33,7 +33,7 @@ Benefits include:
 
 - **Fine-grained access control:** Role-based access at the identity level
 
-- **Automation friendly:** Easy to integrate with CI/CD pipelines, AKS workloads, and customer applications
+- **Automation friendly:** Easy to integrate with CI/CD pipelines, Azure Kubernetes Service (AKS) workloads, and customer applications
 
 - **Cost effective:** Managed identities can be used at no extra storage cost
 
@@ -94,7 +94,7 @@ Set-AzContext -Subscription "<subscription-name>"
 
 ## Configure the managed identity access property on your storage account
 
-In order to authenticate a managed identity, you must enable a property called **SMB OAuth** on the storage account that contains the Azure file share you want to access. We recommend creating a new storage account for this purpose. You can use an existing storage account only if it doesn't have any other identity source configured.
+In order to authenticate a managed identity, you must enable a property called **SMBOAuth** on the storage account that contains the Azure file share you want to access. We recommend creating a new storage account for this purpose. You can use an existing storage account only if it doesn't have any other identity source configured.
 
 To create a new storage account with **SMBOAuth** enabled, run the following PowerShell command as administrator. Replace `<resource-group>`, `<storage-account-name>`, and `<region>` with your values. You can specify a different SKU if needed.
 
@@ -145,7 +145,7 @@ If you want to authenticate an Azure VM, follow these steps.
 
 Once a managed identity is enabled, you can grant all necessary permissions via Azure RBAC. To assign roles, you must be signed in as a user that has role assignments write permission at the scope you want to assign the role.
 
-Follow these steps to assign the built-in Azure RBAC role **Storage File Data SMB MI Admin**, which allows for admin-level access for managed identities on files and directories in Azure Files.
+Follow these steps to assign the built-in Azure RBAC role [Storage File Data SMB MI Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-mi-admin), which allows for admin-level access for managed identities on files and directories in Azure Files.
 
 1. Navigate to the storage account that contains the file share you want to mount using a managed identity. Select **Access Control (IAM)** from the service menu.
 
@@ -199,7 +199,7 @@ To configure a managed identity on a Linux VM running in Azure, follow these ste
 
 ## Prepare your client to authenticate using a managed identity
 
-Follow these steps to prepare your system to mount the file share using managed identity authentication. The steps are different for Windows and Linux clients. Clients should not be domain joined.
+Follow these steps to prepare your system to mount the file share using managed identity authentication. The steps are different for Windows and Linux clients. Clients shouldn't be domain joined.
 
 ### [Windows](#tab/windows)
 
@@ -315,7 +315,6 @@ sudo azfilesauthmanager set https://<storage-account-name>.file.core.windows.net
 sudo azfilesauthmanager list
 ```
 
-
 ---
 
 ## Mount the file share
@@ -360,7 +359,7 @@ You should refresh your credentials periodically to avoid access interruptions. 
 
 ## Troubleshooting
 
-Troubleshooting steps are different for Windows and Linux clients. 
+Troubleshooting steps are different for Windows and Linux clients.
 
 ### [Windows](#tab/windows)
 
@@ -450,7 +449,7 @@ const char* extern_smb_version();
 
 ### API description
 
-The following table lists the API commands and their usage. Return values follow standard C conventions (0 for success, non-zero for errors).
+The following table lists the API commands and their usage. Returned values follow standard C conventions (0 for success, non-zero for errors).
 
 | **Command** | **Description** |
 |-------------|-----------------|
