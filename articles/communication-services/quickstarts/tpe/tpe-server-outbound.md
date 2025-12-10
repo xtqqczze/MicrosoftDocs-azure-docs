@@ -11,22 +11,23 @@ ms.author: henikaraa
 services: azure-communication-services
 ---
 
-# Place Server Outbound Calls with Teams Phone Extensibility
 
-Teams Phone Extensibility (TPE) lets applications place outbound calls through Microsoft Teams using **Call Automation** APIs. Use this for automated notifications, customer callbacks, or workflow integration.
+# Place Server-Initiated Outbound Calls with Teams Phone Extensibility
 
-From **Call Automation version 1.5.0-beta.1**, use the `CreateCallAsync` API to place outbound calls from your server to PSTN endpoints or Teams users.
+Teams Phone Extensibility (TPE) lets applications place outbound calls through Microsoft Teams using **Call Automation APIs**. Use this feature for automated notifications, customer callbacks, or workflow integration.
+
+From **Call Automation version 1.5.0-beta.1**, use the `CreateCallAsync` API to call PSTN endpoints or Teams users from your server application.
 
 ## Prerequisites
-Before you begin:
+Before you start:
 - Install **Azure.Communication.CallAutomation** version **1.5.0-beta.1** or later.
 - You need:
-  - **Teams Resource Account** (caller identity).
-  - The **Object ID (OID)** of the Teams Resource Account.
-  - A valid **base URI** for your callback endpoint to receive events.
-- More details:
+  - A **Teams Resource Account** (caller identity)
+  - The **Object ID (OID)** of the Resource Account
+  - A valid **callback URI** to receive events
+- See:
   - [Call Automation concepts](/azure/communication-services/concepts/call-automation)
-  - [Action-event programming model](/azure/communication-services/concepts/call-automation#action-event-model)
+  - [Action-event model](/azure/communication-services/concepts/call-automation#action-event-model)
 - Learn about the [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like `TeamsExtensionUser` and `PhoneNumberIdentifier`.
 
 For all the code samples, `client` is the `CallAutomationClient` object that you can create. Also, `callConnection` is the `CallConnection` object that you obtain from the `Answer` or `CreateCall` response. You can also obtain it from callback events that your application receives.
