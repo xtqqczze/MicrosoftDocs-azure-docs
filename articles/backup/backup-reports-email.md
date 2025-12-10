@@ -2,7 +2,7 @@
 title: Email Azure Backup Reports
 description: Create automated tasks to receive periodic reports via email
 ms.topic: how-to
-ms.date: 12/12/2024
+ms.date: 12/10/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -20,15 +20,17 @@ Using the **Email Report** feature available in Backup Reports, you can create a
 
 To configure email tasks via Backup Reports, perform the following steps:
 
-1.	Go to **Business Continuity Center** > **Backup Reports** and click on the **Email Report** tab.
-2.	Create a task by specifying the following information:
+1.	Go to **Resiliency** > **Monitoring + Reporting** > **Reports**.
+1. On the **Reports** pane, select **Backup Reports (consolidated)**.
+1. On the **Backup Reports (consolidated)** pane, select the **Email Report** tab.
+1.	Create a task by specifying the following information:
     * **Task Details** - The name of the logic app to be created, and the subscription, resource group, and location in which it should be created. Note that the logic app can query data across multiple subscriptions, resource groups, and locations (as selected in the Report Filters section), but is created in the context of a single subscription, resource group and location.
     * **Data To Export** - The tab which you wish to export. You can either create a single task app per tab, or email all tabs using a single task, by selecting the **All Tabs** option.
     * **Email options**: The email frequency, recipient email ID(s), and the email subject.
 
     :::image type="content" source="./media/backup-azure-configure-backup-reports/email-tab.png" alt-text="Screenshot shows the Email tab." lightbox="./media/backup-azure-configure-backup-reports/email-tab.png":::
 
-3.	After you click **Submit** and **Confirm**, the logic app will get created. The deployed logic app uses the [Consumption plan](../../articles/logic-apps/single-tenant-overview-compare.md#logic-app-workflow-types-and-environments) pricing. The logic app and the associated API connections are created with the tag **UsedByBackupReports: true** for easy discoverability. You'll need to perform a one-time authorization step for the logic app to run successfully, as described in the section below.
+1.	After you select **Submit** and **Confirm**, the logic app will get created. The deployed logic app uses the [Consumption plan](../../articles/logic-apps/single-tenant-overview-compare.md#logic-app-workflow-types-and-environments) pricing. The logic app and the associated API connections are created with the tag **UsedByBackupReports: true** for easy discoverability. You'll need to perform a one-time authorization step for the logic app to run successfully, as described in the section below.
 
 > [!NOTE]
 > Support for Backup vault workloads (Azure Database for PostgreSQL Server, Azure Blobs, Azure Disks) is added to the logic app templates in April 2023. So, if you've deployed these logic apps on an earlier date, you'll have to redeploy these using the above steps if you want to see data for Backup vault workloads in your email reports.
@@ -44,7 +46,7 @@ To perform the authorization, follow the steps below:
 
     :::image type="content" source="./media/backup-azure-configure-backup-reports/logic-apps.png" alt-text="Screenshot shows the Logic Apps." lightbox="./media/backup-azure-configure-backup-reports/logic-apps.png":::
 
-3.	Click on the **API connections** menu item.
+3.	Select the **API connections** menu item.
 
     :::image type="content" source="./media/backup-azure-configure-backup-reports/api-connections.png" alt-text="Screenshot shows the API Connections." lightbox="./media/backup-azure-configure-backup-reports/api-connections.png":::
 
@@ -114,9 +116,9 @@ To update the authentication type for the Office 365 connection via the Azure po
 
    Learn about [how to authorize the Azure Monitor Logs connection](#authorize-connections-to-azure-monitor-logs-and-office-365).
 
-1. Once deployed, go to the logic app in the Azure portal and click **Logic app designer** from the menu.
+1. Once deployed, go to the logic app in the Azure portal and select **Logic app designer** from the menu.
 
-   :::image type="content" source="./media/backup-azure-configure-backup-reports/logic-app-designer-inline.png" alt-text="Screenshot showing to click Logic app designer." lightbox="./media/backup-azure-configure-backup-reports/logic-app-designer-expanded.png":::
+   :::image type="content" source="./media/backup-azure-configure-backup-reports/logic-app-designer-inline.png" alt-text="Screenshot shows the selection of Logic app designer." lightbox="./media/backup-azure-configure-backup-reports/logic-app-designer-expanded.png":::
 
 1. Locate the places where the Office 365 action is used.
 
@@ -124,9 +126,9 @@ To update the authentication type for the Office 365 connection via the Azure po
 
    :::image type="content" source="./media/backup-azure-configure-backup-reports/office-365-change-connection.png" alt-text="Screenshot showing Office 365 change connection.":::
 
-1. Click **Change connection** and click the *information icon*.
+1. Select **Change connection** and select the *information icon*.
 
-   :::image type="content" source="./media/backup-azure-configure-backup-reports/email-information-icon.png" alt-text="Screenshot showing to click information icon.":::
+   :::image type="content" source="./media/backup-azure-configure-backup-reports/email-information-icon.png" alt-text="Screenshot shows how to select information icon.":::
    
 1. A popup opens where you can select the authentication type for GCC High.
 
@@ -136,11 +138,11 @@ Once you select the correct authentication type in all the places where the Offi
 
 You can also directly update the ARM template, which is used for deploying the logic app, to ensure that the GCC High endpoint is used for authorization. Follow these steps:
 
-1. Go to the **Email Report** tab, provide the required inputs, and then click **Submit**.
+1. Go to the **Email Report** tab, provide the required inputs, and then select **Submit**.
 
    :::image type="content" source="./media/backup-azure-configure-backup-reports/view-template-inline.png" alt-text="View email template." lightbox="./media/backup-azure-configure-backup-reports/view-template-expanded.png":::
 
-1. Click **View template**.
+1. Select **View template**.
 
    This opens up the ARM template json which you can download and edit.
    
