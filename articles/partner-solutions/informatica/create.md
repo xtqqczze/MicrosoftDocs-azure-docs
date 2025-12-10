@@ -44,7 +44,7 @@ Alternatively, use Azure Marketplace:
     | **Resource name**  | Enter the name for the Informatica Organization you want to create. |
     | **Region** | Select the closest region to where you would like to deploy your Informatica Azure Resource. |
     | **Informatica Region** | Select the Informatica region where you want to create Informatica Organization. |
-    | **Organization** | Specify your organization.<br /><br />- Select **Create a new organization** if you want to a new Informatica Organization.<br />- Select **Link to an existing organization (with Azure Marketplace Billing)** if you already have an Informatica organization, intend to map it to the  Azure resource, and initiate a new plan with Azure Marketplace.<br />- Select **Link to an existing organization (continue with existing Informatica Billing)** if you already have an existing Informatica organization and have a billing contract with Informatica already. |
+    | **Organization** | Specify your organization.<br /><br />- Select **Create a new organization** if you want to create a new Informatica Organization.<br />- Select **Link to an existing organization (with Azure Marketplace Billing)** if you already have an Informatica organization, intend to map it to the  Azure resource, and initiate a new plan with Azure Marketplace.<br />- Select **Link to an existing organization (continue with existing Informatica Billing)** if you already have an existing Informatica organization and have a billing contract with Informatica already. |
     | **Change plan** | Select this link to choose the plan you want to subscribe to. |
     | **Billing term** | Select a billing term. |
 
@@ -79,7 +79,7 @@ You can specify custom tags for the new Informatica resource in Azure by adding 
 
     :::image type="content" source="media/informatica-create/informatica-deploy.png" alt-text="Screenshot of a completed Informatica deployment.":::
 
-1. In the service menu, select **Overview** to see information your Informatica resource.
+1. In the service menu, select **Overview** to see information about your Informatica resource.
 
     :::image type="content" source="media/informatica-create/informatica-overview-pane.png" alt-text="Screenshot of information on the Informatica resource overview.":::
 
