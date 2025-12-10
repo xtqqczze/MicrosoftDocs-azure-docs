@@ -71,7 +71,7 @@ You can add a new user to the tenant subscription through the CSP portal as foll
 
 1. Go to the tenant’s CSP subscription page, and then select the **Users and licenses** option.
 
-    :::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-licences.png" alt-text="Screenshot of the tenant's CSP subscription page.":::
+    :::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-licenses.png" alt-text="Screenshot of the tenant's CSP subscription page.":::
 
 1. Create a new user by entering the relevant details and selecting permissions, or by uploading the list of users in a CSV file.
 
