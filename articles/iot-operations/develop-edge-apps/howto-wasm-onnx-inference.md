@@ -1,8 +1,8 @@
 ---
 title: Run ONNX inference in WebAssembly data flow graphs
 description: Learn how to package and run ONNX models inside WebAssembly modules for real-time inference in Azure IoT Operations data flow graphs.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -57,7 +57,7 @@ Before you begin, ensure you have:
 - Access to a container registry like Azure Container Registry.
 - Development environment set up for WebAssembly module development.
 
-For detailed setup instructions, see [Develop WebAssembly modules](howto-develop-wasm-modules.md).
+For detailed setup instructions, see [Develop WebAssembly modules](./howto-develop-wasm-modules.md).
 
 ## Architecture pattern
 
@@ -171,7 +171,7 @@ moduleConfigurations:
         required: false
 ```
 
-Your operator `init` can read these values through the module configuration interface. For details, see [Module configuration parameters](howto-configure-wasm-graph-definitions.md#module-configuration-parameters).
+Your operator `init` can read these values through the module configuration interface. For details, see [Module configuration parameters](../connect-to-cloud/howto-configure-wasm-graph-definitions.md#module-configuration-parameters).
 
 ## Package the model
 
@@ -274,7 +274,7 @@ fn run_inference(/* input tensors, etc. */) {
 Reuse the streamlined sample builders or build locally:
 
 - To use the streamlined Docker builder, see [Rust Docker builder sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust#using-the-streamlined-docker-builder)
-- For a general WebAssembly deployment and registry steps, see [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md)
+- For a general WebAssembly deployment and registry steps, see [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)
 
 Follow this deployment process:
 
@@ -288,7 +288,7 @@ Follow this deployment process:
 The IoT public samples provide two samples wired into a graph for image classification:  the ["format" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/format) provides image decode and resize functionality, and the ["snapshot" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/rust/examples/snapshot) provides ONNX inference and softmax processing.
 
 
-To deploy this example, pull the artifacts from the public registry, push them to your registry, and deploy a data flow graph as shown in [Example 2: Deploy a complex graph](howto-dataflow-graph-wasm.md#example-2-deploy-a-complex-graph). The complex graph uses these modules to process image snapshots and emit classification results.
+To deploy this example, pull the artifacts from the public registry, push them to your registry, and deploy a data flow graph as shown in [Example 2: Deploy a complex graph](../connect-to-cloud/howto-dataflow-graph-wasm.md#example-2-deploy-a-complex-graph). The complex graph uses these modules to process image snapshots and emit classification results.
 
 ## Limitations
 
@@ -302,6 +302,6 @@ Inference in WASM data flow graphs has the following limitations:
 
 ## Next steps
 
-- [Develop WebAssembly modules](howto-develop-wasm-modules.md)
-- [Configure WebAssembly graph definitions](howto-configure-wasm-graph-definitions.md)
-- [Use WebAssembly with data flow graphs](howto-dataflow-graph-wasm.md)
+- [Develop WebAssembly modules](./howto-develop-wasm-modules.md)
+- [Configure WebAssembly graph definitions](../connect-to-cloud/howto-configure-wasm-graph-definitions.md)
+- [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)
