@@ -1085,7 +1085,7 @@ When you have to investigate any problems with this component, you can set up cu
 > [!NOTE]
 >
 > Error logging is enabled even without enabling NCo tracing. To find the error log (.log) files, go to the following location: `C:\home\site\wwwroot`.
-> If app settings **SAP_RFC_TRACE_DIRECTORY** is set, the error logs will be placed there
+> If app settings **SAP_RFC_TRACE_DIRECTORY** is set, the error logs will be placed there.
 
 To enable tracing at the application level, add the following settings:
 
