@@ -69,8 +69,8 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 This function returns the object that is passed during deployment. The properties in the returned object differ based on whether you are:
 
-* deploying a local Bicep file.
-* deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), or [tenant](deploy-to-tenant.md)).
+- deploying a local Bicep file.
+- deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), or [tenant](deploy-to-tenant.md)).
 
 When deploying a local Bicep file to a resource group, the function returns the following format:
 
@@ -129,23 +129,23 @@ The preceding example returns the following object:
 
 ```json
 {
-  "name": "deployment",
+  "name": "deploymentOutput",
+  "location": "",
   "properties": {
     "template": {
-      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
-      "resources": [],
-      "outputs": {
-        "deploymentOutput": {
-          "type": "Object",
-          "value": "[deployment()]"
+      "metadata": {
+        "_EXPERIMENTAL_WARNING": "This template uses ARM features that are experimental. Experimental features should be enabled for testing purposes only, as there are no guarantees about the quality or stability of these features. Do not enable these settings for any production usage, or your production environment may be subject to breaking.",
+        "_EXPERIMENTAL_FEATURES_ENABLED": [
+          "Asserts"
+        ],
+        "_generator": {
+          "name": "bicep",
+          "version": "0.39.26.7824",
+          "templateHash": "10348958332696598785"
         }
       }
-    },
-    "templateHash": "13135986259522608210",
-    "parameters": {},
-    "mode": "Incremental",
-    "provisioningState": "Accepted"
+    }
   }
 }
 ```
