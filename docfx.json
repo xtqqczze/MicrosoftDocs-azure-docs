@@ -1800,8 +1800,8 @@
       },
       "ms.custom": {},
       "ms.topic": {
-        "articles/cyclecloud/**/*.md": "conceptual",
-        "articles/cyclecloud/**/*.yml": "conceptual",
+        "articles/cyclecloud/**/*.md": "concept-article",
+        "articles/cyclecloud/**/*.yml": "concept-article",
         "articles/cyclecloud/includes/**/*.md": "include",
         "articles/cyclecloud/**/qs-*.md": "quickstart",
         "articles/cyclecloud/tutorials/**/*.md": "tutorial",
