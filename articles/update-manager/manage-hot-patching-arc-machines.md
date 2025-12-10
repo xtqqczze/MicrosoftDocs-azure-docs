@@ -146,7 +146,7 @@ Charges apply each month, regardless of whether hotpatches were delivered during
 
 Hotpatch (preview) is separate from other Azure licensing offers, such as Windows Server Management, and is billed separately. Hotpatch (preview) charges don't include the cost of using other Azure management services, such as Azure Update Manager, with enrolled machines.
 
-To see pricing for Windows Server Hotpatch, see the [Azure Arc pricing page](https://azure.microsoft.com/en-us/pricing/details/azure-arc/core-control-plane/). You can estimate your costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). Hotpatch (preview) charges are eligible for Azure Consumption Discount (ACD) and Microsoft Azure Consumption Commitment (MACC) decrement.
+To see pricing for Windows Server Hotpatch, see the [Azure Arc pricing page](https://azure.microsoft.com/pricing/details/azure-arc/core-control-plane/). You can estimate your costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). Hotpatch (preview) charges are eligible for Azure Consumption Discount (ACD) and Microsoft Azure Consumption Commitment (MACC) decrement.
 
 ## Next steps
 
