@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path_from_root": "/articles/azure-resource-manager/bicep/learn-bicep.md",
-      "redirect_url": "/events/learntv/learnlive-iac-and-bicep/",
+      "redirect_url": "overview",
       "redirect_document_id": false
     },
     {
