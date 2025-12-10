@@ -147,6 +147,6 @@ For more information on engine health metrics, see [monitor engine instance metr
 
 ## Next steps
 
-- [Analyze test results using AI](how-to-analyze-test-results-using-actionable-insights.md)
-- [Analyze test failures](how-to-analyze-test-failures.md)
+- [Analyze test results using AI](./how-to-analyze-test-results-using-actionable-insights.md)
+- [Diagnose failing load tests](./how-to-diagnose-failing-load-test.md)
 - [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
