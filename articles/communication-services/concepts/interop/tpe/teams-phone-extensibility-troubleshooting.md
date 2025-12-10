@@ -59,6 +59,41 @@ Then execute the following command to add a service principal to your tenant. Do
 New-MgServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
 ```
 
+### Error 404 subcode 580406 "Balance not found"
+
+This error typically occurs when the resource account does not have an active calling plan with PAYG enabled or sufficient Communications Credits. This is required for all Outbound calling scenarios in Teams Phone Extensibility. Follow these steps to resolve the issue:
+
+#### 1. Sign in to Microsoft 365 Admin Center
+Log in with your **admin credentials** [https://admin.microsoft.com](https://admin.microsoft.com)
+
+#### 2. Add Pay-As-You-Go Calling Plan
+- Navigate to **Marketplace → All Products**.
+- Search for **Microsoft Teams Calling Plan (Pay-As-You-Go)**.
+- Select the appropriate **Country Zone (Zone 1 or Zone 2)** based on your location.
+- Add the plan under **Add-ons**.  
+More details: [Learn more about Calling Plans PAYG](https://learn.microsoft.com/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)
+
+#### 3. Assign Licenses to Resource Account
+- Go to **Users → Active Users**.
+- Assign:
+  - **Microsoft Teams Calling Plan (Pay-As-You-Go)**
+  - **Microsoft Teams Phone Resource Account**
+- **Important:** Remove any other conflicting calling plans.  
+More details: [Assign licenses to users](https://learn.microsoft.com/microsoft-365/admin/manage/assign-licenses-to-users)
+
+#### 4. Purchase Communications Credits
+- Go to **Marketplace → All Products**.
+- Search for **Communications Credits** under **Add-ons**.
+- Purchase credits and add funds.  
+More details: [What are Communications Credits?](https://learn.microsoft.com/microsoftteams/what-are-communications-credits)
+
+#### 5. Enable Auto-Recharge
+- After purchase, go to **Billing → Your Products**.
+- Select **Communications Credits**.
+- Turn **Auto-Recharge ON** to avoid running out of balance.  
+More details: [Set up Communications Credits](https://learn.microsoft.com/microsoftteams/set-up-communications-credits-for-your-organization)
+
+
 ### Error 400 code 8523 Invalid request: SourceCallerIdNumber and SourceDisplayName aren't supported
 
 Trying to set caller display name caller ID via CallInvite options return an error:
