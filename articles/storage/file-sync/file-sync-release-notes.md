@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: azure-file-storage
 ms.topic: release-notes
-ms.date: 12/09/2025
+ms.date: 12/10/2025
 ms.author: wgries
 ms.custom:
   - build-2025
@@ -24,7 +24,7 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V22 Release - [KB5056967](https://support.microsoft.com/topic/6490aef8-ebae-465d-beba-718c05f8a71f)|22.0.0.0| December 09, 2025| Supported - Flighting |
+| V22 Release - [KB5056967](https://support.microsoft.com/topic/ded35c33-ff9c-4716-8a8d-a080d1bc067b)|22.0.0.0| December 10, 2025| Supported - Flighting |
 | V21.2 Release - [KB5063825](https://support.microsoft.com/topic/6490aef8-ebae-465d-beba-718c05f8a71f)|21.2.0.0| July 08, 2025| Supported |
 | v21.1 Release - [KB5063486](https://support.microsoft.com/topic/e0016f74-573d-492c-8bf7-c3be1e380836) |21.1.0.0 | August 11, 2025 | Supported - Security Update |
 | v20.1 Release - [KB5056953](https://support.microsoft.com/topic/6a558f5d-005d-4111-9ebd-21e5dd652d77) |20.1.0.0 | August 11, 2025 | Supported - Security Update |
@@ -85,9 +85,6 @@ Perform one of the following options for your Windows Server 2012 R2 servers pri
 > Do not unregister the server before the upgrade. Unregistering removes all server endpoints, and if any data is still tiered, this can leave files orphaned.
 
 - Option #2: Deploy a new Azure File Sync server that's running a [supported operating system version](file-sync-planning.md#operating-system-requirements) to replace your Windows 2012 R2 servers. For guidance, see [Replace an Azure File Sync server](file-sync-replace-server.md).
-
->[!NOTE]
->Azure File Sync agent v17.3 is the last agent release currently planned for Windows Server 2012 R2. To continue to receive product improvements and bug fixes, upgrade your servers to Windows Server 2016 or later.
 
 ## Version 22.0.0.0
 The following release notes are for Azure File Sync version 22.0.0.0 (released December 09, 2025). This release contains improvements for the Azure File Sync service and agent. 
