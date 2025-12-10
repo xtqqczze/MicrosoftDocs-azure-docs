@@ -2,7 +2,7 @@
 title: Deploy a Node.js + MongoDB app to Azure
 description: Learn how to deploy a Node.js app using Express.js and a MongoDB database using Azure App Service in Linux.
 ms.topic: tutorial
-ms.date: 11/21/2025
+ms.date: 12/10/2025
 ms.update-cycle: 180-days
 ms.service: azure-app-service
 ms.role: developer
@@ -25,7 +25,7 @@ ms.custom:
 
 # Tutorial: Deploy a Node.js + MongoDB web app to Azure
 
-This tutorial shows how to create a secure Node.js app in [Azure App Service](overview.md) that's connected to a [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) database. Azure App Service provides a highly scalable, self-patching web hosting service using the Linux operating system. When you're finished, you have an Express.js app running on Azure App Service on Linux.
+This tutorial shows how to create a secure Node.js app in [Azure App Service](overview.md) that's connected to an [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) database. Azure App Service provides a highly scalable, self-patching web hosting service using the Linux operating system. When you're finished, you have an Express.js app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Node.js application storing data in Cosmos DB.":::
 
@@ -222,7 +222,7 @@ Deployment generated the connectivity string for you already as an [app setting]
         1. In **Resource Group**, select the resource group, such as **msdocs-expressjs-mongodb-tutorial**.
         1. In **Name**, enter a name, such as *msdocs-expressjs-mongodb-VaultEndpoint*.
         1. In **Virtual network**, select **msdocs-expressjs-mongodbVnet**.
-        1. In **Subnet**, **msdocs-expressjs-mongodb-XYZSubnet**.
+        1. In **Subnet**, select **msdocs-expressjs-mongodb-XYZSubnet**.
         1. Select **OK**.
         1. Select **Review + create**, then select **Create**. Wait for the key vault deployment to finish. You should see **Your deployment is complete.**
     :::column-end:::
@@ -301,7 +301,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         1. Sign in to your GitHub account and follow the prompt to authorize Azure.
         1. In **Organization**, select your account.
         1. In **Repository**, select **msdocs-nodejs-mongodb-azure-sample-app**.
-        1. In **Branch**, select **starter-no-infra**. This branch is the same once that you worked in with your sample app, without any Azure-related files or configuration.
+        1. In **Branch**, select **starter-no-infra**. This branch is the same one that you worked in with your sample app, without any Azure-related files or configuration.
         1. For **Authentication type**, select **User-assigned identity**.
         1. In the top menu, select **Save**. App Service commits a workflow file into the chosen GitHub repository, in the `.github/workflows` directory.
         By default, the deployment center [creates a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity) for the workflow to authenticate using Microsoft Entra (OIDC authentication). For alternative authentication options, see [Deploy to App Service using GitHub Actions](deploy-github-actions.md).
@@ -324,7 +324,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         **Step 4 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
         1. Ask, "*@workspace How does the app connect to the database?*" Copilot might point you to the *app.js* file and the `mongoose.connect` call.
-        1. Say, *I have a connection string variable in Azure called AZURE_COSMOS_CONNECTIONSTRING.*. Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps and even tell you to make the change in [app.js](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/app.js).
+        1. Say, *I have a connection string variable in Azure called AZURE_COSMOS_CONNECTIONSTRING*. Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps and even tell you to make the change in [app.js](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/app.js).
         1. Open *app.js* in the explorer and add the code suggestion in the `getApp` method.
         GitHub Copilot doesn't give you the same response every time. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
@@ -471,7 +471,7 @@ Azure App Service provides a web-based diagnostics console named [Kudu](./resour
     :::column-end:::
 :::row-end:::
 
-## 8. Clean up resources
+## Clean up resources
 
 When you're finished, you can delete all of the resources from your Azure subscription by deleting the resource group.
 
@@ -579,7 +579,7 @@ The AZD template you use generated the connectivity variables for you already as
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 4. Modify sample code and redeploy
+## Modify sample code and redeploy
 
 # [With GitHub Copilot](#tab/copilot)
 
