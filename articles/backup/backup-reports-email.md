@@ -64,7 +64,7 @@ To perform the authorization, follow the steps below:
 
 * All the charts and graphs shown in the portal are available as inline content in the email. [Learn more](configure-reports.md) about the information shown in Backup Reports.
 * The grids shown in the portal are available as *.csv attachments in the email.
-* The data shown in the email uses all the report-level filters selected by the user in the report, at the time of creating the email task.
+* The data shown in the email uses the report-level filters selected by the user in the report, at the time of creating the email task.
 * Tab-level filters such as **Backup Instance Name**, **Policy Name** and so on, aren't applied. The only exception to this is the **Retention Optimizations** grid in the **Optimize** tab, where the filters for **Daily**, **Weekly**, **Monthly** and **Yearly** RP retention are applied.
 * The time range and aggregation type (for charts) are based on the user’s time range selection in the reports. For example, if the time range selection is last 60 days (translating to weekly aggregation type), and email frequency is daily, the recipient will receive an email every day with charts spanning data taken over the last 60-day period, with data aggregated at a weekly level.
 
@@ -76,7 +76,7 @@ If you aren't receiving emails as expected even after successful deployment of t
 
 * This issue could be occurring because the Outlook API connector isn't authorized. To authorize the connection, follow the authorization steps provided above.
 
-* This issue could also be occurring if you've specified an incorrect email recipient while creating the logic app. To verify that the email recipient has been specified correctly, you can go to the logic app in the Azure portal, open the Logic App designer and select email step to see whether the correct email IDs are being used.
+* This issue could also be occurring if you've specified an incorrect email recipient while creating the logic app. To verify that the email recipient has been specified correctly, you can go to the logic app in the Azure portal, open the Logic App designer, and select email step to see whether the correct email IDs are being used.
 
 ### Scenario 2: Receiving an error email that says that the logic app failed to execute to completion
 
@@ -88,7 +88,7 @@ To troubleshoot this issue:
 
 ### Scenario 3: Error in authorizing Microsoft 365 API connection
 
-When attempting to authorize the Microsoft 365 API connection, you might see an error of the form _Test connection failed. Error 'REST API is not yet supported for this mailbox. This error can occur for sandbox (test) accounts or for accounts that are on a dedicated (on-premises) mail server._ 
+When attempting to authorize the Microsoft 365 API connection, you might see an error of the form _Test connection failed. Error 'REST API isn't yet supported for this mailbox. This error can occur for sandbox (test) accounts or for accounts that are on a dedicated (on-premises) mail server._ 
 
 This error can occur if the mailbox is on a dedicated Microsoft Exchange Server and isn't a valid Office 365 mailbox. [Learn more](/connectors/office365/#common-errors)
 
