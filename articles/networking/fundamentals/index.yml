@@ -5,7 +5,7 @@ summary: Azure networking services enable you to access connect Azure resources 
 metadata:
   title: Azure Networking Fundamentals Documentation
   description: Learn about networking services in Azure that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, help protect your network resources, scale application delivery, and help monitor your network.
-  ms.service: networking
+  ms.service: azure-networking
   ms.topic: landing-page
   ms.collection: collection
   author: mbender-ms
@@ -91,42 +91,7 @@ landingContent:
             url: ../../virtual-network/tutorial-connect-virtual-networks-portal.md
           - text: Create a hub and spoke topology
             url: ../../virtual-network-manager/how-to-create-hub-and-spoke.md
-  # Card
-  - title: Private access to network resources
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Private Endpoint?
-            url: ../../private-link/private-endpoint-overview.md
-      - linkListType: tutorial
-        links:
-          - text: Create a Private Endpoint
-            url: ../../private-link/create-private-endpoint-portal.md 
- 
-   # Card
-  - title: Load balance your applications
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Network load balancer
-            url: ../../load-balancer/load-balancer-overview.md
-          - text: Secure cloud CDN and global load balancer
-            url: ../../frontdoor/front-door-overview.md
-          - text: Web application load balancer
-            url: ../../application-gateway/overview.md
-          - text: Dns-based load balancer
-            url: ../../traffic-manager/traffic-manager-overview.md
-      - linkListType: tutorial
-        links:
-          - text: Create a network load balancer
-            url: ../../load-balancer/quickstart-load-balancer-standard-public-portal.md
-          - text: Deploy a secure cloud CDN and global load balancer
-            url: ../../frontdoor/quickstart-create-front-door.md
-          - text: Create a web application load balancer
-            url: ../../application-gateway/quick-create-portal.md
-          - text: Create a dns-based load balancer
-            url: ../../traffic-manager/quickstart-create-traffic-manager-profile.md
- 
+
   # Card
   - title: Secure your network
     linkLists:
@@ -168,9 +133,44 @@ landingContent:
             url: ../../web-application-firewall/afds/waf-front-door-create-portal.md
           - text: How to block network traffic with Azure Virtual Network Manager
             url: ../../virtual-network-manager/how-to-block-network-traffic-portal.md
-      
+
   # Card
-  
+  - title: Private access to network resources
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Private Endpoint?
+            url: ../../private-link/private-endpoint-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Create a Private Endpoint
+            url: ../../private-link/create-private-endpoint-portal.md 
+ 
+  # Card
+  - title: Load balance your applications
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Network load balancer
+            url: ../../load-balancer/load-balancer-overview.md
+          - text: Secure cloud CDN and global load balancer
+            url: ../../frontdoor/front-door-overview.md
+          - text: Web application load balancer
+            url: ../../application-gateway/overview.md
+          - text: Dns-based load balancer
+            url: ../../traffic-manager/traffic-manager-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Create a network load balancer
+            url: ../../load-balancer/quickstart-load-balancer-standard-public-portal.md
+          - text: Deploy a secure cloud CDN and global load balancer
+            url: ../../frontdoor/quickstart-create-front-door.md
+          - text: Create a web application load balancer
+            url: ../../application-gateway/quick-create-portal.md
+          - text: Create a dns-based load balancer
+            url: ../../traffic-manager/quickstart-create-traffic-manager-profile.md
+ 
+  # Card
   - title: Connect on-premises networks to virtual networks
     linkLists:
        - linkListType: overview
