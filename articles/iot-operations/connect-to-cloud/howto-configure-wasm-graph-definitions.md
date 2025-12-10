@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 12/03/2025
+ms.date: 12/10/2025
 ai-usage: ai-assisted
 
 ---
