@@ -281,11 +281,11 @@ To test the new connector locally, follow these steps:
 
 1. You can see the container running in Docker Desktop. The REST server is accessible at `http://restserver:3000` for containers running on `aio_akri_network`.
 
-1. Copy the file `rest-server-device-definition.yaml` from the `samples/akri-vscode-extension/rest-server-custom-resources` folder in your local copy of the `explore-iot-operations` repository to the **Devices** folder in your connector workspace in VS code. This device resource defines an endpoint connection to the REST server.
+1. Copy the file `rest-server-device-definition.yaml` from the `samples/akri-vscode-extension/rest-server-custom-resources` folder in your local copy of the `explore-iot-operations` repository to the **Devices** folder in your connector workspace in VS Code. This device resource defines an endpoint connection to the REST server.
 
-1. Copy the file `rest-server-asset1-definition.yaml` from the `samples/akri-vscode-extension/rest-server-custom-resources` folder in your local copy of the `explore-iot-operations` repository to the **Assets** folder in your connector workspace in VS code. This asset publishes temperature information from the device to the `mqtt/machine/asset1/status` MQTT topic.
+1. Copy the file `rest-server-asset1-definition.yaml` from the `samples/akri-vscode-extension/rest-server-custom-resources` folder in your local copy of the `explore-iot-operations` repository to the **Assets** folder in your connector workspace in VS Code. This asset publishes temperature information from the device to the `mqtt/machine/asset1/status` MQTT topic.
 
-1. Copy the file `rest-server-asset2-definition.yaml` from the `samples/akri-vscode-extension/rest-server-custom-resources` folder in your local copy of the `explore-iot-operations` repository to the **Assets** folder in your connector workspace in VS code. This asset publishes temperature information from the device to the state store.
+1. Copy the file `rest-server-asset2-definition.yaml` from the `samples/akri-vscode-extension/rest-server-custom-resources` folder in your local copy of the `explore-iot-operations` repository to the **Assets** folder in your connector workspace in VS Code. This asset publishes temperature information from the device to the state store.
 
 1. To test the connector with the device and asset resources, go to the **Run and Debug** panel in the VS Code workspace and select the **Run an Akri Connector** configuration. This configuration launches a terminal that runs the prelaunch tasks to start the `aio-broker` container and the REST connector you developed in another container called `<connector_name>_release`. This process takes several minutes. You can see the telemetry data flow from the REST server to the MQ broker through the REST connector in the terminal window in VS Code. The container logs are also visible in Docker Desktop.
 
@@ -342,7 +342,7 @@ The state of the schema registry is always visible in the `Output/ConnectorState
 
 ## Publish a connector image
 
-Use the **Azure IoT Operations Akri connectors: Publish Akri Connector Image or Metadata** command to publish connector images to an Microsoft Azure Container Registry (ACR) registry. The command uses the Microsoft Azure CLI and `oras` commands. To publish to an ACR registry, you need your Azure subscription ID and ACR registry name.
+Use the **Azure IoT Operations Akri connectors: Publish Akri Connector Image or Metadata** command to publish connector images to a Microsoft Azure Container Registry (ACR) registry. The command uses the Microsoft Azure CLI and `oras` commands. To publish to an ACR registry, you need your Azure subscription ID and ACR registry name.
 
 ## Author connector metadata configuration
 
