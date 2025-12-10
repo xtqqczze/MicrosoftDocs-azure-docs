@@ -19,7 +19,7 @@ This article explains how you can use [managed identities](/entra/identity/manag
 
 A managed identity is an identity in Microsoft Entra ID that is automatically managed by Azure. You typically use managed identities when developing cloud applications to manage the credentials for authenticating to Azure services. 
 
-By the end of this guide, you'll have a storage account ready to access with a managed identity. You'll also know how to use a VM, your application, or the Azure Kubernetes Service (AKS) CSI driver to create a managed identity and generate an OAuth token for it. Then you'll mount a file share using managed identity-based authentication and authorization, eliminating the need to use a storage account key.
+By the end of this guide, you'll have a storage account ready to access with a managed identity. You'll also know how to create a managed identity for your VM or application and generate an OAuth token for it. Then you'll mount a file share using managed identity-based authentication and authorization, eliminating the need to use a storage account key.
 
 ## Why authenticate using a managed identity?
 
@@ -49,7 +49,7 @@ Windows VMs can have both user assigned and system assigned managed identities c
 
 ## Prerequisites
 
-This article assumes that you have an Azure subscription with permissions to create storage accounts and assign Azure Role-Based Access Control (RBAC) roles.
+This article assumes that you have an Azure subscription with permissions to create storage accounts and assign Azure Role-Based Access Control (RBAC) roles. To assign roles, you must have role assignments write permission (Microsoft.Authorization/roleAssignments/write) at the scope you want to assign the role.
 
 In addition, the clients that need to authenticate using a managed identity shouldn't be joined to any domain.
 
@@ -129,7 +129,7 @@ You can use managed identities with Windows or Linux. Select the appropriate tab
 
 ### [Windows](#tab/windows)
 
-For Windows, the enablement steps are different for Azure VMs versus non-Azure VMs. Once a managed identity is enabled on the VM, all necessary permissions can be granted via Azure RBAC.
+The enablement steps described here are for Azure VMs. If you want to enable a managed identity on non-Azure Windows machines (on-prem or other cloud), you must [onboard them to Azure Arc and assign a managed identity](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management). You can also use an application identity as a managed identity instead of using a VM.
 
 ### Enable managed identity on an Azure VM
 
@@ -141,15 +141,27 @@ If you want to authenticate an Azure VM, follow these steps.
 
     :::image type="content" source="media/managed-identities/enable-system-assigned-managed-identity.png" alt-text="Screenshot showing how to enable system assigned managed identity when creating a new VM using the Azure portal." border="true":::
 
-1. Assign the built-in Azure RBAC role **Storage File Data SMB MI Admin** role to the managed identity at the desired scope. See [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps).
+### Assign built-in RBAC role to the managed identity or application identity
 
-### Enable managed identity on a non-Azure Windows device
+Once a managed identity is enabled, you can grant all necessary permissions via Azure RBAC. To assign roles, you must be signed in as a user that has role assignments write permission at the scope you want to assign the role.
 
-To enable a managed identity on non-Azure Windows machines (on-prem or other cloud), follow these steps.
+Follow these steps to assign the built-in Azure RBAC role **Storage File Data SMB MI Admin**, which allows for admin-level access for managed identities on files and directories in Azure Files.
 
-1. [Onboard them to Azure Arc and assign a managed identity](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management).
+1. Navigate to the storage account that contains the file share you want to mount using a managed identity. Select **Access Control (IAM)** from the service menu.
 
-1. Assign the built-in Azure RBAC role **Storage File Data SMB MI Admin** role to the managed identity at the desired scope. See [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps).
+1. Under **Grant access to this resource**, select **Add role assignment**.
+
+1. On the **Role** tab, under **Job function roles**, search for and select **Storage File Data SMB MI Admin**, and then select **Next**.
+
+1. On the **Members** tab, under **Assign access to**, select **Managed identity** for VM or Azure Arc identities. For application identities, select **User, group, or service principal**.
+
+1. Under **Members**, click on **+ Select members**. 
+
+1. For Azure VMs or Azure Arc identities, select the managed identity that you created. For application identities, search for and select the application identity. Click **Select**.
+
+1. You should now see the managed identity or application identity listed under **Members**. Select **Next**.
+
+1. Select **Review + assign** to add the role assignment to the storage account.
 
 
 ### [Linux](#tab/linux)
@@ -173,21 +185,21 @@ To configure a managed identity on a Linux VM running in Azure, follow these ste
 
 1. Under **Members**, click on **+ Select members**. The **Select managed identities** pane appears.
 
-1. Under **Managed identity**, select the user assigned managed identity that you created in step 1, and then click **Select**.
+1. Under **Managed identity**, select the user assigned managed identity that you created, and then click **Select**.
 
 1. You should now see the managed identity listed under **Members**. Select **Next**.
 
 1. Select **Review + assign** to add the role assignment to the storage account.
 
-1. Navigate to your Linux VM. From the service menu, under **Security**, select **Identity**.
+1. Navigate to your VM. From the service menu, under **Security**, select **Identity**.
 
-1. Select the **User assigned** tab, and then select **Add user assigned managed identity**. Select the user assigned managed identity you created in step 1, and then select **Add**.
+1. Select the **User assigned** tab, and then select **Add user assigned managed identity**. Select the user assigned managed identity you created, and then select **Add**.
 
 ---
 
 ## Prepare your client to authenticate using a managed identity
 
-Follow these steps to prepare your system to mount the file share using managed identity authentication. The steps are different for Windows and Linux clients.
+Follow these steps to prepare your system to mount the file share using managed identity authentication. The steps are different for Windows and Linux clients. Clients should not be domain joined.
 
 ### [Windows](#tab/windows)
 
