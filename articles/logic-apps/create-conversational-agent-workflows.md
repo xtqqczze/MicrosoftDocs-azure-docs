@@ -220,6 +220,31 @@ Based on the development experience that you use, start by creating a new workfl
 
 <a name="agent-model"></a>
 
+### How to call or trigger this workflow
+
+Conversational agent workflows can be triggered in two ways:
+
+#### 1️⃣ Interactive chat in the Azure portal (development only)
+Use the **Chat** button in the workflow designer to manually start a chat session with the agent.
+This method is intended only for test interactions inside the Azure portal.
+
+> ⚠️ Portal-based testing uses a temporary developer key.  
+> This key **cannot** be used by external users or production systems.
+
+#### 2️⃣ External applications (for real user interaction)
+External clients such as websites, mobile apps, bots, or other Azure services can trigger the workflow using the hosted chat endpoint.
+
+| Workflow type | Endpoint usage | Required authentication |
+|--------------|----------------|------------------------|
+| **Consumption** | Chat client URL embedded or opened externally | **OAuth 2.0 with Microsoft Entra ID** |
+| **Standard** | HTTPS trigger or chat client URL | **Managed identity / Easy Auth** |
+
+##### Chat client URL formats
+
+**Consumption**
+```html
+<iframe src="https://agents.<region>.logic.azure.com/scaleunits/<scale-unit-ID>/flows/<workflow-ID>/agentChat/IFrame" title="Chat client"></iframe>
+
 ## Set up or view the AI model
 
 To set up or view the AI model for your agent, follow the steps based on your logic app type:
