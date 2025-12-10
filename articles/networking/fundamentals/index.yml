@@ -5,12 +5,13 @@ summary: Azure networking services enable you to access connect Azure resources 
 metadata:
   title: Azure Networking Fundamentals Documentation
   description: Learn about networking services in Azure that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, help protect your network resources, scale application delivery, and help monitor your network.
-  ms.service: azure-virtual-network
+  ms.service: networking
   ms.topic: landing-page
+  ms.collection: collection
   author: mbender-ms
   ms.author: mbender
-  ms.date: 07/10/2023
-  ms.custom: engagement-fy23, portfolio-consolidation-2025
+  ms.date: 12/10/2025
+  ms.custom: engagement-fy23
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -34,7 +35,7 @@ landingContent:
           - text: Build your network infrastructure in Azure
             url: /training/paths/architect-network-infrastructure/
           - text: Explore Azure networking services
-            url: /training/modules/azure-networking-fundamentals/
+            url: /training/modules/describe-azure-compute-networking-services/
       - linkListType: deploy
         links:
           - text: Azure Networking Solutions
@@ -167,23 +168,7 @@ landingContent:
             url: ../../web-application-firewall/afds/waf-front-door-create-portal.md
           - text: How to block network traffic with Azure Virtual Network Manager
             url: ../../virtual-network-manager/how-to-block-network-traffic-portal.md
-      - linkListType: learn
-        links:
-          - text: Secure network connectivity on Azure
-            url: /training/modules/secure-network-connectivity-azure/
-          - text: Introduction to Azure Firewall
-            url: /training/modules/introduction-azure-firewall/
-          - text: Introduction to Azure Firewall Manager
-            url: /training/modules/intro-to-azure-firewall-manager/
-          - text: Introduction to Azure Web Application Firewall
-            url: /training/modules/introduction-azure-web-application-firewall/
-          - text: Introduction to Azure DDoS Protection
-            url: /training/modules/introduction-azure-ddos-protection/
-          - text: Introduction to Azure Bastion
-            url: /training/modules/intro-to-azure-bastion/
-          - text: Secure and isolate access to Azure resources by using network security groups and service endpoints
-            url: /training/modules/secure-and-isolate-with-nsg-and-service-endpoints/
-    
+      
   # Card
   
   - title: Connect on-premises networks to virtual networks
