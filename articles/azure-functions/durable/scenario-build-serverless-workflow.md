@@ -190,9 +190,9 @@ The Functions runtime needs a storage component. The `"AzureWebJobsStorage": "Us
 
 Run this command to start Azurite: 
 
-    ```console
-    npx azurite --skipApiVersionCheck --location ~/azurite-data
-    ```
+```console
+npx azurite --skipApiVersionCheck --location ~/azurite-data
+```
 
 Keep Azurite running in the terminal window. You need it running while testing locally.
 
@@ -349,7 +349,7 @@ You can now invoke your orchestration endpoint in Azure by making an HTTP reques
 You can use the Core Tools to get the URL endpoint of the HTTP trigger that starts the orchestration in Azure.
 
 1. In your local terminal or command prompt, run these commands to get the URL endpoint values:
-    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-java,programming-language-python" 
+    
     ### [bash](#tab/bash)
 
     ```bash
@@ -364,22 +364,6 @@ You can use the Core Tools to get the URL endpoint of the HTTP trigger that star
     ``` 
     ---
     
-    ::: zone-end  
-    ::: zone pivot="programming-language-powershell"  
-    ### [PowerShell](#tab/powershell)
-    ```powershell
-    $APP_NAME = azd env get-value AZURE_FUNCTION_NAME
-    func azure functionapp list-functions $APP_NAME --show-keys
-    ```
-
-    ### [Cmd](#tab/cmd2)
-    ```cmd
-    for /f "tokens=*" %i in ('azd env get-value AZURE_FUNCTION_NAME') do set APP_NAME=%i
-    func azure functionapp list-functions %APP_NAME% --show-keys 
-    ``` 
-    ---
-
-    ::: zone-end  
     The `azd env get-value` command gets your function app name from the local environment. When you use the `--show-keys` option with `func azure functionapp list-functions`, the returned **Invoke URL:** value for each endpoint includes any required function-level access keys.
 
 1. As before, use a browser or HTTP test tool to start the orchestration in your function app running in Azure. 
