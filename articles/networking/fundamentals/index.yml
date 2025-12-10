@@ -5,7 +5,7 @@ summary: Azure networking services enable you to access connect Azure resources 
 metadata:
   title: Azure Networking Fundamentals Documentation
   description: Learn about networking services in Azure that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, help protect your network resources, scale application delivery, and help monitor your network.
-  ms.service: azure-networking
+  ms.service: azure-virtual-networking
   ms.topic: landing-page
   ms.collection: collection
   author: mbender-ms
@@ -19,7 +19,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
                     
- # Card (optional)
+ # Card  
   - title: About Azure Networking
     linkLists:
       - linkListType: overview
@@ -43,7 +43,7 @@ landingContent:
           - text: Implement Azure network security
             url: https://mslearn.cloudguides.com/guides/Azure%20network%20security
   
-  # Card (optional)
+  # Card  
   - title: Get started
     linkLists:
       - linkListType: overview
@@ -55,7 +55,7 @@ landingContent:
           - text: Create a virtual network
             url: ../../virtual-network/quick-create-portal.md  
 
-  # Card (optional)
+  # Card  
   - title: Communicate to the internet
     linkLists:
       - linkListType: overview
@@ -74,9 +74,8 @@ landingContent:
         links:
           - text: Design an IP addressing schema for your Azure deployment
             url: /training/modules/design-ip-addressing-for-azure/
-
  
- # Card
+ # Card  
   - title: Connect virtual networks
     linkLists:
       - linkListType: overview
