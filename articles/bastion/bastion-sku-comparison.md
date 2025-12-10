@@ -61,7 +61,7 @@ Compare the features across all four Azure Bastion SKU tiers:
 The following table shows the capacity and scaling characteristics of each SKU tier:
 
 | Metric | Developer | Basic | Standard | Premium |
-|--------|-----------|----------|---------|---------|-||
+|--------|-----------|----------|---------|---------|-|
 | **Deployment model** | Shared resource | Dedicated host | Dedicated host | Dedicated host |
 | **Host scaling** | No | No | Yes (2-50 instances) | Yes (2-50 instances) |
 | **Instance count** | N/A (shared) | 2 (fixed) | 2-50 (configurable) | 2-50 (configurable) |
