@@ -69,7 +69,7 @@ Log in with your **admin credentials** [https://admin.microsoft.com](https://adm
 #### 2. Add Pay-As-You-Go Calling Plan
 - Navigate to **Marketplace → All Products**.
 - Search for **Microsoft Teams Calling Plan (Pay-As-You-Go)**.
-- Select the appropriate **Country Zone (Zone 1 or Zone 2)** based on your location.
+- Select the appropriate **Pay-As-You-Go Calling Plan Zone (Zone 1 or Zone 2)** based on your location.
 - Add the plan under **Add-ons**.  
 More details: [Learn more about Calling Plans PAYG](https://learn.microsoft.com/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)
 
