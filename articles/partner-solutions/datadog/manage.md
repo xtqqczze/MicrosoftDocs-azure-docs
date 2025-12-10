@@ -189,5 +189,5 @@ Select **Support + Troubleshooting** > **New support request** from the service 
 
 ## Related content
 
-- [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
+- [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md)
 

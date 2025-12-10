@@ -73,9 +73,6 @@ If you wish, you can configure resources to send metrics/logs to New Relic. For 
 - Select **Subscription activity logs** to send subscription-level logs to New Relic.
 - Select **Azure resource logs** to send Azure resource lots to New Relic. 
 
-> [!IMPORTANT]
-> When the checkbox for Azure resource logs is selected, logs are forwarded for all resources by default.
-
 After you finish configuring metrics and logs, select **Next**.
 
 ### Tags tab (optional)
