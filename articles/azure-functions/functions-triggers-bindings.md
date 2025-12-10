@@ -68,7 +68,7 @@ Legacy C# script functions use a `function.json` definition file. For more infor
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-For Java functions, you configure triggers and bindings by annotating specific methods and parameters. This HTTP trigger (`@HttpTrigger`) is defined on the `run` method for a function named `HttpTriggerQueueOutput`. The function writes to a storage queue that the `@QueueOutput` annotation defines on the `message` parameter:
+For Java functions, you configure triggers and bindings by annotating specific methods and parameters. This HTTP trigger (`@HttpTrigger`) is defined on the `run` method for a function named `HttpExample`. The function writes to a storage queue that the `@QueueOutput` annotation defines on the `message` parameter:
 
 :::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="16-23":::
 
