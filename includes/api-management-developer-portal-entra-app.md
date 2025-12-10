@@ -53,7 +53,7 @@ Alternatively, manually enable Microsoft Entra ID in the developer portal by reg
 1. Select **New registration**. On the **Register an application** page, set the values as follows:
     
     * Set **Name** to a meaningful name such as *developer-portal*
-    * Set **Supported account types**, make a selection appropriate for your scenarios. If you need to allow users in multiple Microsoft Entra tenants to access the developer portal, select **Accounts in any organizational directory (Multitenant)**. 
+    * Set **Supported account types**, make a selection appropriate for your scenarios. If you want to allow users in multiple Microsoft Entra ID tenants to access the developer portal, select **Accounts in any organizational directory (Multitenant)**. 
     * In **Redirect URI**, select **Single-page application (SPA)** and paste the redirect URL you saved from a previous step. 
     * Select **Register**. 
 
@@ -67,7 +67,7 @@ Alternatively, manually enable Microsoft Entra ID in the developer portal by reg
     * Enter a **Description**.
     * Select any option for **Expires**.
     * Choose **Add**. 
-1. Copy the client **Secret value** before leaving the page. You need it later. 
+1. Copy the client **Secret value** before leaving the page. You need it in a later step. 
 1. Under **Manage** in the side menu, select **Token configuration** > **+ Add optional claim**.
     1. In **Token type**, select **ID**.
     1. Select (check) the following claims: **email**, **family_name**, **given_name**.
@@ -79,8 +79,10 @@ Alternatively, manually enable Microsoft Entra ID in the developer portal by reg
     > Update the **Client secret** before the key expires. 
 
 1. In **Signin tenant**, specify a tenant name or ID to use for sign-in to Microsoft Entra. If you don't specify a value, the Common endpoint is used.
-<!-- Is this still true about Common endpoint? Is the "Organizations" endpoint an option/requirement for multitenant login? -->
 1. In **Allowed tenants**, add one or more specific Microsoft Entra tenant names or IDs for sign-in to Microsoft Entra. 
+
+    > [!NOTE]
+    > If you specify additional tenants, the app registration must be configured to support multiple tenants. For more information, see [Configure app registration for multiple tenants](../articles/api-management/api-management-howto-aad.md#configure-app-registration-for-multiple-tenants).
 1. After you specify the desired configuration, select **Add**.
 1. Republish the developer portal for the Microsoft Entra configuration to take effect. In the left menu, under **Developer portal**, select **Portal overview** > **Publish**. 
 

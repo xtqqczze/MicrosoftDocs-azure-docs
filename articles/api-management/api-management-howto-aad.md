@@ -80,7 +80,7 @@ You can enable access to the developer portal by users from more than one Micros
 The app registration you configure for the identity provider must support multiple tenants. You can do this in either of the following ways:
 
 * When creating the app registration, set **Supported account types** to **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)**. 
-* If you previously configured an app registration for a single tenant, update the **Supported account types** setting on the **Authentication** page of the app registration.
+* If you previously configured an app registration for a single tenant, update the **Supported account types** setting on the **Manage** > **Authentication** page of the app registration.
 
 ### Update identity provider configuration for multiple tenants
 
