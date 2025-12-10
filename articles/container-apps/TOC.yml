@@ -309,7 +309,7 @@ items:
           href: managed-identity.md
         - name: Azure Container Registry image pull with managed identity
           href: managed-identity-image-pull.md
-    - name: Secure deployment
+    - name: Secure deployments
       href: secure-deployment.md
 - name: Resiliency (preview)
   items:
