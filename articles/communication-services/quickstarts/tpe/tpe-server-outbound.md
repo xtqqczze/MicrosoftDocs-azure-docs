@@ -26,15 +26,15 @@ Before you begin:
   - The **Object ID (OID)** of the Resource Account.
   - A valid **base URI** for your callback endpoint to receive events.
 - Familiarize yourself with:
-  - [Call Automation concepts](https://learn.microsoft.com/azure/communication-services/concepts/call-automation)
-  - [Action-event programming model](https://learn.microsoft.com/azure/communication-services/concepts/call-automation#action-event-model)
+  - [Call Automation concepts](/azure/communication-services/concepts/call-automation)
+  - [Action-event programming model](/azure/communication-services/concepts/call-automation#action-event-model)
 - Learn about the [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like `TeamsExtensionUser` and `PhoneNumberIdentifier`.
 
 For all the code samples, `client` is the `CallAutomationClient` object that you can create, as shown. Also, `callConnection` is the `CallConnection` object that you obtain from the `Answer` or `CreateCall` response. You can also obtain it from callback events that your application receives.
 
 ## License Requirement
 
-As of **November 1, 2025**, Calling Plan licenses on resource accounts will no longer be supported for On-Behalf-Of PSTN outbound calls as well as server initiated outbound calls. A **[Pay-As-You-Go license](https://learn.microsoft.com/en-us/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)** will be required.
+As of **November 1, 2025**, Calling Plan licenses on resource accounts will no longer be supported for On-Behalf-Of PSTN outbound calls as well as server initiated outbound calls. A **[Pay-As-You-Go license](/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)** will be required.
 Expand the sections below for more information.
 <details><summary>For Calling Plan customers who received MC1123835</summary>
 Starting November 1, 2025, a Pay-As-You-Go license will be required for Teams Resource Accounts, provisioned for Teams Phone extensbility and that use Calling Plan numbers for outbound PSTN calls.
@@ -50,11 +50,11 @@ On November 1, 2025, the On-Behalf-Of PSTN outbound calls as well as server init
 **Note:** There is no change for Direct Routing phone numbers.
 
 **Learn more:**
-- [Pay-As-You-Go Calling Plan](https://learn.microsoft.com/microsoftteams/pay-as-you-go)
-- [How to buy Calling Plans](https://learn.microsoft.com/microsoftteams/calling-plans)
-- [Enable pay-as-you-go for your subscription](https://learn.microsoft.com/microsoftteams/payg-enable)
-- [Telco pay-as-you-go overage in new commerce](https://learn.microsoft.com/microsoftteams/new-commerce-payg)
-- [Assign Teams add-on licenses to users](https://learn.microsoft.com/microsoftteams/assign-licenses)
+- [Pay-As-You-Go Calling Plan](/microsoftteams/pay-as-you-go)
+- [How to buy Calling Plans](/microsoftteams/calling-plans)
+- [Enable pay-as-you-go for your subscription](/microsoftteams/payg-enable)
+- [Telco pay-as-you-go overage in new commerce](/microsoftteams/new-commerce-payg)
+- [Assign Teams add-on licenses to users](/microsoftteams/assign-licenses)
 
 
 
