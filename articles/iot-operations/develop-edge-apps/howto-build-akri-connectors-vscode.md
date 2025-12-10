@@ -27,25 +27,17 @@ The extension enables you to create connectors by using the following programmin
 
 ## Prerequisites
 
-Software and services:
-
-- Azure IoT Operations instance
-- Linux or WSL environment with `kubectl` and `helm` installed
-- Docker
-
-> [!TIP] 
-> To meet these requirements on Linux, use the [quickstart codespace](../get-started-end-to-end-sample/quickstart-deploy.md) to deploy and Azure IoT Operations instance.
-
 Development environment:
 
+- Docker
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Azure IoT Operations Akri connectors](https://marketplace.visualstudio.com/items?itemName=ms-azureiotoperations.azure-iot-operations-akri-connectors-vscode) VS Code extension
 - [.NET SDK](https://dotnet.microsoft.com/download)
 - To debug .NET based connectors - [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-- To debug Rust based connectors - [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-VS Code.cpptools)
+- To debug Rust based connectors - [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-VSCode.cpptools)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [ORAS CLI](https://oras.land/docs/installation/)
-- Clone the [Explore Azure IoT Operations](https://github.com/Azure-Samples/explore-iot-operation) repository if you haven't already done so.
+- Clone the [Explore Azure IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository if you haven't already done so.
 
 Docker configuration:
 
@@ -53,7 +45,7 @@ Images used by the extension must be pulled and tagged locally before you use th
 
 ```bash
 docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8
-docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8 devx
+docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.8 devx-runtime
 ```
 
 All the containers the extension launches are configured to run on a custom network named `aio_akri_network` for network isolation purpose:
@@ -262,9 +254,9 @@ Next, build the project to confirm there are no errors. Use the VS Code command 
 
 In this example, you create an HTTP/REST connector using the Rust language, build a Docker image, and then run the connector application by using the VS Code extension:
 
-1. Press `Ctrl+Shift+P` to open the command palette and search for the **Azure IoT Operations Akri Connectors: Create a New Akri Connector** command. Create a new folder called `my-connectors` and select it, select **Rust** as the language, enter a name for the connector like `rest_connector`, and select **PollingTelemetryConnector** as the connector type.
+1. Press `Ctrl+Shift+P` to open the command palette and search for the **Azure IoT Operations Akri Connectors: Create a New Akri Connector** command. Create a new folder called `my-connectors` and select it, select **Rust** as the language, and enter a name for the connector like `rest_connector`.
 
-1. The extension creates a new workspace named by using the connector name you chose in the previous step. The workspace includes the scaffolding for a polling telemetry connector written in the Rust language. You can try out the connector with the scaffolding code. To see logs from your connector crate, replace the tag `sample_connector_scaffolding` with your connector name in the `DEFAULT_LOG_LEVEL` variable in the `main.rs` file.
+1. The extension creates a new workspace named by using the connector name you chose in the previous step. The workspace includes the scaffolding for a connector written in the Rust language. There are `Implement` tags in the comments to help you write your own custom Akri connector. For testing purposes, you can try out the connector with just the scaffolding code. To see logs from your connector crate, replace the tag `sample_connector_scaffolding` with your connector name in the `DEFAULT_LOG_LEVEL` variable in the `main.rs` file.
 
 Next, build the project to confirm there are no errors. Use the VS Code command **Azure IoT Operations Akri Connectors: Build an Akri Connector** and choose the **Release** mode. This command shows the build progress in the **OUTPUT** console and notifies you when the build completes. You can then see a new Docker image named `<connector_name>` with tag `release` locally in Docker Desktop.
 
