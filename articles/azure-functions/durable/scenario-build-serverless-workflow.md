@@ -357,6 +357,12 @@ You can use the Core Tools to get the URL endpoint of the HTTP trigger that star
     func azure functionapp list-functions $APP_NAME --show-keys
     ```
 
+    ### [PowerShell](#tab/powershell)
+    ```powershell
+    $APP_NAME = azd env get-value AZURE_FUNCTION_NAME
+    func azure functionapp list-functions $APP_NAME --show-keys
+    ```
+
     ### [Cmd](#tab/cmd)
     ```cmd
     for /f "tokens=*" %i in ('azd env get-value AZURE_FUNCTION_NAME') do set APP_NAME=%i
