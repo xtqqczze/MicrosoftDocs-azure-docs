@@ -1,10 +1,9 @@
 ---
 title: "Quickstart: Create an Informatica Intelligent Data Management Cloud deployment"
-description: This article describes how to use the Azure portal to create an  Informatica Intelligent Data Management Cloud organization.
-
+description: This article describes how to use the Azure portal to create an Informatica Intelligent Data Management Cloud organization.
 ms.topic: quickstart
 ms.date: 12/10/2025
-#Customer intent: As an information professional, I want to set up my Informatica Intelligent Data Management Cloud using an Azure Native ISV Service.
+#Customer intent: As an information professional, I want to set up my Informatica Intelligent Data Management Cloud as an Azure Native Service.
 ---
 # QuickStart: Get started with Informatica – An Azure Native ISV Service
 
@@ -45,7 +44,7 @@ Alternatively, use Azure Marketplace:
     | **Resource name**  | Enter the name for the Informatica Organization you want to create. |
     | **Region** | Select the closest region to where you would like to deploy your Informatica Azure Resource. |
     | **Informatica Region** | Select the Informatica region where you want to create Informatica Organization. |
-    | **Organization** | Specify your organization.<br><br>- Select **Create a new organization** if you want to a new Informatica Organization.<br>- Select **Link to an existing organization (with Azure Marketplace Billing)** if you already have an Informatica organization, intend to map it to the  Azure resource, and initiate a new plan with Azure Marketplace.<br>- Select **Link to an existing organization (continue with existing Informatica Billing)** if you already have an existing Informatica organization and have a billing contract with Informatica already. |
+    | **Organization** | Specify your organization.<br /><br />- Select **Create a new organization** if you want to a new Informatica Organization.<br />- Select **Link to an existing organization (with Azure Marketplace Billing)** if you already have an Informatica organization, intend to map it to the  Azure resource, and initiate a new plan with Azure Marketplace.<br />- Select **Link to an existing organization (continue with existing Informatica Billing)** if you already have an existing Informatica organization and have a billing contract with Informatica already. |
     | **Change plan** | Select this link to choose the plan you want to subscribe to. |
     | **Billing term** | Select a billing term. |
 
