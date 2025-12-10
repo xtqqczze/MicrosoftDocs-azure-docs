@@ -73,17 +73,17 @@ This guide shows how your logic app workflow can validate XML messages and docum
 
 1. To specify the schema for validation, follow the steps for your workflow type:
 
-   **Consumption**
+   - **Consumption**
 
-   From the **Schema Name** list, select the schema from the linked integration account.
+     From the **Schema Name** list, select the schema from the linked integration account.
 
-   **Standard**
+   - **Standard**
 
-   1. From the **Schema source** list, select **IntegrationAccount** or **LogicApp**.
+     1. From the **Schema source** list, select **IntegrationAccount** or **LogicApp**.
 
-      This example selects **IntegrationAccount**.
+        This example selects **IntegrationAccount**.
 
-   1. From the **Schema name** list, select the schema.
+     1. From the **Schema name** list, select the schema.
 
 1. When you're done, save your workflow.
 
@@ -97,7 +97,7 @@ Confirm that the workflow works the way that you expect.
 
 1. From the **HTTP URL** property, copy and save the endpoint URL for the trigger.
 
-1. On the designer toolbar. select **Run** > **Run**.
+1. On the designer toolbar, select **Run** > **Run**.
 
 1. To fire the **Request** trigger, use your preferred HTTP request tool to send a request with the XML content to the trigger's endpoint URL.
 
