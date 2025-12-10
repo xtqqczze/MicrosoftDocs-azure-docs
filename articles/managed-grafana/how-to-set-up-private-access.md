@@ -90,7 +90,7 @@ Even if the Grafana instance is configured to use private network only, the traf
 
     | Parameter              | Description                                                                                                                                                                 | Example                 |
     |------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
-    | Subscription           | Select an Azure subscription. Your private endpoint must be in the same subscription as your virtual network. You select a virtual network later in this how-to guide.   | *MyAzureSubscription*   |
+    | Subscription           | Select an Azure subscription. Your private endpoint must be in the same subscription as your virtual network. You'll select a virtual network later in this how-to guide.   | *MyAzureSubscription*   |
     | Resource group         | Select a resource group or create a new one.                                                                                                                                | *MyResourceGroup*       |
     | Name                   | Enter a name for the new private endpoint for your Azure Managed Grafana workspace.                                                                                          | *MyPrivateEndpoint*     |
     | Network Interface Name | This field is completed automatically. Optionally edit the name of the network interface.                                                                                   | *MyPrivateEndpoint-nic* |
