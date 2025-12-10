@@ -566,6 +566,7 @@ Sets an optional list of headers that are applied to all outgoing data exported 
 ## PIP\_INDEX\_URL
 
 This setting lets you override the base URL of the Python Package Index, which by default is `https://pypi.org/simple`. Use this setting when you need to run a remote build using custom dependencies. These custom dependencies can be in a package index repository compliant with PEP 503 (the simple repository API) or in a local directory that follows the same format.
+Please note that as this setting replaces the package index you may see unexpected behaviour on restore. Please consisder using PIP_EXTRA_URL instead. 
 
 |Key|Sample value|
 |---|------------|
