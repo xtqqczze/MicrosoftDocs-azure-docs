@@ -20,7 +20,7 @@ This article describes how to resolve errors you might see during configuration,
 
 We recommend that you check the following before you start troubleshooting Microsoft the Azure Recovery Services (MARS) agent:
 
-- [Ensure the MARS agent is up to date](https://learn.microsoft.com/en-us/azure/backup/install-mars-agent#download-the-mars-agent).
+- [Ensure the MARS agent is up to date](install-mars-agent.md#download-the-mars-agent).
 - [Ensure you have network connectivity between the MARS agent and Azure](#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup).
 - Ensure MARS is running (in Service console). If you need to, restart and retry the operation.
 - [Ensure 5% to 10% free volume space is available in the scratch folder location](./backup-azure-file-folder-backup-faq.yml#what-s-the-minimum-size-requirement-for-the-cache-folder-).
