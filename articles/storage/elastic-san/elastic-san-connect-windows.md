@@ -17,14 +17,6 @@ There are two ways to connect:
 - Elastic SAN VM Extension: Ideal for new virtual machines (VMs) or Virtual Machine Scale Sets. The extension enables automated, consistent SAN connectivity at deployment time via the Azure portal, or when you want minimal manual steps. 
 - Manual Connect Script: Ideal for existing VMs, advanced customizations, or troubleshooting, where you need to run scripts directly. 
 
-
-## Connect using the Elastic SAN VM extension  
-
-Use the Elastic SAN VM extension when you want to automate the connection process from the Azure portal. You can use the extension in two ways: 
-
-- **During VM creation**: Connect as part of provisioning. 
-- **After VM deployment**: Connect or disconnect from an existing VM or ARM deployment script to deploy for multiple VMs at scale 
-
 ### Prerequisites
 Before using the VM extension, ensure you have completed the following: 
 - [Deploy an Elastic SAN](elastic-san-create.md).
@@ -34,6 +26,13 @@ Before using the VM extension, ensure you have completed the following:
   - The IQN (iSCSI Qualified Name) for each volume is required to establish the connection.  
   - Currently, the Azure portal doesn't display the volume IQN directly. Take a note of it when you create the Elastic SAN. You can run `az elastic-san volume show --name <volume-name> --resource-group <rg-name> --elastic-san-name <esan-name>` or use the corresponding PowerShell cmdlet to fetch the IQN.  
   - Document and save the IQN(s) and target portal name for all volumes you plan to connect.
+
+## Connect using the Elastic SAN VM extension  
+
+Use the Elastic SAN VM extension when you want to automate the connection process from the Azure portal. You can use the extension in two ways: 
+
+- **During VM creation**: Connect as part of provisioning. 
+- **After VM deployment**: Connect or disconnect from an existing VM or ARM deployment script to deploy for multiple VMs at scale 
 
 ### What the VM extension configures
 
@@ -80,10 +79,6 @@ Use this path when the VM is already deployed and you want to connect or disconn
   1. Choose the desired command, such as **Connect** or **Disconnect**.
   1. Provide the required parameters: **Volume name(s)**, **Target IQN(s)**, **Target portal adress(es)** and **Sessions per target** (for Connect only). 
   1. Apply the configuration.
-
-The VM extension immediately runs the corresponding script on the VM and:
-- Connect additional volumes later by reconfiguring the extension with more volumes. 
-- Disconnect volumes by switching the command to disconnect and providing the same identifiers. 
 
 > [!NOTE]
 > Reconfiguring the VM extension does not reboot the VM and does not automatically alter existing connections unless you explicitly request a disconnect. The extension simply executes the newly requested connect or disconnect operation. 
