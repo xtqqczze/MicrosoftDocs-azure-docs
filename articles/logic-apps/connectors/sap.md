@@ -1080,9 +1080,14 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
 
 ## Enable SAP client library (NCo) logging and tracing (built-in connector only)
 
-When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. However, even without enabling NCo tracing, you can find the log (.log) files at the following location: `C:\home\site\wwwroot`.
+When you have to investigate any problems with this component, you can set up custom text file-based NCo tracing, which SAP or Microsoft support might request from you. By default, the tracing capability is disabled because tracing might negatively affect performance and quickly consume the application host's storage space. 
 
-By default, the tracing capability is disabled because tracing might negatively affect performance and quickly consume the application host's storage space. To enable tracing at the application level, add the following settings:
+> [!NOTE]
+>
+> Error logging is enabled even without enabling NCo tracing, you can find the log (.log) files at the following location: `C:\home\site\wwwroot`.
+> If app settings **SAP_RFC_TRACE_DIRECTORY** is set, the error logs will be placed there
+
+To enable tracing at the application level, add the following settings:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
