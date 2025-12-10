@@ -57,7 +57,7 @@ Use this path when you’re creating a new VM and want it to deploy while alread
 1. Navigate to **Extensions + applications** during VM creation. 
 1. Select **Add** and search for the **Elastic SAN Extension for Windows** in the Marketplace tiles. 
 1. Select the extension to open its configuration panel.
-1. On the configuration page, provide the required connection parameters: **Volume name(s)**, **Target IQN(s)**, **Target portal adress(es)** and **Sessions per target**.
+1. On the configuration page, provide the required connection parameters: **Volume name(s)**, **Target IQN(s)**, **Target portal address(es)** and **Sessions per target**.
 1. Proceed to **Review+ create**.
 1. Select **Create** to finish VM creation.
 
@@ -75,9 +75,7 @@ Use this path when the VM is already deployed and you want to connect or disconn
 1. Under Settings, select **Extensions + applications**.   
 1. Select **Add** and search for the **Elastic SAN Extension for Windows** or open the existing Elastic SAN extension instance if already installed. 
 1. Choose **Configure / Reconfigure**. 
-1. In the extension configuration panel: 
-  1. Choose the desired command, such as **Connect** or **Disconnect**.
-  1. Provide the required parameters: **Volume name(s)**, **Target IQN(s)**, **Target portal adress(es)** and **Sessions per target** (for Connect only). 
+1. In the extension configuration panel, select either **Connect** or **Disconnect** and then provide the required parameters: **Volume name(s)**, **Target IQN(s)**, **Target portal address(es)** and **Sessions per target** (for Connect only). 
   1. Apply the configuration.
 
 > [!NOTE]
