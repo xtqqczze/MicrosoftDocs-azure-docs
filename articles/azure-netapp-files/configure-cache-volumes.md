@@ -114,12 +114,16 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 ## Create a cache volume
 
-1.	Initiate the cache volume creation using the PUT caches API call.
+1.	Initiate the cache volume creation using the PUT caches API call. For information about cache operations, see [API documentation](https://learn.microsoft.com/en-us/rest/api/netapp/caches?view=rest-netapp-2025-09-01-preview).
 
    ```
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview 
    ```
-2.  Monitor if the cache state is available for cluster peering with a GET request. 
+2.  Monitor if the cache state is available for cluster peering with a GET request.
+
+      ```
+      GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/caches/{cacheName}?api-version=2025-09-01-preview
+      ```
 
     When the `cacheState = ClusterPeeringOfferSent`, execute the POST `listPeeringPassphrases` call to obtain the command and passphrase necessary to complete the cluster peering.
 
