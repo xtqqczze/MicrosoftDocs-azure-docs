@@ -71,7 +71,7 @@ moduleRequirements:
 ```
 
 > [!TIP]
-> For guidance on enabling in-band ONNX inference with the `wasi-nn` feature, see [Run ONNX inference in WebAssembly data flow graphs](howto-wasm-onnx-inference.md).
+> For guidance on enabling in-band ONNX inference with the `wasi-nn` feature, see [Run ONNX inference in WebAssembly data flow graphs](../develop-edge-apps/howto-wasm-onnx-inference.md).
 
 ## Example 1: Simple graph definition
 
