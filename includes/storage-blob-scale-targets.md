@@ -3,7 +3,7 @@ author: normesta
 ms.service: azure-storage
 ms.topic: include
 ms.date: 12/10/2025
-ms.author: normest
+ms.author: normesta
 ---
 
 | Resource | Target |
