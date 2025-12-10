@@ -21,14 +21,14 @@ Compare the features across all four Azure Bastion SKU tiers:
 
 | Category | Feature | Developer | Basic | Standard | Premium |
 | --- | --- | --- | --- | --- | --- |
-| **Deployment & Requirements** | Requires AzureBastionSubnet¹ | No | Yes | Yes | Yes² |
-|  | Requires Public IP address¹ | No | Yes | Yes | Yes² |
+| **Deployment & Requirements** | Requires AzureBastionSubnet¹ | No | Yes | Yes | Yes |
+|  | Requires Public IP address¹ | No | Yes | Yes | No² |
 |  | Dedicated bastion host | No³ | Yes | Yes | Yes |
-|  | Availability zones | No | Yes | Yes | Yes |
+|  | Availability zones | Yes⁴ | Yes | Yes | Yes |
 |  | Virtual network peering support | No | Yes | Yes | Yes |
 | **VM Connectivity** | Connect to VMs in same virtual network | Yes | Yes | Yes | Yes |
 |  | Connect to VMs in peered virtual networks | No | Yes | Yes | Yes |
-|  | Support for concurrent connections | No³ | Yes | Yes | Yes |
+|  | Support for concurrent connections | No | Yes | Yes | Yes |
 |  | Connect to Linux VM using SSH | Yes | Yes | Yes | Yes |
 |  | Connect to Windows VM using RDP | Yes | Yes | Yes | Yes |
 |  | Connect to Linux VM using RDP | No | No | Yes | Yes |
@@ -37,39 +37,38 @@ Compare the features across all four Azure Bastion SKU tiers:
 |  | Kerberos authentication | Yes | Yes | Yes | Yes |
 |  | Session recording | No | No | No | Yes |
 |  | Private-only deployment (no public IP) | No | No | No | Yes |
-| **Connection Methods & Protocols** | Browser-based connection (Azure portal) | Yes | Yes | Yes | Yes |
+| **Connection Methods & Protocols** | Azure portal based connections | Yes | Yes | Yes | Yes |
 |  | Connect to VMs using Azure CLI (native client) | No | No | Yes | Yes |
 |  | Specify custom inbound port | No | No | Yes | Yes |
-|  | Connect to VMs via IP address | No | No | Yes | Yes |
+|  | IP-Connect feature | No | No | Yes | Yes |
 |  | Shareable link | No | No | Yes | Yes |
-|  | Upload or download files | No | No | Yes | Yes |
-| **Performance & Scalability** | Host scaling | No | No | Yes (2-50 instances) | Yes (2-50 instances) |
-|  | Fixed instance count | 1 VM at a time³ | 2 instances | Configurable | Configurable |
-|  | Maximum concurrent RDP sessions⁴ | 1 | 40 | 1,000 | 1,000 |
-|  | Maximum concurrent SSH sessions⁴ | 1 | 80 | 2,000 | 2,000 |
+|  | Upload or download files (native client) | No | No | Yes | Yes |
 | **User Experience** | VM audio output | Yes | Yes | Yes | Yes |
 |  | Copy/paste (web-based clients) | Yes | Yes | Yes | Yes |
 |  | Disable copy/paste (web-based clients) | No | No | Yes | Yes |
 | **Cost** | Hourly charge | Free | Paid | Paid | Paid |
-|  | Outbound data transfer charges | Free | Paid⁵ | Paid⁵ | Paid⁵ |
+|  | Outbound data transfer charges | Free | Paid⁶ | Paid⁶ | Paid⁶ |
 
 ¹ For dedicated deployments (Basic, Standard, Premium), the AzureBastionSubnet must be /26 or larger (/25, /24, etc.). For more information, see [Azure Bastion subnet](configuration-settings.md#subnet).  
-² Private-only deployment option doesn't require public IP or AzureBastionSubnet. For more information, see [Private-only deployment](private-only-deployment.md).  
+² Private-only deployment option doesn't require public IP address. For more information, see [Private-only deployment](private-only-deployment.md).  
 ³ Bastion Developer uses a shared resource and supports one VM connection at a time.  
-⁴ At maximum scale (50 instances). For more information, see [Instances and host scaling](configuration-settings.md#instance).  
-⁵ First 5 GB per month is free. For more information, see [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion/).
+⁴ Developer SKU supports availability zones in select regions. For more information, see [Reliability in Azure Bastion](../reliability/reliability-bastion.md).  
+⁵ At maximum scale (50 instances). For more information, see [Instances and host scaling](configuration-settings.md#instance).  
+⁶ First 5 GB per month is free. For more information, see [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion/).
 
 ## Performance and scalability
 
 The following table shows the capacity and scaling characteristics of each SKU tier:
 
 | Metric | Developer | Basic | Standard | Premium |
-|--------|-----------|-------|----------|---------|
+|--------|-----------|----------|---------|---------|-||
 | **Deployment model** | Shared resource | Dedicated host | Dedicated host | Dedicated host |
+| **Host scaling** | No | No | Yes (2-50 instances) | Yes (2-50 instances) |
 | **Instance count** | N/A (shared) | 2 (fixed) | 2-50 (configurable) | 2-50 (configurable) |
+| **Fixed instance count** | 1 VM at a time | 2 instances | Configurable | Configurable |
 | **Concurrent VM connections** | 1 VM at a time | Multiple VMs | Multiple VMs | Multiple VMs |
-| **Max concurrent RDP sessions** | 1 | 40 (2 instances × 20) | 1,000 (50 instances × 20) | 1,000 (50 instances × 20) |
-| **Max concurrent SSH sessions** | 1 | 80 (2 instances × 40) | 2,000 (50 instances × 40) | 2,000 (50 instances × 40) |
+| **Max concurrent RDP sessions⁵** | 1 | 40 (2 instances × 20) | 1,000 (50 instances × 20) | 1,000 (50 instances × 20) |
+| **Max concurrent SSH sessions⁵** | 1 | 80 (2 instances × 40) | 2,000 (50 instances × 40) | 2,000 (50 instances × 40) |
 | **Per instance capacity** | N/A | 20 RDP + 40 SSH | 20 RDP + 40 SSH | 20 RDP + 40 SSH |
 
 ## Regional availability
@@ -128,8 +127,7 @@ Azure Bastion supports upgrading from lower SKUs to higher SKUs, but downgrading
 ### Upgrade paths
 
 - **Developer to Basic/Standard/Premium**: Requires creating an AzureBastionSubnet (/26 or larger) and a public IP address (Standard SKU, Static allocation). See [Upgrade from Bastion Developer](upgrade-sku.md#upgrade-from-bastion-developer).
-- **Basic to Standard**: Upgrade through the Azure portal. You can add features at the same time you upgrade. See [Upgrade from Basic or Standard SKU](upgrade-sku.md#upgrade-from-the-basic-or-standard-sku).
-- **Standard to Premium**: Upgrade through the Azure portal. You can add features at the same time you upgrade.
+- **Basic and Higher**: Upgrade through the Azure portal. You can add features at the same time you upgrade. See [Upgrade from Basic or Standard SKU](upgrade-sku.md#upgrade-from-the-basic-or-standard-sku).
 
 > [!IMPORTANT]
 > Upgrades take approximately 10 minutes. Downgrading a SKU isn't supported. You must delete and recreate Azure Bastion. You can add features during the upgrade process.
