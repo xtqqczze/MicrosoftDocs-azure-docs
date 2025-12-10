@@ -79,10 +79,10 @@ Follow the steps:
 4. Click register to confirm.
 5. To create a client secret, in **App registrations**, select your application.
 6. In the Service Principal blade, navigate to **Certificates & secrets** section. Choose **+New** client secret. Provide the description of the client secret and choose validity time. Confirm by clicking **Add**.
-   ![Create new client secret](./media/configure-source-system-with-data-factory/service-principle-secret.png)
+   :::image type="content" source="./media/configure-source-system-with-data-factory/service-principle-secret.png" alt-text="Screenshot showing how to create new client secret." lightbox="./media/configure-source-system-with-data-factory/service-principle-secret.png":::
 7. Copy the value of the secret. We store it in the Key Vault. Notice that as you navigate out of this screen you won’t be able to retrieve the secret value again.
 8. Navigate to the Microsoft Fabric workspace and add the created service principal as a Contributor in the workspace by clicking on the **Manage Access** button.
-   ![Add service principal as Contributor](./media/configure-source-system-with-data-factory/manage-workspace-access.png)
+   :::image type="content" source="./media/configure-source-system-with-data-factory/manage-workspace-access.png" alt-text="Screenshot showing how to add service principal as contributor." lightbox="./media/configure-source-system-with-data-factory/manage-workspace-access.png":::
 
 ## Configure SAP source system in Business Process Solution
 
@@ -103,7 +103,7 @@ First step of configuration is setting up the source system; this step deploys t
 
 ## Deploy self-hosted integration runtime on Azure virtual machine (VM)
 
-In this section, we will deploy the self-hosted integration runtime on a Azure virtual machine. You can follow detailed instructions on how to deploy and configure Self-Hosted Integration Runtime in the the article - [Shared Integration Runtime](https://learn.microsoft.com/azure/data-factory/sap-change-data-capture-shir-preparation). This article covers detailed steps on how to prepare your virtual machine and how to perform connectivity tests. You can also use the following steps to configure your virtual machine:
+In this section, we will deploy the self-hosted integration runtime on an Azure virtual machine. You can follow detailed instructions on how to deploy and configure Self-Hosted Integration Runtime in the article - [Shared Integration Runtime](https://learn.microsoft.com/azure/data-factory/sap-change-data-capture-shir-preparation). This article covers detailed steps on how to prepare your virtual machine and how to perform connectivity tests. You can also use the following steps to configure your virtual machine:
 
 1. Deploy Azure virtual machine in the same network / subnet as your SAP system. Direct connectivity between Self-Hosted Integration Runtime and SAP system is required to extract data.
 2. Install SAP .NET Connector.

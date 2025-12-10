@@ -61,14 +61,14 @@ Use the following steps to update the dataset tables:
 
 ### Add a new table in dataset
 
-You can add a new table in an existing dataset or import a table from the existing tables. follow the steps to add or import a new table in your dataset.
+You can add a new table in an existing dataset or import a table from the existing tables. Follow the steps to add or import a new table in your dataset.
 
 1. Open your Business Process Solution item.
 2. Click on the **Set up your datasets** button.
 3. To view the tables enabled for extraction, expand the source system and dataset in the explorer menu.
 4. Click on the **Import tables** button.
    :::image type="content" source="./media/configure-dataset/import-tables.png" alt-text="Screenshot showing how to import tables into the dataset." lightbox="./media/configure-dataset/import-tables.png":::
-5. In the Import Tables dialog, you can either select a existing table to import to your dataset or add a new table.
+5. In the Import Tables dialog, you can either select an existing table to import to your dataset or add a new table.
 6. To add a new table, click on the **New Table** button.
    :::image type="content" source="./media/configure-dataset/new-dataset-table.png" alt-text="Screenshot showing how to add a new table to the dataset." lightbox="./media/configure-dataset/new-dataset-table.png":::
 7. Enter the details of the new table and click on the **Save** button.
