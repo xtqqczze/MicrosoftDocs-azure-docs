@@ -383,13 +383,13 @@ Take the following steps to run the `order-processor` subscriber service and the
    ```bash
    cd order-processor
    ```
-1. Install the dependencies.
+2. Install the dependencies.
 
    ```bash
    pip3 install -r requirements.txt
    ```
 
-1. Run the `order-processor` service.
+3. Run the `order-processor` service.
 
    # [Windows](#tab/windows)
    
@@ -405,19 +405,19 @@ Take the following steps to run the `order-processor` subscriber service and the
 
    ---
 
-1. In a new terminal window, go to the sample root directory, and then go to the *checkout* directory.
+4. In a new terminal window, go to the sample root directory, and then go to the *checkout* directory.
 
    ```bash
    cd checkout
    ```
 
-1. Install the dependencies.
+5. Install the dependencies.
 
    ```bash
    pip3 install -r requirements.txt
    ```
 
-1. Run the `checkout` service.
+6. Run the `checkout` service.
 
    # [Windows](#tab/windows)
    
