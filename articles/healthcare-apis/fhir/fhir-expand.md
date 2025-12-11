@@ -17,7 +17,7 @@ The [$expand operation](https://hl7.org/fhir/R4/valueset-operation-expand.html),
 |---|---|
 |url|Canonical reference of the value set.|
 | valueSet| Provide the value set directly as part of the request.|
-|context| The context of the value set. |
+|context| The context of the value set. For more information see [$expand](https://hl7.org/fhir/R4/valueset-operation-expand.html).|
 
 > [!NOTE]
 > Other $expand parameters beyond this list aren't currently supported.
