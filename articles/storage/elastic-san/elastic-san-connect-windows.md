@@ -158,7 +158,7 @@ You need to use 32 sessions to each target volume to achieve its maximum IOPS an
 
 
 ```bash
-.\connect.ps1 ` 
+.\connect.ps1 `
 
   -ResourceGroupName "<resource-group>" ` 
 
@@ -169,6 +169,7 @@ You need to use 32 sessions to each target volume to achieve its maximum IOPS an
   -VolumeName "<volume1>", "<volume2>" ` 
 
   -NumSession “<value>”
+```
 
 Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
 
