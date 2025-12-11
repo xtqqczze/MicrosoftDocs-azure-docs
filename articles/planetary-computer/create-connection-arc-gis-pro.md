@@ -511,7 +511,9 @@ There are two easy ways to discover the storage account and blob container for a
 ## Related content
 
 - [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md)
+- [Configure application authentication for Microsoft Planetary Computer Pro](./application-authentication.md)
 - [Configure QGIS to access a GeoCatalog resource](./configure-qgis.md)
-- [Create a cloud storage connection file](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-cloud-storage-connection-file.htm)
+- [Use the Microsoft Planetary Computer Pro Explorer](./use-explorer.md)
+- [Create a cloud storage connection file (ArcGIS Pro)](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-cloud-storage-connection-file.htm)
 - [Create a new GeoCatalog](./deploy-geocatalog-resource.md)
 - [Create a STAC collection](./create-stac-collection.md)

@@ -25,6 +25,8 @@ In this quickstart, you build a web application that displays satellite imagery 
 
 The code patterns work with any modern JavaScript framework (React, Vue, Angular) or vanilla JavaScript. GeoCatalog APIs have full CORS support, so you can call them directly from `localhost` during development—no proxy required.
 
+You can download and test this code from the [Microsoft Planetary Computer Pro public GitHub repository](https://github.com/Azure/microsoft-planetary-computer-pro/tree/main/tools/javascript-sample).
+
 ## Table of contents
 
 - [Architecture overview](#architecture-overview)
@@ -61,10 +63,10 @@ A typical GeoCatalog web application follows this architecture:
 
 ## Register your application in Microsoft Entra ID
 
-Before your web application can authenticate users, you need to register it in Microsoft Entra ID. This quickstart uses a **Single Page Application (SPA)** registration, which is ideal for client-side JavaScript applications and local development. The API integration patterns shown in later steps work with any application type.
+Before your web application can authenticate users, register it in Microsoft Entra ID. This quickstart uses a **Single Page Application (SPA)** registration, which is ideal for client-side JavaScript applications and local development. The API integration patterns shown in later steps work with any application type.
 
 > [!NOTE]
-> For production applications with a backend server, you might choose a different registration type (Web, Native, etc.). See [Configure application authentication](./application-authentication.md) for guidance on choosing the right approach for your scenario.
+> For production applications with a backend server, consider choosing a different registration type (Web, Native, etc.). See [Configure application authentication](./application-authentication.md) for guidance on choosing the right approach for your scenario.
 
 ### Register as a single-page application
 
@@ -286,7 +288,7 @@ const results = await searchItems(token, catalogUrl, {
 
 ## Tile URLs: Build URLs for map visualization
 
-The GeoCatalog Tiler API serves raster data as map tiles. You construct tile URLs with the following pattern:
+The GeoCatalog Tiler API serves raster data as map tiles. Construct tile URLs with the following pattern:
 
 ### Single item tiles
 
@@ -498,7 +500,7 @@ function buildMosaicTileUrl(catalogUrl, searchId, collectionId, options = {}) {
 The SAS API provides time-limited tokens for downloading raw asset files (GeoTIFFs, COGs, and other files) directly from Azure Blob Storage. Use this option when you need the original source files rather than rendered tiles.
 
 > [!IMPORTANT]
-> SAS tokens enable **downloads only** in browser applications. Due to Azure Blob Storage CORS policies, browsers can't read blob data via JavaScript `fetch()`. See [Browser limitations](#browser-limitations) section.
+> SAS tokens enable **downloads only** in browser applications. Due to Azure Blob Storage CORS policies, browsers can't read blob data via JavaScript `fetch()`. See the [Browser limitations](#browser-limitations) section.
 
 [ ![Screenshot showing how to download assets using a SAS token.](media/download-via-sas-token.gif) ](media/download-via-sas-token.gif#lightbox)
 

@@ -13,7 +13,19 @@ ms.custom:
 
 # Quickstart: Use Microsoft Planetary Computer Pro GeoCatalog in Azure Batch
 
-In this quickstart, you learn how to use Microsoft Planetary Computer Pro GeoCatalog resource in Azure Batch to process geospatial data. Planetary Computer Pro GeoCatalog is a geospatial data catalog that provides a unified view of your geospatial data assets across your organization. You can use Planetary Computer Pro GeoCatalog to discover, manage, and analyze your geospatial data.
+In this quickstart, you learn how to use a Microsoft Planetary Computer Pro GeoCatalog resource in Azure Batch to process geospatial data at scale.
+
+Azure Batch is a cloud-based job scheduling service that enables you to run large-scale parallel and high-performance computing (HPC) workloads. By combining Azure Batch with Microsoft Planetary Computer Pro, you can:
+
+- Process large volumes of geospatial data in parallel across multiple compute nodes
+- Authenticate securely to GeoCatalog APIs using managed identities
+- Scale processing power up or down based on workload demands
+- Automate geospatial data pipelines without managing infrastructure
+
+This quickstart demonstrates how to set up a Batch pool with a user-assigned managed identity, configure permissions to access your GeoCatalog, and run jobs that query the STAC API.
+
+> [!TIP]
+> For an overview of application development options with Microsoft Planetary Computer Pro, see [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md).
 
 ## Prerequisites
 
@@ -214,6 +226,10 @@ az batch task file download \
 
 - [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md)
 - [Configure application authentication for Microsoft Planetary Computer Pro](./application-authentication.md)
-- For more information about managed identities in batch pools, see [Configure managed identities in Batch pools](/azure/batch/managed-identity-pools) documentation.
-
-- For more information about how to deploy files to your Batch account, see [Copy applications and data to pool nodes](/azure/batch/batch-applications-to-pool-nodes), [Deploy applications to compute nodes with Batch application packages](/azure/batch/batch-application-packages), and [Creating and using resource files](/azure/batch/resource-files).
+- [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md)
+- [Use the Microsoft Planetary Computer Pro Explorer](./use-explorer.md)
+- [Manage access to Microsoft Planetary Computer Pro](./manage-access.md)
+- [Configure managed identities in Batch pools](/azure/batch/managed-identity-pools)
+- [Copy applications and data to pool nodes](/azure/batch/batch-applications-to-pool-nodes)
+- [Deploy applications to compute nodes with Batch application packages](/azure/batch/batch-application-packages)
+- [Creating and using resource files](/azure/batch/resource-files)
