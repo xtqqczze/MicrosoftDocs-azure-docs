@@ -53,15 +53,16 @@ The DevTest Labs [public ARM template repository](https://github.com/Azure/azure
 
 You can use the public environment templates as-is or customize them to suit your needs. You can also suggest revisions or additions to a public template by submitting a pull request against the GitHub public template repository.
 
-- You can also [store environment templates in your own public or private Git repositories](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories), and [add those repositories to your lab](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs) to make your templates available to all lab users.
+You can also [store environment templates in your own public or private Git repositories](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories), and [add those repositories to your lab](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs) to make your templates available to all lab users.
 
 ## Configure public environment settings
 
 When you configure your lab to enable the public template repository, lab users can quickly create an environment by selecting a template directly in the Azure portal, similar to creating VMs. You can also select which of the public environment templates are available to your users, and grant your users increased permissions to edit templates and add template repositories.
 
+<a name="set-public-environment-access-for-new-lab"></a>
 ### Configure public environment access at lab creation
 
-To configure public environment repository access when you [create a new lab](devtest-lab-create-lab.md), on the **Basic Settings** tab , set the **Public environments** option to **On** or **Off**.
+To configure public environment repository access when you [create a new lab](devtest-lab-create-lab.md), on the **Basic Settings** tab, set the **Public environments** option to **On** or **Off**.
 
    :::image type="content" source="media/devtest-lab-create-environment-from-arm/public-environments-on.png" alt-text="Screenshot that shows how to enable public environment repositories for a lab during the lab creation process." lightbox="media/devtest-lab-create-environment-from-arm/public-environments-on-large.png":::
 
@@ -87,6 +88,7 @@ To disallow access to specific environment templates, when you set the **Enable 
 
    :::image type="content" source="media/devtest-lab-create-environment-from-arm/select-public-environments.png" alt-text="Screenshot that shows how to deselect public environment repositories for a lab to disable access for users." lightbox="media/devtest-lab-create-environment-from-arm/select-public-environments-large.png":::
 
+<a name="configure-environment-user-rights"></a>
 ### Configure environment user permissions
 
 By default, lab users are assigned the **Reader** role in public environment repositories. Readers can't stop and start or change environment resources. You can grant lab users the **Contributor** role to allow them to edit environment resources.
