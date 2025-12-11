@@ -108,9 +108,9 @@ To configure the forward lookup zone:
    
 **Example**:
 
-vCenter Server URL: `https://vc123.avs.com`
+vCenter Server URL: `https://vc123.avs.azure.com`
 
-Forward lookup zone to create: `avs.com`
+Forward lookup zone to create: `avs.azure.com`
 
 Forwarder target: IP address of your Azure DNS Private Resolver inbound endpoint
 
