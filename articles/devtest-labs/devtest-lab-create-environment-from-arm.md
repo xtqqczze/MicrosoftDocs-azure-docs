@@ -94,9 +94,7 @@ To disallow access to specific environment templates:
 <a name="configure-environment-user-rights"></a>
 ## Configure environment user permissions
 
- You can also grant your users increased permissions to edit templates, modify template resources, and add template repositories.
-
-By default, lab users are assigned to the **Reader** role in environments they create. Readers can't stop, start, or modify environment resources. You can grant lab users the **Contributor** role to allow them to edit resources, such as SQL servers or databases, in the resource group of environments that they create.
+By default, lab users are assigned to the **Reader** role in environments they create. Readers can't stop, start, or modify environment resources like SQL servers or databases. To allow lab users to edit resources in their environments, you can grant them **Contributor** role in the resource group for their environment.
 
 1. On the [Azure portal](https://portal.azure.com) **Overview** page for your lab, select **Configuration and policies** under **Settings** in the left navigation menu.
 
@@ -110,7 +108,7 @@ By default, lab users are assigned to the **Reader** role in environments they c
 
 ## Create environments from templates
 
-If your lab is configured to use public or private template repositories, you can create environments by selecting available ARM templates, similar to creating VMs. Follow these steps to create an environment from a template.
+If your lab is configured to use public or private template repositories, you can create an environment by selecting an available ARM template, similar to creating a virtual machine (VM). Follow these steps to create an environment from a template.
 
 1. On the [Azure portal](https://portal.azure.com) **Overview** page for your lab, select **My environments** under **My Lab** in the left navigation menu.
 
@@ -246,17 +244,17 @@ You can also automate deployment by using the Azure CLI [az deployment group cre
    Write-Output "Environment $EnvironmentName completed."
    ```
 
-1. To run the script, use the following command. Update the placeholders in the command with your own lab values.
+1. To use the script, run the following command. Update the placeholders in the command with your own lab values.
 
-```azurepowershell
-.\DeployLabEnvironment.ps1 `
-    -SubscriptionId "<Subscription ID>" `
-    -LabName "<LabName>" `
-    -ResourceGroupName "<LabResourceGroupName>" `
-    -RepositoryName "<TemplateRepoName>" `
-    -TemplateName "<TemplateFolderName>" `
-    -EnvironmentName "<EnvironmentName>" 
-```
+   ```azurepowershell
+   .\DeployLabEnvironment.ps1 `
+       -SubscriptionId "<Subscription ID>" `
+       -LabName "<LabName>" `
+       -ResourceGroupName "<LabResourceGroupName>" `
+       -RepositoryName "<TemplateRepoName>" `
+       -TemplateName "<TemplateFolderName>" `
+       -EnvironmentName "<EnvironmentName>" 
+   ```
 
 ## Related content
 
