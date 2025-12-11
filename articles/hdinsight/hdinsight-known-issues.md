@@ -21,9 +21,8 @@ Azure HDInsight Open known issues:
 | Control Plane | [Component version validation error in ARM templates](./component-version-validation-error-arm-templates.md) |
 | Platform | [Cluster reliability issue with older images in HDInsight clusters](./cluster-reliability-issues.md)|
 | Platform | [Switch users through the Ambari UI](./hdinsight-known-issues-ambari-users-cache.md)|
-
-
-
+| Platform | [Ambari access issue due to certificate renewal](./hdinsight-known-issues-ambari-access-issue-certificate.md)|
+| Platform | [Cluster headnodes unresponsive](./hdinsight-known-issues-cluster-headnode-unresponsive.md)
 
 
 ## Recently closed known issues
@@ -33,6 +32,7 @@ Select the title to view more information about that specific known issue. Fixed
 | Area                   |Title                    | Issue published date| Status |
 |------------------------|-------------------------|-------------------|-------|
 |Spark|[Conda Version Regression in a recent HDInsight release](./hdinsight-known-issues-conda-version-regression.md)|October 13, 2023|Closed|
+|Ranger|[ESP Cluster creation failure at Ranger](./hdinsight-known-issues-ranger-cluster-create-failure.md)| October 9, 2025|Closed|
 
 ## Next steps
 
