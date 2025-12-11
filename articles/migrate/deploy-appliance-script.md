@@ -61,7 +61,7 @@ Check that the zipped file is secure, before you deploy it.
 
   | **Download** | **Hash value** |
   | --- | --- |
-  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-zip-value.md)] |
+  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-zip-value.md](includes/security-hash-zip-value.md)] |
 
 > [!NOTE]
 > The same script can be used to set up VMware appliance for either Azure public or Azure Government cloud.
