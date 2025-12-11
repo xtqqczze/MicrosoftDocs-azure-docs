@@ -87,7 +87,7 @@ The `AgentFrameworkProvider` is initialized in *Services/AgentFrameworkProvider.
 - Creates an AI agent using `CreateAIAgent()` with instructions and tools registered via `AIFunctionFactory.Create()`.
 - Creates a thread for the agent to persist conversation across navigation.
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/AgentFrameworkProvider.cs" range="40-71" highlight="5-9,12,15-27,30" :::
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/AgentFrameworkProvider.cs" range="43-71" highlight="2-6,9,12-24,27" :::
 
 Each time the user sends a message, the Blazor component (in *Components/Pages/AgentFrameworkAgent.razor*) calls `Agent.RunAsync()` with the user input and the agent thread. The agent thread keeps track of the chat history.
 
@@ -102,7 +102,7 @@ The `FoundryAgentProvider` provider is initialized in *Services/FoundryAgentProv
 - Creates a conversation for the browser session.
 - Gets a `ProjectResponsesClient` for the agent and conversation.
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/FoundryAgentProvider.cs" range="54-74" highlight="4,7,10,13,16" :::
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/FoundryAgentProvider.cs" range="56-71" highlight="2,5,8,11,14" :::
 
 This initialization code doesn't define any functionality for the agent, because you would typically build the agent in the Foundry portal. As part of the example scenario, it also follows the OpenAPI pattern shown in [Add an App Service app as a tool in Foundry Agent Service (.NET)](tutorial-ai-integrate-azure-ai-agent-dotnet.md), and makes its CRUD functionality available as an OpenAPI endpoint. This lets you add it to the agent later as a callable tool.
 

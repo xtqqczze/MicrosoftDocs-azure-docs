@@ -88,11 +88,11 @@ You can find the initialization code in the `SemanticKernelAgentService` constru
 - Creates a [chat completion agent](/semantic-kernel/frameworks/agent/agent-types/chat-completion-agent?pivots=programming-language-java), and configures it to let the AI model automatically invoke functions (`FunctionChoiceBehavior.auto(true)`).
 - Creates an agent thread that automatically manages the chat history.
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="38-90" highlight="12-15,18-21,24,27-30,33-43" :::
+:::code language="java" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="48-95" highlight="2-5,8-11,14,17-20,23-33" :::
 
 Each time the prompt is received, the server code uses `ChatCompletionAgent.invokeAsync()` to invoke the agent with the user prompt and the agent thread. The agent thread keeps track of the chat history.
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="109-158" highlight="8" :::
+:::code language="java" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="115-158" highlight="2" :::
 
 ### [Foundry Agent Service](#tab/aifoundry)
 
