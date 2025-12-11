@@ -127,7 +127,7 @@ To demonstrate the use of the `_meta-history` parameter, follow this example:
     ]
 }
 ```
-5. This will increment resource version and create a new version 3, but the old version 2 will not be saved as a historical record. To see this, run: `GET <fhir server>/Patient/test-patient/_history`. Two versions should be returned, versions 1 and 3. Please note that `_meta-data=false` query parameter only affects metadata-only changes made using PUT. Using the query parameter to make metadata updates along with other non-metadata field value changes will increment the resource version and save the old version as a historical record.
+5. This will increment resource version and create a new version 3, but the old version 2 will not be saved as a historical record. To see this, run: `GET <fhir server>/Patient/test-patient/_history`. Two versions should be returned, versions 1 and 3. Please note that `_meta-history=false` query parameter only affects metadata-only changes made using PUT. Using the query parameter to make metadata updates along with other non-metadata field value changes will increment the resource version and save the old version as a historical record.
 
 
 
