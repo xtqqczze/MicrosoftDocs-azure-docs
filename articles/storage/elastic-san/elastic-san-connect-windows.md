@@ -170,13 +170,6 @@ You need to use 32 sessions to each target volume to achieve its maximum IOPS an
 
   -NumSession “<value>”
 
-## Next steps
-
-[Configure Elastic SAN networking](elastic-san-networking.md)
-
-
-  -NumSession “<value>”
-```
 
 Verify the number of sessions your volume has with either `iscsicli SessionList` or `mpclaim -s -d`
 
