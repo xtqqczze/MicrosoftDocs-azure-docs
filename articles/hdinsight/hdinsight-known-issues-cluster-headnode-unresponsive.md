@@ -10,8 +10,8 @@ ms.date: 12/10/2025
 
 **Issue published date**: December 12, 2025
 
-In the latest Azure HDInsight releases, there is a known behavior that leads to significant growth of the /tmp/tmp-*openssl directories on the clusters which in turn causes HDI headnode into unhealthy state.
-These directories aren’t cleaned up automatically, so repeated SSL context initialization causes steady growth in disk usage.
+In the latest Azure HDInsight releases, there is a file leak of /tmp/tmp-*openssl directories which causes unhealthy headnodes.
+These directories aren’t cleaned up automatically, so repeated SSL context initialization causes steady growth in disk usage of /tmp.
 
 > [!IMPORTANT]  
 > This issue affects HDInsight 5.1 clusters.
@@ -29,3 +29,4 @@ These directories aren’t cleaned up automatically, so repeated SSL context ini
 
 - [Script action to a running cluster](/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-to-a-running-cluster)
 - [Supported HDInsight versions](/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)
+
