@@ -20,24 +20,27 @@ You can use Azure DevTest Labs environments to easily and consistently provision
 
 Resources in a DevTest Labs environment share the same lifecycle. You can manage them together, and track the cost of individual PaaS resources in the lab environment just as you track costs for individual VMs.
 
-You can configure a lab to use ARM environment templates from public or private Git template repositories. The following diagram shows how DevTest Labs can use an ARM template from a public or private repository to deploy a DevTest Labs environment that contains VMs and other resources.
+You can configure a lab to use ARM environment templates from public or private Git template repositories. The following diagram shows how DevTest Labs uses an ARM template from a public or private repository to deploy an environment containing VMs and other resources.
 
 :::image type="content" source="./media/devtest-lab-create-environment-from-arm/devtest-labs-create-environment-with-arm.png" alt-text="Diagram that shows getting ARM templates from Git repositories and using them to deploy environments with PaaS resources." border="false" lightbox="./media/devtest-lab-create-environment-from-arm/devtest-labs-create-environment-with-arm.png":::
 
 [!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]
+
+The following sections walk you through:
+
+1. Configuring private and public template repositories for a lab.
+1. Creating a lab environment by selecting and using an available ARM template.
 
 ## Prerequisites
 
 - To add or configure template repositories for a lab, at least **Contributor** permissions in the lab.
 - To create Azure DevTest environments from available ARM templates, at least **DevTest User** permissions in the lab.
 
-The following sections walk you through configuring private and public template repositories for a lab, and creating a lab environment by selecting and using an available ARM template.
-
 ## Limitations
 
 Environments created from ARM environment templates in DevTest Labs have the following limitations:
 
-- The [auto-shutdown feature](/azure/virtual-machines/auto-shutdown-vm) for VMs isn't supported.
+- The [autoshutdown feature](/azure/virtual-machines/auto-shutdown-vm) for VMs isn't supported.
 - The following lab policies aren't enforced or evaluated:
   - Number of VMs per lab user
   - Number of premium VMs per user
@@ -57,7 +60,7 @@ You can also [store environment templates in your own public or private Git repo
 
 ## Configure public environment settings
 
-When you configure your lab to enable the public template repository, lab users can quickly create an environment by selecting a template directly in the Azure portal, similar to creating VMs. You can also select which of the public environment templates are available to your users, and grant your users increased permissions to edit templates and add template repositories.
+When you configure your lab to enable the public template repository, lab users can quickly create an environment by selecting a template directly in the Azure portal, similar to creating VMs. You can select which public environment templates are available to your users. You can also grant your users increased permissions to edit templates, modify template resources, and add template repositories.
 
 <a name="set-public-environment-access-for-new-lab"></a>
 ### Configure public environment access at lab creation
@@ -91,7 +94,7 @@ To disallow access to specific environment templates, when you set the **Enable 
 <a name="configure-environment-user-rights"></a>
 ### Configure environment user permissions
 
-By default, lab users are assigned the **Reader** role in public environment repositories. Readers can't stop and start or change environment resources. You can grant lab users the **Contributor** role to allow them to edit environment resources.
+By default, lab users are assigned to the **Reader** role in public environment repositories. Readers can't stop and start or change environment resources. You can grant lab users the **Contributor** role to allow them to edit environment resources.
 
 1. On the [Azure portal](https://portal.azure.com) **Overview** page for your lab, select **Configuration and policies** under **Settings** in the left navigation menu.
 
