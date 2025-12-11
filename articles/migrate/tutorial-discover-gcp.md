@@ -49,40 +49,7 @@ Before you start this tutorial, check you have these prerequisites in place.
 **Windows server instances** | Allow inbound connections on WinRM port 5985 (HTTP) for discovery of Windows servers.
 **Linux server instances** | Allow inbound connections on port 22 (TCP) for discovery of Linux servers.
 
-## Prepare an Azure user account
-
-To create a project and register the Azure Migrate appliance, you need an account with:
-
-* Contributor or Owner permissions on an Azure subscription.
-* Permissions to register Microsoft Entra apps.
-
-If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
-
-1. In the Azure portal, search for "subscriptions", and under **Services**, select **Subscriptions**.
-
-    :::image type="content" source="./media/tutorial-discover-gcp/search-subscription.png" alt-text="Screenshot of Search box to search for the Azure subscription.":::
-
-1. In the **Subscriptions** page, select the subscription in which you want to create a project.
-
-1. Select **Access control (IAM)**.
-
-1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
-
-    | Setting | Value |
-    | --- | --- |
-    | Role | Contributor or Owner |
-    | Assign access to | User |
-    | Members | azmigrateuser |
-
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of role assignment page in Azure portal.":::
-
-1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps**.
-
-1. In the portal, go to **Microsoft Entra ID** > **Users**.
-
-1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+[!INCLUDE [migrate-rbac-permissions](includes/migrate-rbac-permissions.md)]
 
 ## Prepare GCP instances
 
@@ -168,13 +135,13 @@ Check that the zipped file is secure before you deploy it.
 
         **Scenario** | **Download** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-zip-value.md](security-hash-zip-value.md)]
 
     - For Azure Government:
 
         **Scenario** | **Download** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-zip-value.md](security-hash-zip-value.md)]
  
 
 ### 3. Run the Azure Migrate installer script
