@@ -12,7 +12,7 @@ ms.author: normesta
 # Customer intent: "As a cloud developer, I want to leverage NFS 3.0 support in Azure Blob Storage, so that I can efficiently run legacy high-throughput applications with hierarchical namespace access from both Azure VMs and on-premises systems."
 ---
 
-# Network File System (NFS) 3.0 protocol support for Azure Blob Storage
+# Network File System (NFS) 3.0 protocol support for Azure Blob Storage (BlobNFS)
 
 Blob storage now supports the Network File System (NFS) 3.0 protocol. This support provides Linux file system compatibility at object storage scale and prices and enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises.
 
@@ -20,9 +20,49 @@ It's always been a challenge to run large-scale legacy workloads, such as High P
 
 Blob Storage now supports a hierarchical namespace, and when combined with NFS 3.0 protocol support, Azure makes it much easier to run legacy applications on top of large-scale cloud object storage.
 
-## Applications and workloads suited for this feature
+## Applications and workloads suited for BlobNFS
 
-The NFS 3.0 protocol feature is best suited for processing high throughput, high scale, read heavy workloads such as media processing, risk simulations, and genomics sequencing. You should consider using this feature for any other type of workload that uses multiple readers and many threads, which require high bandwidth.
+BlobNFS is optimized for high-throughput, large-scale, read-heavy workloads with sequential I/O. It’s ideal for scenarios involving multiple readers and numerous threads where throughput is more critical than low latency. Common examples include:
+
+- **High-Performance Computing (HPC)** - HPC jobs often involve thousands of cores reading the same large datasets concurrently. BlobNFS leverages object storage throughput to eliminate traditional file server bottlenecks. Examples:
+
+  - Genomics sequencing: Processing massive DNA datasets.
+  
+  - Financial risk modeling: Monte Carlo simulations on historical data.
+  
+  - Seismic analysis: Geological data for oil and gas exploration.
+  
+  - Weather forecasting: Modelling atmospheric data for climate and storm prediction.
+  
+- **Big Data & Analytics (Data Lakes)** - Many analytics tools require hierarchical directories. BlobNFS (via Azure Data Lake Storage Gen2) delivers this structure while supporting standard file protocols. Examples:
+
+  - Machine learning: Feeding training data to GPU clusters using standard file I/O.
+  
+  - Log analytics: Aggregating logs from thousands of sources.
+  
+- **Advanced Driver Assistance Systems (ADAS)** - ADAS workflows produce petabytes of sequential sensor data—such as LiDAR point clouds and high-resolution camera feeds—that must be ingested efficiently and analyzed at scale for simulation and model training. Example:
+
+  - Storing raw LiDAR scans and multi-camera video streams from autonomous test vehicles on BlobNFS, then running large-scale replay simulations across thousands of compute nodes to validate perception algorithms.
+  
+- **Media & Entertainment** - Rendering farms need efficient access to large asset libraries. BlobNFS provides a file interface for legacy rendering tools that expect file paths. Examples:
+
+  - Video rendering: Distributed nodes reading source assets.
+  
+  - Transcoding: Converting large raw video files into streaming formats.
+  
+- Database Backup - BlobNFS offers a cost-effective, high-throughput NFS 3.0 target without complex connectors or expensive snapshots. Examples: 
+
+  - Oracle RMAN can write large backup pieces directly to BlobNFS for long-term archival and enable direct restore from any NFS-mounted Linux VM.
+  
+### When not to Use BlobNFS
+
+Avoid BlobNFS for general-purpose file shares or transactional workloads due to object storage characteristics:
+
+||
+||
+|**Workload Type**|**Reason**|**Better Alternative**|
+|Transactional Databases|Requires granular locking, sub-millisecond latency, and frequent random writes.|Managed Disks or Azure NetApp Files or Azure Files|
+|In-Place File Editing|Editing files forces full blob rewrites, making operations inefficient.|Azure Files|
 
 ## NFS 3.0 and the hierarchical namespace
 
