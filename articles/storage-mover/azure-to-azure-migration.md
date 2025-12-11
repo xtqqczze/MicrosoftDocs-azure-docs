@@ -390,7 +390,7 @@ az storage-mover project create \
 
     :::image type="content" source="media/cloud-to-cloud-migration/create-source-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Source tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-source.png":::
 
-    Choose the AWS S3 source endpoint created in the previous section and select **Select** to save your changes.
+    Choose the Azure Blob source endpoint created in the previous section and select **Select** to save your changes.
 
     :::image type="content" source="media/cloud-to-cloud-migration/select-source-sml.png" alt-text="A screen capture showing the Select an Existing Source Endpoint pane." lightbox="media/cloud-to-cloud-migration/select-source.png":::
 
@@ -503,13 +503,13 @@ Follow the steps in this section to monitor the progress of a Storage Mover Migr
 
 ## Post-Migration Validation
 
-Post-migration data validation ensures that your data is accurate and that the transfer from AWS S3 to Azure Blob Storage is complete. This validation process verifies data integrity and consistency by comparing migrated data to the same data from the source. You can also choose to conduct user acceptance tests to further confirm functionality. Validation helps identify and resolve discrepancies, ensuring the migrated data is reliable and meets your business requirements.
+Post-migration data validation ensures that your data is accurate and that the transfer from Azure Blob container is complete. This validation process verifies data integrity and consistency by comparing migrated data to the same data from the source. You can also choose to conduct user acceptance tests to further confirm functionality. Validation helps identify and resolve discrepancies, ensuring the migrated data is reliable and meets your business requirements.
 
 Follow the steps in this section to complete manual validation and clean up unused AWS resources.
 
 - Compare source and destination storage to ensure all files are transferred.
-- Enable incremental sync if you need to keep AWS S3 and Azure Blob in sync over time.
-- Delete the AWS S3 bucket after migration is fully completed and verified.
+- Enable incremental sync if you need to keep Azure Blob containers in sync over time.
+- Delete the source Azure Blob container after migration is fully completed and verified and if you do not need them anymore.
 
 
 ## Troubleshooting & Support 
@@ -517,8 +517,7 @@ Follow the steps in this section to complete manual validation and clean up unus
 Troubleshooting your migration might involve a range of steps, from basic diagnostics to more advanced error handling. If you're encountering issues, begin troubleshooting by taking the following steps.
 
 - Migration job failed? Check the logs for error messages.
-- Data transfer is slow? Ensure your network bandwidth is sufficient and AWS S3 rate limits aren’t throttling your transfer.
-- Permission issues? Verify that Azure Arc and AWS Identity and Access Management (IAM) roles have the correct access.
+- Permission issues? Verify that Azure Arc and Access Management (IAM) roles have the correct access.
 
 ## Related content
 
