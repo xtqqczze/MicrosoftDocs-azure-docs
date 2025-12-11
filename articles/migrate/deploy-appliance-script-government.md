@@ -61,7 +61,7 @@ Check that the zipped file is secure, before you deploy it.
 
 | **Download** | **Hash value** |
   | --- | --- |
-  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)] |
+  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-zip-value.md)] |
 
 ### Run the script
 
