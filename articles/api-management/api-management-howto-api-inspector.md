@@ -174,7 +174,7 @@ To help automate these steps with the [Visual Studio Code REST Client](https://m
 @apiId = // Api Id for which trace log is to be generated.
 
 # @name login 
-POST https://login.microsoftonline.com/{tenantId}/oauth2/token
+POST https://login.microsoftonline.com/{{tenantId}}/oauth2/token
 content-type: application/x-www-form-urlencoded
  
 grant_type=client_credentials&client_id={{clientId}}&client_secret={{clientSecret}}&resource=https%3A%2F%2Fmanagement.azure.com%2F
