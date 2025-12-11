@@ -50,6 +50,73 @@ Follow the steps in this section to configure an Azure Blob container source and
     - Optionally, provide a description for the endpoint in the **Description** field.
     - Verify that your selections are correct and select **Create** to create the endpoint as shown in the following image.
 
+### [Azure PowerShell](#tab/powershell)
+
+Use the `New-AzStorageMoverAzStorageContainerEndpoint` command to create an Azure Blob storage source endpoint:
+
+```powershell
+New-AzStorageMoverAzStorageContainerEndpoint `
+    -Name <String> `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String> `
+    -BlobContainerName <String> `
+    -StorageAccountResourceId <String>
+```
+
+**Parameters:**
+
+- **Name**: The name of the Azure Blob storage endpoint.
+- **ResourceGroupName**: The name of the resource group containing the Storage Mover resource.
+- **StorageMoverName**: The name of the Storage Mover resource.
+- **BlobContainerName**: The name of the blob container in the storage account from where you want to migrate data.
+- **StorageAccountResourceId**: The Azure resource ID of the storage account that contains the blob container.
+
+
+**Example:**
+
+```powershell
+New-AzStorageMoverAzStorageContainerEndpoint `
+    -Name "my-source-blob-endpoint" `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover" `
+    -BlobContainerName "migration-container" `
+    -StorageAccountResourceId "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+```
+
+### [Azure CLI](#tab/CLI)
+Use the `az storage-mover endpoint create-for-storage-container` command to create an Azure Blob storage source endpoint:
+
+```bash
+az storage-mover endpoint create-for-storage-container \
+    --container-name <String> \
+    --endpoint-name <String> \
+    --resource-group <String> \
+    --storage-account-id <String> \
+    --storage-mover-name <String> \
+```
+
+**Parameters:**
+
+- **container-name**: The name of the blob container from where you want to migrate data.
+- **endpoint-name**: The name of the endpoint to create.
+- **resource-group**: The name of the resource group containing the Storage Mover resource.
+- **storage-account-id**: The Azure resource ID of the storage account that contains the blob container.
+- **storage-mover-name**: The name of the Storage Mover resource.
+
+**Example:**
+
+```Bash
+az storage-mover endpoint create-for-storage-container \
+    --container-name "migration-container" \
+    --endpoint-name "my-source-blob-endpoint" \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --storage-account-id "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount" \
+    --storage-mover-name "myStorageMover"
+```
+
+---
+
+
 ### Configure an Azure Blob Storage Target Endpoint
 
 ### [Azure portal](#tab/portal)
@@ -64,11 +131,175 @@ Follow the steps in this section to configure an Azure Blob container source and
 
         :::image type="content" source="media/cloud-to-cloud-migration/endpoint-target-create-sml.png" alt-text="A screen capture showing the Endpoints page containing the Create Target Endpoint pane with required fields displayed." lightbox="media/cloud-to-cloud-migration/endpoint-target-create.png":::
 
+
+### [Azure PowerShell](#tab/powershell)
+
+Use the `New-AzStorageMoverAzStorageContainerEndpoint` command to create an Azure Blob Storage target endpoint:
+
+```powershell
+New-AzStorageMoverAzStorageContainerEndpoint `
+    -Name <String> `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String> `
+    -BlobContainerName <String> `
+    -StorageAccountResourceId <String>
+```
+
+**Parameters:**
+
+- **Name**: The name of the Azure Blob Storage endpoint.
+- **ResourceGroupName**: The name of the resource group containing the Storage Mover resource.
+- **StorageMoverName**: The name of the Storage Mover resource.
+- **BlobContainerName**: The name of the blob container in the storage account where you want to migrate data.
+- **StorageAccountResourceId**: The Azure resource ID of the storage account that contains the blob container.
+
+**Example:**
+
+```powershell
+New-AzStorageMoverAzStorageContainerEndpoint `
+    -Name "my-blob-endpoint" `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover" `
+    -BlobContainerName "migration-container" `
+    -StorageAccountResourceId "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+```
+
+### [Azure CLI](#tab/CLI)
+
+Use the `az storage-mover endpoint create-for-storage-container` command to create an Azure Blob Storage target endpoint:
+
+```bash
+az storage-mover endpoint create-for-storage-container \
+    --container-name <String> \
+    --endpoint-name <String> \
+    --resource-group <String> \
+    --storage-account-id <String> \
+    --storage-mover-name <String>
+```
+
+**Parameters:**
+
+- **container-name**: The name of the blob container where you want to migrate data.
+- **endpoint-name**: The name of the endpoint to create.
+- **resource-group**: The name of the resource group containing the Storage Mover resource.
+- **storage-account-id**: The Azure resource ID of the storage account that contains the blob container.
+- **storage-mover-name**: The name of the Storage Mover resource.
+
+**Example:**
+
+```bash
+az storage-mover endpoint create-for-storage-container \
+    --container-name "migration-container" \
+    --endpoint-name "my-blob-endpoint" \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --storage-account-id "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount" \
+    --storage-mover-name "myStorageMover"
+```
+
+---      
+
 ### Assign RBAC Role to Source and Target Endpoints
 
 ### [Azure portal](#tab/portal)
 
-When you create an Azure Blob Storage source or target endpoint through the Azure portal, the **Storage Blob Data Contributor** RBAC role is automatically assigned to the system-assigned managed identity of the endpoint. No other steps are required.
+When you create an Azure Blob Storage source or target endpoint through the Azure portal, the **Storage Blob Data Owner** RBAC role is automatically assigned to the system-assigned managed identity of the endpoint. No other steps are required.
+
+
+### [Azure PowerShell](#tab/powershell)
+
+You must assign the **Storage Blob Data Owner** RBAC role on the source and target blob storage container to the system-assigned managed identity of the target endpoint. First, retrieve the principal ID of the target endpoint's managed identity using the Get-AzStorageMoverAzStorageContainerEndpoint command:
+
+```powershell
+$endpoint = Get-AzStorageMoverAzStorageContainerEndpoint `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String> `
+    -Name <String>
+
+$principalId = $endpoint.Identity.PrincipalId
+```
+
+Then, use the `New-AzRoleAssignment` command to assign the role:
+
+```powershell
+New-AzRoleAssignment `
+    -ObjectId <String> `
+    -RoleDefinitionName "Storage Blob Data Owner" `
+    -Scope <String>
+```
+
+**Parameters:**
+
+- **ObjectId**: The object ID (principal ID) of the system-assigned managed identity of the target endpoint.
+- **RoleDefinitionName**: Set to **"Storage Blob Data Owner"**.
+- **Scope**: The Azure resource ID of the source or target blob storage container.
+
+**Example:**
+
+```powershell
+# Get the source or target endpoint
+$endpoint = Get-AzStorageMoverEndpoint `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover" `
+    -Name "my-blob-endpoint"
+
+# Assign the RBAC role using the principal ID
+New-AzRoleAssignment `
+    -ObjectId $endpoint.Identity.PrincipalId `
+    -RoleDefinitionName "Storage Blob Data Owner" `
+    -Scope "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/containers/migration-container"
+```
+
+
+### [Azure CLI](#tab/CLI)
+
+First, retrieve the principal ID of the source or target endpoint's managed identity using the `az storage-mover endpoint show` command:
+
+```bash
+az storage-mover endpoint show \
+    --resource-group <String> \
+    --storage-mover-name <String> \
+    --name <String> \
+    --query identity.principalId \
+    --output tsv
+```
+
+Then, use the `az role assignment create` command to assign the role:
+
+```bash
+az role assignment create \
+    --assignee-object-id <String> \
+    --assignee-principal-type ServicePrincipal \
+    --role "Storage Blob Data Owner" \
+    --scope <String>
+```
+
+**Parameters:**
+
+- **assignee-object-id**: The object ID (principal ID) of the system-assigned managed identity of the target endpoint.
+- **assignee-principal-type**: Set to **"ServicePrincipal"**.
+- **role**: Set to **"Storage Blob Data Owner"**.
+- **scope**: The Azure resource ID of the source or target blob storage container.
+
+**Example:**
+
+```Bash
+# Get the principal ID
+PRINCIPAL_ID=$(az storage-mover endpoint show \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --storage-mover-name "myStorageMover" \
+    --name "my-blob-endpoint" \
+    --query identity.principalId \
+    --output tsv)
+
+# Assign the RBAC role using the principal ID
+az role assignment create \
+    --assignee-object-id $PRINCIPAL_ID \
+    --assignee-principal-type ServicePrincipal \
+    --role "Storage Blob Data Owner" \
+    --scope "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/containers/migration-container"
+```
+
+---
 
 
 ## Create a migration project and job definition
