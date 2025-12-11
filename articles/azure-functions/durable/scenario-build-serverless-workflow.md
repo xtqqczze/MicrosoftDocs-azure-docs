@@ -288,7 +288,7 @@ You can review the complete template project [here](https://github.com/Azure-Sam
 ::: zone pivot="programming-language-typescript"
 The title fetching activities are tracked using a dynamic task list. The line `yield context.df.Task.all(parallelTasks)` waits for all the called activities, which run concurrently, to complete. When done, all outputs are aggregated as a formatted string.
 
-:::code language="typescript" source="~/functions-scenarios-durable-typescript/src/functions/fetchOrchestration.ts" range="11-35" :::
+:::code language="typescript" source="~/functions-scenarios-durable-typescript/src/fetchOrchestration.ts" range="11-35" :::
 
 You can review the complete template project [here](https://github.com/Azure-Samples/durable-functions-quickstart-typescript-azd).
 ::: zone-end
