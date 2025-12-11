@@ -51,17 +51,7 @@ You can use the script to deploy the Azure Migrate appliance on an existing phys
 
 ### Verify security
 
-Check that the zipped file is secure, before you deploy it.
-
-1. On the server to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the zipped file:
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-3.  Verify the latest appliance version and hash value:
-
-| **Download** | **Hash value** |
-  | --- | --- |
-  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-zip-value.md](security-hash-zip-value.md)] |
+Check that the zipped file is [secure](migrate-appliance.md#verify-security), before you deploy it.
 
 ### Run the script
 

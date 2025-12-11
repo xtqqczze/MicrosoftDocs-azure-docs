@@ -123,26 +123,7 @@ In **2: Download Azure Migrate appliance**, select **Download**.
 
 ### Verify security
 
-Check that the zipped file is secure before you deploy it.
-
-1. On the machine to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the zipped file:
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
-    - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
-3.  Verify the latest appliance versions and hash values:
-    - For the public cloud:
-
-        **Scenario** | **Download** | **Hash value**
-        --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-zip-value.md](security-hash-zip-value.md)]
-
-    - For Azure Government:
-
-        **Scenario** | **Download** | **Hash value**
-        --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-zip-value.md](security-hash-zip-value.md)]
- 
+Check that the zipped file is [secure](migrate-appliance.md#verify-security), before you deploy it.
 
 ### 3. Run the Azure Migrate installer script
 The installer script does the following:
