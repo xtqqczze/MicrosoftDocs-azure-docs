@@ -115,7 +115,7 @@ If you use enterprise firewalls or proxies to manage outbound traffic, configure
   * Event Grid: [Troubleshoot connectivity issues - Azure Event Grid](/azure/event-grid/troubleshoot-network-connectivity).
   * Azure Data Lake Storage Gen 2: [Storage account standard endpoints](/azure/storage/common/storage-account-overview#standard-endpoints).
 
-* Azure IoT Operations uses a cloud-based schema registry that requires access to a customer-provided Azure Blob Storage container. For the schema registry to access the container, the container must expose a public endpoint or designate ADR schema registry (`Microsoft.DeviceRegistry/schemaRegistries`) as [trusted Azure service](https://learn.microsoft.com/en-gb/azure/storage/common/storage-network-security-trusted-azure-services#trusted-access-based-on-a-managed-identity). This does not impact any customer firewall or proxy configurations at the edge. To learn more, see [Schema registry and storage](concept-production-guidelines.md#schema-registry-and-storage).
+* Azure IoT Operations uses a cloud-based schema registry that requires access to a customer-provided Azure Blob Storage container. For the schema registry to access the container, the container must expose a public endpoint or designate the Azure Device Registry schema registry (`Microsoft.DeviceRegistry/schemaRegistries`) as a [trusted Azure service](/azure/storage/common/storage-network-security-trusted-azure-services#trusted-access-based-on-a-managed-identity). This doesn't impact any customer firewall or proxy configurations at the edge. To learn more, see [Schema registry and storage](concept-production-guidelines.md#schema-registry-and-storage).
 
   |Endpoints (DNS) | Description |
   |-|-|
