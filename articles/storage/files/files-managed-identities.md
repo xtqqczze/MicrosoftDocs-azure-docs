@@ -43,7 +43,7 @@ There are two types of managed identities in Azure: **system assigned** and **us
 
 A system assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). The managed identity is authenticated with Microsoft Entra ID, so you don’t have to store any credentials in code. System assigned managed identities aren't supported on Linux VMs. 
 
-User assigned managed identities enable Azure resources to authenticate to cloud services without storing credentials in code. This type of managed identities are created as standalone Azure resources, and have their own lifecycle. A single resource such as a VM can utilize multiple user assigned managed identities. Similarly, a single user assigned managed identity can be shared across multiple VMs.
+User assigned managed identities enable Azure resources to authenticate to cloud services without storing credentials in code. This type of managed identities is created as a standalone Azure resource, and has its own lifecycle. A single resource such as a VM can utilize multiple user assigned managed identities. Similarly, a single user assigned managed identity can be shared across multiple VMs.
 
 Windows VMs can have both user assigned and system assigned managed identities configured.
 
@@ -108,7 +108,7 @@ To enable SMBOAuth on an existing storage account, run the following PowerShell 
 Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -EnableSmbOAuth $true
 ```
 
-If you see errors that the resource was disallowed by policy, then you might have a policy set on your subscription disallowing `Set-AzStorageAccount`. To workaround, retry using the following command:
+If you see errors that the resource was disallowed by policy, then you might have a policy set on your subscription disallowing `Set-AzStorageAccount`. To work around, retry using the following command:
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -EnableSmbOAuth $true -AllowBlobPublicAccess $false
@@ -129,11 +129,11 @@ You can use managed identities with Windows or Linux. Select the appropriate tab
 
 ### [Windows](#tab/windows)
 
-The enablement steps described here are for Azure VMs. If you want to enable a managed identity on non-Azure Windows machines (on-prem or other cloud), you must [onboard them to Azure Arc and assign a managed identity](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management). You can also use an application identity as a managed identity instead of using a VM.
+The enablement steps described here are for Azure VMs. If you want to enable a managed identity on non-Azure Windows machines (on-premises or other cloud), you must [onboard them to Azure Arc and assign a managed identity](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management). You can also authenticate using an application identity instead of using a managed identity on a VM or Windows device.
 
 ### Enable managed identity on an Azure VM
 
-If you want to authenticate an Azure VM, follow these steps.
+Follow these steps to enable a managed identity on an Azure VM.
 
 1. Sign in to the Azure portal and create a Windows VM. Your VM must be running Windows Server 2019 or higher for server SKUs, or any Windows client SKU. See [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
 
@@ -157,7 +157,7 @@ Follow these steps to assign the built-in Azure RBAC role [Storage File Data SMB
 
 1. Under **Members**, click on **+ Select members**. 
 
-1. For Azure VMs or Azure Arc identities, select the managed identity that you created. For application identities, search for and select the application identity. Click **Select**.
+1. For Azure VMs or Azure Arc identities, select the managed identity for your VM or Windows device. For application identities, search for and select the application identity. Click **Select**.
 
 1. You should now see the managed identity or application identity listed under **Members**. Select **Next**.
 
@@ -214,7 +214,7 @@ To prepare your client VM or Windows device to authenticate using a managed iden
    Import-Module AzFilesSMBMIClient 
    ```
 
-1. Check your current Powershell execution policy by running the following command:
+1. Check your current PowerShell execution policy by running the following command:
 
    ```powershell
    Get-ExecutionPolicy -List 
