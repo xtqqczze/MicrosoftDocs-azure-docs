@@ -40,9 +40,13 @@ The Aspire Starter template includes a frontend web app that communicates with a
 
 ## Add Azure App Configuration to the Aspire solution
 
-1. Go to the `AppHost` project. Add the [`Aspire.Hosting.Azure.AppConfiguration`](https://www.nuget.org/packages/Aspire.Hosting.Azure.AppConfiguration) Nuget package. 
+1. Navigate into to the `AppHost` project's directory. Run the following command to add the [`Aspire.Hosting.Azure.AppConfiguration`](https://www.nuget.org/packages/Aspire.Hosting.Azure.AppConfiguration) Nuget package.
 
-1. Open the *AppHost.csproj*. Make sure that the `Aspire.Hosting.AppHost` package version is not ealier than the version you installed. Otherwise, you need to upgrade the `Aspire.Hosting.AppHost` package.
+    ```dotnetcli
+    dotnet add package Aspire.Hosting.Azure.AppConfiguration
+    ```
+
+1. Open the *AppHost.csproj* file to verify packages. You should see a package named `Aspire.Hosting.AppHost` being referenced. Ensure that the `Aspire.Hosting.AppHost` package version is at least as high as the version of `Aspire.Hosting.Azure.AppConfiguration` that was installed.
 
 1. Open the *AppHost.cs* file and add the following code.
 
@@ -54,7 +58,7 @@ The Aspire Starter template includes a frontend web app that communicates with a
     ```
 
     > [!IMPORTANT]
-    > When you call `AddAzureAppConfiguration`, it implicitly calls `AddAzureProvisioning`, which adds support for generating Azure resources dynamically during app startup. The app must configure the appropriate subscription and location. For more information, see [Local Azure provisioning](https://aspire.dev/integrations/cloud/azure/local-provisioning/#configuration).
+    > When you call `AddAzureAppConfiguration`, you instruct the app to generate Azure resources dynamically during app startup. The app must configure the appropriate subscription and location. For more information, see [Local Azure provisioning](https://aspire.dev/integrations/cloud/azure/local-provisioning/#configuration).
     > If you are using the latest Aspire SDK, you can configure the subscription information through the Aspire dashboard.
     > :::image type="content" source="media/aspire/azure-subscription.png" alt-text="Screenshot of Aspire dashboard asking for Azure Subscription information.":::
 
@@ -99,7 +103,11 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
 ## Add Azure App Configuration to the Aspire solution
 
-1. Go to the `AppHost` project. Add the [`Aspire.Hosting.Azure.AppConfiguration`](https://www.nuget.org/packages/Aspire.Hosting.Azure.AppConfiguration) Nuget package. 
+1. Navigate into to the `AppHost` project's directory. Run the following command to add the [`Aspire.Hosting.Azure.AppConfiguration`](https://www.nuget.org/packages/Aspire.Hosting.Azure.AppConfiguration) Nuget package.
+
+    ```dotnetcli
+    dotnet add package Aspire.Hosting.Azure.AppConfiguration
+    ```
 
 1. Open the *AppHost.csproj*. Make sure that the `Aspire.Hosting.AppHost` package version is not ealier than the version you installed. Otherwise, you need to upgrade the `Aspire.Hosting.AppHost` package.
 
@@ -165,7 +173,11 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
 ## Use App Configuration in the web application
 
-1. Go to the `Web` project. Add the [`Aspire.Microsoft.Extensions.Configuration.AzureAppConfiguration`](https://www.nuget.org/packages/Aspire.Microsoft.Extensions.Configuration.AzureAppConfiguration) Nuget package. 
+1. Navigate into to the `Web` project's directory. Run the following command to add the [`Aspire.Microsoft.Extensions.Configuration.AzureAppConfiguration`](https://www.nuget.org/packages/Aspire.Microsoft.Extensions.Configuration.AzureAppConfiguration) Nuget package.
+
+    ```dotnetcli
+    dotnet add package Aspire.Microsoft.Extensions.Configuration.AzureAppConfiguration
+    ```
 
 1. Open the *Program.cs* file and add the following code.
 
@@ -173,10 +185,10 @@ Add the following key-value to your App Configuration store and leave **Label** 
     var builder = WebApplication.CreateBuilder(args);
 
     // Use Azure App Configuration
-    builder.AddAzureAppConfiguration("appconfiguration"); // use the resource name defined in AppHost project
+    builder.AddAzureAppConfiguration("appconfiguration"); // use the resource name defined in the AppHost project
     ```
 
-1. Open the *Components/Pages/Home.razor* file and add the following code.
+1. Open the *Components/Pages/Home.razor* file and update it with the following code.
 
     ```cs
     @page "/"
@@ -201,8 +213,8 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
         protected override void OnInitialized()
         {
-            var configured = Configuration["TestApp:Settings:Message"];
-            message = string.IsNullOrWhiteSpace(configured) ? null : configured;
+            string msg = Configuration["TestApp:Settings:Message"];
+            message = string.IsNullOrWhiteSpace(msg) ? null : msg;
         }
     }
     ```
@@ -219,7 +231,7 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
 In this quickstart, you:
 
-* Add an Azure App Configuration resource in an Aspire solution.
+* Added an Azure App Configuration resource in an Aspire solution.
 * Read your key-values from Azure App Configuration with the App Configuration Aspire integration library.
 * Displayed a web page using the settings you configured in your App Configuration.
 
@@ -228,12 +240,12 @@ To learn how to configure your Aspire app to dynamically refresh configuration s
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-aspire.md)
 
-To learn how to use feature flag in your Aspire app, continue to the next tutorial.
+To learn how to use feature flags in your Aspire app, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Use feature flag in Aspire](./quickstart-feature-flag-aspire.md)
+> [Use feature flags in Aspire](./quickstart-feature-flag-aspire.md)
 
-To learn more about App Configuration emualtor, continue to the following document.
+To learn more about the Azure App Configuration emulator, continue to the following document.
 
 > [!div class="nextstepaction"]
 > [Azure App Configuration emulator overview](./emulator-overview.md)

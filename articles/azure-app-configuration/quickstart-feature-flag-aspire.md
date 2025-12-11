@@ -35,7 +35,11 @@ Add a feature flag called *Beta* to the App Configuration store (created in the 
 
 ## Use a feature flag
 
-1. Navigate into the `Web` project's directory (created in the [Prerequisites](./enable-dynamic-configuration-aspire.md#prerequisites) steps). Add the [`Microsoft.FeatureManagement.AspNetCore`](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) Nuget package.
+1. Navigate into the `Web` project's directory (created in the [Prerequisites](./enable-dynamic-configuration-aspire.md#prerequisites) steps). Run the following command to add the [`Microsoft.FeatureManagement.AspNetCore`](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) Nuget package.
+
+    ```dotnetcli
+    dotnet add package Microsoft.FeatureManagement.AspNetCore
+    ```
 
 1. Open *Program.cs*, and add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call. You can connect to App Configuration using either Microsoft Entra ID (recommended) or a connection string. The following code snippet demonstrates using Microsoft Entra ID.
 
@@ -113,7 +117,7 @@ Add a feature flag called *Beta* to the App Configuration store (created in the 
     }
     ```
 
-1. Open *_Imports.razor*, and reference the feature management.
+1. Open *_Imports.razor*, and import the feature management namespace.
 
     ```cs
     @using Microsoft.FeatureManagement
@@ -184,7 +188,7 @@ Add a feature flag called *Beta* to the App Configuration store (created in the 
 
 ## Next steps
 
-In this quickstart, you added feature management capability to an Aspire app on top of dynamic configuration. The [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) library offers rich integration for ASP.NET Core apps, including feature management in MVC controller actions, razor pages, views, routes, and middleware. For the full feature rundown of the .NET feature management library, continue to the following document.
+In this quickstart, you added feature management capability to an Aspire app on top of dynamic configuration. The [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) library offers integration with ASP.NET Core apps, including feature management in MVC controller actions, razor pages, views, routes, and middleware. For the full feature rundown of the .NET feature management library, continue to the following document.
 
 > [!div class="nextstepaction"]
 > [.NET Feature Management](./feature-management-dotnet-reference.md)
