@@ -1,12 +1,12 @@
 ---
-title: Ambari access broken due to certificate issues
-description: Known issue affecting HDInsight 5.1 clusters.
-ms.service: hdinsight
+title: Ambari access broken due to certificate issues ost certification rotation
+description: Ambari access broken due to certificate issues ost certification rotation
+ms.service: azure-hdinsight
 ms.topic: troubleshooting-known-issue
 ms.date: 10/12/2025
 ---
 
-# Ambari access broken due to certificate issues
+# Ambari access broken due to certificate issues post certification rotation
 
 **Issue published date**: October 10, 2025
 
@@ -24,5 +24,6 @@ In the latest Azure HDInsight release, there's an issue while trying to access A
 
 
 ## Resources
+
 
 - [Supported HDInsight versions](./hdinsight-component-versioning.md#supported-hdinsight-versions).
