@@ -6,7 +6,7 @@ manager: pmwongera
 
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 12/08/2025
+ms.date: 12/11/2025
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: sfi-image-nochange
@@ -65,6 +65,8 @@ After December 2025, if you don't take any action and you still have classic adm
 
 - description: `The Classic Admin role was converted to an Azure Owner role on behalf of the user due to Classic Admin retirement`
 - createdBy: `0469d4cd-df37-4d93-8a61-f8c75b809164`
+
+:::image type="content" source="./media/classic-administrators/classic-administrator-owner-description.png" alt-text="Screenshot of Access control (IAM) page that shows the description for an Owner role assignment that was automatically assigned." lightbox="./media/classic-administrators/classic-administrator-owner-description.png":::
 
 If Azure automatically assigns the Owner role, it **doesn't** automatically remove the classic administrator role assignment. You should remove this classic administrator role assignment. For steps on how to remove this role assignment, see [remove Co-Administrator](#how-to-remove-a-co-administrator). If you don't want the Owner role assignment, you must remove both the Owner and Co-Administrator role assignments to remove access for the user.
 

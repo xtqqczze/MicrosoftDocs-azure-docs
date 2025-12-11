@@ -6,7 +6,7 @@ manager: pmwongera
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: role-based-access-control
 ms.topic: overview
-ms.date: 12/08/2025
+ms.date: 12/11/2025
 ms.author: rolyon
 ms.custom:
   - it-pro;
