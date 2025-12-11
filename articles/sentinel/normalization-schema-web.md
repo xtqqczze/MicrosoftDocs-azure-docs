@@ -1,5 +1,5 @@
 ---
-title: The Advanced Security Information Model (ASIM) Web Session normalization schema reference (Public preview) | Microsoft Docs
+title: The Advanced Security Information Model (ASIM) Web Session normalization schema reference | Microsoft Docs
 description: This article displays the Microsoft Sentinel Web Session normalization schema.
 services: sentinel
 cloud: na
@@ -8,19 +8,17 @@ ms.topic: reference
 ms.date: 11/17/2021
 ms.author: ofshezaf
 
+
+
+#Customer intent: As a security analyst, I want to understand the Web Session normalization schema so that I can accurately interpret and analyze HTTP network session data for threat detection and response.
+
 ---
 
-# The Advanced Security Information Model (ASIM) Web Session normalization schema reference (Public preview)
+# The Advanced Security Information Model (ASIM) Web Session normalization schema reference
 
 The Web Session normalization schema is used to describe an IP network activity. For example, IP network activities are reported by web servers, web proxies, and web security gateways.
 
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
-
-> [!IMPORTANT]
-> The Network normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
->
-> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 ## Schema overview
 
@@ -82,11 +80,11 @@ The following filtering parameters are available:
 | **eventresultdetails_in** | dynamic | Filter only web sessions for which the HTTP status code, stored in the [EventResultDetails](#eventresultdetails) field, is any of the values listed. | 
 | **eventresult** | string | Filter only network sessions with a specific **EventResult** value. |
 
-Some parameter can accept both list of values of type `dynamic` or a single string value. To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals). For example: `dynamic(['192.168.','10.'])`
+Some parameter can accept both list of values of type `dynamic` or a single string value. To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/kusto/query/scalar-data-types/dynamic?view=microsoft-sentinel&preserve-view=true#dynamic-literals). For example: `dynamic(['192.168.','10.'])`
 
 For example, to filter only Web sessions for a specified list of domain names, use:
 
-```kql
+```kusto
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co"]);
 _Im_WebSession (url_has_any = torProxies)
 ```
@@ -118,8 +116,8 @@ The following list mentions fields that have specific guidelines for Web Session
 |---------------------|-------------|------------|--------------------|
 | <a name='eventtype'></a>**EventType** | Mandatory | Enumerated | Describes the operation reported by the record. Allowed values are:<br> - `HTTPsession`: Denotes a network session used for HTTP or HTTPS, typically reported by an intermediary device, such as a proxy or a Web security gateway.<br> - `WebServerSession`: Denotes an HTTP request reported by a web server. Such an event typically has less network related information. The URL reported should not include a schema and a server name, but only the path and parameters part of the URL. <br> - `ApiRequest`: Denotes an HTTP request reported associated with an API call, typically reported by an application server. Such an event typically has less network related information. When reported by the application server, the URL reported should not include a schema and a server name, but only the path and parameters part of the URL. |
 | **EventResult** | Mandatory | Enumerated | Describes the event result, normalized to one of the following values: <br> - `Success` <br> - `Partial` <br> - `Failure` <br> - `NA` (not applicable) <br><br>For an HTTP session, `Success` is defined as a status code lower than `400`, and `Failure` is defined as a status code higher than `400`. For a list of HTTP status codes, refer to [W3 Org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).<br><br>The source may provide only a value for the [EventResultDetails](#eventresultdetails)  field, which must be analyzed to get the  **EventResult**  value. |
-| <a name="eventresultdetails"></a>**EventResultDetails** | Recommended | String | The HTTP status code.<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventOriginalResultDetails** field.|
-| **EventSchema** | Mandatory | String | The name of the schema documented here is `WebSession`. |
+| <a name="eventresultdetails"></a>**EventResultDetails** | Recommended | Enumerated | The HTTP status code as defined by [The World Wide Web Consortium](https://www.w3.org/Protocols/HTTP/HTRESP.html) <br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventOriginalResultDetails** field.|
+| **EventSchema** | Mandatory | Enumerated | The name of the schema documented here is `WebSession`. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.6`         |
 | **Dvc** fields|        |      | For Web Session events,  device fields refer to the system reporting the Web Session event. This is typically an intermediary device for `HTTPSession` events, and the destination web or application server for `WebServerSession` and `ApiRequest` events. |
 
@@ -156,9 +154,9 @@ The following are additional fields that are specific to web sessions:
 
 | Field | Class | Type | Description |
 | --- | --- | --- | --- |
-| <a name="url"></a>**Url** | Mandatory | String | The HTTP request URL, including parameters. For `HTTPSession` events, the URL may include the schema and should include the server name. For `WebServerSession` and for `ApiRequest` the URL would typically not include the schema and server, which can be found in the `NetworkApplicationProtocol` and `DstFQDN` fields respectively. <br><br>Example: `https://contoso.com/fo/?k=v&amp;q=u#f` |
+| <a name="url"></a>**Url** | Mandatory | URL (String) | The HTTP request URL, including parameters. For `HTTPSession` events, the URL may include the schema and should include the server name. For `WebServerSession` and for `ApiRequest` the URL would typically not include the schema and server, which can be found in the `NetworkApplicationProtocol` and `DstFQDN` fields respectively. <br><br>Example: `https://contoso.com/fo/?k=v&amp;q=u#f` |
 | **UrlCategory** | Optional | String | The defined grouping of a URL or the domain part of the URL. The category is commonly provided by web security gateways and is based on the content of the site the URL points to.<br><br>Example: search engines, adult, news, advertising, and parked domains. |
-| **UrlOriginal** | Optional | String | The original value of the URL, when the URL was modified by the reporting device and both values are provided. |
+| **UrlOriginal** | Optional | URL (String) | The original value of the URL, when the URL was modified by the reporting device and both values are provided. |
 | **HttpVersion** | Optional | String | The HTTP Request Version.<br><br>Example: `2.0` |
 | **HttpRequestMethod** | Recommended | Enumerated | The HTTP Method. The values are as defined in [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-4) and [RFC 5789](https://datatracker.ietf.org/doc/html/rfc5789#section-2), and include `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, and `PATCH`.<br><br>Example: `GET` |
 | **HttpStatusCode** | Alias | | The HTTP Status Code. Alias to [EventResultDetails](#eventresultdetails). |

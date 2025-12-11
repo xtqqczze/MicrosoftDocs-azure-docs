@@ -3,7 +3,7 @@ title: 'Configure peering for ExpressRoute circuit - Azure PowerShell'
 description: This article shows you how to create and manage routing configuration for an ExpressRoute circuit in the Resource Manager deployment model using PowerShell.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 04/22/2024
 ms.author: duau 
@@ -18,8 +18,6 @@ This article helps you create and manage routing configuration for an ExpressRou
 > * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [Video - Private peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Video - Microsoft peering](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 

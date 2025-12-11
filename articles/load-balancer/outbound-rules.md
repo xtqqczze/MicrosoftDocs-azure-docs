@@ -3,11 +3,11 @@ title: Outbound rules Azure Load Balancer
 description: This article explains how to configure outbound rules to control outbound internet traffic with Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
-ms.topic: conceptual
+ms.service: azure-load-balancer
+ms.topic: concept-article
 ms.date: 04/11/2024
 ms.author: mbender
-ms.custom: template-how-to, engagement-fy23
+# Customer intent: "As a cloud architect, I want to configure outbound rules for Azure Load Balancer, so that I can manage and optimize outbound internet connectivity for backend VMs while ensuring efficient SNAT port allocation and control over allowed protocols."
 ---
 
 # <a name="outboundrules"></a>Outbound rules Azure Load Balancer

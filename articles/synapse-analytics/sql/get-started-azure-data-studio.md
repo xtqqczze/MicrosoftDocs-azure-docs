@@ -3,12 +3,12 @@ title: Connect to Synapse SQL with Azure Data Studio
 description: Use Azure Data Studio to connect to and query Synapse SQL in Azure Synapse Analytics. 
 services: synapse analytics
 author: azaricstefan 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview 
 ms.subservice: sql 
 ms.date: 04/15/2020 
 ms.author: stefanazaric 
-ms.reviewer: whhender
+ms.custom: sfi-image-nochange
 ---
  
 # Connect to Synapse SQL with Azure Data Studio

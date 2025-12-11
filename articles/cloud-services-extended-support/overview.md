@@ -1,15 +1,19 @@
 ---
 title: About Azure Cloud Services (extended support)
 description: Learn about the child elements of the Network Configuration element of the service configuration file, which specifies Virtual Network and DNS values.
-ms.topic: article
-ms.service: cloud-services-extended-support
+ms.topic: overview
+ms.service: azure-virtual-machines
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
 ms.custom: devx-track-arm-template
+# Customer intent: As an IT admin managing legacy cloud applications, I want to migrate to Azure Resource Manager-based Cloud Services (extended support) so that I can enhance regional resiliency, utilize modern management features like RBAC and templates, and streamline operations with minimal application changes.
 ---
 # About Azure Cloud Services (extended support)
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 Cloud Services (extended support) is a new [Azure Resource Manager](../azure-resource-manager/management/overview.md) based deployment model for [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) product and is now generally available. Cloud Services (extended support) has the primary benefit of providing regional resiliency along with feature parity with Azure Cloud Services deployed using Azure Service Manager. It also offers some Azure Resource Manager capabilities such as role-based access and control (RBAC), tags, policy, and supports deployment templates.  
 
@@ -36,7 +40,7 @@ The major differences between Cloud Services (classic) and Cloud Services (exten
 
 - Azure Resource Manager deployments use [ARM templates](../azure-resource-manager/templates/overview.md), which is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it. Service Configuration and Service definition file needs to be consistent with the [ARM Template](../azure-resource-manager/templates/overview.md) while deploying Cloud Services (extended support). This can be achieved either by [manually creating the ARM template](deploy-template.md) or using [PowerShell](deploy-powershell.md), [Portal](deploy-portal.md), and [Visual Studio](deploy-visual-studio.md).  
 
-- Customers must use [Azure Key Vault](../key-vault/general/overview.md) to [manage certificates in Cloud Services (extended support)](certificates-and-key-vault.md). Azure Key Vault lets you securely store and manage application credentials such as secrets, keys, and certificates in a central and secure cloud repository. Your applications can authenticate to Key Vault at run time to retrieve credentials. 
+- Customers must use [Azure Key Vault](/azure/key-vault/general/overview) to [manage certificates in Cloud Services (extended support)](certificates-and-key-vault.md). Azure Key Vault lets you securely store and manage application credentials such as secrets, keys, and certificates in a central and secure cloud repository. Your applications can authenticate to Key Vault at run time to retrieve credentials. 
 
 - All resources deployed through the [Azure Resource Manager](../azure-resource-manager/templates/overview.md) must be inside a virtual network. Virtual networks and subnets are created in Azure Resource Manager using existing Azure Resource Manager APIs. They need to be referenced within the NetworkConfiguration section of the .cscfg when deploying Cloud Services (extended support).   
 
@@ -53,7 +57,7 @@ Cloud Services (extended support) provides two paths for you to migrate from [Az
 
 ### Additional migration options
 
-When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support), you may want to investigate other Azure services such as: [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md), [App Service](../app-service/overview.md), [Azure Kubernetes Service](../aks/intro-kubernetes.md), and [Azure Service Fabric](../service-fabric/service-fabric-overview.md). These services continue to feature additional capabilities, while Cloud Services (extended support) maintains feature parity with Cloud Services (classic.) 
+When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support), you may want to investigate other Azure services such as: [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview), [App Service](../app-service/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Service Fabric](/azure/service-fabric/service-fabric-overview). These services continue to feature additional capabilities, while Cloud Services (extended support) maintains feature parity with Cloud Services (classic.) 
 
 Depending on the application, Cloud Services (extended support) may require substantially less effort to move to Azure Resource Manager compared to other options. If your application isn't evolving, Cloud Services (extended support) is a viable option to consider as it provides a quick migration path. Conversely, if your application is continuously evolving and needs a more modern feature set, do explore other Azure services to better address your current and future requirements. 
 

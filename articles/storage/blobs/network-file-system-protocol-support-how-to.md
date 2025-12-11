@@ -5,10 +5,11 @@ description: Learn how to mount a container in Blob Storage from an Azure virtua
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/28/2024
 ms.author: normesta
 
+# Customer intent: As a cloud administrator, I want to mount Azure Blob Storage using the NFS 3.0 protocol, so that I can securely access and manage data from my Linux-based virtual machines or on-premises systems.
 ---
 
 # Mount Blob Storage by using the Network File System (NFS) 3.0 protocol
@@ -83,18 +84,22 @@ The AZNFS Mount Helper package helps Linux NFS clients to reliably access Azure 
 
    If the package is installed, then the message `AZNFS mounthelper is installed!` appears.
 
-2. If the package is not yet installed, then use the following command to install it. 
+1. If the package is not yet installed, then use the following command to install it. 
 
-   ```
+      ```
    wget -O - -q https://github.com/Azure/AZNFS-mount/releases/latest/download/aznfs_install.sh | bash
    ```
 
    > [!NOTE]
    > AZNFS is supported on following Linux distributions:
-   > - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS)
-   > - RedHat7, RedHat8, RedHat9
-   > - Rocky8, Rocky9
-   > - SUSE (SLES 15)
+   > - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS)
+- RedHat7, RedHat8, RedHat9
+- Rocky8, Rocky9
+- SUSE (SLES 15)
+
+   
+> [!TIP] 
+> AZNFS 3.0 is now in public preview. This release delivers higher throughput, supports larger files, enhances metadata performance, and eliminates user group restrictions. To learn about improvements and view instructions to try AZNFS 3.0, see the [AZNFS wiki](https://github.com/Azure/AZNFS-mount/wiki).
 
 ## Step 6: Mount the container
 
@@ -146,7 +151,7 @@ Create a directory on your Linux system and then mount the container in the stor
 |`EINVAL ("Invalid argument"`) |This error can appear when a client attempts to:<li>Write to a blob that was created from a blob endpoint.<li>Delete a blob that has a snapshot or is in a container that has an active WORM (write once, read many) policy.|
 |`EROFS ("Read-only file system"`) |This error can appear when a client attempts to:<li>Write to a blob or delete a blob that has an active lease.<li>Write to a blob or delete a blob in a container that has an active WORM policy. |
 |`NFS3ERR_IO/EIO ("Input/output error"`) |This error can appear when a client attempts to read, write, or set attributes on blobs that are stored in the archive access tier. |
-|`OperationNotSupportedOnSymLink` error| This error can be returned during a write operation via a Blob Storage or Azure Data Lake Storage Gen2 API. Using these APIs to write or delete symbolic links that are created by using NFS 3.0 is not allowed. Make sure to use the NFS 3.0 endpoint to work with symbolic links. |
+|`OperationNotSupportedOnSymLink` error| This error can be returned during a write operation via a Blob Storage or Azure Data Lake Storage API. Using these APIs to write or delete symbolic links that are created by using NFS 3.0 is not allowed. Make sure to use the NFS 3.0 endpoint to work with symbolic links. |
 |`mount: /nfsdata: bad option;`| Install the NFS helper program by using `sudo apt install nfs-common`.|
 |`Connection Timed Out`| Make sure that client allows outgoing communication through ports 111 and 2048. The NFS 3.0 protocol uses these ports. Makes sure to mount the storage account by using the Blob service endpoint and not the Data Lake Storage endpoint. |
 

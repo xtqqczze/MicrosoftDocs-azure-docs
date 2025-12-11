@@ -1,12 +1,12 @@
 ---
 title: Reprotect VMware VMs to an on-premises site with Azure Site Recovery
 description: Learn how to reprotect VMware VMs after failover to Azure with Azure Site Recovery.
-author: ankitaduttaMSFT
-manager: gaggupta
-ms.service: site-recovery
-ms.topic: conceptual
-ms.author: ankitadutta
+author: Jeronika-MS
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.author: v-gajeronika
 ms.date: 03/13/2024
+# Customer intent: As a system administrator, I want to reprotect VMware VMs after failover to Azure so that I can ensure data consistency and facilitate a seamless failback to the on-premises site.
 ---
 
 # Reprotect from Azure to on-premises

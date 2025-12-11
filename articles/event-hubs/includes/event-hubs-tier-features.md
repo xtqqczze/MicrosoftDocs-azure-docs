@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: spelluru
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 02/15/2024
 ms.author: spelluru
@@ -18,11 +18,12 @@ The following table shows the list of features that are available (or not availa
 | Private link | N/A | Yes | Yes | Yes |
 | Customer-managed key <br/>(bring your own key) | N/A | N/A | Yes | Yes |
 | Capture | N/A | Priced separately | Included | Included |
-| Dynamic partition scale-out | N/A | N/A | Yes | Yes |
+| Dynamic partitions scale-out | N/A | N/A | Yes | Yes |
 | Ingress events | Pay per million events | Pay per million events | Included | Included |
 | Runtime audit logs | N/A | N/A | Yes | Yes |
 | Availability zone | Yes | Yes | Yes | Yes |
-| Geo-disaster | N/A | Yes | Yes | Yes |
+| Geo-disaster recovery | N/A | Yes | Yes | Yes |
+| Geo-replication | N/A | N/A | Yes | Yes |
 | IP firewall | N/A | Yes | Yes | Yes |
 
 > [!NOTE]

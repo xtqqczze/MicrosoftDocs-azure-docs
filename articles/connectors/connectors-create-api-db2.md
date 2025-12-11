@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: haroldcampos, azla
 ms.topic: how-to
 ms.date: 01/04/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Access and manage IBM DB2 resources by using Azure Logic Apps
@@ -62,7 +63,7 @@ which map to the corresponding actions in the connector:
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription, 
-[sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An IBM DB2 database, either cloud-based or on-premises
 
@@ -430,10 +431,6 @@ Expand the **Delete row** action.
 ## Connector reference
 
 For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/db2/).
-
-> [!NOTE]
-> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 

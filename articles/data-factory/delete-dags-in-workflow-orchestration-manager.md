@@ -4,9 +4,9 @@ description: This article explains how to delete files in Workflow Orchestration
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: abnarain
-ms.service: data-factory
 ms.topic: how-to
-ms.date: 10/01/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Delete files in Workflow Orchestration Manager
@@ -18,7 +18,7 @@ This article walks you through the steps to delete directed acyclic graph (DAG) 
 
 ## Prerequisites
 
-- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - **Azure Data Factory**: Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) instance in a [region where the Workflow Orchestration Manager preview is supported](concepts-workflow-orchestration-manager.md#region-availability-public-preview).
 
 ## Delete DAGs by using Git sync

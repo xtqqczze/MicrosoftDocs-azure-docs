@@ -1,15 +1,19 @@
 ---
 title: Azure Cloud Services (extended support) NetworkConfiguration Schema | Microsoft Docs
 description: Information related to the network configuration schema for Cloud Services (extended support)
-ms.topic: article
-ms.service: cloud-services-extended-support
+ms.topic: concept-article
+ms.service: azure-virtual-machines
 ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
+# Customer intent: As a cloud architect, I want to understand the NetworkConfiguration schema for Azure Cloud Services, so that I can accurately configure virtual networks, DNS settings, access control rules, and reserved IPs for my deployments.
 ---
 
 # Azure Cloud Services (extended support) config networkConfiguration schema
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 The `NetworkConfiguration` element of the service configuration file specifies Virtual Network and Domain Name System (DNS) values. These settings are optional for Cloud Services  (classic).
 
@@ -38,13 +42,13 @@ The following example shows the `NetworkConfiguration` element and its child ele
         <DnsServer name="<server-name>" IPAddress="<server-address>" />
       </DnsServers>
     </Dns>
-    <VirtualNetworkSite name="Group <RG-VNet> <VNet-name>"/>
-    <AddressAssignments>
-      <InstanceAddress roleName="<role-name>">
-        <Subnets>
-          <Subnet name="<subnet-name>"/>
-        </Subnets>
-      </InstanceAddress>
+    <VirtualNetworkSite name="<vnet-name>"/> <!-- Or, if the virtual network is in a different resource group: <VirtualNetworkSite name="/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>"/> -->
+      <AddressAssignments>
+        <InstanceAddress roleName="<role-name>">
+          <Subnets>
+            <Subnet name="<subnet-name>"/>
+          </Subnets>
+        </InstanceAddress>
       <ReservedIPs>
         <ReservedIP name="<reserved-ip-name>"/>
       </ReservedIPs>

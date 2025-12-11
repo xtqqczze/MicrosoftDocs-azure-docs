@@ -3,8 +3,8 @@ title: 'Azure ExpressRoute: Routing requirements'
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.topic: conceptual
+ms.service: azure-expressroute
+ms.topic: concept-article
 ms.date: 06/20/2024
 ms.author: duau
 ms.custom: references_regions
@@ -125,9 +125,7 @@ ExpressRoute can't be configured as transit routers. You have to rely on your co
 
 Default routes are permitted only on Azure private peering sessions. In such a case, ExpressRoute routes all traffic from the associated virtual networks to your network. Advertising default routes into private peering results in the internet path from Azure being blocked. You must rely on your corporate edge to route traffic from and to the internet for services hosted in Azure. 
 
-To enable connectivity to other Azure services and infrastructure services, you must make sure one of the following items is in place:
-
-* You use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity.
+Some services are not able to be accessed from your corporate edge.  To enable connectivity to other Azure services and infrastructure services, you must use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity for these services.
 
 > [!NOTE]
 > Advertising default routes will break Windows and other VM license activation. For information about a work around, see [use user defined routes to enable KMS activation](/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling).
@@ -198,6 +196,8 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | **Korea** | |
 | Korea South | 12076:50028 | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 | 12076:55028 |
 | Korea Central | 12076:50029 | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 | 12076:55029 |
+| **New Zealand** | |
+| New Zealand North | 12076:50059 | 12076:51059 | 12076:52059 | 12076:53059 | 12076:54059 | 12076:55059 |
 | **South Africa**| |
 | South Africa North | 12076:50034 | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 | 12076:55034 |
 | South Africa West | 12076:50035 | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 | 12076:55035 |

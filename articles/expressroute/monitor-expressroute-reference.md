@@ -6,7 +6,8 @@ ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: duongau
 ms.author: duau
-ms.service: expressroute
+ms.service: azure-expressroute
+# Customer intent: "As a network administrator, I want to access monitoring metrics for Azure ExpressRoute, so that I can effectively track performance and identify any issues in my network connections."
 ---
 # Azure ExpressRoute monitoring data reference
 
@@ -121,7 +122,7 @@ You can view near to real-time availability of BGP (Layer-3 connectivity) across
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="Screenshot shows BGP availability per peer.":::
 
 >[!NOTE]
->During maintenance between the Microsoft edge and core network, BGP availability will appear down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to have your [maintenance alerts turned on and configured](./maintenance-alerts.md).
+>During maintenance between the Microsoft Edge and core network, BGP availability will appear down even if the BGP session between the customer edge and Microsoft Edge remains up. For information about maintenance between the Microsoft Edge and core network, make sure to have your [maintenance alerts turned on and configured](./maintenance-alerts.md).
 >
 
 #### <a name = "circuitbandwidth"></a>Bits In and Out - Metrics across all peerings
@@ -144,7 +145,7 @@ You can view metrics for private, public, and Microsoft peering in bits/second.
 
 Aggregation type: *Max*
 
-This metric shows the number of FastPath routes configured on a circuit. Set an alert for when the number of FastPath routes on a circuit goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-limits). 
+This metric shows the number of FastPath routes configured on a circuit. Set an alert for when the number of FastPath routes on a circuit goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-capacity). 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/fastpath-routes-count-circuit.png" alt-text="Screenshot of FastPath routes count at circuit level metric.":::
 
@@ -318,7 +319,7 @@ Aggregation type: *Max*
 
 This metric shows the number of FastPath routes configured on an ExpressRoute Direct port. 
 
-*Guidance:* Set an alert for when the number of FastPath routes on the port goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-limits).
+*Guidance:* Set an alert for when the number of FastPath routes on the port goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-capacity).
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/fastpath-routes-count-port.png" alt-text="Screenshot of FastPath routes count at port level metric.":::
 
@@ -397,6 +398,9 @@ Dimension for Express Direct:
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
+> [!NOTE]
+> Logs in Azure Log Analytics may take up to 24 hours to appear.
+
 ### ExpressRoute Microsoft.Network/expressRouteCircuits
 
 - [AzureActivity](/azure/azure-monitor/reference/tables/AzureActivity#columns)
@@ -415,11 +419,11 @@ The following table lists the operations related to ExpressRoute that might be c
 | Create or update ExpressRoute circuit | An ExpressRoute circuit was created or updated. |
 | Deletes ExpressRoute circuit | An ExpressRoute circuit was deleted.|
 
-For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md).
+For more information on the schema of Activity Log entries, see [Activity Log schema](/azure/azure-monitor/essentials/activity-log-schema).
 
 ## Schemas
 
-For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../azure-monitor/essentials/resource-logs-schema.md).
+For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](/azure/azure-monitor/essentials/resource-logs-schema).
 
 When you review any metrics through Log Analytics, the output contains the following columns:
 

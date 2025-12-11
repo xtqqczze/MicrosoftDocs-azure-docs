@@ -8,6 +8,8 @@ ms.subservice: sap-vm-workloads
 ms.topic: how-to
 ms.date: 07/19/2022
 ms.author: mapankra
+ms.custom: sfi-image-nochange
+# Customer intent: "As an IT architect, I want to securely expose SAP Process Orchestration using Azure services, so that I can facilitate integrated communication between internal systems and external partners while ensuring data protection and compliance."
 ---
 # Expose SAP legacy middleware securely with Azure PaaS
 
@@ -168,11 +170,11 @@ To determine which integration scenarios described in this article best fit your
 
 - [Azure Firewall](../../firewall/features.md) for non-HTTP integrations
 
-- [High availability](../../virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios.md) and [disaster recovery](/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery) for VM-based SAP integration workloads
+- [High availability](/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) and [disaster recovery](/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery) for VM-based SAP integration workloads
 
 - Modern [authentication mechanisms like OAuth2](../../api-management/sap-api.md#production-considerations), where applicable
 
-- A managed key store like [Azure Key Vault](../../key-vault/general/overview.md) for all involved credentials, certificates, and keys
+- A managed key store like [Azure Key Vault](/azure/key-vault/general/overview) for all involved credentials, certificates, and keys
 
 ## Alternatives to SAP Process Orchestration with Azure Integration Services
 

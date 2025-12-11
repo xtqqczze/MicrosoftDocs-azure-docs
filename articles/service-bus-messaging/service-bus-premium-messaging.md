@@ -3,7 +3,7 @@ title: Azure Service Bus premium messaging tier
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 ms.topic: conceptual
 ms.custom: devx-track-extended-java
-ms.date: 07/22/2024
+ms.date: 05/28/2025
 ---
 
 # Service Bus premium messaging tier
@@ -72,7 +72,7 @@ To learn how to configure a Service Bus namespace to automatically scale (increa
 >
 >  * **Reactive**: If additional workloads are identified by studying the resource usage metrics, then additional resources can be allocated to the namespace to incorporate increasing demand.
 >
-> The billing meters for Service Bus are hourly. In the case of scaling up, you only pay for the additional resources for the hours that these were used.
+> The billing meters for Service Bus are hourly. When scaling up, you only pay for the additional resources for the hours that these were used.
 >
 
 ## Get started with premium messaging
@@ -95,7 +95,6 @@ Here are some considerations when sending large messages on Azure Service Bus -
 - While 100-MB message payloads are supported, we recommend that you keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
 - The max message size is enforced only for messages sent to the queue or topic. The size limit isn't enforced for the receive operation. It allows you to update the max message size for a given queue (or topic).
 - Batching isn't supported. 
-- Service Bus Explorer doesn't support sending or receiving large messages. 
 
 [!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
@@ -122,7 +121,7 @@ The following network security features are available only in the premium tier. 
 Configuring IP firewall using the Azure portal is available only for the premium tier namespaces. However, you can configure IP firewall rules for other tiers using Azure Resource Manager templates, CLI, PowerShell, or REST API. For more information, see [Configure IP firewall](service-bus-ip-filtering.md).
 
 ## Encryption of data at rest
-Azure Service Bus Premium provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Service Bus Premium uses Azure Storage to store the data. All the data stored with Azure Storage is encrypted using Microsoft-managed keys. If you use your own key (also referred to as customer managed key), the data is still encrypted using the Microsoft-managed key, but in addition the Microsoft-managed key is encrypted using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the customer-managed key feature is a one time setup process on your namespace. For more information, see [Encrypting Azure Service Bus data at rest](configure-customer-managed-key.md).
+All the data stored in the storage subsystem is encrypted using Microsoft-managed keys. If you use your own key (also referred to as customer managed key), the data is still encrypted using the Microsoft-managed key, but in addition the Microsoft-managed key is encrypted using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the customer-managed key feature is a one time setup process on your namespace. For more information, see [Encrypting Azure Service Bus data at rest](configure-customer-managed-key.md).
 
 ## Partitioning
 There are some differences between the standard and premium tiers when it comes to partitioning.
@@ -158,7 +157,7 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 
 
 
-## Java Message Service (JMS) support
+## Java Message Service (JMS) 
 The premium tier supports JMS 1.1 and JMS 2.0. For more information, see [How to use JMS 2.0 with Azure Service Bus Premium](how-to-use-java-message-service-20.md).
 
 The standard tier supports only JMS 1.1 subset focused on queues. For more information, see [Use Java Message Service 1.1 with Azure Service Bus standard](service-bus-java-how-to-use-jms-api-amqp.md).

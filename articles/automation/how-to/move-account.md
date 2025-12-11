@@ -3,8 +3,11 @@ title: Move your Azure Automation account to another subscription
 description: This article tells how to move your Automation account to another subscription.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/26/2023
-ms.topic: conceptual 
+ms.date: 11/17/2025
+ms.topic: how-to 
+ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Move your Azure Automation account to another subscription

@@ -1,15 +1,19 @@
 ---
-title: Configure security for Tomcat, JBoss, or Java SE apps
+title: Configure Security for Tomcat, JBoss, or Java SE Apps
 description: Learn how to configure security for Tomcat, JBoss, or Java SE apps on Azure App Service, such as authentication, Key Vault references, and Java key store.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 ms.devlang: java
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/17/2024
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-extended-java, linux-related-content
 zone_pivot_groups: app-service-java-hosting
 adobe-target: true
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+
+# customer intent: As a developer, I want to configure security for Tomcat, JBoss, or Java SE apps.
+
 ---
 
 # Configure security for a Tomcat, JBoss, or Java SE app in Azure App Service
@@ -76,7 +80,7 @@ To upload an existing TLS/SSL certificate and bind it to your application's doma
 
 ## Use KeyVault References
 
-[Azure KeyVault](../key-vault/general/overview.md) provides centralized secret management with access policies and audit history. You can store secrets (such as passwords or connection strings) in KeyVault and access these secrets in your application through environment variables.
+[Azure KeyVault](/azure/key-vault/general/overview) provides centralized secret management with access policies and audit history. You can store secrets (such as passwords or connection strings) in KeyVault and access these secrets in your application through environment variables.
 
 First, follow the instructions for [granting your app access to a key vault](app-service-key-vault-references.md#grant-your-app-access-to-a-key-vault) and [making a KeyVault reference to your secret in an Application Setting](app-service-key-vault-references.md#source-app-settings-from-key-vault). You can validate that the reference resolves to the secret by printing the environment variable while remotely accessing the App Service terminal.
 
@@ -127,7 +131,7 @@ You can load certificates manually to the key store. Create an app setting, `SKI
 
 You can interact or debug the Java Key Tool by [opening an SSH connection](configure-linux-open-ssh-session.md) to your App Service and running the command `keytool`. See the [Key Tool documentation](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) for a list of commands. For more information on the KeyStore API, see [the official documentation](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
-## Next steps
+## Related content 
 
 Visit the [Azure for Java Developers](/java/azure/) center to find Azure quickstarts, tutorials, and Java reference documentation.
 

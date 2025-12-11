@@ -2,13 +2,13 @@
 title: 'Quickstart: Create Application Gateway for Containers - bring your own deployment'
 description: In this quickstart, you learn how to provision and manage the Application Gateway for Containers Azure resources independent from Kubernetes configuration.
 services: application-gateway
-author: greglin
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
+author: mbender-ms
+ms.service: azure-appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 02/27/2024
-ms.author: greglin
+ms.date: 08/12/2024
+ms.author: mbender
+# Customer intent: As a cloud architect, I want to provision and manage Application Gateway for Containers resources independently of Kubernetes, so that I can streamline my deployment processes and maintain resource lifecycles directly within Azure.
 ---
 
 # Quickstart: Create Application Gateway for Containers - bring your own deployment
@@ -86,7 +86,7 @@ az network vnet subnet update \
 ALB_SUBNET_ID=$(az network vnet subnet list --resource-group $VNET_RESOURCE_GROUP --vnet-name $VNET_NAME --query "[?name=='$ALB_SUBNET_NAME'].id" --output tsv)
 echo $ALB_SUBNET_ID
 ```
-
+   
 ### Delegate permissions to managed identity
 
 ALB Controller needs the ability to provision new Application Gateway for Containers resources and join the subnet intended for the Application Gateway for Containers association resource.

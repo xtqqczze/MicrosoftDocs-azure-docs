@@ -4,11 +4,12 @@ titleSuffix: Azure Virtual Network
 description: In this article, learn how to create a virtual machine with a dual-stack virtual network in Azure using the Azure portal, Azure CLI, or PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 07/24/2024
 ms.custom: template-how-to
+# Customer intent: As a cloud engineer, I want to create a virtual machine with a dual-stack network in Azure using the portal, CLI, or PowerShell, so that I can ensure both IPv4 and IPv6 connectivity for my applications.
 ---
 
 # Create an Azure Virtual Machine with a dual-stack network
@@ -19,11 +20,11 @@ In this article, you create a virtual machine in Azure with the Azure portal. Th
 
 # [Azure portal](#tab/azureportal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 # [Azure CLI](#tab/azurecli/)
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -31,7 +32,7 @@ In this article, you create a virtual machine in Azure with the Azure portal. Th
 
 # [Azure PowerShell](#tab/azurepowershell/)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure PowerShell installed locally or Azure Cloud Shell.
 - Sign in to Azure PowerShell and select the subscription you want to use. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 - Ensure your Az. Network module is 4.3.0 or later. To verify the installed module, use the command Get-InstalledModule -Name "Az.Network". If the module requires an update, use the command Update-Module -Name "Az. Network".
@@ -316,31 +317,23 @@ In this section, you create the virtual machine and its supporting resources.
 
 9. The private key downloads to your local computer. Copy the private key to a directory on your computer. In the following example, it's **~/.ssh**.
 
-10. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
-
-11. Select **myVM**.
-
-12. Stop **myVM**.
-
 ### Configure network interface
 
 A network interface is automatically created and attached to the chosen virtual network during creation. In this section, you add the IPv6 configuration to the existing network interface.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. Select **myVM**.
+2. Select **myVM** or your existing virtual machine name.
 
-3. Select **Stop**, to stop the virtual machine. Wait for the machine to shut down.
+3. Select **Networking** in **Settings**.
 
-4. Select **Networking** in **Settings**.
+4. The name of your default network interface will be **myvmxx**, with xx a random number. In this example, it's **myvm281**. Select **myvm281** next to **Network Interface:**.
 
-5. The name of your default network interface will be **myvmxx**, with xx a random number. In this example, it's **myvm281**. Select **myvm281** next to **Network Interface:**.
+5. In the properties of the network interface, select **IP configurations** in **Settings**.
 
-6. In the properties of the network interface, select **IP configurations** in **Settings**.
+6. In **IP configurations**, select **+ Add**.
 
-7. In **IP configurations**, select **+ Add**.
-
-8. In **Add IP configuration**, enter or select the following information.
+7. In **Add IP configuration**, enter or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
@@ -351,9 +344,7 @@ A network interface is automatically created and attached to the chosen virtual 
     | Public IP address | Select **Associate**. |
     | Public IP address | Select **myPublicIP-IPv6**. |
 
-9. Select **OK**.
-
-10. Return to the **Overview** of **myVM** and start the virtual machine.
+8. Select **OK**.
 
 # [Azure CLI](#tab/azurecli/)
 

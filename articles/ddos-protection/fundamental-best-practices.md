@@ -3,10 +3,11 @@ title: Azure DDoS Protection fundamental best practices
 description: Learn the best security practices using Azure DDoS Protection.
 services: ddos-protection
 author: AbdullahBell
-ms.service: ddos-protection
-ms.topic: conceptual
-ms.date: 07/17/2024
+ms.service: azure-ddos-protection
+ms.topic: concept-article
+ms.date: 10/13/2025
 ms.author: abell
+# Customer intent: As a security architect, I want to implement best practices for Azure DDoS Protection, so that I can ensure my applications are resilient and secure against denial-of-service attacks while optimizing scalability and minimizing risk.
 ---
 # Azure DDoS Protection fundamental best practices
 
@@ -28,7 +29,7 @@ Ensuring that an application is resilient enough to handle a denial of service t
 Scalability is how well a system can handle increased load. Design your applications to [scale horizontally](/azure/architecture/guide/design-principles/scale-out) to meet the demand of an amplified load, specifically in the event of a DDoS attack. If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances makes your system more resilient and more scalable.
 
 For [Azure App Service](../app-service/overview.md), select an [App Service plan](../app-service/overview-hosting-plans.md) that offers multiple instances. For Azure Cloud Services, configure each of your roles to use [multiple instances](../cloud-services/cloud-services-choose-me.md). 
-For [Azure Virtual Machines](../virtual-machines/index.yml), ensure that your virtual machine (VM) architecture includes more than one VM and that each VM is included in an [availability set](../virtual-machines/windows/tutorial-availability-sets.md). We recommend using [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) for autoscaling capabilities.
+For [Azure Virtual Machines](/azure/virtual-machines/), ensure that your virtual machine (VM) architecture includes more than one VM and that each VM is included in an [availability set](/azure/virtual-machines/windows/tutorial-availability-sets). We recommend using [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) for autoscaling capabilities.
 
 ## Defense in depth
 
@@ -41,8 +42,3 @@ You should deploy Azure services in a [virtual network](../virtual-network/virtu
 
 We often see customers' on-premises resources getting attacked along with their resources in Azure. If you're connecting an on-premises environment to Azure, we recommend that you minimize exposure of on-premises resources to the public internet. You can use the scale and advanced DDoS protection capabilities of Azure by deploying your well-known public entities in Azure. Because these publicly accessible entities are often a target for DDoS attacks, putting them in Azure reduces the impact on your on-premises resources.
 
-
-
-## Next steps
-
-* Learn more about [business continuity](ddos-disaster-recovery-guidance.md).

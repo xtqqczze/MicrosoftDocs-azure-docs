@@ -1,13 +1,15 @@
 ---
 title: Transform data using Hive in Azure Virtual Network
 description: Use Azure PowerShell to create a Data Factory pipeline that transforms data using Hive Activity on a HDInsight cluster that is in an Azure Virtual Network (VNet).
-ms.service: data-factory
-ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: orchestration
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory
@@ -25,7 +27,7 @@ In this tutorial, you use Azure PowerShell to create a Data Factory pipeline tha
 > * Monitor the pipeline run 
 > * verify the output. 
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) account before you begin.
 
 ## Prerequisites
 

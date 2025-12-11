@@ -2,13 +2,13 @@
 title: Routing preference in Azure
 titleSuffix: Azure Virtual Network
 description: Learn about how you can choose how your traffic routes between Azure and the Internet with routing preference.
-ms.date: 08/24/2023
+ms.date: 11/20/2025
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 # Customer intent: As an Azure customer, I want to learn more about routing choices for my internet egress traffic.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions
 ---
 
@@ -20,7 +20,7 @@ Azure routing preference enables you to choose how your traffic routes between A
 
 Routing your traffic via the Microsoft global network delivers your traffic over one of the largest networks in the world, spanning over 160,000 miles of fiber with over 165 edge Point of Presence (POP). The network is well provisioned with multiple redundant fiber paths to ensure exceptionally high reliability and availability. The software-defined WAN controller manages traffic engineering, ensuring low-latency path selection for your traffic and offering premium network performance.
 
-:::image type="content" source="./media/routing-preference-overview/route-via-microsoft-global-network.png" alt-text="Diagram of routing via Microsoft global network.":::
+:::image type="content" source="./media/routing-preference-overview/route-via-microsoft-global-network.png" alt-text="Screenshot of routing via Microsoft global network diagram showing traffic flow through Microsoft network infrastructure.":::
 
 **Ingress traffic:** The global BGP Anycast announcement ensures ingress traffic enters Microsoft network closest to the user. When a user from Singapore accesses Azure resources hosted in Chicago, the traffic enters the Microsoft global network at the Singapore edge POP. The traffic then travels on the Microsoft network to the service hosted in Chicago.
 
@@ -30,16 +30,20 @@ Both ingress and egress traffic remain on the Microsoft global network whenever 
 
 ## Routing over public Internet (ISP network)
 
-The new routing choice *Internet routing* minimizes travel on the Microsoft global network, and uses the transit ISP network to route your traffic. This cost-optimized routing option offers network performance that is comparable to other cloud providers.
+The new routing choice *Internet routing* minimizes travel on the Microsoft global network, and uses the transit ISP network to route your traffic. This cost-optimized routing option offers network performance that's comparable to other cloud providers.
 
-:::image type="content" source="./media/routing-preference-overview/route-via-isp-network.png" alt-text="Diagram of routing via public Internet.":::
+:::image type="content" source="./media/routing-preference-overview/route-via-isp-network.png" alt-text="Screenshot of routing via public Internet diagram showing traffic flow through ISP network infrastructure.":::
 
-**Ingress traffic:** The ingress path uses *hot potato routing*, which means that traffic enters the Microsoft network that is closest to the hosted service region. For example, if a user from Singapore accesses Azure resources hosted in Chicago then traffic travels over the public internet and enters the Microsoft global network in Chicago.
+**Ingress traffic:** The ingress path uses *hot potato routing*, which means that traffic enters the Microsoft network that's closest to the hosted service region. For example, if a user from Singapore accesses Azure resources hosted in Chicago then traffic travels over the public internet and enters the Microsoft global network in Chicago.
 
 **Egress traffic:** The egress traffic follows the same principle. Traffic exits Microsoft network in the same region that the service is hosted. For example, if traffic from your service in Azure in Chicago is destined to a user in Singapore, the traffic exits the Microsoft network in Chicago. It then travels over the public internet to the user in Singapore.
 
 > [!NOTE]
-> Even when using a public IP with routing preference **Internet**, all traffic that is bound for a destination within Azure continues to use the direct path within the Microsoft Wide Area Network.
+> When using a public IP with routing preference **Internet**, all traffic that is bound for a destination within Azure continues to use the direct path within the Microsoft Wide Area Network.
+>
+
+> [!IMPORTANT]
+> A public IP routing preference can't be changed once created.
 >
 
 ## Supported services
@@ -52,7 +56,7 @@ Public IP with routing preference choice **Microsoft Global Network** can be ass
 
 * Azure Kubernetes Service (AKS)
 
-* Internet-facing load balancer
+* Public load balancer (NIC-based backend only)
 
 * Application Gateway
 
@@ -74,9 +78,11 @@ The price difference between both options is reflected in the internet egress da
 
 ## Limitations
 
-* Internet routing preference is only compatible with zone-redundant standard SKU of public IP address. Basic SKU of public IP address isn't supported.
+* Internet routing preference is only compatible with zone-redundant standard SKU of public IP address. Standard v2 SKU and Basic SKU public IP addresses aren't supported.
 
 * Internet routing preference currently supports only IPv4 public IP addresses. IPv6 public IP addresses aren't supported.
+
+* Internet routing preference public IP addresses aren't compatible with NAT Gateways or IP-based Public Load Balancers.
 
 ### Regional availability
 
@@ -130,8 +136,5 @@ Internet routing preference is available in all regions listed below:
 
 ## Next steps
 
-* [Learn more about how optimize connectivity to your Microsoft Azure services over the internet - Video](https://www.youtube.com/watch?v=j6A_Mbpuh6s&list=PLLasX02E8BPA5V-waZPcelhg9l3IkeUQo&index=12) 
-
-* [Configure routing preference for a VM using the Azure PowerShell](./configure-routing-preference-virtual-machine-powershell.md)
-
-* [Configure routing preference for a VM using the Azure CLI](./configure-routing-preference-virtual-machine-cli.md)
+> [!div class="nextstepaction"]
+> [Configure routing preference for a virtual machine](./configure-routing-preference-virtual-machine.md)

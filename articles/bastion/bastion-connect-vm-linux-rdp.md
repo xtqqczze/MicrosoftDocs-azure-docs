@@ -2,12 +2,15 @@
 title: 'Connect to a Linux VM using RDP'
 titleSuffix: Azure Bastion
 description: Learn how to use Azure Bastion to connect to Linux VM using RDP.
-author: cherylmc
-ms.service: bastion
+author: abell
+ms.service: azure-bastion
 ms.topic: how-to
-ms.custom: linux-related-content
-ms.date: 06/19/2024
-ms.author: cherylmc
+ms.date: 03/31/2025
+ms.author: abell
+ms.custom:
+  - linux-related-content
+  - sfi-ropc-nochange
+# Customer intent: As a cloud administrator, I want to securely connect to a Linux VM using RDP through a Bastion host, so that I can manage my virtual machines without exposing them to external threats.
 ---
 
 # Create an RDP connection to a Linux VM using Azure Bastion
@@ -25,7 +28,7 @@ Make sure you've configured an Azure Bastion host for the virtual network in whi
   * RDP to a Linux VM is only available for the Standard SKU or higher. To check your SKU or upgrade to a higher SKU tier, see [Upgrade the SKU](upgrade-sku.md).
   * To see the available features and settings per SKU tier, see the [SKUs and features](bastion-overview.md#sku) section of the Bastion overview article.  
 
-* To use RDP with a Linux virtual machine, you must also ensure that you have xrdp installed and configured on the Linux VM. To learn how to do this, see [Use xrdp with Linux](../virtual-machines/linux/use-remote-desktop.md).
+* To use RDP with a Linux virtual machine, you must also ensure that you have xrdp installed and configured on the Linux VM. To learn how to do this, see [Use xrdp with Linux](/azure/virtual-machines/linux/use-remote-desktop).
 
 * You must use username/password authentication.
 

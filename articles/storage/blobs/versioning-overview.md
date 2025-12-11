@@ -6,10 +6,11 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/14/2023
 ms.author: normesta
 ms.custom: engagement-fy23
+# Customer intent: "As a data engineer, I want to enable blob versioning for my storage account, so that I can automatically maintain and restore previous versions of my data to safeguard against accidental modifications or deletions."
 ---
 
 # Blob versioning
@@ -45,7 +46,7 @@ Blob versions are immutable. You can't modify the content or metadata of an exis
 
 Having a large number of versions per blob can increase the latency for blob listing operations. Microsoft recommends maintaining fewer than 1000 versions per blob. You can use lifecycle management to automatically delete old versions. For more information about lifecycle management, see [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md).
 
-Blob versioning is available for standard general-purpose v2, premium block blob, and legacy Blob storage accounts. Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 aren't currently supported.
+Blob versioning is available for standard general-purpose v2, premium block blob, and legacy Blob storage accounts. Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage aren't currently supported.
 
 Version 2019-10-10 and higher of the Azure Storage REST API supports blob versioning.
 
@@ -217,8 +218,12 @@ If you've changed a blob or version's tier, then you're billed for the entire ob
 
 > [!NOTE]
 > Enabling versioning for data that is frequently overwritten may result in increased storage capacity charges and increased latency during listing operations. To mitigate these concerns, store frequently overwritten data in a separate storage account with versioning disabled.
+> 
+> Enabling versions on storage accounts that are backed up frequently might trigger data retrieval charges when the versions are stored on cool or cold access tiers.
 
 For more information about billing details for blob snapshots, see [Blob snapshots](snapshots-overview.md).
+
+For storage accounts that leverage the smart tier public preview, versions and snapshots are billed at full content length. For more information, see [Optimize costs with smart tier](access-tiers-smart.md).
 
 ### Billing when the blob tier has not been explicitly set
 
@@ -292,7 +297,7 @@ When blob soft delete is enabled, all soft-deleted entities are billed at full c
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)] 
 
-Versioning is not supported for blobs that are uploaded by using [Data Lake Storage Gen2](/rest/api/storageservices/data-lake-storage-gen2) APIs.
+Versioning is not supported for blobs that are uploaded by using [Data Lake Storage](/rest/api/storageservices/data-lake-storage-gen2) APIs.
 
 ## See also
 

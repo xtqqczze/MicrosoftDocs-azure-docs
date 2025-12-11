@@ -1,7 +1,7 @@
 ---
 title: Publish modules to private module registry
 description: Publish Bicep modules to private module registry and use the modules.
-ms.date: 06/28/2024
+ms.date: 12/10/2025
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to publish Bicep modules to private module registry.
@@ -13,11 +13,11 @@ Learn how to publish Bicep modules to private modules registry, and how to call 
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 To work with module registries, you must have [Bicep CLI](./install.md) version **0.4.1008** or later. To use with [Azure CLI](/cli/azure/install-azure-cli), you must also have Azure CLI version **2.31.0** or later; to use with [Azure PowerShell](/powershell/azure/install-azure-powershell), you must also have Azure PowerShell version **7.0.0** or later.
 
-A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-registry/container-registry-intro.md). To create one, see [Quickstart: Create a container registry by using a Bicep file](../../container-registry/container-registry-get-started-bicep.md).
+A Bicep registry is hosted on [Azure Container Registry (ACR)](/azure/container-registry/container-registry-intro). To create one, see [Quickstart: Create a container registry by using a Bicep file](/azure/container-registry/container-registry-get-started-bicep).
 
 To set up your environment for Bicep development, see [Install Bicep tools](install.md). After completing those steps, you'll have [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep), or [Visual Studio](https://visualstudio.microsoft.com/) and the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.visualstudiobicep).
 
@@ -45,7 +45,7 @@ param location string
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -204,4 +204,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn modules for Bicep](learn-bicep.md)
+> [Create Bicep files by using Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).

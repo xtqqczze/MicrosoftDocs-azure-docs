@@ -4,14 +4,17 @@ description: Learn how Azure Monitor and Log Analytics help you monitor your App
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
-ms.custom: devx-track-azurecli
 ms.date: 06/29/2023
+ms.service: azure-app-service
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 # Tutorial: Troubleshoot an App Service app with Azure Monitor
 
-This tutorial shows how to troubleshoot an [App Service](overview.md) app using [Azure Monitor](../azure-monitor/overview.md). The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using Azure Monitor. When you're finished, you have a sample app running on App Service on Linux integrated with [Azure Monitor](../azure-monitor/overview.md).
+This tutorial shows how to troubleshoot an [App Service](overview.md) app using [Azure Monitor](/azure/azure-monitor/overview). The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using Azure Monitor. When you're finished, you have a sample app running on App Service on Linux integrated with [Azure Monitor](/azure/azure-monitor/overview).
 
-[Azure Monitor](../azure-monitor/overview.md) maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
+[Azure Monitor](/azure/azure-monitor/overview) maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
 In this tutorial, you learn how to:
 
@@ -28,7 +31,7 @@ You can follow the steps in this tutorial on macOS, Linux, Windows.
 
 To complete this tutorial, you need:
 
-- [Azure subscription](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 - [Git](https://git-scm.com/)
 
@@ -74,7 +77,7 @@ Diagnostic settings can be used to collect metrics for certain Azure services in
 You run the following commands to create diagnostic settings for AppServiceConsoleLogs (standard output/error) and AppServiceHTTPLogs (web server logs). Replace _\<app-name>_ and _\<workspace-name>_ with your values. 
 
 > [!NOTE]
-> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command. See [Create diagnostic settings using Azure CLI](../azure-monitor/essentials/create-diagnostic-settings.md?tabs=cli) for more information on this command.
+> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command. See [Create diagnostic settings using Azure CLI](/azure/azure-monitor/essentials/create-diagnostic-settings?tabs=cli) for more information on this command.
 >
 
 ```azurecli
@@ -125,7 +128,7 @@ In the Azure portal, select your Log Analytics workspace.
 
 ### Log queries
 
-Log queries help you to fully apply the value of the data collected in Azure Monitor Logs. You use log queries to identify the logs in both AppServiceHTTPLogs and AppServiceConsoleLogs. See the [log query overview](../azure-monitor/logs/log-query-overview.md) for more information on log queries.
+Log queries help you to fully apply the value of the data collected in Azure Monitor Logs. You use log queries to identify the logs in both AppServiceHTTPLogs and AppServiceConsoleLogs. See the [log query overview](/azure/azure-monitor/logs/log-query-overview) for more information on log queries.
 
 ### View AppServiceHTTPLogs with log query
 
@@ -133,7 +136,7 @@ Now that we've accessed the app, let's view the data associated with HTTP reques
 
 1. Click `Logs` from the left-hand navigation.
 
-![Log Anlytics Worksace Logs](./media/tutorial-azure-monitor/log-analytics-workspace-logs.png)
+![Log Analytics Workspace Logs](./media/tutorial-azure-monitor/log-analytics-workspace-logs.png)
 
 2. Search for `appservice` and double-click `AppServiceHTTPLogs`.
 
@@ -265,7 +268,7 @@ What you learned:
 > * Used log queries to identify and troubleshoot web app errors
 
 ## <a name="nextsteps"></a> Next steps
-* [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
+* [Query logs with Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analyze app Logs in HDInsight](/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial)
-* [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
+* [Tutorial: Run a load test to identify performance bottlenecks in a web app](../app-testing/load-testing/tutorial-identify-bottlenecks-azure-portal.md)

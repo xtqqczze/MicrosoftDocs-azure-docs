@@ -1,12 +1,13 @@
 ---
 title: Prepare for VMware VM disaster recovery with Azure Site Recovery
 description: Learn how to prepare on-premises VMware servers for disaster recovery to Azure using the Azure Site Recovery service.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 04/08/2024
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: v-gajeronika
+author: Jeronika-MS
+# Customer intent: As a VMware administrator, I want to prepare on-premises VMware servers for disaster recovery to the cloud, so that I can ensure my VMs are protected and can be quickly restored in case of a disaster.
 ---
 # Prepare on-premises VMware servers for disaster recovery to Azure
 

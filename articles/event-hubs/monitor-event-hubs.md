@@ -1,10 +1,9 @@
 ---
 title: Monitor Azure Event Hubs
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Event Hubs. 
-ms.date: 06/20/2024
+ms.date: 05/20/2025
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
-ms.service: azure-event-hubs
 ---
 
 # Monitor Azure Event Hubs
@@ -22,7 +21,7 @@ Azure Monitor documentation describes the following concepts:
 The following sections describe the specific data gathered for Azure Event Hubs. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
 
 > [!TIP]
-> To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](../azure-monitor/cost-usage.md). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](../azure-monitor/logs/data-ingestion-time.md).
+> To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](/azure/azure-monitor/cost-usage). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](/azure/azure-monitor/logs/data-ingestion-time).
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for Event Hubs, see [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md).
@@ -45,7 +44,7 @@ For more information about the resource types for Event Hubs, see [Azure Event H
 > Enabling these settings requires additional Azure services: storage account, event hub, or Log Analytics. These services might increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 > [!NOTE]
-> When you enable metrics in a diagnostic setting, dimension information is not currently included as part of the information sent to a storage account, event hub, or log analytics.
+> When you enable metrics in a diagnostic setting, dimension information isn't currently included as part of the information sent to a storage account, event hub, or log analytics.
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
@@ -58,18 +57,18 @@ For a list of available metrics for Event Hubs, see [Azure Event Hubs monitoring
 
 ### Analyze metrics
 
-You can analyze metrics for Azure Event Hubs, along with metrics from other Azure services, by selecting **Metrics** from the **Azure Monitor** section on the home page for your Event Hubs namespace. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Event Hubs data reference metrics](monitor-event-hubs-reference.md#metrics).
+You can analyze metrics for Azure Event Hubs, along with metrics from other Azure services, by selecting **Metrics** from the **Azure Monitor** section on the home page for your Event Hubs namespace. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool. For a list of the platform metrics collected, see [Monitoring Azure Event Hubs data reference metrics](monitor-event-hubs-reference.md#metrics).
 
 :::image type="content" source="./media/monitor-event-hubs/metrics.png" alt-text="Screenshot showing the Metrics Explorer for an Event Hubs namespace." lightbox="./media/monitor-event-hubs/metrics.png":::
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
+For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 > [!TIP]
 > Azure Monitor metrics data is available for 90 days. However, when creating charts only 30 days can be visualized. For example, if you want to visualize a 90 day period, you must break it into three charts of 30 days within the 90 day period.
 
 ### Filter and split
 
-For metrics that support dimensions, you can apply filters using a dimension value. For example, add a filter with `EntityName` set to the name of an event hub. You can also split a metric by dimension to visualize how different segments of the metric compare with each other. For more information of filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/essentials/metrics-charts.md).
+For metrics that support dimensions, you can apply filters using a dimension value. For example, add a filter with `EntityName` set to the name of an event hub. You can also split a metric by dimension to visualize how different segments of the metric compare with each other. For more information of filtering and splitting, see [Advanced features of Azure Monitor](/azure/azure-monitor/essentials/metrics-charts).
 
 :::image type="content" source="./media/monitor-event-hubs/metrics-filter-split.png" alt-text="Screenshot showing the Metrics Explorer for an Event Hubs namespace with a filter." lightbox="./media/monitor-event-hubs/metrics-filter-split.png":::
 
@@ -82,7 +81,7 @@ For the available resource log categories, their associated Log Analytics tables
 Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable **Send information to Log Analytics**. For more information, see the [Metrics](#azure-monitor-platform-metrics) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Event Hubs has the capability to dispatch logs to either of two destination tables: Azure Diagnostic or Resource specific tables in Log Analytics. For a detailed reference of the logs and metrics, see [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md).
 
 > [!IMPORTANT]
-> When you select **Logs** from the Azure Event Hubs menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
+> When you select **Logs** from the Azure Event Hubs menu, Log Analytics is opened with the query scope set to the current workspace. It means that log queries include only data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
 
 ### Use runtime logs
 
@@ -248,7 +247,7 @@ AZMSApplicationMetricLogs
 
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
-You can access alerts for Azure Event Hubs by selecting **Alerts** from the **Azure Monitor** section on the home page for your Event Hubs namespace. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) for details on creating alerts.
+You can access alerts for Azure Event Hubs by selecting **Alerts** from the **Azure Monitor** section on the home page for your Event Hubs namespace. See [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric) for details on creating alerts.
 
 ### Event Hubs alert rules
 
@@ -256,9 +255,9 @@ The following table lists some suggested alert rules for Event Hubs. These alert
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| Metric | CPU              | When CPU utilization exceeds a set value.       |
-| Metric | Available Memory | When Available Memory drops below a set value. |
-| Metric | Capture Backlog  | When Capture Backlog is above a certain value. |
+| Metric | CPU              | When CPU utilization exceeds a set value       |
+| Metric | Available Memory | When Available Memory drops below a set value |
+| Metric | Capture Backlog  | When Capture Backlog is above a certain value |
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 

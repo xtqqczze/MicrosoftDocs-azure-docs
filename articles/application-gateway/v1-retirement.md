@@ -4,10 +4,11 @@ titleSuffix: Azure Application Gateway
 description: This article provides a high-level overview of the retirement of Application gateway V1 SKUs. 
 services: application-gateway
 author: MJyot
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 04/19/2023
 ms.author: mjyothish
+# Customer intent: As an IT administrator using Application Gateway V1, I want to migrate to Application Gateway V2 before April 28, 2026, so that I can ensure continuous support and benefit from enhanced performance and security features.
 ---
 
 # Migrate your Application Gateways from V1 SKU to V2 SKU by April 28, 2026 
@@ -30,7 +31,9 @@ We announced the deprecation of Application Gateway V1 on **April 28 ,2023**. Be
 
 - Follow the steps outlined in the [migration script](./migrate-v1-v2.md) to migrate from Application Gateway v1 to v2. Review [pricing](./understanding-pricing.md) before making the transition.
 
-- Use the video guide for [Migrate Application Gateway from v1 to v2](https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=7ed01e33-80a9-4daa-9322-e771f963a2fe) to understand the migration steps.
+- Use the Migrate Application Gateway from v1 to v2 video guide to understand the migration steps.
+
+> [!VIDEO 7ed01e33-80a9-4daa-9322-e771f963a2fe]
 
 -	If your company/organization has partnered with Microsoft or works with Microsoft representatives (like cloud solution architects (CSAs) or customer success account managers (CSAMs)), work with them for migration.
 

@@ -2,11 +2,11 @@
 title: Enable Azure Key Vault for airflow
 titleSuffix: Azure Data Factory
 description: This article explains how to enable Azure Key Vault as the secret back end for a Workflow Orchestration Manager instance.
-ms.service: data-factory
 ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
-ms.date: 08/29/2023
+ms.date: 10/03/2024
+ms.subservice: security
 ---
 
 # Enable Azure Key Vault for Workflow Orchestration Manager
@@ -23,7 +23,7 @@ Apache Airflow offers various back ends for securely storing sensitive informati
 
 ## Prerequisites
 
-- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - **Azure Storage account**: If you don't have a storage account, see [Create an Azure Storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. Ensure the storage account allows access only from selected networks.
 - **Azure Key Vault**: You can follow [this tutorial to create a new Key Vault instance](/azure/key-vault/general/quick-create-portal) if you don't have one.
 - **Service principal**: You can [create a new service principal](/azure/active-directory/develop/howto-create-service-principal-portal) or use an existing one and grant it permission to access your Key Vault instance. For example, you can grant the **key-vault-contributor role** to the service principal name (SPN) for your Key Vault instance so that the SPN can manage it. You also need to get the service principal's **Client ID** and **Client Secret** (API Key) to add them as environment variables, as described later in this article.

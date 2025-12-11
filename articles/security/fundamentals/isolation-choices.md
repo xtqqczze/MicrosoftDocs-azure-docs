@@ -2,13 +2,12 @@
 title: Isolation in the Azure Public Cloud | Microsoft Docs
 description: Learn how Azure provides isolation against both malicious and non-malicious users and offers various isolation choices to architects.
 services: security
-author: TerryLanfear
-manager: rkarlin
+author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 08/29/2023
-ms.author: terrylan
+ms.date: 12/03/2025
+ms.author: mbaldwin
 
 ---
 
@@ -84,7 +83,7 @@ Some other capabilities for Microsoft Entra ID include:
 
 - [Microsoft Entra Domain Services](https://azure.microsoft.com/services/active-directory-ds/) lets you join Azure virtual machines to an Active Directory domain without deploying domain controllers. You can sign in to these virtual machines with your corporate Active Directory credentials and administer domain-joined virtual machines by using Group Policy to enforce security baselines on all your Azure virtual machines.
 
-- [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) provides a highly available global-identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can sign in to all your applications through customizable experiences by using their existing social accounts or by creating credentials.
+- [Microsoft Entra External ID](../../active-directory/external-identities/external-identities-overview.md) provides a highly available global-identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can sign in to all your applications through customizable experiences by using their existing social accounts or by creating credentials.
 
 ### Isolation from Microsoft Administrators & Data Deletion
 
@@ -109,7 +108,7 @@ Microsoft Azure provides various cloud-based computing services that include a w
 
 ### Dedicated hosts
 
-In addition to the isolated hosts described in the preceding section, Azure also offers dedicated hosts. Dedicated hosts in Azure is a service that provides physical servers that can host one or more virtual machines, and which are dedicated to a single Azure subscription. Dedicated hosts provide hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same datacenters and share the same network and underlying storage infrastructure as other, non-isolated hosts. For more information, see the detailed overview of [Azure dedicated hosts](../../virtual-machines/dedicated-hosts.md).
+In addition to the isolated hosts described in the preceding section, Azure also offers dedicated hosts. Dedicated hosts in Azure is a service that provides physical servers that can host one or more virtual machines, and which are dedicated to a single Azure subscription. Dedicated hosts provide hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same datacenters and share the same network and underlying storage infrastructure as other, non-isolated hosts. For more information, see the detailed overview of [Azure dedicated hosts](/azure/virtual-machines/dedicated-hosts).
 
 ### Hyper-V & Root OS Isolation Between Root VM & Guest VMs
 
@@ -211,17 +210,17 @@ Encryption in transit is a mechanism of protecting data when it's transmitted ac
 
 #### Encryption at Rest
 
-For many organizations, [data encryption at rest](isolation-choices.md) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that's "at rest":
+For many organizations, data encryption at rest is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that's "at rest":
 
 - [Storage Service Encryption](../../storage/blobs/security-recommendations.md) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
 - [Client-side Encryption](../../storage/blobs/security-recommendations.md) also provides the feature of encryption at rest.
-- [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md).
+- [Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview) and [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/linux/disk-encryption-overview).
 
-For more information, see [Overview of managed disk encryption options](../../virtual-machines/disk-encryption-overview.md).
+For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview).
 
 #### Azure Disk Encryption
 
-[Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md) help you address organizational security and compliance requirements by encrypting your VM disks (including boot and data disks) with keys and policies you control in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption for Linux VMs](/azure/virtual-machines/linux/disk-encryption-overview) and [Azure Disk Encryption for Windows VMs](/azure/virtual-machines/linux/disk-encryption-overview) help you address organizational security and compliance requirements by encrypting your VM disks (including boot and data disks) with keys and policies you control in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 The Disk Encryption solution for Windows is based on [Microsoft BitLocker Drive Encryption](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)), and the Linux solution is based on [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
@@ -312,4 +311,4 @@ Azure deployment has multiple layers of network isolation. The following diagram
 
 - Learn about [Network Isolation Options for Machines in Windows Azure Virtual Networks](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). This includes the classic front-end and back-end scenario where machines in a particular back-end network or subnetwork may only allow certain clients or other computers to connect to a particular endpoint based on an allowlist of IP addresses.
 
-- Learn about [virtual machine isolation in Azure](../../virtual-machines/isolation.md). Azure Compute offers virtual machine sizes that are isolated to a specific hardware type and dedicated to a single customer.
+- Learn about [virtual machine isolation in Azure](/azure/virtual-machines/isolation). Azure Compute offers virtual machine sizes that are isolated to a specific hardware type and dedicated to a single customer.

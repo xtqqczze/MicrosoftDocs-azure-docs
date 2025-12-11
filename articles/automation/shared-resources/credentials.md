@@ -4,8 +4,11 @@ description: This article tells how to create credential assets and use them in 
 services: automation
 ms.subservice: shared-capabilities
 ms.custom: devx-track-python
-ms.date: 05/26/2023
-ms.topic: conceptual 
+ms.date: 11/17/2025
+ms.topic: how-to 
+ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Manage credentials in Azure Automation

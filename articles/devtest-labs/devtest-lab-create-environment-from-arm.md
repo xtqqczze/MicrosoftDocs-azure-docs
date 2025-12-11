@@ -6,7 +6,12 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/13/2024
-ms.custom: engagement-fy23, devx-track-azurepowershell, UpdateFrequency2, devx-track-arm-template
+ms.custom:
+  - engagement-fy23
+  - devx-track-azurepowershell
+  - UpdateFrequency2
+  - devx-track-arm-template
+  - sfi-image-nochange
 #customer intent: As a developer, I want to use ARM templates in Azure DevTest Labs so that I can create virtual machines or PaaS resources.
 ---
 
@@ -19,6 +24,8 @@ Resources in a DevTest Labs environment share the same lifecycle and you can man
 You can configure Azure DevTest Labs to use ARM templates from a public or private GitHub repository. The following diagram shows how to create an environment with DevTest Labs from an ARM template in a public or custom template repository. The [template repositories for labs](#explore-template-repositories) section describes this process in detail. 
 
 :::image type="content" source="./media/devtest-lab-create-environment-from-arm/devtest-labs-create-environment-with-arm.png" alt-text="Diagram that shows how to create an environment with DevTest Labs by using an ARM template in a template repository." border="false" lightbox="./media/devtest-lab-create-environment-from-arm/devtest-labs-create-environment-with-arm.png":::
+
+[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
 
 ## Prerequisites
 

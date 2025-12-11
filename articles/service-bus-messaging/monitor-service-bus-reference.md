@@ -1,12 +1,11 @@
 ---
 title: Monitoring data reference for Azure Service Bus
 description: This article contains important reference material you need when you monitor Azure Service Bus by using Azure Monitor.
-ms.date: 07/22/2024
+ms.date: 08/12/2025
 ms.custom: horz-monitor
 ms.topic: reference
 author: spelluru
 ms.author: spelluru 
-ms.service: service-bus-messaging
 ---
 # Azure Service Bus monitoring data reference
 
@@ -15,6 +14,9 @@ ms.service: service-bus-messaging
 See [Monitor Azure Service Bus](monitor-service-bus.md) for details on the data you can collect for Service Bus and how to use it.
 
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+
+> [!NOTE]
+> If you see `-NamespaceOnlyMetric-` in entity names, it's not an entity name. It means that the request was for a namespace level operation.
 
 ### Supported metrics for Microsoft.ServiceBus/Namespaces
 
@@ -72,20 +74,20 @@ The following metrics are *connection metrics*.
 
 | Metric | Description |
 |:-------|:------------|
-| Active Connections | The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric. |
+| Active Connections | The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time might not be reflected in the metric. |
 | Connections Opened | The number of connections opened. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window. |
 | Connections Closed | The number of connections closed. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window. |
 
 ### Resource usage metrics
 
-The following *resource metrics* are available only with the **premium** tier.
+The following *resource metric* is available only with the **premium** tier.
 
 | Metric | Description |
 |:-------|:------------|
 | CPU usage per namespace | The percentage CPU usage of the namespace. |
-| Memory size usage per namespace | The percentage memory usage of the namespace. |
 
-The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](../azure-monitor/alerts/alerts-metric.md) for these metrics using Azure Monitor.
+
+The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](/azure/azure-monitor/alerts/alerts-metric) for these metrics using Azure Monitor.
 
 The other metric you could monitor is: **throttled requests**. It shouldn't be an issue though as long as the namespace stays within its memory, CPU, and brokered connections limits. For more information, see [Throttling in Azure Service Bus Premium tier](service-bus-throttling.md#throttling-in-premium-tier)
 
@@ -131,7 +133,7 @@ This section lists the types of resource logs you can collect for Azure Service 
 - Virtual network and IP filtering logs
 - Runtime Audit logs
 
-Azure Service Bus now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](~/articles/azure-monitor/essentials/resource-logs.md) in Log Analytics. You could use the toggle available on Azure portal to choose destination tables. 
+Azure Service Bus now has the capability to dispatch logs to either of two destination tables - Azure Diagnostic or [Resource specific tables](/azure/azure-monitor/essentials/resource-logs) in Log Analytics. You could use the toggle available on Azure portal to choose destination tables. 
 
 :::image type="content" source="media/monitor-service-bus-reference/destination-table-toggle.png" alt-text="Screenshot of dialog box to set destination table." lightbox="media/monitor-service-bus-reference/destination-table-toggle.png":::
 
@@ -163,7 +165,7 @@ AzureDiagnostics:
 {
   "ActivityId": "0000000000-0000-0000-0000-00000000000000",
   "EventName": "Create Queue",
-  "resourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
+  "resourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRIPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
   "SubscriptionId": "0000000000-0000-0000-0000-00000000000000",
   "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
   "EventProperties": "{\"SubscriptionId\":\"0000000000-0000-0000-0000-00000000000000\",\"Namespace\":\"mynamespace\",\"Via\":\"https://mynamespace.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
@@ -180,7 +182,7 @@ Resource specific table entry:
 {
   "ActivityId": "0000000000-0000-0000-0000-00000000000000",
   "EventName": "Retrieve Queue",
-  "resourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
+  "resourceId": "/SUBSCRIPTIONS/<AZURE SUBSCRIPTION ID>/RESOURCEGROUPS/<RESOURCE GROUP NAME>/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/<SERVICE BUS NAMESPACE NAME>",
   "SubscriptionId": "0000000000-0000-0000-0000-00000000000000",
   "TimeGenerated(UTC)": "9/28/2023 8:40:06 PM +00:00",
   "EventProperties": "{\"SubscriptionId\":\"0000000000-0000-0000-0000-00000000000000\",\"Namespace\":\"mynamespace\",\"Via\":\"https://mynamespace.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
@@ -348,10 +350,10 @@ Diagnostic Error Logs include elements listed in this table:
 | `NamespaceName` | Name of Namespace | Yes | yes |
 | `EntityType` | Type of Entity | Yes | Yes  |
 | `EntityName` | Name of Entity | Yes | Yes   |
-| `OperationResult` | Type of error in Operation (Clienterror or Serverbusy or quotaexceeded) | Yes | Yes |
+| `OperationResult` | Type of error in Operation (`Clienterror` or `Serverbusy` or `quotaexceeded`) | Yes | Yes |
 | `ErrorCount` | Count of identical errors during the aggregation period of 1 minute. | Yes | Yes  |
 | `ErrorMessage` | Detailed Error Message | Yes | Yes  |
-| `Provider` | Name of Service emitting the logs. Possible values: eventhub, relay, and servicebus | Yes | Yes  |
+| `Provider` | Name of Service emitting the logs. Possible values: `eventhub`, `relay`, and `servicebus` | Yes | Yes  |
 | `Time Generated (UTC)` | Operation time | No | Yes |
 | `EventTimestamp` | Operation Time | Yes | No |
 | `Category` | Log category | Yes | No |
@@ -398,7 +400,7 @@ Resource specific table entry:
 
 [!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
-Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#service-bus).
+Azure Service Bus uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. 
 
 ### Service Bus Microsoft.ServiceBus/namespaces
 

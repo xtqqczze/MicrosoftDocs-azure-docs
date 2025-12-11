@@ -1,12 +1,13 @@
 ---
 title: Prepare VMware VMs for reprotection and failback with Azure Site Recovery
 description: Prepare for fail back of VMware VMs after failover with Azure Site Recovery
-ms.topic: conceptual
-ms.service: site-recovery
-ms.date: 09/18/2023
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.topic: how-to
+ms.service: azure-site-recovery
+ms.date: 09/24/2024
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.custom: engagement-fy23
+# Customer intent: As a cloud administrator, I want to configure reprotection and failback for VMware VMs using a recovery solution, so that I can efficiently manage disaster recovery and ensure seamless data replication between on-premises and Azure environments.
 ---
 
 # Prepare for reprotection and failback of VMware VMs

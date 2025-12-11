@@ -3,9 +3,12 @@ title: Manage Python 2 packages in Azure Automation
 description: This article tells how to manage Python 2 packages in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/23/2024
-ms.topic: conceptual
+ms.date: 11/17/2025
+ms.topic: how-to
 ms.custom: devx-track-python
+ms.service: azure-automation
+ms.author: v-jasmineme
+author: jasminemehndir
 ---
 
 # Manage Python 2 packages in Azure Automation

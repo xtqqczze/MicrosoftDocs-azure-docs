@@ -1,9 +1,12 @@
 ---
 title: Troubleshoot cluster creation failures with Azure HDInsight
 description: Learn how to troubleshoot Apache cluster creation issues for Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 07/23/2024
 #Customer intent: As an HDInsight user, I would like to understand how to resolve common cluster creation failures.
 ---

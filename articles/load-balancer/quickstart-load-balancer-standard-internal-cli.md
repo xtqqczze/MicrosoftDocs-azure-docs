@@ -3,12 +3,19 @@ title: 'Quickstart: Create an internal load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create an internal load balancer using the Azure CLI.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 05/01/2023
+ms.date: 09/30/2024
 ms.author: mbender
-ms.custom: mvc, devx-track-azurecli, mode-api, template-quickstart, engagement-fy23
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - mode-api
+  - template-quickstart
+  - engagement-fy23
+  - sfi-image-nochange
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
+# Customer intent: As a cloud engineer, I want to create an internal load balancer using the command line, so that I can efficiently manage and distribute internal traffic to virtual machines in my network.
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using the Azure CLI
@@ -95,7 +102,9 @@ az network bastion create \
     --name myBastionHost \
     --public-ip-address myBastionIP \
     --vnet-name myVNet \
-    --location westus2
+    --location westus2 \
+    --only-show-errors \
+    --no-wait
 ```
 
 It can take a few minutes for the Azure Bastion host to deploy.

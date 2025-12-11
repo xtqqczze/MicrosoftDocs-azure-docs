@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 2/28/2024
 ms.custom: engagement-fy23
+# Customer intent: "As an IT security administrator, I want to integrate security monitoring for Azure VMware Solution with advanced threat detection tools, so that I can proactively assess vulnerabilities and respond to security incidents effectively."
 ---
 
 # Integrate Microsoft Defender for Cloud with Azure VMware Solution 
@@ -27,11 +28,11 @@ The diagram shows the integrated monitoring architecture of integrated security 
 
 ## Prerequisites
 
-- [Plan for optimized use of Defender for Cloud](../defender-for-cloud/defender-for-cloud-planning-and-operations-guide.md).
+- [Plan for optimized use of Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-planning-and-operations-guide).
 
 - [Review the supported platforms in Defender for Cloud](../security-center/security-center-os-coverage.md).
 
-- [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) to collect data from various sources.
+- [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) to collect data from various sources.
 
 - [Enable Microsoft Defender for Cloud in your subscription](../security-center/security-center-get-started.md).
 
@@ -203,5 +204,5 @@ You can create queries or use the available predefined query in Microsoft Sentin
 Now that you covered how to protect your Azure VMware Solution VMs, you can learn more about:
 
 - [Using the workload protection dashboard](../security-center/azure-defender-dashboard.md)
-- [Advanced multistage attack detection in Microsoft Sentinel](../azure-monitor/logs/quick-create-workspace.md)
+- [Advanced multistage attack detection in Microsoft Sentinel](/azure/azure-monitor/logs/quick-create-workspace)
 - [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md)

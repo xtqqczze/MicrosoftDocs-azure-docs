@@ -6,8 +6,9 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
+# Customer intent: "As a network administrator, I want to access monitoring metrics and logs for Public IP addresses, so that I can effectively track and manage network traffic and troubleshoot connectivity issues."
 ---
 
 # Public IP addresses monitoring data reference

@@ -1,23 +1,25 @@
 ---
 title: What is Azure DNS Private Resolver?
 description: In this article, get started with an overview of the Azure DNS Private Resolver service.
-services: dns
-ms.custom: references_regions
-author: greg-lindsay
-ms.service: dns
+author: asudbring
+ms.service: azure-dns
 ms.topic: overview
-ms.date: 07/01/2024
-ms.author: greglin
+ms.date: 01/29/2025
+ms.author: allensu
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
+# Customer intent: "As a network administrator, I want to explore Azure DNS Private Resolver so that I can assess its capabilities for managing DNS queries between Azure and my on-premises environment without the need for traditional DNS servers."
 ---
 
 # What is Azure DNS Private Resolver? 
 
-Azure DNS Private Resolver is a new service that enables you to query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers. 
+Azure DNS Private Resolver is a fully managed, highly available service that enables secure and seamless DNS resolution between Azure virtual networks and on-premises environments—without the need to deploy, manage, or patch custom DNS servers. This service lets you resolve DNS queries for private DNS zones from anywhere, facilitating hybrid network connectivity and simplifying network management for enterprise scenarios.
 
 ## How does it work?
 
-Azure DNS Private Resolver requires an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).  When you create an Azure DNS Private Resolver inside a virtual network, one or more [inbound endpoints](#inbound-endpoints) are established that can be used as the destination for DNS queries. The resolver's [outbound endpoint](#outbound-endpoints) processes DNS queries based on a [DNS forwarding ruleset](#dns-forwarding-rulesets) that you configure.  DNS queries that are initiated in networks linked to a ruleset can be sent to other DNS servers.
+Azure DNS Private Resolver requires an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). When you create an Azure DNS Private Resolver inside a virtual network, one or more [inbound endpoints](#inbound-endpoints) are established that can be used as the destination for DNS queries. The resolver's [outbound endpoint](#outbound-endpoints) processes DNS queries based on a [DNS forwarding ruleset](#dns-forwarding-rulesets) that you configure. DNS queries that are initiated in networks linked to a ruleset can be sent to other DNS servers.
 
 You don't need to change any DNS client settings on your virtual machines (VMs) to use the Azure DNS Private Resolver.
 
@@ -35,7 +37,7 @@ The DNS query process when using an Azure DNS Private Resolver is summarized bel
 
 The architecture for Azure DNS Private Resolver is summarized in the following figure. DNS resolution between Azure virtual networks and on-premises networks requires [Azure ExpressRoute](../expressroute/expressroute-introduction.md) or a [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-[ ![Azure DNS Private Resolver architecture](./media/dns-resolver-overview/resolver-architecture.png) ](./media/dns-resolver-overview/resolver-architecture-highres.png#lightbox)
+[ ![Azure DNS Private Resolver architecture](./media/dns-resolver-overview/resolver-architecture.png) ](./media/dns-resolver-overview/resolver-architecture.png#lightbox)
 
 Figure 1: Azure DNS Private Resolver architecture
 
@@ -101,7 +103,7 @@ The following limits currently apply to Azure DNS Private Resolver:
 ### Virtual network restrictions 
 
 The following restrictions hold with respect to virtual networks:
-- VNets with [encryption](/azure/virtual-network/virtual-network-encryption-overview) enabled do not support Azure DNS Private Resolver.
+- VNets with [encryption](/azure/virtual-network/virtual-network-encryption-overview) enabled don't support Azure DNS Private Resolver.
 - A DNS resolver can only reference a virtual network in the same region as the DNS resolver.
 - A virtual network can't be shared between multiple DNS resolvers. A single virtual network can only be referenced by a single DNS resolver.
 
@@ -110,7 +112,7 @@ The following restrictions hold with respect to virtual networks:
 Subnets used for DNS resolver have the following limitations:
 - A subnet must be a minimum of /28 address space or a maximum of /24 address space. A /28 subnet is sufficient to accommodate current endpoint limits. A subnet size of /27 to /24 can provide flexibility if these limits change.
 - A subnet can't be shared between multiple DNS resolver endpoints. A single subnet can only be used by a single DNS resolver endpoint.
-- All IP configurations for a DNS resolver inbound endpoint must reference the same subnet. Spanning multiple subnets in the IP configuration for a single DNS resolver inbound endpoint isn't allowed.
+- All IP configurations for a DNS resolver inbound endpoint must reference the same subnet as where the endpoint is provisioned.
 - The subnet used for a DNS resolver inbound endpoint must be within the virtual network referenced by the parent DNS resolver.
 - The subnet can only be delegated to **Microsoft.Network/dnsResolvers** and can't be used for other services.
 
@@ -122,12 +124,14 @@ Outbound endpoints have the following limitations:
 ### Ruleset restrictions
 
 - Rulesets can have up to 1000 rules.
+- Cross-tenant linking of Rulesets is not supported.
 
 ### Other restrictions
 
+- Linking rulesets cross-tenant is not supported.
 - IPv6 enabled subnets aren't supported.
-- DNS private resolver does not support Azure ExpressRoute FastPath.
-- DNS private resolver inbound endpoint provisioning isn't compatible with [Azure Lighthouse](../lighthouse/overview.md).
+- DNS private resolver doesn't support Azure ExpressRoute FastPath.
+- DNS private resolver isn't compatible with [Azure Lighthouse](/azure/lighthouse/overview).
     - To see if Azure Lighthouse is in use, search for **Service providers** in the Azure portal and select **Service provider offers**. 
 
 ## Next steps
