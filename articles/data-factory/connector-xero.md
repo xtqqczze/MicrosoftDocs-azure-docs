@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/16/2025
+ms.date: 12/10/2025
 ms.author: jianleishen
 ---
 # Copy data from Xero using Azure Data Factory or Synapse Analytics
@@ -219,7 +219,7 @@ To copy data from Xero, set the type property of the dataset to **XeroObject**. 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **XeroObject** | Yes |
-| tableName | Name of the table. For version 2.0, table names use the object name, for example: `Accounts`. For version 1.0, table names use simplified names with prefix, for example, `"Global"."Accounts"`. | Yes for version 2.0.<br>No for version 1.0 (if "query" in activity source is specified) |
+| table for version 2.0 <br>tableName for version 1.0 | Name of the table. For version 2.0, table names use the object name, for example: `Accounts`. For version 1.0, table names use object names with prefix, for example, `"Global"."Accounts"`. | Yes for version 2.0.<br>No for version 1.0 (if "query" in activity source is specified) |
 
 **Example**
 
@@ -408,7 +408,7 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support | / |  
-| Version 2.0 | GA version available |• The `tableName` value is `<Object Name>`, for example: `Accounts`. <br><br>• The self-hosted integration runtime version should be 5.61 or above.  <br><br>• Date is read as String data type. <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>  • OAuth 1.0 authentication is not supported. <br><br> • Support specific Xero tables. For the supported table list, go to [Dataset properties](#dataset-properties).|
+| Version 2.0 | GA version available |• Use `table` instead of `tableName`. The `table` value is `<Object Name>`, for example: `Accounts`. <br><br>• The self-hosted integration runtime version should be 5.61 or above.  <br><br>• Date is read as String data type. <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>  • OAuth 1.0 authentication is not supported. <br><br> • Support specific Xero tables. For the supported table list, go to [Dataset properties](#dataset-properties).|
 
 ### Upgrade the Xero connector from version 1.0 to version 2.0
 
@@ -418,7 +418,9 @@ The following table shows the release stage and change logs for different versio
 
 1. Apply a self-hosted integration runtime with version 5.61 or above.
 
-1. `query` is only supported in version 1.0. You should use the `tableName` instead of `query` in version 2.0.
+1. Use the `table` instead of `tableName` in version 2.0. For the detailed configuration, go to [Dataset properties](#dataset-properties).
+
+1. `query` is only supported in version 1.0. You should use the `table` instead of `query` in version 2.0.
 
 1. Note that version 2.0 supports specific Xero tables. For the supported table list, go to [Dataset properties](#dataset-properties).
 
