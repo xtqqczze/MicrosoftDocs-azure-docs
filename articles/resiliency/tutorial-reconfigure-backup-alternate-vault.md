@@ -115,7 +115,7 @@ After the configuration is complete, the new recovery points in the new vault ap
 
 The implications of reconfiguring backup for data sources in an alternate vault incurs the following charges:
 
-- Old recovery points in the previous vault incur storage cost until they're purged as per the retention policy.
+- The Azure Backup service will forever retain the recovery points that have been backed up in the old vault. You'll need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup) for details).
 - New recovery points in the new vault also incur storage cost.
 
 ## Related content
