@@ -323,6 +323,60 @@ Follow the steps in this section to create a migration project and run a migrati
     :::image type="content" source="media/cloud-to-cloud-migration/project-create-sml.png" alt-text="A screen capture showing the Project Explorer page with the Create a Project pane's fields visible." lightbox="media/cloud-to-cloud-migration/project-create.png":::
 
 
+### [Azure PowerShell](#tab/powershell)
+
+Use the `New-AzStorageMoverProject` command to create a migration project:
+
+```powershell
+New-AzStorageMoverProject `
+    -Name <String> `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String>
+```
+
+**Parameters:**
+
+- **Name**: The name of the migration project.
+- **ResourceGroupName**: The name of the resource group containing the Storage Mover resource.
+- **StorageMoverName**: The name of the Storage Mover resource.
+
+**Example:**
+
+```powershell
+New-AzStorageMoverProject `
+    -Name "my-migration-project" `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover"
+```
+
+### [Azure CLI](#tab/CLI)
+
+Use the `az storage-mover project create` command to create a migration project:
+
+```bash
+az storage-mover project create \
+    --name <string> \
+    --resource-group <string> \
+    --storage-mover-name <string>
+```
+
+**Parameters:**
+
+- **--name**: The name of the migration project.
+- **--resource-group**: The name of the resource group containing the Storage Mover resource.
+- **--storage-mover-name**: The name of the Storage Mover resource.
+
+**Example:**
+
+```bash
+az storage-mover project create \
+    --name "my-migration-project" \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --storage-mover-name "myStorageMover"
+```
+
+---
+
 ### Create a Job Definition
 
 ### [Azure portal](#tab/portal)
@@ -370,10 +424,67 @@ Follow the steps in this section to create a migration project and run a migrati
 
     :::image type="content" source="media/cloud-to-cloud-migration/migration-job-sml.png" alt-text="A screen capture showing the Migration Job details page with the Properties tab and the Start Job button highlighted." lightbox="media/cloud-to-cloud-migration/migration-job.png":::
 
-    The multicloud connector attempts to assign roles to the storage account and blob container. After the roles are assigned, select **Start** to begin the migration job. The job runs in the background, and you can monitor its progress in the **Migration overview** tab.
-
     :::image type="content" source="media/cloud-to-cloud-migration/migration-job-start-sml.png" alt-text="A screen capture showing the Migration Job page's Start Job pane." lightbox="media/cloud-to-cloud-migration/migration-job-start.png":::
 
+### [Azure PowerShell](#tab/powershell)
+
+Use the `Start-AzStorageMoverJobDefinition` command to start a migration job:
+
+```powershell
+Start-AzStorageMoverJobDefinition `
+    -JobDefinitionName <String> `
+    -ProjectName <String> `
+    -ResourceGroupName <String> `
+    -StorageMoverName <String>
+```
+
+**Parameters:**
+
+- **JobDefinitionName**: The name of the job definition to start.
+- **ProjectName**: The name of the project containing the job definition.
+- **ResourceGroupName**: The name of the resource group containing the Storage Mover resource.
+- **StorageMoverName**: The name of the Storage Mover resource.
+
+**Example:**
+
+```powershell
+Start-AzStorageMoverJobDefinition `
+    -JobDefinitionName "my-job-definition" `
+    -ProjectName "my-migration-project" `
+    -ResourceGroupName "c2c-pvt-ecy-rg" `
+    -StorageMoverName "myStorageMover"
+```
+
+### [Azure CLI](#tab/CLI)
+
+Use the `az storage-mover job-definition start` command to start a migration job:
+
+```bash
+az storage-mover job-definition start \
+    --job-definition-name <string> \
+    --project-name <string> \
+    --resource-group <string> \
+    --storage-mover-name <string>
+```
+
+**Parameters:**
+
+- **--job-definition-name**: The name of the job definition to start.
+- **--project-name**: The name of the project containing the job definition.
+- **--resource-group**: The name of the resource group containing the Storage Mover resource.
+- **--storage-mover-name**: The name of the Storage Mover resource.
+
+**Example:**
+
+```bash
+az storage-mover job-definition start \
+    --job-definition-name "my-job-definition" \
+    --project-name "my-migration-project" \
+    --resource-group "c2c-pvt-ecy-rg" \
+    --storage-mover-name "myStorageMover"
+```
+
+---
 
 ## Monitor migration progress
 
