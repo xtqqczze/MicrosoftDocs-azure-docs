@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight headnode goes to unresponsive state
-description: Known issue affecting image version 5.1
-ms.service: hdinsight
+description: Azure HDInsight headnode goes to unresponsive state due to disk usage issue
+ms.service: azure-hdinsight
 ms.topic: troubleshooting-known-issue
 ms.date: 12/10/2025
 ---
@@ -29,4 +29,5 @@ These directories aren’t cleaned up automatically, so repeated SSL context ini
 
 - [Script action to a running cluster](/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-to-a-running-cluster)
 - [Supported HDInsight versions](/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)
+
 
