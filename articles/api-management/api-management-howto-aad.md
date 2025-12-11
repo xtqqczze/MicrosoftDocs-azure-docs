@@ -90,6 +90,7 @@ Update the identity provider configuration to add another tenant:
 1. Under **Developer portal**, select **Identities**.
 1. Select **Microsoft Entra ID** from the list.
 1. In the **Tenant ID** field, add the extra tenant IDs separated by commas.
+1. Update the value of **Signin tenant** to one of the configured tenants. 
 1. Select **Update**.
 1. [Republish your developer portal](developer-portal-overview.md#publish-the-portal).
 
@@ -143,13 +144,13 @@ A user can then sign in with Microsoft Entra ID as follows:
 
 1. Go to the developer portal. Select **Sign in**.
 
-1. On the **Sign in** page, select **Azure Active Directory**. Selecting this button opens the Microsoft Entra ID sign-in page.
+1. On the **Sign in** page, select **Microsoft Entra ID**. Selecting this button opens the Microsoft Entra ID sign-in page.
 
 
     :::image type="content" source="media/api-management-howto-aad/developer-portal-azure-ad-signin.png" alt-text="Screenshot showing OAuth widget in developer portal.":::
 
     > [!TIP]
-    > If more than one tenant is configured for access, more than one Azure Active Directory button appears on the sign-in page. Each button is labeled with the tenant name.
+    > If more than one tenant is configured for access, more than one Microsoft Entra ID button appears on the sign-in page. Each button is labeled with the tenant name.
 
 1. In the sign-in window for your Microsoft Entra tenant, respond to the prompts. After sign-in is complete, the user is redirected back to the developer portal. 
 
