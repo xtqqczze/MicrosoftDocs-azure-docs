@@ -501,11 +501,17 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
 <a name="enable-run-history-stateless"></a>
 
-## Enable run history for stateless workflows
+## Turn on debugging mode for stateless workflows
 
-To debug a stateless workflow more easily, you can enable run history data collection for stateless workflows. When you're done debugging, make sure to disable the run history data collection.
+To help you more easily debug a stateless workflow, you can enable partial run history by turning on the workflow's **Debug state** setting. This setting doesn't change a stateless workflow into a stateful workflow. In debugging mode, run history doesn't persist and isn't stored. The setting is a temporary, session-level setting that automatically resets to **Off** when you close the workflow, refresh the page, or sign out. You must enable debug mode each time you want to view run history for a stateless workflow in the Azure portal.
 
-Follow these steps for the Azure portal, or if you're working in Visual Studio Code, see [Create stateful and stateless workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
+> [!IMPORTANT]
+>
+> The **Debug state** setting is designed only for debugging and isn't supported in production. When you finish debugging, make sure to turn off the **Debug state** setting.
+>
+> Stateless workflows with debugging turned on don't perform faster than stateful workflows. If you want full run history, create a stateful workflow instead.
+
+To turn on debugging mode in the Azure portal, follow these steps, or if you're working in Visual Studio Code, see [Create stateful and stateless workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -517,17 +523,13 @@ Follow these steps for the Azure portal, or if you're working in Visual Studio C
 
 1. On the **Settings** page, set **Debug state** to **On**.
 
-   > [!IMPORTANT]
-   >
-   > The **Debug state** setting is a temporary, session-level setting that automatically resets to **Off** when you close the workflow, refresh the page, or sign out. You must enable debug mode each time you want to view run history for a stateless workflow in the Azure portal.
-   >
-   > The **Debug state** setting isn't supported in production.
+   This step adds an app setting named **Workflows.<*workflow-name*>.OperationOptions** to the environment variables for your logic app resource. To view this app setting, follow these steps:
 
-These steps add an app setting named **Workflows.<*workflow-name*>.OperationOptions** to the environment variables for your logic app resource. To view this setting, follow these steps:
+   1. On the logic app sidebar, under **Settings**, select **Environment variables**.
 
-1. On the logic app sidebar, under **Settings**, select **Environment variables**.
+   1. On the **App settings** tab, find the setting named **Workflows.<*workflow-name*>.OperationOptions**. When the workflow's **Debug state** setting is turned on, the app setting value is **WithStatelessRunHistory**.
 
-1. On the **App settings** tab, find the setting named **Workflows.<*workflow-name*>.OperationOptions**. When the workflow's **Debug state** setting is turned on, the app setting value is **WithStatelessRunHistory**.
+1. When you finish debugging, turn off the **Debug state** setting.
 
 <a name="enable-open-application-insights"></a>
 
