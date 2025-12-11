@@ -3,7 +3,7 @@ title: Use deployment scripts in Bicep
 description: Learn how to create, monitor, and troubleshoot deployment scripts in Bicep.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 10/30/2025
+ms.date: 12/11/2025
 ---
 
 # Use deployment scripts in Bicep
@@ -30,6 +30,8 @@ The deployment script resource is available only in the regions where Azure Cont
 > The deployment script service requires two extra resources to run and troubleshoot scripts: a storage account and a container instance. Generally, the service cleans up these resources after the deployment script finishes. You incur charges for these resources until they're removed.
 >
 > For pricing information, see [Azure Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). To learn more, see [Clean up deployment script resources](./deployment-script-develop.md#clean-up-deployment-script-resources).
+>
+> The name of these two resources is generated using a MurmurHash of the string "\<subscription ID>-\<resource group name>", followed by the suffix `azscripts`. For example: `jgczqtxom5oreazscripts`. In rare cases, two different subscription ID and resource group combinations may produce the same hash. If that happens, you see an error message: "The storage account named \<storage-account-name> is already taken."
 
 ### Training resources
 
