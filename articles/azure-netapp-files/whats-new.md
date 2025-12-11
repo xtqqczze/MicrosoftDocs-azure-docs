@@ -23,6 +23,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files advanced ransomware protection is designed to help organizations proactively detect, respond to, and recover from ransomware threats on cloud volumes. Advanced ransomware protection monitors Azure NetApp Files volumes for suspicious activity using file extension profiling, entropy, and I/OPS patterns. When a threat is detected, the system creates a point-in-time snapshot, enabling rapid evaluation and recovery. Notifications are sent through the Azure Activity log, and attack reports are retained for 30 days. Advanced ransomware protection is currently in preview. 
     
+* [Cross-zone-region replication](cross-zone-region-replication-configure.md) is now generally available (GA)
+
+    [Cross-zone-region replication](replication.md#cross-zone-region-replication) builds on the existing capabilities of cross-region replication and cross-zone replication. It enables you to replicate volumes across regions and across availability zones within the same region, combining disaster recovery and business continuance capabilities for volumes. To establish two protection volumes, you can create a cross-zone replication relationship and a cross-region replication relationship _or_ two cross-region replication relationships _or_ two cross-zone replication relationships. The source volume must in an availability zone for the cross-zone replication relationship. Cross-zone-region replication is now generally available.
+    
 ## November 2025
 
 * [Subscription quota metrics](azure-netapp-files-metrics.md#subscription-quota-metrics) are now generally available (GA)
@@ -167,7 +171,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Cross-zone and cross-region replication for application volume group for Oracle is currently only supported in the REST API. This feature is in preview. 
 
-* [Cross-zone-region replication](cross-zone-region-replication-configure.md) (preview)
+* [Cross-zone-region replication](cross-zone-region-replication-configure.md) (Preview)
 
     [Cross-zone-region replication](replication.md#cross-zone-region-replication) is an extension to cross-region and cross-zone replication. With cross-zone-region replication, you can configure two protection volumes in any combination of cross-region and cross-zone replication for the same source volume. Replication is now also supported across subscriptions under the same tenant. This feature is in preview.
 
