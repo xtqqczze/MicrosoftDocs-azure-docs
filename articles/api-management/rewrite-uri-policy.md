@@ -48,17 +48,17 @@ You can only add query string parameters by using the policy. You can't add extr
 
 ### Example 1: Basic URL rewrite
 
-In the following example, the public URL is rewritten to match the backend service URL format.
+In the following example, the public URL is rewritten to match the backend service URL format, and query parameters are included based on other logic.
 
 - Public URL - `http://api.example.com/storenumber/ordernumber`
 
-- Request URL - `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
+- Request URL - `http://api.example.com/v2/US/hardware/storenumber/ordernumber?City&State`
 
 ```xml
 <policies>
     <inbound>
         <base />
-        <rewrite-uri template="/v2/US/hardware/{storenumber}&{ordernumber}?City=city&State=state" />
+        <rewrite-uri template="/v2/US/hardware/{storenumber}/{ordernumber}?City=city&State=state" />
     </inbound>
     <outbound>
         <base />
@@ -104,11 +104,12 @@ In the following example, the public URL is rewritten to match the backend servi
 
 ### Example 4: Use policy expression in the template
 
-In the following example, the policy uses an expression to insert an API version into the rewritten URL.
+In the following example, the policy uses expressions in the template to construct the request to the backend.
 
 ```xml
 <policies>
     <inbound>
+        <base />
         <set-variable name="apiVersion" value="/v3" />
         <rewrite-uri template="@("/api" + context.Variables["apiVersion"] + context.Request.Url.Path)" />
     </inbound>
