@@ -503,42 +503,13 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
 ## Enable run history for stateless workflows
 
-To debug a stateless workflow more easily, you can enable the workflow run history data collection and visibility. When you're done, remember to disable the run history.
+To debug a stateless workflow more easily, you can enable run history data collection for stateless workflows. When you're done debugging, make sure to disable the run history data collection.
 
 Follow these steps for the Azure portal, or if you're working in Visual Studio Code, see [Create stateful and stateless workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-run-history-stateless).
 
-This task requires two settings that you must set up:
-
-- Enable run history data collection in the Azure portal.
-- Enable run history visibility in the Azure portal.
-
-### Enable run history data collection in Azure portal
-
-The following steps turn on run history data collection in the Azure portal for your stateless workflow.
-
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the logic app sidebar, under **Settings**, select **Environment variables**.
-
-1. On the **App settings** tab, select **Add**.
-
-1. On the **Add/Edit application setting** pane, in the **Name** box, enter the following app setting name: 
-
-   **Workflows.<*workflow-name*>.OperationOptions**
-
-1. In the **Value** box, enter the following value: **WithStatelessRunHistory**
-
-   :::image type="content" source="media/create-single-tenant-workflows-azure-portal/stateless-operation-options-run-history.png" alt-text="Screenshot shows Standard logic app with open Environment variables page and open pane for Add/Edit application setting.":::
-
-1. To finish this task, select **Apply**.
-
-1. To disable the run history when you're done, either set the property named **Workflows.<*workflow-name*>.OperationOptions** to **None**, or delete the property and its value.
-
-### Enable run history visibility in Azure portal
-
-The following steps turn on the capability to view the run history in the Azure portal for your stateless workflow.
-
-1. From your open Standard logic app resource, on the logic app sidebar, under Workflows, selects **Workflows**.
+1. On the logic app sidebar, under **Workflows**, select **Workflows**.
 
 1. From the workflows list, select your stateless workflow.
 
@@ -552,18 +523,11 @@ The following steps turn on the capability to view the run history in the Azure 
    >
    > The **Debug state** setting isn't supported in production.
 
-You can now view run history for the workflow.
+These steps add an app setting named **Workflows.<*workflow-name*>.OperationOptions** to the environment variables for your logic app resource. To view this setting, follow these steps:
 
-### Understand how the run history settings work together
+1. On the logic app sidebar, under **Settings**, select **Environment variables**.
 
-The following table describes the behavior based on these settings:
-
-| 'WithStatelessRunHistory' app setting | 'Debug state' setting | Run history behavior |
-|---------------------------------------|-----------------------|----------------------|
-| Configured | Off (default) | Store run history without visibility in the Azure portal. |
-| Configured | On | Store run history with visibility in the Azure portal. |
-| Unconfigured | Off (default) | Don't store run history. **Debug state** setting has no effect. |
-| Unconfigured | On | Don't store run history. No available data to view without the app setting. |
+1. On the **App settings** tab, find the setting named **Workflows.<*workflow-name*>.OperationOptions**. When the workflow's **Debug state** setting is turned on, the app setting value is **WithStatelessRunHistory**.
 
 <a name="enable-open-application-insights"></a>
 
