@@ -133,7 +133,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
     |Enter a new environment name:     | Type a unique name. |
     |Select an Azure Subscription to use: | Select the subscription. |
     |Pick a resource group to use: | Select **Create a new resource group**. |
-    |Select a location to create the resource group in:| Select any region. The resources will actually be created in **East US 2**.|
+    |Select a location to create the resource group in:| Select **Sweden Central**.|
     |Enter a name for the new resource group:| Type **Enter**.|
 
 1. In the AZD output, find the URL of your app and navigate to it in the browser. The URL looks like this in the AZD output:
