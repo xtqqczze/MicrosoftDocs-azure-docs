@@ -87,7 +87,11 @@ The `AgentFrameworkProvider` is initialized in *Services/AgentFrameworkProvider.
 - Creates an AI agent using `CreateAIAgent()` with instructions and tools registered via `AIFunctionFactory.Create()`.
 - Creates a thread for the agent to persist conversation across navigation.
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/AgentFrameworkProvider.cs" range="40-71" highlight="4-31" :::
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Services/AgentFrameworkProvider.cs" range="40-71" highlight="5-9,12,15-27,30" :::
+
+Each time the user sends a message, the Blazor component (in *Components/Pages/AgentFrameworkAgent.razor*) calls `Agent.RunAsync()` with the user input and the agent thread. The agent thread keeps track of the chat history.
+
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Components/Pages/AgentFrameworkAgent.razor" range="84" :::
 
 ### [Foundry Agent Service](#tab/aifoundry)
 
@@ -105,6 +109,10 @@ This initialization code doesn't define any functionality for the agent, because
 The OpenAPI code is defined in *Program.cs*. For example, the "get tasks" API defines the operation ID with *WithName()*, as required by the [OpenAPI spec tool in Microsoft Foundry](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites), and `WithDescription()` helps the agent determine how to call the API:
 
 :::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Program.cs" range="46-53" highlight="7-8" :::
+
+Each time the user sends a message, the Blazor component (in *Components/Pages/FoundryAgent.razor*) calls `ResponseClient.CreateResponseAsync()` with the user input. The response client uses the conversation ID to keep track of the chat history.
+
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-ai-foundry-agent/Components/Pages/FoundryAgent.razor" range="74-76" :::
 
 -----
 

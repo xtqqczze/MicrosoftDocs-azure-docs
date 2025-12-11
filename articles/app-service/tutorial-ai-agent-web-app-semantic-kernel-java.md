@@ -88,7 +88,7 @@ You can find the initialization code in the `SemanticKernelAgentService` constru
 - Creates a [chat completion agent](/semantic-kernel/frameworks/agent/agent-types/chat-completion-agent?pivots=programming-language-java), and configures it to let the AI model automatically invoke functions (`FunctionChoiceBehavior.auto(true)`).
 - Creates an agent thread that automatically manages the chat history.
 
-:::code language="csharp" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="38-90" highlight="11-48,58" :::
+:::code language="csharp" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/SemanticKernelAgentService.java" range="38-90" highlight="12-15,18-21,24,27-30,33-43" :::
 
 Each time the prompt is received, the server code uses `ChatCompletionAgent.invokeAsync()` to invoke the agent with the user prompt and the agent thread. The agent thread keeps track of the chat history.
 
@@ -105,11 +105,7 @@ You can find the initialization code in the `FoundryAgentService` constructor (i
 - References the agent by name (configured in the Foundry portal).
 - Creates a conversation for the session.
 
-:::code language="java" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/FoundryAgentService.java" range="50-67" highlight="2-6,9-10,13,17-20" :::
-
-Each time the prompt is received, the server code uses `responsesClient.createWithAgentConversation()` to send the message to the Foundry agent and retrieve the response. The conversation ID keeps track of the chat history.
-
-:::code language="java" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/FoundryAgentService.java" range="87-112" highlight="14" :::
+:::code language="java" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/FoundryAgentService.java" range="50-67" highlight="2-5,8-9,12,15-18" :::
 
 > [!NOTE]
 > The constructor performs blocking operations (credential acquisition and conversation creation), so the controller (in [src/main/java/com/example/crudtaskswithagent/controller/AgentController.java](https://github.com/Azure-Samples/app-service-agentic-semantic-kernel-java/blob/main/src/main/java/com/example/crudtaskswithagent/controller/AgentController.java)) creates the service on a `boundedElastic` thread using `.subscribeOn(Schedulers.boundedElastic())`.
@@ -119,6 +115,10 @@ This initialization code doesn't define any functionality for the agent, because
 The OpenAPI annotations are defined in the `TaskController` class. For example, the "GET /api/tasks" route defines `operationId` using the `@Operation` annotation, as required by the [OpenAPI spec tool in Microsoft Foundry](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites), and `summary` and `description` help the agent determine how to call the API:
 
 :::code language="java" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/controller/TaskController.java" range="28-37" highlight="2-6" :::
+
+Each time the prompt is received, the server code uses `responsesClient.createWithAgentConversation()` to send the message to the Foundry agent and retrieve the response. The conversation ID keeps track of the chat history.
+
+:::code language="java" source="~/app-service-agentic-semantic-kernel-java/src/main/java/com/example/crudtaskswithagent/service/FoundryAgentService.java" range="99-117" highlight="3" :::
 
 -----
 

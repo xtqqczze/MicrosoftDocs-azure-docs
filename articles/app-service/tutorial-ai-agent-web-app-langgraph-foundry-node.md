@@ -91,6 +91,10 @@ The `LangGraphTaskAgent` is initialized in the constructor in *src/agents/LangGr
 
 :::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/agents/LangGraphTaskAgent.ts" range="23-143" highlight="13-21,24-37,106-117" :::
 
+When processing user messages, the agent is invoked using `invoke()` with the user's message and session configuration for conversation continuity:
+
+:::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/agents/LangGraphTaskAgent.ts" range="173-184":::
+
 ### [Foundry Agent Service](#tab/aifoundry)
 
 The `FoundryTaskAgent` uses a lazy initialization pattern in *src/agents/FoundryTaskAgent.ts*. The initialization code does the following:
@@ -100,13 +104,17 @@ The `FoundryTaskAgent` uses a lazy initialization pattern in *src/agents/Foundry
 - Retrieves the agent by name.
 - Creates a new conversation for the session.
 
-:::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/agents/FoundryTaskAgent.ts" range="65-76" highlight="2-10" :::
+:::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/agents/FoundryTaskAgent.ts" range="65-76" highlight="2-9" :::
 
 This initialization code doesn't define any functionality for the agent, because you would typically build the agent in the Foundry portal. As part of the example scenario, it also follows the OpenAPI pattern shown in [Add an App Service app as a tool in Foundry Agent Service (Node.js)](tutorial-ai-integrate-azure-ai-agent-node.md), and makes its CRUD functionality available as an OpenAPI endpoint. This lets you add it to the agent later as a callable tool.
 
 The OpenAPI code is defined in *src/routes/api.ts*. For example, the "GET /api/tasks" route defines `operationId` in the JSDoc Swagger comments, as required by the [OpenAPI spec tool in Microsoft Foundry](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites), and `description` helps the agent determine how to call the API:
 
-:::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/routes/api.ts" range="60-70" highlight="2-9" :::
+:::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/routes/api.ts" range="69-87" highlight="1-10" :::
+
+When processing user messages, the agent is invoked by adding the user's message to the conversation and calling `responses.create()` with the agent reference:
+
+:::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/agents/FoundryTaskAgent.ts" range="106-119" highlight="2-4,7-14" :::
 
 -----
 

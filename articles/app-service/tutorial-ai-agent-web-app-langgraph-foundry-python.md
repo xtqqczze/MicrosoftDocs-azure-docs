@@ -85,12 +85,16 @@ Both approaches use the same implementation pattern, where the agent is initiali
 
 ### [LangGraph](#tab/langgraph)
 
-The `LangGraphTaskAgent` is initialized in the constructor in *src/agents/LangGraphTaskAgent.ts*. The initialization code does the following: 
+The `LangGraphTaskAgent` is initialized in the constructor in *src/agents/langgraph_task_agent.py*. The initialization code does the following: 
 
 - Configures the [AzureChatOpenAI](https://python.langchain.com/docs/integrations/chat/azure_chat_openai/) client using environment variables.
-- Creates the prebuilt ReAct agent with memory and a set of CRUD tools for task management (see [LangGraph quickstart¶](https://langchain-ai.github.io/langgraph/agents/agents)).
+- Creates the prebuilt ReAct agent with memory and a set of CRUD tools for task management (see [LangGraph quickstart](https://langchain-ai.github.io/langgraph/agents/agents)).
 
-:::code language="python" source="~/app-service-agentic-langgraph-foundry-python/src/agents/langgraph_task_agent.py" range="58-82" :::
+:::code language="python" source="~/app-service-agentic-langgraph-foundry-python/src/agents/langgraph_task_agent.py" range="58-82" highlight="7-12,15-21,24" :::
+
+When processing user messages, the agent is invoked using `ainvoke()` with the user's message and a thread ID for conversation continuity:
+
+:::code language="python" source="~/app-service-agentic-langgraph-foundry-python/src/agents/langgraph_task_agent.py" range="178-181" :::
 
 ### [Foundry Agent Service](#tab/aifoundry)
 
@@ -101,13 +105,17 @@ The `FoundryTaskAgent` is initialized in the constructor of *src/agents/foundry_
 - Retrieves the agent from Foundry by name.
 - Creates a new conversation for the session.
 
-:::code language="python" source="~/app-service-agentic-langgraph-foundry-python/src/agents/foundry_task_agent.py" range="40-60" :::
+:::code language="python" source="~/app-service-agentic-langgraph-foundry-python/src/agents/foundry_task_agent.py" range="41-60" highlight="2-5,9,12,19" :::
 
 This initialization code doesn't define any functionality for the agent, because you would typically build the agent in the Foundry portal. As part of the example scenario, it also follows the OpenAPI pattern shown in [Add an App Service app as a tool in Foundry Agent Service (Python)](tutorial-ai-integrate-azure-ai-agent-python.md), and makes its CRUD functionality available as an OpenAPI endpoint. This lets you add it to the agent later as a callable tool.
 
 The OpenAPI code is defined in *src/routes/api.py*. For example, the "GET /tasks" route defines a custom `operation_id` parameter, as required by the [OpenAPI spec tool in Microsoft Foundry](/azure/ai-foundry/agents/how-to/tools/openapi-spec#prerequisites), and `description` helps the agent determine how to call the API:
 
 :::code language="python" source="~/app-service-agentic-langgraph-foundry-python/src/routes/api.py" range="27-42" highlight="4-5" :::
+
+When processing user messages, the agent is invoked by adding the user's message to the conversation and calling `responses.create()` with the agent reference:
+
+:::code language="python" source="~/app-service-agentic-langgraph-foundry-python/src/agents/foundry_task_agent.py" range="84-95" highlight="2-5,8-12" :::
 
 -----
 
