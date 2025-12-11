@@ -104,7 +104,7 @@ A network security perimeter-aware private link resource is a PaaS resource that
 | [SQL DB](/azure/azure-sql/database/network-security-perimeter)                    | Microsoft.Sql/servers | | Public Preview |
 | [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | | Generally Available |
 | [Azure OpenAI service](/azure/ai-services/openai/how-to/network-security-perimeter) | Microsoft.CognitiveServices(kind="OpenAI") | | Public Preview |
-| [Microsoft Foundry](azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter) | Microsoft.CognitiveServices(kind="AIServices") | Generally Available |
+| [Microsoft Foundry](/azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter) | Microsoft.CognitiveServices(kind="AIServices") | Generally Available |
 
 > [!IMPORTANT]
 > The following onboarded services are in public preview with Network Security Perimeter:
