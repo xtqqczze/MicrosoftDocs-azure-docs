@@ -23,7 +23,7 @@ To configure notifications for Azure Monitor alerts, create an [alert processing
 1. Send alerts to the notification channel of your choice using action groups as part of the alert processing rules. Learn [how to create action groups](/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal).
 
 >[!Note]
->To send notifications for an alert to multiple email addresses, you can select multiple notifications of type 'Email' while setting up the action group.
+>To send notifications for an alert to multiple email addresses, you can select multiple **email** notifications during the action group configuration.
 
 ## Suppress notifications during a planned maintenance window
 
