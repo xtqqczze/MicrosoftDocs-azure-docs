@@ -54,7 +54,7 @@ You can use the public environment templates as-is or customize them to suit you
 
 You can also store environment templates in other public or private Git repositories, and add those repositories to your lab to make the templates available to all lab users. For instructions, see [Store ARM templates in Git repositories](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories) and [Add template repositories to labs](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs).
 
-### Configure public environment repository access
+### Configure public environment settings
 
 You can enable lab access to the DevTest Labs [public template repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments) for a new or existing lab. When you enable access to the repository, you can select which environment templates to make available to lab users.
 
@@ -124,7 +124,7 @@ If your lab is configured to use public or private template repositories, you ca
 
    :::image type="content" source="./media/devtest-lab-create-environment-from-arm/add-environment.png" alt-text="Screenshot that shows the Add pane with settings to configure for a SharePoint environment." lightbox="./media/devtest-lab-create-environment-from-arm/add-environment-large.png":::
 
-   - Each ARM environment template includes unique parameters. When you add an environment, you must enter values for all required parameters, which are denoted by red asterisks.
+   - Each ARM environment template includes unique parameters. When you add an environment, you must enter values for all required parameters, denoted by red asterisks.
    - Some parameter values in an *azuredeploy.parameters.json* ARM template file produce blank setting fields with no default value on the **Add** pane. These values include `GEN-UNIQUE`, `GEN-UNIQUE-[N]`, `GEN-SSH-PUB-KEY`, and `GEN-PASSWORD`.
    - You can use secrets from Azure Key Vault for *secure string* parameters like passwords. For more information, see [Store secrets in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
 
@@ -245,7 +245,7 @@ You can also automate deployment by using the Azure CLI [az deployment group cre
 
    Write-Output "Environment $EnvironmentName completed."
    ```
-``
+
 1. To run the script, use the following command. Update the placeholders in the command with your own lab values.
 
 ```azurepowershell
