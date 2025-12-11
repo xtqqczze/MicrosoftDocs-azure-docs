@@ -31,7 +31,7 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 + [Azurite storage emulator](../../storage/common/storage-install-azurite.md?tabs=npm#install-azurite) 
 ::: zone-end   
 ::: zone pivot="programming-language-csharp"
-+ [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
++ [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 ::: zone-end
 ::: zone pivot="programming-language-python"
 + [Python 3.12](https://www.python.org/downloads/)
@@ -352,7 +352,7 @@ You can use the Core Tools to get the URL endpoint of the HTTP trigger that star
     ### [bash](#tab/bash)
 
     ```bash
-    SET APP_NAME=$(azd env get-value AZURE_FUNCTION_NAME)
+    APP_NAME=$(azd env get-value AZURE_FUNCTION_NAME)
     func azure functionapp list-functions $APP_NAME --show-keys
     ```
 
