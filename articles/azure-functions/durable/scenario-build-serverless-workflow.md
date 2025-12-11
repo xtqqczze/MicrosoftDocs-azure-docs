@@ -217,7 +217,6 @@ Keep Azurite running in the terminal window. You need it running while testing l
 
     This request starts a new orchestration instance. The orchestration fans out to several activities to fetch the titles of Microsoft Learn articles in parallel. When the activities finish, the orchestration fans back in and returns the titles as a formatted string.    
 ::: zone-end 
-::: zone-end  
 ::: zone pivot="programming-language-python" 
 1. From the `src` folder in a new terminal window with the virtual environment activated, run this command to start the Functions host:
 
