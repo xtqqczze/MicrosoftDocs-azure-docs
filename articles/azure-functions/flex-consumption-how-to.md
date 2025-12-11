@@ -72,7 +72,7 @@ To support your function code, you need to create three resources:
     az storage account create --name <STORAGE_NAME> --location <REGION> --resource-group <RESOURCE_GROUP> --sku Standard_LRS --allow-blob-public-access false
     ``` 
 
-    In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements). The [az storage account create](/cli/azure/storage/account#az-storage-account-create) command creates the storage account.
+    In the previous example, replace `<STORAGE_NAME>` with a name that's appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements). The [az storage account create](/cli/azure/storage/account#az-storage-account-create) command creates the storage account.
 
     [!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]    
 
@@ -543,7 +543,7 @@ Use `http`, `durable`, or `blob` as the name for the name value pair setting to 
 
 ### [Azure CLI](#tab/azure-cli)
 
-To define one or more always ready instance designations, use the `--always-ready-instances` parameter with the [`az functionapp create`] command. This example sets the always ready instance count for all HTTP triggered functions to `5`:
+To define one or more always ready instance designations, use the `--always-ready-instances` parameter with the [`az functionapp create`] command. This example sets the always ready instance count for all HTTP triggered functions to `10`:
 
 ```azurecli
 az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances http=10
@@ -632,7 +632,7 @@ You can't currently set HTTP concurrency limits using Visual Studio Code.
 The Flex Consumption plan uniquely supports two different site update strategies that control how your function app handles code deployments and configuration changes. By default, Flex Consumption plan apps use the `Recreate` strategy, which terminates currently executing functions during deployments. To enable zero-downtime deployments, you can configure the `RollingUpdate` strategy instead. For more information, see [Site update strategies in Flex Consumption](flex-consumption-site-updates.md).
 
 > [!NOTE]
-> Site update strategy configuration is currently in public preview and is only available through Bicep or ARM templates. You cannot configure this setting using the Azure CLI, Azure portal, or Visual Studio Code.
+> Site update strategy configuration is currently in public preview and is only available through Bicep or ARM templates. You can't configure this setting using the Azure CLI, Azure portal, or Visual Studio Code.
 
 ### [Azure CLI](#tab/azure-cli)
 
