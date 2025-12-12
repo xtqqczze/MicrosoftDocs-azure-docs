@@ -60,9 +60,9 @@ New-MgServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
 ```
 
 ---
-### Error 404 subcode 5804xx: Blocked Oubtound Calls
+### Error 404 subcode 5804xx: Blocked Outbound Calls
 
-These errors typically occurs when the resource account does not have an active funding source for outbound calls. The funding source depends on the customer’s agreement type:
+These errors typically occur when the resource account does not have an active funding source for outbound calls. The funding source depends on the customer’s agreement type:
 
 - **If the customer has an MCA agreement:**
   - Ensure a **postpaid payment method** is in place.
