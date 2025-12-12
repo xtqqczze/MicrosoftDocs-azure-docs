@@ -54,7 +54,7 @@ Data transfer between endpoints requires creation of several flows in addition t
 Today, the Azure networking stack supports at least 500K total connections (500k inbound + 500k outbound flows) for all VM sizes. For the smallest sizes (2-7 vCPU), we recommend that your workload utilizes 100K or fewer total connections. Recommended connection limits vary based on the VM vCPU count and are shared below.
 
 ### Azure Boost VM Sizes with MANA
-| VM Size(#vCPUs) | Recommended Connection limit
+| VM Size(#vCPUs) | Recommended Connection Limit
 | ------------------- |  ------------------ |
 | 2-7                 |  100,000            |
 | 8-15                |  500,000            |
@@ -62,8 +62,8 @@ Today, the Azure networking stack supports at least 500K total connections (500k
 | 32-63               |  800,000            |
 | 64+                 |  2,000,000          |
 
-### VM sizes with ConnectX-3,4,5 Network Adapters
-| VM Size(#vCPUs) | Recommended Connection limit
+### Other VM Sizes
+| VM Size(#vCPUs) | Recommended Connection Limit
 | ------------------- |  ------------------ |
 | 2-7                 |  100,000            |
 | 8-15                |  500,000            |
