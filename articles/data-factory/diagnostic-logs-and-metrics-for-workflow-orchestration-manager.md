@@ -12,15 +12,10 @@ ms.custom: sfi-image-nochange
 
 # Diagnostics logs and metrics for Workflow Orchestration Manager
 
-> [!NOTE]
-> Workflow Orchestration Manager is powered by Apache Airflow.
-
-This article walks you through the steps to:
-
-- Enable diagnostics logs and metrics for Workflow Orchestration Manager in Azure Data Factory.
-- View logs and metrics.
-- Run a query.
-- Monitor metrics and set the alert system in directed acyclic graph (DAG) failure.
+> [!IMPORTANT]
+> Workflow Orchestration Manager (powered by Apache Airflow) will be permanently retired in Azure Data Factory (ADF) on December 31, 2025.  This Feature is now available in Microsoft Fabric. [Learn more](https://learn.microsoft.com/en-us/fabric/data-factory/apache-airflow-jobs-concepts?source=docs) 
+> We recommend migrating all Workflow Orchestration Manager (Apache Airflow in ADF) workloads to Data Workflows (Apache Airflow in Microsoft Fabric) to take advantage of the expanded capabilities before December 31, 2025.
+>For additional guidance or support during your migration to Fabric Airflow, please contact Microsoft Support team.
 
 ## Prerequisites
 
