@@ -73,7 +73,7 @@ Attribute | Type | Definition
 ------ | ----- | ----------
 ComputerName | String | Computer name for the VM. If you specify this attribute, it overrides the system-generated name.
 ComputerNamePrefix | String | Prefix added to system-generated computer names.
-Zone | String (list) | Availability Zone for the VM or VMSS. Can be a list for VMSS. For example, `Zone = 1,3`.
+Zone | String (list) | Availability Zone for the VM or Virtual Machine Scale Sets (VMSS). Can be a list for VMSS. For example, `Zone = 1,3`.
 KeyPairLocation | Integer | Location where CycleCloud finds an SSH keypair on the local filesystem.
 KeepAlive | Boolean | If true, CycleCloud prevents the termination of this node.
 Locker | String | Name of the locker to use for downloading project specs. See [Use Projects](~/articles/cyclecloud/how-to/projects.md).
