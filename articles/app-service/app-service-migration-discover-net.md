@@ -14,7 +14,7 @@ ms.service: azure-app-service
 ---
 # At-scale discovery of .NET web apps
 
-For ASP.Net web apps discovery, you need to either install a new [Azure Migrate appliance](../migrate/migrate-appliance.md) or upgrade an existing one.
+For ASP.NET web apps discovery, you need to either install a new [Azure Migrate appliance](../migrate/migrate-appliance.md) or upgrade an existing one.
 
 Once the appliance is configured, Azure Migrate initiates the discovery of web apps deployed on Internet Information Services (IIS) web servers hosted within your on-premises VMware environment.
 
