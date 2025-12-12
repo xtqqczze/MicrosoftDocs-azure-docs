@@ -9,6 +9,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 12/4/2025
+zone_pivot_groups: appconfig-aspire
 ms.author: zhiyuanliang
 #Customer intent: As an Aspire developer, I want to learn the centralized configuration cloud-native solution for Aspire.
 ---
@@ -102,6 +103,8 @@ The configuration refresh is triggered by the incoming requests to your web app.
 - The configuration refresh happens asynchronously to the processing of your app's incoming requests. It will not block or slow down the incoming request that triggered the refresh. The request that triggered the refresh may not get the updated configuration values, but later requests will get new configuration values.
 - To ensure the middleware is triggered, call the `app.UseAzureAppConfiguration()` method as early as appropriate in your request pipeline so another middleware won't skip it in your app.
 
+:::zone target="docs" pivot="azure"
+
 ## Run the app locally
 
 1. Run the `AppHost` project. Go to the Aspire dashboard and open the web app.
@@ -122,6 +125,31 @@ The configuration refresh is triggered by the incoming requests to your web app.
 
     :::image type="content" source="media/aspire/dashboard-logs.png" alt-text="Screenshot of the Aspire dashboard showing structured logs.":::
 
+:::zone-end
+
+:::zone target="docs" pivot="emulator"
+
+## Run the app locally
+
+1. Run the `AppHost` project. Go to the Aspire dashboard and open the web app.
+
+    :::image type="content" source="media/aspire/original-message.png" alt-text="Screenshot of a web app with the original message from Azure App Configuration.":::
+
+1. Go to the emulator UI, edit the value of the following key.
+
+    | Key                        | Value                                           |
+    |----------------------------|-------------------------------------------------|
+    | *TestApp:Settings:Message* | *Hello from Azure App Configuration - Updated!* |
+
+1. Refresh the browser a few times. When the refresh interval elapses after 30 seconds, the page shows with updated content.
+
+    :::image type="content" source="media/aspire/refreshed-message.png" alt-text="Screenshot of a web app with the updated message from Azure App Configuration.":::
+
+1. Go to the Aspire dashboard and open the structured logs. You see that the `webfrontend` resource has a log with message "Configuration reloaded.".
+
+    :::image type="content" source="media/aspire/dashboard-logs.png" alt-text="Screenshot of the Aspire dashboard showing structured logs.":::
+
+:::zone-end
 
 ## Next steps
 

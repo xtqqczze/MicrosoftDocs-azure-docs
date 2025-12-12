@@ -9,6 +9,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 12/5/2025
+zone_pivot_groups: appconfig-aspire
 ms.author: zhiyuanliang
 #Customer intent: As an Aspire developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
@@ -28,10 +29,30 @@ Follow the documents to create an Aspire solution with dynamic configuration.
 
 ## Create a feature flag
 
-Add a feature flag called *Beta* to the App Configuration store (created in the [Prerequisites](./quickstart-feature-flag-aspnet-core.md#prerequisites) steps), and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
+:::zone target="docs" pivot="azure"
 
-> [!div class="mx-imgBorder"]
-> ![Enable feature flag named Beta](./media/add-beta-feature-flag.png)
+Add a feature flag called *Beta* to the App Configuration store (created in the [Prerequisites](./quickstart-feature-flag-aspire.md#prerequisites) steps), and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
+
+:::image type="content" source="media/add-beta-feature-flag.png" alt-text="Screenshot of adding a feature flag called Beta.":::
+
+:::zone-end
+
+:::zone target="docs" pivot="emulator"
+
+Add the following key-value through the App Configuration emulator UI.
+
+| Key                           | Content Type                                                | Value                           |
+|-------------------------------|-------------------------------------------------------------| --------------------------------|
+| *.appconfig.featureflag/Beta* | *application/vnd.microsoft.appconfig.ff+json;charset=utf-8* | *{"id":"Beta","enabled":false}* |
+
+:::image type="content" source="media/aspire/emulator-feature-flag.png" alt-text="Screenshot of adding a feature flag to emulator.":::
+
+ Feature flags are special key-values that define Microsoft feature flags. Configuration providers identify feature flag by their specific content type and key prefix. The value of a feature flag is a json object that follows [`Microsoft Feature Flag schema`](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureFlag.v2.0.0.schema.json).
+
+ - Feature flag content type: `application/vnd.microsoft.appconfig.ff+json;charset=utf-8`
+ - Feature flag key prefix: `.appconfig.featureflag/`
+
+:::zone-end
 
 ## Use a feature flag
 
@@ -168,15 +189,15 @@ Add a feature flag called *Beta* to the App Configuration store (created in the 
     }
     ```
 
+:::zone target="docs" pivot="azure"
+
 ## Run the app locally
 
 1. Run the `AppHost` project. Go to the Aspire dashboard and open the web app.
 
     :::image type="content" source="media/aspire/feature-flag-disabled.png" alt-text="Screenshot of a web app with three buttons on the side bar.":::
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store that you created previously. 
-
-1. Select **Feature manager** and locate the *Beta* feature flag. Enable the flag by selecting the checkbox under **Enabled**.
+1. In the Azure portal, navigate to the **Feature manager** of your App Configuration store and locate the *Beta* feature flag. Enable the flag by selecting the checkbox under **Enabled**.
 
 1. Refresh the page a few times. When the refresh interval time window passes, the page will show with updated content.
 
@@ -185,6 +206,32 @@ Add a feature flag called *Beta* to the App Configuration store (created in the 
 1. Click the **Beta** button. It will bring you to the beta page that you enabled dynamically.
 
     :::image type="content" source="media/aspire/beta-page.png" alt-text="Screenshot of the Beta page.":::
+
+:::zone-end
+
+:::zone target="docs" pivot="emulator"
+
+## Run the app locally
+
+1. Run the `AppHost` project. Go to the Aspire dashboard and open the web app.
+
+    :::image type="content" source="media/aspire/feature-flag-disabled.png" alt-text="Screenshot of a web app with three buttons on the side bar.":::
+
+1. Go to the emulator, edit the value of the feature flag to enable it.
+
+    | Key                          | Value                          |
+    |------------------------------|--------------------------------|
+    | *appconfig.featureflag/Beta* | *{"id":"Beta","enabled":true}* |
+
+1. Refresh the page a few times. When the refresh interval time window passes, the page will show with updated content.
+
+    :::image type="content" source="media/aspire/feature-flag-disabled.png" alt-text="Screenshot of a web app with Beta button on the side bar.":::
+
+1. Click the **Beta** button. It will bring you to the beta page that you enabled dynamically.
+
+    :::image type="content" source="media/aspire/beta-page.png" alt-text="Screenshot of the Beta page.":::
+
+:::zone-end
 
 ## Next steps
 
