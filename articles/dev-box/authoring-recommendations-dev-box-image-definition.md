@@ -1,6 +1,6 @@
 ---
 title: "Authoring recommendations for Dev Box image definitions"
-description: "Enhance your Microsoft Dev Box workflows with this guide to authoring image definitions, including strategies for testing, debugging, and leveraging built-in tools."
+description: "Enhance your Microsoft Dev Box workflows with this guide to authoring image definitions, including strategies for testing, debugging, and using built-in tools."
 #customer intent: As an IT admin, I want to troubleshoot Dev Box customization failures so that I can resolve issues quickly and maintain productivity.
 author: mikeparker-ms
 ms.author: miparker
@@ -10,10 +10,12 @@ ms.topic: concept-article
 ms.service: dev-box
 ---
 
+# Authoring recommendations for Dev Box image definitions
+
 This guide provides recommendations for creating Microsoft Dev Box image definition files (`imagedefinition.yaml`). It pulls together and extends content from existing documentation to raise visibility of effective approaches, common pitfalls, and troubleshooting guidance. The intent is to aid in onboarding and building reliable, maintainable customizations that work consistently for your development teams.
 
 > [!NOTE]
-> This guide builds on the [Create a dev box by using team customizations quickstart](https://learn.microsoft.com/azure/dev-box/quickstart-team-customizations). If you're new to Dev Box customizations, complete that tutorial first.
+> This guide builds on the [Create a dev box by using team customizations quickstart](/azure/dev-box/quickstart-team-customizations). If you're new to Dev Box customizations, complete that tutorial first.
 
 This guide covers strategies for:
 
@@ -28,15 +30,15 @@ Before you begin, ensure you have:
 | Requirement | Details |
 |-------------|---------|
 | Microsoft Dev Box | Dev center with dev box pool and project configured. Catalog attached to dev center (optional for built-in tasks). Dev Box User permissions. |
-| Development environment | Dev Box with local admin permissions. Visual Studio Code with latest version. Dev Box extension installed. GitHub Copilot extension (recommended). |
+| Development environment | Dev Box with local admin permissions. Visual Studio (VS) Code with latest version. Dev Box extension installed. GitHub Copilot extension (recommended). |
 | Basic knowledge | YAML syntax fundamentals. Understanding of your team's development tool requirements. |
 
 > [!TIP]
-> For comprehensive background on Dev Box customizations, see [Team Customizations documentation](https://learn.microsoft.com/azure/dev-box/concept-what-are-team-customizations?tabs=team-customizations) and [How to write an image definition file](https://learn.microsoft.com/azure/dev-box/how-to-write-image-definition-file).
+> For comprehensive background on Dev Box customizations, see [Team Customizations documentation](/azure/dev-box/concept-what-are-team-customizations?tabs=team-customizations) and [How to write an image definition file](/azure/dev-box/how-to-write-image-definition-file).
 
 ## Approach recommendations
 
-When authoring Dev Box customizations, choose the approach that best fits your team's workflow and technical requirements. For background on how customizations work, see [Use Team Customizations](https://learn.microsoft.com/azure/dev-box/quickstart-team-customizations).
+When authoring Dev Box customizations, choose the approach that best fits your team's workflow and technical requirements. For background on how customizations work, see [Use Team Customizations](/azure/dev-box/quickstart-team-customizations).
 
 ### Start with the authoring agent
 
@@ -50,11 +52,11 @@ The AI-powered workflow in Visual Studio Code with GitHub Copilot automatically 
 - Always validate generated YAML before committing to your catalog.
 
 > [!TIP]
-> Learn more about using GitHub Copilot for image definitions: [Create an image definition file with Copilot](https://learn.microsoft.com/azure/dev-box/how-to-use-copilot-generate-image-definition-file).
+> Learn more about using GitHub Copilot for image definitions: [Create an image definition file with Copilot](/azure/dev-box/how-to-use-copilot-generate-image-definition-file).
 
 ### Explore using your own GitHub Copilot instruction files alongside the authoring agent
 
-You can provide your own custom GitHub Copilot instruction files and use those files alongside the tools provided by the Dev Box extension where applicable to tailor for specific scenarios. For example, the [Dev Box image definition instructions](https://github.com/github/awesome-copilot/blob/main/instructions/devbox-image-definition.instructions.md) from the [awesome-copilot](https://github.com/github/awesome-copilot) repo provides additional coverage of advanced scenarios and edge cases along with guiderails to help apply the recommendations in this document. Be sure to review this resource regularly as the authoring agent continues to expand its capabilities.
+You can provide your own custom GitHub Copilot instruction files and use those files alongside the tools provided by the Dev Box extension where applicable to tailor for specific scenarios. For example, the [Dev Box image definition instructions](https://github.com/github/awesome-copilot/blob/main/instructions/devbox-image-definition.instructions.md) from the [awesome-copilot](https://github.com/github/awesome-copilot) repo provides more coverage of advanced scenarios and edge cases along with guide rails to help apply the recommendations in this document. Be sure to review this resource regularly as the authoring agent continues to expand its capabilities.
 
 See: [Configure custom instructions for GitHub Copilot](https://docs.github.com/copilot/how-tos/configure-custom-instructions)
 
@@ -143,7 +145,7 @@ Most customization failures happen because of incorrect context placement. Here'
 > [!TIP]
 > A common mistake is placing Microsoft Store applications or VS Code extensions in system context. These customizations always fail because they require user context.
 >
-> For detailed guidance on context placement, see [System tasks and user tasks](https://learn.microsoft.com/azure/dev-box/how-to-configure-team-customizations#system-tasks-and-user-tasks).
+> For detailed guidance on context placement, see [System tasks and user tasks](/azure/dev-box/how-to-configure-team-customizations#system-tasks-and-user-tasks).
 
 ### Always use the ~/ prefix for built-in tasks
 
@@ -182,7 +184,7 @@ parameters:
 - **Document security assumptions** for future maintainers
 
 > [!TIP]
-> For comprehensive guidance on using secrets, see [Use Azure Key Vault secrets in customization files](https://learn.microsoft.com/azure/dev-box/how-to-use-secrets-customization-files).
+> For comprehensive guidance on using secrets, see [Use Azure Key Vault secrets in customization files](/azure/dev-box/how-to-use-secrets-customization-files).
 
 ### Ensure WinGet package discovery
 
@@ -240,7 +242,7 @@ tasks:
 
 If the file is large and causes performance or timeout problems, consider whether it's possible download that file from a different source or by using a different method:
 
-- **Azure Storage**: Host the file in an Azure Storage account. Then, use utilities like `azcopy` or `Azure CLI` to download the file more efficiently. This approach can help with large files and provide better performance. For more information, see [Transfer data using azcopy](https://learn.microsoft.com/azure/storage/common/storage-use-azcopy-v10?tabs=dnf#transfer-data) and [Download a file from Azure Storage](https://learn.microsoft.com/azure/dev-box/how-to-customizations-connect-resource-repository#example-download-a-file-from-azure-storage).
+- **Azure Storage**: Host the file in an Azure Storage account. Then, use utilities like `azcopy` or `Azure CLI` to download the file more efficiently. This approach can help with large files and provide better performance. For more information, see [Transfer data using azcopy](/azure/storage/common/storage-use-azcopy-v10?tabs=dnf#transfer-data) and [Download a file from Azure Storage](/azure/dev-box/how-to-customizations-connect-resource-repository#example-download-a-file-from-azure-storage).
 
 - **Git repositories**: Host the file in a git repository. Then, use the `~/gitclone` intrinsic task to clone the repository and access the files directly. This approach can be more efficient than downloading large files individually.
 
@@ -278,7 +280,7 @@ C:\ProgramData\Microsoft\DevBoxAgent\Logs\customizations\
 ```
 
 > [!TIP]
-> When you ask for help with customization problems, include the contents of any non-empty `stderr.log` files. This error information helps others troubleshoot effectively.
+> When you ask for help with customization problems, include the contents of any nonempty `stderr.log` files. This error information helps others troubleshoot effectively.
 
 ### Check common failure patterns
 
@@ -287,7 +289,7 @@ C:\ProgramData\Microsoft\DevBoxAgent\Logs\customizations\
 | "System tasks aren't allowed in standard user context" | Task in wrong context | Move to `userTasks` section |
 | "Package not found" | Incorrect WinGet package ID | Use `winget search` to find correct ID |
 | "Access denied" | Permissions issue | Verify task context and user privileges |
-| "PowerShell execution error" | Script syntax or dependencies | Test script independently first and see the "PowerShell double-quotes issue" section above |
+| "PowerShell execution error" | Script syntax or dependencies | Test script independently first and see [Avoiding or correctly handling double quotes in script defined inline within YAML](#avoiding-or-correctly-handling-double-quotes-in-script-defined-inline-within-yaml) |
 
 ### Isolate the problem
 
@@ -312,13 +314,13 @@ tasks:
 
 ## Related content
 
-- [Create a dev box by using team customizations (prerequisite quickstart)](https://learn.microsoft.com/azure/dev-box/quickstart-team-customizations)
-- [Team Customizations documentation](https://learn.microsoft.com/azure/dev-box/concept-what-are-team-customizations?tabs=team-customizations)
-- [Write an image definition file for Dev Box Team Customizations](https://learn.microsoft.com/azure/dev-box/how-to-write-image-definition-file)
-- [Configure team customizations](https://learn.microsoft.com/azure/dev-box/how-to-configure-team-customizations)
-- [System tasks and user tasks](https://learn.microsoft.com/azure/dev-box/how-to-configure-team-customizations#system-tasks-and-user-tasks)
-- [Use Azure Key Vault secrets in customization files](https://learn.microsoft.com/azure/dev-box/how-to-use-secrets-customization-files)
-- [Create an image definition file with Copilot](https://learn.microsoft.com/azure/dev-box/how-to-use-copilot-generate-image-definition-file)
+- [Create a dev box by using team customizations (prerequisite quickstart)](/azure/dev-box/quickstart-team-customizations)
+- [Team Customizations documentation](/azure/dev-box/concept-what-are-team-customizations?tabs=team-customizations)
+- [Write an image definition file for Dev Box Team Customizations](/azure/dev-box/how-to-write-image-definition-file)
+- [Configure team customizations](/azure/dev-box/how-to-configure-team-customizations)
+- [System tasks and user tasks](/azure/dev-box/how-to-configure-team-customizations#system-tasks-and-user-tasks)
+- [Use Azure Key Vault secrets in customization files](/azure/dev-box/how-to-use-secrets-customization-files)
+- [Create an image definition file with Copilot](/azure/dev-box/how-to-use-copilot-generate-image-definition-file)
 - [Example YAML customization file](https://aka.ms/devcenter/preview/imaging/examples)
-- [Add and configure a catalog](https://learn.microsoft.com/azure/dev-box/how-to-configure-catalog)
+- [Add and configure a catalog](/azure/dev-box/how-to-configure-catalog)
 - [Dev Box image definition instructions (GitHub Copilot)](https://github.com/github/awesome-copilot/blob/main/instructions/devbox-image-definition.instructions.md)

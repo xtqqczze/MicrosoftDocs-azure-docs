@@ -82,9 +82,8 @@ items:
       - name: Configure team customizations
         href: how-to-configure-team-customizations.md
         displayName: customizations, image definition, team customization
-        items:
-          - name: Authoring recommendations for image definitions
-            href: authoring-recommendations-dev-box-image-definition.md
+      - name: Authoring recommendations for image definitions
+        href: authoring-recommendations-dev-box-image-definition.md
       - name: Configure dev center imaging
         href: how-to-configure-dev-center-imaging.md
       - name: Configure user customizations
