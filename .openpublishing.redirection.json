@@ -6562,7 +6562,7 @@
     },
     { 
       "source_path": "articles/oracle/oracle-db/exadata-vm-clusters.md",
-      "redirect_url": "articles/oracle/oracle-azure-overview",
+      "redirect_url": "/azure/oracle/oracle-db/database-overview",
       "redirect_document_id": false
     }
     
