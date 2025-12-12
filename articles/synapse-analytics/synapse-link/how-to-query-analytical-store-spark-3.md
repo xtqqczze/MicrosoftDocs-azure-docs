@@ -14,7 +14,7 @@ ms.custom: cosmos-db, mode-other
 
 # Interact with Azure Cosmos DB using Apache Spark 3 in Azure Synapse Link
 
-[!INCLUDE[](./includes/appliesto-cosmos-synapse-link.md)]
+[!INCLUDE[](../includes/appliesto-cosmos-synapse-link.md)]
 
 In this article, you learn how to interact with Azure Cosmos DB using Synapse Apache Spark 3. Customers can use Scala, Python, SparkSQL, and C#, for analytics, data engineering, data science, and data exploration scenarios in [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link).
 

@@ -16,7 +16,7 @@ ms.custom: cosmos-db, mode-other
 
 This article describes how to access an Azure Cosmos DB database from Azure Synapse Analytics Studio with Azure Synapse Link.
 
-[!INCLUDE[](./includes/appliesto-cosmos-synapse-link.md)]
+[!INCLUDE[](../includes/appliesto-cosmos-synapse-link.md)]
 
 ## Prerequisites
 

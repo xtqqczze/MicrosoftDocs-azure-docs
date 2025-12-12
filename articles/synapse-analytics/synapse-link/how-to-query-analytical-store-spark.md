@@ -14,7 +14,7 @@ ms.custom: cosmos-db, mode-other
 
 # Interact with Azure Cosmos DB using Apache Spark 2 in Azure Synapse Link
 
-[!INCLUDE[](./includes/appliesto-cosmos-synapse-link.md)]
+[!INCLUDE[](../includes/appliesto-cosmos-synapse-link.md)]
 
 > [!NOTE]
 > For Azure Synapse Link for Azure Cosmos DB using Spark 3, refer to this article [Azure Synapse Link for Azure Cosmos DB on Spark 3](how-to-query-analytical-store-spark-3.md)
