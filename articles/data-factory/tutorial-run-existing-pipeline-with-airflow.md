@@ -13,12 +13,14 @@ ms.author: abnarain
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-> [!IMPORTANT]
-> Workflow Orchestration Manager (powered by Apache Airflow) will be permanently retired in Azure Data Factory (ADF) on December 31, 2025.  This Feature is now available in Microsoft Fabric. [Learn more](https://learn.microsoft.com/en-us/fabric/data-factory/apache-airflow-jobs-concepts?source=docs) 
-> We recommend migrating all Workflow Orchestration Manager (Apache Airflow in ADF) workloads to Data Workflows (Apache Airflow in Microsoft Fabric) to take advantage of the expanded capabilities before December 31, 2025.
->For additional guidance or support during your migration to Fabric Airflow, please contact Microsoft Support team.
+Data Factory pipelines provide 100+ data source connectors that provide scalable and reliable data integration/ data flows. There are scenarios where you would like to run an existing data factory pipeline from your Apache Airflow DAG. This tutorial shows you how.
 
-Data Factory pipelines provide 100+ data source connectors that provide scalable and reliable data integration/ data flows. There are scenarios where you would like to run an existing data factory pipeline from your Apache Airflow DAG.  This tutorial shows you how to do just that.
+> [!IMPORTANT]
+> Workflow Orchestration Manager (powered by Apache Airflow) will be permanently retired in Azure Data Factory on December 31, 2025. The feature is now available in Microsoft Fabric. [Learn more](https://learn.microsoft.com/fabric/data-factory/apache-airflow-jobs-concepts)
+>
+> We recommend that you migrate all Workflow Orchestration Manager (Apache Airflow in Azure Data Factory) workloads to Data Workflows (Apache Airflow in Microsoft Fabric) to benefit from expanded capabilities before December 31, 2025.
+>
+> For more information or for support during your migration to Apache Airflow in Microsoft Fabric, contact Microsoft Support.
 
 ## Prerequisites
 
