@@ -1,7 +1,8 @@
 ---
-title: Create and Manage Function apps in a Flex Consumption Plan
+title: Create and Manage Function Apps in a Flex Consumption Plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
-ms.date: 12/29/2024
+ms.service: azure-functions
+ms.date: 12/12/2025
 ms.topic: how-to
 ms.custom:
   - build-2024
