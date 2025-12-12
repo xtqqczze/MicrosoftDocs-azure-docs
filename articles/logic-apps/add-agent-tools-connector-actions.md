@@ -45,7 +45,7 @@ For more information, see:
   
   - A [Foundry model deployed for your agent](/azure/ai-foundry/foundry-models/how-to/create-model-deployments?pivots=ai-foundry-portal)
 
-- To avoid potential problems returning to the Foundry portal from the Azure portal where you create an MCP server, allow pop-ups for the Azure portal by adding the URL `https://portal.azure.com:443` to your browser's allow list.
+- To avoid potential problems returning to the Foundry portal from the Azure portal where you create an MCP server, allow pop-ups for the Azure portal by adding the URL `https://portal.azure.com:443` to your browser's or pop-up blocker's allow list.
 
 ## Limitations and known issues
 
