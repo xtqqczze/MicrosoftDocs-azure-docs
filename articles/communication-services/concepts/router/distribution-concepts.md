@@ -13,23 +13,23 @@ ms.service: azure-communication-services
 
 # Distribution modes
 
-When creating a distribution policy, we specify one of the following distribution modes to define the strategy to use when distributing jobs to workers:
+When creating a distribution policy, the following distribution modes can be selected to define the strategy used to distribute jobs to workers:
 
 ## Round robin mode
 
-Jobs will be distributed in a circular fashion such that each available worker will receive jobs in sequence.
+Jobs are distributed in a circular fashion such that each available worker receives jobs in sequence.
 
 ## Longest idle mode
 
-Jobs will be distributed to the worker that is least utilized first.  If there's a tie, we'll pick the worker that has been available for the longer time.  Utilization is calculated as a `Load Ratio` by the following algorithm:
+Jobs are distributed to the worker that is least utilized first.  If there's a tie, the worker available for the longest time is picked. Utilization is calculated as a `Load Ratio` by the following algorithm:
 
 Load Ratio = Aggregate of capacity consumed by all jobs assigned to the worker / Total capacity of the worker
 
-Note that events such as `RouterWorkerRegistered`, are resetting the worker's idle time, which may impact the distribution based on longest idle time.
+Events such as `RouterWorkerRegistered`, are resetting the worker's idle time, which may impact the distribution based on longest idle time.
 
 ### Example
 
-Assume that each `chat` job has been configured to consume one capacity for a worker.  A new chat job is queued into Job Router and the following workers are available to take the job:
+Assume that each `chat` job is configured to consume one capacity unit for a worker. A new chat job is queued into Job Router and the following workers are available to take the job:
 
 ```text
 Worker A:
@@ -59,17 +59,17 @@ LastAvailable: 2 min ago
 Workers would be matched in order: D, C, A, B
 ```
 
-Worker D has the lowest load ratio (0), so Worker D will be offered the job first.  Workers A and C are tied with the same load ratio (0.6).  However, Worker C has been available for a longer time (7 minutes ago) than Worker A (5 minutes ago), so Worker C will be matched before Worker A.  Finally, Worker B will be matched last since Worker B has the highest load ratio (0.75).
+Worker D has the lowest load ratio (0), so Worker D is offered the job first.  Workers A and C are tied with the same load ratio (0.6). However, Worker C is available for a longer time (7 minutes ago) than Worker A (5 minutes ago), so Worker C is matched before Worker A. Finally, Worker B is matched last since Worker B has the highest load ratio (0.75).
 
 ## Best worker mode
 
-The workers that are best able to handle the job are picked first.  The logic to rank Workers can be customized, with an expression or Azure function to compare two workers by specifying a Scoring Rule. [See example](../../how-tos/router-sdk/customize-worker-scoring.md)
+The workers that are best able to handle the job are picked first. The logic to rank Workers can be customized, with an expression or Azure function to compare two workers by specifying a Scoring Rule. [See example](../../how-tos/router-sdk/customize-worker-scoring.md)
 
-When a Scoring Rule isn't provided, this distribution mode will use the default scoring method instead, which evaluates workers based on how the job's labels and selectors match with the worker's labels.  The algorithms are outlined below.
+When a Scoring Rule isn't provided, this distribution mode will use the default scoring method instead, which evaluates workers based on how the job's labels and selectors match with the worker's labels.
 
 ### Default label matching
 
-For calculating a score based on the job's labels, we increment the `Match Score` by 1 for every worker label that matches a corresponding label on the job and then divide by the total number of labels on the job. Therefore, the more labels that matched, the higher a worker's `Match Score`.  The final `Match Score` will always be a value between 0 and 1.
+For calculating a score based on the job's labels, the `Match Score` is incremented by 1 for every worker label that matches a corresponding label on the job and then divide by the total number of labels on the job. Therefore, the more labels that matched, the higher a worker's `Match Score`.  The final `Match Score` will always be a value between 0 and 1.
 
 #### Example
 
@@ -128,11 +128,11 @@ Worker A would be matched first.  Next, Worker B or Worker C would be matched, d
 
 ### Default worker selector matching
 
-In the case where the job also contains worker selectors, we'll calculate the `Match Score` based on the `LabelOperator` of that worker selector.
+In the case where the job also contains worker selectors, the `Match Score` is calculated based on the `LabelOperator` of that worker selector.
 
 #### Equal/notEqual label operators
 
-If the worker selector has the `LabelOperator` `Equal` or `NotEqual`, we increment the score by 1 for each job label that matches that worker selector, in a similar manner as the `Label Matching` above.
+The score is incremented by 1 if the worker selector has the `LabelOperator` `Equal` or `NotEqual` for each job label that matches that worker selector, similar to the `Label Matching` mechanism.
 
 ##### Example
 
@@ -191,7 +191,7 @@ Worker E would be matched first.  Next, Worker D or Worker F would be matched, d
 
 #### Other label operators
 
-For worker selectors using operators that compare by magnitude (`GreaterThan`/`GreaterThanEqual`/`LessThan`/`LessThanEqual`), we'll increment the worker's `Match Score` by an amount calculated using the logistic function (See Fig 1).  The calculation is based on how much the worker's label value exceeds the worker selector's value or a lesser amount if it doesn't exceed the worker selector's value. Therefore, the more worker selector values the worker exceeds, and the greater the degree to which it does so, the higher a worker's score will be.
+For worker selectors using operators that compare by magnitude (`GreaterThan`/`GreaterThanEqual`/`LessThan`/`LessThanEqual`), the worker's `Match Score` is incremented by an amount calculated using the logistic function (See Fig 1).  The calculation is based on how much the worker's label value exceeds the worker selector's value or a lesser amount if it doesn't exceed the worker selector's value. Therefore, the more worker selector values the worker exceeds, and the greater the degree to which it does so, the higher a worker's score is.
 
 :::image type="content" source="../media/router/distribution-concepts/logistic-function.png" alt-text="Diagram that shows logistic function.":::
 
