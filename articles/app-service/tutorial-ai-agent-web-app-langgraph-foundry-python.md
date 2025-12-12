@@ -1,12 +1,12 @@
 ---
-title: Agentic app with LangGraph or Microsoft Foundry (Python)
+title: Agentic app with LangGraph or Foundry Agent Service (Python)
 description: Learn how to quickly deploy a production-ready, agentic web application using Python with Azure App Service, LangGraph, and Foundry Agent Service.
 ms.service: azure-app-service
 author: cephalin
 ms.author: cephalin
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/09/2025
+ms.date: 12/12/2025
 ms.custom:
   - devx-track-python
 ms.collection: ce-skilling-ai-copilot

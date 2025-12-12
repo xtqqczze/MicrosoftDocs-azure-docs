@@ -1,19 +1,19 @@
 ---
-title: Agentic app with Semantic Kernel (Java)
+title: Agentic app with Semantic Kernel or Foundry Agent Service (Java)
 description: Learn how to quickly deploy a production-ready, agentic web application using Java with Azure App Service and Microsoft Semantic Kernel.
 ms.service: azure-app-service
 author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/09/2025
+ms.date: 12/12/2025
 ms.custom:
   - devx-track-java
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ---
 
-# Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel (Spring Boot)
+# Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Foundry Agent Service (Spring Boot)
 
 This tutorial demonstrates how to add agentic capability to an existing data-driven Spring Boot WebFlux CRUD application. It does this using Microsoft Semantic Kernel and Foundry Agent Service.
 

@@ -6,7 +6,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/09/2025
+ms.date: 12/12/2025
 ms.custom:
   - devx-track-dotnet
 ms.collection: ce-skilling-ai-copilot

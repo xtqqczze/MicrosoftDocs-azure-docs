@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: overview
-ms.date: 11/18/2025
+ms.date: 12/12/2025
 ms.custom:
   - build-2025
 ms.collection: ce-skilling-ai-copilot
@@ -62,7 +62,7 @@ Transform your traditional CRUD web applications for the AI era by adding agenti
   - [Part 3: Client-side multi-agent orchestration on Azure App Service with Microsoft Agent Framework](https://techcommunity.microsoft.com/blog/appsonazureblog/part-3-client-side-multi-agent-orchestration-on-azure-app-service-with-microsoft/4466728)
 
 ### [Java](#tab/java)
-- [Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel (Spring Boot)](tutorial-ai-agent-web-app-semantic-kernel-java.md)
+- [Tutorial: Build an agentic web app in Azure App Service with Microsoft Semantic Kernel or Foundry Agent Service (Spring Boot)](tutorial-ai-agent-web-app-semantic-kernel-java.md)
 
 ### [Node.js](#tab/nodejs)
 - [Tutorial: Build an agentic web app in Azure App Service with LangGraph or Foundry Agent Service (Node.js)](tutorial-ai-agent-web-app-langgraph-foundry-node.md)

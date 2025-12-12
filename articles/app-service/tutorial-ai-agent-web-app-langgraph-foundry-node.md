@@ -1,12 +1,12 @@
 ---
-title: Agentic app with LangGraph or Microsoft Foundry (Node.js)
+title: Agentic app with LangGraph or Foundry Agent Service (Node.js)
 description: Learn how to quickly deploy a production-ready, agentic web application using Node.js with Azure App Service, LangGraph, and Foundry Agent Service.
 ms.service: azure-app-service
 author: cephalin
 ms.author: cephalin
 ms.devlang: javascript
 ms.topic: tutorial
-ms.date: 12/09/2025
+ms.date: 12/12/2025
 ms.custom:
   - devx-track-javascript
 ms.collection: ce-skilling-ai-copilot
