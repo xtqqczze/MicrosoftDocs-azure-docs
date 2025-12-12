@@ -22,7 +22,7 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 ## December 2025
 ### FHIR service
 
-**Enhancement to $expand operation**: Added support for "context" parameter for [$expand](./fhir/fhir-expand.md) operation for US Core 6 IG support.
+**Enhancement to $expand operation**: Added support for "context" parameter for [$expand](../fhir/fhir-expand.md) operation for US Core 6 IG support.
 
 ## October 2025
 ### FHIR service
