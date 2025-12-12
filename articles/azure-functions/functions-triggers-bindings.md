@@ -217,6 +217,56 @@ For information about which bindings are in preview or are approved for producti
 
 Specific versions of binding extensions are supported only while the underlying service SDK is supported. Changes to support in the underlying service SDK version affect the support for the consuming extension.
 
+## SDK types
+
+Azure Functions binding extensions use Azure service SDKs to connect to Azure services. The specific SDK types used by bindings can affect how you work with the data in your functions. Some bindings support SDK-specific types that provide richer functionality and better integration with the service, while others use more generic types like strings or byte arrays. When available, using SDK-specific types can provide benefits such as better type safety, easier data manipulation, and access to service-specific features.
+
+This table indicates binding extensions that support SDK types:
+
+::: zone pivot="programming-language-csharp"
+
+| Extension | Types | Support level |
+| ----- | ----- | ----- |
+| [Azure Blob Storage](functions-bindings-storage-blob.md) | `BlobClient`<br/>`BlobContainerClient`<br/>`BlockBlobClient`<br/>`PageBlobClient`<br/>`AppendBlobClient` | GA |
+| [Azure Cosmos DB](functions-bindings-cosmosdb-v2.md) | `CosmosClient`<br/>`Database`<br/>`Container` | GA |
+| [Azure Event Hubs](functions-bindings-event-hubs.md) | `EventData`<br/>`EventHubProducerClient` | GA |
+| [Azure Queue Storage](functions-bindings-storage-queue.md) | `QueueClient`<br/>`QueueMessage` | GA |
+| [Azure Service Bus](functions-bindings-service-bus.md) | `ServiceBusClient`<br/>`ServiceBusReceiver`<br/>`ServiceBusSender`<br/>`ServiceBusMessage` | GA |
+| [Azure Table Storage](functions-bindings-storage-table.md) | `TableClient`<br/>`TableEntity` | GA |
+
+For more information, see [SDK types](dotnet-isolated-process-guide.md#sdk-types) in the C# developer guide.
+::: zone-end
+::: zone pivot="programming-language-python"
+
+| Extension | Types | Support level |
+| ----- | ----- | ----- |
+| [Azure Blob Storage](functions-bindings-storage-blob.md) | `BlobClient`<br/>`ContainerClient`<br/>`StorageStreamDownloader` | GA |
+| [Azure Cosmos DB](functions-bindings-cosmosdb-v2.md) | `CosmosClient`<br/>`DatabaseProxy`<br/>`ContainerProxy` | Preview |
+| [Azure Event Hubs](functions-bindings-event-hubs.md) | `EventData`<br/>`EventHubProducerClient` | Preview |
+| [Azure Service Bus](functions-bindings-service-bus.md) | `ServiceBusClient`<br/>`ServiceBusReceiver`<br/>`ServiceBusSender`<br/>`ServiceBusMessage` | Preview |
+
+For more information, see [SDK types](./functions-reference-python.md#sdk-types) in the Python developer guide.
+::: zone-end 
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+
+| Extension | Types | Support level |
+| ----- | ----- | ----- |
+| [Azure Blob Storage](functions-bindings-storage-blob.md) | `BlobClient`<br/>`ContainerClient`<br/>`ReadableStream` | Preview |
+| [Azure Service Bus](functions-bindings-service-bus.md) | `ServiceBusClient`<br/>`ServiceBusReceiver`<br/>`ServiceBusSender`<br/>`ServiceBusMessage` | Preview |
+
+For more information, see [SDK types](./functions-reference-node.md#sdk-types) in the Node.js developer guide.
+::: zone-end
+::: zone pivot="programming-language-java"
+
+| Extension | Types | Support level |
+| ----- | ----- | ----- |
+| [Azure Blob Storage](functions-bindings-storage-blob.md) | `BlobClient`<br/>`BlobContainerClient` | Preview |
+
+For more information, see [SDK types](./functions-reference-java.md#sdk-types) in the Java developer guide.
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
+
+::: zone-end
 ## Code examples for bindings
 
 Use the following table to find more examples of specific binding types that show you how to work with bindings in your functions. First, choose the language tab that corresponds to your project.

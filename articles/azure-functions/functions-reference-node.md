@@ -821,137 +821,51 @@ app.generic("helloWorld1", {
 
 ---
 
-### Azure Storage Blob SDK Bindings Guide
+### SDK types
 
-The new SDK bindings capability in Azure Functions allows you to work directly with the Azure SDK types like `BlobClient` and `ContainerClient` instead of raw data. This provides full access to all SDK methods when working with blobs.
+Several binding extensions now enable you to work directly with the Azure SDK types.
 
-#### Step-by-Step Implementation Guide
+#### Azure Blob storage
 
-1. **Set up your project dependencies:** Add the `@azure/functions-extensions-blob` extension preview packages to the `package.json` file in the project, which should include at least these packages:
+SDK bindings capability in Azure Functions enables you to work directly with the Azure Blob storage SDK types like `BlobClient` and `ContainerClient` instead of raw data. This provides full access to all SDK methods when working with blobs.
 
-```json
-{
-  "dependencies": {
-    "@azure/functions": "4.7.1-preview",
-    "@azure/functions-extensions-blob": "0.1.0-preview"
-  }
-}
-```
+To configure your project to work with SDK types:
 
-2. **Configure your application entry point:** Add function app imports to `index.ts`
+1. Add the `@azure/functions-extensions-blob` extension preview packages to the `package.json` file in the project, which should include at least these packages:
 
-```javascript
-import { app } from "@azure/functions";
+  :::code language="json" source="~/functions-node-sdk-bindings-blob/blobClientSdkBinding/package.json" range="13-16" ::: 
 
-app.setup({
-  enableHttpStream: true,
-});
-```
+2. Add `enableHttpStream: true` in your `app.setup` to support streaming types:
 
-**BlobClient Example**
+  :::code language="typescript" source="~/functions-node-sdk-bindings-blob/blobClientSdkBinding/src/index.ts" :::
 
 This example shows how to get the BlobClient from both a Storage Blob trigger and from the input binding on an HTTP trigger:
 
-```javascript
-import "@azure/functions-extensions-blob"; // NOTE: Ensure this line is at the top of your functions file.
-import { StorageBlobClient } from "@azure/functions-extensions-blob";
-import { app, InvocationContext } from "@azure/functions";
+:::code language="typescript" source="~/functions-node-sdk-bindings-blob/blobClientSdkBinding/src/storageBlobTrigger.ts" :::
 
-export async function storageBlobTrigger(
-  blobStorageClient: StorageBlobClient, // SDK binding provides this client
-  context: InvocationContext
-): Promise<void> {
-  context.log(`Blob trigger processing: ${context.triggerMetadata.name}`);
+This example shows how to get the `ContainerClient` from both a Storage Blob input binding using an HTTP trigger:
 
-  // Access to full SDK capabilities
-  const blobProperties = await blobStorageClient.blobClient.getProperties();
-  context.log(`Blob size: ${blobProperties.contentLength}`);
+:::code language="typescript" source="~/functions-node-sdk-bindings-blob/containerClientInputBinding/src/functions/listBlobs.ts" :::
 
-  // Download blob content
-  const downloadResponse = await blobStorageClient.blobClient.download();
-  context.log(`Content: ${downloadResponse}`);
-}
+Keep these considerations in mind when working with SDK types:
 
-// Register the function
-app.storageBlob("storageBlobTrigger", {
-  path: "snippets/{name}",
-  connection: "AzureWebJobsStorage",
-  sdkBinding: true, // Enable SDK binding
-  handler: storageBlobTrigger,
-});
-```
++ Always have `import "@azure/functions-extensions-blob"` first in your files to ensure side effects run.
++ Set `sdkBinding: true` in your binding configuration.
++ Use the appropriate client type for your operation:
+    - `blobClient` for operations on a single blob
+    - `containerClient` for operations on a container
++ Handle errors appropriately with `try`/`catch` blocks
++ For large blob operations, consider using streaming methods to avoid memory issues.
 
-Ensure `AzureWebJobsStorage` connection string is defined in `local.setting.json` while testing locally. For testing local emulator use following `local.settings.json`
-
-```json
-{
-  "IsEncrypted": false,
-  "Values": {
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "FUNCTIONS_WORKER_RUNTIME": "node"
-  }
-}
-```
-
-**ContainerClient Example with Input Binding**
-Following example shows how to get the `ContainerClient` from both a Storage Blob input binding using an HTTP trigger:
-
-```javascript
-import "@azure/functions-extensions-blob"; // NOTE: Ensure this line is at the top of your functions file.
-import { StorageBlobClient } from "@azure/functions-extensions-blob";
-import { app, InvocationContext } from "@azure/functions";
-
-const blobInput = input.storageBlob({
-  path: "snippets",
-  connection: "AzureWebJobsStorage",
-  sdkBinding: true, // Enable SDK binding
-});
-
-export async function listBlobs(
-  request: HttpRequest,
-  context: InvocationContext
-): Promise<HttpResponseInit> {
-  // Get input binding for a specific container
-  const storageBlobClient = context.extraInputs.get(
-    blobInput
-  ) as StorageBlobClient;
-
-  // List all blobs in the container
-  const blobs = [];
-  for await (const blob of storageBlobClient.containerClient.listBlobsFlat()) {
-    blobs.push(blob.name);
-  }
-
-  return { jsonBody: { blobs } };
-}
-
-app.http("listBlobs", {
-  methods: ["GET"],
-  authLevel: "function",
-  extraInputs: [blobInput],
-  handler: listBlobs,
-});
-
-```
-
-#### Best Practices
-
-1. Always import @azure/functions-extensions-blob first in your files to ensure side effects run
-2. Set sdkBinding: true in your binding configuration
-3. Use the appropriate client type for your operation:
-
-- blobClient for operations on a single blob
-- containerClient for operations on a container
-
-4. Handle errors appropriately with try/catch blocks
-5. For large blob operations, consider using streaming methods to avoid memory issues
-
-### Next Steps
-Check out the [Blob Storage SDK Bindings for Node.js Samples](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs) 
+For more information, see these [Blob Storage SDK Bindings for Node.js Samples](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs): 
 for more examples on how to incorporate SDK Bindings for Blob into your function app.
 - [BlobClient](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs/tree/main/blobClientSdkBinding)
 - [ContainerClient](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs/tree/main/containerClientInputBinding)
 - [Readable Stream](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs/tree/main/blobClientWithReadableStream)
+
+#### Azure Service Bus
+
+
 
 ::: zone-end
 
