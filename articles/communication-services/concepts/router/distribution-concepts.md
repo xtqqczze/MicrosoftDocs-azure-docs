@@ -132,7 +132,7 @@ In the case where the job also contains worker selectors, the `Match Score` is c
 
 #### Equal/notEqual label operators
 
-If the `LabelOperator` worker selector is `Equal` or `NotEqual`, the score is incremented by 1 for each job label that matches that worker selector, similar to the `Label Matching` mechanism.
+The score is incremented by 1 if the `LabelOperator` worker selector is `Equal` or `NotEqual`, for each job label that matches that worker selector, similar to the `Label Matching` mechanism.
 
 ##### Example
 
