@@ -26,12 +26,10 @@ The benefits of deployment scripts include:
 
 The deployment script resource is available only in the regions where Azure Container Instances is available. For more information, see [Resource availability & quota limits for ACI](/azure/container-instances/container-instances-resource-and-quota-limits) and [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
+The deployment script service creates two supporting resources, a storage account and a container instance, to execute and troubleshoot scripts. Their names are generated using a deterministic hash of the deployment script's resource ID, with the suffix `azscripts` appended. For example, `jgczqtxom5oreazscripts`.  Repeated executions of the same deployment script may reuse the same storage account.
+
 > [!WARNING]
-> The deployment script service requires two extra resources to run and troubleshoot scripts: a storage account and a container instance. Generally, the service cleans up these resources after the deployment script finishes. You incur charges for these resources until they're removed.
->
-> For pricing information, see [Azure Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). To learn more, see [Clean up deployment script resources](./deployment-script-develop.md#clean-up-deployment-script-resources).
->
-> The name of these two resources is generated using a MurmurHash of the string "\<subscription ID>-\<resource group name>", followed by the suffix `azscripts`. For example: `jgczqtxom5oreazscripts`. In rare cases, two different subscription ID and resource group combinations may produce the same hash. If that happens, you see an error message: "The storage account named \<storage-account-name> is already taken."
+> Generally, the service cleans up these supporting resources after the deployment script finishes. You incur charges for these resources until they're removed. For pricing information, see [Azure Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). To learn more, see [Clean up deployment script resources](./deployment-script-develop.md#clean-up-deployment-script-resources).
 
 ### Training resources
 
