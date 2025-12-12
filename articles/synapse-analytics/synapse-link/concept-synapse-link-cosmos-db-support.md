@@ -14,7 +14,7 @@ ms.custom: cosmos-db
 
 # Azure Synapse Link for Azure Cosmos DB supported features
 
-[!INCLUDE[CosmosSynapseLinkRetirement](../includes/appliesto-cosmos-synapse-link-retirement.md)]
+[!INCLUDE[](./includes/appliesto-cosmos-synapse-link.md)]
 
 This article describes the functionalities that are currently supported in Azure Synapse Link for Azure Cosmos DB.
 

@@ -65,7 +65,7 @@ sections:
       - question: |
           Is Azure Synapse Link to Azure Cosmos DB generally available?
         answer: |
-          [!INCLUDE[CosmosSynapseLinkRetirement](./includes/appliesto-cosmos-synapse-link-retirement.md)]
+          [!INCLUDE[](./includes/appliesto-cosmos-synapse-link.md)]
 
       - question: |
           Is Azure Synapse Link for SQL generally available?

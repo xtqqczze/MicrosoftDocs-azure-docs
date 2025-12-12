@@ -13,7 +13,7 @@ ms.custom: sfi-image-nochange
 
 # Analyze complex data types in Azure Synapse Analytics
 
-[!INCLUDE[CosmosSynapseLinkRetirement](./includes/appliesto-cosmos-synapse-link-retirement.md)]
+[!INCLUDE[](./includes/appliesto-cosmos-synapse-link.md)]
 
 This article is relevant for Parquet files and containers in [Azure Synapse Link for Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). You can use Spark or SQL to read or transform data with complex schemas such as arrays or nested structures. The following example is completed with a single document, but it can easily scale to billions of documents with Spark or SQL. The code included in this article uses PySpark (Python).
 
