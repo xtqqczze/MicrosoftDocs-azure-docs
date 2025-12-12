@@ -7,4 +7,4 @@ ms.topic: include
 ---
 
 > [!IMPORTANT]
-> Azure Synapse Link for Cosmos DB is being retired and will be fully decommissioned on or before December 2028. New customers are encouraged to use [Azure Cosmos DB Mirroring for Microsoft Fabric](/fabric/database/mirrored-database/azure-cosmos-db). Existing customers can learn more at, [Migrate Synapse Link to Mirroring](/azure/cosmos-db/migrate-synapse-link-mirroring.md).
+> Azure Cosmos DB Mirroring for Microsoft Fabric is now GA. New user are strongly encouraged to use it and can learn more at [Cosmos DB Mirroring Overview](/fabric/database/mirrored-database/azure-cosmos-db). Existing Synapse Link users interested in Mirroring can learn more at, [Migrate Synapse Link to Mirroring](/azure/cosmos-db/migrate-synapse-link-mirroring.md).
