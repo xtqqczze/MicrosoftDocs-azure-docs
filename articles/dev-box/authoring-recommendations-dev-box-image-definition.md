@@ -29,7 +29,7 @@ Before you begin, ensure you have:
 
 | Requirement | Details |
 |-------------|---------|
-| Microsoft Dev Box | Dev center with dev box pool and project configured. Catalog attached to dev center (optional for built-in tasks). Dev Box User permissions. |
+| Microsoft Dev Box | Dev center with dev project and dev box pool configured. Catalog attached to dev center (optional for built-in tasks). Dev Box User permissions. |
 | Development environment | Dev Box with local admin permissions. Visual Studio (VS) Code with latest version. Dev Box extension installed. GitHub Copilot extension (recommended). |
 | Basic knowledge | YAML syntax fundamentals. Understanding of your team's development tool requirements. |
 
