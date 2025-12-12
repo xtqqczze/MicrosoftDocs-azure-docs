@@ -25,6 +25,8 @@ Jobs will be distributed to the worker that is least utilized first.  If there's
 
 Load Ratio = Aggregate of capacity consumed by all jobs assigned to the worker / Total capacity of the worker
 
+Note that events such as `RouterWorkerRegistered`, are resetting the worker's idle time, which may impact the distribution based on longest idle time.
+
 ### Example
 
 Assume that each `chat` job has been configured to consume one capacity for a worker.  A new chat job is queued into Job Router and the following workers are available to take the job:
