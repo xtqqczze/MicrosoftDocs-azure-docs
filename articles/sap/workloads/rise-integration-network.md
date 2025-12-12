@@ -37,11 +37,25 @@ Both the SAP and customer virtual networks are protected with network security g
 
 Since SAP RISE/ECS runs in SAP’s Azure tenant and subscriptions, set up the virtual network peering between [different tenants](../../virtual-network/create-peering-different-subscriptions.md). You accomplish this configuration by setting up the peering with the SAP provided network’s Azure resource ID and have SAP approve the peering. Add a user from the opposite Microsoft Entra tenant as a guest user, accept the guest user invitation and follow process documented at [Create a virtual network peering - different subscriptions](../../virtual-network/create-peering-different-subscriptions.md). Contact your SAP representative for the exact steps required. Engage the respective teams within your organization that deal with network, user administration and architecture to enable this process to be completed swiftly.
 
+SAP does not offer private connectivity through private endpoints to SAP RISE workloads for customers, in general. Some rare and isolated scenarios might utilize such private endpoint for customers to use, but SAP does not enable such private endpoints for managed SAP landscape.
+
+### Firewall as a service and subnet peering
+
+For customers seeking stronger network-based security than NSGs, RISE offers a premium and optional service called Firewall as a Service (FWaaS) is available. The firewall is a managed services by SAP RISE/ECS and provides macro segmentation of SAP workloads into different tiers. Systems within a tier can bypass the firewall and communicate with each other, while inter-tier communication has to pass through the firewall and follow traffic control rules. You can modify the necessary rule base and obtain firewall logs and audit trails through RISE LogServ service.
+
+To enable the FWaaS service, subnet peering is required to be used instead of entire virtual network. With [subnet peering](../../virtual-network/how-to-configure-subnet-peering.md) you limit the communication partners of the peering to a single subnet on either side, the RISE subnet containing the firewall and your firewall solution. An NVA or other routing appliance is necessary on either end of the subnet peering for FWaaS. Each NVA is respectively set as the main route target for all RISE communication. All traffic to and from SAP RISE workloads will pass through your and RISE managed firewalls. 
+
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-fwaas.png" alt-text="Diagram of SAP RISE/ECS firewall as a service design.":::
+   This diagram shows a typical SAP customer's hub and the RISE virtual network. Firewalls are deployed in a dedicated subnet on either side. Subnet peering is established between the two firewall subnet. No virtual network peering is used in this architecture. Three different groups of RISE workload VMs with communication paths to and from the the respective VM group and RISE firewall.
+:::image-end:::
+
+The RISE operated firewall doesn't replace customer-operated firewalls within your own subscription, the FWaaS service compliments your existing setup.
+
 ## VPN vnet-to-vnet
 
 As an alternative to virtual network peering, virtual private network (VPN) connection can be established between VPN gateways, deployed both in the SAP RISE/ECS subscription and customers own. You can establish a [vnet-to-vnet connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) between these two VPN gateways, enabling fast communication between the two separate virtual networks. The respective networks and gateways can reside in different Azure regions.
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-vpn.png" alt-text="Diagram ofSAP RISE/ECS VPN connection to customer virtual network.":::
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-vpn.png" alt-text="Diagram of SAP RISE/ECS VPN connection to customer virtual network.":::
    This diagram shows a typical SAP customer's hub and spoke virtual networks. VPN gateway located in SAP RISE virtual network connects through vnet-to-vnet connection into gateway contained in customer's hub virtual network.
 :::image-end:::
 
@@ -51,7 +65,7 @@ Network Security Groups are in effect on both customer and SAP virtual network, 
 
 ## Connectivity back to on-premises
 
-With an existing customer Azure deployment, on-premises network is already connected through ExpressRoute (ER) or VPN. The same on-premises network path is typically used for SAP RISE/ECS managed workloads. Preferred architecture is to use existing ER/VPN Gateways in customer’s for this purpose. With connected SAP RISE virtual network seen as a spoke network connected to customer’s virtual network hub.
+With an existing customer Azure deployment, on-premises network is already connected through ExpressRoute (ER) or VPN. The same on-premises network path is typically used for SAP RISE/ECS managed workloads. Preferred architecture is to use existing ER/VPN Gateways in customer’s subscription for this purpose. The connected SAP RISE virtual network acts as a spoke network connected to customer’s virtual network hub.
 
 :::image type="complex" source="./media/sap-rise-integration/sap-rise-on-premises.png" alt-text="Example diagram of SAP RISE/ECS as spoke network peered to customer's virtual network hub and on-premises.":::
    This diagram shows a typical SAP customer's hub and spoke virtual networks. Connects to on-premises with a connection. Cross tenant virtual network peering connects SAP RISE virtual network to customer's hub network. The virtual network peering has remote gateway transit enabled, enabling SAP RISE virtual network to be accessed from on-premises.
