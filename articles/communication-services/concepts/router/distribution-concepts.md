@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 
 # Distribution modes
 
-When creating a distribution policy, the following distribution modes can be selected to define the strategy used to distribute jobs to workers:
+Distribution policies support the following distribution modes to define the strategy used to distribute jobs to workers:
 
 ## Round robin mode
 
@@ -21,7 +21,7 @@ Jobs are distributed in a circular fashion such that each available worker recei
 
 ## Longest idle mode
 
-Jobs are distributed to the worker that is least utilized first.  If there's a tie, the worker available for the longest time is picked. Utilization is calculated as a `Load Ratio` by the following algorithm:
+Jobs are distributed to the worker that's least utilized first. If there's a tie, the worker available for the longest time is picked. Utilization is calculated as a `Load Ratio` by the following algorithm:
 
 Load Ratio = Aggregate of capacity consumed by all jobs assigned to the worker / Total capacity of the worker
 
@@ -59,17 +59,17 @@ LastAvailable: 2 min ago
 Workers would be matched in order: D, C, A, B
 ```
 
-Worker D has the lowest load ratio (0), so Worker D is offered the job first.  Workers A and C are tied with the same load ratio (0.6). However, Worker C is available for a longer time (7 minutes ago) than Worker A (5 minutes ago), so Worker C is matched before Worker A. Finally, Worker B is matched last since Worker B has the highest load ratio (0.75).
+Worker D has the lowest load ratio (0), so the job is first offered to Worker D. Workers A and C are tied with the same load ratio (0.6). However, Worker C is available for a longer time (7 minutes ago) than Worker A (5 minutes ago), so Worker C is matched before Worker A. Finally, Worker B is matched last since Worker B has the highest load ratio (0.75).
 
 ## Best worker mode
 
 The workers that are best able to handle the job are picked first. The logic to rank Workers can be customized, with an expression or Azure function to compare two workers by specifying a Scoring Rule. [See example](../../how-tos/router-sdk/customize-worker-scoring.md)
 
-When a Scoring Rule isn't provided, this distribution mode will use the default scoring method instead, which evaluates workers based on how the job's labels and selectors match with the worker's labels.
+When a Scoring Rule isn't provided, this distribution mode uses the default scoring method instead, which evaluates workers based on how the job's labels and selectors match with the worker's labels.
 
 ### Default label matching
 
-For calculating a score based on the job's labels, the `Match Score` is incremented by 1 for every worker label that matches a corresponding label on the job and then divide by the total number of labels on the job. Therefore, the more labels that matched, the higher a worker's `Match Score`.  The final `Match Score` will always be a value between 0 and 1.
+The `Match Score` is incremented by 1 for every worker label that matches a corresponding label on the job and then divide by the total number of labels on the job. Therefore, the more labels that matched, the higher a worker's `Match Score`. The final `Match Score` is always a value between 0 and 1.
 
 #### Example
 
@@ -124,7 +124,7 @@ Worker B's match score = 1 (for matching english language label) / 2 (total numb
 Worker C's match score = 1 (for matching english language label) / 2 (total number of labels) = 0.5
 ```
 
-Worker A would be matched first.  Next, Worker B or Worker C would be matched, depending on who was available for a longer time, since the match score is tied.
+Worker A would be matched first. Next, Worker B or Worker C would be matched, depending on who was available for a longer time, since the match score is tied.
 
 ### Default worker selector matching
 
@@ -132,7 +132,7 @@ In the case where the job also contains worker selectors, the `Match Score` is c
 
 #### Equal/notEqual label operators
 
-The score is incremented by 1 if the worker selector has the `LabelOperator` `Equal` or `NotEqual` for each job label that matches that worker selector, similar to the `Label Matching` mechanism.
+If the `LabelOperator` worker selector is `Equal` or `NotEqual`, the score is incremented by 1 for each job label that matches that worker selector, similar to the `Label Matching` mechanism.
 
 ##### Example
 
@@ -187,11 +187,11 @@ Worker E's match score = 1 (for matching department selector) + 1 (for matching 
 Worker F's match score = 1 (for segment not equal to vip) / 2 (total number of labels) = 0.5
 ```
 
-Worker E would be matched first.  Next, Worker D or Worker F would be matched, depending on who was available for a longer time, since the match score is tied.
+Worker E would be matched first. Next, Worker D or Worker F would be matched, depending on who was available for a longer time, since the match score is tied.
 
 #### Other label operators
 
-For worker selectors using operators that compare by magnitude (`GreaterThan`/`GreaterThanEqual`/`LessThan`/`LessThanEqual`), the worker's `Match Score` is incremented by an amount calculated using the logistic function (See Fig 1).  The calculation is based on how much the worker's label value exceeds the worker selector's value or a lesser amount if it doesn't exceed the worker selector's value. Therefore, the more worker selector values the worker exceeds, and the greater the degree to which it does so, the higher a worker's score is.
+For worker selectors using operators that compare by magnitude (`GreaterThan`/`GreaterThanEqual`/`LessThan`/`LessThanEqual`), the worker's `Match Score` is incremented by an amount calculated using the logistic function (See Fig 1). The calculation is based on how much the worker's label value exceeds the worker selector's value or a lesser amount if it doesn't exceed the worker selector's value. Therefore, the more worker selector values the worker exceeds, and the greater the degree to which it does so, the higher a worker's score is.
 
 :::image type="content" source="../media/router/distribution-concepts/logistic-function.png" alt-text="Diagram that shows logistic function.":::
 
@@ -267,4 +267,4 @@ Worker H's match score = (1 + 1 / (1 + e^-((15 - 10) / 10)) + 1 / (1 + e^-((10 -
 Worker I's match score = (1 + 1 / (1 + e^-((10 - 10) / 10)) + 1 / (1 + e^-((10 - 9) / 10))) / 3 = 0.675
 ```
 
-All three workers match the worker selectors on the job and are eligible to work on it.  However, we can see that Worker H exceeds the "sales" worker selector's value by a margin of 5.  Meanwhile, Worker I only exceeds the cost worker selector's value by a margin of 1.  Worker G doesn't exceed any of the worker selector's values at all.  Therefore, Worker H would be matched first, followed by Worker I and finally Worker G would be matched last.
+All three workers match the worker selectors on the job and are eligible to work on it. However, we can see that Worker H exceeds the "sales" worker selector's value by a margin of 5. Meanwhile, Worker I only exceeds the cost worker selector's value by a margin of 1. Worker G doesn't exceed any of the worker selector's values at all. Therefore, Worker H would be matched first, followed by Worker I and finally Worker G would be matched last.
