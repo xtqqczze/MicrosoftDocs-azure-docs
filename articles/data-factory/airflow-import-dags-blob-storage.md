@@ -10,12 +10,14 @@ ms.date: 02/13/2025
 
 # Import DAGs by using Azure Blob Storage
 
-> [!IMPORTANT]
-> Workflow Orchestration Manager (powered by Apache Airflow) will be permanently retired in Azure Data Factory (ADF) on December 31, 2025.  This Feature is now available in Microsoft Fabric. [Learn more](https://learn.microsoft.com/en-us/fabric/data-factory/apache-airflow-jobs-concepts?source=docs) 
-> We recommend migrating all Workflow Orchestration Manager (Apache Airflow in ADF) workloads to Data Workflows (Apache Airflow in Microsoft Fabric) to take advantage of the expanded capabilities before December 31, 2025.
->For additional guidance or support during your migration to Fabric Airflow, please contact Microsoft Support team.
-
 This article shows you step-by-step instructions on how to import directed acyclic graphs (DAGs) into Workflow Orchestration Manager by using Azure Blob Storage.
+
+> [!IMPORTANT]
+> Workflow Orchestration Manager (powered by Apache Airflow) will be permanently retired in Azure Data Factory on December 31, 2025. The feature is now available in Microsoft Fabric. [Learn more](https://learn.microsoft.com/fabric/data-factory/apache-airflow-jobs-concepts)
+>
+> We recommend that you migrate all Workflow Orchestration Manager (Apache Airflow in Azure Data Factory) workloads to Data Workflows (Apache Airflow in Microsoft Fabric) to benefit from expanded capabilities before December 31, 2025.
+>
+> For more information or for support during your migration to Apache Airflow in Microsoft Fabric, contact Microsoft Support.
 
 ## Prerequisites
 
