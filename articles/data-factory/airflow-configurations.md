@@ -13,7 +13,7 @@ ms.date: 02/13/2025
 > [!IMPORTANT]
 > Workflow Orchestration Manager (powered by Apache Airflow) will be permanently retired in Azure Data Factory on December 31, 2025. The feature is now available in Microsoft Fabric. [Learn more](https://learn.microsoft.com/fabric/data-factory/apache-airflow-jobs-concepts?source=docs)
 >
-> We recommend migrating all Workflow Orchestration Manager (Apache Airflow in ADF) workloads to Data Workflows (Apache Airflow in Microsoft Fabric) to take advantage of the expanded capabilities before December 31, 2025.
+> We recommend that you migrate all Workflow Orchestration Manager (Apache Airflow in Azure Data Factory) workloads to Data Workflows (Apache Airflow in Microsoft Fabric) to benefit from expanded capabilities before December 31, 2025.
 >For additional guidance or support during your migration to Fabric Airflow, please contact Microsoft Support team.
 
 In Workflow Orchestration Manager, Apache Airflow configurations can be integrated with the platform's runtime as key-value pairs. While the `airflow.cfg` isn't directly accessible in the UI, users can override these configurations via the UI's "Airflow Configuration overrides" section, retaining access to other `airflow.cfg` settings. Developers have the flexibility to override most Apache Airflow configurations within Workflow Orchestration Manager, `except for those explicitly outlined in a provided table`.
