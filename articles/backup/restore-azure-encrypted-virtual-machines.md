@@ -49,6 +49,9 @@ When your virtual machine uses unmanaged disks, they're restored as blobs to the
    > [!NOTE]
    > After you restore the VM disk, you can manually swap the OS disk of the original VM with the restored VM disk without re-creating it. [Learn more](/azure/virtual-machines/windows/os-disk-swap).
 
+> [!TIP]
+> **Single‑pass ADE restore behavior** -  VMs that use ADE single‑pass encryption store encryption settings on the disk object. Tier‑1 (snapshot‑tier) restores may fail if snapshot‑time metadata does not match the Key Vault’s current BEK/KEK state or if encryption settings have rotated after the snapshot was taken. If a Tier‑1 restore fails, retry using a vault‑tier recovery point, which reconstructs disks using full encryption metadata.
+
 ### Step 2: Recreate the virtual machine instance 
 
 Do one of the following actions:
