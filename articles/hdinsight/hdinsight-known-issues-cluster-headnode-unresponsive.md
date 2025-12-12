@@ -8,7 +8,7 @@ ms.date: 12/10/2025
 
 **Issue published date**: December 12, 2025
 
-## Azure HDInsight headnode goes to unresponsive state due to disk usage issue
+# Azure HDInsight headnode goes to unresponsive state due to disk usage issue
 
 Certain Azure HDInsight 5.1 cluster versions contain an issue where temporary OpenSSL-related directories accumulate under /tmp/tmp-*openssl. These directories are not automatically cleaned up by the system as intended. Over time, this leads to a disk usage spike to 100% on the headnodes, causing cluster instability and headnode unresponsiveness.
 
@@ -44,4 +44,5 @@ A regression in the latest HDInsight 5.1 release introduced an issue where OpenS
 
 - [Script action to a running cluster](/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-to-a-running-cluster)
 - [Supported HDInsight versions](/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)
+
 
