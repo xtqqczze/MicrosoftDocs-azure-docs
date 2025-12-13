@@ -2,7 +2,7 @@
 title: Event-driven Scaling in Azure Functions
 description: Explains the scaling behaviors of Consumption plan and Premium plan function apps.
 ms.date: 12/12/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-functions
 ms.custom:
   - build-2024
@@ -127,7 +127,7 @@ There are many aspects of a function app that impacts how it scales, including h
 
 If your app has more than 100 functions that use event-based triggers, consider breaking the app into one or more apps, where each app has less than 100 event-based functions.
 
-For more information on scaling in Python and Node.js, see the **Scaling and performance** section of the [Azure Functions Python developer guide](functions-reference-python.md) and the **Scaling and concurrency** section fo the [Azure Functions Node.js developer guide](functions-reference-node.md).
+For more information on scaling in Python and Node.js, see the **Scaling and performance** section of the [Azure Functions Python developer guide](functions-reference-python.md) and the **Scaling and concurrency** section of the [Azure Functions Node.js developer guide](functions-reference-node.md).
 
 ## Next steps
 
