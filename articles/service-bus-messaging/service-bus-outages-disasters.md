@@ -47,6 +47,18 @@ The **Geo-Disaster Recovery (Metadata DR)** feature replicates metadata for a na
 
 The **Geo-Replication** feature replicates metadata and all of the data from a primary region to one or more secondary regions. When a failover is performed by the customer, the selected secondary becomes the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired.
 
+The following table summarizes the key differences:
+
+| Capability | Geo-Replication | Geo-Disaster Recovery |
+|------------|-----------------|----------------------|
+| What's replicated | Metadata and data (messages, message states, property changes) | Metadata only (entities, configuration, properties) |
+| Data loss on failover | No data loss with planned promotion; possible data loss with forced promotion | Messages aren't replicated; must be manually recovered from the old primary namespace |
+| Failover behavior | Promotes secondary to primary; old primary becomes secondary | One-time failover; pairing is broken after failover |
+| Failback capability | Yes, can promote back to original primary | No, must set up new pairing |
+| Replication modes | Synchronous or asynchronous | Not applicable (metadata only) |
+
+For most disaster recovery scenarios, Geo-Replication is the recommended choice as it provides complete data protection. Consider Geo-Disaster Recovery only when you specifically need metadata-only replication.
+
 ### Availability zones
 
 All Service Bus tiers support [availability zones](../reliability/availability-zones-overview.md), providing fault-isolated locations within the same Azure region. Service Bus manages three copies of the messaging store (1 primary and 2 secondary). Service Bus keeps all three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. If applications see transient disconnects from Service Bus, the [retry logic](/azure/architecture/best-practices/retry-service-specific#service-bus) in the SDK automatically reconnects to Service Bus. 

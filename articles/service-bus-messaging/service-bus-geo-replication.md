@@ -19,7 +19,7 @@ The Geo-Replication feature ensures that the metadata and data of a namespace ar
 
 This feature allows promoting any secondary region to primary, at any time. Promoting a secondary repoints the namespace to the selected secondary region, and switches the roles between the primary and secondary region.
 
-:::image type="content" source="./media/service-bus-geo-replication/geo-replication-overview.png" alt-text="Diagram showing Geo-Replication with a primary region (East US) replicating to a secondary region (East US 2), with clients connected to the primary.":::
+:::image type="content" source="./media/service-bus-geo-replication/geo-replication-overview.png" alt-text="Diagram showing Geo-Replication with a primary region (East US) replicating to a secondary region (East US 2), with clientsOkay connected to the primary.":::
 
 > [!NOTE]
 > - This feature is available for the Premium tier of Azure Service Bus.
@@ -35,6 +35,10 @@ This feature allows promoting any secondary region to primary, at any time. Prom
 >   - Event Grid replicates to the [geo-paired location](/azure/reliability/reliability-event-grid#set-up-disaster-recovery), not the secondary region set up for geo-replication.
 >   - [Promotion](#promotion-flow) of a secondary region for Service Bus doesn't initiate a failover of Event Grid. Consequently, after promotion, Service Bus is now running in the new primary region, however Event Grid is still running in the initial primary region.
 >   - If the initial primary region is [removed](#delete-secondary-region) from the Geo-Replication configuration, this breaks the Event Grid integration.
+
+## Comparison with Geo-Disaster Recovery
+
+Azure Service Bus offers two features for geographic resilience: Geo-Replication and [Geo-Disaster Recovery](service-bus-geo-dr.md). The key difference is that Geo-Replication replicates both metadata and data (messages, message states, property changes), while Geo-Disaster Recovery replicates metadata only. For most disaster recovery scenarios, Geo-Replication is the recommended choice. For a detailed comparison, see [High-level feature differences](service-bus-outages-disasters.md#high-level-feature-differences).
 
 ## Scenarios
 The Geo-Replication feature can be used to implement different scenarios, as described here. For guidance on when to trigger a promotion, see [Recommended scenarios to trigger promotion](#recommended-scenarios-to-trigger-promotion).
