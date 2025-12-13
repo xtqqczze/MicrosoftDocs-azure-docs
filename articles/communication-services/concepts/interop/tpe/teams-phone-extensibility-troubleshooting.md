@@ -6,16 +6,14 @@ author: henikaraa
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.date: 05/19/2025
-ms.topic: conceptual
+ms.date: 09/01/2025
+ms.topic: article
 ms.author: henikaraa
-ms.custom: public_preview
+ms.custom: general_availability
 services: azure-communication-services
 ---
 
 # Teams Phone extensibility troubleshooting
-
-[!INCLUDE [public-preview-notice.md](../../../includes/public-preview-include-document.md)]
 
 This article describes how to identify and resolve Teams Phone extensibility issues. Errors can stem from the application, Azure Communication Services SDKs, the user environment, or Microsoft Teams configuration settings.
 
@@ -39,18 +37,6 @@ For troubleshooting issues related to the Calling SDK, see:
 
 ## Common Teams Phone extensibility issues
 
-### Unable to update CallAutomation SDK to Alpha
-
-1. Download `Azure.Communication.CallAutomation.1.4.0-alpha.20250129.2.nupkg` from [Call Automation Alpha SDKs](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-quickstart.md#alpha-sdks) in your preferred programming language.
-2. Open your solution in Visual Studio and go to the **Tools** menu, select **NuGet Package Manager**, and then select **Package Manager Console**. For reference, see [Manage NuGet packages with the Visual Studio Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#console-controls).
-3. Go to the Package Manager Console and execute the following (be sure to update the path):
-
-   ```dotnetcli
-   Install-Package C:\path\to\Azure.Communication.CallAutomation.1.4.0-alpha.20250129.2.nupkg
-   ```
-
-4. Go back to the **Tools** menu, select **NuGet Package Manager**, and select **Manage NuGet Packages for Solution**. When the NuGet package loads, go to the **Installed** tab and make sure `Azure.Communication.CallAutomation` says that 1.4.0-alpha.20250129.2 is the installed version.
-
 ### Consent blocked due to Microsoft Entra App permission
 
 If you receive the following error:
@@ -72,6 +58,41 @@ Then execute the following command to add a service principal to your tenant. Do
 ```dotnetcli
 New-MgServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
 ```
+
+### Error 404 subcode 580406 "Balance not found"
+
+This error typically occurs when the resource account does not have an active calling plan with PAYG enabled or sufficient Communications Credits. This is required for all Outbound calling scenarios in Teams Phone Extensibility. Follow these steps to resolve the issue:
+
+#### 1. Sign in to Microsoft 365 Admin Center
+Log in with your **admin credentials** [https://admin.microsoft.com](https://admin.microsoft.com)
+
+#### 2. Add Pay-As-You-Go Calling Plan
+- Navigate to **Marketplace → All Products**.
+- Search for **Microsoft Teams Calling Plan (Pay-As-You-Go)**.
+- Select the appropriate **Pay-As-You-Go Calling Plan Zone (Zone 1 or Zone 2)** based on your location.
+- Add the plan under **Add-ons**.  
+More details: [Learn more about Calling Plans PAYG](/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)
+
+#### 3. Assign Licenses to Resource Account
+- Go to **Users → Active Users**.
+- Assign:
+  - **Microsoft Teams Calling Plan (Pay-As-You-Go)**
+  - **Microsoft Teams Phone Resource Account**
+- **Important:** Remove any other conflicting calling plans.  
+More details: [Assign licenses to users](/microsoft-365/admin/manage/assign-licenses-to-users)
+
+#### 4. Purchase Communications Credits
+- Go to **Marketplace → All Products**.
+- Search for **Communications Credits** under **Add-ons**.
+- Purchase credits and add funds.  
+More details: [What are Communications Credits?](/microsoftteams/what-are-communications-credits)
+
+#### 5. Enable Auto-Recharge
+- After purchase, go to **Billing → Your Products**.
+- Select **Communications Credits**.
+- Turn **Auto-Recharge ON** to avoid running out of balance.  
+More details: [Set up Communications Credits](/microsoftteams/set-up-communications-credits-for-your-organization)
+
 
 ### Error 400 code 8523 Invalid request: SourceCallerIdNumber and SourceDisplayName aren't supported
 

@@ -7,7 +7,11 @@ ms.manager: roopesh.nair
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/03/2024
-ms.custom: engagement-fy24
+ms.reviewer: v-uhabiba
+ms.custom:
+  - engagement-fy24
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 # Customer intent: As an IT administrator managing VMware environments, I want to set up a scale-out appliance for agentless migration to Azure, so that I can efficiently replicate and migrate a large number of virtual machines concurrently.
 ---
 
@@ -74,7 +78,7 @@ In **Download Azure Migrate appliance**, select  **Download**. You need to downl
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 > 3. Download the [latest version](https://go.microsoft.com/fwlink/?linkid=2191847) of the scale-out appliance installer from the portal if the computed hash value doesn't match this string:
-[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
+Verify [security](migrate-appliance.md#verify-security) by validating the SHA256 values. 
 
 ### 3. Run the Azure Migrate installer script
 
