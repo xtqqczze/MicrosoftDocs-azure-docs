@@ -1,7 +1,7 @@
 ---
 title: Azure Service Bus premium messaging tier
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-extended-java
 ms.date: 05/28/2025
 ---
