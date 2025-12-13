@@ -21,7 +21,7 @@ ms.custom:
 
 For an overview of options to secure access to the developer portal, see [Secure access to the API Management developer portal](secure-developer-portal-access.md).
 
-Currently, API Management supports external identity providers in Microsoft Entra External ID when configured in your Microsoft Entra ID *workforce tenant*. For example, if you're enabling access to the developer portal by users in your workforce tenant, such as the Contoso organization, you might want to configure Google or Facebook as an external identity provider so that these external users can also sign in using their accounts. [Learn more about workforce and external tenant configurations in Microsoft External ID](/entra/external-id/tenant-configurations).
+Currently, API Management supports external identity providers in Microsoft Entra External ID when configured in a Microsoft Entra ID *workforce tenant*. For example, if you're enabling access to the developer portal by users in your workforce tenant, such as the Contoso organization, you might want to configure Google or Facebook as an external identity provider so that these external users can also sign in using their accounts. [Learn more about workforce and external tenant configurations in Microsoft External ID](/entra/external-id/tenant-configurations).
 
 [!INCLUDE [api-management-developer-portal-entra-tenants.md](../../includes/api-management-developer-portal-entra-tenants.md)]
 

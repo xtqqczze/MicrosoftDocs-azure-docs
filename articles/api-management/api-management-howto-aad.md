@@ -6,7 +6,7 @@ description: Learn how to enable user sign-in to the API Management developer po
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 12/08/2025
+ms.date: 12/12/2025
 ms.author: danlep
 ms.custom:
   - engagement-fy23
@@ -70,10 +70,13 @@ For steps, see [Switch redirect URIs to the single-page application type](../act
 
 ## Configure access by users in more than one Microsoft Entra tenant
 
+> [!NOTE]
+> Support for access to the developer portal by users from multiple Microsoft Entra ID tenants is currently available in the API Management Developer, Standard, and Premium tiers.
+
 You can enable access to the developer portal by users from more than one Microsoft Entra ID tenant. To do this:
 
 * Configure app registration for multiple tenants.
-* Update the identity provider configuration for the developer portal to add another tenant.
+* Update the Microsoft Entra ID identity provider configuration for the developer portal to add another tenant.
 
 ### Configure app registration for multiple tenants
 
@@ -82,7 +85,7 @@ The app registration you configure for the identity provider must support multip
 * When creating the app registration, set **Supported account types** to **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)**. 
 * If you previously configured an app registration for a single tenant, update the **Supported account types** setting on the **Manage** > **Authentication** page of the app registration.
 
-### Update identity provider configuration for multiple tenants
+### Update Microsoft Entra ID identity provider configuration for multiple tenants
 
 Update the identity provider configuration to add another tenant:
 
