@@ -1,5 +1,5 @@
 ---
-title: Load Configuration from Azure Front Door in Client Applications (Preview) 
+title: Load Configuration from Azure App Configuration via Azure Front Door (Preview) 
 description: Learn how to setup applications to connect to Azure Front Door.
 author: avanigupta
 ms.author: avgupta
@@ -26,12 +26,9 @@ Integrating Azure App Configuration with Azure Front Door enables your client ap
 
 ## Client Application Samples
 
-The following code demonstrates how to load configuration from Azure Front Door. The application retrieves all keys starting with "App1:" prefix and checks for updates every minute. When the application requests updates, Azure Front Door returns cached values if valid, or fetches fresh configuration from App Configuration service if the Azure Front Door cache expired.
+The following code demonstrates how to load configuration from Azure Front Door. The application retrieves all keys starting with an "App1:" prefix and checks for updates every minute. When the application requests updates, Azure Front Door returns cached values, if possible, otherwise it retrieves fresh configuration from App Configuration service.
 
 Replace `{YOUR-AFD-ENDPOINT}` with your Azure Front Door endpoint, which looks something like `https://xxxx.azurefd.net`.
-
-> [!NOTE]
-> If your application loads only feature flags, you should add two key filters in the Azure Front Door rules - one for ALL keys with no label and second for all keys starting with ".appconfig.featureflag/{YOUR-FEATURE-FLAG-PREFIX}".
 
 ### [.NET MAUI](#tab/dotnet-maui)
 
@@ -45,7 +42,7 @@ builder.Configuration.AddAzureAppConfiguration(options =>
             .ConfigureRefresh(refreshOptions =>
             {
                 refreshOptions.RegisterAll()
-                                .SetRefreshInterval(TimeSpan.FromMinutes(1));
+                    .SetRefreshInterval(TimeSpan.FromMinutes(1));
             });
 });
 ```
@@ -77,8 +74,12 @@ For a complete sample app, refer to [JavaScript App with Azure App Configuration
 
 ---
 
-> [!NOTE]
-> The key-value filters used by your application must match exactly the filters configured for the Azure Front Door endpoint; any mismatch will cause the request to be rejected. For example, if your endpoint is configured to allow access to keys starting with "App1:" prefix, the application code must also load keys starting with "App1:". If your application attempts to load different keys, such as "App1:Version" when only "App1:" is allowlisted in Azure Front Door rules, the request is rejected.
+## Considerations and edge cases
+
+- **Request scoping**: The key-value filters used by your application must match exactly the filters configured for the Azure Front Door endpoint; any mismatch will cause the request to be rejected. For example, if your endpoint is configured to allow access to keys starting with an "App1:" prefix, the application code must also load keys starting with "App1:". If your application attempts to load different keys, such as "App1:Version" when only "App1:" is allowlisted in Azure Front Door rules, the request is rejected.
+- **Exclusively loading feature flags**: If your application loads only feature flags, you should add two key filters in the Azure Front Door rules - one for ALL keys with no label and second for all keys starting with ".appconfig.featureflag/{YOUR-FEATURE-FLAG-PREFIX}".
+- **Refresh strategy**: Applications loading from Azure Front Door cannot use sentinel key refresh. If refresh is enabled, the application [monitors all selected keys](./howto-best-practices.md#monitoring-all-selected-keys) for changes.
+- **Snapshot references**: If your application loads a key-value that is a [snapshot reference](./concept-snapshot-references.md), Azure Front Door must be configured to allowlist that snapshot. Include the snapshot name in your Azure Front Door filters to enable snapshot resolution.
 
 ## Troubleshooting
 
@@ -104,7 +105,6 @@ For a complete sample app, refer to [JavaScript App with Azure App Configuration
 | Java        | Work in progress          | N/A |
 | Python      | Work in progress          | N/A |
 | Go          | Work in progress          | N/A |
-
 
 ## Related Content
 

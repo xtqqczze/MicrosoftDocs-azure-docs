@@ -16,7 +16,7 @@ Azure App Configuration supports direct integration with Azure Front Door (previ
 You can connect your App Configuration store to existing Azure Front Door profiles or create new profiles directly from the App Configuration interface for a quick start.
 
 > [!NOTE]
-> This feature is only available in the Azure public cloud.
+> This feature is only available in the Azure public cloud. Support for other Azure clouds is planned for future releases.
 
 ## Prerequisites
 
