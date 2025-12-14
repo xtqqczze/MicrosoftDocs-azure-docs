@@ -109,7 +109,7 @@ This table shows a general example of the relationship of _Size_ to _vCPUs/prima
 | 24 [^1]      | 4/2                  | 8/6                  | 16/12                |
 | 60 [^1]      | 8/6                  | 16/12                | 32/24                |
 
-[^1] The ratio of vCPUs to primary shards at a given tier size doesn't represent a guarantee that this is the number of vCPUs or shards for the SKU or tier.
+    [^1]: The ratio of vCPUs to primary shards at a given tier size doesn't represent a guarantee that this is the number of vCPUs or shards for the SKU or tier.
 
 #### Flash optimized version
 
@@ -122,7 +122,7 @@ This table shows a general example of the relationship of _Size_ to _vCPUs/prima
 | 720 *     | 24/24 [^1]                |
 
 \* These tiers are in public preview.
-[^1] The ratio of vCPUs to primary shards at a given tier size doesn't represent a guarantee that this is the number of vCPUs or shards for the SKU or tier.
+[^1]: The ratio of vCPUs to primary shards at a given tier size doesn't represent a guarantee that this is the number of vCPUs or shards for the SKU or tier.
 
 [!INCLUDE [tier-preview](includes/tier-preview.md)]
 
