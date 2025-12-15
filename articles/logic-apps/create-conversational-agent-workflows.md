@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewers: estfan, divswa, krmitta, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 11/18/2025
+ms.date: 12/11/2025
 ms.update-cycle: 180-days
 # Customer intent: As an AI integration developer who uses Azure Logic Apps, I want to build workflows that complete tasks by using AI agent loops, large language models (LLMs), natural language, and chat capabilities in my integration solutions.
 ---
@@ -219,31 +219,6 @@ Based on the development experience that you use, start by creating a new workfl
 > :::image type="content" source="media/create-conversational-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar and Errors button with red dot and error in the agent action information pane." lightbox="media/create-conversational-agent-workflows/error-missing-agent-settings.png":::
 
 <a name="agent-model"></a>
-
-### How to call or trigger this workflow
-
-Conversational agent workflows can be triggered in two ways:
-
-#### 1️⃣ Interactive chat in the Azure portal (development only)
-Use the **Chat** button in the workflow designer to manually start a chat session with the agent.
-This method is intended only for test interactions inside the Azure portal.
-
-> ⚠️ Portal-based testing uses a temporary developer key.  
-> This key **cannot** be used by external users or production systems.
-
-#### 2️⃣ External applications (for real user interaction)
-External clients such as websites, mobile apps, bots, or other Azure services can trigger the workflow using the hosted chat endpoint.
-
-| Workflow type | Endpoint usage | Required authentication |
-|--------------|----------------|------------------------|
-| **Consumption** | Chat client URL embedded or opened externally | **OAuth 2.0 with Microsoft Entra ID** |
-| **Standard** | HTTPS trigger or chat client URL | **Managed identity / Easy Auth** |
-
-##### Chat client URL formats
-
-**Consumption**
-```html
-<iframe src="https://agents.<region>.logic.azure.com/scaleunits/<scale-unit-ID>/flows/<workflow-ID>/agentChat/IFrame" title="Chat client"></iframe>
 
 ## Set up or view the AI model
 
@@ -621,6 +596,29 @@ Except for the different agent parameters to set up for the **Send an email (V2)
    :::image type="content" source="media/create-conversational-agent-workflows/send-email-tool-complete.png" alt-text="Screenshot shows the agent and finished Send email tool." lightbox="media/create-conversational-agent-workflows/send-email-tool-complete.png":::
 
 [!INCLUDE [best-practices-agent-workflows](includes/best-practices-agent-workflows.md)]
+
+## Trigger or run the workflow
+
+You can trigger or run conversational agent workflows in the following ways, based on the deployment environment:
+
+| Environment | Description |
+|-------------|-------------|
+| Nonproduction | On the workflow designer toolbar, select **Chat** to manually start a chat session with the conversational agent in the Azure portal. <br><br>**Important**: This method is intended only for test activities. Portal-based testing uses a temprary developer key. External users or production systems can't use this key. For more information, see [Authentication and authorization](#authentication-and-authorization). |
+| Production | Requires that you set up authentication for external users or clients such as websites, mobile apps, bots, or other Azure services to access the conversational agent. They can then trigger the workflow by using the chat client URL. |
+
+The following table describes how chat users or clients use the chat client URL to run the workflow in production:
+
+| Workflow type | Chat client URL usage | Required authentication |
+|---------------|-----------------------|-------------------------|
+| **Consumption** | Open the URL in a browser or embed the URL in an *iFrame* HTML element. | OAuth 2.0 with Microsoft Entra ID |
+| **Standard** | Open the URL in a browser, embed the URL in an *iFrame* element, or if you use the **Request** trigger, call the trigger's HTTP URL. | Managed identity or Easy Auth |
+
+To embed the chat client URL in an [*iFrame* HTML element](https://developer.mozilla.org/docs/Web/HTML/Reference/Elements/iframe), use the following format:
+
+| Workflow type | iFrame HTML element |
+|---------------|---------------------|
+| Consumption | `<iframe src="https://agents.<region>.logic.azure.com/scaleunits/<scale-unit-ID>/flows/<workflow-ID>/agentChat/IFrame" title="<chat-client-name>"></iframe>` |
+| Standard | `<iframe src="https://<logic-app-name>.azurewebsites.net/api/agentsChat/<workflow-name>/IFrame" title="<chat-client-name>"></iframe>` |
 
 ## Authentication and authorization
 
