@@ -4,7 +4,7 @@ description: Lists the regions Azure Maps supports with services such as maps, s
 author: faterceros
 ms.author: aterceros
 ms.date: 09/22/2025
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-maps
 ms.subservice: general
 zone_pivot_groups: azure-maps-coverage
@@ -125,7 +125,7 @@ Azure Maps offers localization in a wide range of languages across its various s
 | eu             | Basque                                     | ✓      | ✓            | ✓      |       |         |             |
 | eu-ES          | Basque (Spain)                             |        |              | ✓      |       |         |             |
 | be             | Belarusian                                 | ✓      | ✓            | ✓      |       |         |             |
-| bn             | Bengali                                    |        |              | ✓      |       |         |             |
+| bn             | Bangla                                     |        |              | ✓      |       |         |             |
 | bs             | Bosnian (Latin)                            | ✓      | ✓            | ✓      |       |         |             |
 | bg             | Bulgarian                                  | ✓      | ✓            | ✓      | ✓     |         | ✓           |
 | my             | Burmese                                    |        | ✓            | ✓      |       |         |             |
