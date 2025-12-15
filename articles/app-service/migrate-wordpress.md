@@ -5,6 +5,7 @@ author: msangapu-msft
 ms.service: azure-app-service
 ms.topic: how-to
 ms.date: 12/02/2025
+ms.update-cycle: 1095-days
 ms.author: msangapu
 ms.devlang: php
 ms.custom:
