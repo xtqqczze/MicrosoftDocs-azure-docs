@@ -51,7 +51,7 @@ Properly managing identities and access controls is essential for securing your 
 
 Protecting data in transit and at rest is crucial for maintaining the confidentiality and integrity of your applications and their data.
 
-<a href="#https-and-certificates></a>
+<a href="#https-and-certificates"></a>
 
 - **Enforce HTTPS**: Redirect all HTTP traffic to HTTPS by enabling HTTPS-only mode, ensuring that all communication between clients and your app is encrypted. By default, App Service forces a redirect from HTTP requests to HTTPS, and your app's default domain name `<app_name>.azurewebsites.net` is already accessible via HTTPS. See [Configure general settings](/azure/app-service/configure-common#configure-general-settings).
 
