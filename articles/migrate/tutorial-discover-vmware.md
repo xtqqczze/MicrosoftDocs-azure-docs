@@ -168,7 +168,7 @@ To set up the appliance for the first time:
 1. Select or enter the language, time zone, and password for the appliance.
 1. Open a browser on any computer that can connect to the appliance. Then, open the URL of the appliance configuration manager: `https://appliance name or IP address: 44368`.
 
-     Or you can open the configuration manager from the appliance server desktop by selecting the shortcut for the configuration manager.
+     Or you can go to the configuration manager from the appliance server desktop by selecting the shortcut for the configuration manager.
 1. Accept the license terms and read the third-party information.
 
 #### Set up prerequisites and register the appliance
@@ -186,7 +186,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
 1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key and then copy the key that's shown.
 1. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
-1. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure sign in prompt in a new browser tab. Ensure you've disabled the pop-up blocker in the browser to see the prompt.
+1. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and go to an Azure sign in prompt in a new browser tab. Ensure you've disabled the pop-up blocker in the browser to see the prompt.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and sign in."::: 
 
