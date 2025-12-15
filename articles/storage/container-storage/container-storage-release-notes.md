@@ -19,6 +19,7 @@ The following Azure Container Storage versions are supported:
 | Milestone | Status |
 |----|----------------|
 |2.0.0 - Major Release | Supported |
+|1.4.0 - Minor Release | Supported |
 |1.3.2 - Patch Release | Supported |
 |1.3.1 - Patch Release | Supported |
 |1.3.0 - Minor Release | Supported |
@@ -51,6 +52,16 @@ A **major release** introduces significant changes, often including new features
 ### Migration guidance
 
 There are significant breaking changes in version 2.0.0. Users looking to migrate from version 1.x.x to version 2.0.0 should completely [remove prior versions](remove-container-storage-version-1.md) of Azure Container Storage and review the new setup guides to get started.
+
+## Version 1.4.0
+
+### Improvements and issues that are fixed
+
+- Resolved security vulnerabilities through component updates.
+- Introduced pre-upgrade and post-upgrade hooks for the Azure SAN CSI driver to better manage the CSI driver and volume attachments, ensuring seamless upgrades and preventing resource leaks.
+- Fixed an issue with the etcd watcher that could cause disk pools to remain in the "Creating" status after an upgrade.
+- Renamed mutating and validating webhooks to more specific names to avoid potential naming conflicts.
+- Extended end-of-life support for the v1.x release series.
 
 ## Version 1.3.2
 
@@ -123,12 +134,13 @@ Azure Container Storage follows a transparent and predictable support lifecycle,
 - **Patch releases**: Have the same end of life as the subsequent major/minor release.  
 
 | Release version | Release Date  | End of Life | Supported Kubernetes Versions |
-|----|----------------| ------------| -------- |
+|-----------------|---------------|-------------|-------------------------------|
+|1.4.0 - Minor Release | 12/15/2025 | 12/14/2026 | 1.32, 1.31, 1.30 |
 |2.0.0 - Major Release | 09/10/2025 | 09/09/2026 | 1.33, 1.32, 1.31 |
-|1.3.2 - Patch Release | 9/15/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
+|1.3.2 - Patch Release | 09/15/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
 |1.3.1 - Patch Release | 07/02/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
 |1.3.0 - Minor Release | 04/28/2025 | 04/27/2026 | 1.32, 1.31, 1.30 |
-|1.2.1 - Patch Release| 02/10/2025 | 11/10/2025| 1.30, 1.29, 1.28|
+|1.2.1 - Patch Release | 02/10/2025 | 11/10/2025 | 1.30, 1.29, 1.28 |
 |1.2.0 - Minor Release | 11/11/2024 | 11/10/2025 | 1.30, 1.29, 1.28 |
 |1.1.2 - Patch Release | 10/16/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
 |1.1.1 - Patch Release | 09/20/2024 | 07/29/2025 | 1.29, 1.28, 1.27 |
