@@ -191,10 +191,9 @@ This can happen when the plan’s assigned instances are higher than the highest
 
 To correct this configuration, update the always ready instance count for any app in the plan. You must change the value. Saving the same value does not trigger recalculation. After the update, the plan sets its assigned instance count to the highest always ready value across all apps in the plan.
 
-You must complete this update by using Azure Resource Manager API. The Azure portal does not apply the recalculation correctly at this time.
+You must complete this update by using [CLI](#set-the-minimum-number-of-web-app-instances) or Azure Resource Manager API. The Azure portal does not apply the recalculation correctly at this time.
 
-**Example**
-A plan may have 7 assigned instances. The apps in the plan may have always ready values of 2, 3, and 5. Billing is based on 7 because that is the minimum number of instances. If you change any app’s always ready value, for example from 3 to 4, the plan recalculates. It then sets its assigned instance count to 5, which is the highest always ready value.
+**Example:** A plan may have 7 assigned instances. The apps in the plan may have always ready values of 2, 3, and 5. Billing is based on 7 because that is the minimum number of instances. If you change any app’s always ready value, for example from 3 to 4, the plan recalculates. It then sets its assigned instance count to 5, which is the highest always ready value.
 
 
 <a name="Related content"></a>
