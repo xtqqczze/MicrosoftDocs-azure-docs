@@ -151,7 +151,7 @@ The component trying to replicate data to Azure is either down or not responding
 
     1. Fetch the Key Vault URI from the list of resources in the Resource Group corresponding to Azure Migrate Project.
 
-    1. Open PowerShell in the Azure Migrate appliance and run the following command:
+    1. Go to PowerShell in the Azure Migrate appliance and run the following command:
     ```
     _test-netconnection Key Vault URI -P 443_
     ```
@@ -238,7 +238,7 @@ The possible causes include:
 
     1. Fetch the Key Vault URI from the list of resources in the Resource Group corresponding to Azure Migrate Project.
 
-    1. Open PowerShell in the Azure Migrate appliance and run the following command:
+    1. Go to PowerShell in the Azure Migrate appliance and run the following command:
 
     ```
     _test-netconnection Key Vault URI -P 443_
