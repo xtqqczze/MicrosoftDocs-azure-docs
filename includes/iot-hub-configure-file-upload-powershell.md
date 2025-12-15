@@ -15,7 +15,7 @@ ms.custom:
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* An Azure IoT hub. If you don't have an IoT hub, you can use the [New-AzIoTHub cmdlet](/powershell/module/az.iothub/new-aziothub) to create one or follow the steps in the **Create an IoT hub** section of [Create and manage Azure IoT hubs](../articles/iot-hub/create-hub.md)..
+* An Azure IoT hub. If you don't have an IoT hub, you can use the [New-AzIoTHub cmdlet](/powershell/module/az.iothub/new-aziothub) to create one or follow the steps in the **Create an IoT hub** section of [Create and manage Azure IoT hubs](../articles/iot-hub/create-hub.md).
 
 * An Azure storage account. If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets](/powershell/module/az.storage/) to create one or use the portal to [Create a storage account](../articles/storage/common/storage-account-create.md).
 
