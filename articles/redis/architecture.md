@@ -122,6 +122,7 @@ This table shows a general example of the relationship of _Size_ to _vCPUs/prima
 | 720 ¹ ²    | 24/24                |
 
 ¹ These tiers are in public preview.
+
 ² The ratio of vCPUs to primary shards at a given tier size doesn't represent a guarantee for the SKU or tier.
 
 [!INCLUDE [tier-preview](includes/tier-preview.md)]
