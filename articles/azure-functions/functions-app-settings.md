@@ -679,6 +679,8 @@ Changing or removing this setting can cause your function app to not start. To l
 
 Azure Files doesn't support using managed identity when accessing the file share. For more information, see [Azure Files supported authentication scenarios](../storage/files/storage-files-active-directory-overview.md#supported-authentication-scenarios). 
 
+This setting may be a [KeyVault reference](../app-service/app-service-key-vault-references.md), but there is additional configuration required to create and dynamically scale a function app with a storage connection string in KeyVault. For more information, see [Considerations for Azure Files mounting](../app-service/app-service-key-vault-references.md#considerations-for-azure-files-mounting).
+
 ## WEBSITE\_CONTENTOVERVNET
 
 > [!IMPORTANT]
