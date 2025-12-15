@@ -77,7 +77,6 @@ Empower your existing web apps by exposing their capabilities to Foundry Agent S
 
 ### [.NET](#tab/dotnet)
 - [Add an App Service app as a tool in Foundry Agent Service (.NET)](tutorial-ai-integrate-azure-ai-agent-dotnet.md)
-- [Tutorial: Invoke an App Service web app from Foundry Agent Service](invoke-openapi-web-app-from-azure-ai-agent-service.md)
 
 ### [Java](#tab/java)
 - [Add an App Service app as a tool in Foundry Agent Service (Spring Boot)](tutorial-ai-integrate-azure-ai-agent-java.md)
