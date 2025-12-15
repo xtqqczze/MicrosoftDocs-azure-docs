@@ -142,6 +142,7 @@ Functions uses a host ID value as a way to uniquely identify a particular functi
 
 >[!NOTE]
 >This same kind of host ID collision can occur between a function app in a production slot and the same function app in a staging slot, when both slots use the same storage account.
+>This Host ID Collision does not apply to the Flex Consumption plan as it generates the HostID in a different manner. 
 
 Starting with version 3.x of the Functions runtime, host ID collision is detected and a warning is logged. In version 4.x, an error is logged and the host is stopped, resulting in a hard failure. For more information, see [HostID Truncation can cause collisions](https://github.com/Azure/azure-functions-host/issues/2015).
 
