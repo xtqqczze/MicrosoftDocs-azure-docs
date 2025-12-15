@@ -1,9 +1,8 @@
 ---
-title: Ambari access broken due to certificate issues post certification rotation
+title: Azure HDInsight Ambari access broken due to certificate issues post certification rotation
 description: Known issue of Ambari access broken due to certificate issues post certification rotation
 ms.service: azure-hdinsight
 ms.topic: troubleshooting-known-issue
-ms.author: SindhuSubhas
 ms.date: 10/12/2025
 ---
 

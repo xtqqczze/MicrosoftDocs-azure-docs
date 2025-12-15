@@ -3,7 +3,6 @@ title: Azure HDInsight headnode goes to unresponsive state
 description: Azure HDInsight – Headnode unresponsive due to /tmp disk usage leak in latest HDInsight 5.1 releases
 ms.service: azure-hdinsight
 ms.topic: troubleshooting-known-issue
-ms.author: SindhuSubhas
 ms.date: 12/10/2025
 ---
 

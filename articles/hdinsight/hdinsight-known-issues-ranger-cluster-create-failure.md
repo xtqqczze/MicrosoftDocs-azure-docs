@@ -3,7 +3,6 @@ title: Azure HDInsight ESP cluster creation issues due to Ranger service startup
 description: Azure HDInsight ESP cluster creation issues due to Ranger service startup
 ms.service: azure-hdinsight
 ms.topic: troubleshooting-known-issue
-ms.author: SindhuSubhas
 ms.date: 10/12/2025
 ---
 
