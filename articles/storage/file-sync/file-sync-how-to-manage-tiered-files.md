@@ -87,7 +87,7 @@ To exclude files or folders from cloud tiering, follow these steps:
 	**net stop filesyncsvc**  
 	**net start filesyncsvc**
 
- > [!NOTE]
+> [!NOTE]
 > When specifying folder paths that include special characters, you must prefix each instance of the following characters with an escape character (`\`):
 >
 > `^ $ ( ) [ ] { } +`
