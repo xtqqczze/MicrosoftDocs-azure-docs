@@ -131,15 +131,15 @@ After you access the app, view the data associated with HTTP requests, found in 
 
 1. Select **Logs** from the sidebar menu.
 
-:::image type="content" source="media/tutorial-azure-monitor/log-analytics-workspace-logs.png" alt-text="Screenshot showing the workspace logs option in the sidebar menu.":::
+    :::image type="content" source="media/tutorial-azure-monitor/log-analytics-workspace-logs.png" alt-text="Screenshot showing the workspace logs option in the sidebar menu.":::
 
 1. Search for *appservice* and double-click **AppServiceHTTPLogs**.
 
-:::image type="content" source="media/tutorial-azure-monitor/log-analytics-workspace-app-service-tables.png" alt-text="Screenshot showing log analytics workspace tables.":::
+    :::image type="content" source="media/tutorial-azure-monitor/log-analytics-workspace-app-service-tables.png" alt-text="Screenshot showing log analytics workspace tables.":::
 
 1. Select **Run**.
 
-:::image type="content" source="media/tutorial-azure-monitor/log-analytics-workspace-app-service-http-logs.png" alt-text="Screenshot showing log analytics workspace HTTP logs.":::
+    :::image type="content" source="media/tutorial-azure-monitor/log-analytics-workspace-app-service-http-logs.png" alt-text="Screenshot showing log analytics workspace HTTP logs.":::
 
 The `AppServiceHTTPLogs` query returns all requests in the past 24 hours. The column **ScStatus** contains the HTTP status. To diagnose the HTTP 500 errors, limit `ScStatus` to *500* and run the query:
 
