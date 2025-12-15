@@ -1,14 +1,16 @@
 ---
-title: HDInsight ESP cluster creation issues due to Ranger
-description: HDInsight ESP cluster creation issues due to Ranger
+title: Azure HDInsight ESP cluster creation issues due to Ranger
+description: Azure HDInsight ESP cluster creation issues due to Ranger services startup
 ms.service: azure-hdinsight
 ms.topic: troubleshooting-known-issue
+author: Sindhu Subhas
+ms.author: ssubhas
 ms.date: 10/12/2025
 ---
 
-# Ambari access broken due to certificate issues
+# Azure HDInsight ESP cluster creation issues due to Ranger service startup
 
-**Issue published date**: October 10, 2025
+**Issue published date**: December 10, 2025
 
 In the Azure HDInsight release, the Ranger was mistakenly designed to Managed Identity for authentication. This regression is fixed in an latest release.
 
@@ -27,4 +29,5 @@ In the Azure HDInsight release, the Ranger was mistakenly designed to Managed Id
 - [Supported HDInsight versions](./hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 - [Release Note for HDInsight](./hdinsight-release-notes.md)
+
 
