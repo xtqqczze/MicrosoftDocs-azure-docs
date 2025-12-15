@@ -83,6 +83,11 @@ To create a policy for the SAP HANA database instance backup, follow these steps
 
    :::image type="content" source="./media/sap-hana-database-instances-backup/select-sap-hana-instance-policy-type.png" alt-text="Screenshot that shows a list of policy types." lightbox="./media/sap-hana-database-instances-backup/select-sap-hana-instance-policy-type.png":::
 
+1. On the **Create policy** pane, select the **Policy sub type**. Select the **Enhanced(Preview)** policy to retain your snapshot backups for long term in a Recovery Services Vault and leverage additional security features like immutability, soft-delete, MUA etc.
+
+   :::image type="content" source="./media/sap-hana-database-instances-backup/HANA-Vaulted-Snapshot-Enhanced-Policy.png" alt-text="Screenshot that shows policy sub types." lightbox="./media/sap-hana-database-instances-backup/HANA-Vaulted-Snapshot-Enhanced-Policy.png":::
+   
+
 1. On the **Create policy** pane, do the following:
 
    :::image type="content" source="./media/sap-hana-database-instances-backup/create-policy.png" alt-text="Screenshot that shows the 'Create policy' pane for configuring backup and restore." lightbox="./media/sap-hana-database-instances-backup/create-policy.png":::
@@ -94,7 +99,8 @@ To create a policy for the SAP HANA database instance backup, follow these steps
       >Azure Backup currently supports **Daily** backup only.
 
    1. **Instant Restore**: Set the retention of recovery snapshots from *1* to *35* days. The default value is *2*.  
-   1. **Resource group**: Select the appropriate resource group in the drop-down list.  
+   1. **Resource group**: Select the appropriate resource group in the drop-down list.
+   1. **Retention range**: If you have selected **Enhanced(Preview)** as the policy sub type, you can now provide the retention durations for backups stored in Recovery Services Vault. Provide the retention duration for your daily, weekly, monthly and yearly backup points as required.
    1. **Managed Identity**: Select a managed identity in the dropdown list to assign permissions for taking snapshots of the managed disks and place them in the resource group that you've selected in the policy.
    
       You can also create a new managed identity for snapshot backup and restore. To create a managed identity and assign it to the VM with SAP HANA database, follow these steps:
