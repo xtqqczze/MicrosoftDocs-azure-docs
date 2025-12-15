@@ -19,7 +19,7 @@ The Geo-Replication feature ensures that the metadata and data of a namespace ar
 
 This feature allows promoting any secondary region to primary, at any time. Promoting a secondary repoints the namespace to the selected secondary region, and switches the roles between the primary and secondary region.
 
-:::image type="content" source="./media/service-bus-geo-replication/geo-replication-overview.png" alt-text="Diagram showing Geo-Replication with a primary region (East US) replicating to a secondary region (East US 2), with clientsOkay connected to the primary.":::
+:::image type="content" source="./media/service-bus-geo-replication/geo-replication-overview.png" alt-text="Diagram showing Geo-Replication with a primary region (East US) replicating to a secondary region (East US 2), with clients connected to the primary.":::
 
 > [!NOTE]
 > - This feature is available for the Premium tier of Azure Service Bus.
