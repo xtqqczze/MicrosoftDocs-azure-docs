@@ -19,7 +19,7 @@ This document contains information about new features and other changes to the M
 ### [3.7.2] (CDN: December 15, 2025, npm: TBD)
 
 #### New features
-- **Localization**: Added support for the following languages:
+- Added support for the following languages:
   - Basque (eu-ES)
   - Catalan (ca-ES)
   - Croatian (hr-HR)
@@ -37,9 +37,9 @@ This document contains information about new features and other changes to the M
   - Vietnamese (vi-VN)
 
 #### Bug fixes
-- **Map Style Switching**: Fixed an issue where custom markers (user images) would disappear from the map after switching the map style.
-- **Mobile Interaction**: Resolved an issue on touch devices where the Style Picker control required a double-tap to activate instead of a single tap.
-- **TypeScript Compatibility**: Fixed type definition errors to ensure smoother compilation in strict TypeScript environments.
+- Fixed an issue where custom markers (user images) would disappear from the map after switching the map style.
+- Resolved an issue on touch devices where the Style Picker control required a double-tap to activate instead of a single tap.
+- Fixed type definition errors to ensure smoother compilation in strict TypeScript environments.
 
 ### [3.7.1] (CDN: October 20, 2025, npm: October 22, 2025)
 
