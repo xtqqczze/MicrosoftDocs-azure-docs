@@ -129,7 +129,7 @@ To review detailed security risks for Servers and Software, perform the followin
 
 To review detailed security risks for servers, follow these steps:
 
-1. Open the **Insights** (preview) pane.
+1. Go to the **Insights** (preview) pane.
 1. In the **Servers card**, select the link that shows the number of servers with security risks.
 
     :::image type="content" source="./media/security-insights-overview/servers-risk-type.png" alt-text="Screenshot shows the servers with security risks." lightbox="./media/security-insights-overview/servers-risk-type.png":::
@@ -157,7 +157,7 @@ Alternatively, you can filter servers with security risks from the **Explore inv
 
 To review software with identified security risks, follow these steps:
 
-1. Open the **Insights** (preview) pane.
+1. Go to the **Insights** (preview) pane.
 1. In the **Software** card, select the link that shows the number of software items with security risks.
 
     :::image type="content" source="./media/security-insights-overview/software-with-security-risks.png" alt-text="Screenshot shows the number of software security risks." lightbox="./media/security-insights-overview/software-with-security-risks.png":::
