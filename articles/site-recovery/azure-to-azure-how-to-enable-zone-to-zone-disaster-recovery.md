@@ -49,7 +49,6 @@ Learn more about [Azure regions with availability zones](../reliability/availabi
 >
 > Zone-to-zone disaster recovery isn't supported for VMs with Ultra Disks.
 
-
 ## Using availability zones for disaster recovery
 
 Typically, customers use availability zones to deploy VMs in a high-availability configuration. Those VMs might be too close to each other to serve as a disaster recovery solution in natural disaster.
