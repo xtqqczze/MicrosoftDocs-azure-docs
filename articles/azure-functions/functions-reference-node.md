@@ -841,7 +841,7 @@ To configure your project to work with SDK types:
 
 This example shows how to get the BlobClient from both a Storage Blob trigger and from the input binding on an HTTP trigger:
 
-:::code language="typescript" source="~/functions-node-sdk-bindings-blob/blobClientSdkBinding/src/storageBlobTrigger.ts" :::
+:::code language="typescript" source="~/functions-node-sdk-bindings-blob/blobClientSdkBinding/src/functions/storageBlobTrigger.ts" :::
 
 This example shows how to get the `ContainerClient` from both a Storage Blob input binding using an HTTP trigger:
 
