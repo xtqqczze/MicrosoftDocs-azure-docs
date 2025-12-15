@@ -47,11 +47,10 @@ Properly managing identities and access controls is essential for securing your 
 
 - **Enable mutual TLS authentication**: Require client certificates for added security when your application needs to verify client identity, particularly for B2B scenarios or internal applications. See [Configure TLS mutual authentication for Azure App Service](/azure/app-service/app-service-web-configure-tls-mutual-auth).
 
+<a name='https-and-certificates'></a>
 ## Data protection
 
 Protecting data in transit and at rest is crucial for maintaining the confidentiality and integrity of your applications and their data.
-
-<a href="#https-and-certificates"></a>
 
 - **Enforce HTTPS**: Redirect all HTTP traffic to HTTPS by enabling HTTPS-only mode, ensuring that all communication between clients and your app is encrypted. By default, App Service forces a redirect from HTTP requests to HTTPS, and your app's default domain name `<app_name>.azurewebsites.net` is already accessible via HTTPS. See [Configure general settings](/azure/app-service/configure-common#configure-general-settings).
 
