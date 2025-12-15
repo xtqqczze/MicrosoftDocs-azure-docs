@@ -21,7 +21,7 @@ This article provides guidance on how to best secure your Azure App Service depl
 
 ## Network security
 
-Azure App Service hosts customer applications on shared infrastructure by default. Implementing proper network security controls is essential to isolate your applications and prevent unauthorized access.
+App Service supports many network security features to lock down your applications and prevent unauthorized access.
 
 - **Configure private endpoints**: Eliminate public internet exposure by routing traffic to your App Service through your virtual network using Azure Private Link, ensuring secure connectivity for clients in your private networks. See [Use private endpoints for Azure App Service](/azure/app-service/networking/private-endpoint).
 
@@ -33,8 +33,6 @@ Azure App Service hosts customer applications on shared infrastructure by defaul
 
 - **Use Web Application Firewall**: Enhance protection against common web vulnerabilities and attacks by implementing Azure Front Door or Application Gateway with Web Application Firewall capabilities in front of your App Service. See [Azure Web Application Firewall on Azure Application Gateway](/azure/web-application-firewall/ag/ag-overview).
 
-- **Deploy to App Service Environment**: For maximum network isolation, use an App Service Environment (ASE), which provides a dedicated hosting environment in your virtual network to ensure complete network isolation from shared Azure infrastructure. See [Introduction to Azure App Service Environments](/azure/app-service/environment/intro).
-
 ## Identity and access management
 
 Properly managing identities and access controls is essential for securing your Azure App Service deployments against unauthorized usage and potential credential theft.
@@ -43,9 +41,7 @@ Properly managing identities and access controls is essential for securing your 
 
 - **Configure authentication and authorization**: Implement App Service Authentication/Authorization to secure your application with Microsoft Entra ID or other identity providers, preventing unauthorized access without writing custom authentication code. The built-in authentication module handles web requests before passing them to your application code and supports multiple providers including Microsoft Entra ID, Microsoft accounts, Facebook, Google, and X. See [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 
-- **Implement role-based access control**: Restrict access to your App Service resources by assigning the minimum necessary permissions to users and service principals following the principle of least privilege. Use Azure RBAC to control who can manage your App Service resources and configure app settings.
-
-- **Use service identity authentication**: Authenticate to back-end services using your app's managed identity rather than storing connection strings or keys. This approach works for connections to Azure SQL Database, Azure Key Vault, and other Azure services that support managed identity authentication. For an end-to-end tutorial, see [Use managed identity to connect an Azure web app to an Azure SQL database without secrets](/azure/app-service/tutorial-connect-msi-sql-database).
+- **Implement role-based access control for management operations**: Control who can manage and configure your App Service resources (management plane) by assigning the minimum necessary Azure RBAC permissions to users and service principals following the principle of least privilege. This controls administrative access to operations like creating apps, modifying configuration settings, and managing deployments—separate from application-level authentication (Easy Auth) or app-to-resource authentication (managed identities). See [Azure built-in roles](/azure/role-based-access-control/built-in-roles#web-plan-contributor).
 
 - **Implement on-behalf-of authentication**: Delegate access to remote resources on behalf of users using Microsoft Entra ID as the authentication provider. Your App Service app can perform delegated sign-in to services like Microsoft Graph or remote App Service API apps. For an end-to-end tutorial, see [Authenticate and authorize users end to end in Azure App Service](/azure/app-service/tutorial-auth-aad).
 
@@ -113,13 +109,11 @@ Implementing robust backup and recovery mechanisms is essential for ensuring bus
 
 Azure App Service has unique security considerations that should be addressed to ensure the overall security of your web applications.
 
-- **Keep the platform updated**: Ensure your App Service plan and application settings are configured to use the latest available platform versions and patches, reducing exposure to known vulnerabilities. See [Application and service updates in Azure App Service](/azure/app-service/overview-patch-os-runtime).
-
 - **Disable basic authentication**: Disable basic username and password authentication for FTP and SCM endpoints in favor of Microsoft Entra ID-based authentication, which provides OAuth 2.0 token-based authentication with enhanced security. See [Disable basic authentication in Azure App Service deployments](/azure/app-service/configure-basic-auth-disable).
 
 - **Secure FTP/FTPS deployments**: Disable FTP access or enforce FTPS-only mode when using FTP for deployments to prevent credentials and content from being transmitted in clear text. New apps are set to accept only FTPS by default. See [Deploy your app to Azure App Service using FTP/S](/azure/app-service/deploy-ftp).
 
-- **Achieve complete network isolation**: Use the Isolated pricing tier to run your apps inside a dedicated App Service Environment in your own Azure Virtual Network instance. This provides complete network isolation from shared infrastructure with dedicated public endpoints, internal load balancer (ILB) options for internal-only access, and the ability to use an ILB behind a web application firewall for enterprise-level protection. See [Introduction to Azure App Service Environments](/azure/app-service/environment/intro).
+- **Achieve complete network isolation**: Use the App Service Environment to run your apps inside a dedicated App Service Environment in your own Azure Virtual Network instance. This provides complete network isolation from shared infrastructure with dedicated public endpoints, internal load balancer (ILB) options for internal-only access, and the ability to use an ILB behind a web application firewall for enterprise-level protection. See [Introduction to Azure App Service Environments](/azure/app-service/environment/intro).
 
 - **Implement DDoS protection**: Use a Web Application Firewall (WAF) and Azure DDoS protection to safeguard against emerging DDoS attacks. Deploy Azure Front Door with a WAF for platform-level protection against network-level DDoS attacks. See [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) and [Azure Front Door with WAF](/azure/frontdoor/front-door-ddos).
 
