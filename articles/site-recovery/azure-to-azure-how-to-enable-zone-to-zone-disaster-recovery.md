@@ -47,7 +47,7 @@ Learn more about [Azure regions with availability zones](../reliability/availabi
 >
 > Regions that don't support Azure availability zones also don't support Azure Site Recovery zone-to-zone replication. For Azure Site Recovery zone-to-zone replication to work, the region must support availability zones.
 >
-> Zone-to-zone disaster recovery is unsupported for VMs with Ultra Disks.
+> Zone-to-zone disaster recovery isn't supported for VMs with Ultra Disks.
 
 
 ## Using availability zones for disaster recovery
