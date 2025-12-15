@@ -3,7 +3,7 @@ title: Ambari access broken due to certificate issues post certification rotatio
 description: Known issue of Ambari access broken due to certificate issues post certification rotation
 ms.service: azure-hdinsight
 ms.topic: troubleshooting-known-issue
-ms.author: ssubhas
+ms.author: SindhuSubhas
 ms.date: 10/12/2025
 ---
 
@@ -28,6 +28,7 @@ In the latest Azure HDInsight release, there's an issue while trying to access A
 
 
 - [Supported HDInsight versions](./hdinsight-component-versioning.md#supported-hdinsight-versions).
+
 
 
 
