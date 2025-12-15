@@ -85,7 +85,7 @@ To create a policy for the SAP HANA database instance backup, follow these steps
 
 1. On the **Create policy** pane, select the **Policy sub type**. Select the **Enhanced(Preview)** policy to retain your snapshot backups for long term in a Recovery Services Vault and leverage additional security features like immutability, soft-delete, MUA etc.
 
-   :::image type="content" source="./media/sap-hana-database-instances-backup/HANA-Vaulted-Snapshot-Enhanced-Policy.png" alt-text="Screenshot that shows policy sub types." lightbox="./media/sap-hana-database-instances-backup/HANA-Vaulted-Snapshot-Enhanced-Policy.png":::
+   :::image type="content" source="./media/sap-hana-database-instances-backup/hana-vaulted-snapshot-enhanced-policy.png" alt-text="Screenshot that shows policy sub types." lightbox="./media/sap-hana-database-instances-backup/hana-vaulted-snapshot-enhanced-policy.png":::
    
 
 1. On the **Create policy** pane, do the following:
