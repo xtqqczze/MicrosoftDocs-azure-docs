@@ -12,18 +12,18 @@ Certain Azure HDInsight 5.1 cluster versions contain an issue where temporary Op
 
 ## Symptoms
 
-   1. Headnode becomes unreachable or slow.
-   2. YARN/DFS operations fail due to lack of disk space.
-   3. Health probes report headnode unhealthy.
-   4. Logs show No space left on device errors.
-   5. SSH sessions may fail or commands hang due to full /tmp.
+  * Headnode becomes unreachable or slow.
+  * YARN/DFS operations fail due to lack of disk space.
+  * Health probes report headnode unhealthy.
+  * Logs show No space left on device errors.
+  * SSH sessions may fail or commands hang due to full /tmp.
 
 ## Impact
 
 Affects HDInsight 5.1 clusters as below:
-   1. Causes /tmp to reach 100% utilization.
-   2. Headnodes enter unresponsive/unhealthy state.
-   3. Can affect job submission, Ambari access, and essential HDInsight control-plane operations.
+  * Causes /tmp to reach 100% utilization.
+  * Headnodes enter unresponsive/unhealthy state.
+  * Can affect job submission, Ambari access, and essential HDInsight control-plane operations.
 
 ## Root cause
 
@@ -31,7 +31,7 @@ A regression in the latest HDInsight 5.1 release introduced an issue where OpenS
 
 ## Recommended steps
 
-1. To resolve this issue, run the following [script action](/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-to-a-running-cluster) on headnodes
+To resolve this issue, run the following [script action](/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-to-a-running-cluster) on headnodes
 
    `https://hdiconfigactions.blob.core.windows.net/openssl-patch/openssltmpclean.sh`
 
@@ -42,6 +42,7 @@ A regression in the latest HDInsight 5.1 release introduced an issue where OpenS
 
 - [Script action to a running cluster](/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-to-a-running-cluster)
 - [Supported HDInsight versions](/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)
+
 
 
 
