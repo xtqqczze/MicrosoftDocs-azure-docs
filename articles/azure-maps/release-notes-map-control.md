@@ -37,7 +37,7 @@ This document contains information about new features and other changes to the M
   - Vietnamese (vi-VN)
 
 #### Bug fixes
-- Fixed an issue where custom markers (user images) would disappear from the map after switching the map style.
+- Fixed an issue where custom markers (user images) of Symbol layer would disappear from the map after switching the map style.
 - Resolved an issue on touch devices where the Style Picker control required a double-tap to activate instead of a single tap.
 - Fixed type definition errors to ensure smoother compilation in strict TypeScript environments.
 
