@@ -61,6 +61,7 @@ Avoid for general-purpose file shares or transactional workloads due to object s
 ||
 ||
 |**Workload Type**|**Reason**|**Better Alternative**|
+|-----|-------|------|
 |Transactional Databases|Requires granular locking, sub-millisecond latency, and frequent random writes.|Managed Disks or Azure NetApp Files or Azure Files|
 |In-Place File Editing|Editing files forces full blob rewrites, making operations inefficient.|Azure Files|
 
