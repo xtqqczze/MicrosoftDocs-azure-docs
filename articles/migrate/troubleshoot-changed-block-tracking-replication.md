@@ -96,7 +96,7 @@ The component trying to replicate data to Azure is either down or not responding
 2. Check if the gateway service is running on the appliance:
    1.  Sign in to the Azure Migrate appliance using remote desktop.
 
-   2.  Open the Microsoft services MMC snap-in (run > services.msc), and check if the Microsoft Azure Gateway Service is running. If the service is stopped or not running, start the service. Alternatively, you can open command prompt or PowerShell and enter 'Net Start asrgwy'.
+   2.  Go to the Microsoft services MMC snap-in (run > services.msc), and check if the Microsoft Azure Gateway Service is running. If the service is stopped or not running, start the service. Alternatively, you can open command prompt or PowerShell and enter 'Net Start asrgwy'.
 
 3. Check for connectivity issues between Azure Migrate appliance and Appliance Storage Account:
 
