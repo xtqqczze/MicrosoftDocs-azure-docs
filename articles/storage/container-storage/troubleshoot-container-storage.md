@@ -102,7 +102,7 @@ To remediate, create a node pool with a VM SKU that has NVMe drives and try agai
 
 ### Prometheus Operator Conflict in Azure Container Storage
 
-Azure Container Storage uses the Prometheus Operator and its deployment to collect metrics for internal support and troubleshooting. If your Kubernetes cluster already has a Prometheus Operator installed, both operators may attempt to provision the PromCluster custom resource, which can lead to conflicts or installation issues.
+Azure Container Storage uses the Prometheus Operator and its deployment to collect metrics for internal support and troubleshooting. If your Kubernetes cluster already has a Prometheus Operator installed, both operators might attempt to provision the PromCluster custom resource, which can lead to conflicts or installation issues.
 
 To avoid conflicts, you can either exclude the acstor namespace from your existing Prometheus configuration or disable Azure Container Storage metrics collection by running the following command. Replace `<cluster_name>` and `<resource_group_name>` with your own values.
 
