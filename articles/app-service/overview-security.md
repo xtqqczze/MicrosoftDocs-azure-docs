@@ -3,7 +3,7 @@ title: Secure your Azure App Service deployment
 description: Learn how to secure Azure App Service, with best practices for protecting your deployment.
 keywords: azure app service, web app, mobile app, api app, function app, security, secure, secured, compliance, compliant, certificate, certificates, https, ftps, tls, trust, encryption, encrypt, encrypted, ip restriction, authentication, authorization, authn, autho, msi, managed service identity, managed identity, secrets, secret, patching, patch, patches, version, isolation, network isolation, ddos, mitm
 ms.topic: overview
-ms.date: 12/15/2025
+ms.date: 12/03/2025
 ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3, horz-security
 author: cephalin
@@ -50,6 +50,8 @@ Properly managing identities and access controls is essential for securing your 
 ## Data protection
 
 Protecting data in transit and at rest is crucial for maintaining the confidentiality and integrity of your applications and their data.
+
+<a href="#https-and-certificates></a>
 
 - **Enforce HTTPS**: Redirect all HTTP traffic to HTTPS by enabling HTTPS-only mode, ensuring that all communication between clients and your app is encrypted. By default, App Service forces a redirect from HTTP requests to HTTPS, and your app's default domain name `<app_name>.azurewebsites.net` is already accessible via HTTPS. See [Configure general settings](/azure/app-service/configure-common#configure-general-settings).
 
