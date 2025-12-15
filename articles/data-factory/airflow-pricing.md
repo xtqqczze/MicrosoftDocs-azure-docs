@@ -3,7 +3,7 @@ title: Workflow Orchestration Manager pricing
 description: This article describes the pricing for Workflow Orchestration Manager.
 author: nabhishek
 ms.subservice: pricing
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/13/2025
 ms.author: abnarain
 ---

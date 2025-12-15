@@ -2,7 +2,7 @@
 title: Get Started with Workflow Orchestration Manager
 titleSuffix: Azure Data Factory
 description: This document is the master document that contains all the links required to start working with Workflow Orchestration Manager.
-ms.topic: conceptual
+ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
 ms.date: 10/03/2024
