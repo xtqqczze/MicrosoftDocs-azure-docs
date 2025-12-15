@@ -12,6 +12,8 @@ ms.date: 02/13/2025
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
+
 A python package is a way to organize related Python modules into a single directory hierarchy. A package is typically represented as a directory that contains a special file called `__init__.py`. Inside a package directory, you can have multiple Python module files (.py files) that define functions, classes, and variables. In the context of Workflow Orchestration Manager, you can create packages to add your custom code.
 
 > [!IMPORTANT]

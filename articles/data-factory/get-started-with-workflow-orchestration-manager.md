@@ -13,11 +13,7 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-> [!NOTE]
-> Workflow Orchestration Manager is powered by Apache Airflow.
-
-> [!NOTE]
-> Workflow Orchestration Manager for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
+[!INCLUDE[apache-airflow-notification](includes/apache-airflow-notification.md)]
 
 Workflow Orchestration Manager in Azure Data Factory uses Python-based Directed Acyclic Graphs (DAGs) to run your orchestration workflows.
 To use this feature, you need to provide your DAGs and plugins in Azure Blob Storage or via GitHub repository. You can launch the Airflow UI from ADF using a command line interface (CLI) or a software development kit (SDK) to manage your DAGs.
