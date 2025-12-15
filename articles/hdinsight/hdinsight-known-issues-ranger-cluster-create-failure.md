@@ -1,6 +1,6 @@
 ---
 title: HDInsight ESP cluster creation issues due to Ranger
-description: DInsight ESP cluster creation issues due to Ranger
+description: HDInsight ESP cluster creation issues due to Ranger
 ms.service: azure-hdinsight
 ms.topic: troubleshooting-known-issue
 ms.date: 10/12/2025
@@ -27,3 +27,4 @@ In the Azure HDInsight release, the Ranger was mistakenly designed to Managed Id
 - [Supported HDInsight versions](./hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 - [Release Note for HDInsight](./hdinsight-release-notes.md)
+
