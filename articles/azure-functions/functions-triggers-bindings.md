@@ -221,7 +221,7 @@ Specific versions of binding extensions are supported only while the underlying 
 
 Azure Functions binding extensions use Azure service SDKs to connect to Azure services. The specific SDK types used by bindings can affect how you work with the data in your functions. Some bindings support SDK-specific types that provide richer functionality and better integration with the service, while others use more generic types like strings or byte arrays. When available, using SDK-specific types can provide benefits such as better type safety, easier data manipulation, and access to service-specific features.
 
-This table indicates binding extensions that support SDK types:
+This table indicates binding extensions that currently support SDK types:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -245,7 +245,7 @@ For more information, see [SDK types](dotnet-isolated-process-guide.md#sdk-types
 | [Azure Event Hubs](functions-bindings-event-hubs.md) | `EventData`<br/>`EventHubProducerClient` | Preview |
 | [Azure Service Bus](functions-bindings-service-bus.md) | `ServiceBusClient`<br/>`ServiceBusReceiver`<br/>`ServiceBusSender`<br/>`ServiceBusMessage` | Preview |
 
-For more information, see [SDK types](./functions-reference-python.md#sdk-types) in the Python developer guide.
+SDK types are supported only when using the Python v2 programming model. For more information, see [SDK types](./functions-reference-python.md#sdk-types) in the Python developer guide.
 ::: zone-end 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 
@@ -254,7 +254,7 @@ For more information, see [SDK types](./functions-reference-python.md#sdk-types)
 | [Azure Blob Storage](functions-bindings-storage-blob.md) | `BlobClient`<br/>`ContainerClient`<br/>`ReadableStream` | Preview |
 | [Azure Service Bus](functions-bindings-service-bus.md) | `ServiceBusClient`<br/>`ServiceBusReceiver`<br/>`ServiceBusSender`<br/>`ServiceBusMessage` | Preview |
 
-For more information, see [SDK types](./functions-reference-node.md#sdk-types) in the Node.js developer guide.
+SDK types are supported only when using the Node v4 programming model. For more information, see [SDK types](./functions-reference-node.md#sdk-types) in the Node.js developer guide.
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
@@ -264,8 +264,9 @@ For more information, see [SDK types](./functions-reference-node.md#sdk-types) i
 
 For more information, see [SDK types](./functions-reference-java.md#sdk-types) in the Java developer guide.
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-
+::: zone pivot="programming-language-powershell"  
+>[!IMPORTANT]  
+>SDK types aren't currently supported for PowerShell apps.
 ::: zone-end
 ## Code examples for bindings
 

@@ -2,7 +2,7 @@
 title: Node.js developer reference for Azure Functions
 description: Learn how to develop serverless applications using Node.js in Azure Functions, including triggers, bindings, and best practices.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2025
 ms.devlang: javascript
 # ms.devlang: javascript, typescript
@@ -22,8 +22,8 @@ This guide is an introduction to developing Azure Functions using JavaScript or 
 
 As a Node.js developer, you might also be interested in one of the following articles:
 
-| Getting started                                                                                                                                                                                                                                                                                | Concepts                                                                                                                                                                          | Guided learning                                                                                                                                                                                                             |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Getting started | Concepts | Guided learning |
+| --- | --- | --- |
 | <ul><li>[Node.js function using Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-javascript)</li><li>[Node.js function with terminal/command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript)</li><li>[Node.js function using the Azure portal](functions-create-function-app-portal.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/training/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/training/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 [!INCLUDE [Programming Model Considerations](../../includes/functions-nodejs-model-considerations.md)]
@@ -274,18 +274,18 @@ The programming model loads your functions based on the `main` field in your `pa
 
 # [JavaScript](#tab/javascript)
 
-| Example                             | Description                                                                                                                  |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| **`src/index.js`**                  | Register functions from a single root file.                                                                                  |
-| **`src/functions/*.js`**            | Register each function from its own file.                                                                                    |
+| Example | Description |
+| --- | --- |
+| **`src/index.js`** | Register functions from a single root file. |
+| **`src/functions/*.js`** | Register each function from its own file. |
 | **`src/{index.js,functions/*.js}`** | A combination where you register each function from its own file, but you still have a root file for general app-level code. |
 
 # [TypeScript](#tab/typescript)
 
-| Example                                  | Description                                                                                                                  |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| **`dist/src/index.js`**                  | Register functions from a single root file.                                                                                  |
-| **`dist/src/functions/*.js`**            | Register each function from its own file.                                                                                    |
+| Example | Description |
+| --- | --- |
+| **`dist/src/index.js`** | Register functions from a single root file. |
+| **`dist/src/functions/*.js`** | Register each function from its own file. |
 | **`dist/src/{index.js,functions/*.js}`** | A combination where you register each function from its own file, but you still have a root file for general app-level code. |
 
 ---
@@ -879,37 +879,37 @@ Each invocation of your function is passed an invocation `context` object, used 
 
 The `context` object has the following properties:
 
-| Property                 | Description                                                                                                                                                                                              |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`invocationId`**       | The ID of the current function invocation.                                                                                                                                                               |
-| **`executionContext`**   | See [execution context](#contextexecutioncontext).                                                                                                                                                       |
-| **`bindings`**           | See [bindings](#contextbindings).                                                                                                                                                                        |
-| **`bindingData`**        | Metadata about the trigger input for this invocation, not including the value itself. For example, an [event hub trigger](./functions-bindings-event-hubs-trigger.md) has an `enqueuedTimeUtc` property. |
-| **`traceContext`**       | The context for distributed tracing. For more information, see [`Trace Context`](https://www.w3.org/TR/trace-context/).                                                                                  |
-| **`bindingDefinitions`** | The configuration of your inputs and outputs, as defined in `function.json`.                                                                                                                             |
-| **`req`**                | See [HTTP request](#http-request).                                                                                                                                                                       |
-| **`res`**                | See [HTTP response](#http-response).                                                                                                                                                                     |
+| Property | Description |
+| --- | --- |
+| **`invocationId`** | The ID of the current function invocation. |
+| **`executionContext`** | See [execution context](#contextexecutioncontext). |
+| **`bindings`** | See [bindings](#contextbindings). |
+| **`bindingData`** | Metadata about the trigger input for this invocation, not including the value itself. For example, an [event hub trigger](./functions-bindings-event-hubs-trigger.md) has an `enqueuedTimeUtc` property. |
+| **`traceContext`** | The context for distributed tracing. For more information, see [`Trace Context`](https://www.w3.org/TR/trace-context/). |
+| **`bindingDefinitions`** | The configuration of your inputs and outputs, as defined in `function.json`. |
+| **`req`** | See [HTTP request](#http-request). |
+| **`res`** | See [HTTP response](#http-response). |
 
 ### context.executionContext
 
 The `context.executionContext` object has the following properties:
 
-| Property                | Description                                                                                                                                     |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`invocationId`**      | The ID of the current function invocation.                                                                                                      |
-| **`functionName`**      | The name of the function that is being invoked. The name of the folder containing the `function.json` file determines the name of the function. |
-| **`functionDirectory`** | The folder containing the `function.json` file.                                                                                                 |
-| **`retryContext`**      | See [retry context](#contextexecutioncontextretrycontext).                                                                                      |
+| Property | Description |
+| --- | --- |
+| **`invocationId`** | The ID of the current function invocation. |
+| **`functionName`** | The name of the function that is being invoked. The name of the folder containing the `function.json` file determines the name of the function. |
+| **`functionDirectory`** | The folder containing the `function.json` file. |
+| **`retryContext`** | See [retry context](#contextexecutioncontextretrycontext). |
 
 #### context.executionContext.retryContext
 
 The `context.executionContext.retryContext` object has the following properties:
 
-| Property            | Description                                                                                   |
-| ------------------- | --------------------------------------------------------------------------------------------- |
-| **`retryCount`**    | A number representing the current retry attempt.                                              |
+| Property | Description |
+| --- | --- |
+| **`retryCount`** | A number representing the current retry attempt. |
 | **`maxRetryCount`** | Maximum number of times an execution is retried. A value of `-1` means to retry indefinitely. |
-| **`exception`**     | Exception that caused the retry.                                                              |
+| **`exception`** | Exception that caused the retry. |
 
 <a name="contextbindings-property"></a>
 
@@ -1036,26 +1036,26 @@ Each invocation of your function is passed an invocation `context` object, with 
 
 The `InvocationContext` class has the following properties:
 
-| Property              | Description                                                                                                                                                                                              |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`invocationId`**    | The ID of the current function invocation.                                                                                                                                                               |
-| **`functionName`**    | The name of the function.                                                                                                                                                                                |
-| **`extraInputs`**     | Used to get the values of extra inputs. For more information, see [extra inputs and outputs](#extra-inputs-and-outputs).                                                                                 |
-| **`extraOutputs`**    | Used to set the values of extra outputs. For more information, see [extra inputs and outputs](#extra-inputs-and-outputs).                                                                                |
-| **`retryContext`**    | See [retry context](#retry-context).                                                                                                                                                                     |
-| **`traceContext`**    | The context for distributed tracing. For more information, see [`Trace Context`](https://www.w3.org/TR/trace-context/).                                                                                  |
+| Property | Description |
+| --- | --- |
+| **`invocationId`** | The ID of the current function invocation. |
+| **`functionName`** | The name of the function. |
+| **`extraInputs`** | Used to get the values of extra inputs. For more information, see [extra inputs and outputs](#extra-inputs-and-outputs). |
+| **`extraOutputs`** | Used to set the values of extra outputs. For more information, see [extra inputs and outputs](#extra-inputs-and-outputs). |
+| **`retryContext`** | See [retry context](#retry-context). |
+| **`traceContext`** | The context for distributed tracing. For more information, see [`Trace Context`](https://www.w3.org/TR/trace-context/). |
 | **`triggerMetadata`** | Metadata about the trigger input for this invocation, not including the value itself. For example, an [event hub trigger](./functions-bindings-event-hubs-trigger.md) has an `enqueuedTimeUtc` property. |
-| **`options`**         | The options used when registering the function, after they've been validated and with defaults explicitly specified.                                                                                     |
+| **`options`** | The options used when registering the function, after they've been validated and with defaults explicitly specified. |
 
 ### Retry context
 
 The `retryContext` object has the following properties:
 
-| Property            | Description                                                                                   |
-| ------------------- | --------------------------------------------------------------------------------------------- |
-| **`retryCount`**    | A number representing the current retry attempt.                                              |
+| Property | Description |
+| --- | --- |
+| **`retryCount`** | A number representing the current retry attempt. |
 | **`maxRetryCount`** | Maximum number of times an execution is retried. A value of `-1` means to retry indefinitely. |
-| **`exception`**     | Exception that caused the retry.                                                              |
+| **`exception`** | Exception that caused the retry. |
 
 For more information, see [`retry-policies`](./functions-bindings-errors.md#retry-policies).
 
@@ -1095,24 +1095,24 @@ In addition to the default `context.log` method, the following methods are avail
 
 ::: zone pivot="nodejs-model-v3"
 
-| Method                      | Description                                    |
-| --------------------------- | ---------------------------------------------- |
-| **`context.log.error()`**   | Writes an error-level event to the logs.       |
-| **`context.log.warn()`**    | Writes a warning-level event to the logs.      |
-| **`context.log.info()`**    | Writes an information-level event to the logs. |
-| **`context.log.verbose()`** | Writes a trace-level event to the logs.        |
+| Method | Description |
+| --- | --- |
+| **`context.log.error()`** | Writes an error-level event to the logs. |
+| **`context.log.warn()`** | Writes a warning-level event to the logs. |
+| **`context.log.info()`** | Writes an information-level event to the logs. |
+| **`context.log.verbose()`** | Writes a trace-level event to the logs. |
 
 ::: zone-end
 
 ::: zone pivot="nodejs-model-v4"
 
-| Method                | Description                                    |
-| --------------------- | ---------------------------------------------- |
-| **`context.trace()`** | Writes a trace-level event to the logs.        |
-| **`context.debug()`** | Writes a debug-level event to the logs.        |
-| **`context.info()`**  | Writes an information-level event to the logs. |
-| **`context.warn()`**  | Writes a warning-level event to the logs.      |
-| **`context.error()`** | Writes an error-level event to the logs.       |
+| Method | Description |
+| --- | --- |
+| **`context.trace()`** | Writes a trace-level event to the logs. |
+| **`context.debug()`** | Writes a debug-level event to the logs. |
+| **`context.info()`** | Writes an information-level event to the logs. |
+| **`context.warn()`** | Writes a warning-level event to the logs. |
+| **`context.error()`** | Writes an error-level event to the logs. |
 
 ::: zone-end
 
@@ -1336,17 +1336,17 @@ The request can be accessed in several ways:
 
 The `HttpRequest` object has the following properties:
 
-| Property         | Type                     | Description                                                                                                                                         |
-| ---------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`method`**     | `string`                 | HTTP request method used to invoke this function.                                                                                                   |
-| **`url`**        | `string`                 | Request URL.                                                                                                                                        |
-| **`headers`**    | `Record<string, string>` | HTTP request headers. This object is case sensitive. It's recommended to use `request.getHeader('header-name')` instead, which is case insensitive. |
-| **`query`**      | `Record<string, string>` | Query string parameter keys and values from the URL.                                                                                                |
-| **`params`**     | `Record<string, string>` | Route parameter keys and values.                                                                                                                    |
-| **`user`**       | `HttpRequestUser         | null`                                                                                                                                               | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
-| **`body`**       | `Buffer                  | string                                                                                                                                              | any`                                                                                                                                     | If the media type is "application/octet-stream" or "multipart/\*", `body` is a Buffer. If the value is a JSON parse-able string, `body` is the parsed object. Otherwise, `body` is a string. |
-| **`rawBody`**    | `string`                 | The body as a string. Despite the name, this property doesn't return a Buffer.                                                                      |
-| **`bufferBody`** | `Buffer`                 | The body as a buffer.                                                                                                                               |
+| Property | Type | Description |
+| --- | --- | --- |
+| **`method`** | `string` | HTTP request method used to invoke this function. |
+| **`url`** | `string` | Request URL. |
+| **`headers`** | `Record<string, string>` | HTTP request headers. This object is case sensitive. It's recommended to use `request.getHeader('header-name')` instead, which is case insensitive. |
+| **`query`** | `Record<string, string>` | Query string parameter keys and values from the URL. |
+| **`params`** | `Record<string, string>` | Route parameter keys and values. |
+| **`user`** | `HttpRequestUser \| null` | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
+| **`body`** | `Buffer \| string \| any` | If the media type is "application/octet-stream" or "multipart/\*", `body` is a Buffer. If the value is a JSON parse-able string, `body` is the parsed object. Otherwise, `body` is a string. |
+| **`rawBody`** | `string` | The body as a string. Despite the name, this property doesn't return a Buffer. |
+| **`bufferBody`** | `Buffer` | The body as a buffer. |
 
 ::: zone-end
 
@@ -1372,26 +1372,26 @@ async function helloWorld1(request: HttpRequest, context: InvocationContext): Pr
 
 The `HttpRequest` object has the following properties:
 
-| Property       | Type                                                                            | Description                                                       |
-| -------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **`method`**   | `string`                                                                        | HTTP request method used to invoke this function.                 |
-| **`url`**      | `string`                                                                        | Request URL.                                                      |
-| **`headers`**  | [`Headers`](https://developer.mozilla.org/docs/Web/API/Headers)                 | HTTP request headers.                                             |
-| **`query`**    | [`URLSearchParams`](https://developer.mozilla.org/docs/Web/API/URLSearchParams) | Query string parameter keys and values from the URL.              |
-| **`params`**   | `Record<string, string>`                                                        | Route parameter keys and values.                                  |
-| **`user`**     | `HttpRequestUser                                                                | null`                                                             | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
-| **`body`**     | [`ReadableStream                                                                | null`](https://developer.mozilla.org/docs/Web/API/ReadableStream) | Body as a readable stream.                                                                                                               |
-| **`bodyUsed`** | `boolean`                                                                       | A boolean indicating if the body is already read.                 |
+| Property | Type | Description |
+| --- | --- | --- |
+| **`method`** | `string` | HTTP request method used to invoke this function. |
+| **`url`** | `string` | Request URL. |
+| **`headers`** | [`Headers`](https://developer.mozilla.org/docs/Web/API/Headers) | HTTP request headers. |
+| **`query`** | [`URLSearchParams`](https://developer.mozilla.org/docs/Web/API/URLSearchParams) | Query string parameter keys and values from the URL. |
+| **`params`** | `Record<string, string>` | Route parameter keys and values. |
+| **`user`** | `HttpRequestUser \| null` | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
+| **`body`** | [`ReadableStream \| null`](https://developer.mozilla.org/docs/Web/API/ReadableStream) | Body as a readable stream. |
+| **`bodyUsed`** | `boolean` | A boolean indicating if the body is already read. |
 
 In order to access a request or response's body, the following methods can be used:
 
-| Method              | Return Type                                                                                                      |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Method | Return Type |
+| --- | --- |
 | **`arrayBuffer()`** | [`Promise<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) |
-| **`blob()`**        | [`Promise<Blob>`](https://developer.mozilla.org/docs/Web/API/Blob)                                               |
-| **`formData()`**    | [`Promise<FormData>`](https://developer.mozilla.org/docs/Web/API/FormData)                                       |
-| **`json()`**        | `Promise<unknown>`                                                                                               |
-| **`text()`**        | `Promise<string>`                                                                                                |
+| **`blob()`** | [`Promise<Blob>`](https://developer.mozilla.org/docs/Web/API/Blob) |
+| **`formData()`** | [`Promise<FormData>`](https://developer.mozilla.org/docs/Web/API/FormData) |
+| **`json()`** | `Promise<unknown>` |
+| **`text()`** | `Promise<string>` |
 
 > [!NOTE]
 > The body functions can be run only once. Subsequent calls resolve with empty strings/ArrayBuffers.
@@ -1496,26 +1496,26 @@ The response can be set in several ways:
 
 If you create a new object when setting the response, that object must match the `HttpResponseSimple` interface, which has the following properties:
 
-| Property         | Type                                | Description                                                                |
-| ---------------- | ----------------------------------- | -------------------------------------------------------------------------- |
-| **`headers`**    | `Record<string, string>` (optional) | HTTP response headers.                                                     |
-| **`cookies`**    | `Cookie[]` (optional)               | HTTP response cookies.                                                     |
-| **`body`**       | `any` (optional)                    | HTTP response body.                                                        |
-| **`statusCode`** | `number` (optional)                 | HTTP response status code. If not set, defaults to `200`.                  |
-| **`status`**     | `number` (optional)                 | The same as `statusCode`. This property is ignored if `statusCode` is set. |
+| Property | Type | Description |
+| --- | --- | --- |
+| **`headers`** | `Record<string, string>` (optional) | HTTP response headers. |
+| **`cookies`** | `Cookie[]` (optional) | HTTP response cookies. |
+| **`body`** | `any` (optional) | HTTP response body. |
+| **`statusCode`** | `number` (optional) | HTTP response status code. If not set, defaults to `200`. |
+| **`status`** | `number` (optional) | The same as `statusCode`. This property is ignored if `statusCode` is set. |
 
 You can also modify the `context.res` object without overwriting it. The default `context.res` object uses the `HttpResponseFull` interface, which supports the following methods in addition to the `HttpResponseSimple` properties:
 
-| Method               | Description                                                                                                                                                                  |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`status()`**       | Sets the status.                                                                                                                                                             |
-| **`setHeader()`**    | Sets a header field. NOTE: `res.set()` and `res.header()` are also supported and do the same thing.                                                                          |
-| **`getHeader()`**    | Get a header field. NOTE: `res.get()` is also supported and does the same thing.                                                                                             |
-| **`removeHeader()`** | Removes a header.                                                                                                                                                            |
-| **`type()`**         | Sets the "content-type" header.                                                                                                                                              |
-| **`send()`**         | This method is deprecated. It sets the body and calls `context.done()` to indicate a sync function is finished. NOTE: `res.end()` is also supported and does the same thing. |
-| **`sendStatus()`**   | This method is deprecated. It sets the status code and calls `context.done()` to indicate a sync function is finished.                                                       |
-| **`json()`**         | This method is deprecated. It sets the "content-type" to "application/json", sets the body, and calls `context.done()` to indicate a sync function is finished.              |
+| Method | Description |
+| --- | --- |
+| **`status()`** | Sets the status. |
+| **`setHeader()`** | Sets a header field. NOTE: `res.set()` and `res.header()` are also supported and do the same thing. |
+| **`getHeader()`** | Get a header field. NOTE: `res.get()` is also supported and does the same thing. |
+| **`removeHeader()`** | Removes a header. |
+| **`type()`** | Sets the "content-type" header. |
+| **`send()`** | This method is deprecated. It sets the body and calls `context.done()` to indicate a sync function is finished. NOTE: `res.end()` is also supported and does the same thing. |
+| **`sendStatus()`** | This method is deprecated. It sets the status code and calls `context.done()` to indicate a sync function is finished. |
+| **`json()`** | This method is deprecated. It sets the "content-type" to "application/json", sets the body, and calls `context.done()` to indicate a sync function is finished. |
 
 ::: zone-end
 
@@ -1541,13 +1541,13 @@ The response can be set in several ways:
 
   The `HttpResponseInit` interface has the following properties:
 
-  | Property       | Type                                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-  | -------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-  | **`body`**     | `BodyInit` (optional)                                                          | HTTP response body as one of [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), [`AsyncIterable<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), [`Blob`](https://developer.mozilla.org/docs/Web/API/Blob), [`FormData`](https://developer.mozilla.org/docs/Web/API/FormData), [`Iterable<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), [`NodeJS.ArrayBufferView`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), [`URLSearchParams`](https://developer.mozilla.org/docs/Web/API/URLSearchParams), `null`, or `string`. |
-  | **`jsonBody`** | `any` (optional)                                                               | A JSON-serializable HTTP Response body. If set, the `HttpResponseInit.body` property is ignored in favor of this property.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-  | **`status`**   | `number` (optional)                                                            | HTTP response status code. If not set, defaults to `200`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-  | **`headers`**  | [`HeadersInit`](https://developer.mozilla.org/docs/Web/API/Headers) (optional) | HTTP response headers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-  | **`cookies`**  | `Cookie[]` (optional)                                                          | HTTP response cookies.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+  | Property | Type | Description |
+  | --- | --- | --- |
+  | **`body`** | `BodyInit` (optional) | HTTP response body as one of [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), [`AsyncIterable<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), [`Blob`](https://developer.mozilla.org/docs/Web/API/Blob), [`FormData`](https://developer.mozilla.org/docs/Web/API/FormData), [`Iterable<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), [`NodeJS.ArrayBufferView`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), [`URLSearchParams`](https://developer.mozilla.org/docs/Web/API/URLSearchParams), `null`, or `string`. |
+  | **`jsonBody`** | `any` (optional) | A JSON-serializable HTTP Response body. If set, the `HttpResponseInit.body` property is ignored in favor of this property. |
+  | **`status`** | `number` (optional) | HTTP response status code. If not set, defaults to `200`. |
+  | **`headers`** | [`HeadersInit`](https://developer.mozilla.org/docs/Web/API/Headers) (optional) | HTTP response headers. |
+  | **`cookies`** | `Cookie[]` (optional) | HTTP response cookies. |
 
 - **As a class with type `HttpResponse`:** This option provides helper methods for reading and modifying various parts of the response like the headers.
 
