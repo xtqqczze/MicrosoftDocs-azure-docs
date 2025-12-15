@@ -3,7 +3,7 @@ title: Secure your Azure App Service deployment
 description: Learn how to secure Azure App Service, with best practices for protecting your deployment.
 keywords: azure app service, web app, mobile app, api app, function app, security, secure, secured, compliance, compliant, certificate, certificates, https, ftps, tls, trust, encryption, encrypt, encrypted, ip restriction, authentication, authorization, authn, autho, msi, managed service identity, managed identity, secrets, secret, patching, patch, patches, version, isolation, network isolation, ddos, mitm
 ms.topic: overview
-ms.date: 12/03/2025
+ms.date: 12/15/2025
 ms.update-cycle: 1095-days
 ms.custom: UpdateFrequency3, horz-security
 author: cephalin
@@ -37,7 +37,7 @@ App Service supports many network security features to lock down your applicatio
 
 Properly managing identities and access controls is essential for securing your Azure App Service deployments against unauthorized usage and potential credential theft.
 
-- **Enable managed identities**: Authenticate to Azure services securely without storing credentials in your code or configuration by using managed identities, eliminating the need to manage service principals and connection strings. App Service supports both system-assigned and user-assigned managed identities for connecting to services like Azure SQL Database and Azure Key Vault. See [Use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity).
+- **Enable managed identities for outgoing requests**: Authenticate to Azure services securely from your app without storing credentials in your code or configuration by using managed identities, eliminating the need to manage service principals and connection strings. Managed identities provide an automatically managed identity in Microsoft Entra ID for your app to use when making outgoing requests to other Azure services like Azure SQL Database, Azure Key Vault, and Azure Storage. App Service supports both system-assigned and user-assigned managed identities. See [Use managed identities for App Service and Azure Functions](/azure/app-service/overview-managed-identity).
 
 - **Configure authentication and authorization**: Implement App Service Authentication/Authorization to secure your application with Microsoft Entra ID or other identity providers, preventing unauthorized access without writing custom authentication code. The built-in authentication module handles web requests before passing them to your application code and supports multiple providers including Microsoft Entra ID, Microsoft accounts, Facebook, Google, and X. See [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 
