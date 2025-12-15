@@ -17,14 +17,12 @@ This article provides the release notes for Azure Container Storage. It's import
 The following Azure Container Storage versions are supported:
 
 | Milestone | Status |
-|----|----------------|
+|-----------|--------|
 |2.0.0 - Major Release | Supported |
 |1.4.0 - Minor Release | Supported |
 |1.3.2 - Patch Release | Supported |
 |1.3.1 - Patch Release | Supported |
 |1.3.0 - Minor Release | Supported |
-|1.2.1 - Patch Release | Supported |
-|1.2.0 - Minor Release | Supported |
 
 ## Unsupported versions
 
