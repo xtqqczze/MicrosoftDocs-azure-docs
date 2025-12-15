@@ -59,7 +59,6 @@ The NFS 3.0 protocol feature is optimized for high-throughput, large-scale, read
 Avoid for general-purpose file shares or transactional workloads due to object storage characteristics:
 
 ||
-||
 |**Workload Type**|**Reason**|**Better Alternative**|
 |-----|-------|------|
 |Transactional Databases|Requires granular locking, sub-millisecond latency, and frequent random writes.|Managed Disks or Azure NetApp Files or Azure Files|
