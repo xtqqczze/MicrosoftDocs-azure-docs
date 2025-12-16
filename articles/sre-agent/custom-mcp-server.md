@@ -26,6 +26,9 @@ Before establishing a connection, ensure that you have:
 - The base URL of the MCP server endpoint.
 - Authentication material required by the MCP server, such as API keys, bearer tokens, or custom header fields.
 
+> [!IMPORTANT]
+> After you connect your custom MCP server, you must create and configure a subagent to use the tools provided by the MCP server. The tools from your custom MCP server are only accessible through subagents and aren't directly accessible to main Azure SRE Agent.
+
 ## How custom MCP connections work
 
 Azure SRE Agent uses connectors to integrate with external systems. A connector defines:
