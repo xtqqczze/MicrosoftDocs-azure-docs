@@ -17,7 +17,7 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 
 
 > [!IMPORTANT]
-> The Shopify connector version 2.0 (Preview) provides improved native Shopify support. If you are using Shopify connector version 1.0 in your solution, please [upgrade the Shopify connector](#upgrade-the-shopify-connector-from-version-10-to-version-20) as version 1.0 is at [End of Support stage](connector-release-stages-and-timelines.md). Your pipeline will fail after **November 22, 2025** if not upgraded. Refer to this [section](#shopify-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 (Preview) and version 1.0.
+> The Shopify connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Shopify connector](#shopify-connector-lifecycle-and-upgrade) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -245,7 +245,7 @@ The following table shows the release stage and change logs for different versio
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
-| Version 1.0 | End of support | / |  
+| Version 1.0 | Removed | Not applicable. |
 | Version 2.0 | General availability |• Table and column names retain the Shopify GraphQL structure. <br><br> • Support GraphQL query only. <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. |
 
 ### <a name="upgrade-the-shopify-connector-from-version-10-to-version-20"></a> Upgrade the Shopify connector from version 1.0 to version 2.0
