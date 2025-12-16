@@ -37,6 +37,8 @@ items:
           items:
             - name: Azure portal
               href: functions-usage.md?pivots=azure-portal
+            - name: Azure portal
+              href: /azure/container-apps/functions-usage?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json&pivots=azure-portal
             - name: Command line
               href: functions-usage.md?pivots=azure-cli
         - name: Run a job
