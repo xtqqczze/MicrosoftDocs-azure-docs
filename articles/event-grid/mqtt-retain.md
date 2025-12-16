@@ -11,7 +11,7 @@ ms.custom:
   - ai-gen-description
 ---
 
-# MQTT Retain support in Azure Event Grid
+# Support for MQTT Retain in Azure Event Grid
 
 The Message Queuing Telemetry Transport (MQTT) Retain feature in Azure Event Grid ensures that the last known good value of a topic is stored and readily available for new subscribers. This capability allows new clients to instantly receive the most recent message upon connection, eliminating the need to wait for the next publish. It's beneficial in scenarios such as device state reporting, control signals, or configuration data, where timely access to the latest message is critical.
 
@@ -20,7 +20,7 @@ This article provides an overview of how MQTT Retain works, its billing implicat
 
 ## Billing
 
-Each retained publish counts as two MQTT operations: one for processing the message, and one for storing it.
+Each retained publishes operation counts as two MQTT operations: one for processing the message, and one for storing it.
 
 ## Storage limits
 
@@ -37,10 +37,10 @@ For larger needs, contact Azure Support.
 
 ## Retained messages – Get & List
 
-Retained messages let an MQTT broker store the **last known message** on a topic so new subscribers immediately receive the current value without waiting for the next publish. Now you can use the following **HTTP management endpoints** for:
+Retained messages let an MQTT broker store the **last known message** on a topic so new subscribers immediately receive the current value without waiting for the next publish. Now you can use the following **HTTP management endpoints**:
 
-- **Retain Get** — fetch the raw retained message body for a specific topic; message metadata is returned via HTTP headers.
-- **Retain List** — enumerate retained messages matching a topic filter (wildcards supported) or page through results with a continuation token.
+- **Retain Get**: fetches the raw retained message body for a specific topic; message metadata is returned via HTTP headers.
+- **Retain List**: enumerates retained messages matching a topic filter (wildcards supported) or page through results with a continuation token.
 
 These APIs are intended for **observability, audit, and operational workflows** (for example, support troubleshooting, backfills, or verifying device state at scale).
 
@@ -73,11 +73,11 @@ Host: <YOUR Event Grid MQTT BROKER URL HERE>
 
 - **Body**: raw MQTT message payload (bytes).
 - **Headers**: include message metadata (names subject to change in preview): 
-    - **x-ms-mqtt-topic** — topic of the retained message. 
-    - **x-ms-mqtt-qos** — QoS level (0 or 1).
-    - **x-ms-mqtt-size** — full MQTT message size (bytes). 
-    - **x-ms-mqtt-expiry** — expiry timestamp (ISO 8601) if set. 
-    - **x-ms-mqtt-last-modified** — last modified timestamp (ISO 8601).
+    - `x-ms-mqtt-topic`: topic of the retained message. 
+    - `x-ms-mqtt-qos`: QoS level (0 or 1).
+    - `x-ms-mqtt-size`: full MQTT message size (bytes). 
+    - `x-ms-mqtt-expiry`: expiry timestamp (ISO 8601) if set. 
+    - `x-ms-mqtt-last-modified`: last modified timestamp (ISO 8601).
 
 ### Retain List
 
@@ -89,7 +89,7 @@ Host: <YOUR BROKER URL HERE>
 
 **Notes**
 Notes
-- topicFilter supports wildcards (e.g., factory/+/state, sensors/#).
+- topicFilter supports wildcards (for example, `factory/+/state, sensors/#`).
 - continuationToken is mutually exclusive with topicFilter. Use it to continue from a previous page.
 - maxResults bounds the page size (1–100).
 
@@ -119,7 +119,7 @@ URL‑encoding helper
 - Filter: `factory/line1/+/state` 
     - Encoded: `factory%2Fline1%2F%2B%2Fstate`
 
-#### curl — Retain Get
+#### Retain Get - curl example
 
 ```bash
 BROKER="<YOUR BROKER URL HERE>"  # e.g. contoso.westus.ts.eventgrid.azure.net
@@ -145,7 +145,7 @@ content-type: application/octet-stream
 {"state":"READY","tempC":25.1,"ts":"2025-11-16T07:59:40Z"}
 ```
 
-#### curl — Retain List with topicFilter
+#### Retain List with topicFilter - curl example
 
 ```bash
 BROKER="<YOUR BROKER URL HERE>"
@@ -181,7 +181,7 @@ curl -sS \
 }
 ```
 
-#### curl — Retain List with continuationToken
+#### Retain List with continuationToken - curl example
 
 ```bash
 NEXT_LINK="<PASTE NEXTLINK FROM PRIOR CALL>"
@@ -190,22 +190,23 @@ curl -sS -H "Authorization: Bearer $TOKEN" "$NEXT_LINK"
 ```
 
 ### Behavior, limits & performance 
+
 - maxResults range: 1–100 per page.
 - Topic filter supports standard MQTT wildcards + and # (encoded in URL).
 - Payload size: returned as raw bytes (no JSON wrapping).
-- Headers are the single source for metadata in Get; do not expect a JSON envelope.
-- Paging: follow nextLink until null. Do not mix topicFilter with continuationToken.
-- Throttling: Standard platform throttles may apply (429). Use retry with backoff.
+- Headers are the single source for metadata in Get; don't expect a JSON envelope.
+- Paging: follow nextLink until null. Don't mix topicFilter with continuationToken.
+- Throttling: Standard platform throttles might apply (429). Use retry with backoff.
 
 ###Error handling & troubleshooting
 
-- 400 Bad Request — malformed or missing topic / topicFilter; provided both topicFilter and continuationToken.
-- 401 Unauthorized — invalid/expired token or wrong audience.
-- 403 Forbidden — caller lacks permission on the namespace.
-- 404 Not Found — no retained message for the specified topic.
-- 409 Conflict — request violates preview constraints.
-- 429 Too Many Requests — throttled; respect Retry-After.
-- 5xx — transient service error; retry with exponential backoff.
+- 400 Bad Request: malformed or missing topic / topicFilter; provided both topicFilter and continuationToken.
+- 401 Unauthorized: invalid/expired token or wrong audience.
+- 403 Forbidden: caller lacks permission on the namespace.
+- 404 Not Found: no retained message for the specified topic.
+- 409 Conflict: request violates preview constraints.
+- 429 Too Many Requests: throttled; respect Retry-After.
+- 5xx: transient service error; retry with exponential backoff.
 
 > [!NOTE]
 > - Confirm the topic is exact (case‑sensitive) and correctly URL‑encoded. 
