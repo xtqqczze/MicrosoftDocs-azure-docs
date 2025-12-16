@@ -501,7 +501,7 @@ When the function is invoked, the HTTP request is passed to the function as `req
 
 For data intensive binding operations, you may want to use a separate storage account. For more information, see [Storage account guidance](storage-considerations.md#storage-account-guidance).
 
-## SDK type bindings
+## <a name="sdk-types"></a>SDK type bindings
  
 For select triggers and bindings, you can work with data types implemented by the underlying Azure SDKs and frameworks. These _SDK type bindings_ let you interact binding data as if you were using the underlying service SDK. 
 ::: zone pivot="python-mode-configuration" 
@@ -518,7 +518,7 @@ For select triggers and bindings, you can work with data types implemented by th
 * [Azure Functions runtime version](functions-versions.md?pivots=programming-language-python) version 4.34, or a later version.
 * [Python](https://www.python.org/downloads/) version 3.10, or a later [supported version](#python-version).
 
-### SDK Types
+### Supported Types
 
 [!INCLUDE [functions-sdk-types-python](../../includes/functions-sdk-types-python.md)]
 

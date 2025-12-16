@@ -821,11 +821,11 @@ app.generic("helloWorld1", {
 
 ---
 
-### SDK types
+## SDK types
 
 Several binding extensions now enable you to work directly with the Azure SDK types.
 
-#### Azure Blob storage
+### Azure Blob storage
 
 SDK bindings capability in Azure Functions enables you to work directly with the Azure Blob storage SDK types like `BlobClient` and `ContainerClient` instead of raw data. This provides full access to all SDK methods when working with blobs.
 
@@ -857,7 +857,7 @@ for more examples on how to incorporate SDK Bindings for Blob into your function
 - [ContainerClient](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs/tree/main/containerClientInputBinding)
 - [Readable Stream](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs/tree/main/blobClientWithReadableStream)
 
-#### Azure Service Bus
+### Azure Service Bus
 
 [!INCLUDE [functions-service-bus-sdk-types-node-ts](../../includes/functions-service-bus-sdk-types-node-ts.md)]
 
