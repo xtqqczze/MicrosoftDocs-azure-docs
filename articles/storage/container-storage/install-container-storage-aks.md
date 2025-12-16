@@ -92,11 +92,11 @@ Follow these guidelines when choosing a virtual machine type for the cluster nod
 - Choose the OS type for the VMs in the node pools as Linux OS. Windows OS isn't currently supported.
 - For existing clusters, make sure node pools already use a supported VM SKU before enabling Azure Container Storage.
 
-## Install Azure Container Storage on your AKS cluster
+## Install Azure Container Storage on an AKS cluster
 
 Choose the scenario that matches your environment.
 
-### Option 1: Create a new AKS cluster with Azure Container Storage enabled
+### Option 1: Creating a new AKS cluster with Azure Container Storage enabled
 
 Run the following command to create a new AKS cluster and install Azure Container Storage. Replace `<cluster-name>` and `<resource-group>` with your own values, and specify which VM type you want to use.
 
@@ -106,7 +106,7 @@ az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_L8s_
 
 The deployment takes 5-10 minutes. When it completes, you have an AKS cluster with Azure Container Storage installed and the components for local NVMe storage type deployed.
 
-### Option 2: Enable Azure Container Storage on an existing AKS cluster
+### Option 2: Enabling Azure Container Storage on an existing AKS cluster
 
 Run the following command to enable Azure Container Storage on an existing AKS cluster. Replace `<cluster-name>` and `<resource-group>` with your own values.
 
@@ -146,7 +146,11 @@ Follow these guidelines when choosing a virtual machine type for the cluster nod
 - Choose the OS type for the VMs in the node pools as Linux OS. Windows OS isn't currently supported.
 - For existing clusters, make sure node pools already use a supported VM SKU before enabling Azure Container Storage.
 
-## Create Terraform configuration files
+## Install Azure Container Storage on an AKS cluster
+
+Choose the scenario that matches your environment.
+
+### Option 1: Creating a new AKS cluster with Azure Container Storage enabled
 
 1. In an empty working directory, create a `main.tf` file with the following minimal configuration of an AKS cluster. Update the resource names, locations, and VM sizes to meet your requirements.
 
@@ -178,8 +182,8 @@ Follow these guidelines when choosing a virtual machine type for the cluster nod
 
       default_node_pool {
         name       = "system"
-        node_count = 3
         vm_size    = "Standard_L8s_v3"
+        node_count = 3
       }
 
       identity {
@@ -216,7 +220,7 @@ Follow these guidelines when choosing a virtual machine type for the cluster nod
     terraform apply
     ```
 
-## Enable Azure Container Storage on an existing AKS cluster
+### Option 2: Enabling Azure Container Storage on an existing AKS cluster
 
 If your AKS cluster already exists and you're managing it outside of Terraform, you can still enable Azure Container Storage by authoring only the extension resource. Use a data source to look up the cluster ID.
 
