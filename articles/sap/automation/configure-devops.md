@@ -125,6 +125,9 @@ Open PowerShell ISE and copy the following script and update the parameters to m
     $Location = "swedencentral"
     
     $ControlPlaneName = "$ControlPlaneCode-$ControlPlaneRegionCode-DEP01"
+
+    $ManagedIdentityName = "$ControlPlaneName"
+    $MSIResourceGroupName = "SDAF-MSIs"
     
     $AzureDevOpsProjectName = "SDAF-" + $ControlPlaneCode + "-" + $ControlPlaneRegionCode
     
@@ -156,7 +159,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
     # Get Managed Identity
     $ManagedServiceIdentity = Get-SDAFUserAssignedIdentity `
         -ManagedIdentityName $ManagedIdentityName `
-        -ResourceGroupName $ResourceGroupName `
+        -ResourceGroupName $MSIResourceGroupName `
         -SubscriptionId $ControlPlaneSubscriptionId `
         -Verbose
     Write-Output "Managed Identity Id: $($ManagedServiceIdentity.Id)"
