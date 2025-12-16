@@ -536,16 +536,15 @@ Make a change the default page and redeploy to see the changes.
        <p class="lead">Example .NET app to Azure App Service.</p>
    </div>
    ```
-
    -----
 
-   > [!TIP]
-   > With GitHub Copilot enabled in Visual Studio, try the following steps:
-   >
-   > 1. Type <kbd>Alt</kbd>+<kbd>/</kbd>.
-   > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
+    > [!TIP]
+    > With GitHub Copilot enabled in Visual Studio, try the following steps:
+    >
+    > 1. Type <kbd>Alt</kbd>+<kbd>/</kbd>.
+    > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
 
-   Save your changes.
+    Save your changes.
 
 1. To redeploy to Azure, right-click the **MyFirstAzureWebApp** project in **Solution Explorer** and select **Publish**.
 1. In the **Publish** summary page, select **Publish**.
@@ -584,7 +583,7 @@ Make a change the default page and redeploy to see the changes.
    > [!TIP]
    > Try this approach with GitHub Copilot:
    >
-   > 1. Select the entire `<div>` element and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
+   > 1. Select the content and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
    > 1. Select **Modify**.
    > 1. Enter "*Change to a Bootstrap card that says .NET 💜 Azure.*"
 
@@ -735,13 +734,13 @@ Make a change the default page and redeploy to see the changes.
 
    -----
 
-   The changes are automatically saved.
+    The changes are automatically saved.
 
-   > [!TIP]
-   > Try this approach with GitHub Copilot:
-   >
-   > 1. Select all the content and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
-   > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
+    > [!TIP]
+    > Try this approach with GitHub Copilot:
+    >
+    > 1. Select all the content and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
+    > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
 
 1. From the **Source Control** menu, enter a commit message such as `Modify homepage`. Then, select **Commit** and confirm staging the changes by selecting **Yes**.
 
