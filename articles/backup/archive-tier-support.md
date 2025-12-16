@@ -102,9 +102,9 @@ The recovery point will remain in archive forever. For more information, see [Im
 
 ### Is Cross Region restore supported from archive tier?
 
-When you move your data in GRS vaults from standard tier to archive tier, the data moves into GRS archive. This is true even when Cross region restore is enabled. Once the backup data moves into archive tier, you can’t restore the data into the paired region. However, during region failures, the backup data in secondary region will become available for restore. 
-
-When you restore from recovery point in Archive tier in primary region, the recovery point is copied to the Standard tier and is retained according to the rehydration duration, both in primary and secondary region. You can perform Cross region restore from these rehydrated recovery points.
+No. Cross‑Region Restore (CRR) from Archive‑tier recovery points - including recovery points that have been rehydrated into Standard tier during restore. When a recovery point is restored from Archive tier, it is temporarily rehydrated into Standard tier for use *only within the source region*.  
+Rehydration does not make the recovery point eligible for Cross‑Region Restore. CRR validation requires metadata markers that are not preserved after rehydration, and attempting CRR from rehydrated Archive RPs may fail.  
+To perform Cross‑Region Restore, use a Recovery Point that resides in Standard tie
 
 ### I can see eligible recovery points for my Virtual Machine, but I can't seeing any recommendation. What can be the reason?
 
@@ -146,7 +146,6 @@ No, after moving the recovery point to the archive tier, it can't return to the 
 
 >[!Note]
 >You can do the rehydration process during the restore from a recovery point only.
-
 
 ## Next steps
 
