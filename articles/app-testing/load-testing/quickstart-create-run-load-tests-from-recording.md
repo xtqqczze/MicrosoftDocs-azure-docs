@@ -26,7 +26,7 @@ This quickstart guides you through the steps of installing the browser extension
 
 First, you create the top-level resource for Azure Load Testing. It provides a centralized place to view and manage test plans, test results, and related artifacts.
 
-If you already have a load testing resource, skip this section and continue to [Create a load test](#create-a-load-test).
+If you already have a load testing resource, skip this section and continue to [Record your scenarios](#record-your-scenarios).
 
 To create a load testing resource:
 
