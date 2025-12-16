@@ -1,9 +1,14 @@
 ---
 title: MQTT Retain in Azure Event Grid
 description: Learn how Azure Event Grid supports MQTT Retain to store the last known good value of a topic so that new subscribers get the latest message instantly.
-#customer intent: As a developer, I want to understand how MQTT Retain works in Azure Event Grid so that I can ensure new subscribers get the latest message instantly.  
+#customer intent: As a developer, I want to understand how MQTT Retain works in Azure Event Grid so that I can ensure new subscribers get the latest message instantly.
 ms.topic: concept-article
-ms.date: 07/30/2025
+ms.service: azure-event-grid
+ms.subservice: mqtt
+ms.date: 12/16/2025
+author: Connected-Seth
+ms.author: seshanmugam
+ms.reviewer: spelluru
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-title
@@ -20,7 +25,7 @@ This article provides an overview of how MQTT Retain works, its billing implicat
 
 ## Billing
 
-Each retained publish is counted as two MQTT operations: one for processing the message, and one for storing it.
+Each retained publish counts as two MQTT operations: one for processing the message and one for storing it.
 
 ## Storage limits
 
@@ -35,22 +40,22 @@ For larger needs, contact Azure Support.
 - **MQTT 5.0**: Set expiry or send an empty message to remove it.
 
 
-## Retained messages – Get & List
+## Retained messages – Get and List
 
 Retained messages let an MQTT broker store the **last known message** on a topic so new subscribers immediately receive the current value without waiting for the next publish. Now you can use the following **HTTP management endpoints**:
 
 - **Retain Get**: fetches the raw retained message body for a specific topic; message metadata is returned via HTTP headers.
 - **Retain List**: enumerates retained messages matching a topic filter (wildcards supported) or page through results with a continuation token.
 
-These APIs are intended for **observability, audit, and operational workflows** (for example, support troubleshooting, backfills, or verifying device state at scale).
+Use these APIs for **observability, audit, and operational workflows** (for example, support troubleshooting, backfills, or verifying device state at scale).
 
 
-### Authentication & authorization
+### Authentication and authorization
 
 The Retain Get and Retain List APIs require:
 
 - **Auth**: `Authorization: Bearer <token>`.
-- **Token audience / scope**: Use the broker’s App ID URI / resource provided for this preview (replace `<YOUR TOKEN HERE>` in samples).
+- **Token audience or scope**: Use the broker’s App ID URI or resource provided for this preview (replace `<YOUR TOKEN HERE>` in samples).
 - **RBAC**: Caller must have permission to invoke retained message read operations on the namespace.
 
 To get the Bearer token, run the following Azure CLI command:
@@ -110,7 +115,7 @@ Host: <YOUR Event Grid MQTT BROKER URL HERE>
 
 ### Examples
 
-URL‑encoding helper
+URL-encoding helper
 - Topic: `factory/line1/cell17/state` 
     - Encoded: `factory%2Fline1%2Fcell17%2Fstate`
 - Filter: `factory/line1/+/state` 
@@ -186,19 +191,19 @@ NEXT_LINK="<PASTE NEXTLINK FROM PRIOR CALL>"
 curl -sS -H "Authorization: Bearer $TOKEN" "$NEXT_LINK"
 ```
 
-### Behavior, limits & performance 
+### Behavior, limits, and performance 
 
 - maxResults range: 1–100 per page.
-- Topic filter supports standard MQTT wildcards + and # (encoded in URL).
+- Topic filter supports standard MQTT wildcards `+` and `#` (encoded in URL).
 - Payload size: returned as raw bytes (no JSON wrapping).
 - Headers are the single source for metadata in Get; don't expect a JSON envelope.
 - Paging: follow nextLink until null. Don't mix topicFilter with continuationToken.
-- Throttling: Standard platform throttles might apply (429). Use retry with backoff.
+- Throttling: standard platform throttles might apply (429). Use retry with backoff.
 
-### Error handling & troubleshooting
+### Error handling and troubleshooting
 
-- 400 Bad Request: malformed or missing topic / topicFilter; provided both topicFilter and continuationToken.
-- 401 Unauthorized: invalid/expired token or wrong audience.
+- 400 Bad Request: malformed or missing topic or topicFilter; provided both topicFilter and continuationToken.
+- 401 Unauthorized: invalid or expired token or wrong audience.
 - 403 Forbidden: caller lacks permission on the namespace.
 - 404 Not Found: no retained message for the specified topic.
 - 409 Conflict: request violates preview constraints.
@@ -206,6 +211,6 @@ curl -sS -H "Authorization: Bearer $TOKEN" "$NEXT_LINK"
 - 5xx: transient service error; retry with exponential backoff.
 
 > [!NOTE]
-> - Confirm the topic is exact (case‑sensitive) and correctly URL‑encoded. 
-> - Verify you’re requesting the correct audience/scope for the broker. 
+> - Confirm the topic is exact (case-sensitive) and correctly URL-encoded. 
+> - Verify you're requesting the correct audience or scope for the broker.
 
