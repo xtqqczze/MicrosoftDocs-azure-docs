@@ -6,6 +6,7 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 08/13/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Managing public network access for your IoT hub

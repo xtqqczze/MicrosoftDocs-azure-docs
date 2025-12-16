@@ -3,11 +3,13 @@ title: Can't sign up for an Azure subscription
 description: Discusses that you receive an error message when signing up for an Azure subscription.
 ms.topic: troubleshooting
 ms.date: 08/13/2025
-ms.author: presharm
-author: PreetiSGit
+author: Nicholak-MS
+ms.author: nicholak
 ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
+ms.custom: sfi-ga-nochange
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Can't sign up for a Microsoft Azure subscription

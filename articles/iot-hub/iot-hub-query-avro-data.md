@@ -7,7 +7,9 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 08/13/2025
+ms.custom: sfi-image-nochange
 ---
+
 # Query Avro data by using Azure Data Lake Analytics
 
 This article discusses how to query Avro data to efficiently route messages from Azure IoT Hub to Azure services. [Message Routing](iot-hub-devguide-messages-d2c.md) allows you to filter data using rich queries based on message properties, message body, device twin tags, and device twin properties. To learn more about the querying capabilities in Message Routing, see the article about [message routing query syntax](iot-hub-devguide-routing-query-syntax.md).

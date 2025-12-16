@@ -6,7 +6,10 @@ ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 08/13/2025
-ms.custom: [mqtt, amqp, 'Role: IoT Device', 'Role: Cloud Development']
+ms.custom:
+  - amqp
+  - mqtt
+  - sfi-image-nochange
 ---
 
 # Develop without using an Azure IoT Hub SDK
