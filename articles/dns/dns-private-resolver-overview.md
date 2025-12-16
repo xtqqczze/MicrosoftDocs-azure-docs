@@ -110,7 +110,7 @@ The following restrictions apply to virtual networks:
 ### Subnet restrictions 
 
 Subnets used for DNS resolver have the following limitations:
-- A subnet must be a minimum of /28 address space or a maximum of /24 address space. A /28 subnet is sufficient to accommodate current endpoint limits. A subnet size of /27 to /24 can provide flexibility of these limits change.
+- A subnet must be a minimum of /28 address space or a maximum of /24 address space. A /28 subnet is sufficient to accommodate current endpoint limits. A subnet size of /27 to /24 can provide flexibility if these limits change.
 - Multiple DNS resolver endpoints can't share a subnet. A single DNS resolver endpoint can only use a single subnet.
 - All IP configurations for a DNS resolver inbound endpoint must reference the same subnet as where the endpoint is provisioned.
 - The subnet used for a DNS resolver inbound endpoint must be within the virtual network referenced by the parent DNS resolver.
