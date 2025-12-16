@@ -42,54 +42,6 @@ landingContent:
             url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions
           - text: Implement Azure network security
             url: https://mslearn.cloudguides.com/guides/Azure%20network%20security
-  
-  # Card  
-  - title: Get started
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Virtual Network?
-            url: ../../virtual-network/virtual-networks-overview.md
-      - linkListType: quickstart
-        links:
-          - text: Create a virtual network
-            url: ../../virtual-network/quick-create-portal.md  
-
-  # Card  
-  - title: Communicate to the internet
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is a public IP address?
-            url: ../../virtual-network/virtual-networks-overview.md
-          - text: What is virtual network NAT Gateway?
-            url: ../../virtual-network/nat-gateway/nat-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create a public IP address
-            url: ../../virtual-network/ip-services/create-public-ip-portal.md
-          - text: Create a NAT gateway
-            url: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md
-      - linkListType: learn
-        links:
-          - text: Design an IP addressing schema for your Azure deployment
-            url: /training/modules/design-ip-addressing-for-azure/
- 
- # Card  
-  - title: Connect virtual networks
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Virtual network peering
-            url: ../../virtual-network/virtual-network-peering-overview.md
-          - text: Virtual network Manager
-            url: ../../virtual-network-manager/overview.md
-      - linkListType: tutorial
-        links:
-          - text: Connect virtual networks with virtual network peering
-            url: ../../virtual-network/tutorial-connect-virtual-networks-portal.md
-          - text: Create a hub and spoke topology
-            url: ../../virtual-network-manager/how-to-create-hub-and-spoke.md
 
   # Card
   - title: Secure your network
@@ -132,6 +84,54 @@ landingContent:
             url: ../../web-application-firewall/afds/waf-front-door-create-portal.md
           - text: How to block network traffic with Azure Virtual Network Manager
             url: ../../virtual-network-manager/how-to-block-network-traffic-portal.md
+
+  # Card  
+  - title: Get started
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Virtual Network?
+            url: ../../virtual-network/virtual-networks-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a virtual network
+            url: ../../virtual-network/quick-create-portal.md
+  
+  # Card  
+  - title: Communicate to the internet
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is a public IP address?
+            url: ../../virtual-network/virtual-networks-overview.md
+          - text: What is virtual network NAT Gateway?
+            url: ../../virtual-network/nat-gateway/nat-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a public IP address
+            url: ../../virtual-network/ip-services/create-public-ip-portal.md
+          - text: Create a NAT gateway
+            url: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md
+      - linkListType: learn
+        links:
+          - text: Design an IP addressing schema for your Azure deployment
+            url: /training/modules/design-ip-addressing-for-azure/
+ 
+ # Card  
+  - title: Connect virtual networks
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Virtual network peering
+            url: ../../virtual-network/virtual-network-peering-overview.md
+          - text: Virtual network Manager
+            url: ../../virtual-network-manager/overview.md
+      - linkListType: tutorial
+        links:
+          - text: Connect virtual networks with virtual network peering
+            url: ../../virtual-network/tutorial-connect-virtual-networks-portal.md
+          - text: Create a hub and spoke topology
+            url: ../../virtual-network-manager/how-to-create-hub-and-spoke.md
 
   # Card
   - title: Private access to network resources
