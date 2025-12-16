@@ -47,7 +47,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
     $ControlPlaneSubscriptionId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     $TenantId = "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
     
-    # Service Account Credentials (Consider using secure methods instead)
+    # SAP Support Credentials
     $Env:SUserName = "SXXXXXXXX"
     $Env:Password = Read-Host "Please enter your SUserName password" -AsSecureString
         
@@ -58,7 +58,6 @@ Open PowerShell ISE and copy the following script and update the parameters to m
     #Repository information
     $repo = "Azure/sap-automation"
     $branch = "main"
-
 
     Remove-Module SDAFUtilities -ErrorAction SilentlyContinue
     # Import required modules
@@ -71,7 +70,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
 
     Import-Module ".\SDAFUtilities.psm1"
     
-    # Create Managed Service Identity
+    # Create Managed Identity
     $ManagedServiceIdentity = New-SDAFUserAssignedIdentity `
         -ManagedIdentityName "$ControlPlaneName" `
         -ResourceGroupName $MSIResourceGroupName `
@@ -143,7 +142,6 @@ Open PowerShell ISE and copy the following script and update the parameters to m
     $repo = "Azure/sap-automation"
     $branch = "main"
 
-
     Remove-Module SDAFUtilities -ErrorAction SilentlyContinue
     # Import required modules
     $url="https://raw.githubusercontent.com/$repo/refs/heads/$branch/deploy/scripts/pwsh/Output/SDAFUtilities/SDAFUtilities.psm1"
@@ -155,7 +153,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
 
     Import-Module ".\SDAFUtilities.psm1"
 
-    # Get Managed Service Identity
+    # Get Managed Identity
     $ManagedServiceIdentity = Get-SDAFUserAssignedIdentity `
         -ManagedIdentityName $ManagedIdentityName `
         -ResourceGroupName $ResourceGroupName `
@@ -181,7 +179,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
 
 ### Create a sample control plane configuration
 
-You can run the `Create Sample Deployer Configuration` pipeline to create a sample configuration for the control plane. When it's running, choose the appropriate Azure region. You can also control if you want to deploy Azure Firewall and Azure Bastion.
+You can run the `Create Sample Deployer Configuration` pipeline to create a sample configuration for the control plane. When it's running, choose the appropriate Azure region. You can also control if you want to deploy Azure Firewall, Azure Bastion, the Configuration App Service, and other components.
 
 ## Manual configuration of Azure DevOps Services for SAP Deployment Automation Framework
 
@@ -265,7 +263,7 @@ Select **Authorize** to sign in to GitHub.
 
 Enter a service connection name, for instance, **SDAF Connection to GitHub**. Ensure that the **Grant access permission to all pipelines** checkbox is selected. Select **Save** to save the service connection.
 
-## Set up the web app
+## Set up the app service registration (optional)
 
 The automation framework optionally provisions a web app as a part of the control plane to assist with the SAP workload zone and system configuration files. If you want to use the web app, you must first create an app registration for authentication purposes. Open Azure Cloud Shell and run the following commands.
 
