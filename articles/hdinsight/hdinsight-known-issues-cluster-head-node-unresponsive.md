@@ -36,12 +36,13 @@ To resolve this issue, run the following [script action](/azure/hdinsight/hdinsi
    `https://hdiconfigactions.blob.core.windows.net/openssl-patch/openssltmpclean.sh`
 
 >[!IMPORTANT]
-> Automated cleanup included in the code path does not execute as expected, hence the manual cleanup is temporary—recurring creation continues. The cron-based cleanup is the recommended and supported mitigation until a patched HDInsight image is released.
+> Automated cleanup included in the code path does not execute as expected. The cron-based cleanup is the recommended and supported mitigation until a patched HDInsight image is released.
 
 ## Resources
 
 - [Script action to a running cluster](/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#script-action-to-a-running-cluster)
 - [Supported HDInsight versions](/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)
+
 
 
 
