@@ -3,7 +3,7 @@ title: Azure VMware Solution Generation 2 private cloud design considerations
 description: Learn about Azure VMware Solution Generation 2 private cloud design considerations.
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 12/15/2025
+ms.date: 12/16/2025
 ms.custom:
   - build-2025
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution Generation 2 private cloud design considerations so that I can make informed decisions about my Azure VMware Solution deployment.
@@ -100,7 +100,7 @@ Example /22 CIDR network address block **10.31.0.0/22** is divided into the foll
 |Reserved | /27 | Reserved Space. | 10.31.0.192/27 |
 
 > [!Note]
-> For AVS Gen 2, customers must now allocate an additional /22 subnet for HCX management and uplink, in addition to the /22 entered during SDDC deployment. This is not required for Gen 1.
+> For Azure VMware Solution Gen 2 deployments, customers must now allocate an additional /22 subnet for HCX management and uplink, in addition to the /22 entered during SDDC deployment. This additional /22 is not required for Gen 1.
 
 ## Next steps
 
