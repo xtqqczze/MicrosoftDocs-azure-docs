@@ -32,7 +32,7 @@ DNS forward lookup zone can be configured at the time of creation or changed aft
 
 ## Using Public DNS Resolution with Azure VMware Solution Gen 2
 
-Azure VMware Solution Gen 2 allows you to use public Domain Name System (DNS) resolution for fully qualified domain names such as the VMware vCenter Server or NSX Manager public endpoints. Public DNS resolution enables you to resolve these names to their corresponding public IP addresses.
+Azure VMware Solution Gen 2 allows you to use public Domain Name System (DNS) resolution for fully qualified domain names such as the VMware vCenter Server or NSX Manager public endpoints. Public DNS resolution enables you to resolve these names to their corresponding private IP addresses.
 
 ### How Public DNS Resolution Works
 
@@ -41,7 +41,7 @@ Public DNS records resolve successfully from any location with internet access, 
 - On-premises networks
 - External networks
 
-If you are testing name resolution from a workload segment inside Azure VMware Solution, ensure that internet access is enabled for that segment. Without outbound internet access, DNS resolution to public DNS servers will not succeed.
+If you are testing name resolution from a workload segment inside Azure VMware Solution, ensure that internet access is enabled for the Private Cloud for workload networking, specifically using the "nsx-gw" and "nsx-gw-1 subnets. Without outbound internet access, DNS resolution to public DNS servers will not succeed.
 
 ### Verifying DNS Resolution
 
@@ -49,7 +49,7 @@ To verify that public DNS resolution is working:
 1. Open a terminal or command prompt from any machine with internet access.
 2. Run the following command:"nslookup vc123.eastus.avs.azure.com".
 
-If DNS resolution is successful, the command returns a public IP address. If the command does not return an IP address, then either the DNS zone is private or the DNS server being used cannot reach the internet.
+If DNS resolution is successful, the command returns a private IP address. If the command does not return an IP address, then either the DNS zone is private or the DNS server being used cannot reach the internet.
 
 ## Configure private DNS for your Azure VMware Solution Generation 2 private cloud  
  
@@ -100,7 +100,7 @@ After deploying the Azure DNS Private Resolver, you must create a forward lookup
 
 To configure the forward lookup zone:
 
-1. **Identify the DNS zone name** for your private cloud. The zone is typically derived from the Fully Qualified Domain Name (FQDN) of the vCenter Server. For example, if the vCenter Server URL is `https://vc123.avs.com`, the DNS zone name is `avs.com` (everything after `vc123`).
+1. **Identify the DNS zone name** for your private cloud. The zone is typically derived from the Fully Qualified Domain Name (FQDN) of the vCenter Server. For example, if the vCenter Server URL is `https://vc123.avs.azure.com`, the DNS zone name is `avs.azure.com` (everything after `vc123`).
       
 2. **Create a forward lookup zone** in your DNS solution (either your on-premises DNS server or a DNS server you deployed in the Azure Virtual Network of the private cloud). Use the DNS zone name identified above.
          
@@ -108,9 +108,9 @@ To configure the forward lookup zone:
    
 **Example**:
 
-vCenter Server URL: `https://vc123.avs.com`
+vCenter Server URL: `https://vc123.avs.azure.com`
 
-Forward lookup zone to create: `avs.com`
+Forward lookup zone to create: `avs.azure.com`
 
 Forwarder target: IP address of your Azure DNS Private Resolver inbound endpoint
 

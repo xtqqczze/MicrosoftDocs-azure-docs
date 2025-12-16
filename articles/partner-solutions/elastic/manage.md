@@ -462,11 +462,11 @@ You can easily manage the corresponding Elastic deployments or Azure resources u
 
 ## Get support
 
-Contact [Elastic](https://cloud.elastic.co/help) for customer support.
+Contact [Elastic](https://cloud.elastic.co/help) for customer support. If your Elastic Cloud resource is not fully set up and you’re not able to access the Support page, send an email to support@elastic.co.
 
 You can also request support in the Azure portal from the [resource overview](#resource-overview). From the left menu, select **Support + Troubleshooting** > **New support request**.
 
 ## Related content
 
 - [What is Azure private link?](../../private-link/private-link-overview.md)
-
+- [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md)

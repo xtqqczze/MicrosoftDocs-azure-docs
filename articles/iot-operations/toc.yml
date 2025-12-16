@@ -189,7 +189,7 @@ items:
                 displayName: data flow, endpoint, observability, metrics, logs, OpenTelemetry, OTLP, northbound
               - name: Local storage or ACSA
                 href: connect-to-cloud/howto-configure-local-storage-endpoint.md
-                displayName: data flow, endpoint, northbound
+                displayName: data flow, endpoint, northbound, Azure Container Storage enabled by Azure Arc
               - name: Registry endpoint
                 href: connect-to-cloud/howto-configure-registry-endpoint.md
                 displayName: data flow, endpoint, northbound, registry
@@ -212,15 +212,9 @@ items:
               - name: Deploy data flow graphs
                 href: connect-to-cloud/howto-dataflow-graph-wasm.md
                 displayName: data flow, WASM, WebAssembly, graph, transform, enrich, deploy, registry, test
-              - name: Develop WASM modules
-                href: connect-to-cloud/howto-develop-wasm-modules.md
-                displayName: data flow, WASM, WebAssembly, development, Rust, Python, modules, operators
               - name: Configure graph definitions
                 href: connect-to-cloud/howto-configure-wasm-graph-definitions.md
                 displayName: data flow, WASM, WebAssembly, graph definitions, YAML, configuration, workflow
-              - name: AI inference with ONNX
-                href: connect-to-cloud/howto-wasm-onnx-inference.md
-                displayName: data flow, WASM, WebAssembly, ONNX, inference, AI, wasi-nn
           - name: Use message schemas
             href: connect-to-cloud/concept-schema-registry.md
             displayName: data flow, serialize, deserialize, schema registry
@@ -231,30 +225,8 @@ items:
         items:
           - name: Overview
             href: manage-layered-network/overview-layered-network.md
-            displayName: ISA-95, Purdue, layered, network, isolated
           - name: IoT Operations in layered network
             href: manage-layered-network/concept-iot-operations-in-layered-network.md
-            displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
-          - name: Configure Layered Network Management
-            href: manage-layered-network/howto-deploy-aks-layered-network.md
-            displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
-          - name: How to
-            items:
-              - name: Deploy Azure IoT Operations in isolated network
-                href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
-                displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
-              - name: Create sample network environment
-                href: manage-layered-network/howto-configure-layered-network.md
-                displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
-              - name: Configure L4 cluster
-                href: manage-layered-network/howto-configure-l4-cluster-layered-network.md
-                displayName: ISA-95, Purdue, isolated, level 4, L4
-              - name: Configure L3 cluster
-                href: manage-layered-network/howto-configure-l3-cluster-layered-network.md
-                displayName: ISA-95, Purdue, isolated, level 3, L3
-              - name: Connect Azure Arc-enabled servers
-                href: manage-layered-network/howto-connect-arc-enabled-servers.md
-                displayName: ISA-95, Purdue, isolated, level 2, level 3, level 4, L2, L3, L4
       - name: Configure observability and monitoring
         items:
           - name: Deploy observability resources
@@ -271,6 +243,18 @@ items:
           - name: Start developing with the SDKs
             href: develop-edge-apps/quickstart-get-started-sdks.md
             displayName: MQTT, client app, developer, C#, .Net, Go, Rust, quickstart, get started
+          - name: Build WASM modules with VS Code extension
+            href: develop-edge-apps/howto-build-wasm-modules-vscode.md
+            displayName: VS Code, extension, develop, dataflow, graph, connector
+          - name: Build WASM modules
+            href: connect-to-cloud/howto-develop-wasm-modules.md
+            displayName: data flow, WASM, WebAssembly, development, Rust, Python, modules, operators
+          - name: AI inference with ONNX
+            href: connect-to-cloud/howto-wasm-onnx-inference.md
+            displayName: data flow, WASM, WebAssembly, ONNX, inference, AI, wasi-nn
+          - name: Build Akri connectors with VS Code extension
+            href: develop-edge-apps/howto-build-akri-connectors-vscode.md
+            displayName: VS Code, extension, develop
           - name: Concepts
             items:
               - name: Highly available edge apps
@@ -334,8 +318,6 @@ items:
             href: troubleshoot/iot-operations-faq.yml
       - name: Reference
         items:
-          - name: Azure IoT Operations Arc Jumpstart scenario
-            href: https://aka.ms/ArcJumpstartAIO
           - name: Azure IoT Operations release notes
             href: https://github.com/Azure/azure-iot-operations/releases
           - name: Azure IoT Operations CLI

@@ -67,6 +67,15 @@ The column **Logs to Datadog** indicates whether the resource is sending logs to
 
 ## Monitor multiple subscriptions
 
+When you add or remove subscriptions for Datadog monitoring, the system updates the Monitoring Reader role assignment on the System Managed Identity linked to the resource.
+
+**Prerequisites**
+
+To perform these actions, you must have both of the following Azure permissions:
+
+- `Microsoft.Authorization/roleAssignments/write`
+- `Microsoft.Authorization/roleAssignments/delete`
+
 To monitor multiple subscriptions:
 
 1. Select **Datadog organization configurations > Monitored Subscriptions**.
@@ -177,4 +186,8 @@ Contact [Datadog](https://www.datadoghq.com/support) for customer support.
 You can also request support in the Azure portal from the [resource overview](#resource-overview).  
 
 Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [log a support request in the Datadog portal](https://www.datadoghq.com/support). 
+
+## Related content
+
+- [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md)
 

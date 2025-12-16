@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 10/07/2025
+ms.date: 12/11/2025
 ms.author: rolyon
 
 ---
@@ -18,6 +18,10 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| December 2025 | Classic administrators | Updates about automatic assignment to Owner role. See [Azure classic subscription administrators](classic-administrators.md). |
+| December 2025 | Roles | Added [Storage File Data SMB MI Admin](./built-in-roles/storage.md#storage-file-data-smb-mi-admin) role. |
+| November 2025 | Roles | Added [Storage File Data SMB Take Ownership](./built-in-roles/storage.md#storage-file-data-smb-take-ownership) role. |
+| November 2025 | Roles | Added [Storage File Data SMB Admin](./built-in-roles/storage.md#storage-file-data-smb-admin) role. |
 | October 2025 | Roles | Added [Log Analytics Data Reader](./built-in-roles/monitor.md#log-analytics-data-reader) role. |
 | October 2025 | Roles | Updated Azure permissions for Integration [Microsoft.Communication](./permissions/integration.md#microsoftcommunication) list. |
 | September 2025 | Roles | Added [Arc Gateway Manager](./built-in-roles/hybrid-multicloud.md#arc-gateway-manager) role.<br/>Added Azure Kubernetes Service Namespace roles.<br/>[Azure Kubernetes Service Namespace Contributor](./built-in-roles/containers.md#azure-kubernetes-service-namespace-contributor)<br/>[Azure Kubernetes Service Namespace User](./built-in-roles/containers.md#azure-kubernetes-service-namespace-user)<br>Added Azure Container Instances Contributor role.<br/>[Azure Container Instances Contributor Role](./built-in-roles/containers.md#azure-container-instances-contributor-role) |
