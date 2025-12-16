@@ -22,7 +22,7 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 
 
 > [!IMPORTANT]
-> The Square connector version 2.0 (Preview) provides improved native Square support. If you are using Square connector version 1.0 in your solution, please [upgrade the Square connector](#upgrade-the-square-connector-from-version-10-to-version-20) before **October 15, 2025**. Refer to this [section](#square-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 (Preview) and version 1.0.
+> The Square connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Square connector](#square-connector-lifecycle-and-upgrade) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -300,7 +300,7 @@ The following table shows the release stage and change logs for different versio
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
-| Version 1.0 | End of support announced | / |  
+| Version 1.0 |  Removed | Not applicable. |
 | Version 2.0 | Public Preview |  • The self-hosted integration runtime version should be 5.56.0.0 or above. <br><br>• Date, Timestamp and Timestamp with offset are read as String data type. <br><br> • `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service.   <br><br>• `query` is not supported.  |
 
 ### <a name="upgrade-the-square-connector-from-version-10-to-version-20"></a> Upgrade the Square connector from version 1.0 to version 2.0 (Preview)
