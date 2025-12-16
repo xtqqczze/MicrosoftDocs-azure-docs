@@ -19,8 +19,10 @@ This article provides suggestions to troubleshoot common problems with the Micro
 ## Error code: LakehouseForbiddenError
 
 - **Message**: `ErrorCode=LakehouseForbiddenError,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Lakehouse failed for forbidden which may be caused by user account or service principal doesn't have enough permission to access Lakehouse. Workspace: '4137113f-8f02-4c59-9a33-ec9d6f0f1468'. Path: '606c4b64-92ad-4621-b116-a9a871ac099d/Tables/dbo'. ErrorCode: 'Forbidden'. Message: 'Forbidden'. TimeStamp: 'Tue, 04 Nov 2025 11:57:11 GMT'.`
+
 - **Cause**: The service principal, system-assigned managed identity or user-assigned managed identity doesn't have enough permission to access Microsoft Fabric Lakehouse.
-- **Recommendation**: Grant the service principal, system-assigned managed identity or user-assigned managed identity at least Contributor role in the Microsoft Fabric workspace with the Lakehouse. For how to grant the permission, see [Grant permissions in Microsoft Fabric workspace](connector-microsoft-fabric-lakehouse.md#grant-permissions-in-microsoft-fabric-workspace).
+
+- **Recommendation**: Grant the service principal, system-assigned managed identity or user-assigned managed identity at least Contributor role in the Microsoft Fabric workspace with the Lakehouse. For more information, see [Grant permissions in Microsoft Fabric workspace](connector-microsoft-fabric-lakehouse.md#grant-permissions-in-microsoft-fabric-workspace).
 
 ## Related content
 
