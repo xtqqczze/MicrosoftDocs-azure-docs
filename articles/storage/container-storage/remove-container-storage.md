@@ -28,6 +28,23 @@ Follow these steps to remove Azure Container Storage from your AKS cluster.
    az aks update -n <cluster-name> -g <resource-group> --disable-azure-container-storage
    ```
 
+### Remove the extension by using Terraform
+
+If you provisioned Azure Container Storage with Terraform, remove the corresponding extension resource from your configuration and apply the change so the result matches the CLI workflow.
+
+1. Delete the `azurerm_kubernetes_cluster_extension` block (or set `count = 0`) in your Terraform configuration and save the file.
+1. Review the plan to confirm Terraform will destroy only the extension resource.
+
+    ```bash
+    terraform plan
+    ```
+
+1. Apply the plan to delete the extension. Terraform displays the same outcome as the CLI command: the extension resource is removed and AKS no longer reports Azure Container Storage as enabled.
+
+    ```bash
+    terraform apply
+    ```
+
 ## Delete AKS cluster
 
 To delete an AKS cluster and all persistent volumes, run the following Azure CLI command. Replace `<resource-group>` and `<cluster-name>` with your own values.
@@ -35,6 +52,14 @@ To delete an AKS cluster and all persistent volumes, run the following Azure CLI
 ```azurecli
 az aks delete --resource-group <resource-group> --name <cluster-name>
 ```
+
+If the AKS cluster was created with Terraform, you can also remove it by running:
+
+```bash
+terraform destroy
+```
+
+This command deletes every resource Terraform manages in the current working directory (for example, the cluster, resource group, and Azure Container Storage extension) so only run it when you intend to remove the entire deployment.
 
 ## Delete resource group
 

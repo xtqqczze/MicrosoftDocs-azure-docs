@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 09/10/2025
 ms.author: kendownie
 ms.custom: devx-track-azurecli, references_regions
+zone_pivot_groups: azure-cli-or-terraform
 # Customer intent: "As a cloud administrator, I want to install Azure Container Storage on an AKS cluster so that I can efficiently manage storage for containerized applications."
 ---
 
@@ -18,6 +19,8 @@ If you prefer the open-source version of Azure Container Storage, visit the [loc
 
 > [!IMPORTANT]
 > This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). For earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md). If you already have Azure Container Storage (version 1.x.x) installed on your AKS cluster, remove it by following [these steps](remove-container-storage-version-1.md).
+
+::: zone pivot="azure-CLI"
 
 > [!div class="checklist"]
 > * Prepare your Azure CLI environment
@@ -112,6 +115,132 @@ az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-sto
 ```
 
 The deployment takes 5-10 minutes. When it completes, the targeted AKS cluster has Azure Container Storage installed and the components for local NVMe storage type deployed.
+
+::: zone-end
+
+::: zone pivot="terraform"
+
+> [!div class="checklist"]
+> * Prepare Terraform and authenticate to Azure
+> * Define your resource group and AKS cluster configuration
+> * Confirm your node pool virtual machine types meet the installation criteria
+> * Apply Terraform to deploy Azure Container Storage or enable it on an existing cluster
+
+## Prerequisites
+
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+
+- Install [Terraform](https://developer.hashicorp.com/terraform/install) version 1.5 or later. Verify your version with `terraform version`.
+
+- Install the [Azure CLI](/cli/azure/install-azure-cli) (2.77.0 or later) and sign in by using `az login`. Terraform can reuse that authentication context.
+
+- Install `kubectl` so you can validate the cluster after deployment. Run `az aks install-cli` if you need a local copy.
+
+- Check that your target region is listed in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
+
+## Ensure the VM type for your cluster meets the installation criteria
+
+Follow these guidelines when choosing a virtual machine type for the cluster nodes.
+
+- Choose a virtual machine SKU that supports local NVMe data disks, for example, [storage optimized VMs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VMs](/azure/virtual-machines/sizes/overview#gpu-accelerated).
+- Choose the OS type for the VMs in the node pools as Linux OS. Windows OS isn't currently supported.
+- For existing clusters, make sure node pools already use a supported VM SKU before enabling Azure Container Storage.
+
+## Create Terraform configuration files
+
+1. In an empty working directory, create a `main.tf` file with the following minimal configuration of an AKS cluster. Update the resource names, locations, and VM sizes to meet your requirements.
+
+    ```terraform
+    terraform {
+      required_version = ">= 1.5.0"
+      required_providers {
+        azurerm = {
+          source  = "hashicorp/azurerm"
+          version = "~> 4.56"
+        }
+      }
+    }
+
+    provider "azurerm" {
+      features {}
+    }
+
+    resource "azurerm_resource_group" "rg" {
+      name     = "demo-aks-rg"
+      location = "eastus"
+    }
+
+    resource "azurerm_kubernetes_cluster" "aks" {
+      name                = "demo-aks-cluster"
+      dns_prefix          = "demo-aks"
+      location            = azurerm_resource_group.rg.location
+      resource_group_name = azurerm_resource_group.rg.name
+
+      default_node_pool {
+        name       = "system"
+        node_count = 3
+        vm_size    = "Standard_L8s_v3"
+      }
+
+      identity {
+        type = "SystemAssigned"
+      }
+    }
+
+    resource "azurerm_kubernetes_cluster_extension" "container_storage" {
+      name           = "microsoft-azurecontainerstorage"
+      cluster_id     = azurerm_kubernetes_cluster.aks.id
+      extension_type = "microsoft.azurecontainerstoragev2"
+
+      configuration_settings = {
+        enable-azure-container-storage = "true"
+      }
+    }
+    ```
+
+2. Initialize the working directory to download the AzureRM provider.
+
+    ```bash
+    terraform init
+    ```
+
+3. Review the planned changes.
+
+    ```bash
+    terraform plan
+    ```
+
+4. Apply the configuration to create the resource group, AKS cluster, and Azure Container Storage extension. Deployment typically takes 5-10 minutes.
+
+    ```bash
+    terraform apply
+    ```
+
+## Enable Azure Container Storage on an existing AKS cluster
+
+If your AKS cluster already exists and you're managing it outside of Terraform, you can still enable Azure Container Storage by authoring only the extension resource. Use a data source to look up the cluster ID.
+
+```terraform
+data "azurerm_kubernetes_cluster" "existing" {
+  name                = "existing-aks"
+  resource_group_name = "existing-aks-rg"
+}
+
+resource "azurerm_kubernetes_cluster_extension" "container_storage" {
+  name           = "microsoft-azurecontainerstorage"
+  cluster_id     = data.azurerm_kubernetes_cluster.existing.id
+  extension_type = "microsoft.azurecontainerstoragev2"
+
+  configuration_settings = {
+    enable-azure-container-storage = "true"
+  }
+}
+```
+
+Run `terraform init` (if this is a new working directory) followed by `terraform apply` to install Azure Container Storage on the targeted cluster.
+
+::: zone-end
+
 
 ## Connect to the cluster and verify status
 
