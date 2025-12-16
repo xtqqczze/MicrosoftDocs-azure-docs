@@ -53,7 +53,7 @@ Optionally, you can create tags for your resource. Then select **Review + subscr
 
 ### Review + subscribe tab 
 
-If the review finds no errors, the **Subscribe** button becomes active. Select Create.
+If the review finds no errors, the **Subscribe** button becomes active. Select **Create**.
 
 If the review identifies errors, a red dot appears next to each section where errors exist. To fix errors:
 
