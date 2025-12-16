@@ -5,7 +5,7 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep, UpdateFrequency2
-ms.date: 12/03/2025
+ms.date: 12/15/2025
 #customer intent: As a DevTest Labs administrator, I want to learn about how to use a Bicep template so I can use Bicep to quickly and easily create labs with VMs.
 ---
 
@@ -55,7 +55,7 @@ Review the Bicep file. The file uses the following resource types to take the fo
    - `<location>`: Azure region you want to use.
    - `<lab-name>`: Name for the new lab.
    - `<vm-name>`: Name for the new VM.
-   - `<user-name>`: Username of a local account to create on the new VM. You're prompted to enter a password for the local account. Be sure not to use any [disallowed usernames or passwords](/rest/api/compute/virtual-machines/create-or-update#osprofile).
+   - `<user-name>`: Username of a local account to create on the new VM. You're prompted to enter a password for the local account. Be sure not to use any [disallowed usernames or passwords](/rest/api/compute/virtual-machines/create-or-update?tabs=HTTP#osprofile).
 
    # [Azure CLI](#tab/CLI)
 
