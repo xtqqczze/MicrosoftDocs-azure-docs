@@ -20,7 +20,7 @@ If you prefer the open-source version of Azure Container Storage, visit the [loc
 > [!IMPORTANT]
 > This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). For earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md). If you already have Azure Container Storage (version 1.x.x) installed on your AKS cluster, remove it by following [these steps](remove-container-storage-version-1.md).
 
-::: zone pivot="azure-cli"
+::: zone pivot="azure-CLI"
 
 > [!div class="checklist"]
 > * Prepare your Azure CLI environment
@@ -96,6 +96,9 @@ Follow these guidelines when choosing a virtual machine type for the cluster nod
 
 Choose the scenario that matches your environment.
 
+> [!IMPORTANT]
+> Azure Container Storage automatically installs and maintains the latest available version. Manual version selection is not supported.
+
 ### Option 1: Creating a new AKS cluster with Azure Container Storage enabled
 
 Run the following command to create a new AKS cluster and install Azure Container Storage. Replace `<cluster-name>` and `<resource-group>` with your own values, and specify which VM type you want to use.
@@ -149,6 +152,9 @@ Follow these guidelines when choosing a virtual machine type for the cluster nod
 ## Install Azure Container Storage on an AKS cluster
 
 Choose the scenario that matches your environment.
+
+> [!IMPORTANT]
+> Azure Container Storage automatically installs and maintains the latest available version. Manual version selection is not supported.
 
 ### Option 1: Creating a new AKS cluster with Azure Container Storage enabled
 
@@ -225,6 +231,20 @@ Choose the scenario that matches your environment.
 If your AKS cluster already exists and you're managing it outside of Terraform, you can still enable Azure Container Storage by authoring only the extension resource. Use a data source to look up the cluster ID.
 
 ```terraform
+terraform {
+  required_version = ">= 1.5.0"
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 4.56"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
+
 data "azurerm_kubernetes_cluster" "existing" {
   name                = "existing-aks"
   resource_group_name = "existing-aks-rg"
