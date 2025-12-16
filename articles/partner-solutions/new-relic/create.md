@@ -30,7 +30,7 @@ The *Basics* tab has two sections:
 - Project details
 - SaaS details
 
-:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a New Relic resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::
+:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Subscribe To Azure Native New Relic Service options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
 There are required fields (identified with a red asterisk) in each section that you need to fill out.
 
@@ -71,7 +71,25 @@ The message "Your SaaS subscription is in progress" appears. When the deployment
 
 1. On the **SaaS Overview** page, you'll see your new resource. Select the checkbox next to the resource, and then select **Activate Resource**. 
 
-1. After the resource is activated,  
+1. After the resource is activated, you'll see the message "Your SaaS subscription is activated successfully." Select **Configure Organization**.  
+
+1. You'll see the **Create a New Relic Resource in Azure** page.  
+
+## Create a New Relic resource in Azure 
+
+### Basics tab
+
+The *Basics* tab has three sections:
+
+- Project details
+- Azure resource details
+- New Relic account details 
+
+:::image type="content" source="media/create/basics-azure-resource.png" alt-text="A screenshot of the Create a New Relic resource in Azure options inside of the Azure portal's working pane with the Basics tab displayed.":::
+
+There are required fields (identified with a red asterisk) in each section that you need to fill out.
+
+1. Enter the values for each required setting under *Project details*.
 
 <!--
 what happens? now we document the previous expereince of creating the Azure resource? 
