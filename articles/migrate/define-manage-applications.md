@@ -1,8 +1,8 @@
 ---
 title: Define and manage applications in Azure Migrate
 description:  Learn how to define and manage applications in Azure Migrate for application centric migration planning and execution.
-author: ankitsurkar06
-ms.author: ankitsurkar
+author: vikram1988
+ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: concept-article
@@ -77,7 +77,7 @@ After you initiate discovery, appliance performs the discovery of configuration 
 You can start defining the applications running in your datacenter. Here are the steps you can follow to get started:
 
 1. You can either go to **Overview** and select **Define application** from the All inventory summary card or you can go to **Applications** under **Explore applications** and select **Define application** from there.
-2. You can define applications in one of the two ways- select **New application** if you want to define application through Portal or select **Import applications** to import the application information at scale through CSV import.
+2. You can start in one of the two ways- select **Define application** if you want to define application through Portal or select **Import > Import applications** to import the application information at scale through CSV import.
 
 ### Define new application
 
@@ -110,7 +110,7 @@ You can start defining the applications running in your datacenter. Here are the
 
 ### Import applications
 
-If you want to define applications at scale, you can select **Import applications** which opens a side pane where you can follow these steps:
+If you want to define applications at scale, you can select **Import> Import applications** which opens a side pane where you can follow these steps:
 
 1. You can define applications by adding the application names against the discovered servers and workloads in the prescribed template which is an export of all discovered inventory. 
 2. You can select **Export all inventory** which downloads a CSV file with the details of all discovered inventory across servers, databases and web applications.
@@ -124,8 +124,22 @@ If you want to define applications at scale, you can select **Import application
 6. After the import is complete, you can see the import status and review the **no of applications created** and check the **error** file if any failures occur. 
 
     >[!Note]
-    > Currently, import applications only supports adding workloads to an application and not other details like Type (default set to Custom), properties like Criticality and Complexity or Tags. When the application is defined using import, you can see a warning icon against the application name indicating that you need to update the mandatory properties.
+    > Currently, import applications only supports adding workloads to an application and not to removing any associated workloads from existing applications. If you want to remove any workload, you can use the portal experiences to review and edit the specific application.
 
+### Import application properties
+When the application is defined using import, you can see a warning icon against the application name indicating that you need to update the mandatory properties. You can either chose to update properties by selecting an application from the Applications view or update application properties at scale using **Import> Import application properties**. 
+
+1. You can update the properties of application(s) in the prescribed template which is an export of applications inventory.
+2. You can select **Export applications** which downloads a CSV file with the details of all the applications you have defined so far using portal or import experiences.
+3. In the exported CSV, you can add the properties of the applications that were defined through import of a CSV file. You can also edit the properties of the applications defined using the portal experiences.
+4. You can use this CSV file to add or edit the Type, Description and Tags associated with the application.
+
+    >[!Note]
+    > Do not edit the **App ARM ID** column values in the CSV file. You can add application properties in multiple import operations but it is recommended to not trigger multiple import operations in parallel.
+    
+5. After adding/editing the application related information in CSV file, you can browse and select the CSV file.
+6. If the selected file passes the validation checks, you can select **Import** to upload the details about the applications, as added in the CSV file.
+7. After the import is complete, you can see the import status and review the **no of applications processed** and check the **error** file if any failures occur.
 
 ## Review applications
 
