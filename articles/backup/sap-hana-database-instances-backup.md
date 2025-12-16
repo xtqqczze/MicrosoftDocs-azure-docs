@@ -88,7 +88,7 @@ To create a policy for the SAP HANA database instance backup, follow these steps
    :::image type="content" source="./media/sap-hana-database-instances-backup/hana-vaulted-snapshot-enhanced-policy.png" alt-text="Screenshot that shows policy sub types." lightbox="./media/sap-hana-database-instances-backup/hana-vaulted-snapshot-enhanced-policy.png":::
    
 
-1. On the **Create policy** pane, do the following:
+1. On the **Create policy** pane, enter the following details:
 
    :::image type="content" source="./media/sap-hana-database-instances-backup/create-policy.png" alt-text="Screenshot that shows the 'Create policy' pane for configuring backup and restore." lightbox="./media/sap-hana-database-instances-backup/create-policy.png":::
 
