@@ -233,7 +233,7 @@ For more information, see [SDK types](dotnet-isolated-process-guide.md#sdk-types
 
 [!INCLUDE [functions-sdk-types-python](../../includes/functions-sdk-types-python.md)]
 
-SDK types are supported only when using the Python v2 programming model. For more information, see [SDK types](./functions-reference-python.md#sdk-types) in the Python developer guide.
+SDK types are supported only when using the Python v2 programming model. For more information, see [SDK type bindings](./functions-reference-python.md#sdk-type-bindings) in the Python developer guide.
 ::: zone-end 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 
