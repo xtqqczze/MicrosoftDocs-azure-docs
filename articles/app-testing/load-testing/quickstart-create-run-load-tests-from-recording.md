@@ -20,7 +20,17 @@ This quickstart guides you through the steps of installing the browser extension
 
 - Azure App Testing browser extension for Microsoft Edge or Google Chrome. [Download and install it here](https://aka.ms/malt-browser-extension).  
 - An Azure account with an active subscription. Needed to run load tests at scale in **Azure Load Testing**. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An Azure Load Testing resource. [Create an Azure Load Testing resource](https://learn.microsoft.com/azure/load-testing/quickstart-create-load-testing-resource) in the Azure portal if you don't have one already.
+
+
+## Create an Azure Load Testing resource
+
+First, you create the top-level resource for Azure Load Testing. It provides a centralized place to view and manage test plans, test results, and related artifacts.
+
+If you already have a load testing resource, skip this section and continue to [Create a load test](#create-a-load-test).
+
+To create a load testing resource:
+
+[!INCLUDE [azure-load-testing-create-portal](./includes/azure-load-testing-create-in-portal/azure-load-testing-create-in-portal.md)]
 
 ## Record your scenarios  
 
@@ -90,14 +100,9 @@ You can configure various load test settings in the **Load details** section as 
 
 Once you have reviewed and configured the load test setting, you can either directly run the test in Azure Load Testing by clicking on the **Run test now** button or configure advanced test options. The advanced test options will redirect you to creating a JMeter test in Azure Load Testing. Refer to the [create and run JMeter load tests](./how-to-create-and-run-load-test-with-jmeter-script.md) for more details.
 
-A JMeter script is generated based on your recording and the enhancements applied. You can download this script for further customization or future use.     
+A JMeter script is generated based on your recording and the enhancements applied. You can download this script for further customization or future use.
 
-## Run the load test
-
-You can run your load test in two ways:
-- Run locally for quick validation
-- Run in Azure Load Testing for high-scale, multi-region load
-
+After the test is initiated, you can monitor its progress and view real-time metrics in the Azure portal. Once the test is complete, you can analyze the results to identify performance bottlenecks and areas for improvement in your web application.     
 
 ## Summary
 
