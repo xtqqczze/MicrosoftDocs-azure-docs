@@ -36,9 +36,9 @@ items:
         - name: Deploy Functions
           items:
             - name: Azure portal
-              href: ../functions/functions-usage.md?azure-portal
+              href: functions-usage.md?azure-portal
             - name: Command line
-              href: ../functions/functions-usage.md?azure-cli
+              href: functions-usage.md?azure-cli
         - name: Run a job
           items:
             - name: Azure portal
