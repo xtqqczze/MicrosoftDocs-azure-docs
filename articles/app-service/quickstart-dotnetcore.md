@@ -151,7 +151,7 @@ azd down
 
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally. If you see dialog boxes asking you to trust a self-signed certificate, select **Yes**.
 
-   :::image type="content" source="media/quickstart-dotnetcore/web-app-net-10" alt-text="Screenshot of Visual Studio - ASP.NET Core 10.0 running locally." lightbox="media/quickstart-dotnetcore/web-app-net-10.png" border="true":::
+   :::image type="content" source="media/quickstart-dotnetcore/web-app-net-10.png" alt-text="Screenshot of Visual Studio - ASP.NET Core 10.0 running locally." lightbox="media/quickstart-dotnetcore/web-app-net-10.png" border="true":::
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
