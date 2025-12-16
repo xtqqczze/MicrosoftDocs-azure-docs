@@ -28,7 +28,10 @@ The extension is supported on the following platforms:
 - Windows Subsystem for Linux (WSL)
 - Windows
 
-To learn more about graphs and WASM in Azure IoT Operations, see [Use data flow graph with WebAssembly (WASM) modules](../connect-to-cloud/howto-dataflow-graph-wasm.md).
+To learn more about graphs and WASM in Azure IoT Operations, see:
+
+- [Use a data flow graph with WebAssembly modules](../connect-to-cloud/howto-dataflow-graph-wasm.md)
+- [Transform incoming data with WebAssembly modules](../discover-manage-assets/howto-use-http-connector.md#transform-incoming-data)
 
 ## Prerequisites
 
