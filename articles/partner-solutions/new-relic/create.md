@@ -20,8 +20,8 @@ Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
 1. In the Azure portal, in the search box, enter **Marketplace**. Select **Marketplace**. 
 1. In the Marketplace search box, enter **New Relic**.
-1. Select the **New Relic Observability Platform - Private Offers** card.
-1. On the **New Relice Observability Platform - Private Offers** page, select **Subscribe**.
+1. Select the **Azure Native New Relic Service: New Relic Azure** card.
+1. On the **Azure Native New Relic Service: New Relic Cloud Monitoring** page, select **Subscribe**.
 
 ### Basics tab
 
