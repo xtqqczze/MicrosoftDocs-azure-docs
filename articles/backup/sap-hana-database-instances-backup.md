@@ -17,7 +17,7 @@ Azure Backup now performs an SAP HANA storage snapshot-based backup of an entire
 
 
 >[!Note]
->- The Snapshot backups can now be stored in Recovery Services Vault by using "Enhanced(Preview)" backup policy for HANA Snapshot backup. This provides all the vault level features like Immutability, Soft-delete, cross-region restore etc. for Snapshot backups for HANA while also ensuring faster restores from "instant" tier. 
+>- You can now store the Snapshot backups in a Recovery Services vault by using **Enhanced backup policy (preview)** for HANA Snapshot backup. This provides all the vault level features, such as Immutability, Soft-delete, cross-region restore, and more, for SAP HANA snapshot backups. This policy also ensures faster restores from **instant tier**.
 >- For pricing, as per SAP advisory, you must do a weekly full backup + logs streaming/Backint based backup so that the existing protected instance fee and storage cost are applied. For snapshot backup, the snapshot data created by Azure Backup is saved in your storage account and incurs snapshot storage charges. Thus, in addition to streaming/Backint backup charges, you're charged for per GB data stored in your snapshots, which is charged separately. Learn more about [Snapshot pricing](https://azure.microsoft.com/pricing/details/managed-disks/) and [Streaming/Backint based backup pricing](https://azure.microsoft.com/pricing/details/backup/?ef_id=_k_CjwKCAjwp8OpBhAFEiwAG7NaEsaFZUxIBD-FH1IUIfF-7yZRWAYJSMHP67InGf0drY0X2Km71KOKDBoCktgQAvD_BwE_k_&OCID=AIDcmmf1elj9v5_SEM__k_CjwKCAjwp8OpBhAFEiwAG7NaEsaFZUxIBD-FH1IUIfF-7yZRWAYJSMHP67InGf0drY0X2Km71KOKDBoCktgQAvD_BwE_k_&gclid=CjwKCAjwp8OpBhAFEiwAG7NaEsaFZUxIBD-FH1IUIfF-7yZRWAYJSMHP67InGf0drY0X2Km71KOKDBoCktgQAvD_BwE).
 
 
