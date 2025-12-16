@@ -12,7 +12,7 @@ ms.author: v-mallicka
 
 # Enhanced soft delete for Azure Backup
 
-You can use [soft delete](backup-azure-security-feature-cloud.md) for Azure Backup to recover your backup data after it's deleted. This feature is useful when:
+[Soft delete](backup-azure-security-feature-cloud.md) for Azure Backup enables the recovery of your backup data even after the data is deleted. This feature is useful when:
 
 - You accidentally deleted backup data and you need it back.
 - Ransomware or bad actors maliciously deleted backup data.
