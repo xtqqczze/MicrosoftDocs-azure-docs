@@ -766,7 +766,7 @@ Make a change the default page and redeploy to see the changes.
 
    You see the updated ASP.NET Core 10.0 web app displayed in the page.
 
-   :::image type="content" source="media/quickstart-dotnetcore/portal-updated-dotnet-7.png" lightbox="media/quickstart-dotnetcore/portal-updated-dotnet-7.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 10.0 web app in Azure.":::
+   :::image type="content" source="media/quickstart-dotnetcore/updated-azure-web-app-net.png" lightbox="media/quickstart-dotnetcore/updated-azure-web-app-net.png" border="true" alt-text="Screenshot of the CLI - Updated ASP.NET Core 10.0 web app in Azure.":::
 
    ### [.NET Framework 4.8](#tab/netframework48)
 
