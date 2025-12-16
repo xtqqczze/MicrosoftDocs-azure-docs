@@ -20,7 +20,7 @@ This article provides an overview of how MQTT Retain works, its billing implicat
 
 ## Billing
 
-Each retained publishes operation counts as two MQTT operations: one for processing the message, and one for storing it.
+Each retained publish is counted as two MQTT operations: one for processing the message, and one for storing it.
 
 ## Storage limits
 
@@ -87,27 +87,24 @@ Authorization: Bearer <YOUR ENTRA TOKEN HERE>
 Host: <YOUR BROKER URL HERE>
 ```
 
-**Notes**
-Notes
-- topicFilter supports wildcards (for example, `factory/+/state, sensors/#`).
-- continuationToken is mutually exclusive with topicFilter. Use it to continue from a previous page.
-- maxResults bounds the page size (1–100).
+- `topicFilter` supports wildcards (for example, `factory/+/state, sensors/#`).
+- `continuationToken` is mutually exclusive with topicFilter. Use it to continue from a previous page.
+- `maxResults` bounds the page size (1–100).
 
 **Response (JSON)**:
 
 ```json
-Response (JSON)
 {
-  "nextLink": <NULL OR URL HERE>,
-  "retainedMessages": [
-    {
-      "topic": <SOME TOPIC>,
-      "qos": <SOME QOS>,
-      "size": <FULL MQTT MESSAGE SIZE>,
-      "expiry": <TIME STAMP>,
-      "lastModifiedTime": <TIME STAMP>
-    }
-  ]
+    "nextLink": "<NULL OR URL HERE>",
+    "retainedMessages": [
+        {
+            "topic": "<SOME TOPIC>",
+            "qos": "<SOME QOS>",
+            "size": "<FULL MQTT MESSAGE SIZE>",
+            "expiry": "<TIME STAMP>",
+            "lastModifiedTime": "<TIME STAMP>"
+        }
+    ]
 }
 ```
 
