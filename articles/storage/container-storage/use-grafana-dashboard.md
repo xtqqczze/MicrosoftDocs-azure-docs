@@ -25,9 +25,16 @@ Azure Managed Grafana includes managed dashboards that are pre-provisioned and a
 Follow these steps to use the default Azure Container Storage Grafana dashboard in the Azure portal.
 
 1. Sign in to the Azure portal and navigate to your AKS Cluster.
+
 1. Under **Monitoring**, select **Dashboards with Grafana**.
+
+   :::image type="content" source="media/use-grafana-dashboard/open-dashboard.png" alt-text="Screenshot showing how to find the default Azure Container Storage Grafana dashboard in the Azure portal." lightbox="media/use-grafana-dashboard/open-dashboard.png":::
+
 1. Browse the list of available dashboards and select **Azure Container Storage v2** under **Azure Managed Prometheus**.
-1. Select the **Azure Container Storage v2** dashboard.
+
+1. After you select the **Azure Container Storage v2** dashboard, you should see the dashboard overview.
+
+   :::image type="content" source="media/use-grafana-dashboard/dashboard-overview.png" alt-text="Screenshot showing the default Azure Container Storage Grafana dashboard overview page in the Azure portal." lightbox="media/use-grafana-dashboard/dashboard-overview.png":::
 
 ## Open Azure Container Storage dashboard using linked Grafana instances
 
