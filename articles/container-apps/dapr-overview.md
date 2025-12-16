@@ -70,7 +70,7 @@ To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dap
 
 | Operational API                                              | Status | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [**Health**][dapr-health] | GA | Health check probes that monitor readiness or liveness of Dapr and initialization readiness of SDKs. The health API is only available for HTTP.                                     |
+| [**Health**][dapr-health] | GA | Health check probes that monitor readiness or liveness of Dapr and initialization readiness of SDKs. The health API is only available for HTTP.<br>Dapr sidecar health checks are automatically configured when Dapr is enabled on your container app.                                    |
 | [**Metadata**][dapr-metadata]                | GA | Returns information about the sidecar, allowing runtime discoverability.                                                                                    |
 
 
