@@ -839,13 +839,7 @@ To configure your project to work with SDK types:
 
   :::code language="typescript" source="~/functions-node-sdk-bindings-blob/blobClientSdkBinding/src/index.ts" :::
 
-This example shows how to get the BlobClient from both a Storage Blob trigger and from the input binding on an HTTP trigger:
-
-:::code language="typescript" source="~/functions-node-sdk-bindings-blob/blobClientSdkBinding/src/functions/storageBlobTrigger.ts" :::
-
-This example shows how to get the `ContainerClient` from both a Storage Blob input binding using an HTTP trigger:
-
-:::code language="typescript" source="~/functions-node-sdk-bindings-blob/containerClientInputBinding/src/functions/listBlobs.ts" :::
+[!INCLUDE [functions-blob-storage-sdk-types-node](../../includes/functions-blob-storage-sdk-types-node.md)]
 
 Keep these considerations in mind when working with SDK types:
 
@@ -865,7 +859,7 @@ for more examples on how to incorporate SDK Bindings for Blob into your function
 
 #### Azure Service Bus
 
-
+[!INCLUDE [functions-service-bus-sdk-types-node-ts](../../includes/functions-service-bus-sdk-types-node-ts.md)]
 
 ::: zone-end
 

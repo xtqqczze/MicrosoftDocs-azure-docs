@@ -238,12 +238,7 @@ For more information, see [SDK types](dotnet-isolated-process-guide.md#sdk-types
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-| Extension | Types | Support level |
-| ----- | ----- | ----- |
-| [Azure Blob Storage](functions-bindings-storage-blob.md) | `BlobClient`<br/>`ContainerClient`<br/>`StorageStreamDownloader` | GA |
-| [Azure Cosmos DB](functions-bindings-cosmosdb-v2.md) | `CosmosClient`<br/>`DatabaseProxy`<br/>`ContainerProxy` | Preview |
-| [Azure Event Hubs](functions-bindings-event-hubs.md) | `EventData`<br/>`EventHubProducerClient` | Preview |
-| [Azure Service Bus](functions-bindings-service-bus.md) | `ServiceBusClient`<br/>`ServiceBusReceiver`<br/>`ServiceBusSender`<br/>`ServiceBusMessage` | Preview |
+[!INCLUDE [functions-sdk-types-python](../../includes/functions-sdk-types-python.md)]
 
 SDK types are supported only when using the Python v2 programming model. For more information, see [SDK types](./functions-reference-python.md#sdk-types) in the Python developer guide.
 ::: zone-end 
