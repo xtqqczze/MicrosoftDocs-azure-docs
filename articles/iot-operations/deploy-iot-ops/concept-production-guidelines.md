@@ -47,7 +47,7 @@ Consider the following measures to ensure your cluster setup is secure before de
 
 ### Networking
 
-If you use enterprise firewalls or proxies, add the [Azure IoT Operations endpoints](./overview-deploy.md#azure-iot-operations-endpoints) to your allowlist.
+If you use enterprise firewalls or proxies, add the [Azure IoT Operations endpoints](./overview-deploy.md#azure-iot-operations-endpoints) to your allow list.
 
 ### Observability
 
