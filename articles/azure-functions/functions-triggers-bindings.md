@@ -225,14 +225,7 @@ This table indicates binding extensions that currently support SDK types:
 
 ::: zone pivot="programming-language-csharp"
 
-| Extension | Types | Support level |
-| ----- | ----- | ----- |
-| [Azure Blob Storage](functions-bindings-storage-blob.md) | `BlobClient`<br/>`BlobContainerClient`<br/>`BlockBlobClient`<br/>`PageBlobClient`<br/>`AppendBlobClient` | GA |
-| [Azure Cosmos DB](functions-bindings-cosmosdb-v2.md) | `CosmosClient`<br/>`Database`<br/>`Container` | GA |
-| [Azure Event Hubs](functions-bindings-event-hubs.md) | `EventData`<br/>`EventHubProducerClient` | GA |
-| [Azure Queue Storage](functions-bindings-storage-queue.md) | `QueueClient`<br/>`QueueMessage` | GA |
-| [Azure Service Bus](functions-bindings-service-bus.md) | `ServiceBusClient`<br/>`ServiceBusReceiver`<br/>`ServiceBusSender`<br/>`ServiceBusMessage` | GA |
-| [Azure Table Storage](functions-bindings-storage-table.md) | `TableClient`<br/>`TableEntity` | GA |
+[!INCLUDE [functions-sdk-types-dotnet-isolated](../../includes/functions-sdk-types-dotnet-isolated.md)]
 
 For more information, see [SDK types](dotnet-isolated-process-guide.md#sdk-types) in the C# developer guide.
 ::: zone-end
