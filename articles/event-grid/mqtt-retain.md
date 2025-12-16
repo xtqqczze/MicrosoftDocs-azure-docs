@@ -70,7 +70,7 @@ az account get-access-token --resource=https://eventgrid.azure.net --query acces
 
 ```bash
 GET /mqtt/retainedMessages/message?topic=<YOUR ENCODED TOPIC HERE>&api-version=2025-11-16-preview HTTP/1.1
-Authorization: Bearer <YOUR ENTRA TOKEN HERE>
+Authorization: Bearer YOURENTRAOKEN
 Host: <YOUR Event Grid MQTT BROKER URL HERE>
 ```
 
@@ -88,7 +88,7 @@ Host: <YOUR Event Grid MQTT BROKER URL HERE>
 
 ```bash
 GET /mqtt/retainedMessages?topicFilter=<YOUR ENCODED TOPIC FILTER HERE>&continuationToken=<MUTUALLY EXCLUSIVE WITH TOPIC FILTER>&maxResults=<1-100>&api-version=2025-11-16-preview HTTP/1.1
-Authorization: Bearer <YOUR ENTRA TOKEN HERE>
+Authorization: Bearer YOURENTRAOKEN
 Host: <YOUR Event Grid MQTT BROKER URL HERE>
 ```
 
@@ -125,11 +125,11 @@ URL-encoding helper
 
 ```bash
 BROKER="<YOUR BROKER URL HERE>"  # e.g. contoso.westus.ts.eventgrid.azure.net
-TOKEN="<YOUR TOKEN HERE>"
+ENTRATOKEN="<YOUR TOKEN HERE>"
 TOPIC_ENC="factory%2Fline1%2Fcell17%2Fstate"
 
 curl -i \
-  -H "Authorization: Bearer $TOKEN" \
+  -H "Authorization: Bearer $ENTRATOKEN" \
   "https://$BROKER/mqtt/retainedMessages/message?topic=$TOPIC_ENC&api-version=2025-11-16-preview"
 ```
 
@@ -151,11 +151,11 @@ content-type: application/octet-stream
 
 ```bash
 BROKER="<YOUR BROKER URL HERE>"
-TOKEN="<YOUR TOKEN HERE>"
+ENTRATOKEN="<YOUR TOKEN HERE>"
 FILTER_ENC="factory%2Fline1%2F%2B%2Fstate"
 
 curl -sS \
-  -H "Authorization: Bearer $TOKEN" \
+  -H "Authorization: Bearer $ENTRATOKEN" \
   "https://$BROKER/mqtt/retainedMessages?topicFilter=$FILTER_ENC&maxResults=50&api-version=2025-11-16-preview"
 ```
 
@@ -188,7 +188,7 @@ curl -sS \
 ```bash
 NEXT_LINK="<PASTE NEXTLINK FROM PRIOR CALL>"
 
-curl -sS -H "Authorization: Bearer $TOKEN" "$NEXT_LINK"
+curl -sS -H "Authorization: Bearer $ENTRATOKEN" "$NEXT_LINK"
 ```
 
 ### Behavior, limits, and performance 
