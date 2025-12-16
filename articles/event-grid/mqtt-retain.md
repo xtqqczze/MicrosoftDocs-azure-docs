@@ -65,7 +65,7 @@ az account get-access-token --resource=https://eventgrid.azure.net --query acces
 
 ```bash
 GET /mqtt/retainedMessages/message?topic=<YOUR ENCODED TOPIC HERE>&api-version=2025-11-16-preview HTTP/1.1
-Authorization: Bearer <YOUR TOKEN HERE>
+Authorization: Bearer <YOUR ENTRA TOKEN HERE>
 Host: <YOUR Event Grid MQTT BROKER URL HERE>
 ```
 
@@ -84,7 +84,7 @@ Host: <YOUR Event Grid MQTT BROKER URL HERE>
 ```bash
 GET /mqtt/retainedMessages?topicFilter=<YOUR ENCODED TOPIC FILTER HERE>&continuationToken=<MUTUALLY EXCLUSIVE WITH TOPIC FILTER>&maxResults=<1-100>&api-version=2025-11-16-preview HTTP/1.1
 Authorization: Bearer <YOUR ENTRA TOKEN HERE>
-Host: <YOUR BROKER URL HERE>
+Host: <YOUR Event Grid MQTT BROKER URL HERE>
 ```
 
 - `topicFilter` supports wildcards (for example, `factory/+/state, sensors/#`).
