@@ -33,6 +33,12 @@ items:
             - name: Command line
               href: deploy-artifact.md
               displayName: java
+        - name: Deploy Functions
+          items:
+            - name: Azure portal
+              href: functions-usage.md#azure-portal
+            - name: Command line
+              href: functions-usage.md#azure-cli
         - name: Run a job
           items:
             - name: Azure portal
