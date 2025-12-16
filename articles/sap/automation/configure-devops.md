@@ -33,7 +33,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
 
 ```powershell
     # Azure DevOps Configuration
-    $AzureDevOpsOrganizationUrl = ""https://dev.azure.com/ORGANIZATIONNAME"
+    $AzureDevOpsOrganizationUrl = "https://dev.azure.com/ORGANIZATIONNAME"
 
     # Azure Infrastructure Configuration
     $ControlPlaneCode = "MGMT"
@@ -45,7 +45,6 @@ Open PowerShell ISE and copy the following script and update the parameters to m
     $AzureDevOpsProjectName = "SDAF-" + $ControlPlaneCode + "-" + $ControlPlaneRegionCode
     
     $ControlPlaneSubscriptionId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    $ControlPlaneSubscriptionId = "zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz"
     $TenantId = "yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
     
     # Service Account Credentials (Consider using secure methods instead)
@@ -119,7 +118,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
 
 ```powershell
     # Azure DevOps Configuration
-    $AzureDevOpsOrganizationUrl = ""https://dev.azure.com/ORGANIZATIONNAME"
+    $AzureDevOpsOrganizationUrl = "https://dev.azure.com/ORGANIZATIONNAME"
 
     # Azure Infrastructure Configuration
     $ControlPlaneCode = "MGMT"
@@ -136,7 +135,7 @@ Open PowerShell ISE and copy the following script and update the parameters to m
 
     $WorkloadCode = "TEST"
     $WorkloadRegionCode = "SECE"
-    $WorkloadZoneCode = $WorkloadPlaneCode + "-" + $WorkloadPlaneRegionCode + "-SAP01"
+    $WorkloadZoneCode = $WorkloadCode + "-" + $WorkloadRegionCode + "-SAP01"
 
     Remove-Module SDAFUtilities -ErrorAction SilentlyContinue
     # Import required modules
