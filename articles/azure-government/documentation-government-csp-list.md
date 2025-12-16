@@ -413,7 +413,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Sundance Systems Inc.](https://www.sundance-sys.com)|
 |[SWC Technology Partners (BDO USA)](https://www.bdo.com/)|
 |[Sybatech, Inc. (Codepal Toolkit)](https://www.codepaltoolkit.com)|
-|[SyCom Technologies](https://intervision.com/solutions/)|
+|[SyCom Technologies](https://intervision.com/)|
 |[Syndo LLC](https://www.syndo.llc/)|
 |[Synergy Technical, LLC](https://www.synergy-technical.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
