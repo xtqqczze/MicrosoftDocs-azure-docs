@@ -1,6 +1,6 @@
 ---
 title: Remove Azure Container Storage
-description: Remove Azure Container Storage by deleting the extension instance for Azure Kubernetes Service (AKS). Optionally delete the AKS cluster or entire resource group to clean up resources.
+description: Remove Azure Container Storage by deleting the extension instance for Azure Kubernetes Service (AKS). To clean up resources, optionally delete the AKS cluster or entire resource group.
 author: khdownie
 ms.service: azure-container-storage
 ms.date: 09/10/2025
@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Remove Azure Container Storage
 
-This article shows you how to remove Azure Container Storage by deleting the extension instance for Azure Kubernetes Service (AKS). Optionally, you can also delete the AKS cluster or entire resource group to clean up resources.
+This article shows you how to remove Azure Container Storage by deleting the extension instance for Azure Kubernetes Service (AKS). To clean up resources, you can also delete the AKS cluster or entire resource group.
 
 > [!IMPORTANT]
 > This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). If you have Azure Container Storage (version 1.x.x) installed on your AKS cluster, remove it by following [these steps](remove-container-storage-version-1.md).
@@ -33,7 +33,7 @@ Follow these steps to remove Azure Container Storage from your AKS cluster.
 If you provisioned Azure Container Storage with Terraform, remove the corresponding extension resource from your configuration and apply the change so the result matches the CLI workflow.
 
 1. Delete the `azurerm_kubernetes_cluster_extension` block (or set `count = 0`) in your Terraform configuration and save the file.
-1. Review the plan to confirm Terraform will destroy only the extension resource.
+1. Review the plan to confirm Terraform destroys only the extension resource.
 
     ```bash
     terraform plan
@@ -53,13 +53,13 @@ To delete an AKS cluster and all persistent volumes, run the following Azure CLI
 az aks delete --resource-group <resource-group> --name <cluster-name>
 ```
 
-If the AKS cluster was created with Terraform, you can also remove it by running:
+If the AKS cluster was created with Terraform, you can also remove it by running the following command.
 
 ```bash
 terraform destroy
 ```
 
-This command deletes every resource Terraform manages in the current working directory (for example, the cluster, resource group, and Azure Container Storage extension) so only run it when you intend to remove the entire deployment.
+This command deletes all resources that Terraform manages in the current working directory. This includes the cluster, the resource group, and the Azure Container Storage extension. Run this command only when you intend to remove the entire deployment.
 
 ## Delete resource group
 
