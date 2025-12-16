@@ -1,7 +1,7 @@
 ---
 title: Azure Event Grid’s MQTT broker feature - Monitor data reference
 description: This article provides reference documentation for metrics and diagnostic logs for Azure Event Grid’s MQTT broker feature.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom:
   - build-2023
   - ignite-2023

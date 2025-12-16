@@ -198,7 +198,7 @@ curl -sS -H "Authorization: Bearer $TOKEN" "$NEXT_LINK"
 - Paging: follow nextLink until null. Don't mix topicFilter with continuationToken.
 - Throttling: Standard platform throttles might apply (429). Use retry with backoff.
 
-###Error handling & troubleshooting
+### Error handling & troubleshooting
 
 - 400 Bad Request: malformed or missing topic / topicFilter; provided both topicFilter and continuationToken.
 - 401 Unauthorized: invalid/expired token or wrong audience.
