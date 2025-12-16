@@ -75,7 +75,7 @@ There are significant breaking changes in version 2.0.0. Users looking to migrat
 ### Improvements and issues that are fixed
 
 - **Bug fixes and recovery improvements**: We made important updates to make etcd recovery stable and reliable. Now, the process includes enhanced retries making cluster restoration smoother and easier to manage. We fixed bugs in Azure Disks and Azure Elastic SAN storage pool creation and addressed upgrade failures caused by Kubernetes job name length limits. To improve reliability, this release fixes a failure during Azure Container Storage extension installation with Azure Elastic SAN. The issue was caused by a missing etcd certificate. Now, etcd components are only deployed when needed.
-- **Expanded platform compatibility and scheduling fixes**: To improve scheduling accuracy, this release ensures Azure Container Storage pods are no longer placed on Windows nodes in mixed OS clusters. We fixed this by enforcing node affinity rules. Additionally, we added support for Elastic SAN on Azure Linux 3.0 nodes.
+- **Expanded platform compatibility and scheduling fixes**: To improve scheduling accuracy, this release ensures Azure Container Storage pods are no longer placed on Windows nodes in mixed OS clusters. We fixed this issue by enforcing node affinity rules. Additionally, we added support for Elastic SAN on Azure Linux 3.0 nodes.
 - **Safeguards to prevent storage pool deletion**: Measures are implemented to prevent the deletion of storage pools with existing persistent volumes when created through custom storage classes.
   
 ## Version 1.3.0
