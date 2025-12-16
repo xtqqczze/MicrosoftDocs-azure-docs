@@ -35,7 +35,6 @@ A recovery point becomes archivable only if all the above conditions are met.
 > [!CAUTION]
 > Archive tier is not supported on vaults configured with ZRS storage.
 
-
 ### Supported clients
 
 Archive tier supports the following clients:
