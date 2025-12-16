@@ -97,7 +97,7 @@ Follow these guidelines when choosing a virtual machine type for the cluster nod
 Choose the scenario that matches your environment.
 
 > [!IMPORTANT]
-> Azure Container Storage automatically installs and maintains the latest available version. Manual version selection is not supported.
+> Azure Container Storage installs the latest available version and updates itself automatically. Manual version selection is not supported.
 
 ### Option 1: Creating a new AKS cluster with Azure Container Storage enabled
 
@@ -154,7 +154,7 @@ Follow these guidelines when choosing a virtual machine type for the cluster nod
 Choose the scenario that matches your environment.
 
 > [!IMPORTANT]
-> Azure Container Storage automatically installs and maintains the latest available version. Manual version selection is not supported.
+> Azure Container Storage installs the latest available version and updates itself automatically. Manual version selection is not supported.
 
 ### Option 1: Creating a new AKS cluster with Azure Container Storage enabled
 
