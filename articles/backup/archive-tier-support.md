@@ -103,17 +103,9 @@ The recovery point will remain in archive forever. For more information, see [Im
 
 ### Is Cross Region restore supported from archive tier?
 
-<<<<<<< HEAD
 No. Cross‑Region Restore (CRR) from Archive‑tier recovery points - including recovery points that have been rehydrated into Standard tier during restore. When a recovery point is restored from Archive tier, it is temporarily rehydrated into Standard tier for use *only within the source region*.  
 Rehydration does not make the recovery point eligible for Cross‑Region Restore. CRR validation requires metadata markers that are not preserved after rehydration, and attempting CRR from rehydrated Archive RPs may fail.  
-To perform Cross‑Region Restore, use a Recovery Point that resides in Standard tie
-=======
-
-No. Cross‑Region Restore (CRR) from Archive‑tier recovery points - including recovery points that have been rehydrated into Standard tier during restore. When a recovery point is restored from Archive tier, it is temporarily rehydrated into Standard tier for use *only within the source region*.  
-Rehydration does not make the recovery point eligible for Cross‑Region Restore. CRR validation requires metadata markers that are not preserved after rehydration, and attempting CRR from rehydrated Archive RPs may fail.  
-To perform Cross‑Region Restore, use a Recovery Point that resides in Standard tie
-
->>>>>>> 595cbb0f7e6ee3c4f0e7988e62059611c5548d5e
+To perform Cross‑Region Restore, use a Recovery Point that resides in Standard tier.
 
 ### I can see eligible recovery points for my Virtual Machine, but I can't seeing any recommendation. What can be the reason?
 
