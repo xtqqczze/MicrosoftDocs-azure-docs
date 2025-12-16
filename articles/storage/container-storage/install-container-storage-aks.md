@@ -20,7 +20,7 @@ If you prefer the open-source version of Azure Container Storage, visit the [loc
 > [!IMPORTANT]
 > This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). For earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md). If you already have Azure Container Storage (version 1.x.x) installed on your AKS cluster, remove it by following [these steps](remove-container-storage-version-1.md).
 
-::: zone pivot="azure-CLI"
+::: zone pivot="azure-cli"
 
 > [!div class="checklist"]
 > * Prepare your Azure CLI environment
