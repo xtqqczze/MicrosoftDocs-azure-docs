@@ -93,7 +93,7 @@ There are required fields (identified with a red asterisk) in each section that 
 
     | Field              | Action                                    |
     |--------------------|-------------------------------------------|
-    |     Subscription   |  Selct the subscription that contains the resources that you want to monitor.   |
+    |     Subscription   |  Select the subscription that contains the resources that you want to monitor.   |
     |Resource group|Use an existing resource group or create a new one.| 
 
 1. Enter the values for each required setting under *Azure resource details*.
