@@ -43,6 +43,18 @@ landingContent:
           - text: Implement Azure network security
             url: https://mslearn.cloudguides.com/guides/Azure%20network%20security
 
+  # Card  
+  - title: Get started
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Virtual Network?
+            url: ../../virtual-network/virtual-networks-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a virtual network
+            url: ../../virtual-network/quick-create-portal.md
+            
   # Card
   - title: Secure your network
     linkLists:
@@ -85,18 +97,6 @@ landingContent:
           - text: How to block network traffic with Azure Virtual Network Manager
             url: ../../virtual-network-manager/how-to-block-network-traffic-portal.md
 
-  # Card  
-  - title: Get started
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Virtual Network?
-            url: ../../virtual-network/virtual-networks-overview.md
-      - linkListType: quickstart
-        links:
-          - text: Create a virtual network
-            url: ../../virtual-network/quick-create-portal.md
-  
   # Card  
   - title: Communicate to the internet
     linkLists:
