@@ -91,8 +91,23 @@ There are required fields (identified with a red asterisk) in each section that 
 
 1. Enter the values for each required setting under *Project details*.
 
-<!--
-what happens? now we document the previous expereince of creating the Azure resource? 
+    | Field              | Action                                    |
+    |--------------------|-------------------------------------------|
+    |     Subscription   |  Selct the subscription that contains the resources that you want to monitor.   |
+    |Resource group|Use an existing resource group or create a new one.| 
+
+1. Enter the values for each required setting under *Azure resource details*.
+
+    | Field              | Action                                    |
+    |--------------------|-------------------------------------------|
+    |    Resource name   |  Enter a name for the Azure resource.    |
+    |Region|Select the region in which to create the resource.| 
+
+1. Enter the value for the required setting under *New Relic account details*.
+
+    | Field              | Action                                    |
+    |--------------------|-------------------------------------------|
+    |   Organization    |Select **Create new** or **Associate with existing**.       |
 
 ### Metrics and logs tab (optional)
 
@@ -114,8 +129,6 @@ After you finish configuring metrics and logs, select **Next**.
 ### Review + create tab
 
 [!INCLUDE [review-create](../includes/review-create.md)]
-
--->
 
 ## Next steps
 
