@@ -4,7 +4,7 @@ description: Explore the differences between custom images and formulas as virtu
 ms.topic: concept-article
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/04/2025
+ms.date: 12/15/2025
 ms.custom: UpdateFrequency2
 
 #customer intent: As a developer, I want to know the differences between custom images and formulas as VM bases so I can choose the best approach for my environment.
@@ -39,5 +39,3 @@ Formulas can also define default settings that custom images can't specify, such
 - [Create lab VMs in Azure DevTest Labs](devtest-lab-add-vm.md)
 - [Create a custom image from a VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
 - [Manage Azure DevTest Labs formulas](devtest-lab-manage-formulas.md)
-
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
