@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom:
   - build-2023
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 12/16/2025
 ms.subservice: mqtt
 ---
 
@@ -31,7 +31,8 @@ This article provides a reference of log and metric data collected to analyze th
 | Mqtt.FailedRoutedMessages | MQTT: Failed Routed Messages | Count | Total | The number of MQTT messages that failed to be routed from the namespace. | Error |
 | MQTT.Connections | MQTT: Active Connections | Count | Total | The number of active connections in the namespace. The value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time might not be reflected in the metric. | Protocol |
 | Mqtt.DroppedSessions | MQTT: Dropped Sessions | Count | Total | The number of dropped sessions in the namespace.  The value for this metric is a point-in-time value. Sessions that were dropped immediately after that point-in-time might not be reflected in the metric. | DropReason |
-
+| Mqtt.SuccessfulConnectLatencyInMilliseconds	| MQTT: Successful Connect Latency | Milliseconds	| Total	| The observed latency in milliseconds between the time namespace receives an MQTT CONNECT packet and the time it sends the corresponding CONNACK response to the client. This metric includes both successful and failed connection attempts. | Protocol, Result, Error |
+| Mqtt.SuccessfulPublishLatencyInMilliseconds	| Mqtt.SuccessfulPublishLatencyInMilliseconds |	Milliseconds | Total | The observed latency in milliseconds between the time namespace receives an MQTT PUBLISH packet at QoS 1 and the time it sends the corresponding PUBACK acknowledgement to the client. QoS 0 messages aren’t included in this metric. | Protocol, QoS, Result, Error |
 
 
 > [!NOTE]
