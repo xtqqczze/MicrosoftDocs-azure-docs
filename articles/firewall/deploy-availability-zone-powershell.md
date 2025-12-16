@@ -26,7 +26,7 @@ For more information about Azure Firewall Availability Zones, see [Azure Firewal
 
 Azure Firewall can be configured to use Availability Zones during deployment to enhance availability and reliability. This configuration can be performed using the Azure portal, Azure PowerShell, or other deployment methods.
 
-### Using the Azure Portal
+### Using Azure portal
 
 - By default, the Azure portal does not provide an option to select specific Availability Zones when creating a new Azure Firewall. Azure Firewall is deployed as Zone Redundant by default, adhering to zone redundancy requirements.
 
