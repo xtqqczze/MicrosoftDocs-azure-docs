@@ -5,7 +5,7 @@ description: Create multiple virtual machines in platform-as-a-service (PaaS) en
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 12/11/2025
+ms.date: 12/16/2025
 ms.custom:
   - engagement-fy23
   - devx-track-azurepowershell
@@ -89,7 +89,7 @@ To disallow access to specific environment templates:
 
 1. Select **Save**.
 
-:::image type="content" source="media/devtest-lab-create-environment-from-arm/select-public-environments.png" alt-text="Screenshot that shows how to deselect public environment repositories for a lab to disable access for users." lightbox="media/devtest-lab-create-environment-from-arm/select-public-environments-large.png":::
+:::image type="content" source="media/devtest-lab-create-environment-from-arm/select-public-environments.png" alt-text="Screenshot that shows how to deselect public environment repositories for a lab to disable access for users." lightbox="media/devtest-lab-create-environment-from-arm/select-public-environments.png":::
 
 <a name="configure-environment-user-rights"></a>
 ## Configure environment user permissions
