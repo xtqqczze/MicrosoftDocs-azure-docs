@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure Networking Fundamentals documentation 
-summary: Azure networking services enable you to access connect Azure resources and on-premises resources, protect, deliver, and monitor your applications in the Azure network.
+summary: Azure networking services enable you to securely connect, access, and manage Azure resources and on-premises infrastructure, while protecting, delivering, and monitoring applications across Azure's global network infrastructure.
 metadata:
   title: Azure Networking Fundamentals Documentation
-  description: Learn about networking services in Azure that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, help protect your network resources, scale application delivery, and help monitor your network.
+  description: Learn about Azure networking services that enable you to securely connect, access, and manage Azure resources and on-premises infrastructure, while protecting, delivering, and monitoring applications across Azure's global network infrastructure.
   ms.service: azure-virtual-network
   ms.topic: landing-page
   ms.collection: collection
   author: mbender-ms
   ms.author: mbender
-  ms.date: 12/10/2025
+  ms.date: 12/17/2025
   ms.custom: engagement-fy23
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
