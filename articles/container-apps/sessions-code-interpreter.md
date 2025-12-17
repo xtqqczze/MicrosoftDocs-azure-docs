@@ -82,7 +82,7 @@ File names must use only the following supported characters:
 - Uppercase and lowercase letters: `A-Z`, `a-z`
 - Digits: `0-9`
 - Special characters: `-`, `_`, `.`, `@`, `$`, `&`, `=`, `;`, `,`, `#`, `%`, `^`, `(`, `)`
-- Unicode language characters
+- Unicode characters: Includes Chinese, Japanese, and other international characters
 
 ### Upload a file
 
