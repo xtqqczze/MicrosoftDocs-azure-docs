@@ -747,8 +747,8 @@ Make a change the default page and redeploy to see the changes.
    :::image type="content" source="media/quickstart-dotnetcore/visual-studio-code-in-browser-commit-push-dotnet-framework.png" alt-text="Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'We love Azure' and the Commit and Push button highlighted.":::
    -----
 
-   > [!TIP]
-   > Let GitHub Copilot create a commit message for you by selecting :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: in the message box.
+    > [!TIP]
+    > Let GitHub Copilot create a commit message for you by selecting :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: in the message box.
 
 1. Select **Sync changes 1**, then confirm by selecting **OK**.
 
