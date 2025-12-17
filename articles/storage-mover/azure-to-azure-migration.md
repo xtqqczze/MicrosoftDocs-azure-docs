@@ -50,7 +50,8 @@ Follow the steps in this section to configure an Azure Blob container source and
     - Optionally, provide a description for the endpoint in the **Description** field.
     - Verify that your selections are correct and select **Create** to create the endpoint as shown in the following image.
 
-:::image type="content" source="media/azure-to-azure-migration/endpoint-source-create.png" alt-text="A screen capture showing the Endpoints page containing the Create Source Endpoint pane with required fields displayed.":::
+:::image type="content" source="media/azure-to-azure-migration/endpoint-source-create.png" alt-text="A screen capture showing the Endpoints page containing the Create Source Endpoint pane with required fields displayed." lightbox="media/azure-to-azure-migration/endpoint-source-create.png":::
+      
 
 ### [Azure PowerShell](#tab/powershell)
 
