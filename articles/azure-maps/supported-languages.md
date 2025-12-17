@@ -132,7 +132,6 @@ Azure Maps offers localization in a wide range of languages across its various s
 | ca             | Catalan Spanish                            | ✓      | ✓            | ✓      |       |         |             |
 | ku-Arab        | Central Kurdish                            | ✓      | ✓            | ✓      |       |         |             |
 | chr            | Cherokee                                   |        | ✓            | ✓      |       |         |             |
-| zh             | Chinese                                    |        |              | ✓      |       |         |             |
 | zh-Hans        | Chinese (Simplified)                       |        |              | ✓      |       |         |             |
 | zh-Hant        | Chinese (Traditional)                      | ✓      |              |        |       |         |             |
 | zh-HanT-TW     | Chinese (Traditional, Taiwan)              | ✓      |              |        | ✓     |         | ✓           |
@@ -143,7 +142,6 @@ Azure Maps offers localization in a wide range of languages across its various s
 | nl             | Dutch                                      |        |              | ✓      |       |         |             |
 | nl-BE          | Dutch (Belgium)                            | ✓      |              |        |       |         |             |
 | nl-NL          | Dutch (Netherlands)                        | ✓      | ✓            |        | ✓     | ✓       | ✓           |
-| en             | English                                    |        |              | ✓      |       |         |             |
 | en-NZ          | English (New Zealand)                      |        |              |        |       | ✓       |             |
 | en-GB          | English (United Kingdom)                   | ✓      | ✓            | ✓      | ✓     | ✓       | ✓           |
 | en-US          | English (United States)                    | ✓      | ✓            | ✓      | ✓     | ✓       | ✓           |
