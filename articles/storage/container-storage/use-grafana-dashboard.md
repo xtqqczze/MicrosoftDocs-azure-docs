@@ -3,7 +3,7 @@ title: Use Grafana Dashboards with Azure Container Storage
 description: Learn how to use the default dashboard for Azure Container Storage in Azure Managed Grafana for monitoring with Azure Monitor.
 author: khdownie
 ms.service: azure-container-storage
-ms.date: 12/16/2025
+ms.date: 12/17/2025
 ms.author: kendownie
 ms.topic: how-to
 # Customer intent: "As a Kubernetes administrator, I want to understand how to use the default dashboard for Azure Container Storage in Azure Managed Grafana for monitoring with Azure Monitor."
@@ -15,12 +15,12 @@ ms.topic: how-to
 
 ## Prerequisites
 
-- The Azure Kubernetes Service (AKS) cluster must be enabled for Azure Monitor. See [Enable monitoring for AKS clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
+- The Azure Kubernetes Service (AKS) cluster on which you've installed Azure Container Storage must be enabled for Azure Monitor. See [Enable monitoring for AKS clusters](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
 - To open the dashboards, you must have read access to the logs and Azure Monitor workspace holding the log and metric data. You can query [analytics tier logs](/azure/azure-monitor/logs/data-platform-logs#table-plans) using the Kubernetes cluster as its [scope](/azure/azure-monitor/logs/scope), so direct access to the Log Analytics workspace isn't required. [Basic logs](/azure/azure-monitor/logs/data-platform-logs#table-plans) only support workspace scoped queries, so access to the Log Analytics workspace is required.
 
 ## Open Azure Container Storage dashboard
 
-Azure Managed Grafana includes managed dashboards that are pre-provisioned and automatically updated to help you get started quickly with monitoring frequently used Azure resources and Azure Kubernetes Service. These dashboards are identified with an `Azure-managed` tag.
+Azure Managed Grafana includes managed dashboards that are pre-provisioned and automatically updated to help you get started quickly with monitoring Azure Kubernetes Service and other Azure services. These dashboards are identified with an `Azure-managed` tag.
 
 Follow these steps to use the default Azure Container Storage Grafana dashboard in the Azure portal.
 
