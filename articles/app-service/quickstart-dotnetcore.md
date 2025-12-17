@@ -702,9 +702,6 @@ Make a change the default page and redeploy to see the changes.
    :::image type="content" source="media/quickstart-dotnetcore/github-forked-app-service-web-dotnet-get-started-repo-create-codespace.png" alt-text="Screenshot showing how to create a codespace in the forked app-service-web-dotnet-get-started GitHub repo.":::
    -----
 
-   > [!TIP]
-   > If you have a GitHub Copilot account, try [getting GitHub Copilot features in your codespace](https://docs.github.com/codespaces/reference/using-github-copilot-in-github-codespaces).
-
 1. In **Solution Explorer**, find the default page in your project and replace the content as follows:
 
    ### [.NET 10](#tab/net10)
@@ -721,6 +718,12 @@ Make a change the default page and redeploy to see the changes.
    Example .NET app to Azure App Service.
    ```
 
+   > [!TIP]
+   > Try this approach with GitHub Copilot:
+   >
+   > 1. Select all the content and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
+   > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
+
    ### [.NET Framework 4.8](#tab/netframework48)
 
    In *Views/Home/Index.cshtml*, replace the first `<div>` element with the following code: 
@@ -732,15 +735,13 @@ Make a change the default page and redeploy to see the changes.
    </div>
    ```
 
+   > [!TIP]
+   > Try this approach with GitHub Copilot:
+   >
+   > 1. Select all the content and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
+   > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
+
    -----
-
-    The changes are automatically saved.
-
-    > [!TIP]
-    > Try this approach with GitHub Copilot:
-    >
-    > 1. Select all the content and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
-    > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
 
 1. From the **Source Control** menu, enter a commit message such as `Modify homepage`. Then, select **Commit** and confirm staging the changes by selecting **Yes**.
 
