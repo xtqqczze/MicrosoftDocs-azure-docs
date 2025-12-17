@@ -323,7 +323,7 @@ Follow the steps in this section to create a migration project and run a migrati
 
     Select **Create** to create the project. It might take a moment for the newly created project to appear in the project explorer.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/project-create-sml.png" alt-text="A screen capture showing the Project Explorer page with the Create a Project pane's fields visible." lightbox="media/cloud-to-cloud-migration/project-create.png":::
+    :::image type="content" source="media/azure-to-azure-migration/project-create.png" alt-text="A screen capture showing the Project Explorer page with the Create a Project pane's fields visible." lightbox="media/azure-to-azure-migration/project-create.png":::
 
 
 ### [Azure PowerShell](#tab/powershell)
