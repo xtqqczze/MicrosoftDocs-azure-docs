@@ -15,9 +15,9 @@ ms.custom: template-how-to
 
 # Active Call Transfer
 
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 During an active call, you may want to transfer the call to device that you are signed in on. Let's learn how. 
-
-
 
 ## Prerequisites
 
