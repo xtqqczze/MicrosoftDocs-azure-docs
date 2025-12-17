@@ -1,197 +1,214 @@
 ---
-title: Store Custom Data in SRE Agent Preview Memory
-description: Configure the SRE Agent memory system to enhance incident handling with knowledge retention, context-aware responses, and seamless access to team documentation.
+title: Memory System in SRE Agent Preview
+description: Use the SRE Agent memory system to build team knowledge that agents retrieve during incident handling, enabling context-aware responses that improve over time.
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
-ms.date: 12/05/2025
+ms.date: 12/17/2025
 ms.topic: article
 ms.service: azure-sre-agent
 ms.collection: ce-skilling-ai-copilot
-#customer intent: As an SRE team lead, I want to configure the memory system for my agents so that they can provide context-aware responses during incident handling.
+#customer intent: As an SRE team member, I want to understand how the memory system works so I can add knowledge that helps agents provide better responses during incident handling.
 ---
 
-# Store custom data in SRE Agent Preview memory
+# Memory system in SRE Agent preview
 
-Azure SRE Agent includes memory features that enable knowledge retention and context-aware responses across incident handling sessions. This memory system allows the agent to remember team knowledge, access documentation, and provide increasingly informed responses over time.
+The SRE Agent memory system gives agents the knowledge they need to troubleshoot effectively. By adding runbooks, team standards, and service-specific context, you help agents provide better answers during incidents. The system learns from each session to improve over time.
 
-Common ways to use agent memory include:
+## Memory components
 
-- **Preserve team knowledge**: Store environment details, service ownership, and team preferences so agents provide consistent responses aligned with your operational standards.
+The memory system consists of four complementary components:
 
-- **Accelerate incident response**: Upload runbooks and troubleshooting guides so agents can immediately reference proven procedures during active incidents.
+| Component | Purpose | Setup | Best for |
+|-----------|---------|-------|----------|
+| **User Memories** | Quick chat commands for team knowledge | Instant (chat commands) | Team standards, service configurations, workflow patterns |
+| **Knowledge Base** | Direct document uploads for runbooks | Quick (file upload) | Static runbooks, troubleshooting guides, internal documentation |
+| **Documentation connector** | Automated Azure DevOps synchronization | Configuration required | Living documentation, frequently updated guides |
+| **Session Insights** | Agent-generated memories from sessions | Automatic | Learned troubleshooting patterns, past incident resolutions |
 
-- **Keep documentation current**: Connect Azure DevOps repositories to automatically sync living documentation, ensuring agents always access your latest procedures.
+### How agents retrieve memory
 
-- **Learn from past incidents**: Review session insights after troubleshooting to identify knowledge gaps, then add targeted context to improve future responses.
+During conversations, agents retrieve information from memory sources through configured tools.
 
-## Store data in agent memory
+```mermaid
+flowchart TD
+    subgraph Trigger
+        A[User Question / Incident / Scheduled Task]
+    end
+    
+    subgraph Memory Sources
+        B[User Memories<br/>chat commands]
+        C[Knowledge Base<br/>documents]
+        D[Documentation Connector<br/>ADO repos]
+        E[Session Insights<br/>auto-generated]
+    end
+    
+    subgraph Retrieval
+        F[SearchMemory Tool]
+    end
+    
+    A --> B & C & D & E
+    B & C & D & E --> F
+    F --> G[Agent Reasoning]
+    G --> H[Relevant Context Retrieved]
+    H --> I[Agent Response]
+```
 
-The SRE Agent memory system uses different components to handle storage for comprehensive knowledge management:
+### Tool configuration
 
-| Component | Purpose | Setup | Management | Best for |
-|-----------|---------|--------|------------|----------|
-| **User memories** | Team knowledge via chat commands | Instant | Chat commands | Team preferences, environment facts |
-| **Knowledge base** | Document uploads | Quick upload | Portal UI | Static runbooks or guides |
-| **TSG crawler** | Azure DevOps integration | Configuration required | Automated sync | Living documentation |
-| **Session insights** | Session analysis | TODO: link to set up steps | Automated | Post-incident learning |
+The `SearchMemory` tool retrieves all memory components. It searches across User Memories, Knowledge Base, Documentation connector, and Session Insights simultaneously.
 
-### Enable memory in custom subagents
+- SRE Agent (default): `SearchMemory` is built in
+- Custom subagents: Add `SearchMemory` tool to your configuration
 
-When building custom subagents with the [subagent builder](subagent-builder-overview.md), you can enable memory retrieval by adding the `SearchMemory` tool to your subagent's toolset. This feature allows your custom automation to use the knowledge stored in user memories and the knowledge base.
+> [!IMPORTANT]
+> Don't store secrets, credentials, API keys, or sensitive data in any memory component. Memories are shared across your team and indexed for search.
 
-The tool automatically searches across all memory sources by using intelligent retrieval. It provides your subagent with relevant context to inform its responses and actions. Custom subagents that handle specific incident types, automate runbook execution, or perform scheduled health checks can all benefit from your team's accumulated knowledge.
+## Quick start
 
-### Choose the right memory component
-
-Select the most appropriate memory component based on your content type and update frequency:
-
-**User memories** are most suitable for:
-
-- Short, focused facts (one or two sentences)
-- Team preferences and standards
-- Environment-specific information
-- Immediate context that changes occasionally
-
-**Knowledge base** works best with:
-
-- Well-structured documents with clear headers
-- Static runbooks and troubleshooting guides
-- Internal documentation and procedures
-- Content that updates infrequently
-
-**TSG crawler** is specialized for:
-
-- Living documentation in source control
-- Frequently updated procedures
-- Team libraries and shared repositories
-- Content maintained by multiple contributors
-
-## Get started
-
-To begin, build your agent's knowledge incrementally. First, start with quick facts using chat commands, then upload essential runbooks when needed, and finally connect repositories as your documentation evolves.
+Begin by establishing foundational knowledge with user memories, and then expand to document storage and automated synchronization as your needs grow.
 
 ### 1. Start with user memories
 
-Open any chat with your SRE Agent and save immediate team knowledge by using the `#remember` command.
-
-For example, you might save user memories using the following commands:
+Use chat commands to save immediate team knowledge:
 
 ```text
 #remember Team owns services: app-service-prod, redis-cache-prod, and sql-db-prod
 
 #remember For latency issues, check Redis cache health first
 
-#remember Team uses East US for production workloads
-
 #remember Production deployments happen Tuesdays at 2 PM PST
 ```
 
-These facts are now available across all conversations immediately.
+These facts are now available across all conversations.
 
 ### 2. Upload key documents
 
 Add critical runbooks and guides to the knowledge base:
 
-1. Go to **Settings** > **Knowledge base**
-1. Upload `.md` or `.txt` files
-1. Files are automatically indexed and available immediately
+1. Open your SRE Agent in the Azure portal.
+
+1. Go to **Settings** > **Knowledge base**.
+
+1. Select **Add file** or drag and drop files into the upload area.
+
+1. Upload `.md` or `.txt` files (up to 16 MB each).
+
+1. The system indexes files and makes them available for retrieval through `SearchMemory`.
 
 ### 3. Review session insights
 
-After troubleshooting sessions, check **Settings** > **Session insights** to see what went well and where the agent needs more context. Use this feedback to identify gaps and add targeted memories or documentation.
+After troubleshooting sessions, check **Settings** > **Session insights** to see what went well and where the agent needs more context. Use the insights to identify knowledge gaps and add targeted memories or documentation.
 
-### Best practices for using knowledge base
+### 4. Connect repositories (optional)
 
-- Use well-structured documents with clear headers.
-- Maintain content in markdown format for optimal indexing.
-- Upload static content that doesn't change frequently.
-- Organize documents with descriptive titles.
+For teams with existing documentation in Azure DevOps:
 
-## Configure TSG crawler
+1. Go to **Settings** > **Connectors**.
 
-TSG crawler connects your Azure DevOps repositories to automatically index and retrieve documentation, keeping agent knowledge synchronized with your source of truth.
+1. Select **Add connector** and select **Documentation connector**.
 
-### Prerequisites for TSG crawler
+1. Enter your Azure DevOps repository URL and select a managed identity.
 
-- Azure DevOps repository containing documentation.
-- Managed identity for the agent.
-- Access to agent data connector settings.
+    The connector starts indexing automatically.
 
-### Setup
+## User memories
 
-Connect your Azure DevOps documentation repositories for automatic synchronization. The TSG crawler continuously indexes troubleshooting guides and runbooks, so agents can access your latest procedures.
+User memories let you save team facts, standards, and context that agents remember across all conversations. By using simple chat commands (`#remember`, `#forget`, `#retrieve`), you can build a persistent knowledge base that automatically enhances agent responses.
 
-1. **Configure repository access**: Add the agent's managed identity to your Azure DevOps project with read permissions.
+### Chat commands
 
-1. **Add data connector**: Configure the data connector settings to point to your Azure DevOps repository.
+#### Save information by using `#remember`
 
-1. **Enable retrieval**: Add the GetTsgContent tool to your subagent configuration.
+Save facts, standards, or context for future conversations.
 
-### Best practices for TSG crawler
+**Syntax:**
 
-- Maintain an organized repository structure with a clear folder hierarchy.
-- Use descriptive filenames and folder names.
-- Keep documentation in markdown format.
-- Regularly sync content to maintain current knowledge.
+```text
+#remember [content to save]
+```
 
-## Monitor memory effectiveness with session insights
+**Examples:**
 
-Session insights provide an automated analysis of troubleshooting sessions to help you identify knowledge gaps and improve agent effectiveness.
+```text
+#remember Team owns app-service-prod in East US region
+#remember For app-service-prod latency issues, check Redis cache health first
+#remember Team uses Kusto for logs. Workspace is "myteam-prod-logs"
+```
 
-TODO: Add configuration steps
+Content is embedded by using OpenAI, stored in Azure AI Search, and becomes available for automatic retrieval across all conversations. You see a confirmation: `✅ Agent Memory saved.`
 
-### Review session analysis
+#### Remove memories by using `#forget`
 
-After conversations complete, session insights automatically provide:
+Delete previously saved memories by searching for them.
 
-- **Timeline**: A chronological narrative showing what actions you took and their outcomes
+**Syntax:**
 
-- **What went well**: Highlights correct understanding and effective actions
+```text
+#forget [description of what to forget]
+```
 
-- **Areas for improvement**: Shows what you could do better with specific remediation steps
+**Examples:**
 
-- **Key learnings**: Actionable takeaways for future sessions
+```text
+#forget NSG rules information
+#forget production environment location
+```
 
-- **Investigation quality score**: Sessions rated on a 1-5 scale for completeness
+The system searches your memories semantically for the best match, shows you the content, and deletes it. You see a confirmation: `✅ Agent Memory forgotten: [deleted content]`
 
-You can also manually trigger insight generation for any conversation by selecting the **Generate Session Insights** icon in the chat interface.
+#### Query memories by using `#retrieve`
 
-### Implement context engineering workflow
+Explicitly search and display saved memories without triggering agent reasoning.
 
-To systematically improve your agent memory, use session insights:
+**Syntax:**
 
-1. **Identify gaps**: Review where the agent struggled or lacked knowledge
-1. **Add targeted context**: Upload runbooks or save facts based on identified needs
-1. **Track improvement**: To measure effectiveness, monitor subsequent sessions
-1. **Iterate**: Continuously refine based on session data
+```text
+#retrieve [search query]
+```
 
-## Security and compliance
+**Examples:**
 
-The SRE Agent memory system follows security best practices to protect sensitive information while enabling effective knowledge sharing across your team.
+```text
+#retrieve production environment
+#retrieve deployment process
+```
 
-### What not to store
+Searches memories semantically, and then uses the top five matches to synthesize a response. Both the individual memories and the synthesized answer are displayed.
 
-Never store the following information in any memory component:
+### Scope and storage
 
-- Credentials, API keys, or secrets
-- Personally identifiable information (PII)
-- Customer data or logs
-- Confidential business information
+- **Shared across the team**: All users of the SRE Agent can access it.
 
-### Access control
+- **Persist across all conversations**: Save it once, and it's available forever.
 
-- All team members share user memories
-- All team agents can access knowledge base documents
-- TSG crawler uses managed identity for secure repository access
+- **Automatically retrieved when relevant**: Agents search memories semantically during reasoning.
 
-### Regular maintenance
+## Knowledge base
 
-- Review and update stored information regularly
-- Remove outdated or duplicate entries
-- Audit access permissions periodically
+The knowledge base provides direct document upload capabilities for runbooks, troubleshooting guides, and internal documentation that agents can retrieve during conversations.
 
-## Technical reference
+### Supported file types and limits
 
-The memory system uses Azure AI Search and OpenAI embeddings to provide intelligent retrieval across all knowledge sources. Understanding these technical details helps you optimize document formatting and troubleshoot retrieval behavior.
+- **Formats**: `.md` (markdown, recommended), `.txt` (plain text)
+- **Per file**: 16 MB maximum (Azure AI Search limit)
+- **Per request**: 100 MB total for all files in a single upload
 
+### Upload documents
+
+1. Go to **Settings** > **Knowledge Base**.
+1. Select **Add file** or drag and drop files into the upload area.
+
+    The portal automatically validates, uploads, and indexes files.
+
+### Manage documents
+
+- **View**: Go to **Settings** > **Knowledge Base** to see all uploaded documents.
+
+- **Update**: To overwrite the previous version, upload a file with the same name.
+
+- **Delete**: Select documents and use the delete action. Changes take effect immediately.
+
+## Related content
+
+- [Documentation connector](./documentation-connector.md)
