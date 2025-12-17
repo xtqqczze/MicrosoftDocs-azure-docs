@@ -9,7 +9,7 @@ ms.topic: article
 ms.service: azure-sre-agent
 ---
 
-## Documentation connector in Azure SRE Agent preview
+# Documentation connector in Azure SRE Agent preview
 
 The Azure SRE Agent documentation connector automatically crawls Azure DevOps repositories to index troubleshooting guides, runbooks, and documentation for agent retrieval.
 
