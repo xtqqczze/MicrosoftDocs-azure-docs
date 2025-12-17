@@ -31,12 +31,12 @@ The Azure Blob container-to-container transfer feature in Azure Storage Mover ha
 - Blobs aren't truly moved but copied. The Blob container continues to exist in its current location along with the Target location set.
 
 
-## Configure Source and Target Endpoints
+## Configure source and target endpoints
 In the context of the Azure Storage Mover service, an *endpoint* is a resource that contains the path to either a source or target location and other relevant information. Storage Mover *job definitions* use endpoints to define the source and target locations for copy operations.
 
 Follow the steps in this section to configure an Azure Blob container source and target endpoints. To learn more about Storage Mover endpoints, refer to the [Manage Azure Storage Mover endpoints](endpoint-manage.md) article.
 
-### Configure an Azure Blob Storage Source Endpoint
+### Configure an Azure Blob storage source endpoint
 
 ### [Azure portal](#tab/portal)
 1. Go to your Storage Mover instance in Azure.
@@ -120,7 +120,7 @@ az storage-mover endpoint create-for-storage-container \
 ---
 
 
-### Configure an Azure Blob Storage Target Endpoint
+### Configure an Azure Blob storage tTarget endpoint
 
 ### [Azure portal](#tab/portal)
 1. From the **Resource management** group in the left navigation, select **Storage endpoints**. Select the **Target endpoints** tab, and then select **Add endpoint** to open the **Create target endpoint** pane.
@@ -201,7 +201,7 @@ az storage-mover endpoint create-for-storage-container \
 
 ---      
 
-### Assign RBAC Role to Source and Target Endpoints
+### Assign RBAC role to source and target endpoints
 
 ### [Azure portal](#tab/portal)
 
@@ -313,6 +313,7 @@ By using a *migration project*, you can organize large migrations into smaller, 
 
 Follow the steps in this section to create a migration project and run a migration job.
 
+
 ### Create a project
 
 ### [Azure portal](#tab/portal)
@@ -413,6 +414,7 @@ az storage-mover project create \
 
     :::image type="content" source="./media/azure-to-azure/job-review.png" alt-text="Screenshot of the Create a Migration Job page with the Review tab selected and all settings displayed." lightbox="./media/azure-to-azure/job-review.png":::
 
+---
 
 ## Run a migration job
 
