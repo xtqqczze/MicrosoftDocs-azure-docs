@@ -380,6 +380,8 @@
           href: ./rest-api-consistency.md
         - name: Common headers
           href: ./rest-api-headers.md
+        - name: Network access errors
+          href: ./rest-api-network-errors.md
         - name: Throttling
           href: ./rest-api-throttling.md
         - name: Versioning

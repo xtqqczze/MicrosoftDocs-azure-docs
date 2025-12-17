@@ -27,5 +27,6 @@ The documentation on the [control plane](../azure-resource-manager/management/co
 - [Authorization](./rest-api-authorization-index.md)
 - [Consistency Model](./rest-api-consistency.md)
 - [Common Headers](./rest-api-headers.md)
+- [Network Access Errors](./rest-api-network-errors.md)
 - [Throttling](./rest-api-throttling.md)
 - [Versioning](./rest-api-versioning.md)
