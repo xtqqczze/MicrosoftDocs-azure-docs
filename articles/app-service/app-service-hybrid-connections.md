@@ -271,7 +271,7 @@ To configure a custom port on Linux:
     export HCM_SERVICE_PORT=<PORT-NUMBER> && sudo sh -c "echo HCM_SERVICE_PORT=$HCM_SERVICE_PORT >> /etc/environment"
     ```
 
-1. Run the Hybrid Connection Manager setup script to apply the new port configuration:
+1. To apply the new port configuration, run the Hybrid Connection Manager setup script:
 
     ```bash
     sudo ./setup.sh
@@ -394,16 +394,16 @@ The status of **Connected** means that at least one Hybrid Connection Manager is
   
     :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-service-bus-endpoint-cli.png" alt-text="Screenshot of Hybrid Connection Service Bus endpoint in the CLI.":::
 
-  - The Service Bus gateways are the resources that accept the request into the Hybrid Connection and pass it through the Azure Relay. You need to allowlist all of the gateways. The gateways are in the format: `G#-prod-[stamp]-sb.servicebus.windows.net` and `GV#-prod-[stamp]-sb.servicebus.windows.net`. The number sign, `#`, is a number between 0 and 127 and `stamp` is the name of the instance within your Azure data center where your Service Bus endpoint exists.
+  - The Service Bus gateways are the resources that accept the request into the Hybrid Connection and pass it through the Azure Relay. You need to allow list all of the gateways. The gateways are in the format: `G#-prod-[stamp]-sb.servicebus.windows.net` and `GV#-prod-[stamp]-sb.servicebus.windows.net`. The number sign, `#`, is a number between 0 and 127 and `stamp` is the name of the instance within your Azure data center where your Service Bus endpoint exists.
 
-  - If you can use a wildcard, you can allowlist *\*.servicebus.windows.net*.
-  - If you can't use a wildcard, you must allowlist all 256 of the gateways.
+  - If you can use a wildcard, you can allow list *\*.servicebus.windows.net*.
+  - If you can't use a wildcard, you must allow list all 256 of the gateways.
 
     You can find out the stamp using *nslookup* on the Service Bus endpoint URL.
 
     :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-stamp-name.png" alt-text="Screenshot of terminal showing where to find the stamp name for the Service Bus.":::
 
-    In this example, the stamp is `sn3-010`. To allowlist the Service Bus gateways, you need the following entries:
+    In this example, the stamp is `sn3-010`. To allow list the Service Bus gateways, you need the following entries:
 
     G0-prod-sn3-010-sb.servicebus.windows.net  
     G1-prod-sn3-010-sb.servicebus.windows.net  
