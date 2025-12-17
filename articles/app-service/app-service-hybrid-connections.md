@@ -277,6 +277,8 @@ To configure a custom port on Linux:
     sudo ./setup.sh
     ```
 
+    If running the setup script with sudo doesn't apply the port change, try running it without sudo.
+
 ----- 
 
 ### Configure proxy server settings
