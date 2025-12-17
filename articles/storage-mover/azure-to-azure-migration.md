@@ -387,31 +387,31 @@ az storage-mover project create \
     - **Name**: A meaningful name for the migration job.
     - **Migration type**: Select `Azure to Azure`.
     
-    :::image type="content" source="media/cloud-to-cloud-migration/create-job-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Basics tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-job.png":::
+    :::image type="content" source="media/azure-to-azure-migration/create-job.png" alt-text="A screen capture showing the Create a Migration Job page with the Basics tab selected and the required fields displayed." lightbox="media/azure-to-azure-migration/create-job.png":::
 
 1. Within the **Source** tab, select the **Existing endpoint** option for the **Endpoint** field. Next, select the **Select an existing endpoint as a source** link to open the **Select an existing endpoint** pane. 
 
-    :::image type="content" source="media/cloud-to-cloud-migration/create-source-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Source tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-source.png":::
+    :::image type="content" source="media/azure-to-azure-migration/create-source.png" alt-text="A screen capture showing the Create a Migration Job page with the Source tab selected and the required fields displayed." lightbox="media/azure-to-azure-migration/create-source.png":::
 
     Choose the Azure Blob source endpoint created in the previous section and select **Select** to save your changes.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/select-source-sml.png" alt-text="A screen capture showing the Select an Existing Source Endpoint pane." lightbox="media/cloud-to-cloud-migration/select-source.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/select-source-sml.png" alt-text="A screen capture showing the Select an Existing Source Endpoint pane." lightbox="media/azure-to-azure-migration/select-source.png":::
 
 1. Within the **Target** tab, select the **Select an existing endpoint reference** option for the **Target endpoint** field. Next, select the **Select an existing endpoint as a target** link to open the **Select an existing endpoint** pane. 
 
-    :::image type="content" source="media/cloud-to-cloud-migration/create-target-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Target tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-target.png"::: 
+    :::image type="content" source="media/azure-to-azure-migration/create-target.png" alt-text="A screen capture showing the Create a Migration Job page with the Target tab selected and the required fields displayed." lightbox="media/azure-to-azure-migration/create-target.png"::: 
 
     Next, select the **Select an existing endpoint as a target** link to open the **Select an existing target endpoint** pane. Choose the Azure Blob Storage target endpoint created in the previous section and select **Select** to save your changes. Verify that the correct target endpoint is displayed in the **Existing target endpoint** field and then select **Next** to continue to the **Settings** tab.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/select-target-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Select anExisting Target Endpoint pane displayed." lightbox="media/cloud-to-cloud-migration/select-target.png":::
+    :::image type="content" source="media/azure-to-azure-migration/select-target.png" alt-text="A screen capture showing the Create a Migration Job page with the Select anExisting Target Endpoint pane displayed." lightbox="media/azure-to-azure-migration/select-target.png":::
 
 1. Within the **Settings** tab, select **Mirror source to target** from the **Copy mode** drop-down list. Verify that the **Migration outcomes** results are appropriate for your use case, then select **Next** and review your settings.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/project-settings-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Settings tab selected and migration outcomes displayed." lightbox="media/cloud-to-cloud-migration/project-settings.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/project-settings-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Settings tab selected and migration outcomes displayed." lightbox="media/azure-to-azure-migration/project-settings.png":::
 
 1. After confirming that your settings are correct within the **Review** tab, select **Create** to deploy the migration job. You're redirected to the **Project explorer** after the job's deployment begins. After completion, the job appears within the associated migration project.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/job-review-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Review tab selected and all settings displayed." lightbox="media/cloud-to-cloud-migration/job-review.png":::
+    :::image type="content" source="media/azure-to-azure-migration/job-review.png" alt-text="A screen capture showing the Create a Migration Job page with the Review tab selected and all settings displayed." lightbox="media/azure-to-azure-migration/job-review.png":::
 
 
 ## Run a migration job
