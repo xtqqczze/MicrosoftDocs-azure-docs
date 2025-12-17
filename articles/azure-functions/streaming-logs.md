@@ -1,7 +1,7 @@
 ---
 title: Stream Execution Logs in Azure Functions
 description: Learn how you can stream logs for functions in near real time.
-ms.date: 6/16/2025
+ms.date: 12/17/2025
 ms.topic: how-to
 ms.devlang: azurecli
 ms.custom: devx-track-azurepowershell
@@ -16,7 +16,7 @@ There are two ways to view the stream of log files that your function executions
 
 ## [Live Metrics](#tab/live-metrics)
 
-When your function app is [connected to Application Insights](configure-monitoring.md#enable-application-insights-integration), you can use [Live Metrics Stream](/azure/azure-monitor/app/live-stream) to view log data and other metrics in near real-time in the Azure portal. *Live Metrics stream is the recommended way to view streaming logs*. It supports all plan types and is the method to use when monitoring functions running on multiple-instances. It also uses [sampled data](configure-monitoring.md#configure-sampling), so it can protect you from producing too much data during times of peak loads. 
+When your function app is [connected to Application Insights](configure-monitoring.md#enable-application-insights-integration), you can use [Live Metrics Stream](/azure/azure-monitor/app/live-stream) to view log data and other metrics in near real-time in the Azure portal. Live Metrics stream is *the recommended way to view streaming logs* it supports all plan types and is the method to use when monitoring functions running on multiple-instances. It also uses [sampled data](configure-monitoring.md#configure-sampling), so it can protect you from producing too much data during times of peak loads. 
 
 >[!IMPORTANT]
 >By default, the Live Metrics stream includes logs from all apps connected to a given Application Insights instance. When you have more than one app sending log data, you should [filter your log stream data](/azure/azure-monitor/app/live-stream#filter-by-server-instance).  
