@@ -249,6 +249,9 @@ You can also show the details of a specific Hybrid Connection with the `hcm show
 
 By default, the Hybrid Connection Manager uses ports 4999-5001 on Windows and port 5001 on Linux. You can configure custom ports if the default ports are unavailable or if your environment requires different port assignments.
 
+> [!NOTE]
+> Custom port configuration is only supported on Hybrid Connection Manager version 1.2.5 or later.
+
 # [Windows](#tab/windows)
 
 To configure custom ports on Windows, navigate to **Edit the system environment variables** with Windows Search and add the following environment variables. Ensure you're editing the **System Variables** section, not the user variables.
