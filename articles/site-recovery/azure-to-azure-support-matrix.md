@@ -92,7 +92,7 @@ When you enable replication via the VM workflow for cross-subscriptions, the por
 Site Recovery supports replication of Azure VMs running the operating systems listed in this section. For example, an already-replicating machine's operating system is later upgraded (or downgraded) to a different major version of the operating system, as in Red Hat Enterprise Linux (RHEL) 8 to RHEL 9. Then you must disable replication, uninstall the mobility agent, and re-enable replication after the upgrade.
 
 >[!NOTE]
->ASR has launched Preview to support Major Linux OS upgrade. [Learn more](#upgrade-linux-major-os-version-without-disabling-replication-preview).
+>Azure Site Recovery has launched Preview to support Major Linux OS upgrade. [Learn more](#upgrade-linux-major-os-version-without-disabling-replication-preview).
 
 ### Windows
 
@@ -161,9 +161,9 @@ RHEL, Rocky, Alma, and Oracle Linux. (All distros are based on RHEL kernels.) | 
 
 ## Upgrade Linux major OS version without disabling replication (preview)  
 
-Azure Site Recovery (ASR) now supports major version upgrades for Linux OS without disabling replication. This feature is currently available for Azure-to-Azure (A2A) disaster recovery scenario.  
+Azure Site Recovery now supports major version upgrades for Linux OS without disabling replication. This feature is currently available for Azure-to-Azure (A2A) disaster recovery scenario.  
 
-When you upgrade Linux OS to a new major version, ASR detects the change and prompts to update the Mobility Agent as needed. This ensures that replication continues seamlessly and disaster recovery setup remains protected.  
+When you upgrade Linux OS to a new major version, Azure Site Recovery detects the change and prompts to update the Mobility Agent as needed. This ensures that replication continues seamlessly and disaster recovery setup remains protected.  
 
 ### Supported Linux distributions  
 
@@ -171,11 +171,11 @@ When you upgrade Linux OS to a new major version, ASR detects the change and pro
 - SUSE Linux Enterprise Server (SLES) - Upgrade from SLES 12 to SLES 15.
 
 >[!NOTE]
->Support for this feature in preview is available only from ASR agent version 9.66.7567.1 and above. So, first update the ASR agent to version 9.66.7567.1 and later and then, you can do major OS upgrades.
+>Support for this feature in preview is available only from Azure Site Recovery agent version 9.66.7567.1 and above. So, first update the Azure Site Recovery agent to version 9.66.7567.1 and later and then, you can do major OS upgrades.
 
-If you configure auto update of ASR agent, ASR agent gets automatically updated in the next update cycle to be compatible with the upgraded OS version. 
+If you configure auto update of Azure Site Recovery agent, Azure Site Recovery agent gets automatically updated in the next update cycle to be compatible with the upgraded OS version. 
 
-To update ASR agent manually, follow these steps: 
+To update Azure Site Recovery agent manually, follow these steps: 
 
 1. Upgrade Linux OS and navigate to the **Replicated Items** page of the VM in the Azure portal.  
 2. Select **Update Agent to support new OS version detected on VM**.
@@ -185,7 +185,7 @@ To update ASR agent manually, follow these steps:
 3. Review the details in the context pane and proceed with the agent upgrade as prompted.  
 
 >[!NOTE]
->If you upgrade your Linux OS without updating the ASR Mobility Agent to a compatible version, replication may fail. Ensure that the agent version supports your new OS version. After a major Linux OS upgrade, data resynchronization occurs when the agent is updated.
+>If you upgrade your Linux OS without updating the Azure Site Recovery Mobility Agent to a compatible version, replication may fail. Ensure that the agent version supports your new OS version. After a major Linux OS upgrade, data resynchronization occurs when the agent is updated.
 
 #### Supported kernel versions for Red Hat Enterprise Linux for Azure VMs
 
