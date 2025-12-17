@@ -41,7 +41,7 @@ Key traits for echo cancellation:
 > - Utilizing audio effects is available only on Chrome and Edge desktop browsers.
 > - The audio effects library isn't a standalone module and can't function independently. To utilize its capabilities the effects package must be integrated with the Azure Communication Services Calling client library for WebJS.
 > - If you use the GA version of the Calling SDK, you must use the [GA version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/latest) of the Calling audio effects package.
-> - If you use the public preview version of the Calling SDK, you must use the [public prevew version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/latest) of the Calling audio effects package.
+> - If you use the public preview version of the Calling SDK, you must use the [public preview version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/latest) of the Calling audio effects package.
 
 ## Install the Audio Effects Package
 Use the `npm install` command to install the Azure Communication Services Audio Effects SDK for JavaScript.
