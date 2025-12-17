@@ -1,10 +1,10 @@
 ---
-title: What is Azure Private DNS?
-description: In this article, get started with an overview of the private DNS hosting service on Microsoft Azure.
+title: "Azure Private DNS: Secure DNS for Virtual Networks"
+description: "Learn how Azure Private DNS provides secure, reliable DNS management for virtual networks without custom solutions. Explore features, benefits, and get started today."
 author: asudbring
 ms.service: azure-dns
 ms.topic: overview
-ms.date: 08/09/2024
+ms.date: 12/16/2025
 ms.author: allensu
 ms.custom: sfi-image-nochange
 #Customer intent: As an administrator, I want to evaluate Azure Private DNS so I can determine if I want to use it instead of my current DNS service.
@@ -17,7 +17,7 @@ Azure Private DNS provides a reliable and secure DNS service for your virtual ne
 
 To resolve the records of a private DNS zone from your virtual network, you must link the virtual network with the zone. Linked virtual networks have full access and can resolve all DNS records published in the private zone. You can also enable [autoregistration](private-dns-autoregistration.md) on a [virtual network link](private-dns-virtual-network-links.md). When you enable autoregistration on a virtual network link, the DNS records for the virtual machines in that virtual network are registered in the private zone. When autoregistration gets enabled, Azure DNS will update the zone record whenever a virtual machine gets created, changes its' IP address, or gets deleted.
 
-![DNS overview](./media/private-dns-overview/scenario.png)
+:::image type="content" source="./media/private-dns-overview/scenario.png" alt-text="Screenshot of Azure Private DNS architecture showing DNS resolution across virtual networks with private DNS zones.":::
 
 > [!NOTE]
 > As a best practice, don't use a *.local* domain for your private DNS zone. Not all operating systems support this.
@@ -61,7 +61,7 @@ Azure Private DNS has the following limitations:
 * A specific virtual network can be linked to only one private zone if automatic registration of VM DNS records is enabled. You can however link multiple virtual networks to a single DNS zone.
 * Reverse DNS works only for private IP space in the linked virtual network
 * Reverse DNS for a private IP address in linked virtual network will return `internal.cloudapp.net` as the default suffix for the virtual machine. For virtual networks that are linked to a private zone with autoregistration enabled, reverse DNS for a private IP address  returns two FQDNs: one with default the suffix `internal.cloudapp.net` and another with the private zone suffix.
-* Conditional forwarding is supported using [Azure DNS Private Resolver](dns-private-resolver-overview.md). To enable resolution between Azure and on-premises networks, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+* Conditional forwarding is supported using [Azure DNS Private Resolver](dns-private-resolver-overview.md). To enable resolution between Azure and on-premises networks, see [Name resolution for VMs and role instances](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
  
 ## Pricing
 
@@ -77,6 +77,6 @@ For pricing information, see [Azure DNS Pricing](https://azure.microsoft.com/pri
 
 * Learn about DNS zones and records by visiting [DNS zones and records overview](dns-zones-records.md).
 
-* Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
+* Learn about some of the other key [networking capabilities](/azure/networking/fundamentals/networking-overview) of Azure.
 
 * [Learn module: Introduction to Azure DNS](/training/modules/intro-to-azure-dns).
