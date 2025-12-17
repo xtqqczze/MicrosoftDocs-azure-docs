@@ -134,6 +134,8 @@ sections:
         answer:
           Custom version selection is **not supported**. Instead, your environment is automatically upgraded, maintaining the integrity of Dapr's fully managed and serverless offering in Azure Container Apps.
 
+          You can control auto-upgrades by [configuring the planned maintenance feature on your container apps environment](./planned-maintenance.md).
+
   - name: Dockerless deployments
     questions:
      - question: |
