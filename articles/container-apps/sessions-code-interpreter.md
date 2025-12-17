@@ -75,6 +75,15 @@ To learn more, see [Authentication and authorization](sessions-usage.md#authenti
 
 You can upload and download files, and list all the files in a code interpreter session.
 
+### Supported characters
+
+File names must use only the following supported characters:
+
+- Uppercase and lowercase letters: `A-Z`, `a-z`
+- Digits: `0-9`
+- Special characters: `-`, `_`, `.`, `@`, `$`, `&`, `=`, `;`, `,`, `#`, `%`, `^`, `(`, `)`
+- Unicode language characters
+
 ### Upload a file
 
 To upload a file to a session, send a `POST` request to the `uploadFile` endpoint in a multipart form data request. Include the file data in the request body. The file must include a filename.
