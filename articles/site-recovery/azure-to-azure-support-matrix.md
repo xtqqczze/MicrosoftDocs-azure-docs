@@ -2,7 +2,7 @@
 title: Support Matrix for Azure VM Disaster Recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 16/12/2025
+ms.date: 12/16/2025
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
