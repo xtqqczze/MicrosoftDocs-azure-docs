@@ -1,5 +1,5 @@
 ---
-title: 'Private Endpoints Overview: Enhanced Experience'
+title: 'Private Endpoints Overview: Version 2 Experience'
 description: This article explains the concept of private endpoints for Azure Backup, which can help you perform backups while maintaining the security of your resources.
 ms.topic: overview
 ms.service: azure-backup
@@ -10,13 +10,13 @@ ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator, I want to implement private endpoints for Azure Backup so that I can secure backup and restore operations within my virtual network and enhance the protection of sensitive data.
 ---
 
-# Private endpoints for Azure Backup: Enhanced experience
+# Private endpoints for Azure Backup: Version 2 experience
 
 With Azure Backup, you can back up and restore your data from your Recovery Services vaults by using [private endpoints](../private-link/private-endpoint-overview.md). Private endpoints use one or more private IP addresses from your Azure virtual network to effectively bring the service into your virtual network.
 
-Azure Backup now provides an enhanced experience for the creation and use of private endpoints, compared to the [classic experience](private-endpoints-overview.md).
+Azure Backup now provides a version 2 experience for the creation and use of private endpoints, compared to the [version 1 experience](private-endpoints-overview.md).
 
-This article describes how the enhanced capabilities of private endpoints for Azure Backup function and help you perform backups while maintaining the security of your resources.
+This article describes how the version 2 capabilities of private endpoints for Azure Backup function and help you perform backups while maintaining the security of your resources.
 
 ## Key enhancements
 
@@ -32,11 +32,11 @@ This article describes how the enhanced capabilities of private endpoints for Az
 
 - You can create private endpoints for new Recovery Services vaults only, if no items are registered to the vault. However, private endpoints are currently not supported for Backup vaults.
 
-  Private endpoints with static IPs are unsupported in the enhanced experience due to dynamic IP expansion. Although creation succeeds, registration might fail for vaults that have existing protected items.
+  Private endpoints with static IPs are unsupported in the version 2 experience due to dynamic IP expansion. Although creation succeeds, registration might fail for vaults that have existing protected items.
   
   Creation of multiple private endpoints with the same name under Recovery Services vaults is unsupported.
 
-- You can't upgrade vaults (that contain private endpoints) created via the classic experience to the new experience. You can delete all existing private endpoints, and then create new private endpoints with the enhanced experience.
+- You can't upgrade vaults (that contain private endpoints) created via the version 1 experience to the version 2 experience. You can delete all existing private endpoints, and then create new private endpoints with the version 2 experience.
 
 - One virtual network can contain private endpoints for multiple Recovery Services vaults. Also, one Recovery Services vault can have private endpoints in multiple virtual networks. You can create a maximum of 12 private endpoints for a vault.
 

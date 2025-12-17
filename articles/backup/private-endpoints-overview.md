@@ -1,5 +1,5 @@
 ---
-title: 'Private Endpoints Overview: Classic Experience'
+title: 'Private Endpoints Overview: Version 1 Experience'
 description: Understand the use of private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
 ms.topic: overview
 ms.date: 09/09/2025
@@ -11,13 +11,13 @@ ms.custom:
 # Customer intent: As a cloud administrator, I want to implement private endpoints for Azure Backup so that I can enhance the security of my backup operations and ensure that all data traffic remains within my virtual network.
 ---
 
-# Private endpoints for Azure Backup: Classic experience
+# Private endpoints for Azure Backup: Version 1 experience
 
 With Azure Backup, you can back up and restore your data from your Recovery Services vaults by using [private endpoints](../private-link/private-endpoint-overview.md). Private endpoints use one or more private IP addresses from your Azure virtual network to effectively bring the service into your virtual network.
 
-This article helps you understand how private endpoints for Azure Backup work in the classic experience of creating private endpoints. It provides scenarios where using private endpoints helps maintain the security of your resources.
+This article helps you understand how private endpoints for Azure Backup work in the version 1 experience of creating private endpoints. It provides scenarios where using private endpoints helps maintain the security of your resources.
 
-Azure Backup also provides an enhanced experience for creating and using private endpoints. [Learn more](backup-azure-private-endpoints-concept.md).
+Azure Backup also provides a version 2 experience for creating and using private endpoints. [Learn more](backup-azure-private-endpoints-concept.md).
 
 ## <a name = "before-you-start"></a>Considerations before you start
 
