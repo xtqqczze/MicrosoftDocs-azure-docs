@@ -22,7 +22,7 @@ Before you begin, ensure that you have:
 
 ## Limits
 
-The Cloud-to-Cloud Migration feature in Azure Storage Mover has the following limits:
+The Azure Blob container-to-container transfer feature in Azure Storage Mover has the following limits:
 
 - Each migration job supports the transfer of 500 million objects.
 - A maximum of 10 concurrent jobs is supported per subscription. If you need to run more than 10, you can do so by creating a support request.
@@ -395,7 +395,7 @@ az storage-mover project create \
 
     Choose the Azure Blob source endpoint created in the previous section and select **Select** to save your changes.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/select-source-sml.png" alt-text="A screen capture showing the Select an Existing Source Endpoint pane." lightbox="media/azure-to-azure-migration/select-source.png":::
+    :::image type="content" source="media/azure-to-azure-migration/select-source.png" alt-text="A screen capture showing the Select an Existing Source Endpoint pane." lightbox="media/azure-to-azure-migration/select-source.png":::
 
 1. Within the **Target** tab, select the **Select an existing endpoint reference** option for the **Target endpoint** field. Next, select the **Select an existing endpoint as a target** link to open the **Select an existing endpoint** pane. 
 
@@ -407,7 +407,7 @@ az storage-mover project create \
 
 1. Within the **Settings** tab, select **Mirror source to target** from the **Copy mode** drop-down list. Verify that the **Migration outcomes** results are appropriate for your use case, then select **Next** and review your settings.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/project-settings-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Settings tab selected and migration outcomes displayed." lightbox="media/azure-to-azure-migration/project-settings.png":::
+    :::image type="content" source="media/azure-to-azure-migration/project-settings-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Settings tab selected and migration outcomes displayed." lightbox="media/azure-to-azure-migration/project-settings.png":::
 
 1. After confirming that your settings are correct within the **Review** tab, select **Create** to deploy the migration job. You're redirected to the **Project explorer** after the job's deployment begins. After completion, the job appears within the associated migration project.
 
@@ -420,13 +420,13 @@ az storage-mover project create \
 
 1. Navigate to the **Migration Jobs** tab. The **Migration Jobs** tab displays all migration jobs created within your Storage Mover resource, including the one you recently created. It might take a moment for the newly created migration job to appear in the list of migration jobs. Refresh the page if necessary. 
 
-    :::image type="content" source="media/cloud-to-cloud-migration/migration-jobs-sml.png" alt-text="A screen capture showing the Migration Jobs page with the Migration Jobs tab selected and all Migration Jobs displayed." lightbox="media/cloud-to-cloud-migration/migration-jobs.png":::
+    :::image type="content" source="media/azure-to-azure-migration/migration-jobs.png" alt-text="A screen capture showing the Migration Jobs page with the Migration Jobs tab selected and all Migration Jobs displayed." lightbox="media/azure-to-azure-migration/migration-jobs.png":::
 
 1. Select your newly created job definition to view its details in the **Properties** tab. Select the **Start job** button to expose the **Start job** pane for the migration job. 
 
-    :::image type="content" source="media/cloud-to-cloud-migration/migration-job-sml.png" alt-text="A screen capture showing the Migration Job details page with the Properties tab and the Start Job button highlighted." lightbox="media/cloud-to-cloud-migration/migration-job.png":::
+    :::image type="content" source="media/azure-to-azure-migration/migration-job.png" alt-text="A screen capture showing the Migration Job details page with the Properties tab and the Start Job button highlighted." lightbox="media/azure-to-azure-migration/migration-job.png":::
 
-    :::image type="content" source="media/cloud-to-cloud-migration/migration-job-start-sml.png" alt-text="A screen capture showing the Migration Job page's Start Job pane." lightbox="media/cloud-to-cloud-migration/migration-job-start.png":::
+    :::image type="content" source="media/azure-to-azure-migration/migration-job-start.png" alt-text="A screen capture showing the Migration Job page's Start Job pane." lightbox="media/azure-to-azure-migration/migration-job-start.png":::
 
 ### [Azure PowerShell](#tab/powershell)
 
@@ -498,7 +498,7 @@ Follow the steps in this section to monitor the progress of a Storage Mover Migr
 
 1. Navigate to the **Migration Jobs** tab.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/migration-overview-sml.png" alt-text="A screen capture showing the Storage Mover page with the Migration Overview tab selected and all Migration Jobs displayed." lightbox="media/cloud-to-cloud-migration/migration-overview.png":::
+    :::image type="content" source="media/azure-to-azure-migration/migration-overview.png" alt-text="A screen capture showing the Storage Mover page with the Migration Overview tab selected and all Migration Jobs displayed." lightbox="media/azure-to-azure-migration/migration-overview.png":::
 1. Select your job to view **progress, speed, and estimated completion time**.
 1. Select **Logs** to check for any errors or warnings.
 1. After the migration is complete, verify the data in **Azure Blob Storage**.
@@ -507,7 +507,7 @@ Follow the steps in this section to monitor the progress of a Storage Mover Migr
 
 Post-migration data validation ensures that your data is accurate and that the transfer from Azure Blob container is complete. This validation process verifies data integrity and consistency by comparing migrated data to the same data from the source. You can also choose to conduct user acceptance tests to further confirm functionality. Validation helps identify and resolve discrepancies, ensuring the migrated data is reliable and meets your business requirements.
 
-Follow the steps in this section to complete manual validation and clean up unused AWS resources.
+Follow the steps in this section to complete manual validation.
 
 - Compare source and destination storage to ensure all files are transferred.
 - Enable incremental sync if you need to keep Azure Blob containers in sync over time.
