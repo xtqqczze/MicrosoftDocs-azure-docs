@@ -33,10 +33,8 @@ Content-Type: application/problem+json; charset=utf-8
 
 **Reason:** The configuration store has public network access disabled and the IP address that the request originates from doesn't meet the criteria for inbound access.
 
-**Solution:** 
-
-- When a configuration store has public network access disabled, requests must originate from within a virtual network via a private endpoint.
-- Verify that the client making the request is within a virtual network and the relevant [DNS changes](./concept-private-endpoint.md#dns-changes-for-private-endpoints) are in place to ensure the endpoint of the store resolves to the IP address of a private endpoint.
+**Solution:** When a configuration store has public network access disabled, requests must originate from within a virtual network via a private endpoint.
+- Verify that the client making the request is within a virtual network and the relevant [DNS changes](./concept-private-endpoint.md#dns-changes-for-private-endpoints) are in place to ensure the endpoint of the configuration store resolves to the IP address of the private endpoint connected to the configuration store.
 - Verify that the private endpoint connection associated with the private endpoint has been approved. 
 
 ## Related documentation
