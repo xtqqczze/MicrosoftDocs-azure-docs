@@ -706,7 +706,7 @@ Make a change the default page and redeploy to see the changes.
 
    ### [.NET 10](#tab/net10)
 
-   In *Components/Pages/Home.razor*, replace everything with the following code: 
+   In *Components/Pages/Home.razor*, replace everything with the following code. The changes are saved automatically. 
 
    ```html
    @page "/"
@@ -718,15 +718,9 @@ Make a change the default page and redeploy to see the changes.
    Example .NET app to Azure App Service.
    ```
 
-   > [!TIP]
-   > Try this approach with GitHub Copilot:
-   >
-   > 1. Select all the content and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
-   > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
-
    ### [.NET Framework 4.8](#tab/netframework48)
 
-   In *Views/Home/Index.cshtml*, replace the first `<div>` element with the following code: 
+   In *Views/Home/Index.cshtml*, replace the first `<div>` element with the following code. The changes are saved automatically.
 
    ```html
    <div class="jumbotron">
@@ -734,14 +728,13 @@ Make a change the default page and redeploy to see the changes.
        <p class="lead">Example .NET app to Azure App Service.</p>
    </div>
    ```
-
-   > [!TIP]
-   > Try this approach with GitHub Copilot:
-   >
-   > 1. Select all the content and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
-   > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
-
    -----
+
+    > [!TIP]
+    > Try this approach with GitHub Copilot:
+    >
+    > 1. Select all the content and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
+    > 1. Ask Copilot, "Change to a Bootstrap card that says .NET 💜 Azure."
 
 1. From the **Source Control** menu, enter a commit message such as `Modify homepage`. Then, select **Commit** and confirm staging the changes by selecting **Yes**.
 
