@@ -37,7 +37,7 @@ A **major release** introduces significant changes, often including new features
 
 ### Improvements and issues that are fixed
 
-- Fixed an issue where full customer pod information was getting logged, which could inadvertently include sensitive information passed in environment variables.
+- Addressed a vulnerability where full customer pod details including potentially sensitive data passed through environment variables were being logged. Logging has now been restricted to pod name only to prevent exposure of sensitive information.
 
 ## Version 2.0.0
 
