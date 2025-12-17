@@ -1463,7 +1463,7 @@ You can use a Python worker extension library in your Python functions by doing 
 1. Configure the extension instance, if needed. Configuration requirements should be called out in the extension's documentation. 
 
 > [!IMPORTANT]
-> Third-party Python worker extension libraries aren't supported or warranted by Microsoft. You must make sure that any extensions that you use in your function app is trustworthy, and you bear the full risk of using a malicious or poorly written extension. 
+> Third-party Python worker extension libraries aren't supported or warranted by Microsoft. You must make sure that any extensions that you use in your function app are trustworthy, and you bear the full risk of using a malicious or poorly written extension. 
 
 Third-parties should provide specific documentation on how to install and consume their extensions in your function app. For a basic example of how to consume an extension, see [Consuming your extension](develop-python-worker-extensions.md#consume-your-extension-locally). 
 
