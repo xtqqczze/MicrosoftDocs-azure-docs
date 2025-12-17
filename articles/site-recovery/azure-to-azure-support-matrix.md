@@ -163,7 +163,7 @@ RHEL, Rocky, Alma, and Oracle Linux. (All distros are based on RHEL kernels.) | 
 
 Azure Site Recovery now supports major version upgrades for Linux OS without disabling replication. This feature is currently available for Azure-to-Azure (A2A) disaster recovery scenario. 
 
-When you upgrade Linux OS to a new major version, Azure Site Recovery detects the change and prompts to update the Mobility Agent as needed. This ensures that replication continues seamlessly and disaster recovery setup remains protected. 
+When you upgrade Linux OS to a new major version, Azure Site Recovery detects the change and prompts to update the Mobility Agent as needed. This update ensures that replication continues seamlessly and disaster recovery setup remains protected. 
 
 ### Supported Linux distributions 
 
@@ -394,7 +394,7 @@ Azure gallery images: Microsoft published | Supported. | Supported if the VM run
 Azure Gallery images: Non-Microsoft published | Supported. | Supported if the VM runs on a supported operating system.
 Custom images: Non-Microsoft published | Supported. | The VM is supported if it runs on a supported operating system. During test failover and failover, Azure creates a VM with an Azure Marketplace image. Ensure that no custom Azure policy blocks this operation. 
 VMs migrated by using Site Recovery | Supported. | If a VMware VM or physical machine was migrated to Azure by using Site Recovery, you need to uninstall the older version of the Mobility service running on the machine and restart the machine before you replicate it to another Azure region.
-Azure role-based access control (RBAC) policies | Not supported. | Azure RBAC policies on VMs aren't replicated to the failover VM in the target region.
+Azure role-based access control (RBAC) policies | Not supported. | Azure role-based access control policies on VMs aren't replicated to the failover VM in the target region.
 Extensions | Not supported. | Extensions aren't replicated to the failover VM in the target region. It needs to be installed manually after failover.
 Proximity placement groups (PPGs) | Supported. | VMs located inside PPGs by using Site Recovery.
 Tags | Supported. | User-generated tags applied on source VMs are carried over to target VMs post-test failover or failover. Tags on the VMs replicate once every 24 hours for as long as the VMs are present in the target region.
@@ -467,7 +467,7 @@ Generation 2 (UEFI boot) | Supported.
 NVMe disks | Not supported.
 Managed shared disk| Supported. |
 Managed Premium SSD v2 disk| Supported. | Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Premium SSD v2 disks can't be supported. 
-Ultra disks | Supported. | Zonal Disaster Recovery is not supported. Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Ultra disks can't be supported.
+Ultra disks | Supported. | Zonal Disaster Recovery isn't supported. Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Ultra disks can't be supported.
 Secure transfer option | Supported.
 Write accelerator enabled disks | Not supported.
 Tags | Supported. | User-generated tags replicate every 24 hours.
