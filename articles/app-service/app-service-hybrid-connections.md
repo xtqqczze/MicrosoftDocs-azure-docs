@@ -265,22 +265,17 @@ Set the value of each variable to the port number you want to use. For example, 
 
 To configure a custom port on Linux:
 
-1. Edit the `/etc/environment` file as root or with sudo and add the following line. Replace `<PORT-NUMBER>` with the port number you want to use for the Hybrid Connection Manager service:
+1. Set the environment variable and add it to `/etc/environment`. Replace `<PORT-NUMBER>` with the port number you want to use:
 
     ```bash
-    HCM_SERVICE_PORT=<PORT-NUMBER>
+    export HCM_SERVICE_PORT=<PORT-NUMBER> && sudo sh -c "echo HCM_SERVICE_PORT=$HCM_SERVICE_PORT >> /etc/environment"
     ```
 
-1. Re-run the Hybrid Connection Manager setup script to apply the new port configuration:
+1. Run the Hybrid Connection Manager setup script to apply the new port configuration:
 
     ```bash
     sudo ./setup.sh
     ```
-
-    If running the setup script with sudo doesn't apply the port change, try running it without sudo.
-
-> [!NOTE]
-> We recommend setting this environment variable before installing the Hybrid Connection Manager. If you set the variable after installation, you must re-run the setup script.
 
 ----- 
 
