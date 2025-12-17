@@ -92,7 +92,7 @@ When you enable replication via the VM workflow for cross-subscriptions, the por
 Site Recovery supports replication of Azure VMs running the operating systems listed in this section. For example, an already-replicating machine's operating system is later upgraded (or downgraded) to a different major version of the operating system, as in Red Hat Enterprise Linux (RHEL) 8 to RHEL 9. Then you must disable replication, uninstall the mobility agent, and re-enable replication after the upgrade.
 
 >[!NOTE]
->Azure Site Recovery has launched Preview to support Major Linux OS upgrade. [Learn more](#upgrade-linux-major-os-version-without-disabling-replication-preview).
+>Major Linux OS upgrade without disable is currently in Preview. [Learn more](#upgrade-linux-major-os-version-without-disabling-replication-preview).
 
 ### Windows
 
@@ -513,8 +513,8 @@ Reserved (static) IP address | Supported | If the NIC on the source VM has a sta
 Dynamic IP address | Supported | If the NIC on the source has dynamic IP addressing, the NIC on the failed-over VM is also dynamic by default.<br/><br/> You can modify to a fixed IP address if necessary.
 Multiple IP addresses | Supported | When you fail over a VM that has a NIC with multiple IP addresses, only the primary IP address of the NIC in the source region is kept by default. To fail over secondary IP configurations, go to the **Network** pane and configure them.<br><br/> Supported only for region replication. Zone-to-zone replication isn't supported.
 Azure Traffic Manager | Supported | You can preconfigure Traffic Manager so that traffic is regularly routed to the endpoint in the source region. You can also route traffic to the endpoint in the target region if there was failover.
-Azure DNS | Supported |
-Custom DNS | Supported |
+Azure Domain Name System (DNS) | Supported |
+Custom Domain Name System (DNS) | Supported |
 Unauthenticated proxy | Supported | Learn more about [networking in Azure VM disaster recovery](./Azure-to-Azure-about-networking.md).
 Authenticated proxy | Not supported | If the VM is using an authenticated proxy for outbound connectivity, it can't be replicated by using Site Recovery.
 VPN site-to-site connection to on-premises (with or without Azure ExpressRoute)| Supported | Ensure that the user-defined routes and NSGs are configured in such a way that the Site Recovery traffic isn't routed to on-premises. Learn more about [networking in Azure VM disaster recovery](./Azure-to-Azure-about-networking.md).
