@@ -380,7 +380,7 @@ az storage-mover project create \
 
 ---
 
-### Create a Job Definition
+### Create a Job Definition & run the job
 
 ### [Azure portal](#tab/portal)
 1.  Select the project after it appears, and then select **Create job definition**. The **Create a Migration Job** page opens to the **Basics** tab. Provide values for the following fields:
@@ -418,7 +418,6 @@ az storage-mover project create \
 
 ### Start a Job Definition
 
-### [Azure portal](#tab/portal)
 1. Navigate to the **Migration Jobs** tab. The **Migration Jobs** tab displays all migration jobs created within your Storage Mover resource, including the one you recently created. It might take a moment for the newly created migration job to appear in the list of migration jobs. Refresh the page if necessary. 
 
     :::image type="content" source="media/cloud-to-cloud-migration/migration-jobs-sml.png" alt-text="A screen capture showing the Migration Jobs page with the Migration Jobs tab selected and all Migration Jobs displayed." lightbox="media/cloud-to-cloud-migration/migration-jobs.png":::
