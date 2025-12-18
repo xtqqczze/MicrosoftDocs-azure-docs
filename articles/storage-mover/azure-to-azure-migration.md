@@ -499,9 +499,8 @@ When configured, Azure Storage Mover can also provide copy logs and job run logs
 Follow the steps in this section to monitor the progress of a Storage Mover Migration Job. To learn more about Storage Mover copy and job logs, see [How to enable Azure Storage Mover copy and job logs](log-monitoring.md).
 
 1. Go to the **Migration Jobs** tab.
-
-    :::image type="content" source="./media/azure-to-azure/migration-overview.png" alt-text="Screenshot of the Storage Mover page with the Migration Overview tab selected and all Migration Jobs displayed." lightbox="./media/azure-to-azure/migration-overview.png":::
 1. Select your job to view **progress, speed, and estimated completion time**.
+    :::image type="content" source="./media/azure-to-azure/migration-overview.png" alt-text="Screenshot of the Storage Mover page with the Migration Overview tab selected and all Migration Jobs displayed." lightbox="./media/azure-to-azure/migration-overview.png":::
 1. Select **Logs** to check for any errors or warnings.
 1. After the migration finishes, verify the data in **Azure Blob Storage**.
 
