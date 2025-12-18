@@ -4,7 +4,7 @@ description: This article provides release notes of Azure Data Manager for Energ
 author: bharathim
 ms.author: bselvaraj
 ms.service: azure-data-manager-energy
-ms.topic: conceptual
+ms.topic: article
 ms.date: 09/20/2022
 ms.custom: template-concept
 ---
@@ -26,7 +26,7 @@ This page is updated with the details about the upcoming release approximately a
 ## December 2025
 ### Reference Data Values Automatic Sync - General Availability
 
-Reference Data Values (RDV) Automatic Sync is now Generally Available on all SKU's. As part of each OSDU milestone upgrade, all ADME instances will be upgraded with the latest RDV's available at that milestone. This ensures consistent, standardized reference data across all instances without requiring manual ingestion.
+Reference Data Values (RDV) Automatic Sync is now Generally Available on all SKUs. As part of each OSDU milestone upgrade, all ADME instances will be upgraded with the latest RDVs available at that milestone. This ensures consistent, standardized reference data across all instances without requiring manual ingestion.
 
 For more details on how to work with this feature, see the official documentation: [Reference Data Values in ADME](concepts-reference-data-values.md).
 
@@ -105,7 +105,7 @@ Azure Data Manager for Energy has now been upgraded with the supported set of se
 We are releasing a Limited Preview for syncing Reference Values with your Azure Data Manager for Energy data partitions. Note that this feature is currently only available for newly created Azure Data Manager for Energy after feature enablement for your Azure subscription. Learn more about [Reference Values on Azure Data Manager for Energy](concepts-reference-data-values.md).
 
 ### CNAME DNS Record Fix
-Previously, each ADME resource had an incorrect privatelink DNS record by default, causing inaccessibility issues for some SLB apps. This release resolves the issue for both new and existing instances, ensuring correct and secure configuration of private endpoints. For more details, see [How to setup private links](how-to-set-up-private-links.md).
+Previously, each ADME resource had an incorrect private link DNS record by default, causing inaccessibility issues for some SLB apps. This release resolves the issue for both new and existing instances, ensuring correct and secure configuration of private endpoints. For more details, see [How to setup private links](how-to-set-up-private-links.md).
 
 ## June 2024
 
@@ -173,7 +173,7 @@ July 2023 onwards, all data partitions created in your Azure Data Manager for En
 
 ### Enriched Airflow Logs
 
-Airflow logs from your Azure Data Manager for Energy Preview resource now include extra fields: Dag Name, Dag Task Name, Run ID or Correlation ID, Code Path, TryNumber, Content, Location, Log Severity Level, and Resource ID. These fields can be utilized in the KQL query editor of your linked Log Analytics Workspace to get more specific logs for your executed workflows/DAGs. Learn more about [how to integrate Airflow logs with Azure Monitor](how-to-integrate-airflow-logs-with-azure-monitor.md). 
+Airflow logs from your Azure Data Manager for Energy Preview resource now include extra fields: DAG Name, DAG Task Name, Run ID or Correlation ID, Code Path, TryNumber, Content, Location, Log Severity Level, and Resource ID. These fields can be utilized in the KQL query editor of your linked Log Analytics Workspace to get more specific logs for your executed workflows/DAGs. Learn more about [how to integrate Airflow logs with Azure Monitor](how-to-integrate-airflow-logs-with-azure-monitor.md). 
 
 <hr width = 100%>
 
