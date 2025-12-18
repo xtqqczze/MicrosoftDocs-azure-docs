@@ -18,7 +18,7 @@ This article explains the key concepts of DNS zones and records, including domai
 
 ## Domain names
 
-The Domain Name System is a hierarchy of domains. The hierarchy starts from the `root` domain, whose name is simply '**.**'. Next come top-level domains, such as `com`, `net`, `org`, `uk` , or `jp`. Below the top-level domains are second-level domains, such as `org.uk` or `co.jp`. DNS name servers around the world host the domains in the DNS hierarchy.
+The Domain Name System is a hierarchy of domains. The hierarchy starts from the `root` domain, whose name is simply '**.**'. Next come top-level domains, such as `com`, `net`, `org`, `uk`, or `jp`. Below the top-level domains are second-level domains, such as `org.uk` or `co.jp`. DNS name servers around the world host the domains in the DNS hierarchy.
 
 A domain name registrar is an organization that allows you to purchase a domain name, such as `contoso.com`. Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name `www.contoso.com` to your company web site. The registrar might host the domain on its own name servers on your behalf or allow you to specify alternative name servers.
 
@@ -81,7 +81,7 @@ You can modify all properties of the SOA record except for the `host` property. 
 The zone serial number in the SOA record isn't updated automatically when changes are made to the records in the zone. It can be updated manually by editing the SOA record, if necessary.
 
 > [!NOTE]
-> Azure DNS doesn't currently support the use of a dot (**.**) before the '**@**' in the SOA postmaster mailbox entry. For example: `john.smith@contoso.xyz` (converted to john.smith.contoso.xyz) and `john\.smith@contoso.xyz` aren't allowed. 
+> Azure DNS doesn't currently support the use of a dot (**.**) before the '**@**' in the SOA hostmaster mailbox entry. For example: `john.smith@contoso.xyz` (converted to john.smith.contoso.xyz) and `john\.smith@contoso.xyz` aren't allowed. 
 
 ### SPF records
 
@@ -118,7 +118,7 @@ To use TLSA records effectively, [DNSSEC](dnssec.md) must be enabled on your dom
 
 ### Tags
 
-Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources. Azure Resource Manager uses tags to enable filtered views of your Azure bill and also enables you to set a policy for certain tags. For more information about tags, see [Using tags to organize your Azure resources](/azure-resource-manager/management/tag-resources).
+Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources. Azure Resource Manager uses tags to enable filtered views of your Azure bill and also enables you to set a policy for certain tags. For more information about tags, see [Using tags to organize your Azure resources](/azure/azure-resource-manager/management/tag-resources).
 
 Azure DNS supports using Azure Resource Manager tags on DNS zone resources. It doesn't support tags on DNS record sets, although as an alternative, metadata is supported on DNS record sets as explained in the following section.
 
