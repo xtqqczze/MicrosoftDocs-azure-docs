@@ -123,7 +123,6 @@ Azure Maps offers localization in a wide range of languages across its various s
 | bn-BD          | Bangla (Bangladesh)                        | ✓      | ✓            | ✓      |       |         |             |
 | bn-IN          | Bangla (India)                             | ✓      |              | ✓      |       |         |             |
 | eu             | Basque                                     | ✓      | ✓            | ✓      |       |         |             |
-| eu-ES          | Basque (Spain)                             |        |              | ✓      |       |         |             |
 | be             | Belarusian                                 | ✓      | ✓            | ✓      |       |         |             |
 | bn             | Bangla                                     |        |              | ✓      |       |         |             |
 | bs             | Bosnian (Latin)                            | ✓      | ✓            | ✓      |       |         |             |
