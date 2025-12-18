@@ -11,10 +11,10 @@ In this quickstart, you create an instance of Azure Native New Relic Service.
 
 ## Prerequisites
 
-[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [subscribe to New Relic](overview.md#subscribe-to-new-relic).
-
-## Create a New Relic SaaS resource
+- An Azure account with an active subscription is required. If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- The Owner or Contributor role for your Azure subscription. Only users who are assigned one of these roles can set up integration between Azure and New Relic. Before you begin, [verify that you have the appropriate access](../../role-based-access-control/check-access.md).
+ 
+## Create a New Relic SaaS subscription
 
 Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
