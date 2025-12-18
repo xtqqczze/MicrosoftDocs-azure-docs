@@ -20,7 +20,7 @@ AzAcSnap 8 introduced a new global settings file (`.azacsnaprc`) which must be l
 
 Settings, which can be controlled by adding/editing the global override settings file or by setting them as environment variables are:
 
-- **AZURE_ENVIRONMENT** (from AzAcSnap 11b) to cusomize connectivity to the correct management endpoint.  The values could be one of: AzurePublicCloud, AzureGovernment, AzureChina, AzureGermany - the default is 'AzurePublicCloud'.  For example, to configure AzAcSnap to ensure all management calls go to the Azure Management Endpoint for US Government Cloud add the following to the `.azacsnaprc` file:
+- **AZURE_ENVIRONMENT** (from AzAcSnap 11b) to customize connectivity to the correct management endpoint.  The values could be one of: AzurePublicCloud, AzureGovernment, AzureChina, AzureGermany - the default is 'AzurePublicCloud'.  For example, to configure AzAcSnap to ensure all management calls go to the Azure Management Endpoint for US Government Cloud add the following to the `.azacsnaprc` file:
   - `AZURE_ENVIRONMENT=AzureGovernment`
 
   > [!NOTE]
