@@ -119,7 +119,6 @@ az storage-mover endpoint create-for-storage-container \
 
 ---
 
-
 ### Configure an Azure Blob storage tTarget endpoint
 
 ### [Azure portal](#tab/portal)
@@ -304,7 +303,6 @@ az role assignment create \
 
 ---
 
-
 ## Create a migration project and job definition
 
 After you define source and target endpoints for your migration, the next steps are to create a Storage Mover migration project and job definition.
@@ -317,6 +315,7 @@ Follow the steps in this section to create a migration project and run a migrati
 ### Create a project
 
 ### [Azure portal](#tab/portal)
+
 1. Go to the **Project explorer** tab in your Storage Mover instance and select **Create project**.
 1. Enter values for the following fields:
     - **Name**: A meaningful name for the migration project.
@@ -384,6 +383,7 @@ az storage-mover project create \
 ### Create a job definition and run the job
 
 ### [Azure portal](#tab/portal)
+
 1.  Select the project after it appears, and then select **Create job definition**. The **Create a Migration Job** page opens to the **Basics** tab. Provide values for the following fields:
     - **Name**: A meaningful name for the migration job.
     - **Migration type**: Select `Azure to Azure`.
@@ -418,8 +418,6 @@ az storage-mover project create \
 
 ## Run a migration job
 
-### Start a job definition
-
 1. Go to the **Migration Jobs** tab. The **Migration Jobs** tab shows all migration jobs you created in your Storage Mover resource, including the one you just created. It might take a moment for the new migration job to show up in the list. Refresh the page if needed. 
 
     :::image type="content" source="./media/azure-to-azure/migration-jobs.png" alt-text="Screenshot of the Migration Jobs page with the Migration Jobs tab selected and all Migration Jobs displayed." lightbox="./media/azure-to-azure/migration-jobs.png":::
@@ -429,6 +427,8 @@ az storage-mover project create \
     :::image type="content" source="./media/azure-to-azure/migration-job.png" alt-text="Screenshot of the Migration Job details page with the Properties tab and the Start Job button highlighted." lightbox="./media/azure-to-azure/migration-job.png":::
 
     :::image type="content" source="./media/azure-to-azure/migration-job-start.png" alt-text="Screenshot of the Migration Job page's Start Job pane." lightbox="./media/azure-to-azure/migration-job-start.png":::
+
+### Start a job definition
 
 ### [Azure PowerShell](#tab/powershell)
 
