@@ -408,7 +408,7 @@ az storage-mover project create \
 
 1. In the **Settings** tab, select **Mirror source to target** from the **Copy mode** drop-down list. Verify that the **Migration outcomes** results are appropriate for your use case, then select **Next** and review your settings.
 
-    :::image type="content" source="./media/azure-to-azure/project-settings-sml.png" alt-text="Screenshot of the Create a Migration Job page with the Settings tab selected and migration outcomes displayed." lightbox="./media/azure-to-azure/project-settings.png":::
+    :::image type="content" source="./media/azure-to-azure/project-settings.png" alt-text="Screenshot of the Create a Migration Job page with the Settings tab selected and migration outcomes displayed." lightbox="./media/azure-to-azure/project-settings.png":::
 
 1. After confirming that your settings are correct within the **Review** tab, select **Create** to deploy the migration job. You're redirected to the **Project explorer** after the job's deployment begins. After completion, the job appears within the associated migration project.
 
