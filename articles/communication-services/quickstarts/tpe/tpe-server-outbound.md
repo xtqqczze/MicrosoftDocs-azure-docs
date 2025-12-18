@@ -27,9 +27,9 @@ Before you start:
   - The **Object ID (OID)** of the Resource Account
   - A valid **callback URI** to receive events
 - See:
-  - [Call Automation concepts](/azure/communication-services/concepts/call-automation)
-  - [Action-event programming model](/azure/communication-services/concepts/call-automation#action-event-model)
-- Review [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) such as `TeamsExtensionUser` and `PhoneNumberIdentifier`.
+  - [Call Automation concepts](/azure/communication-services/concepts/call-automation/call-automation)
+  - [Action-event programming model](/azure/communication-services/concepts/call-automation/call-automation#action-event-model)
+- Review [user identifiers](azure/communication-services/concepts/identifiers) such as `TeamsExtensionUser` and `PhoneNumberIdentifier`.
 
 ## License Requirement
 Starting **November 1, 2025**, Calling Plan licenses on Teams Resource Accounts will no longer support On-Behalf-Of PSTN outbound calls or server-initiated outbound calls. A **[Pay-As-You-Go Calling Plan](/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)** is required.
@@ -116,10 +116,10 @@ sequenceDiagram
 
 - [Microsoft Teams Phone overview](/microsoftteams/what-is-phone-system-in-office-365)
 - [Set up Microsoft Teams Phone in your organization](/microsoftteams/setting-up-your-phone-system)
-- [Access a user's Teams Phone separate from their Teams client](../../../quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md)
-- [Answer Teams Phone calls from Call Automation](../../../quickstarts/tpe/teams-phone-extensibility-answer-teams-calls.md)
+- [Access a user's Teams Phone separate from their Teams client](/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-access-teams-phone)
+- [Answer Teams Phone calls from Call Automation](azure/communication-services/quickstarts/tpe/teams-phone-extensibility-answer-teams-calls)
 
 ## Related articles
 
-- [Teams Phone extensibility overview](./teams-phone-extensibility-overview.md)
-- [Teams Phone extensibility FAQ](./teams-phone-extensibility-faq.md)
+- [Teams Phone extensibility overview](/azure/communication-services/concepts/interop/tpe/teams-phone-extensibility-overview)
+- [Teams Phone extensibility FAQ](/azure/communication-services/concepts/interop/tpe/teams-phone-extensibility-faq)
