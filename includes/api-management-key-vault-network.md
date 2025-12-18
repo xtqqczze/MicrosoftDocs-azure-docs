@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 12/04/2025
+ms.date: 12/18/2025
 ms.author: danlep
 ---
 
@@ -13,15 +13,7 @@ If [Key Vault firewall](/azure/key-vault/general/network-security) is enabled on
 
 * You must use the API Management instance's system-assigned managed identity to access the key vault.
 
-* Ensure that your API Management instance has networking line of sight to the key vault. Depending on your scenarios, configure one of the following network access options on the key vault:
-
-    - Allow public access from all networks.
-    
-    - Set a network security rule to allow API Management traffic based on the IP address or virtual network connectivity.
-    
-    - Secure traffic from API Management with Private Link connectivity.
-
-    - Use a [network security perimeter](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) to secure your key vault and allow traffic from API Management. 
+* In Key Vault firewall, enable the **Allow Trusted Microsoft Services to bypass this firewall** option.
 
 * Ensure that your local client IP address is allowed to access the key vault temporarily while you select a certificate or secret to add to Azure API Management. For more information, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
