@@ -251,7 +251,6 @@ New-AzRoleAssignment `
     -Scope "/subscriptions/<subscription-id>/resourceGroups/c2c-pvt-ecy-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/containers/migration-container"
 ```
 
-
 ### [Azure CLI](#tab/CLI)
 
 First, retrieve the principal ID of the source or target endpoint's managed identity by using the `az storage-mover endpoint show` command:
@@ -303,7 +302,7 @@ az role assignment create \
 
 ---
 
-## Create a migration project and job definition
+### Create a migration project and job definition
 
 After you define source and target endpoints for your migration, the next steps are to create a Storage Mover migration project and job definition.
 
@@ -416,7 +415,7 @@ az storage-mover project create \
 
 ---
 
-## Run a migration job
+### Run a migration job
 
 1. Go to the **Migration Jobs** tab. The **Migration Jobs** tab shows all migration jobs you created in your Storage Mover resource, including the one you just created. It might take a moment for the new migration job to show up in the list. Refresh the page if needed. 
 
