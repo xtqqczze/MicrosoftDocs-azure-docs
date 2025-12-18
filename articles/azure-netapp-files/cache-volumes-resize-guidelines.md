@@ -2,7 +2,7 @@
 title: Understand resizing guidelines of cache volumes
 description: Describes the resizing guidelines you must be aware of before resizing a cache volume.
 services: azure-netapp-files
-author: b-mchabbria
+author: netapp-manishc
 ms.service: azure-netapp-files
 ms.topic: concept-article
 ms.date: 12/18/2025
