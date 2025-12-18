@@ -54,13 +54,9 @@ If you want to enable *public* inbound access to an API Management instance in t
 * Minimum: /27 (32 addresses)
 * Recommended: /24 (256 addresses) - to accommodate scaling of API Management instance
 
-
 ### Examples
 
 The following table shows subnet sizing examples for API Management virtual network injection, illustrating how different CIDR blocks affect the number of scale-out units possible:
-
-
-
 
 | Subnet CIDR | Total IP addresses | Azure reserved IPs | API Management instance IPs | Internal load balancer IP | Remaining IPs for scale-out | Max scale-out units | Total max units |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
@@ -69,20 +65,14 @@ The following table shows subnet sizing examples for API Management virtual netw
 |        /25  |                128 |                  5 |                           2 |                         1 |                         120 |                 60* |             61* |
 |        /24  |                256 |                  5 |                           2 |                         1 |                         248 |                 124*|          125*|
 
-
-
-## Key Points
+### Key Points
 
 - **Minimum subnet size**: /27 (provides 24 usable IP addresses for API Management)
-
 - **Azure reserved IPs**: 5 addresses per subnet (first and last for protocol conformance, plus 3 for Azure services)
 - **Scale-out requirement**: Each scale-out unit requires 2 IP addresses
 - **Internal load balancer**: Only required when API Management is deployed in internal virtual network mode
-- **Premium SKU limit**: * Currently supports up to 31 units maximum
-- **Recommended sizing**: For high-scale scenarios approaching the Premium SKU limit, consider /25 or /24 subnets
-
-> [!NOTE]
-> It is currently possible to scale the Premium SKU to 31 units. If you foresee demand approaching this limit, consider the /25 subnet or /24 subnet.
+- **Premium V2 limit**: * Currently supports up to 30 units maximum. If you foresee demand approaching this limit, consider the /25 subnet or /24 subnet.
+- **Recommended sizing**: For high-scale scenarios approaching the Premium V2 limit, consider /25 or /24 subnets
 
 > [!IMPORTANT]
 > The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning might cause a change in the private IP address.
