@@ -25,7 +25,7 @@ This article provides an overview of how MQTT Retain works, its billing implicat
 
 ## Billing
 
-Each retained publish counts as two MQTT operations: one for processing the message and one for storing it.
+A retained publish is counted as two MQTT operations: one for processing the message and one for storing it.
 
 ## Storage limits
 
@@ -36,7 +36,7 @@ For larger needs, contact Azure Support.
 
 ## Message deletion
 
-- **MQTT 3.1.1**: Publish an empty payload to the topic.
+- **MQTT 3.1.1**: Publish an empty payload to the topic. To set expiry, contact Azure support.
 - **MQTT 5.0**: Set expiry or send an empty message to remove it.
 
 
@@ -44,7 +44,7 @@ For larger needs, contact Azure Support.
 
 Retained messages let an MQTT broker store the **last known message** on a topic so new subscribers immediately receive the current value without waiting for the next publish. Now you can use the following **HTTP management endpoints**:
 
-- **Retain Get**: fetches the raw retained message body for a specific topic; message metadata is returned via HTTP headers.
+- **Retain Get**: fetches the raw retained message body for a specific topic. The message metadata is returned via HTTP headers.
 - **Retain List**: enumerates retained messages matching a topic filter (wildcards supported) or page through results with a continuation token.
 
 Use these APIs for **observability, audit, and operational workflows** (for example, support troubleshooting, backfills, or verifying device state at scale).
@@ -115,7 +115,8 @@ Host: <YOUR Event Grid MQTT BROKER URL HERE>
 
 ### Examples
 
-URL-encoding helper
+#### URL-encoding example
+
 - Topic: `factory/line1/cell17/state` 
     - Encoded: `factory%2Fline1%2Fcell17%2Fstate`
 - Filter: `factory/line1/+/state` 
@@ -193,22 +194,22 @@ curl -sS -H "Authorization: Bearer $ENTRATOKEN" "$NEXT_LINK"
 
 ### Behavior, limits, and performance 
 
-- maxResults range: 1–100 per page.
-- Topic filter supports standard MQTT wildcards `+` and `#` (encoded in URL).
-- Payload size: returned as raw bytes (no JSON wrapping).
-- Headers are the single source for metadata in Get; don't expect a JSON envelope.
-- Paging: follow nextLink until null. Don't mix topicFilter with continuationToken.
-- Throttling: standard platform throttles might apply (429). Use retry with backoff.
+- **maxResults range**: 1–100 per page.
+- **Topic filter**: supports standard MQTT wildcards `+` and `#` (encoded in URL).
+- **Payload size**: returned as raw bytes (no JSON wrapping).
+- **Headers**: single source for metadata in Get; don't expect a JSON envelope.
+- **Paging**: follow nextLink until null. Don't mix topicFilter with continuationToken.
+- **Throttling**: standard platform throttles might apply (429). Use retry with backoff.
 
 ### Error handling and troubleshooting
 
-- 400 Bad Request: malformed or missing topic or topicFilter; provided both topicFilter and continuationToken.
-- 401 Unauthorized: invalid or expired token or wrong audience.
-- 403 Forbidden: caller lacks permission on the namespace.
-- 404 Not Found: no retained message for the specified topic.
-- 409 Conflict: request violates preview constraints.
-- 429 Too Many Requests: throttled; respect Retry-After.
-- 5xx: transient service error; retry with exponential backoff.
+- **400 Bad Request**: malformed or missing topic or topicFilter; provided both topicFilter and continuationToken.
+- **401 Unauthorized**: invalid or expired token or wrong audience.
+- **403 Forbidden**: caller lacks permission on the namespace.
+- **404 Not Found**: no retained message for the specified topic.
+- **409 Conflict**: request violates preview constraints.
+- **429 Too Many Requests**: throttled; respect Retry-After.
+- **5xx**: transient service error; retry with exponential backoff.
 
 > [!NOTE]
 > - Confirm the topic is exact (case-sensitive) and correctly URL-encoded. 
