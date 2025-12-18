@@ -2,7 +2,7 @@
 title: "Authoring recommendations for Dev Box image definitions"
 description: "Enhance your Microsoft Dev Box workflows with this guide to authoring image definitions, including strategies for testing, debugging, and using built-in tools."
 #customer intent: As an IT admin, I want to troubleshoot Dev Box customization failures so that I can resolve issues quickly and maintain productivity.
-author: mikeparker-ms
+author: mikeparker104
 ms.author: miparker
 ms.reviewer: rosemalcolm
 ms.date: 12/11/2025
