@@ -46,7 +46,7 @@ This article describes how to enable cross-subscription patching either through 
 
 1. Scheduling using maintenance configurations
 
-     You can schedule updates from the Overview or Machines pane on the Update Manager page or from the selected VM. For more inforamtion, see [Schedule recurring updates on a single VM](scheduled-patching.md#schedule-recurring-updates-on-a-single-vm).
+     To schedule updates, see [Schedule recurring updates on a single VM](scheduled-patching.md#schedule-recurring-updates-on-a-single-vm).
 
 ## Next steps
 
