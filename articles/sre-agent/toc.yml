@@ -21,6 +21,8 @@ items:
         href: connectors.md
       - name: Documentation connector
         href: documentation-connector.md
+      - name: Connect to custom MCP server
+        href: custom-mcp-server.md
   - name: Build custom subagents
     items:
       - name: Overview
