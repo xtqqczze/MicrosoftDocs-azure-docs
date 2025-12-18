@@ -31,9 +31,10 @@ A general migration journey includes the following phases. Azure Migrate provide
 
 :::image type="content" source="./media/migrate-services-overview/migrate-journey.png" alt-text="Screenshot that shows the phases of migrating workloads to Azure." lightbox="./media/migrate-services-overview/migrate-journey.png":::
 
+::: moniker range="migrate"
 Watch the following video to learn about key phases of a typical migration: Decide, Plan, and Execute—and how Azure Migrate supports each step.
 
-::: moniker range="migrate"
+
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=edd9a562-f4c1-49cb-8312-952f214a1cd6]
 ::: moniker-end
 
