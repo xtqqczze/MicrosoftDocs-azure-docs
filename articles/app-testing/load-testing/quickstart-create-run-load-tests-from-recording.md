@@ -12,7 +12,7 @@ ms.date: 12/16/2025
 
 # Quickstart: Create and run a load test from a recording using AI 
 
-Learn how to use the Azure App Testing browser extension for Microsoft Edge and Google Chrome to easily create JMeter load tests. The experience leverages AI to enhance your test scripts by suggesting correlations, parameterizations, and other improvements. You can then run the load test at scale in **Azure Load Testing**.
+Learn how to use the Azure App Testing browser extension for Microsoft Edge and Google Chrome to easily create JMeter load tests. The experience uses AI to enhance your test scripts by suggesting correlations, parameterizations, and other improvements. You can then run the load test at scale in **Azure Load Testing**.
 
 This quickstart guides you through the steps of installing the browser extension, recording a user journey, reviewing and enhancing the generated load test script with AI assistance, and finally running the load test in **Azure Load Testing**.
 
@@ -34,7 +34,7 @@ To create a load testing resource:
 
 ## Record your scenarios  
 
-To get started, navigate to the overview page of your Azure Load Testing resource in the Azure portal. From there, launch the **Azure App Testing** browser extension by clicking on the **Record** button. If the extension is not installed, you will be redirected to the marketplace to install it.
+To get started, navigate to the overview page of your Azure Load Testing resource in the Azure portal. From there, launch the **Azure App Testing** browser extension by clicking on the **Record** button. If the extension isn't installed, you are redirected to the marketplace to install it.
 
 :::image type="content" source="./media/quickstart-create-run-tests-from-recording/load-testing-portal-record-button.png" alt-text="Screenshot that shows the Record button in Azure Load Testing resource overview page." lightbox="./media/quickstart-create-run-tests-from-recording/load-testing-portal-record-button.png":::
 
@@ -48,15 +48,15 @@ Once you've completed the user journey, return to the extension tab and click **
 
 Click **Review and create test** to proceed to the next step. You can filter the domains to include or exclude specific requests from the recording.
 
-<!NOTE> You will be prompted to accepting terms and conditions to use AI recommendations when you sign in for the first time. You can always disable AI recommendations later in the extension settings. </!NOTE>
+<!NOTE> You'll be prompted to accepting terms and conditions to use AI recommendations when you sign in for the first time. You can always disable AI recommendations later in the extension settings. </!NOTE>
 
 ## Enhance the recording with AI assistance
 
-After completing the recording, you will be taken to the review recording view in the Azure portal. Here, you can see the recorded requests and scenarios. AI is used to analyze the recording and suggest improvements. The following enhancements can be applied to the recorded script.
+After completing the recording, you'll be taken to the review recording view in the Azure portal. Here, you can see the recorded requests and scenarios. AI is used to analyze the recording and suggest improvements. The following enhancements can be applied to the recorded script.
 
 ### 1. Smart labeling of requests
 
-AI adds labels for your requests to make the script more readable. These labels are based on the request URLs and actions performed during the recording. You can always modify the labels in the experience by editing the request names. These labels will be reflected in the test run results.
+AI adds labels for your requests to make the script more readable. These labels are based on the request URLs and actions performed during the recording. You can always modify the labels in the experience by editing the request names. These labels are reflected in the test run results.
 
 :::image type="content" source="./media/quickstart-create-run-tests-from-recording/load-testing-authoring-smart-labels.png" alt-text="Screenshot that shows AI-suggested smart labels for requests in the Azure App Testing browser extension." lightbox="./media/quickstart-create-run-tests-from-recording/load-testing-authoring-smart-labels.png":::
 
@@ -70,7 +70,7 @@ AI identifies dynamic values in the requests and suggests correlations to handle
 
 While adding or reviewing correlations, some of the fields that need to be filled in include:
 - **Source Request**: The request from which the dynamic value is extracted.
-- **Variable Name**: The name of the variable that will store the extracted value.
+- **Variable Name**: The name of the variable that stores the extracted value.
 - **Path type**: The method used to extract the value (for example, JSONPath, XPath, Regex).
 - **Path**: The specific path or pattern used to locate the dynamic value in the response.
 
@@ -90,13 +90,13 @@ You can configure various load test settings in the **Load details** section as 
 
 - **Apply variable load for scenarios**: Enable this option to simulate variable load patterns for different scenarios. This helps in mimicking real-world user behavior more accurately.
 - **Total virtual users**: Specify the number of virtual users to simulate during the test.
-- **Test duration**: Specify the total duration for which the load test will run.
-- **Ramp-up time**: Set the time duration over which the virtual users will be gradually introduced to the test.
+- **Test duration**: Specify the total duration for which the load test runs.
+- **Ramp-up time**: Set the time duration over which the virtual users are gradually introduced to the test.
 
 
 ## Run the load test
 
-Once you have reviewed and configured the load test setting, you can either directly run the test in Azure Load Testing by clicking on the **Run test now** button or configure advanced test options. The advanced test options lets you configure the load test with all the options to configure a JMeter test. Refer to the [create and run JMeter load tests](./how-to-create-and-run-load-test-with-jmeter-script.md) for more details.
+Once you reviewe and configure the load test setting, you can either directly run the test in Azure Load Testing by clicking on the **Run test now** button or configure advanced test options. The advanced test options let you configure the load test with all the options to configure a JMeter test. Refer to the [create and run JMeter load tests](./how-to-create-and-run-load-test-with-jmeter-script.md) for more details.
 
 A JMeter script is generated based on your recording and the enhancements applied. You can download this script for further customization or future use.
 
