@@ -11,7 +11,7 @@ ms.custom: references_regions
 # Customer intent: As a data administrator, I want to understand the guidelines to resize a cache volume.
 ---
 
-# Understand resizing guidelines 
+# Understand resizing guidelines of cache volumes in Azure NetApp Files
 
 This article describes the guidelines you need to be aware of before resizing a Azure NetApp Files cache volume.
 
