@@ -129,7 +129,7 @@ Azure NetApp Files metrics are natively integrated into Azure monitor. From with
     :::image type="content" source="./media/azure-netapp-files-metrics/metrics-select-pool-volume.png" alt-text="Screenshot that shows how to access Azure NetApp Files metrics for capacity pools or volumes." lightbox="./media/azure-netapp-files-metrics/metrics-select-pool-volume.png":::
 
     >[!TIP]
-    >For [cache volumes](#cache-volume-metrics-preview), in the Scope field, enter the cache's full resource ID in the search filter. 
+    >For [cache volumes](#cache-volume-metrics-preview), click on the Scope field and then enter the cache's full resource ID in the search filter. 
   	
 - From the Azure NetApp Files capacity pool or volume, select **Metrics**. Then select **Metric** to view the available metrics:
    
