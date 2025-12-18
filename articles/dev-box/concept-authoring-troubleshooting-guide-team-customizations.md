@@ -51,7 +51,7 @@ The AI-powered workflow in Visual Studio Code with GitHub Copilot automatically 
 - Always validate generated YAML before committing to your catalog.
 
 > [!TIP]
-> Learn more about using GitHub Copilot for image definitions: [Create an image definition file with Copilot](/azure/dev-box/how-to-use-copilot-generate-image-definition-file).
+> Learn more about using GitHub Copilot for image definitions: [Create an image definition file with Copilot](/azure/dev-box/how-to-configure-team-customizations?tabs=copilot-agent#create-an-image-definition-file).
 
 ### Explore using your own GitHub Copilot instruction files alongside the authoring agent
 
