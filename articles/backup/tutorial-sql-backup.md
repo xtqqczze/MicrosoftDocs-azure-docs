@@ -43,7 +43,7 @@ To discover databases running on a VM, follow these steps:
 
 1. On the **Select Virtual Machine** pane, select the VMs running the SQL Server database, and then select **Discover DBs**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/discovering-sql-databases.png" alt-text="Screenshot shows the list of VMs running SQL databased that aren't protected." lightbox="./media/backup-azure-sql-database/discovering-sql-databases.png":::
+   :::image type="content" source="./media/backup-azure-sql-database/discovering-sql-databases.png" alt-text="Screenshot shows the list of VMs running SQL databases that aren't protected." lightbox="./media/backup-azure-sql-database/discovering-sql-databases.png":::
 
    >[!Note]
    >- Unprotected VMs should appear in the list after discovery, listed by name and resource group.
