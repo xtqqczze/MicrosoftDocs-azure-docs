@@ -10,7 +10,7 @@ ms.date: 12/02/2025
 
 # Hyperscale Configuration Delivery for Client Applications (Preview) 
 
-Client applications have fundamentally different configuration requirements than server applications due to their scale and direct user interaction. They serve millions of users who expect instant app launches and seamless updates. These applications run on diverse devices across unreliable networks worldwide and the system needs to be lightweight on the client side yet powerful enough to apply changes on the fly. Since client applications can't securely store credentials, they need anonymous access to configuration data. For most client scenarios, eventual consistency is acceptable, allowing the use of edge caching strategies. The integration of Azure App Configuration with Azure Front Door combines centralized configuration management with edge-based content delivery, providing unified control and instant global access of your configuration.
+When it comes to consuming configuration, client applications have different requirements than server applications. They can't store secrets, they operate on a much larger scale, and users expect instant startup times from anywhere in the world. To meet the requirements of client-side application configuration, Azure App Configuration provides integration with Azure Front Door. Azure Front Door's edge-based content delivery network combined with Azure App Configuration's centralized configuration management enables client applications anywhere to get configuration fast, reliably and anonymously.
 
 ## CDN-Accelerated Configuration Delivery with Azure Front Door
 
@@ -37,8 +37,6 @@ CDN-delivered configuration unlocks a range of client application scenarios:
 - Control AI/LLM model parameters and UI behaviors through configuration
 - Dynamically control client-side agent behavior, safety modes, and guardrail settings through configuration
 - Consistent behavior for clients using snapshot-based configuration
-
-These scenarios previously required custom proxies. Now, they work out-of-the-box with Azure App Configuration and Azure Front Door integration.
 
 > [!NOTE]
 > This feature is only available in the Azure public cloud. Support for other Azure clouds is planned for future releases.

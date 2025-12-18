@@ -29,9 +29,9 @@ Before you begin, ensure you have:
 - App Configuration Data Owner or App Configuration Data Reader role 
 - Basic understanding of [CDN and content delivery concepts](/azure/frontdoor/front-door-overview)
 
-## Set up the Azure Front Door integration
+## Connect to Azure Front Door
 
-To integrate Azure Front Door with your App Configuration store, follow these steps:
+To connect Azure Front Door with your App Configuration store, follow these steps:
 
 1. In the Azure portal, navigate to your App Configuration store.
 
@@ -134,7 +134,7 @@ The table displays:
 
 Monitor for warnings such as "Identity not configured" which indicate additional setup requirements. Address these warnings promptly to ensure proper functionality.
 
-## Disconnect Azure Front Door integration
+## Disconnect Azure Front Door
 
 When you no longer need to manage your Front Door profile through App Configuration, disconnect your App Configuration store from Azure Front Door.
 
