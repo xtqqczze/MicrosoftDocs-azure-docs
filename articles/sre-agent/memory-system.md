@@ -4,7 +4,7 @@ description: Use the SRE Agent memory system to build team knowledge that agents
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
-ms.date: 12/17/2025
+ms.date: 12/18/2025
 ms.topic: article
 ms.service: azure-sre-agent
 ms.collection: ce-skilling-ai-copilot
@@ -24,7 +24,7 @@ The memory system consists of four complementary components:
 | **User Memories** | Quick chat commands for team knowledge | Instant (chat commands) | Team standards, service configurations, workflow patterns |
 | **Knowledge Base** | Direct document uploads for runbooks | Quick (file upload) | Static runbooks, troubleshooting guides, internal documentation |
 | **Documentation connector** | Automated Azure DevOps synchronization | Configuration required | Living documentation, frequently updated guides |
-| **Session Insights** | Agent-generated memories from sessions | Automatic | Learned troubleshooting patterns, past incident resolutions |
+| **Session insights** | Agent-generated memories from sessions | Automatic | Learned troubleshooting patterns, past incident resolutions |
 
 ### How agents retrieve memory
 
@@ -60,7 +60,7 @@ flowchart TD
 
 ### Tool configuration
 
-The `SearchMemory` tool retrieves all memory components. It searches across User Memories, Knowledge Base, Documentation connector, and Session Insights simultaneously.
+The `SearchMemory` tool retrieves all memory components. It searches across user memories, knowledge base, session insights, and documentation connector simultaneously.
 
 - SRE Agent (default): `SearchMemory` is built in
 - Custom subagents: Add `SearchMemory` tool to your configuration
@@ -212,6 +212,96 @@ The knowledge base provides direct document upload capabilities for runbooks, tr
 - **Update**: To overwrite the previous version, upload a file with the same name.
 
 - **Delete**: Select documents and use the delete action. Changes take effect immediately.
+
+## Session insights
+
+As the agent handles your incidents, it learns. Session insights capture what worked, what didn't, and key learnings from each session. The agent automatically applies that knowledge to help with similar issues in the future.
+
+### Automatic improvement
+
+The agent learns from every session without any manual effort:
+
+* The agent handles an issue autonomously or works with you directly.
+* The agent captures symptoms, resolution steps, root cause, and pitfalls.
+* These insights become searchable memories.
+* Future sessions automatically retrieve relevant past insights.
+
+The result: the agent gets better over time, suggesting proven resolutions and avoiding known pitfalls.
+
+### Discover opportunities
+
+While session insights work automatically, reviewing them can surface valuable patterns you might want to act on.
+
+| Pattern you might discover | Potential action |
+|---------------------------|------------------|
+| Same issue keeps recurring | Fix the underlying code or configuration |
+| Agent lacks context about your service | Create a custom subagent with domain knowledge |
+| Troubleshooting steps aren't documented | Update or create a runbook |
+| Telemetry gaps made diagnosis harder | Improve logging or add metrics |
+| Alert triggered but wasn't actionable | Tune the alert or add runbook links |
+
+Think of session insights as a window into what the agent learns. You might find something worth acting on, or you might just let the agent handle any surfaced issues.
+
+### How it works
+
+Session insights create a continuous improvement loop: the agent captures symptoms, steps, root cause, and pitfalls from each session, then retrieves relevant past insights when similar issues arise. This automatic cycle helps the agent resolve problems faster over time.
+
+<!--
+```mermaid
+flowchart TD
+    subgraph Loop["Automatic Learning Loop"]
+        A["Issue arises<br/>Incident, alert, or question"] -- > B["Agent captures insight<br/>symptoms, steps, root cause,<br/>pitfalls, learnings"]
+        B -- > C["Insight indexed<br/>Becomes searchable memory"]
+        C -- > D["Future sessions benefit<br/>Agent retrieves relevant insights"]
+        D -.- >|Similar issue arises| A
+    end
+    
+    Loop -- > E["Automatic: Agent improves over time"]
+    Loop -- > F["Optional: Review insights for<br/>code/telemetry/runbook opportunities"]
+```
+-->
+
+:::image type="content" source="media/memory-system/automatic-learning-loop.png" alt-text="Diagram of Azure SRE Agent memory system loop.":::
+
+### What the agent captures
+
+The agent captures series of data points from each session to improve future troubleshooting.
+
+| Captured | How the agent uses it |
+|----------|----------------------|
+| **Symptoms observed** | Recognizes similar patterns in future problems |
+| **Steps that worked** | Suggests proven resolution paths |
+| **Root cause found** | Jumps to likely causes faster |
+| **Pitfalls encountered** | Avoids repeating mistakes |
+| **Context you provided** | Remembers facts about your environment |
+| **Resources involved** | Connects past problems on same resources |
+
+### When insights are generated
+
+The system generates insights automatically after conversations finish, or you can request them on-demand.
+
+- **Automatically**: After conversations finish (runs periodically, approximately every 30 minutes)
+- **On-demand**: Select **Generate Session insights** in the chat footer for immediate results (about 30 seconds)
+
+### Browse insights
+
+Go to **Settings** > **Session insights** to see what the agent learned:
+
+- **Total count** in the header
+- **List of insights** with session title and timestamp
+- **Detail view** with expandable Timeline and Agent Performance sections
+- **Go to Thread** to revisit the original conversation
+
+> [!NOTE]
+> While periodic manual browsing of insights can surface recurring patterns worth addressing, the agent benefits from these insights whether you review them or not.
+
+### Insight structure
+
+Each insight includes:
+
+- **Timeline**: Chronological milestones of the troubleshooting session (up to eight)
+- **Agent Performance**: What went well, areas for improvement, and key learnings
+- **Investigation quality score**: 1-5 rating for investigation completeness
 
 ## Related content
 
