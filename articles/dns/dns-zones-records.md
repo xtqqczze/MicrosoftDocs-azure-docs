@@ -24,7 +24,7 @@ A domain name registrar is an organization that allows you to purchase a domain 
 
 Azure DNS provides a globally distributed and high-availability name server infrastructure that you can use to host your domain. By hosting your domains in Azure DNS, you can manage your DNS records with the same credentials, APIs, tools, billing, and support as your other Azure services.
 
-Azure DNS currently doesn't support purchasing of domain names. For an annual fee, you can buy a domain name by using [App Service domains](/app-service/manage-custom-dns-buy-domain#buy-and-map-an-app-service-domain) or a non-Microsoft domain name registrar. Your domains then can be hosted in Azure DNS for record management. For more information, see [Delegate a domain to Azure DNS](dns-domain-delegation.md).
+Azure DNS currently doesn't support purchasing of domain names. For an annual fee, you can buy a domain name by using [App Service domains](../app-service/manage-custom-dns-buy-domain.md#buy-and-map-an-app-service-domain) or a non-Microsoft domain name registrar. Your domains then can be hosted in Azure DNS for record management. For more information, see [Delegate a domain to Azure DNS](dns-domain-delegation.md).
 
 ## DNS zones
 
