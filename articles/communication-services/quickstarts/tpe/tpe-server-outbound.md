@@ -15,21 +15,22 @@ services: azure-communication-services
 
 # Place Server-Initiated Outbound Calls with Teams Phone Extensibility
 
-Teams Phone Extensibility (TPE) lets applications place outbound calls through Microsoft Teams using **Call Automation APIs**. Use this feature for automated notifications, customer callbacks, or workflow integration.
+Teams Phone Extensibility (TPE) enables applications to place outbound calls through Microsoft Teams using **Call Automation APIs**. Use this capability to automate notifications, support customer callbacks, or integrate calling into workflow systems.
 
-From **Call Automation version 1.5.0-beta.1**, use the `CreateCallAsync` API to call PSTN endpoints or Teams users from your server application.
+Starting with **Call Automation version 1.5.0‑beta.1**, you can use the `CreateCallAsync` API to place outbound calls to PSTN numbers or Teams users from a server-side application.
+
 
 ## Prerequisites
 Before you start:
 - Install **Azure.Communication.CallAutomation** version **1.5.0-beta.1** or later.
-- You need:
-  - A **Teams Resource Account** (caller identity)
-  - The **Object ID (OID)** of the Resource Account
-  - A valid **callback URI** to receive events
-- See:
+- Ensure you have:
+  - A **Teams Resource Account** to use as the caller identity.
+  - The **Object ID (OID)** of the Resource Account.
+  - A valid **callback URI** for receiving call events.
+- Review the following:
   - [Call Automation concepts](/azure/communication-services/concepts/call-automation/call-automation)
   - [Action-event programming model](/azure/communication-services/concepts/call-automation/call-automation#action-event-model)
-- Review [user identifiers](azure/communication-services/concepts/identifiers) such as `TeamsExtensionUser` and `PhoneNumberIdentifier`.
+  - [user identifiers](/azure/communication-services/concepts/identifiers) such as `TeamsExtensionUser` and `PhoneNumberIdentifier`.
 
 ## License Requirement
 Starting **November 1, 2025**, Calling Plan licenses on Teams Resource Accounts will no longer support On-Behalf-Of PSTN outbound calls or server-initiated outbound calls. A **[Pay-As-You-Go Calling Plan](/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)** is required.
@@ -42,20 +43,19 @@ Assign a Pay-As-You-Go license to Teams Resource Accounts that use Calling Plan 
 On November 1, 2025, On-Behalf-Of PSTN outbound calls and server-initiated outbound calls may no longer be available depending on your carrier. Coordinate with your carrier to maintain service. Without adjustments, outbound calls made via Teams Phone Extensibility will fail.
 </details>
 
-**Note:** Direct Routing phone numbers remain unchanged.
+**Note:** Direct Routing numbers are not impacted by these licensing changes.
 
 **Learn more:**
-- [Pay-As-You-Go Calling Plan](/microsoftteams/pay-as-you-go)
-- [How to buy Calling Plans](/microsoftteams/calling-plans)
-- [Enable pay-as-you-go for your subscription](/microsoftteams/payg-enable)
-- [Telco pay-as-you-go overage in new commerce](/microsoftteams/new-commerce-payg)
-- [Assign Teams add-on licenses to users](/microsoftteams/assign-licenses)
+- [Pay-As-You-Go Calling Plan](/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)
+- [How to buy Calling Plans](/microsoftteams/calling-plans-for-office-365)
+- [Enable pay-as-you-go for your subscription](/microsoft-365/commerce/subscriptions/manage-pay-as-you-go-services?view=o365-worldwide)
+- [Assign Teams add-on licenses to users](/microsoftteams/teams-add-on-licensing/assign-teams-add-on-licenses)
 
 
 
 
 ## How It Works
-1. **Create a CallInvite** for the target phone number.
+1. **Create a CallInvite** using the target phone number or Teams identity.
 2. **Specify TeamsAppSource** using the Teams Resource Account OID.
 3. Invoke `CreateCallAsync` on the `CallAutomationClient`.
 
@@ -117,7 +117,7 @@ sequenceDiagram
 - [Microsoft Teams Phone overview](/microsoftteams/what-is-phone-system-in-office-365)
 - [Set up Microsoft Teams Phone in your organization](/microsoftteams/setting-up-your-phone-system)
 - [Access a user's Teams Phone separate from their Teams client](/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-access-teams-phone)
-- [Answer Teams Phone calls from Call Automation](azure/communication-services/quickstarts/tpe/teams-phone-extensibility-answer-teams-calls)
+- [Answer Teams Phone calls from Call Automation](/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-answer-teams-calls)
 
 ## Related articles
 
