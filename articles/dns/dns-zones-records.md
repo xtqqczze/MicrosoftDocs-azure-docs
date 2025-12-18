@@ -42,7 +42,7 @@ In Azure DNS, the TTL gets specified for the record set, not for each record, so
 
 ### Wildcard records
 
-Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Wildcard records get returned in response to any query with a matching name, unless there's a closer match from a nonwildcard record set. Azure DNS supports wildcard record sets for all record types except NS and SOA.
+Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Wildcard records get returned in response to any query with a matching name, unless there's a closer match from a non-wildcard record set. Azure DNS supports wildcard record sets for all record types except NS and SOA.
 
 To create a wildcard record set, use the record set name `\*`. You can also use a name with `\*` as its left-most label, for example, `\*.foo`.
 
