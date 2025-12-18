@@ -7,7 +7,6 @@ Thumbs.db
 .vs/*
 log/
 obj/
-.github/*
 
 # APEX and OPS Files
 .migrationtemp
