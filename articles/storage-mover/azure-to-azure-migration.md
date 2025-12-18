@@ -1,6 +1,6 @@
 ---
 title: Get started with azureblobcontainer-to-azureblobcontainer migration in Azure Storage Mover
-description: The Blob-to-Blob Migration feature in Azure Storage mover allows you to securely transfer data from a Blob container in Azure Storage to another Blob container in any storage account in a public Azure region.
+description: The Blob-to-Blob Migration feature in Azure Storage mover allows you to securely transfer data from a Blob container in Azure Storage to another Blob container in any storage account in a global Azure region.
 author: madhurinms
 ms.author: madhn
 ms.service: azure-storage-mover
