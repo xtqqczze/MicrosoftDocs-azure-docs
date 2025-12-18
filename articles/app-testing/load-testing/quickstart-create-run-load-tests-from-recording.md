@@ -36,11 +36,11 @@ To create a load testing resource:
 
 To get started, navigate to the overview page of your Azure Load Testing resource in the Azure portal. From there, launch the **Azure App Testing** browser extension by clicking on the **Record** button. If the extension is not installed, you will be redirected to the marketplace to install it.
 
-:::image type="content" source="./media/quickstart-create-run-load-tests-from-recording/load-testing-portal-record-button.png" alt-text="Screenshot that shows the Record button in Azure Load Testing resource overview page." lightbox="./media/quickstart-create-run-load-tests-from-recording/load-testing-portal-record-button.png":::
+:::image type="content" source="./media/quickstart-create-run-tests-from-recording/load-testing-portal-record-button.png" alt-text="Screenshot that shows the Record button in Azure Load Testing resource overview page." lightbox="./media/quickstart-create-run-tests-from-recording/load-testing-portal-record-button.png":::
 
 The extension opens in a new browser tab. Sign in with your Azure account if prompted. Select your Azure subscription and the Azure Load Testing resource you created earlier. Enter the URL of the web application you want to test, and click **Start Recording**.
 
-:::image type="content" source="./media/quickstart-create-run-load-tests-from-recording/load-testing-extension-start-recording.png" alt-text="Screenshot that shows the Azure App Testing browser extension to start recording a user journey." lightbox="./media/quickstart-create-run-load-tests-from-recording/load-testing-extension-start-recording.png":::
+:::image type="content" source="./media/quickstart-create-run-tests-from-recording/load-testing-extension-start-recording.png" alt-text="Screenshot that shows the Azure App Testing browser extension to start recording a user journey." lightbox="./media/quickstart-create-run-tests-from-recording/load-testing-extension-start-recording.png":::
 
 The extension opens a new browser window where you can interact with your web application. Perform the actions you want to include in your load test, such as navigating through pages, filling out forms, and submitting data. You can add a new scenario by clicking the **Add Scenario** button in the extension tab.
 
@@ -58,7 +58,7 @@ After completing the recording, you will be taken to the review recording view i
 
 AI adds labels for your requests to make the script more readable. These labels are based on the request URLs and actions performed during the recording. You can always modify the labels in the experience by editing the request names. These labels will be reflected in the test run results.
 
-:::image type="content" source="./media/quickstart-create-run-load-tests-from-recording/load-testing-authoring-smart-labels.png" alt-text="Screenshot that shows AI-suggested smart labels for requests in the Azure App Testing browser extension." lightbox="./media/quickstart-create-run-load-tests-from-recording/load-testing-authoring-smart-labels.png":::
+:::image type="content" source="./media/quickstart-create-run-tests-from-recording/load-testing-authoring-smart-labels.png" alt-text="Screenshot that shows AI-suggested smart labels for requests in the Azure App Testing browser extension." lightbox="./media/quickstart-create-run-tests-from-recording/load-testing-authoring-smart-labels.png":::
 
 ### 2. Think times
 
@@ -76,13 +76,13 @@ While adding or reviewing correlations, some of the fields that need to be fille
 
 The extracted value automatically reflects the value of the variable as extracted from the response of the source request.
 
-:::image type="content" source="./media/quickstart-create-run-load-tests-from-recording/load-testing-authoring-correlations.png" alt-text="Screenshot that shows AI-suggested correlations in the Azure App Testing browser extension." lightbox="./media/quickstart-create-run-load-tests-from-recording/load-testing-authoring-correlations.png":::
+:::image type="content" source="./media/quickstart-create-run-tests-from-recording/load-testing-authoring-correlations.png" alt-text="Screenshot that shows AI-suggested correlations in the Azure App Testing browser extension." lightbox="./media/quickstart-create-run-tests-from-recording/load-testing-authoring-correlations.png":::
 
 ### 4. Parameters
 
 AI detects parameters in the requests and suggests parameterizations to simulate realistic user behavior. You can accept or reject these suggestions as well. You can choose to provide these values from a CSV file or environment variables. You can also manually add parameters.
 
-:::image type="content" source="./media/quickstart-create-run-load-tests-from-recording/load-testing-authoring-parameters.png" alt-text="Screenshot that shows AI-suggested parameters in the Azure App Testing browser extension." lightbox="./media/quickstart-create-run-load-tests-from-recording/load-testing-authoring-parameters.png"::: 
+:::image type="content" source="./media/quickstart-create-run-tests-from-recording/load-testing-authoring-parameters.png" alt-text="Screenshot that shows AI-suggested parameters in the Azure App Testing browser extension." lightbox="./media/quickstart-create-run-tests-from-recording/load-testing-authoring-parameters.png"::: 
 
 ## Load configuration
 
