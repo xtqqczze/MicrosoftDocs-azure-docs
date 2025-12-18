@@ -413,6 +413,16 @@ az storage-mover project create \
 
     :::image type="content" source="./media/azure-to-azure/job-review.png" alt-text="Screenshot of the Create a Migration Job page with the Review tab selected and all settings displayed." lightbox="./media/azure-to-azure/job-review.png":::
 
+### [Azure PowerShell](#tab/powershell)
+
+Not applicable
+
+### [Azure CLI](#tab/CLI)
+
+Not applicable
+
+---
+
 ### Run a migration job
 
 1. Go to the **Migration Jobs** tab. The **Migration Jobs** tab shows all migration jobs you created in your Storage Mover resource, including the one you just created. It might take a moment for the new migration job to show up in the list. Refresh the page if needed. 
@@ -424,6 +434,7 @@ az storage-mover project create \
     :::image type="content" source="./media/azure-to-azure/migration-job.png" alt-text="Screenshot of the Migration Job details page with the Properties tab and the Start Job button highlighted." lightbox="./media/azure-to-azure/migration-job.png":::
 
     :::image type="content" source="./media/azure-to-azure/migration-job-start.png" alt-text="Screenshot of the Migration Job page's Start Job pane." lightbox="./media/azure-to-azure/migration-job-start.png":::
+
 
 ### Start a job definition
 
