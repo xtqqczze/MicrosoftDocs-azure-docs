@@ -1,6 +1,6 @@
 ---
-title: Revoke a certificate profile in Trusted Signing
-description: Learn how to revoke a Trusted Signing certificate in the Azure portal.
+title: Revoke a certificate profile in Artifact Signing
+description: Learn how to revoke a Artifact Signing certificate in the Azure portal.
 author: TacoTechSharma
 ms.author: mesharm
 ms.service: trusted-signing
@@ -11,7 +11,7 @@ ms.date: 04/12/2024
 ---
 
 
-# Revoke a certificate profile in Trusted Signing
+# Revoke a certificate profile in Artifact Signing
 
 Revoking a certificate makes a certificate invalid. When a certificate is successfully revoked, all the files that are signed with the revoked certificate become invalid beginning at the revocation date and time you select.
 
@@ -24,9 +24,9 @@ If the certificate that's issued to you doesn’t match your intended values or 
 1. For assistance revoking a certificate, contact Microsoft.
 
    - If you encounter any issues revoking a certificate by using the Azure portal (especially for scenarios that don't involve misuse or abuse), contact Microsoft.
-   - For any misuse or abuse of certificates that are issued to you by Trusted Signing, contact Microsoft immediately at `azcodesignrevoke@microsoft.com`.
+   - For any misuse or abuse of certificates that are issued to you by Artifact Signing, contact Support immediately.
 
-1. Continue signing by using Trusted Signing.
+1. Continue signing by using Artifact Signing.
 
    1. Initiate a new identity validation request.
    1. Verify that the information in the certificate subject preview accurately reflects your intended values.
@@ -36,18 +36,18 @@ Before you initiate a certificate revocation, it’s crucial that you verify tha
 
 Revocation can be completed only in the Azure portal. You can't revoke the certificate by using the Azure CLI.
 
-This article describes how to revoke a certificate profile in a Trusted Signing account.
+This article describes how to revoke a certificate profile in a Artifact Signing account.
 
 ## Prerequisites
 
 To complete the steps in this article:
 
-- Ensure that you're assigned the Owner role for the subscription. To learn more about role-based access control (RBAC) access management, see [Assign roles in Trusted Signing](tutorial-assign-roles.md).
+- Ensure that you're assigned the Owner role for the subscription. To learn more about role-based access control (RBAC) access management, see [Assign roles in Artifact Signing](tutorial-assign-roles.md).
 
 ## Revoke a certificate
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Go to your Trusted Signing account resource pane.
+1. Go to your Artifact Signing account resource pane.
 1. On the account **Overview** pane or on the resource menu under **Objects**, select **Certificate profiles**.
 1. Select the relevant certificate profile.
 1. In the search box, enter the thumbprint of the certificate you want to revoke.
