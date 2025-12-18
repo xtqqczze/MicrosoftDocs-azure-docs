@@ -30,6 +30,9 @@ The memory system consists of four complementary components:
 
 During conversations, agents retrieve information from memory sources through configured tools.
 
+:::image type="content" source="media/memory-system/azure-sre-agent-memory-system-loop.png" alt-text="Diagram of the Azure SRE Agent memory system loop.":::
+
+<!--
 ```mermaid
 flowchart TD
     subgraph Trigger
@@ -47,12 +50,13 @@ flowchart TD
         F[SearchMemory Tool]
     end
     
-    A --> B & C & D & E
-    B & C & D & E --> F
-    F --> G[Agent Reasoning]
-    G --> H[Relevant Context Retrieved]
-    H --> I[Agent Response]
+    A -- > B & C & D & E
+    B & C & D & E -- > F
+    F -- > G[Agent Reasoning]
+    G -- > H[Relevant Context Retrieved]
+    H -- > I[Agent Response]
 ```
+-->
 
 ### Tool configuration
 
