@@ -21,7 +21,7 @@ You can also enable the [autoregistration](./private-dns-autoregistration.md) fe
 
 ## Private DNS zone resolution
 
-When you use the default DNS settings of a virtual network, the system queries private DNS zones linked to that virtual network first. The system then queries Azure-provided DNS servers next. However, if you define a [custom DNS server](/virtual-network/manage-virtual-network#change-dns-servers) in a virtual network, the system doesn't automatically query private DNS zones linked to that virtual network. The custom settings override the name resolution order.
+When you use the default DNS settings of a virtual network, the system queries private DNS zones linked to that virtual network first. The system then queries Azure-provided DNS servers next. However, if you define a [custom DNS server](/azure/virtual-network/manage-virtual-network#change-dns-servers) in a virtual network, the system doesn't automatically query private DNS zones linked to that virtual network. The custom settings override the name resolution order.
 
 To enable custom DNS to resolve the private zone, use an [Azure DNS Private Resolver](dns-private-resolver-overview.md) in a virtual network linked to the private zone as described in [centralized DNS architecture](private-resolver-architecture.md#centralized-dns-architecture). If your custom DNS server is a virtual machine, you must configure a conditional forwarder. Point the conditional forwarder to Azure DNS (168.63.129.16) for the private zone.
 
