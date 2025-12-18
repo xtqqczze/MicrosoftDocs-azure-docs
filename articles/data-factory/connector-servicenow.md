@@ -6,7 +6,7 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 08/11/2025
+ms.date: 12/18/2025
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -267,7 +267,14 @@ Here is an example of the source JSON using the expression parameter:
 
 > [!NOTE]
 > The column `sys_tags` and its derived columns cannot be obtained due to ServiceNow API limitations.
-    
+ 
+### Performance optimization for copying data from ServiceNow
+
+The service optimizes the performance of copying data from ServiceNow when you apply the following configurations:
+
+- Set `pageSize` to a value between 5000 and 10000.
+- Set `dataIntegrationUnits` to 4 and `parallelCopies` to 3 in copy activity settings.
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
