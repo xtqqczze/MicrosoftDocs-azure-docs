@@ -10,7 +10,7 @@ ms.topic: concept-article
 ms.service: dev-box
 ---
 
-# Authoring recommendations for Dev Box image definitions
+# Authoring and troubleshooting guide for team customizations
 
 This guide provides recommendations for creating Microsoft Dev Box image definition files (`imagedefinition.yaml`). It pulls together and extends content from existing documentation to raise visibility of effective approaches, common pitfalls, and troubleshooting guidance. The intent is to aid in onboarding and building reliable, maintainable customizations that work consistently for your development teams.
 
@@ -28,10 +28,9 @@ This guide covers strategies for:
 Before you begin, ensure you have:
 
 | Requirement | Details |
-|-------------|---------|
-| Microsoft Dev Box | Dev center with dev project and dev box pool configured. Catalog attached to dev center (optional for built-in tasks). Dev Box User permissions. |
-| Development environment | Dev Box with local admin permissions. Visual Studio (VS) Code with latest version. Dev Box extension installed. GitHub Copilot extension (recommended). |
-| Basic knowledge | YAML syntax fundamentals. Understanding of your team's development tool requirements. |
+| ---------- | ------ |
+| Microsoft Dev Box configuration | Dev center with dev project and dev box pool configured. Catalog attached to dev center (optional for built-in tasks). Dev Box User permissions. |
+| Development environment | Dev Box with local admin permissions. Visual Studio (VS) Code with latest version. Dev Box extension installed and GitHub Copilot extension installed. |
 
 > [!TIP]
 > For comprehensive background on Dev Box customizations, see [Team Customizations documentation](/azure/dev-box/concept-what-are-team-customizations?tabs=team-customizations) and [How to write an image definition file](/azure/dev-box/how-to-write-image-definition-file).
@@ -42,7 +41,7 @@ When authoring Dev Box customizations, choose the approach that best fits your t
 
 ### Start with the authoring agent
 
-The AI-powered workflow in Visual Studio Code with GitHub Copilot automatically handles the complex details of task syntax, context placement, and validation. This automation covers standard development tools (Git, .NET, Node.js, Visual Studio, and others), configuration, and cloning of repositories by using built-in customization tasks (also known as `Intrinsic Tasks`).
+The AI-powered workflow in Visual Studio Code with GitHub Copilot automatically handles the complex details of task syntax, context placement, and validation. This automation covers standard development tools (Git, .NET, Node.js, Visual Studio, and others), configuration, and cloning of repositories by using built-in customization tasks (also known as `primitives`).
 
 **Recommended practices:**
 
@@ -222,7 +221,7 @@ While not limited to just double quotes, these characters are a common cause of 
 
 ### Optimize the downloading of larger files
 
-When downloading larger files using the intrinsic PowerShell task, consider the following optimization strategies:
+When downloading larger files using the PowerShell primitive, consider the following optimization strategies:
 
 #### Suppress progress bar output
 
@@ -244,7 +243,7 @@ If the file is large and causes performance or timeout problems, consider whethe
 
 - **Azure Storage**: Host the file in an Azure Storage account. Then, use utilities like `azcopy` or `Azure CLI` to download the file more efficiently. This approach can help with large files and provide better performance. For more information, see [Transfer data using azcopy](/azure/storage/common/storage-use-azcopy-v10?tabs=dnf#transfer-data) and [Download a file from Azure Storage](/azure/dev-box/how-to-customizations-connect-resource-repository#example-download-a-file-from-azure-storage).
 
-- **Git repositories**: Host the file in a git repository. Then, use the `~/gitclone` intrinsic task to clone the repository and access the files directly. This approach can be more efficient than downloading large files individually.
+- **Git repositories**: Host the file in a git repository. Then, use the `~/gitclone` primitive to clone the repository and access the files directly. This approach can be more efficient than downloading large files individually.
 
 ## Troubleshooting
 
@@ -285,7 +284,7 @@ C:\ProgramData\Microsoft\DevBoxAgent\Logs\customizations\
 ### Check common failure patterns
 
 | Error Pattern | Common Cause | Suggestion |
-|---------------|--------------|----------|
+| --------------- | -------------- | ------------ |
 | "System tasks aren't allowed in standard user context" | Task in wrong context | Move to `userTasks` section |
 | "Package not found" | Incorrect WinGet package ID | Use `winget search` to find correct ID |
 | "Access denied" | Permissions issue | Verify task context and user privileges |

@@ -82,8 +82,6 @@ items:
       - name: Configure team customizations
         href: how-to-configure-team-customizations.md
         displayName: customizations, image definition, team customization
-      - name: Authoring recommendations for image definitions
-        href: authoring-recommendations-dev-box-image-definition.md
       - name: Configure dev center imaging
         href: how-to-configure-dev-center-imaging.md
       - name: Configure user customizations
@@ -96,6 +94,9 @@ items:
         displayName: customizations, secrets, Azure Key Vault
       - name: Add and Manage Catalogs
         href: how-to-configure-catalog.md
+      - name: Authoring and troubleshooting team customizations
+        href: concept-authoring-troubleshooting-guide-team-customizations.md
+        displayName: customizations, image definition, team customization
       - name: Imagedefinition.yaml and task.yaml reference
         href: reference-dev-box-customizations.md
         displayName: Customize, schema, yaml, imagedefinition, task
