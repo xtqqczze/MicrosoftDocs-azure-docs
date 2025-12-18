@@ -81,22 +81,22 @@ Create a virtual environment for the app:
 Install the dependencies:
 
 ```bash
-python -m pip install -r src/requirements.txt
+python3 -m pip install -r src/requirements.txt
 ```
 
 Install the app as an editable package:
 
 ```bash
-python -m pip install -e src
+python3 -m pip install -e src
 ```
 
 Run the sample application with the following commands:
 
 ```bash
 # Run database migration
-python src/fastapi_app/seed_data.py
+python3 src/fastapi_app/seed_data.py
 # Run the app at http://127.0.0.1:8000
-python -m uvicorn fastapi_app:app --reload --port=8000
+python3 -m uvicorn fastapi_app:app --reload --port=8000
 ```
 
 ::: zone pivot="azure-portal"  
