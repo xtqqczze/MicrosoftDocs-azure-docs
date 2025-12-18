@@ -67,7 +67,7 @@ ADME updates Reference Data Values (RDVs) by automatically applying the latest O
 | **OPEN** | Customer‑extended or modified entries are preserved; new OSDU baseline entries are added without overwriting user changes. | Balances shared semantics with user‑driven extensibility. |
 | **LOCAL** | Behaviors follow the instance’s provisioning choice; custom values remain unchanged, and new OSDU suggestions are added only if LOCAL was enabled. | Protects business‑specific meaning and avoids unintended modification. |
 
-For information on the current milestone supported by and available OSDU service in Azure Data Manager for Energy, refer [OSDU services available in Azure Data Manager for Energy](osdu-services-on-adme.md).
+For information on the current milestone supported by and available OSDU services in Azure Data Manager for Energy, refer [OSDU services available in Azure Data Manager for Energy](osdu-services-on-adme.md).
 
 ## Next steps
 - [Quickstart: Create Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md)
