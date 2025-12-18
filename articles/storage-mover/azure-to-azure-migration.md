@@ -438,6 +438,10 @@ Not applicable
 
 ### Start a job definition
 
+### [Azure portal](#tab/portal)
+
+Not applicable
+
 ### [Azure PowerShell](#tab/powershell)
 
 Use the `Start-AzStorageMoverJobDefinition` command to start a migration job:
