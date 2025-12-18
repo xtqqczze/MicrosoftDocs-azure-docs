@@ -23,6 +23,13 @@ This page is updated with the details about the upcoming release approximately a
 
 <hr width = 100%>
 
+## December 2025
+### Reference Data Values Automatic Sync - General Availability
+
+Reference Data Values (RDV) Automatic Sync is now Generally Available on all SKU's. As part of each OSDU milestone upgrade, all ADME instances will be upgraded with the latest RDV's available at that milestone. This ensures consistent, standardized reference data across all instances without requiring manual ingestion.
+
+For more details on how to work with this feature, see the official documentation: [Reference Data Values in ADME](concepts-reference-data-values.md).
+
 ## November 2025
 ### Reservoir DDMS Standard SKU Preview
 

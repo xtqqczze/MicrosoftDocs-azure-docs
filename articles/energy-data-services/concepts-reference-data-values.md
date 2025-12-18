@@ -5,7 +5,7 @@ author: marielherz
 ms.author: marielherzog
 ms.service: azure-data-manager-energy
 ms.topic: conceptual
-ms.date: 10/03/2025
+ms.date: 12/18/2025
 ms.custom: template-concept
 ---
 
@@ -55,8 +55,19 @@ If you extend OPEN values after instance creation, we recommend creating and usi
 
 **NameAlias updates** don't require a separate entitlement. Updates to the `NameAlias` field are governed by the same access control mechanisms as updates to any other part of a storage record. In effect, OWNER access confers the entitlement to update the `NameAlias` field.
 
-## Current scope of Azure Data Manager for Energy reference data value syncing
-Currently, Azure Data Manager for Energy syncs reference data values at instance creation and at new partition creation for newly created instances after feature enablement. Reference values are synced to those from the OSDU community, corresponding to the OSDU milestone supported by Azure Data Manager for Energy at the time of instance or partition creation. For information on the current milestone supported by and available OSDU service in Azure Data Manager for Energy, refer [OSDU services available in Azure Data Manager for Energy](osdu-services-on-adme.md).
+## OSDU Milestone Automated RDV Upgrades
+
+ADME updates Reference Data Values (RDVs) by automatically applying the latest OSDU‑aligned FIXED, OPEN, and LOCAL values as part of each instance’s standard upgrade cycle. These updates keep instances aligned with evolving OSDU definitions while preserving customer‑specific configurations where appropriate. This approach ensures FIXED values remain interoperable across all OSDU‑based systems, OPEN values continue to support extensibility without losing customer intent, and LOCAL values retain the business‑specific meaning organizations depend on. Updates require no user action and occur seamlessly with no downtime—ADME incorporates new OSDU‑provided values, updates FIXED values to the latest standards, and preserves customer changes for OPEN and LOCAL. As RDV versioning is decoupled from OSDU versions, ADME applies RDV updates **only** during the all‑up OSDU milestone upgrade, ensuring predictable, governed rollout.
+
+### RDV Update Behavior Summary
+
+| RDV Type | Upgrade Behavior | Rationale |
+|---------|------------------|-----------|
+| **FIXED** | Updated to the latest OSDU standard; prior versions remain accessible in history. | Ensures global interoperability across OSDU‑based systems. |
+| **OPEN** | Customer‑extended or modified entries are preserved; new OSDU baseline entries are added without overwriting user changes. | Balances shared semantics with user‑driven extensibility. |
+| **LOCAL** | Behaviors follow the instance’s provisioning choice; custom values remain unchanged, and new OSDU suggestions are added only if LOCAL was enabled. | Protects business‑specific meaning and avoids unintended modification. |
+
+For information on the current milestone supported by and available OSDU service in Azure Data Manager for Energy, refer [OSDU services available in Azure Data Manager for Energy](osdu-services-on-adme.md).
 
 ## Next steps
 - [Quickstart: Create Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md)
