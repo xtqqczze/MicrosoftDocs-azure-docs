@@ -6,7 +6,7 @@ ms.author: cshoe
 ms.service: azure-container-apps
 ms.topic: conceptual
 ms.custom: horz-security
-ms.date: 12/10/2025
+ms.date: 12/18/2025
 ai-usage: ai-assisted
 ---
 
@@ -34,7 +34,7 @@ Network security controls prevent unauthorized access to container app endpoints
 
 - **Configure Network Security Groups with restrictive rules**: Apply Network Security Groups to control traffic flow to and from your Container Apps subnets by implementing deny-by-default policies with specific allow rules for required communication patterns. See [Securing a existing VNet with an NSG](/azure/container-apps/firewall-integration).
 
-- **Implement proper ingress security**: Configure ingress settings with appropriate security controls including client certificate authentication, IP restrictions, and traffic splitting for secure exposure of container applications. Use internal ingress for applications that shouldn't be accessible from the internet. See [Ingress overview](/azure/container-apps/ingress-overview).
+- **Configure app-level restrictions**: Configure ingress settings with appropriate security controls including client certificate authentication and IP restrictions for secure exposure of container applications. Use internal ingress for applications that shouldn't be accessible from the internet. See [Ingress overview](/azure/container-apps/ingress-overview).
 
 ## Identity and access management
 
