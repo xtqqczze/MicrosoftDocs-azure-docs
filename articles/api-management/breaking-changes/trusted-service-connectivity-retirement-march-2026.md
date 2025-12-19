@@ -15,7 +15,7 @@ ai-usage: ai-assisted
 
 [!INCLUDE [api-management-availability-all-tiers](../../../includes/api-management-availability-all-tiers.md)]
 
-Effective 15 March 2026, Azure API Management is retiring trusted service connectivity by the API Management gateway to supported Azure services - Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hub, and Container Registry. If your API Management gateway relies on this feature to communicate with these services after 15 March 2026, the communication will fail. Use alternative networking options to securely connect to those services.
+Effective 15 March 2026, Azure API Management is retiring trusted service connectivity by the API Management gateway to supported Azure services - Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hubs, and Container Registry. If your API Management gateway relies on this feature to communicate with these services after 15 March 2026, the communication will fail. Use alternative networking options to securely connect to those services.
 
 The gateway in API Management services created on or after 1 December 2025 no longer supports trusted service connectivity. Contact Azure support if you need to enable trusted service connectivity in those services until the retirement date.
 
@@ -39,7 +39,7 @@ First, check for an Azure Advisor recommendation:
 
 Your API Management gateway should no longer rely on trusted service connectivity to Azure services. Instead, it should establish a networking line of sight. 
 
-To verify if your API Management gateway relies on trusted connectivity to Azure services, check the networking configuration of all Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hub, and Container Registry resources that your API Management gateway connects to: 
+To verify if your API Management gateway relies on trusted connectivity to Azure services, check the networking configuration of all Azure Storage, Key Vault, Key Vault Managed HSM, Service Bus, Event Hubs, and Container Registry resources that your API Management gateway connects to: 
 
 #### For Storage accounts
 

@@ -319,12 +319,12 @@ API Management is a trusted Microsoft service to the following resources. This t
 
 - [Trusted access for Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)
 - [Trusted access for Azure Storage](../storage/common/storage-network-security-trusted-azure-services.md?tabs=azure-portal#trusted-access-based-on-system-assigned-managed-identity)
-- [Trusted access for Azure Services Bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)
+- [Trusted access for Azure Service Bus](../service-bus-messaging/service-bus-ip-filtering.md#trusted-microsoft-services)
 - [Trusted access for Azure Event Hubs](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services)
 
 
 > [!IMPORTANT]
-> Starting March 2026, trusted service connectivity to Azure services from the API Management gateway by enabling the **Allow Trusted Microsoft Services to bypass this firewall** firewall setting will no longer be supported. To continue accessing these services from the API Management gateway after this change, ensure that you choose a different supported network access option. For control-plane operations, you can continue to use trusted service connectivity. [Learn more](breaking-changes/trusted-service-connectivity-retirement-march-2026.md)
+> Starting March 2026, trusted service connectivity to Azure services from the API Management gateway by enabling the **Allow Trusted Microsoft Services to bypass this firewall** firewall setting will no longer be supported. To continue accessing these services from the API Management gateway after this change, ensure that you choose a different supported network access option. For control-plane operations, you can continue to use trusted service connectivity. [Learn more](breaking-changes/trusted-service-connectivity-retirement-march-2026.md).
 
 ### Log events to an event hub
 
