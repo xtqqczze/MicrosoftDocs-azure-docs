@@ -25,7 +25,7 @@ const activeCallTransferFeature = callAgent.feature(ActiveCallTransfer);
 
 ### Fetch your Active Calls
 
-When your user signs to the `CallAgent` and you create the feature API, there is a method that you can use to fetch the ongoing calls `getActiveCallDetails`. The response returns the active calls, or active meetings that your users are in.
+After you create the feature API, there is a method that you can use to fetch the ongoing calls `getActiveCallDetails`. The response returns the active calls, or active meetings that your users are in.
 
 ```js
 const activeCallTransferFeature = callAgent.feature(ActiveCallTransfer);
