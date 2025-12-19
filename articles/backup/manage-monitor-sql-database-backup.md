@@ -92,11 +92,11 @@ To stop protection for a database:
 >
 >
 
-## Resume protection for an SQL database
+## Resume protection for a SQL database
 
 When you stop protection for the SQL database, if you select the **Retain Backup Data** option, you can later resume protection. If you don't retain the backup data, you can't resume protection.
 
-To resume protection for an SQL database, follow these steps:
+To resume protection for a SQL database, follow these steps:
 
 1. Open the backup item and select **Resume backup**.
 
