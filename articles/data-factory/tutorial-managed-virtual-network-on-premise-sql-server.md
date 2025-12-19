@@ -217,7 +217,7 @@ the page.
 2. Run the script with the following options:
    
     ```bash
-    sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433
+    sudo bash ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433
     ```
    Set the placeholder `<FQDN/IP>` is your target SQL Server IP.
     
@@ -237,8 +237,8 @@ the page.
     >
     > |                  |Port in load balancer rule|Backend port in load balance rule|Command run in backend server VM|
     > |------------------|---------|--------|---------|
-    > |**SQL Server 1**|1433 |1433 |sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433|
-    > |**SQL Server 2**|1434 |1434 |sudo ./ip_fwd.sh -i eth0 -f 1434 -a <FQDN/IP> -b 1433|
+    > |**SQL Server 1**|1433 |1433 |sudo bash ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433|
+    > |**SQL Server 2**|1434 |1434 |sudo bash ./ip_fwd.sh -i eth0 -f 1434 -a <FQDN/IP> -b 1433|
 
     > [!IMPORTANT]
     > The configuration within the virtual machine (VM) isn't permanent. This means that each time the VM restarts, it requires reconfiguration.
