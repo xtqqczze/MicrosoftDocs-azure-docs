@@ -392,7 +392,7 @@ By default:
 
 - If keys already exist in Key Vault, the host retrieves and uses them
 
-- The Functions host starts successfully even without keys, and SyncTriggers completes normally
+- The Functions host starts successfully even without keys, and the key synchronization completes normally
 
 As a result, your application runs correctly, but host-level keys won't appear in Key Vault unless you create them manually.
 
@@ -402,8 +402,8 @@ To trigger key creation in Azure Key Vault, call the Functions management endpoi
 
 ```azurecli
 az containerapp function keys list \
- -n <container-app-name> \
- -g <resource-group> \
+ -n <CONTAINER_APP_NAME> \
+ -g <RESOURCE_GROUP> \
  --key-type hostKey
 ```
 
