@@ -227,7 +227,7 @@ the page.
 4. Run the following command and check the iptables in your backend server VMs. You can see one record in your iptables with your target IP.<br/>
 
    ```bash
-   sudo iptables -t nat -v -L PREROUTING -n --line-number**
+   sudo iptables -t nat -v -L PREROUTING -n --line-number
    ```
 
    :::image type="content" source="./media/tutorial-managed-virtual-network/command-record-1.png" alt-text="Screenshot that shows the command record.":::
