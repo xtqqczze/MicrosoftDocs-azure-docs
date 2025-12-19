@@ -30,19 +30,18 @@ If you prefer the open-source version of Azure Container Storage, visit the [loc
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+- Create an Azure subscription if you don’t already have one by signing up for a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- This article requires the latest version (2.77.0 or later) of the Azure CLI. See [How to install the Azure CLI](/cli/azure/install-azure-cli). Don't use Azure Cloud Shell, because `az upgrade` isn't available in Cloud Shell. Be sure to run the commands in this article with administrative privileges. Some Azure CLI extensions, such as `aks-preview`, can conflict with required command flags. Disable them if you encounter issues.
+- Confirm that your target region is supported by reviewing the [Azure Container Storage regional availability](container-storage-introduction.md#regional-availability).
 
-- You need the Kubernetes command-line client, `kubectl`. You can install it locally by running the `az aks install-cli` command.
+- Plan your node pool configuration:
+  - Use Linux as the OS type (Windows is not supported).
+  - Select a VM SKU that supports local NVMe data disks, such as [storage-optimized](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU-accelerated](/azure/virtual-machines/sizes/overview#gpu-accelerated) VMs.
+  - For existing clusters, ensure node pools already use a supported VM SKU before enabling Azure Container Storage.
 
-- Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
+- Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli) (2.77.0 or later), then sign in with `az login`. Avoid using Azure Cloud Shell (since `az upgrade` isn’t available), and disable conflicting extensions such as `aks-preview` if issues occur.
 
-- Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
-
-- Choose a virtual machine SKU that supports local NVMe data disks, for example, [storage optimized VMs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VMs](/azure/virtual-machines/sizes/overview#gpu-accelerated). For existing clusters, make sure node pools already use a supported VM SKU before enabling Azure Container Storage.
-
-- Choose Linux as OS type for the VMs in your node pool. Windows is currently unsupported.
+- Install the Kubernetes command-line client, `kubectl`. You can install it locally by running `az aks install-cli`.
 
 ## Install the required extension
 
@@ -127,21 +126,22 @@ The deployment takes 5-10 minutes. When it completes, the targeted AKS cluster h
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+- Create an Azure subscription if you don’t already have one by signing up for a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- Install [Terraform](https://developer.hashicorp.com/terraform/install) version 1.5 or later. Verify your version with `terraform version`.
+- Verify that your target region is supported by checking the [Azure Container Storage regional availability](container-storage-introduction.md#regional-availability).
 
-- Install the [Azure CLI](/cli/azure/install-azure-cli) (2.77.0 or later) and sign in by using `az login`. Terraform can reuse that authentication context.
+- Plan your node pool configuration:
+  - Use Linux as the OS type (Windows is not supported).
+  - Select a VM SKU that supports local NVMe data disks, such as [storage-optimized](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU-accelerated](/azure/virtual-machines/sizes/overview#gpu-accelerated) VMs.
+  - For existing clusters, ensure node pools already use a supported VM SKU before enabling Azure Container Storage.
 
-- Install `kubectl` so you can validate the cluster after deployment. Run `az aks install-cli` if you need a local copy.
+- Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.77.0 or later, then sign in with `az login`.
 
-- Check that your target region is listed in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
+- Install [Terraform](https://developer.hashicorp.com/terraform/install) version 1.5 or later and confirm the installation with `terraform version`. Terraform can reuse your Azure CLI authentication.
 
-- Choose a virtual machine SKU that supports local NVMe data disks, for example, [storage optimized VMs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VMs](/azure/virtual-machines/sizes/overview#gpu-accelerated). For existing clusters, make sure node pools already use a supported VM SKU before enabling Azure Container Storage.
+- Install `kubectl` so you can validate the cluster after deployment. If needed, run `az aks install-cli` to install it locally.
 
-- Choose Linux as OS type for the VMs in your node pool. Windows is currently unsupported.
-
-## Choose the subscription for Terraform runs
+## Set subscription context
 
 Terraform can determine a target Azure subscription via various means:
 
@@ -298,7 +298,7 @@ After installation, configure `kubectl` to connect to your cluster and verify th
     aks-nodepool1-34832848-vmss000002   Ready    agent   80m   v1.32.6
     ```
 
-## Next step
+## Next steps
 
 - [Use Azure Container Storage with local NVMe](use-container-storage-with-local-disk.md)
 - [Overview of deploying a highly available PostgreSQL database on Azure Kubernetes Service (AKS)](/azure/aks/postgresql-ha-overview#storage-considerations)
