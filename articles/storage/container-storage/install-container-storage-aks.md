@@ -160,7 +160,7 @@ Choose the scenario that matches your environment.
 
 1. In an empty working directory, create a `main.tf` file with the following minimal configuration of an AKS cluster. Update the resource names, locations, and VM sizes to meet your requirements.
 
-    ```terraform
+    ```tf
     terraform {
       required_version = ">= 1.5.0"
       required_providers {
@@ -230,7 +230,7 @@ Choose the scenario that matches your environment.
 
 If your AKS cluster already exists and you're managing it outside of Terraform, you can still enable Azure Container Storage by authoring only the extension resource. Use a data source to look up the cluster ID.
 
-```terraform
+```tf
 terraform {
   required_version = ">= 1.5.0"
   required_providers {
