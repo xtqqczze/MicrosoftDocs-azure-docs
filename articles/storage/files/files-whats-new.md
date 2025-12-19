@@ -21,7 +21,7 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 #### Azure File Sync is now available in new Azure regions 
 
-[Azure File Sync](file-sync-introduction.md) is now available in Italy North, Poland Central, Spain Central, and New Zealand North. This expansion brings the service closer to organizations in these regions, offering lower latency, better performance, and support for local data residency requirements.
+[Azure File Sync](../file-sync/file-sync-introduction.md) is now available in Italy North, Poland Central, Spain Central, and New Zealand North. This expansion brings the service closer to organizations in these regions, offering lower latency, better performance, and support for local data residency requirements.
 
 If Azure File Sync isn't available in your preferred region, fill out this [survey](https://forms.office.com/r/WPBWniQXNa) to express interest.
 
