@@ -96,14 +96,13 @@ You can copy a file in a share snapshot to a different destination with a differ
 
 When a destination file is overwritten with a copy, any share snapshots associated with the original destination file remain intact.
 
-
 ## Copying data back to a local drive from share snapshot
 
-When restoring data from an Azure Files snapshot to a local drive on Windows, you can use Robocopy to copy files and folders from a snapshot view of the file share. Snapshots are read only point in time copies of the share.
+If you want to restore data from a snapshot of an SMB Azure file share to a local drive on Windows, you can use Robocopy to copy files and folders from the snapshot.
 
-On Windows, SMB snapshots are accessed through the Previous Versions tab in File Explorer. From a snapshot view opened using Previous Versions, files and folders can be copied to a local path using standard file operations or Robocopy.
+On Windows, you can access SMB file share snapshots from the **Previous Versions** tab in Windows File Explorer. When you access a snapshot view using this method, you can copy files and folders to a local path using standard file operations or Robocopy.
 
-If Robocopy is run from an elevated Command Prompt, mapped drives may not be accessible and referencing a drive letter may fail. In that case, use a UNC path that references the snapshot view. Ensure the path references the snapshot and not the live file share. If the live file share is referenced instead of the snapshot, the copy operation will use the current state of the file share rather than the point in time state captured in the snapshot.
+If you run Robocopy from an elevated command prompt, mapped drives might not be accessible, and referencing a drive letter might fail. In that case, use a UNC path that references the snapshot view. Ensure the path references the snapshot and not the live file share. If you reference the live file share instead of the snapshot, the copy operation will use the current state of the file share rather than the point-in-time state captured in the snapshot.
 
 ## General best practices
 
