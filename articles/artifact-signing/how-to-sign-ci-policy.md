@@ -1,5 +1,5 @@
 ---
-title: Sign a CI policy 
+title: Sign a CI policy with Artifact Signing
 description: Learn how to sign new CI policies by using Artifact Signing.  
 author: TacoTechSharma
 ms.author: mesharm 
@@ -9,7 +9,7 @@ ms.date: 12/18/2025
 ms.custom: template-how-to-pattern, devx-track-azurepowershell
 ---
 
-# Sign a CI policy by using Artifact Signing
+# Sign a CI policy
 
 This article shows you how to sign new code integrity (CI) policies by using the Artifact Signing service.
 
