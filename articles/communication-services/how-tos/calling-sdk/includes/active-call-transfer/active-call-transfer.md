@@ -32,7 +32,7 @@ const activeCallTransferFeature = callAgent.feature(ActiveCallTransfer);
 const activeCallDetails = await activeCallTransferFeature.getActiveCallDetails();
 ```
 
-The function `getActiveCallDetails` is a way that you can manually query for this data. Once you have the active call details, you can use it to switch the client to any of the calls that were found. If there are ongoing calls this returns an array of `ActiveCallDetails` and `ActiveMeetingDetails`, To be considered in an active call the user can also be in a call that is on hold. This function returns `undefined` if there is no active call ongoing for your user. Best practice is to use `getActiveCallDetails` to fetch any ongoing calls when you first sign into the `CallAgent` to pick up on any calls that are already ongoing.
+The function `getActiveCallDetails` is a way that you can manually query for this data. Once you have the active call details, you can use it to switch the client to any of the calls that were found. If there are ongoing calls this returns an array of `ActiveCallDetails` and `ActiveMeetingDetails`. To be considered in an active call the user can also be in a call that is on hold. This function returns `undefined` if there is no active call ongoing for your user. Best practice is to use `getActiveCallDetails` to fetch any ongoing calls when you first sign into the `CallAgent` to pick up on any calls that are already ongoing.
 
 ### Switch your Active Call
 
