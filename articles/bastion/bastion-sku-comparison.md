@@ -1,5 +1,5 @@
 ---
-title: Choose the Right Azure Bastion SKU to Meet Your Needs
+title: Choose the right Azure Bastion SKU to meet your needs
 description: Learn about the different Azure Bastion SKU tiers and choose the right one for your requirements.
 author: abell
 ms.author: abell
@@ -9,7 +9,7 @@ ms.date: 11/24/2025
 # Customer intent: As a cloud administrator, I want to compare Azure Bastion SKU tiers and understand their features, so that I can select the appropriate tier for my organization's secure remote access requirements.
 ---
 
-# Choose the Right Azure Bastion SKU to Meet Your Needs
+# Choose the right Azure Bastion SKU to meet your needs
 
 Azure Bastion offers four SKU tiers: **Developer**, **Basic**, **Standard**, and **Premium**.
 

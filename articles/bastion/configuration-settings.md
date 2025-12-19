@@ -1,5 +1,5 @@
 ---
-title: About Azure Bastion Configuration Settings
+title: About Azure Bastion configuration settings
 description: Learn about the available configuration settings for Azure Bastion.
 author: abell
 ms.author: abell
@@ -10,7 +10,7 @@ ms.custom: references_regions, ignite-2024
 # Customer intent: "As a cloud administrator, I want to configure Azure Bastion settings, including SKU selection and network requirements, so that I can ensure secure and efficient access to virtual machines within my infrastructure."
 ---
 
-# About Azure Bastion Configuration Settings
+# About Azure Bastion configuration settings
 
 The sections in this article discuss the resources and settings for Azure Bastion.
 
