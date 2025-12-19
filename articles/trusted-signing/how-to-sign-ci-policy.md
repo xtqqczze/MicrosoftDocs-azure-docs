@@ -1,24 +1,24 @@
 ---
 title: Sign a CI policy 
-description: Learn how to sign new CI policies by using Trusted Signing.  
+description: Learn how to sign new CI policies by using Artifact Signing.  
 author: TacoTechSharma
 ms.author: mesharm 
 ms.service: trusted-signing
 ms.topic: how-to 
-ms.date: 06/03/2024 
+ms.date: 12/18/2025 
 ms.custom: template-how-to-pattern, devx-track-azurepowershell
 ---
 
-# Sign a CI policy by using Trusted Signing
+# Sign a CI policy by using Artifact Signing
 
-This article shows you how to sign new code integrity (CI) policies by using the Trusted Signing service.
+This article shows you how to sign new code integrity (CI) policies by using the Artifact Signing service.
 
 ## Prerequisites
 
 To complete the steps in this article, you need:
 
-- A Trusted Signing account, identity validation, and certificate profile.
-- Individual or group assignment of the Trusted Signing Certificate Profile Signer role.
+- A Artifact Signing account, identity validation, and certificate profile.
+- Individual or group assignment of the Artifact Signing Certificate Profile Signer role.
 - [Azure PowerShell in Windows](/powershell/azure/install-azps-windows) installed.
 - [Az.TrustedSigning](/powershell/module/az.trustedsigning/) module downloaded.
 
@@ -26,12 +26,12 @@ To complete the steps in this article, you need:
 
 1. ⁠Open [PowerShell 7](https://github.com/PowerShell/PowerShell/releases/latest).
 
-1. Optionally, you can create a *metadata.json* file that looks like this example:(`"Endpoint"` URI value must be a URI that aligns with the region where you created your Trusted Signing account and certificate profile when you set up these resources.)
+1. Optionally, you can create a *metadata.json* file that looks like this example:(`"Endpoint"` URI value must be a URI that aligns with the region where you created your Artifact Signing account and certificate profile when you set up these resources.)
 
    ```json
    {
    "Endpoint":"https://xxx.codesigning.azure.net/",
-   "CodeSigningAccountName":"<Trusted Signing Account Name>",
+   "CodeSigningAccountName":"<Artifact Signing Account Name>",
    "CertificateProfileName":"<Certificate Profile Name>"
    }
    ```
