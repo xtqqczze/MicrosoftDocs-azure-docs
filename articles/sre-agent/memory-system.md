@@ -261,7 +261,7 @@ flowchart TD
 ```
 -->
 
-:::image type="content" source="media/memory-system/automatic-learning-loop.png" alt-text="Diagram of Azure SRE Agent memory system loop.":::
+:::image type="content" source="media/memory-system/azure-sre-agent-memory-system-loop.png" alt-text="Diagram of Azure SRE Agent memory system loop.":::
 
 ### What the agent captures
 
