@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 05/16/2025
+ms.date: 12/18/2025
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
@@ -23,7 +23,7 @@ You can import AI model endpoints deployed in [Azure OpenAI in Foundry Models](/
 
 This article shows two options to import an Azure OpenAI API into an Azure API Management instance as a REST API:
 
-- [Import an Azure OpenAI API directly from Azure OpenAI](#option-1-import-api-from-azure-openai) (recommended)
+- [Import an Azure OpenAI API directly from a deployment in Microsoft Foundry](#option-1-import-api-from-azure-openai) (recommended)
  
 - [Download and add the OpenAPI specification](#option-2-add-an-openapi-specification-to-api-management) for Azure OpenAI and add it to API Management as an OpenAPI API.
 
@@ -34,7 +34,7 @@ Learn more about managing AI APIs in API Management:
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- An Azure OpenAI resource with a model deployed. For more information about model deployment in Azure OpenAI, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
+- An Azure OpenAI in Microsoft Foundry models resource with a model deployed. For more information about model deployment in Azure OpenAI, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 
     Make a note of the ID (name) of the deployment. You'll need it when you test the imported API in API Management.
 
@@ -45,44 +45,15 @@ Learn more about managing AI APIs in API Management:
 
 ## Option 1. Import API from Azure OpenAI 
  
-You can import an Azure OpenAI API directly from Azure OpenAI to API Management. 
+You can import an Azure OpenAI model deployment directly from Microsoft Foundry to API Management. 
 
-[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+When you import the API:
 
-When you import the API, API Management automatically configures:
+* Specify the Microsoft Foundry service that hosts the Azure OpenAI model deployment.
+* Specify the **Azure OpenAI** client compatibility option. This option configures the API Management API with a `/openai` endpoint.
 
-* Operations for each of the Azure OpenAI [REST API endpoints](/azure/ai-services/openai/reference)
-* A system-assigned identity with the necessary permissions to access the Azure OpenAI resource.
-* A [backend](backends.md) resource and a [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the Azure OpenAI endpoint.
-* Authentication to the Azure OpenAI backend using the instance's system-assigned managed identity.
-* (optionally) Policies to help you monitor and manage the Azure OpenAI API.
+For details, see [Import a Microsoft Foundry API](microsoft-foundry-api.md). 
 
-To import an Azure OpenAI API to API Management:
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
-1. Under **Create from Azure resource**, select **Azure OpenAI**.
-
-    :::image type="content" source="media/azure-openai-api-from-specification/azure-openai-api.png" alt-text="Screenshot of creating an API from Azure OpenAI in the portal." :::
-
-1. On the **Basics** tab:
-    1. Select the Azure OpenAI resource that you want to import.
-    1. Optionally select an **Azure OpenAI API version**. If you don't select one, the latest production-ready REST API version is used by default. Make a note of the version you selected. You'll need it to test the API.
-    1. Enter a **Display name** and optional **Description** for the API.
-    1. In **Base URL**, append a path that your API Management instance uses to access the Azure OpenAI API endpoints. If you enable **Ensure OpenAI SDK compatibility** (recommended), `/openai` is automatically appended to the base URL.
-    
-        For example, if your API Management gateway endpoint is `https://contoso.azure-api.net`, set a **Base URL** similar to `https://contoso.azure-api.net/my-openai-api/openai`.
-    1. Optionally select one or more products to associate with the API. Select **Next**.
-1. On the **Policies** tab, optionally enable policies to help monitor and manage the API. You can also set or edit policies later.
-
-    If selected, enter settings or accept defaults that define the following policies (see linked articles for prerequisites and configuration details):
-    * [Manage token consumption](azure-openai-token-limit-policy.md)
-    * [Track token usage](azure-openai-emit-token-metric-policy.md) 
-    * [Enable semantic caching of responses](azure-openai-enable-semantic-caching.md)
-    * [Configure AI Content Safety](llm-content-safety-policy.md) for the API.
-    
-    Select **Review + Create**.
-1. After settings are validated, select **Create**. 
 
 ## Option 2. Add an OpenAPI specification to API Management
 
@@ -93,7 +64,7 @@ Alternatively, manually download the OpenAPI specification for the Azure OpenAI 
 Download the OpenAPI specification for the Azure OpenAI REST API, such as the [2024-10-21 GA version](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-10-21/inference.json).
 
 1. In a text editor, open the specification file that you downloaded.
-1. In the `servers` element in the specification, substitute the name of your Azure OpenAI endpoint in the placeholder values of `url` and `default` endpoint in the specification. For example, if your Azure OpenAI endpoint is `contoso.openai.azure.com`, update the `servers` element with the following values:
+1. In the `servers` element in the specification, substitute the name of your Azure OpenAI endpoint in the placeholder values of `url` and `default` endpoint. For example, if your Azure OpenAI endpoint is `contoso.openai.azure.com`, update the `servers` element with the following values:
 
     * **url**: `https://contoso.openai.azure.com/openai`
     * **default** endpoint: `contoso.openai.azure.com`
