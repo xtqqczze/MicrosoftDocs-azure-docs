@@ -1,6 +1,6 @@
 ---
 title: Azure Change Tracking and Inventory Overview by Using Azure Monitor Agent
-description: Learn about the Change Tracking and Inventory feature by using the Azure Monitor Agent, which helps you identify software and Microsoft service changes in your environment.
+description: Learn about the Change Tracking and Inventory feature by using the Azure Monitor agent, which helps you identify software and Microsoft service changes in your environment.
 #customer intent: As a customer, I want to evaluate the compatibility of Azure Change Tracking and Inventory with my existing infrastructure so that I can ensure seamless integration.
 services: automation
 ms.date: 12/03/2025
@@ -12,7 +12,7 @@ author: jasminemehndir
 
 # About Azure Change Tracking and Inventory
 
-This article provides an overview of Azure Change Tracking and Inventory (CTI) by using the Azure Monitor Agent. This article also includes the key features and benefits of the service.
+This article provides an overview of Azure Change Tracking and Inventory (CTI) by using the Azure Monitor agent. This article also includes the key features and benefits of the service.
 
 ## What is Change Tracking and Inventory
 
@@ -40,9 +40,9 @@ Change Tracking metadata gets ingested into the `ConfigurationChange` table in t
 
 Here are the key benefits:
 
-- **Compatibility with the unified monitoring agent**: Is compatible with the [Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview) that enhances security and reliability and facilitates multi-homing experience to store data.
-- **Compatibility with tracking tool**: Is compatible with the Change Tracking extension deployed through the Azure Policy on the client's virtual machine (VM). You can switch to the Azure Monitor Agent, and then the Change Tracking extension pushes the software, files, and registry to the Azure Monitor Agent.
-- **Multi-homing experience**: Provides standardization of management from one central workspace. You can [transition from Azure Monitor Logs to the Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-migration) so that all VMs point to a single workspace for data collection and maintenance.
+- **Compatibility with the unified monitoring agent**: Is compatible with the [Azure Monitor agent](/azure/azure-monitor/agents/agents-overview) that enhances security and reliability and facilitates multi-homing experience to store data.
+- **Compatibility with tracking tool**: Is compatible with the Change Tracking extension deployed through the Azure Policy on the client's virtual machine (VM). You can switch to the Azure Monitor agent, and then the Change Tracking extension pushes the software, files, and registry to the Azure Monitor agent.
+- **Multi-homing experience**: Provides standardization of management from one central workspace. You can [transition from Azure Monitor Logs to the Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-migration) so that all VMs point to a single workspace for data collection and maintenance.
 - **Rules management**: Uses [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to configure or customize various aspects of data collection. For example, you can change the frequency of file collection.
 
 For information on supported operating systems, see [Support matrix and regions](../azure-change-tracking-inventory/change-tracking-inventory-support-matrix.md) for Azure CTI.

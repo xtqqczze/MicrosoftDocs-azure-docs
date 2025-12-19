@@ -57,7 +57,7 @@ This article provides the release notes for Azure Change Tracking and Inventory 
 
 #### Known issues
 
-After you migrate from Forefront Identity Manager based on the Azure Monitor Agent to Change Tracking based on the Azure Monitor Agent, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
+After you migrate from Forefront Identity Manager based on the Azure Monitor agent to Change Tracking based on the Azure Monitor agent, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
 
 | OS | Notes |
 | --- | --- |
@@ -68,7 +68,7 @@ After you migrate from Forefront Identity Manager based on the Azure Monitor Age
 
 #### Known issues
 
-After you migrate from Forefront Identity Manager based on the Azure Monitor Agent to Change Tracking based on the Azure Monitor Agent, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
+After you migrate from Forefront Identity Manager based on the Azure Monitor agent to Change Tracking based on the Azure Monitor agent, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
 
 | OS | Notes |
 | --- | --- |
@@ -78,11 +78,11 @@ After you migrate from Forefront Identity Manager based on the Azure Monitor Age
 
 #### Issue fixed
 
-The **SvcName** or **SoftwareName** fields are displayed as a garbled string for Japanese or Chinese language virtual machines (VMs). The issue is fixed in the latest version of the Azure Monitor Agent for Windows (1.24.0). We recommend that you upgrade to the Azure Monitor Agent.
+The `SvcName` or `SoftwareName` fields are displayed as a garbled string for Japanese or Chinese language virtual machines (VMs). The issue is fixed in the latest version of the Azure Monitor agent for Windows (1.24.0). We recommend that you upgrade to the Azure Monitor agent.
 
 #### Known issues
 
-For Windows, the **SvcDescription** field is coming as a Base64-encoded string. As a workaround, use the `base64_decode_tostring() kql` function.
+For Windows, the `SvcDescription` field is coming as a Base64-encoded string. As a workaround, use the `base64_decode_tostring() kql` function.
 
 ##### OS-specific issues
 
@@ -95,8 +95,8 @@ For Windows, the **SvcDescription** field is coming as a Base64-encoded string. 
 
 #### Issues fixed
 
-The **SvcName** or **SoftwareName** fields are displayed as a garbled string for Japanese or Chinese language VMs. The issue is fixed in the latest version of the Azure Monitor Agent for Windows (1.24.0). We recommend that you upgrade to the Azure Monitor Agent.
-For Windows, the **SvcDescription** field is coming as a Base64-encoded string. As a workaround, use the `base64_decode_tostring() kql` function.
+The `SvcName` or `SoftwareName` fields are displayed as a garbled string for Japanese or Chinese language VMs. The issue is fixed in the latest version of the Azure Monitor agent for Windows (1.24.0). We recommend that you upgrade to the Azure Monitor agent.
+For Windows, the `SvcDescription` field is coming as a Base64-encoded string. As a workaround, use the `base64_decode_tostring() kql` function.
 
 ##### OS-specific issues
 
