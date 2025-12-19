@@ -227,9 +227,9 @@ For Azure services, use the recommended zone names as described in the following
 
 <sup>1</sup>If you are using Azure Private DNS Zones, do not deploy this as an additional zone. DNS entries will be automatically added to the existing DNS Zone `privatelink.azurecr.io`.
 
-<sup>2</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
+<sup>2</sup>To use with the IoT Hub built-in Event Hubs-compatible endpoint. For more information, see [IoT Hub support for virtual networks with Azure Private Link](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint).
 
-<sup>3</sup>In scenarios where the Kudu console or Kudu REST API is used, you must create two DNS records pointing to the private endpoint IP in your Azure DNS private zone `privatelink.azurewebsites.net` or custom DNS server. The first record is for your app, and the second record is for the SCM (Source Control Management) of your app. If you're using Azure Private DNS Zones, do not deploy this as an additional zone.
+<sup>3</sup>To use with the Kudu console or Kudu REST API, you must create two DNS records that point to the private endpoint IP address in your Azure DNS private zone `privatelink.azurewebsites.net` or custom DNS server. The first record is for your app. The second record is for source control management (SCM) for your app. If you use private DNS zones in Azure, don't deploy this as an additional zone.
 
 > [!Note]
 > In the above text, **`{regionCode}`** refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
@@ -372,7 +372,10 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us<sup>2</sup> | azurewebsites.us </br> scm.azurewebsites.us |
 > | Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
 
-<sup>1</sup>In scenarios where the Kudu console or Kudu REST API is used, you must create two DNS records pointing to the private endpoint IP in your Azure DNS private zone or custom DNS server. The first record is for your app, and the second record is for the SCM (Source Control Management) of your app.
+<sup>1</sup>To use with the IoT Hub built-in Event Hubs-compatible endpoint. For more information, see [IoT Hub support for virtual networks with Azure Private Link](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint).
+
+<sup>2</sup>To use with the Kudu console or Kudu REST API, you must create two DNS records that point to the private endpoint IP address in your Azure DNS private zone `privatelink.azurewebsites.net` or custom DNS server. The first record is for your app. The second record is for SCM for your app. If you use private DNS zones in Azure, don't deploy this as an additional zone.
+
 
 > [!Note]
 > In the above text, `{regionCode}` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
@@ -499,7 +502,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.chinacloudsites.cn | chinacloudsites.cn |
 > | SignalR (Microsoft.SignalRService/SignalR) | signalR | privatelink.signalr.azure.cn | service.signalr.azure.cn |
 
-<sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint)
+<sup>1</sup>To use with the IoT Hub built-in Event Hubs-compatible endpoint. For more information, see [IoT Hub support for virtual networks with Azure Private Link](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint).
 
 ## Next step
 
