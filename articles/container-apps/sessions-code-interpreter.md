@@ -77,12 +77,13 @@ You can upload and download files, and list all the files in a code interpreter 
 
 ### Supported characters
 
-File names must use only the following supported characters:
+Filenames and path must use only the following supported characters:
 
 - Uppercase and lowercase letters: `A-Z`, `a-z`
 - Digits: `0-9`
-- Special characters: `-`, `_`, `.`, `@`, `$`, `&`, `=`, `;`, `,`, `#`, `%`, `^`, `(`, `)`
+- Special characters: `-`, `_`,` `, `.`, `@`, `$`, `&`, `=`, `;`, `,`, `#`, `%`, `^`, `(`, `)`
 - Unicode characters: Includes Chinese, Japanese, and other international characters
+- Path does not allow: `.`
 
 ### Upload a file
 
