@@ -166,7 +166,7 @@ Choose the scenario that matches your environment.
       required_providers {
         azurerm = {
           source  = "hashicorp/azurerm"
-          version = "~> 4.56"
+          version = "~> 4.x"
         }
       }
     }
@@ -236,7 +236,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 4.56"
+      version = "~> 4.x"
     }
   }
 }
