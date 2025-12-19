@@ -187,7 +187,7 @@ Choose the scenario that matches your environment.
       resource_group_name = azurerm_resource_group.rg.name
 
       default_node_pool {
-        name       = "system"
+        name       = "systempool"
         vm_size    = "Standard_L8s_v3"
         node_count = 3
       }
