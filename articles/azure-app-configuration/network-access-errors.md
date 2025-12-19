@@ -1,5 +1,5 @@
 ---
-title: Azure App Configuration REST API - Network access errors
+title: Azure App Configuration network access errors
 description: Reference page for network access errors when using the Azure App Configuration REST API
 author: maud-lv
 ms.author: malev
