@@ -1,5 +1,5 @@
 ---
-title: Collect custom metrics for GPU and InfiniBand on Linux VMs with the InfluxData Telegraf agent
+title: Monitor HPC and AI workloads on Azure VMs using Telegraf and Azure Monitor
 description: Learn how to deploy and configure the InfluxData Telegraf agent on a Linux virtual machine to send GPU and InfiniBand metrics to Azure Monitor for HPC and AI workloads.
 author: vinil-v
 ms.author: padmalathas
@@ -9,34 +9,45 @@ ms.custom: linux-related-content
 ms.date: 12/17/2025
 ---
 
-# Collect custom metrics for GPU and InfiniBand on Linux VMs with the InfluxData Telegraf agent
+# Monitor HPC and AI workloads on Azure VMs using Telegraf and Azure Monitor
 
-This article explains how to deploy and configure the InfluxData Telegraf agent on a Linux virtual machine to send GPU and InfiniBand metrics to Azure Monitor for HPC and AI workloads.
+This article provides guidance for monitoring GPU and InfiniBand metrics on Azure H-series and N-series virtual machines by using the Telegraf agent and Azure Monitor. This solution enables real-time collection and visualization of critical hardware metrics for high-performance computing (HPC) and artificial intelligence (AI) workloads.
 
 > [!IMPORTANT]
 > InfluxData Telegraf is an open-source agent and not officially supported by Azure Monitor. For issues with the Telegraf connector, refer to the Telegraf GitHub page: [InfluxData](https://github.com/influxdata/telegraf)
+> Azure Managed Prometheus now supports virtual machines (VMs) and Virtual Machine Scale Sets (VMSS), including GPU and InfiniBand monitoring.
+For more details, see the official [announcement](https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/private-preview-azure-managed-prometheus-on-vm--vmss/4473472)
 
 ## Overview
 
-As HPC and AI workloads continue to scale in complexity and performance demands, ensuring visibility into the underlying infrastructure becomes critical. This guide presents a monitoring solution for AI infrastructure deployed on Azure RDMA-enabled virtual machines (VMs), focusing on NVIDIA GPUs and Mellanox InfiniBand devices.
+Azure Monitor provides comprehensive monitoring capabilities for CPU, memory, storage, and networking. However, it doesn't natively support GPU or InfiniBand metrics for Azure H-series or N-series VMs. This guide demonstrates how to configure third-party monitoring tools to collect these specialized metrics. This article builds upon the foundational steps outlined in the [Azure Monitor documentation for custom metrics collection using Telegraf](/azure/azure-monitor/agents/collect-custom-metrics-linux-telegraf?tabs=ubuntu).
 
 By leveraging the Telegraf agent and Azure Monitor, this setup enables real-time collection and visualization of key hardware metrics, including GPU utilization, GPU memory usage, InfiniBand port errors, and link flaps. It provides operational insights vital for debugging, performance tuning, and capacity planning in high-performance AI environments.
 
 > [!NOTE]
-> While Azure Monitor offers robust monitoring capabilities for CPU, memory, storage, and networking, it does not natively support GPU or InfiniBand metrics for Azure H- or N-series VMs. To monitor GPU and InfiniBand performance, additional configuration using third-party tools such as Telegraf is required.
+> While Azure Monitor offers robust monitoring capabilities for CPU, memory, storage, and networking, it does not natively support GPU or InfiniBand metrics for Azure H-series or N-series VMs. To monitor GPU and InfiniBand performance, additional configuration using third-party tools such as Telegraf is required.
 
 Telegraf is a plug-in-driven agent that enables the collection of metrics from over 150 different sources. The Telegraf agent integrates directly with the Azure Monitor custom metrics REST API. It supports an Azure Monitor output plug-in. Using this plug-in, the agent can collect workload-specific metrics on your Linux VM and submit them as custom metrics to Azure Monitor.
-
-[![Screenshot showing the Telegraf agent architecture for GPU and InfiniBand monitoring.](media/collect-custom-metrics-gpu-infiniband-telegraf/telegraf-agent-overview.png)](media/collect-custom-metrics-gpu-infiniband-telegraf/telegraf-agent-overview.png#lightbox)
 
 ## Prerequisites
 
 - An Azure subscription with permissions to register resource providers
-- An Azure H-series or N-series VM (for example, Standard_ND96asr_v4)
+- An Azure H-series or N-series VM (for example, Standard_ND96asr_v4) or Virtual Machine Scale Set
 - Ubuntu-HPC 22.04 image (recommended) with pre-installed NVIDIA GPU drivers, CUDA, and InfiniBand drivers
 - SSH access to the virtual machine
 
-## Register the resource provider
+## Architecture
+
+The monitoring solution consists of:
+1. **Telegraf agent** - Collects GPU and InfiniBand metrics from the VM
+1. **Azure Monitor** - Stores and visualizes the collected metrics
+1. **Managed Identity** - Provides secure authentication for metric transmission
+
+## Step 1: Configure Azure subscription
+
+### Register the resource provider
+
+### [Azure portal](#tab/portal)
 
 Register the **microsoft.insights** resource provider in your Azure subscription to enable custom metrics.
 
@@ -45,12 +56,20 @@ Register the **microsoft.insights** resource provider in your Azure subscription
 3. Search for **microsoft.insights**.
 4. Select the provider and click **Register**.
 
-[![Screenshot showing the Azure portal Resource providers registration page.](../../media/collect-custom-metrics-gpu-infiniband-telegraf/register-resource-provider.png)](media/collect-custom-metrics-gpu-infiniband-telegraf/register-resource-provider.png#lightbox)
+### [Azure CLI](#tab/CLI)
 
-For more information, see [Resource providers and resource types - Azure Resource Manager](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1).
+```azurecli
+# Register the Microsoft.Insights resource provider
+az provider register --namespace Microsoft.Insights
+
+# Verify registration status
+az provider show --namespace Microsoft.Insights --query "registrationState"
+```
+---
 
 ## Enable Managed Identity
 
+### [Azure portal](#tab/portal)
 Enable Managed Service Identities to authenticate your Azure VM or Azure VMSS with Azure Monitor.
 
 1. Navigate to your VM in the Azure portal.
@@ -61,52 +80,176 @@ Enable Managed Service Identities to authenticate your Azure VM or Azure VMSS wi
 > [!TIP]
 > You can also use User Managed Identities or Service Principal to authenticate the VM. For more information, see the [Telegraf Azure Monitor output plugin documentation](https://github.com/influxdata/telegraf/tree/release-1.15/plugins/outputs/azure_monitor#authentication).
 
-[![Screenshot showing the Azure portal Identity settings with System assigned identity enabled.](../../media/collect-custom-metrics-gpu-infiniband-telegraf/enable-managed-identity.png)](media/collect-custom-metrics-gpu-infiniband-telegraf/enable-managed-identity.png#lightbox)
+### [Azure CLI](#tab/CLI)
+
+### For virtual machines
+```azurecli
+# Enable system-assigned managed identity for VM
+az vm identity assign --resource-group myResourceGroup --name myVM
+
+# Retrieve the principal ID for role assignment
+az vm identity show --resource-group myResourceGroup --name myVM --query principalId --output tsv
+```
+
+### For Virtual Machine Scale Sets
+```azurecli
+# Enable system-assigned managed identity for VMSS
+az vmss identity assign --resource-group myResourceGroup --name myVMSS
+
+# Retrieve the principal ID for role assignment
+az vmss identity show --resource-group myResourceGroup --name myVMSS --query principalId --output tsv
+```
 
 For more information, see:
 - [Configure managed identities on Azure VMs](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities)
 - [Configure managed identities on Azure VMSS](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities-scale-sets)
 
+---
+
 ## Install and configure Telegraf
 
 Set up the Telegraf agent inside the VM or VMSS to send GPU and InfiniBand data to Azure Monitor.
 
-### Connect to the VM
-
-Create an SSH connection to the VM where you want to install Telegraf. Select the **Connect** button on the overview page for your virtual machine.
-
-In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 22. In **Login using VM local account**, a connection command is shown. Select the button to copy the command. The following example shows what the SSH connection command looks like:
-
-```bash
-ssh azureuser@XXXX.XX.XXX
-```
-
-Paste the SSH connection command into a shell, such as Azure Cloud Shell or Bash on Ubuntu on Windows, or use an SSH client of your choice to create the connection.
-
 ### Install the Telegraf agent
 
-Download and run the setup script to install the Telegraf agent on Ubuntu 22.04. This script configures the NVIDIA SMI input plugin, the InfiniBand input plugin, and sets up the Telegraf configuration to send data to Azure Monitor.
-
-> [!NOTE]
-> The `gpu-ib-mon_setup.sh` script is currently supported and tested only on Ubuntu 22.04.
-
-Run the following commands from your SSH session:
-
 ```bash
-wget https://raw.githubusercontent.com/vinil-v/gpu-ib-monitoring/refs/heads/main/scripts/gpu-ib-mon_setup.sh -O gpu-ib-mon_setup.sh
-chmod +x gpu-ib-mon_setup.sh
-./gpu-ib-mon_setup.sh
+# Add the InfluxData repository key
+curl -s https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+
+# Add the InfluxData repository
+source /etc/lsb-release
+echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+
+# Add the compatibility key
+sudo curl -fsSL https://repos.influxdata.com/influxdata-archive_compat.key | sudo apt-key --keyring /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg add
+
+# Update package list and install Telegraf
+sudo apt-get update
+sudo apt-get install telegraf -y
 ```
 
-For more information about InfiniBand counters collected by Telegraf, see [Understanding mlx5 Linux counters and status parameters](https://enterprise-support.nvidia.com/s/article/understanding-mlx5-linux-counters-and-status-parameters).
+### Create base Telegraf configuration and configure GPU and InfiniBand monitoring
 
-### Test the configuration
-
-Test the Telegraf configuration by executing the following command:
+Create a base configuration file with Azure Monitor output:
 
 ```bash
+# Generate base configuration with CPU, memory, and Azure Monitor output
+telegraf --input-filter cpu:mem --output-filter azure_monitor config > azm-telegraf.conf
+```
+Add the NVIDIA SMI and InfiniBand input plugins to the configuration:
+
+```bash
+# Add GPU and InfiniBand monitoring configuration
+cat << 'EOF' >> azm-telegraf.conf
+
+# Starlark processor for data transformation
+[[processors.starlark]]
+  source = '''
+def apply(metric):
+    # Iterate through the fields in the metric
+    for key, value in metric.fields.items():
+        # If the key relates to memory fields, convert MB to GB
+        if "memory" in key and type(value) == "int":
+            # Convert MB to GB by dividing by 1024
+            metric.fields[key] = float(value) / 1024
+        # Check if the field is an integer and convert to float
+        elif type(value) == "int":
+            metric.fields[key] = float(value)
+    return metric
+'''
+
+# NVIDIA SMI input configuration
+[[inputs.nvidia_smi]]
+  bin_path = "/usr/local/cuda/bin/nvidia-smi"
+  timeout = "5s"
+
+# InfiniBand input configuration
+[[inputs.infiniband]]
+  # Uses default configuration to collect all available metrics
+
+EOF
+```
+
+### Apply the configuration
+
+Replace the default configuration and restart the Telegraf service:
+
+```bash
+# Copy the new configuration to the Telegraf directory
+sudo cp azm-telegraf.conf /etc/telegraf/telegraf.conf
+
+# Stop the Telegraf service
+sudo systemctl stop telegraf
+
+# Enable and start Telegraf with the new configuration
+sudo systemctl enable --now telegraf
+
+# Check service status
+sudo systemctl status telegraf
+```
+
+### Verify Telegraf configuration
+
+Test the Telegraf configuration to ensure proper setup:
+
+```bash
+# Test Telegraf configuration
 sudo telegraf --config /etc/telegraf/telegraf.conf --test
 ```
+
+This command validates the configuration and displays sample metrics that Telegraf sends to Azure Monitor.
+
+### Understanding the configuration
+
+The setup script configures Telegraf with:
+
+- **NVIDIA SMI input plugin** - Collects GPU metrics including utilization, memory usage, and temperature
+- **InfiniBand input plugin** - Monitors InfiniBand port status, data transmission, and error counters
+- **Azure Monitor output plugin** - Sends metrics to Azure Monitor with one-minute aggregation intervals
+
+## Create monitoring dashboards
+
+### Access Azure Monitor Metrics
+
+1. In the Azure portal, go to your VM or Virtunal Machine Scale Set.
+1. Select **Metrics** from the monitoring section.
+1. Configure metric visualizations by using the collected namespaces.
+
+### Monitor GPU metrics
+
+Configure GPU monitoring by using the `Telegraf/nvidia-smi` namespace:
+
+1. Set **Scope** to your VM or VMSS.
+1. Select **Metric Namespace**: `Telegraf/nvidia-smi`.
+1. Choose from available metrics:
+   - `memory_used` - GPU memory utilization.
+   - `utilization_gpu` - GPU processing utilization.
+   - `temperature_gpu` - GPU temperature.
+
+### Monitor InfiniBand metrics
+
+Configure InfiniBand monitoring by using the `Telegraf/infiniband` namespace:
+
+1. Set **Scope** to your VM or VMSS.
+1. Select **Metric Namespace**: `Telegraf/infiniband`.
+1. Choose from available metrics:
+   - `link_downed` - Link status changes.
+   - `port_rcv_data` - Data received on port.
+   - `port_xmit_data` - Data transmitted on port.
+   - `port_rcv_errors` - Port receive errors.
+
+> [!NOTE]
+> When you use the `link_downed` metric with Count aggregation, use Max or Min values for accurate results.
+
+### Create custom dashboards
+
+Combine GPU and InfiniBand metrics in custom Azure Monitor dashboards:
+
+1. In Azure Monitor, select **Dashboards**.
+1. Create a new dashboard.
+1. Add tiles for both `Telegraf/nvidia-smi` and `Telegraf/infiniband` metrics.
+1. Configure filters and time ranges as needed.
+
 
 ## Create dashboards in Azure Monitor
 
@@ -124,8 +267,6 @@ To visualize NVIDIA GPU usage in the Azure portal:
 4. Select metrics such as utilization, memory usage, or temperature.
 5. Use filters and splits to analyze data across multiple GPUs or over time.
 
-[![Screenshot showing Azure Monitor Metrics with GPU memory_used metrics using Telegraf/nvidia-smi namespace.](media/collect-custom-metrics-gpu-infiniband-telegraf/gpu-metrics-dashboard.png)](media/collect-custom-metrics-gpu-infiniband-telegraf/gpu-metrics-dashboard.png#lightbox)
-
 ### Visualize InfiniBand metrics
 
 To monitor InfiniBand performance:
@@ -138,55 +279,60 @@ To monitor InfiniBand performance:
 > [!NOTE]
 > The `link_downed` metric with Aggregation: Count may return incorrect values. Use Max or Min aggregations instead.
 
-[![Screenshot showing Azure Monitor Metrics with InfiniBand link_downed metrics.](media/collect-custom-metrics-gpu-infiniband-telegraf/infiniband-metrics-dashboard.png)](media/collect-custom-metrics-gpu-infiniband-telegraf/infiniband-metrics-dashboard.png#lightbox)
-
-[![Screenshot showing Azure Monitor Metrics with InfiniBand port_rcv_data metrics.](media/collect-custom-metrics-gpu-infiniband-telegraf/infiniband-port-metrics.png)](media/collect-custom-metrics-gpu-infiniband-telegraf/infiniband-port-metrics.png#lightbox)
-
 Creating custom dashboards in Azure Monitor with both **Telegraf/nvidia-smi** and **Telegraf/infiniband** namespaces allows for unified visibility into GPU and InfiniBand performance.
 
-## Test GPU and InfiniBand metrics
+## Troubleshooting
 
-If you're testing GPU metrics and need a reliable way to simulate multi-GPU workloads—especially over InfiniBand—use the NCCL benchmark suite. This method is ideal for verifying GPU and network monitoring setups.
+### Common problems and solutions
 
-### Run NCCL benchmarks
+**Telegraf doesn't send metrics to Azure Monitor:**
+- Verify managed identity is enabled and has proper role assignments.
+- Check Telegraf configuration syntax by using `sudo telegraf --config /etc/telegraf/telegraf.conf --test`.
+- Review Telegraf logs by using `sudo journalctl -u telegraf -f`.
 
-NCCL Benchmark and OpenMPI are part of the Ubuntu HPC 22.04 image. Update the variables according to your environment and update the hostfile with the hostname:
+**Missing GPU metrics:**
+- Ensure NVIDIA drivers are properly installed by using `nvidia-smi`.
+- Verify CUDA toolkit installation by using `nvcc --version`.
+- Check GPU accessibility by using `sudo nvidia-smi -L`.
 
-```bash
-module load mpi/hpcx-v2.13.1
-export CUDA_VISIBLE_DEVICES=2,3,0,1,6,7,4,5
-mpirun -np 16 --map-by ppr:8:node -hostfile hostfile \
-       -mca coll_hcoll_enable 0 --bind-to numa \
-       -x NCCL_IB_PCI_RELAXED_ORDERING=1 \
-       -x LD_LIBRARY_PATH=/usr/local/nccl-rdma-sharp-plugins/lib:$LD_LIBRARY_PATH \
-       -x CUDA_DEVICE_ORDER=PCI_BUS_ID \
-       -x NCCL_SOCKET_IFNAME=eth0 \
-       -x NCCL_TOPO_FILE=/opt/microsoft/ndv4-topo.xml \
-       -x NCCL_DEBUG=WARN \
-       /opt/nccl-tests/build/all_reduce_perf -b 8 -e 8G -f 2 -g 1 -c 1
-```
+**InfiniBand metrics don't appear:**
+- Verify InfiniBand drivers by using `ibstat`.
+- Check port status by using `ibstatus`.
+- Ensure proper network connectivity.
 
-### Alternative: GPU load simulation using TensorFlow
-
-For a more application-like load (for example, distributed training), use the following script that sets up a multi-GPU TensorFlow training environment using Anaconda:
+### Telegraf service management
 
 ```bash
-wget -q https://raw.githubusercontent.com/vinil-v/gpu-monitoring/refs/heads/main/scripts/gpu_test_program.sh -O gpu_test_program.sh
-chmod +x gpu_test_program.sh
-./gpu_test_program.sh
+# Check Telegraf service status
+sudo systemctl status telegraf
+
+# Start Telegraf service
+sudo systemctl start telegraf
+
+# Enable automatic startup
+sudo systemctl enable telegraf
+
+# View Telegraf logs
+sudo journalctl -u telegraf -f
 ```
 
-With either method—NCCL benchmarks or TensorFlow training—you can simulate realistic GPU usage and validate your GPU and InfiniBand monitoring setup.
+## Security considerations
 
-## Clean up resources
+- Use managed identity for authentication instead of service principals when possible.
+- Apply principle of least privilege for role assignments.
+- Regularly review and audit monitoring permissions.
+- Monitor Telegraf configuration files for unauthorized changes.
 
-When they're no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine and select **Delete**. Then confirm the name of the resource group to delete.
+## Performance impact
 
-## Next steps
+- Telegraf agent has minimal performance overhead (typically less than 1% CPU).
+- You can adjust the metrics collection interval based on your requirements.
+- Consider network bandwidth usage for high-frequency metric collection.
 
-- Learn more about [custom metrics in Azure Monitor](/azure/azure-monitor/metrics/metrics-custom-overview)
-- Review [ND A100 v4-series GPU VM sizes](/azure/virtual-machines/sizes/gpu-accelerated/ndasra100v4-series)
-- Get started with [Ubuntu HPC on Azure](https://azuremarketplace.microsoft.com/en-gb/marketplace/apps/microsoft-dsvm.ubuntu-hpc)
-- Explore the [Telegraf Azure Monitor output plugin](https://github.com/influxdata/telegraf/tree/release-1.15/plugins/outputs/azure_monitor)
-- Configure the [Telegraf NVIDIA SMI input plugin](https://github.com/influxdata/telegraf/tree/release-1.15/plugins/inputs/nvidia_smi)
-- Review the [Telegraf InfiniBand input plugin documentation](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/infiniband/README.md)
+## Related content
+
+- [Azure N-series GPU VM sizes](/azure/virtual-machines/sizes/overview?#gpu-accelerated)
+- [Azure H-series HPC VM sizes](/azure/virtual-machines/sizes/overview?hpc#hpc-vm-sizes)
+- [Ubuntu HPC on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-hpc)
+- [Telegraf Azure Monitor output plugin documentation](https://github.com/influxdata/telegraf/tree/release-1.15/plugins/outputs/azure_monitor)
+- [Understanding MLX5 Linux counters and status parameters](https://enterprise-support.nvidia.com/s/article/understanding-mlx5-linux-counters-and-status-parameters)
