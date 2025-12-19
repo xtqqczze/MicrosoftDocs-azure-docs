@@ -273,7 +273,7 @@ Here is an example of the source JSON using the expression parameter:
 The service optimizes the performance of copying data from ServiceNow when you apply the following configurations:
 
 - Set `pageSize` to a value between 5000 and 10000.
-- Set `dataIntegrationUnits` to 4 and `parallelCopies` to 3 in copy activity settings.
+- Set `dataIntegrationUnits` to `4` and `parallelCopies` to `3` in copy activity settings.
 
 ## Lookup activity properties
 
