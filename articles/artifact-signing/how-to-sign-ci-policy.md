@@ -1,5 +1,5 @@
 ---
-title: Sign a CI policy with Artifact Signing
+title: Sign a CI policy by using Artifact Signing
 description: Learn how to sign new CI policies by using Artifact Signing.  
 author: TacoTechSharma
 ms.author: mesharm 
