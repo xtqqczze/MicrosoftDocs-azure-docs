@@ -133,18 +133,18 @@ Run an on-demand backup job as follows:
 
 To monitor the status of backup jobs, use [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet.
 
-    ```powershell
-    Get-AzRecoveryservicesBackupJob
-    ```
+```powershell
+Get-AzRecoveryservicesBackupJob
+```
 
-    Output is similar to the following example, which shows the job as **InProgress**:
+Output is similar to the following example, which shows the job as **InProgress**:
 
-    ```output
-    WorkloadName   Operation         Status       StartTime              EndTime                JobID
-    ------------   ---------         ------       ---------              -------                -----
-    myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14
-    myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739
-    ```
+```output
+WorkloadName   Operation         Status       StartTime              EndTime                JobID
+------------   ---------         ------       ---------              -------                -----
+myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14
+myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739
+```
 
 When the job status is **Completed**, the VM is protected and has a full recovery point stored.
 
