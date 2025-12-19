@@ -102,7 +102,7 @@ Azure Container Storage (version 2.x.x) presents local NVMe as a standard Kubern
       required_providers {
         kubernetes = {
           source  = "hashicorp/kubernetes"
-          version = "~> 3.0.1"
+          version = "~> 3.x"
         }
       }
     }

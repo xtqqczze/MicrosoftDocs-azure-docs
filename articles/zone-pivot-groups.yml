@@ -2044,7 +2044,7 @@ groups:
   title: Interaction type
   prompt: Select how you want to interact with Azure
   pivots:
-  - id: azure-cli
+  - id: azurecli
     title: Azure CLI
   - id: terraform
     title: Terraform

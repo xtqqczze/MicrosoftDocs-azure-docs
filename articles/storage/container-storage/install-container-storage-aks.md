@@ -20,7 +20,7 @@ If you prefer the open-source version of Azure Container Storage, visit the [loc
 > [!IMPORTANT]
 > This article applies to [Azure Container Storage (version 2.x.x)](container-storage-introduction.md). For earlier versions, see [Azure Container Storage (version 1.x.x) documentation](container-storage-introduction-version-1.md). If you already have Azure Container Storage (version 1.x.x) installed on your AKS cluster, remove it by following [these steps](remove-container-storage-version-1.md).
 
-::: zone pivot="azure-cli"
+::: zone pivot="azurecli"
 
 > [!div class="checklist"]
 > * Prepare your Azure CLI environment
@@ -39,6 +39,10 @@ If you prefer the open-source version of Azure Container Storage, visit the [loc
 - Check if your target region is supported in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
 
 - Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
+
+- Choose a virtual machine SKU that supports local NVMe data disks, for example, [storage optimized VMs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VMs](/azure/virtual-machines/sizes/overview#gpu-accelerated). For existing clusters, make sure node pools already use a supported VM SKU before enabling Azure Container Storage.
+
+- Choose Linux as OS type for the VMs in your node pool. Windows is currently unsupported.
 
 ## Install the required extension
 
@@ -83,14 +87,6 @@ If the resource group is created successfully, you see output similar to this ex
   "tags": null
 }
 ```
-
-## Ensure the VM type for your cluster meets the installation criteria
-
-Follow these guidelines when choosing a virtual machine type for the cluster nodes.
-
-- Choose a virtual machine SKU that supports local NVMe data disks, for example, [storage optimized VMs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VMs](/azure/virtual-machines/sizes/overview#gpu-accelerated).
-- Choose the OS type for the VMs in the node pools as Linux OS. Windows OS isn't currently supported.
-- For existing clusters, make sure node pools already use a supported VM SKU before enabling Azure Container Storage.
 
 ## Install Azure Container Storage on an AKS cluster
 
@@ -141,13 +137,24 @@ The deployment takes 5-10 minutes. When it completes, the targeted AKS cluster h
 
 - Check that your target region is listed in [Azure Container Storage regions](container-storage-introduction.md#regional-availability).
 
-## Ensure the VM type for your cluster meets the installation criteria
+- Choose a virtual machine SKU that supports local NVMe data disks, for example, [storage optimized VMs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VMs](/azure/virtual-machines/sizes/overview#gpu-accelerated). For existing clusters, make sure node pools already use a supported VM SKU before enabling Azure Container Storage.
 
-Follow these guidelines when choosing a virtual machine type for the cluster nodes.
+- Choose Linux as OS type for the VMs in your node pool. Windows is currently unsupported.
 
-- Choose a virtual machine SKU that supports local NVMe data disks, for example, [storage optimized VMs](/azure/virtual-machines/sizes/overview#storage-optimized) or [GPU accelerated VMs](/azure/virtual-machines/sizes/overview#gpu-accelerated).
-- Choose the OS type for the VMs in the node pools as Linux OS. Windows OS isn't currently supported.
-- For existing clusters, make sure node pools already use a supported VM SKU before enabling Azure Container Storage.
+## Choose the subscription for Terraform runs
+
+Terraform can determine a target Azure subscription via various means:
+
+- `subscription_id` in the provider block 
+- `ARM_SUBSCRIPTION_ID` environment variable
+- Azure CLI default subscription
+- Managed identity (when running in Azure)
+
+For local use, set the Azure CLI context:
+
+```azurecli
+az account set --subscription <subscription-id>
+```
 
 ## Install Azure Container Storage on an AKS cluster
 
