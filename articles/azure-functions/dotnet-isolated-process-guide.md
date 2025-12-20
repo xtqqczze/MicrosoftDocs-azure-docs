@@ -1154,7 +1154,7 @@ Then create an `appsettings.json` file in your project root with the following c
 ```
 
 > [!TIP]
-> Alternatively, you can use `Host.CreateDefaultBuilder()` instead of `new HostBuilder()`. This method automatically loads configuration from `appsettings.json`, environment variables, and other sources. However, `FunctionsApplication.CreateBuilder()` is the recommended approach for new projects.
+> Alternatively, you can use `Host.CreateDefaultBuilder()` instead of `new HostBuilder()`. This method automatically loads configuration from `appsettings.json`, environment variables, and other sources. However, [FunctionsApplication.CreateBuilder()](#tab/code/ihostapplicationbuilder) is the recommended approach for new projects, as it automatically configures the Functions worker (including the call to `ConfigureFunctionsWebApplication()`) and loads configuration files.
 
 ---
 
