@@ -17,7 +17,7 @@ ms.custom:
 
 # Guide for running C# Azure Functions in the isolated worker model
 
-This article introduces working with Azure Functions in .NET by using the isolated worker model. This model lets your project target versions of .NET independently of other runtime components. For information about specific .NET versions supported, see [supported version](#supported-versions). 
+This article introduces working with Azure Functions in .NET using the isolated worker model. This model lets your project target versions of .NET independently of other runtime components. For information about specific .NET versions supported, see [supported version](#supported-versions). 
 
 Use the following links to get started right away building .NET isolated worker model functions.
 
@@ -80,7 +80,7 @@ The 2.x versions of the core packages change the supported frameworks and bring 
 
 - Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker.Sdk]:
     - The SDK includes default configurations for [SDK container builds](/dotnet/core/docker/publish-as-container).
-    - The SDK includes support for [`dotnet run`](/dotnet/core/tools/dotnet-run) when [Azure Functions Core Tools](./functions-develop-local.md) is installed. On Windows, install Core Tools through a mechanism other than NPM.
+    - The SDK includes support for [`dotnet run`](/dotnet/core/tools/dotnet-run) when the [Azure Functions Core Tools](./functions-develop-local.md) is installed. On Windows, install the Core Tools through a mechanism other than NPM.
 - Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker]:
     - This version adds support for `IHostApplicationBuilder`. Some examples in this guide include tabs to show alternatives using `IHostApplicationBuilder`. These examples require the 2.x versions.
     - Service provider scope validation is included by default if run in a development environment. This behavior matches ASP.NET Core.
@@ -191,7 +191,7 @@ Use the `FunctionsApplication.CreateBuilder()` method to add the settings requir
 + Default gRPC support.
 + Apply other defaults from [Host.CreateDefaultBuilder()](/dotnet/api/microsoft.extensions.hosting.host.createdefaultbuilder).
 
-When you have access to the builder pipeline, you can set any app-specific configurations during initialization. You can call extension methods on the builder's `Configuration` property to add any configuration sources required by your code. For more information about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration). 
+You have access to the builder pipeline, so you can set any app-specific configurations during initialization. You can call extension methods on the builder's `Configuration` property to add any configuration sources required by your code. For more information about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration). 
 
 ##### [IHostBuilder](#tab/hostbuilder)
 
@@ -206,7 +206,7 @@ Use the [ConfigureFunctionsWorkerDefaults] method to add the settings required f
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_defaults" :::   
 
-When you access the host builder pipeline, you can set any app-specific configurations during initialization. Call the [ConfigureAppConfiguration] method on [HostBuilder] one or more times to add any configuration sources required by your code. For more information about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration). 
+You have access to the host builder pipeline, so you can set any app-specific configurations during initialization. Call the [ConfigureAppConfiguration] method on [HostBuilder] one or more times to add any configuration sources required by your code. For more information about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration). 
 
 ---
 
@@ -515,7 +515,7 @@ Here are some of the parameters that you can include as part of a function metho
 
 ### Execution context
 
-.NET isolated passes a [FunctionContext] object to your function methods. This object lets you get an [`ILogger`][ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. You can use this context to obtain an [`ILogger`][ILogger] without having to use dependency injection. For more information, see [Logging](#logging). 
+In the isolated worker model, the worker process passes a [FunctionContext] object to your function methods. This object lets you get an [`ILogger`][ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. You can use this context to obtain an [`ILogger`][ILogger] without having to use dependency injection. For more information, see [Logging](#logging). 
 
 ### Cancellation tokens
 
@@ -1002,7 +1002,12 @@ The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule`
 > [!IMPORTANT]
 > The Functions host and the isolated process worker have separate configuration for log levels. Any [Application Insights configuration in host.json](./functions-host-json.md#applicationinsights) doesn't affect logging from the worker, and similarly, configuration in your worker code doesn't impact logging from the host. Apply changes in both places if your scenario requires customization at both layers.
 
-The rest of your application continues to work with `ILogger` and `ILogger<T>`. However, by default, the Application Insights SDK adds a logging filter that instructs the logger to capture only warnings and more severe logs. You can configure log levels either in your code or in the `appsettings.json` configuration file. Configuring log levels in `appsettings.json` is useful when you want to set different log levels for different categories without modifying code.
+The rest of your application continues to work with `ILogger` and `ILogger<T>`. However, by default, the Application Insights SDK adds a logging filter that instructs the logger to capture only warnings and more severe logs. You can configure log levels in the isolated worker process in one of these ways:
+
+| Configuration method | Benefits | 
+| ---- | ---- | ---- |
+| In your code | Promotes a clearer separation between host-side and worker-side configurations. |
+| Using `appsettings.json` | Useful when you want to set different log levels for different categories without having to modify your code. |
 
 ##### [Code-based](#tab/code/ihostapplicationbuilder)
 
@@ -1307,7 +1312,7 @@ The deployment payload should match the output of a `dotnet publish` command, th
 The build process generates these files, and you shouldn't edit them directly. 
 
 >[!TIP]
->You can use the `func pack` command in Core Tools to correctly generate a zip archive for deployment.
+>You can use the `func pack` command in Core Tools to correctly generate a zip archive for deployment. Support for `func pack` is currently in preview.
 
 When preparing a zip archive for deployment, compress only the contents of the output directory, not the enclosing directory itself. When the archive is extracted into the current working directory, the files listed earlier need to be immediately visible.
 
