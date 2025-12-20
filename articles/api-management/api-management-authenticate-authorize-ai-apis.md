@@ -5,7 +5,7 @@ description: Options to authenticate and authorize to AI APIs using Azure API Ma
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 12/17/2025
+ms.date: 12/19/2025
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
@@ -30,7 +30,7 @@ For background, see:
 To follow the examples in this article, you must have:
 
 - An API Management instance. For example steps, see [Create an Azure API Management instance](get-started-create-service-instance.md).
-- An AI model deployment added to your API Management instance as an AI. For example steps, see [Import a Microsoft Foundry API](microsoft-foundry-api.md) or [Import a language model API](openai-compatible-llm-api.md).
+- An AI model deployment added to your API Management instance as an AI. For example steps, see [Import a Microsoft Foundry API](azure-ai-foundry-api.md) or [Import a language model API](openai-compatible-llm-api.md).
 - (For OAuth 2.0 authorization) Permissions to create an app registration in an identity provider such as a Microsoft Entra ID tenant associated with your Azure subscription.
 
 ## Authenticate by using API key
@@ -102,7 +102,7 @@ Follow these steps to configure your API Management instance to use a managed id
     ```
     
 > [!TIP]
-> Instead of using the `authentication-managed-identity` and `set-header` policies shown in this example, you can configure a [backend](backends.md) resource that directs API requests to the AI service endpoint. In the backend configuration, configure managed identity credentials to the `https://cognitiveservices.azure.com/` resource. Azure API Management automates these steps when you [import an API directly from Microsoft Foundry](microsoft-foundry-api.md).  
+> Instead of using the `authentication-managed-identity` and `set-header` policies shown in this example, you can configure a [backend](backends.md) resource that directs API requests to the AI service endpoint. In the backend configuration, configure managed identity credentials to the `https://cognitiveservices.azure.com/` resource. Azure API Management automates these steps when you [import an API directly from Microsoft Foundry](azure-ai-foundry-api.md).  
 
 ## OAuth 2.0 authorization by using identity provider
 

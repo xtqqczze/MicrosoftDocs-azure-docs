@@ -92,7 +92,21 @@ To ensure that your AI API is working as expected, test it in the API Management
 1. Select the **Test** tab.
 1. Select an operation that's compatible with the model deployment.
     The page displays fields for parameters and headers.
-1. Enter parameters and headers as needed. Depending on the operation, you might need to configure or update a **Request body**.
+1. Enter parameters and headers as needed. Depending on the operation, you might need to configure or update a **Request body**. Here's a very basic example request body for a chat completions operation:
+
+    ```json
+    {
+      "model": "any",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Help me plan a trip to Paris",
+          "max_tokens": 100
+        }
+      ]
+    }
+    ```
+
     > [!NOTE]
     > In the test console, API Management automatically populates an **Ocp-Apim-Subscription-Key** header, and configures the subscription key of the built-in [all-access subscription](api-management-subscriptions.md#all-access-subscription). This key enables access to every API in the API Management instance. Optionally display the **Ocp-Apim-Subscription-Key** header by selecting the "eye" icon next to the **HTTP Request**.
 1. Select **Send**.
