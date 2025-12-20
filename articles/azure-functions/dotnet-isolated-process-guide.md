@@ -973,7 +973,7 @@ host.Run();
 
 The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule` that listens to a Functions-defined `ActivitySource`. This module creates the dependency telemetry required to support distributed tracing. For more information about `AddApplicationInsightsTelemetryWorkerService()` and how to use it, see [Application Insights for Worker Service applications](/azure/azure-monitor/app/worker-service).
 
-#### Managing log levels
+#### Manage log levels
 
 > [!IMPORTANT]
 > The Functions host and the isolated process worker have separate configuration for log levels. Any [Application Insights configuration in host.json](./functions-host-json.md#applicationinsights) doesn't affect logging from the worker, and similarly, configuration in your worker code doesn't impact logging from the host. Apply changes in both places if your scenario requires customization at both layers.
@@ -1135,7 +1135,7 @@ Then create an `appsettings.json` file in your project root with the following c
 ```
 
 > [!TIP]
-> Alternatively, you can use `Host.CreateDefaultBuilder()` instead of `new HostBuilder()`. This method automatically loads configuration from `appsettings.json`, environment variables, and other sources. However, [FunctionsApplication.CreateBuilder()](#tab/code/ihostapplicationbuilder) is the recommended approach for new projects, as it automatically configures the Functions worker (including the call to `ConfigureFunctionsWebApplication()`) and loads configuration files.
+> Alternatively, you can use `Host.CreateDefaultBuilder()` instead of `new HostBuilder()`. This method automatically loads configuration from `appsettings.json`, environment variables, and other sources. However, [FunctionsApplication.CreateBuilder()](dotnet-isolated-process-guide.md?tabs=ihostapplicationbuilder%2Ccode#manage-log-levels) is the recommended approach for new projects, as it automatically configures the Functions worker (including the call to `ConfigureFunctionsWebApplication()`) and loads configuration files.
 
 ---
 
