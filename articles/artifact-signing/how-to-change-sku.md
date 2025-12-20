@@ -1,6 +1,6 @@
 ---
 title: Change the account SKU
-description: Learn how to change your SKU or pricing tier for a Trusted Signing account.
+description: Learn how to change your SKU or pricing tier for a Artifact Signing account.
 author: TacoTechSharma
 ms.author: mesharm
 ms.service: trusted-signing
@@ -12,9 +12,9 @@ ms.custom:
 ---
 
 
-# Change a Trusted Signing account SKU (pricing tier)
+# Change a Artifact Signing account SKU (pricing tier)
 
-Trusted Signing gives you a choice between two pricing tiers: Basic and Premium. Both tiers are tailored to offer the service at an optimal cost and to be suitable for any signing scenario.
+Artifact Signing gives you a choice between two pricing tiers: Basic and Premium. Both tiers are tailored to offer the service at an optimal cost and to be suitable for any signing scenario.
 
 For more information, see [Trusted Signing pricing](https://azure.microsoft.com/pricing/details/trusted-signing/).
 
@@ -36,7 +36,7 @@ The following table describes key account details for the Basic SKU and the Prem
 
 ## Change the SKU
 
-You can change the SKU for a Trusted Signing account at any time by upgrading to Premium or by downgrading to Basic. You can change the SKU by using either the Azure portal or the Azure CLI.
+You can change the SKU for an Artifact Signing account at any time by upgrading to Premium or by downgrading to Basic. You can change the SKU by using either the Azure portal or the Azure CLI.
 
 Considerations:
 
@@ -51,13 +51,13 @@ Considerations:
   - The Basic SKU allows only one certificate profile of each type. For example, if you have two certificate profiles of the Public Trust type, you must delete any single profile to be eligible to downgrade. The same limitation applies for other certificate profile types.
   - In the Azure portal, on the **Certificate Profiles** pane, make sure that you select **Status: All** to view all certificate profiles. Viewing all certificate profiles can help you delete all relevant certificate profiles to meet the criteria to downgrade.
 
-    :::image type="content" source="media/trusted-signing-certificate-profile-deletion-changesku.png" alt-text="Screenshot that shows selecting all certificate profile statuses to view all certificate profiles." lightbox="media/trusted-signing-certificate-profile-deletion-changesku.png":::
+    :::image type="content" source="media/artifact-signing-certificate-profile-deletion-changesku.png" alt-text="Screenshot that shows selecting all certificate profile statuses to view all certificate profiles." lightbox="media/artifact-signing-certificate-profile-deletion-changesku.png":::
 
 # [Azure portal](#tab/sku-portal)
 
 To change the SKU (pricing tier) by using the Azure portal:
 
-1. In the Azure portal, go to your Trusting Signing account.
+1. In the Azure portal, go to your Artifact Signing account.
 1. On the account **Overview** pane, find the current value for **SKU (Pricing tier)**.
 1. Select the link for the current SKU. Your current SKU selection is highlighted in the **Choose pricing tier** pane.
 1. Select the SKU to update to (for example, downgrade to Basic or upgrade to Premium), and then select **Update**.
@@ -74,21 +74,21 @@ az trustedsigning update -n MyAccount -g MyResourceGroup --sku Premium
 
 ## Cost management and billing
 
-View details about cost management and billing for your Trusted Signing resource by viewing your Azure subscription.
+View details about cost management and billing for your Artifact Signing resource by viewing your Azure subscription.
 
 ### Cost management
 
-To view and estimate the cost of your Trusted Signing resource usage:
+To view and estimate the cost of your Artifact Signing resource usage:
 
 1. In the Azure portal, search for **Subscriptions**.
-1. Select the subscription you used to create your Trusted Signing resource.
+1. Select the subscription you used to create your Artifact Signing resource.
 1. On the left menu, select **Cost Management**. Learn more about [cost management](../cost-management-billing/costs/overview-cost-management.md).
-1. Under **Trusted Signing**, verify that you can see the costs that are associated with your Trusted Signing account.  
+1. Under **Artifact Signing**, verify that you can see the costs that are associated with your Artifact Signing account.  
 
 ### Billing
 
-To view invoices for your Trusted Signing account:
+To view invoices for your Artifact Signing account:
 
 1. In the Azure portal, search for **Subscriptions**.
-1. Select the subscription you used to create your Trusted Signing resource.
+1. Select the subscription you used to create your Artifact Signing resource.
 1. On the left menu, select **Billing**. Learn more about [billing](../cost-management-billing/cost-management-billing-overview.md).
