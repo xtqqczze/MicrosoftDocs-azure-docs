@@ -2,7 +2,7 @@
 title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
-ms.topic: concept-article
+ms.topic: how-to
 ms.date: 12/06/2025
 recommendations: false
 ms.custom:
@@ -668,31 +668,7 @@ When testing SDK types locally on your machine, you also need to use [Azure Func
 
 Each binding extension also has its own minimum version requirement, which is described in the extension reference articles. These binding extensions currently support SDK types:
 
-| Service | Binding type (support-level) | 
-|-|-|-|-|
-| [Azure Blobs][blob-sdk-types] | Trigger/Input (GA) |
-| [Azure Queues][queue-sdk-types] | Trigger (GA) | 
-| [Azure Service Bus][servicebus-sdk-types] | Trigger (GA) | 
-| [Azure Event Hubs][eventhub-sdk-types] | Trigger (GA) |
-| [Azure Cosmos DB][cosmos-sdk-types] | Trigger (GA) | 
-| [Azure Tables][tables-sdk-types] | Input (GA) |
-| [Azure Event Grid][eventgrid-sdk-types] | Trigger (GA) | 
-
-Keep these considerations in mind when using SDK types with your triggers and bindings.
-
-+ For output scenarios in which you would use an SDK type, create and work with SDK clients directly instead of using an output binding. See [Register Azure clients](#register-azure-clients) for a dependency injection example.
-
-+ The Azure Cosmos DB trigger uses the [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) and exposes change feed items as JSON-serializable types. Because of this, SDK types aren't supported by-design.
-
-+ When using [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data, you can't use SDK types for the trigger itself.
-
-[blob-sdk-types]: ./functions-bindings-storage-blob.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
-[cosmos-sdk-types]: ./functions-bindings-cosmosdb-v2.md?tabs=isolated-process%2Cextensionv4&pivots=programming-language-csharp#binding-types
-[tables-sdk-types]: ./functions-bindings-storage-table.md?tabs=isolated-process%2Ctable-api&pivots=programming-language-csharp#binding-types
-[eventgrid-sdk-types]: ./functions-bindings-event-grid.md?tabs=isolated-process%2Cextensionv3&pivots=programming-language-csharp#binding-types
-[queue-sdk-types]: ./functions-bindings-storage-queue.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
-[eventhub-sdk-types]: ./functions-bindings-event-hubs.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
-[servicebus-sdk-types]: ./functions-bindings-service-bus.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
+[!INCLUDE [functions-sdk-types-dotnet-isolated](../../includes/functions-sdk-types-dotnet-isolated.md)]
 
 ## HTTP trigger
 
