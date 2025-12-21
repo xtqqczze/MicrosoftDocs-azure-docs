@@ -8,16 +8,16 @@ ms.custom:
   - devx-track-python
   - devx-track-ts
   - build-2025
-ms.date: 08/26/2025
+ms.date: 12/21/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Cosmos DB trigger and bindings for Azure Functions overview
 
-This set of articles explains how to work with [Azure Cosmos DB](/azure/cosmos-db/serverless-computing-database) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
+This set of articles explains how to work with [Azure Cosmos DB](/azure/cosmos-db/serverless-computing-database) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB. For an end-to-end scenario that uses the Azure Cosmos DB extension, see [Quickstart: Respond to database changes in Azure Cosmos DB using Azure Functions](scenario-database-changes-azure-cosmosdb.md).
 
 | Action | Type |
-|---------|---------|
+| --------- | --------- |
 | Run a function when an Azure Cosmos DB document is created or modified | [Trigger](./functions-bindings-cosmosdb-v2-trigger.md) |
 | Read an Azure Cosmos DB document | [Input binding](./functions-bindings-cosmosdb-v2-input.md) |
 | Save changes to an Azure Cosmos DB document  |[Output binding](./functions-bindings-cosmosdb-v2-output.md) |
