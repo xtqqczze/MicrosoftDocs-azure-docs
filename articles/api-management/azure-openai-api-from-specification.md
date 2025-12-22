@@ -61,19 +61,19 @@ Alternatively, manually download the OpenAPI specification for the Azure OpenAI 
 Download the OpenAPI specification for the Azure OpenAI REST API, such as the [2024-10-21 GA version](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-10-21/inference.json).
 
 1. In a text editor, open the specification file that you downloaded.
-1. In the `servers` element in the specification, substitute the name of your Azure OpenAI endpoint in the placeholder values of `url` and `default` endpoint. For example, if your Azure OpenAI endpoint is `contoso.cognitiveservices.azure.com`, update the `servers` element with the following values:
+1. In the `servers` element in the specification, substitute the name of your Azure OpenAI endpoint in the placeholder values of `url` and `default` endpoint. For example, if your Azure OpenAI endpoint is `contoso.openai.azure.com`, update the `servers` element with the following values:
 
-    * **url**: `https://contoso.cognitiveservices.azure.com/openai`
-    * **default** endpoint: `contoso.cognitiveservices.azure.com`
+    * **url**: `https://contoso.openai.azure.com/openai`
+    * **default** endpoint: `contoso.openai.azure.com`
   
     ```json
     [...]
     "servers": [
         {
-          "url": "https://contoso.cognitiveservices.azure.com/openai",
+          "url": "https://contoso.openai.azure.com/openai",
           "variables": {
             "endpoint": {
-              "default": "contoso.cognitiveservices.azure.com"
+              "default": "contoso.openai.azure.com"
             }
           }
         }
@@ -110,7 +110,21 @@ To make sure your Azure OpenAI API works as expected, test it in the API Managem
      * `deployment-id` - the ID of an Azure OpenAI model deployment in Microsoft Foundry   
      * `api-version` - a valid Azure OpenAI API version, such as the API version you selected when you imported the API.
       :::image type="content" source="media/azure-openai-api-from-specification/test-azure-openai-api.png" alt-text="Screenshot of testing an Azure OpenAI API in the portal." lightbox="media/azure-openai-api-from-specification/test-azure-openai-api.png" :::
-1. Enter other parameters and headers as needed. Depending on the operation, you might need to configure or update a **Request body**.
+1. Enter other parameters and headers as needed. Depending on the operation and model, you might need to configure or update a **Request body**. For example, here's a basic request body for a chat completions operation:
+
+    ```json
+    {
+      "model": "any",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Help me plan a vacation trip to Paris."
+        }
+      ],
+      "max_tokens": 100
+    }
+    ```
+
     > [!NOTE]
     > In the test console, API Management automatically adds an **Ocp-Apim-Subscription-Key** header and sets the subscription key for the built-in [all-access subscription](api-management-subscriptions.md#all-access-subscription). This key provides access to every API in the API Management instance. To optionally display the **Ocp-Apim-Subscription-Key** header, select the "eye" icon next to the **HTTP Request**.
 1. Select **Send**.
