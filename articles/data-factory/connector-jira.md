@@ -75,7 +75,7 @@ The Jira connector now supports version 2.0. Refer to this [section](#jira-conne
 
 ### Version 2.0
 
-The Jira linked service supports the following properties when apply version 2.0:
+The Jira linked service supports the following properties when applying version 2.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -111,7 +111,7 @@ The Jira linked service supports the following properties when apply version 2.0
 
 ### Version 1.0
 
-The Jira linked service supports the following properties when apply version 1.0:
+The Jira linked service supports the following properties when applying version 1.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -336,7 +336,8 @@ The following table shows the release stage and change logs for different versio
 
 1. `query` is only supported in version 1.0. You should use `schema` and `table` instead of `query` in version 2.0.
 
-1. Note that version 2.0 supports specific Jira tables. For the supported table list, go to [Dataset properties](#dataset-properties).
+> [!NOTE]
+> Version 2.0 supports specific Jira tables. For the supported table list, go to [Dataset properties](#dataset-properties).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
