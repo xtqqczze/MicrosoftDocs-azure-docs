@@ -35,7 +35,7 @@ When a connection drops, clients typically establish a new connection and resume
 
 #### Use stateful reconnect when applicable
 
-Azure SignalR Service [supports stateful reconnect](https://learn.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-9.0&preserve-view=true ) that allows clients to resume their previous connection without losing their state. This works when the client reconnects using **the same connection ID** — for example, when a temporary network glitch occurs and the client recovers quickly.
+Azure SignalR Service [supports stateful reconnect](/aspnet/core/signalr/configuration) that allows clients to resume their previous connection without losing their state. This works when the client reconnects using **the same connection ID** — for example, when a temporary network glitch occurs and the client recovers quickly.
 
 With stateful reconnect enabled, the client can continue receiving messages missed during the brief disconnection window *(30 seconds)*, reducing data loss and minimizing the disruption perceived by end users.
 
