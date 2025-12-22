@@ -83,7 +83,7 @@ The Xero connector now supports version 2.0. Refer to this [section](#upgrade-th
 
 ### Version 2.0
 
-The Xero linked service supports the following properties when apply version 2.0:
+The Xero linked service supports the following properties when applying version 2.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
