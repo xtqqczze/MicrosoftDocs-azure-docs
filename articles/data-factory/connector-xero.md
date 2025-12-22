@@ -417,7 +417,7 @@ The following table shows the release stage and change logs for different versio
 
 1. The data type mapping for the Xero linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Xero](#data-type-mapping-for-xero).
 
-1. Apply a self-hosted integration runtime with version 5.61 or above.
+1. If you use the self-hosted integration runtime, its version should be 5.61 or above.
 
 1. Use `table` instead of `tableName` in version 2.0. For the detailed configuration, go to [Dataset properties](#dataset-properties).
 
