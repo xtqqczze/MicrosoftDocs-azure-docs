@@ -677,7 +677,9 @@ This setting is required for both Consumption and Elastic Premium plan apps. It'
 
 Changing or removing this setting can cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-Azure Files doesn't support using managed identity when accessing the file share. For more information, see [Azure Files supported authentication scenarios](../storage/files/storage-files-active-directory-overview.md#supported-authentication-scenarios). 
+Azure Files doesn't currently support using managed identity when accessing the file share. For more information, see [Azure Files supported authentication scenarios](../storage/files/storage-files-active-directory-overview.md#supported-authentication-scenarios). 
+
+You might use a [KeyVault reference](../app-service/app-service-key-vault-references.md) for this connection setting. However, additional configuration is required to create and dynamically scale a function app in a Premium or Consumption plan when the storage connection string is maintained in a KeyVault. For more information, see [Considerations for Azure Files mounting](../app-service/app-service-key-vault-references.md#considerations-for-azure-files-mounting).
 
 ## WEBSITE\_CONTENTOVERVNET
 
