@@ -124,7 +124,7 @@ The Xero linked service supports the following properties when applying version 
 
 ### Version 1.0
 
-The Xero linked service supports the following properties when apply version 1.0:
+The Xero linked service supports the following properties when applying version 1.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
