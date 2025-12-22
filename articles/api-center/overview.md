@@ -56,9 +56,10 @@ For more information about the entities you can manage and the capabilities in A
 
 ## Tiers and SKUs
 
-**Azure API Center is now included free with Azure API Management Premium and Standard tiers.** 
-
 API Center is also offered in a Free plan and a Standard plan. [Learn more](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits).
+
+> [!NOTE]
+> Azure API Center is now included free with Azure API Management Premium and Standard tiers.
 
 ## Available regions
 Azure API Center is currently available in the following Azure regions:
