@@ -157,7 +157,7 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | operators | The operator value. For more information about operators, see *Operators available for choice fields containing strings* section in this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Yes when the expression type is Unary or Binary |
 | operands | List of expressions on which operator is applied.| Yes when the expression type is Unary or Binary |
 | | | |
-| pageSize | The number of documents per page of the query result. | No<br/>(the default is **300**) |
+| pageSize | The number of documents per page of the query result.<br><br> A value between 5,000 and 10,000 is recommended for optimal copy performance. | No<br/>(the default is **300**) |
 
 **Example:**
 
@@ -267,13 +267,6 @@ Here is an example of the source JSON using the expression parameter:
 
 > [!NOTE]
 > The column `sys_tags` and its derived columns cannot be obtained due to ServiceNow API limitations.
- 
-### Performance optimization for copying data from ServiceNow
-
-The service optimizes the performance of copying data from ServiceNow when you apply the following configurations:
-
-- Set `pageSize` to a value between 5000 and 10000.
-- Set `dataIntegrationUnits` to `4` and `parallelCopies` to `3` in copy activity settings.
 
 ## Lookup activity properties
 
