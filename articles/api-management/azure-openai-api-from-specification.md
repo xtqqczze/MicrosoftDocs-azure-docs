@@ -43,7 +43,7 @@ Learn more about managing AI APIs in API Management:
 
 - Permissions to grant access to the Azure OpenAI resource from the API Management instance.
 
-## Option 1. Import API from Azure OpenAI 
+## Option 1. Import OpenAI API from Microsoft Foundry 
  
 You can import an Azure OpenAI model deployment directly from Microsoft Foundry to API Management. For details, see [Import a Microsoft Foundry API](azure-ai-foundry-api.md). 
 

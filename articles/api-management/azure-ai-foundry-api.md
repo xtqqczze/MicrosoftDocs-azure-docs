@@ -52,7 +52,7 @@ When you import the API, API Management automatically configures:
 * Authentication to the backend using the instance's system-assigned managed identity.
 * (optionally) Policies to help you monitor and manage the API.
 
-To import an Microsoft Foundry API to API Management:
+To import a Microsoft Foundry API to API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
