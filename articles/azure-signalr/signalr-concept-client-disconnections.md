@@ -4,7 +4,7 @@ description: This article provides information about nature of client disconnect
 author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-signalr-service
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/29/2025
 ---
 
