@@ -76,7 +76,7 @@ To view an assessment, follow these steps:
   
 1. Select a web app from the target drill downs opens the web app drill down. On the **Summary** tab, you can see discovered metadata such as protocols, connection strings, application directories and tags assigned to this workload.
 
-:::image type="content" source="./media/review-web-app-assessment/summary-of-web-app.png" alt-text="Screenshot displays the summary of web apps." lightbox="./media/review-web-app-assessment/summary-of-web-app.png":::
+ :::image type="content" source="./media/review-web-app-assessment/summary-of-web-app.png" alt-text="Screenshot displays the summary of web apps." lightbox="./media/review-web-app-assessment/summary-of-web-app.png":::
 
 1. On the **Readiness** tab, you can see the readiness for this web app for each Azure target, the migration issues or warnings and the recommended Azure target.
 1. Navigate back to the **Overview** page. Select the **Export** option to download an excel containing the assessment details.
