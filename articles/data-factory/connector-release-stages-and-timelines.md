@@ -97,7 +97,7 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Vertica](connector-vertica.md)                            | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | Removed       | July 31, 2025         | September 30, 2025    |
 | [Xero](connector-xero.md)                            | version 2.0    | GA                                | /                   | /                   |
-|                                    | version 1.0    | End of support  | November 30, 2025         | December 31, 2025    |
+|                                    | version 1.0    | End of support announced  | March 31, 2026         | April 30, 2026    |
 | [Zoho (Preview)](connector-zoho.md)                        | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 
 ## Related content

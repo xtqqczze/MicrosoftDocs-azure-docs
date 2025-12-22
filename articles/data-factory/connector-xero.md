@@ -19,7 +19,7 @@ This article outlines how to use the Copy Activity in an Azure Data Factory or S
 > The Xero connector requires OAuth authentication and is not intended for server-to-server use.
 
 > [!IMPORTANT]
-> The Xero connector version 2.0 provides improved native Xero support. If you are using Xero connector version 1.0 in your solution, please [upgrade the Xero connector](#upgrade-the-xero-connector-from-version-10-to-version-20) before **November 30, 2025**. Refer to this [section](#xero-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 and version 1.0.
+> The Xero connector version 2.0 provides improved native Xero support. If you are using Xero connector version 1.0 in your solution, please [upgrade the Xero connector](#upgrade-the-xero-connector-from-version-10-to-version-20) before **March 31, 2026**. Refer to this [section](#xero-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 
@@ -408,7 +408,7 @@ The following table shows the release stage and change logs for different versio
 
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
-| Version 1.0 | End of support | / |  
+| Version 1.0 | End of support announced | / |  
 | Version 2.0 | GA version available |• Use `table` instead of `tableName`. <br><br>• The value for `table` is the object name, for example: `Accounts`. <br><br>• The self-hosted integration runtime version should be 5.61 or above.  <br><br>• Date is read as String data type. <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>  • OAuth 1.0 authentication is not supported. <br><br> • Support specific Xero tables. For the supported table list, go to [Dataset properties](#dataset-properties).|
 
 ### Upgrade the Xero connector from version 1.0 to version 2.0
