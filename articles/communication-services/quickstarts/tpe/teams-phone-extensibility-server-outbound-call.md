@@ -48,7 +48,7 @@ On November 1, 2025, On-Behalf-Of PSTN outbound calls and server-initiated outbo
 **Learn more:**
 - [Pay-As-You-Go Calling Plan](/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)
 - [How to buy Calling Plans](/microsoftteams/calling-plans-for-office-365)
-- [Enable pay-as-you-go for your subscription](/microsoft-365/commerce/subscriptions/manage-pay-as-you-go-services?view=o365-worldwide)
+- [Enable pay-as-you-go for your subscription](/microsoft-365/commerce/subscriptions/manage-pay-as-you-go-services)
 - [Assign Teams add-on licenses to users](/microsoftteams/teams-add-on-licensing/assign-teams-add-on-licenses)
 
 
