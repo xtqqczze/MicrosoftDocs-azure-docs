@@ -18,7 +18,7 @@ ms.custom:
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Jira. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The Jira connector version 2.0 provides improved native Jira support. If you are using Jira connector version 1.0 in your solution, please [upgrade the Jira connector](#upgrade-the-jira-connector-from-version-10-to-version-20) before **November 30, 2025**. Refer to this [section](#jira-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 and version 1.0.
+> The Jira connector version 2.0 provides improved native Jira support. If you are using Jira connector version 1.0 in your solution, please [upgrade the Jira connector](#upgrade-the-jira-connector-from-version-10-to-version-20) before **March 31, 2026**. Refer to this [section](#jira-connector-lifecycle-and-upgrade) for details on the difference between version 2.0 and version 1.0.
 
 ## Supported capabilities
 

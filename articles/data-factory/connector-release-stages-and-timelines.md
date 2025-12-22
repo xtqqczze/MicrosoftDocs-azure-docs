@@ -53,7 +53,7 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Impala](connector-impala.md)                          | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | Removed          | September 30, 2025         | October 31, 2025    |
 | [Jira](connector-jira.md)                          | version 2.0    | GA                                | /                   | /                   |
-|                                    | version 1.0    | End of support announced          | November 30, 2025         | December 31, 2025    |
+|                                    | version 1.0    | End of support announced          | March 31, 2026         | April 30, 2026   |
 | [Magento (Preview)](connector-magento.md)                  | /              | Removed                    | December 31, 2024     | December 31, 2024     |
 | [MariaDB](connector-mariadb.md)                            | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | Removed                    | October 31, 2024      | September 30, 2025    |
