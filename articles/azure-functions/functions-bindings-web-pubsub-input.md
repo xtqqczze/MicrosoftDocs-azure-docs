@@ -21,7 +21,7 @@ Our extension provides two input binding targeting different needs.
 
 - [`WebPubSubContext`](#webpubsubcontext)
 
-  When using is Static Web Apps, `HttpTrigger` is the only supported trigger and under Web PubSub scenario, we provide the `WebPubSubContext` input binding helps users deserialize upstream http request from service side under Web PubSub protocols. So customers can get similar results comparing to `WebPubSubTrigger` to easily handle in functions.
+  When using Static Web Apps, `HttpTrigger` is the only supported trigger and under Web PubSub scenario, we provide the `WebPubSubContext` input binding helps users deserialize upstream http request from service side under Web PubSub protocols. So customers can get similar results comparing to `WebPubSubTrigger` to easily handle in functions.
   When used with `HttpTrigger`, customer requires to configure the HttpTrigger exposed url in event handler accordingly.
 
 ## `WebPubSubConnection`
