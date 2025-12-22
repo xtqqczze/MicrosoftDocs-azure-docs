@@ -1,7 +1,7 @@
 ---
-title: Build a serverless workflow using Durable Functions
+title: Build a serverless workflow using Durable Functions - Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a Durable Functions project to a Flex Consumption plan on Azure Functions. The project demonstrates the fan-out/fan-in pattern."
-ms.date: 12/09/2025
+ms.date: 12/22/2025
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy Durable Functions code that orchestrates multiple tasks in parallel to a new function app in the Flex Consumption plan in Azure Functions.
