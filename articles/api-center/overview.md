@@ -5,7 +5,7 @@ author: dlepow
  
 ms.service: azure-api-center
 ms.topic: overview
-ms.date: 11/15/2024
+ms.date: 12/22/2025
 ms.author: danlep 
 ms.custom: references_regions
 ---
@@ -54,6 +54,12 @@ Create and use an API center for the following:
 
 For more about the entities you can manage and the capabilities in Azure API Center, see [Key concepts](key-concepts.md).
 
+## Tiers / SKUs
+
+**Azure API Center is now included free with Azure API Management Premium and Standard tiers.** 
+
+API Center is also offered in a Free plan and a Standard plan. [Learn more](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits).
+
 ## Available regions
 Azure API Center is currently available in the following Azure regions:
 
@@ -64,9 +70,7 @@ Azure API Center is currently available in the following Azure regions:
 * France Central
 * Sweden Central
 * UK South
-* West Europe 
-
-API Center is offered in a Free plan and a Standard plan. [Learn more](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits).
+* West Europe
              
 ## Azure API Center and the API ecosystem
 
