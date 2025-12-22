@@ -63,7 +63,7 @@ The Aspire Starter template includes a frontend web app that communicates with a
     > :::image type="content" source="media/aspire/azure-subscription.png" alt-text="Screenshot of Aspire dashboard asking for Azure Subscription information.":::
 
     > [!NOTE]
-    > To provision Azure resources, you must have either the **Owner** or **User Access Administrator** role assigned on the Azure subscription. These roles are required to create role assignments as part of the provisioning process.
+    > You must have either the **Owner** or **User Access Administrator** role assigned on the Azure subscription. These roles are required to create role assignments as part of the provisioning process.
 
     > [!TIP]
     > You can reference existing App Configuration resources by chaining a call `RunAsExisting()` on `builder.AddAzureAppConfiguration("appconfig")`. For more information, go to [Use existing Azure resources](https://aspire.dev/integrations/cloud/azure/overview/#use-existing-azure-resources).
