@@ -37,17 +37,30 @@ Starting **November 1, 2025**, Calling Plan licenses assigned to Teams Resource 
 
 > **Note:** Direct Routing numbers aren’t affected by these licensing changes.
 
-### Calling Plan customers (MC1123835)
+### Calling Plan customers
 
-Assign a Pay-As-You-Go Calling Plan license to any Teams Resource Account that uses a Calling Plan number for outbound PSTN calls. Outbound calls will fail after November 1, 2025, if licenses aren’t assigned.
+Assign a Pay-As-You-Go Calling Plan license to any Teams Resource Account that uses a Calling Plan number for outbound PSTN calls. Outbound calls will fail after November 1, 2025, if licenses aren’t assigned. You can follow the below steps to make sure you get the proper licenses:
+1. Log in to the [Admin portal](https://admin.microsoft.com)
+2. Verify agreement type and funding source
+   - For **MCA agreements**:
+     - Confirm postpaid payment method is active.
+     - Navigate to **Marketplace → All Products**.
+     - Search for **Microsoft Teams Calling Plan (Pay-As-You-Go)**.
+     - Select the appropriate **Pay-As-You-Go Calling Plan Zone (Zone 1 or Zone 2)** based on your location.
+     - Add the plan under **Add-ons**.
+   - For **older agreements**:
+     - Navigate to **Marketplace → All Products** and purchase Communications Credits.
+     - Add funds to ensure a positive balance.
+     - Enable **Auto-Recharge** under **Billing → Your Products → Communications Credits**.
 
-### Operator Connect customers (MC1123837)
+### Operator Connect customers
 
 Starting November 1, 2025, On-Behalf-Of PSTN outbound calls and server-initiated outbound calls may change depending on your carrier. Work with your Operator Connect carrier to ensure uninterrupted service. Without carrier adjustments, outbound calls through Teams Phone Extensibility may fail.
 
 **Learn more**
 
 - [Pay-As-You-Go Calling Plan](/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)
+- [Set up Communications Credits](/microsoftteams/set-up-communications-credits-for-your-organization)
 - [How to buy Calling Plans](/microsoftteams/calling-plans-for-office-365)
 - [Enable pay-as-you-go services](/microsoft-365/commerce/subscriptions/manage-pay-as-you-go-services)
 - [Assign Teams add-on licenses](/microsoftteams/teams-add-on-licensing/assign-teams-add-on-licenses)
