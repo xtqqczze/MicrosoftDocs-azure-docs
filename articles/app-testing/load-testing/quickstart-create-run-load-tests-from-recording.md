@@ -34,21 +34,22 @@ To create a load testing resource:
 
 ## Record your scenarios  
 
-To get started, navigate to the overview page of your Azure Load Testing resource in the Azure portal. From there, launch the **Azure App Testing** browser extension by clicking on the **Record** button. If the extension isn't installed, you are redirected to the marketplace to install it.
+To get started, navigate to the overview page of your Azure Load Testing resource in the Azure portal. From there, launch the **Azure App Testing** browser extension by selecting the **Record** button. If the extension isn't installed, you are redirected to the marketplace to install it.
 
 :::image type="content" source="./media/quickstart-create-run-tests-from-recording/load-testing-portal-record-button.png" alt-text="Screenshot that shows the Record button in Azure Load Testing resource overview page." lightbox="./media/quickstart-create-run-tests-from-recording/load-testing-portal-record-button.png":::
 
-The extension opens in a new browser tab. Sign in with your Azure account if prompted. Select your Azure subscription and the Azure Load Testing resource you created earlier. Enter the URL of the web application you want to test, and click **Start Recording**.
+The extension opens in a new browser tab. Sign in with your Azure account if prompted. Select your Azure subscription and the Azure Load Testing resource you created earlier. Enter the URL of the web application you want to test, and select **Start Recording**.
 
 :::image type="content" source="./media/quickstart-create-run-tests-from-recording/load-testing-extension-start-recording.png" alt-text="Screenshot that shows the Azure App Testing browser extension to start recording a user journey." lightbox="./media/quickstart-create-run-tests-from-recording/load-testing-extension-start-recording.png":::
 
-The extension opens a new browser window where you can interact with your web application. Perform the actions you want to include in your load test, such as navigating through pages, filling out forms, and submitting data. You can add a new scenario by clicking the **Add Scenario** button in the extension tab.
+The extension opens a new browser window where you can interact with your web application. Perform the actions you want to include in your load test, such as navigating through pages, filling out forms, and submitting data. You can add a new scenario by select the **Add Scenario** button in the extension tab.
 
-Once you've completed the user journey, return to the extension tab and click **Stop Recording**.
+Once you've completed the user journey, return to the extension tab and select **Stop Recording**.
 
-Click **Review and create test** to proceed to the next step. You can filter the domains to include or exclude specific requests from the recording.
+Select **Review and create test** to proceed to the next step. You can filter the domains to include or exclude specific requests from the recording.
 
-<!NOTE> You'll be prompted to accepting terms and conditions to use AI recommendations when you sign in for the first time. You can always disable AI recommendations later in the extension settings. </!NOTE>
+> [!NOTE]
+> You'll be prompted to accepting terms and conditions to use AI recommendations when you sign in for the first time. You can always disable AI recommendations later in the extension settings. </!NOTE>
 
 ## Enhance the recording with AI assistance
 
@@ -96,7 +97,7 @@ You can configure various load test settings in the **Load details** section as 
 
 ## Run the load test
 
-Once you reviewe and configure the load test setting, you can either directly run the test in Azure Load Testing by clicking on the **Run test now** button or configure advanced test options. The advanced test options let you configure the load test with all the options to configure a JMeter test. Refer to the [create and run JMeter load tests](./how-to-create-and-run-load-test-with-jmeter-script.md) for more details.
+Once you review and configure the load test setting, you can either directly run the test in Azure Load Testing by selecting the **Run test now** button or configure advanced test options. The advanced test options let you configure the load test with all the options to configure a JMeter test. Refer to the [create and run JMeter load tests](./how-to-create-and-run-load-test-with-jmeter-script.md) for more details.
 
 A JMeter script is generated based on your recording and the enhancements applied. You can download this script for further customization or future use.
 
