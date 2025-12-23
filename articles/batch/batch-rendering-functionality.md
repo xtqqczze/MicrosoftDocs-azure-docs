@@ -27,7 +27,7 @@ Most rendering applications will require licenses obtained from a license server
 * [Application packages](./batch-application-packages.md):
   * Package the application files using one or more ZIP files, upload via the Azure portal, and specify the package in pool configuration. When pool VMs are created, the ZIP files are downloaded and the files extracted.
 * Resource files:
-  * Application files are uploaded to Azure blob storage, and you specify file references in the [pool start task](/rest/api/batchservice/pool/add#starttask). When pool VMs are created, the resource files are downloaded onto each VM.
+  * Application files are uploaded to Azure blob storage, and you specify file references in the [pool start task](/rest/api/batchmanagement/pool/create#starttask). When pool VMs are created, the resource files are downloaded onto each VM.
 
 ## Azure VM families
 
