@@ -23,23 +23,23 @@ You can import AI model endpoints deployed in [Azure OpenAI in Foundry Models](/
 
 This article shows two options to import an Azure OpenAI API into an Azure API Management instance as a REST API:
 
-- [Import an Azure OpenAI API directly from a deployment in Microsoft Foundry](#option-1-import-api-from-azure-openai) (recommended)
+- [Import an Azure OpenAI API directly from a deployment in Microsoft Foundry](#option-1-import-openai-api-from-microsoft-foundry) (recommended)
  
 - [Download and edit the OpenAPI specification](#option-2-add-an-openapi-specification-to-api-management) for Azure OpenAI and add it to API Management as an OpenAPI API.
 
-Learn more about managing AI APIs in API Management:
+Learn more about managing LLM APIs in API Management:
 
 * [AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
+
+  > [!NOTE]
+  > API Management policies such as [azure-openai-token-limit](azure-openai-token-limit-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) support certain API endpoints exposed through specific Azure OpenAI models. For more information, see [Supported Azure OpenAI models](azure-openai-token-limit-policy.md#supported-azure-openai-in-azure-ai-foundry-models).
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- A Microsoft Foundry project with an Azure OpenAI model deployed. For more information about model deployment in Azure OpenAI, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
+- (For import from Microsoft Foundry) A Microsoft Foundry project with an Azure OpenAI model deployed. For more information about model deployment in Azure OpenAI, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 
     Make a note of the ID (name) of the deployment. You need it when you test the imported API in API Management.
-
-    > [!NOTE]
-    > API Management policies such as [azure-openai-token-limit](azure-openai-token-limit-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md) support certain API endpoints exposed through specific Azure OpenAI models. For more information, see [Supported Azure OpenAI models](azure-openai-token-limit-policy.md#supported-azure-openai-in-azure-ai-foundry-models).
 
 - Permissions to grant access to the Azure OpenAI resource from the API Management instance.
 
@@ -96,7 +96,7 @@ API Management imports the API and displays operations from the OpenAPI specific
 
 To authenticate to the Azure OpenAI API, provide an API key or use a managed identity. If you imported the Azure OpenAI API directly from Microsoft Foundry, authentication by using the API Management instance's managed identity is automatically configured.  
 
-If you added the Azure OpenAI API from its OpenAPI specification, you need to configure authentication. For more information about configuring authentication by using API Management policies, see [Authenticate and authorize to AI APIs](api-management-authenticate-authorize-ai-apis.md).
+If you added the Azure OpenAI API from its OpenAPI specification, you need to configure authentication. For more information about configuring authentication by using API Management policies, see [Authenticate and authorize to LLM APIs](api-management-authenticate-authorize-ai-apis.md).
 
 ## Test the Azure OpenAI API
 

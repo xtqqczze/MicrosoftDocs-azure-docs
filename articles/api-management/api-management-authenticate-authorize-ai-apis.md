@@ -1,7 +1,7 @@
 ---
-title: Authenticate and Authorize to AI APIs - Azure API Management
+title: Authenticate and Authorize to LLM APIs - Azure API Management
 titleSuffix: Azure API Management
-description: Options to authenticate and authorize to AI APIs using Azure API Management. Includes API key, managed identity, and OAuth 2.0 authorization.
+description: Options to authenticate and authorize to LLM APIs using Azure API Management. Includes API key, managed identity, and OAuth 2.0 authorization.
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
@@ -11,7 +11,7 @@ ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Authenticate and authorize access to AI APIs by using Azure API Management 
+# Authenticate and authorize access to LLM APIs by using Azure API Management 
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
@@ -106,7 +106,7 @@ Follow these steps to configure your API Management instance to use a managed id
 
 ## OAuth 2.0 authorization by using identity provider
 
-To enable more fine-grained access to Azure OpenAPI or other AI APIs by particular users or clients, preauthorize access to the API by using OAuth 2.0 authorization with Microsoft Entra ID or another identity provider. For background, see [Protect an API in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md).
+To enable more fine-grained access to Azure OpenAPI or other LLM APIs by particular users or clients, preauthorize access to the API by using OAuth 2.0 authorization with Microsoft Entra ID or another identity provider. For background, see [Protect an API in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md).
 
 > [!NOTE]
 > Use OAuth 2.0 authorization as part of a defense-in-depth strategy. It's not a replacement for API key authentication or managed identity authentication to an Azure OpenAI API.
