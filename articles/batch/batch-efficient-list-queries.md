@@ -160,7 +160,7 @@ Property names in filter, select, and expand strings must reflect their REST API
 | Batch .NET types | REST API entities |
 | --- | --- |
 | [Certificate](/dotnet/api/microsoft.azure.batch.certificate) |[Get information about a certificate](/rest/api/batchmanagement/certificate/get) |
-| [CloudJob](/dotnet/api/microsoft.azure.batch.cloudjob) |[Get information about a job](/rest/api/batchservice/job/get) |
+| [CloudJob](/dotnet/api/microsoft.azure.batch.cloudjob) |[Get information about a job](/rest/api/batchservice/jobs/get-job) |
 | [CloudJobSchedule](/dotnet/api/microsoft.azure.batch.cloudjobschedule) |[Get information about a job schedule](/rest/api/batchservice/jobs/get-job) |
 | [ComputeNode](/dotnet/api/microsoft.azure.batch.computenode) |[Get information about a node](/rest/api/batchservice/computenode/get) |
 | [CloudPool](/dotnet/api/microsoft.azure.batch.cloudpool) |[Get information about a pool](/rest/api/batchservice/pools/get-pool) |
