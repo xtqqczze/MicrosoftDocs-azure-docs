@@ -21,7 +21,7 @@ To enable Azure CTI from the Azure portal, see [Quickstart: Enable Azure Change 
 
 >[!NOTE]
 
->Only a single change tracking DCR can be associated with any resource. Any additional change tracking DCRs will be ignored.
+> Only a single change tracking DCR can be associated with any resource. Any additional change tracking DCRs will be ignored.
 
 ## Create DCR
 
