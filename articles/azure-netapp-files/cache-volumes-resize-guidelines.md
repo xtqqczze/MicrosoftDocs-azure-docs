@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Understand resizing guidelines for cache volumes in Azure NetApp Files
 
-This article describes the guidelines you need to be aware of before resizing a Azure NetApp Files cache volume.
+This article describes the guidelines you need to be aware of before resizing an Azure NetApp Files cache volume.
 
 When a cache volume is created, one or more constituent volumes (CVs) are provisioned based on the size and the service level. The resize range of a cache volume is based on the number of CVs provisioned at creation time and the CV count cannot be changed.
 
