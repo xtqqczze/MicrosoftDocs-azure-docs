@@ -93,6 +93,51 @@ Set-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcher
     -EnableRetention $true -RetentionPolicyDays 15
 ```
 
+## Update RecordTypes filtering condition
+
+You can enable RecordTypes filtering during Flow Log creation to choose which flow record formats to collect using the cmdlet below. This helps tailor logging output without generating unnecessary data.
+
+```azurepowershell-interactive
+# Enabling RecordTypes filtering while creating flowlog 
+New-AzNetworkWatcherFlowLog `
+  -Enabled $true -Name <FlowLog Name> `
+  -NetworkWatcherName <Network Watcher Name> `
+  -ResourceGroupName NetworkWatcherRG `
+  -StorageId <Storage Account ID> `
+  -TargetResourceId <Target Resource/VNet ID> `
+  -RecordTypes "<Record Types>"
+
+# Update RecordTypes filtering condition on existing flowlog
+Set-AzNetworkWatcherFlowLog `
+  -Enabled $true  -Name <FlowLog Name> `
+  -NetworkWatcherName <Network Watcher Name> `
+  -ResourceGroupName <Resource Group Name> `
+  -StorageId <Storage Account ID> `
+  -TargetResourceId <Target Resource/VNet ID> `
+  -RecordTypes "<Record Types>"
+
+
+# Remove RecordTypes filtering condition from existing flowlog
+Set-AzNetworkWatcherFlowLog `
+  -Enabled $true  -Name <FlowLog Name> `
+  -NetworkWatcherName <Network Watcher Name> `
+  -ResourceGroupName <Resource Group Name> `
+  -StorageId <Storage Account ID> `
+  -TargetResourceId <Target Resource/VNet ID> `
+  -RecordTypes ""
+
+# Enabling RecordTypes and EnabledFilteringCriteria filtering while creating flowlog
+New-AzNetworkWatcherFlowLog `
+  -Enabled $true -Name <FlowLog Name> `
+  -NetworkWatcherName <Network Watcher Name> `
+  -ResourceGroupName <Resource Group Name> `
+  -StorageId <Storage Account ID> `
+  -TargetResourceId <Target Resource/VNet ID> `
+  -EnabledFilteringCriteria "<Filtering Criteria Expression>" `
+  -RecordTypes "<Record Types>"
+
+```
+
 ## Related content
 
 - [Virtual network flow logs overview](vnet-flow-logs-overview.md)
