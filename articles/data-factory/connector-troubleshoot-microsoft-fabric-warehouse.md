@@ -22,7 +22,7 @@ This article provides suggestions to troubleshoot common problems with the Micro
 
 - **Cause**: The server terminates the connection unexpectedly, usually due to network instability, timeout, or server-side resource limits.
 
-- **Recommendation**: Check server logs and network stability. Split the copy into partitions instead of running a long‑duration copy.
+- **Recommendation**: Check server logs and network stability. Split the copy into partitions instead of a long‑running copy.
 
 ## Error code: DWCopyCommandOperationFailed
 
@@ -30,7 +30,7 @@ This article provides suggestions to troubleshoot common problems with the Micro
 
 - **Cause**: The server terminates the connection unexpectedly, usually due to network instability, timeout, or server-side resource limits.
 
-- **Recommendation**: Check server logs and network stability. Split the copy into partitions instead of running a long‑duration copy.
+- **Recommendation**: Check server logs and network stability. Split the copy into partitions instead of a long‑running copy.
 
 ## SHUTDOWN is in progress
 
