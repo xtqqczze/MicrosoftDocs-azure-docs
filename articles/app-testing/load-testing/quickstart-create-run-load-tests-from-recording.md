@@ -42,30 +42,30 @@ The extension opens in a new browser tab. Sign in with your Azure account if pro
 
 :::image type="content" source="./media/quickstart-create-run-tests-from-recording/load-testing-extension-start-recording.png" alt-text="Screenshot that shows the Azure App Testing browser extension to start recording a user journey." lightbox="./media/quickstart-create-run-tests-from-recording/load-testing-extension-start-recording.png":::
 
-The extension opens a new browser window where you can interact with your web application. Perform the actions you want to include in your load test, such as navigating through pages, filling out forms, and submitting data. You can add a new scenario by select the **Add Scenario** button in the extension tab.
+The extension opens a new browser window where you can interact with your web application. Perform the actions you want to include in your load test, such as navigating through pages, filling out forms, and submitting data. You can add a new scenario by selecting the **Add Scenario** button in the extension tab.
 
 Once you've completed the user journey, return to the extension tab and select **Stop Recording**.
 
 Select **Review and create test** to proceed to the next step. You can filter the domains to include or exclude specific requests from the recording.
 
 > [!NOTE]
-> You'll be prompted to accepting terms and conditions to use AI recommendations when you sign in for the first time. You can always disable AI recommendations later in the extension settings. </!NOTE>
+> You'll be prompted to accepting terms and conditions to use AI recommendations when you sign in for the first time. You can always disable AI recommendations later in the extension settings.
 
 ## Enhance the recording with AI assistance
 
 After completing the recording, you'll be taken to the review recording view in the Azure portal. Here, you can see the recorded requests and scenarios. AI is used to analyze the recording and suggest improvements. The following enhancements can be applied to the recorded script.
 
-### 1. Smart labeling of requests
+### Smart labeling of requests
 
 AI adds labels for your requests to make the script more readable. These labels are based on the request URLs and actions performed during the recording. You can always modify the labels in the experience by editing the request names. These labels are reflected in the test run results.
 
 :::image type="content" source="./media/quickstart-create-run-tests-from-recording/load-testing-authoring-smart-labels.png" alt-text="Screenshot that shows AI-suggested smart labels for requests in the Azure App Testing browser extension." lightbox="./media/quickstart-create-run-tests-from-recording/load-testing-authoring-smart-labels.png":::
 
-### 2. Think times
+### Think times
 
 Apply think times automatically between requests to simulate real user behavior. The suggested think times are based on the time intervals between your actions during the recording. You can adjust or remove these think times as needed. You can also choose to manually add think times between requests.
 
-### 3. Correlations
+### Correlations
 
 AI identifies dynamic values in the requests and suggests correlations to handle them. You can choose to accept or reject these suggestions. Additionally, you can manually add correlations if needed.
 
@@ -79,7 +79,7 @@ The extracted value automatically reflects the value of the variable as extracte
 
 :::image type="content" source="./media/quickstart-create-run-tests-from-recording/load-testing-authoring-correlations.png" alt-text="Screenshot that shows AI-suggested correlations in the Azure App Testing browser extension." lightbox="./media/quickstart-create-run-tests-from-recording/load-testing-authoring-correlations.png":::
 
-### 4. Parameters
+### Parameters
 
 AI detects parameters in the requests and suggests parameterizations to simulate realistic user behavior. You can accept or reject these suggestions as well. You can choose to provide these values from a CSV file or environment variables. You can also manually add parameters.
 
