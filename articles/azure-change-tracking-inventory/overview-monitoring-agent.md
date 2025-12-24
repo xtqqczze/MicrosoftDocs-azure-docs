@@ -25,7 +25,7 @@ Azure CTI enhances the auditing and governance for in-guest operations by monito
 
 - Monitors changes, including modifications to files, registry keys, software installations, and Windows services or Linux daemons.</br>
 - Provides detailed logs of what and when the changes were made so that you can quickly detect configuration drifts or unauthorized changes. </br>
-Change Tracking metadata gets ingested into the `ConfigurationChange` table in the connected Azure Monitor Logs workspace. For more information, see [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange).
+Change tracking metadata gets ingested into the `ConfigurationChange` table in the connected Azure Monitor Logs workspace. For more information, see [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange).
 
 > [!NOTE]
 > Azure CTI data is logged for both system-level and user-level applications. System-level data is always logged, but user-level applications appear only when a user signs in to a machine. If the user signs out, those applications are marked as **Removed**.
@@ -51,7 +51,7 @@ For information on supported operating systems, see [Support matrix and regions]
 
 You can enable Azure CTI in the following ways:
 
-- **Azure Arc-enabled servers (non-Azure machines)**: In the Azure portal, on the **Change Tracking and Inventory Center | Machines** pane, select **Policy** > **Definition Type** > **Category** > **Change Tracking and Inventory**. Under **Initiative**, select **Enable Change Tracking and Inventory for Arc-enabled virtual machines**. To enable Azure CTI at scale, use the **DINE Policy**-based solution. For more information, see [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
+- **Azure Arc-enabled servers (non-Azure machines)**: In the Azure portal, on the **Change Tracking and Inventory Center | Machines** pane, select **Policy** > **Definition Type** > **Category** > **Change Tracking and Inventory**. Under **Initiative**, select **Enable Change Tracking and Inventory for Arc-enabled virtual machines**. To enable Azure CTI at scale, use the deploy-if-not-exists (DINE) policy-based solution. For more information, see [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
 - **Single Azure VM**: In the Azure portal, select the VM from the [Virtual machines pane](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md). This scenario is available for Linux and Windows VMs.
 - [Single and multiple Azure VMs](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md): In the Azure portal, select the VMs from the **Virtual machines** pane.
 

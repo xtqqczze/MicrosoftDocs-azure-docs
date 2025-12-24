@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Change a Workspace and Configure Data Collection Rule'
-description: In this tutorial, learn how to change a workspace and configure data collection rule for Azure Change Tracking and Inventory.
+title: 'Tutorial: Change a Workspace and Configure Data Collection Rules'
+description: In this tutorial, learn how to change a workspace and configure data collection rules for Azure Change Tracking and Inventory.
 services: automation
 ms.custom: linux-related-content
 ms.date: 11/06/2025
@@ -11,7 +11,7 @@ author: jasminemehndir
 #Customer intent: As a customer, I want to change a workspace for my virtual machine so that I can manage data collection more effectively.
 ---
 
-# Tutorial: Change a workspace and configure data collection rule
+# Tutorial: Change a workspace and configure data collection rules
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
@@ -29,7 +29,7 @@ To configure Windows, Linux files, and the Windows registry by using DCRs, follo
  
    :::image type="content" source="media/create-data-collection-rule/select-virtual-machine-portal-inline.png" alt-text="Screenshot showing how to select a VM from the portal." lightbox="media/create-data-collection-rule/select-virtual-machine-portal-expanded.png"::: 
 
-1. Select a specific VM for which you want to configure the Change Tracking settings.
+1. Select a specific VM for which you want to configure the **Change tracking** settings.
 1. Under **Operations**, select **Change tracking** to view all the changes that took place on the VM.
    
    :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/azure-change-tracking-inline.png" alt-text="Screenshot that shows selecting Change tracking to view the changes on the VM." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/azure-change-tracking-expanded.png":::
@@ -75,7 +75,7 @@ On the **Linux Files** tab, select **+ Add** > **Add Linux file setting**. Ent
 
 #### [Windows Registry](#tab/windows-registry)
 
-On the **Windows Registry** tab, select **+ Add** > **Add Windows registry setting**. Enter the information for the registry key to track, and then select **Add**. The following table describes the properties that you can use to enter the information.
+On the **Windows Registry** tab, select **+ Add** > **Add Windows registry setting**. Enter the information for the registry key to track, and then select **Add**. The following table describes the properties that you can use to enter the information.
 
 |Property|Description|
 |---|---|
@@ -154,9 +154,9 @@ The extension for Windows is `Vms - ChangeTracking-Windows`. The extension for L
 To configure the monitoring of files and folders by using wildcards, consider the following points:
 
 - Wildcards are required for tracking multiple files.
-- Wildcards can be used only in the last segment of a path, such as *C:\folder\file or /etc/.conf**.
+- Wildcards can be used only in the last segment of a path, such as *C:\folder\file or /etc/.conf**.
 - If an environment variable includes a path that isn't valid, validation succeeds but the path fails when inventory runs.
-- When you set the path, avoid general paths such as C:\, which results in too many folders being traversed.
+- When you set the path, avoid general paths such as C:\, which results in too many folders being traversed.
 
 ## Related content
 
