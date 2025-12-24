@@ -1,5 +1,5 @@
 ---
-title: Monitor HPC and AI workloads on Azure VMs using Telegraf and Azure Monitor
+title: Monitor HPC and AI workloads on Azure VMs and VMSS using Telegraf and Azure Monitor
 description: Learn how to deploy and configure the InfluxData Telegraf agent on a Linux virtual machine to send GPU and InfiniBand metrics to Azure Monitor for HPC and AI workloads.
 author: vinil-v
 ms.author: padmalathas
@@ -9,12 +9,12 @@ ms.custom: linux-related-content
 ms.date: 12/17/2025
 ---
 
-# Monitor HPC and AI workloads on Azure VMs using Telegraf and Azure Monitor
+# Monitor HPC and AI workloads on Azure VMs and VMSS using Telegraf and Azure Monitor
 
 This article provides guidance for monitoring GPU and InfiniBand metrics on Azure H-series and N-series virtual machines by using the Telegraf agent and Azure Monitor. This solution enables real-time collection and visualization of critical hardware metrics for high-performance computing (HPC) and artificial intelligence (AI) workloads.
 
 > [!IMPORTANT]
-> InfluxData Telegraf is an open-source agent and not officially supported by Azure Monitor. For issues with the Telegraf connector, refer to the Telegraf GitHub page: [InfluxData](https://github.com/influxdata/telegraf)
+> InfluxData Telegraf is an open-source agent and not officially supported by Azure Monitor. For issues with the Telegraf connector, refer to the Telegraf GitHub page: [InfluxData](https://github.com/influxdata/telegraf).
 > Azure Managed Prometheus now supports virtual machines (VMs) and Virtual Machine Scale Sets (VMSS), including GPU and InfiniBand monitoring.
 For more details, see the official [announcement](https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/private-preview-azure-managed-prometheus-on-vm--vmss/4473472)
 
@@ -25,7 +25,7 @@ Azure Monitor provides comprehensive monitoring capabilities for CPU, memory, st
 By leveraging the Telegraf agent and Azure Monitor, this setup enables real-time collection and visualization of key hardware metrics, including GPU utilization, GPU memory usage, InfiniBand port errors, and link flaps. It provides operational insights vital for debugging, performance tuning, and capacity planning in high-performance AI environments.
 
 > [!NOTE]
-> While Azure Monitor offers robust monitoring capabilities for CPU, memory, storage, and networking, it does not natively support GPU or InfiniBand metrics for Azure H-series or N-series VMs. To monitor GPU and InfiniBand performance, additional configuration using third-party tools such as Telegraf is required.
+> While Azure Monitor offers robust monitoring capabilities for CPU, memory, storage, and networking, at the time of writing this article, it does not natively support GPU or InfiniBand metrics for Azure H-series or N-series VMs. To monitor GPU and InfiniBand performance, additional configuration using third-party tools such as Telegraf is required.
 
 Telegraf is a plug-in-driven agent that enables the collection of metrics from over 150 different sources. The Telegraf agent integrates directly with the Azure Monitor custom metrics REST API. It supports an Azure Monitor output plug-in. Using this plug-in, the agent can collect workload-specific metrics on your Linux VM and submit them as custom metrics to Azure Monitor.
 
@@ -39,7 +39,7 @@ Telegraf is a plug-in-driven agent that enables the collection of metrics from o
 ## Architecture
 
 The monitoring solution consists of:
-1. **Telegraf agent** - Collects GPU and InfiniBand metrics from the VM
+1. **Telegraf agent** - Collects GPU and InfiniBand metrics from the VM / VMSS
 1. **Azure Monitor** - Stores and visualizes the collected metrics
 1. **Managed Identity** - Provides secure authentication for metric transmission
 
