@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 11/18/2025
+ms.date: 12/26/2025
 ---
 
 # Filter virtual network flow logs (preview)
@@ -95,10 +95,10 @@ Set-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcher
 
 ## Update RecordTypes filtering condition
 
-You can enable RecordTypes filtering during Flow Log creation to choose which flow record formats to collect using the cmdlet below. This helps tailor logging output without generating unnecessary data.
+You can enable RecordTypes filtering during flow log creation by choosing which flow record formats to collect in order to tailor logging output without generating unnecessary data.
 
 ```azurepowershell-interactive
-# Enabling RecordTypes filtering while creating flowlog 
+# Enable RecordTypes filtering while creating flowlog 
 New-AzNetworkWatcherFlowLog `
   -Enabled $true -Name <FlowLog Name> `
   -NetworkWatcherName <Network Watcher Name> `
@@ -106,8 +106,10 @@ New-AzNetworkWatcherFlowLog `
   -StorageId <Storage Account ID> `
   -TargetResourceId <Target Resource/VNet ID> `
   -RecordTypes "<Record Types>"
+```
 
-# Update RecordTypes filtering condition on existing flowlog
+```azurepowershell-interactive
+# Update RecordTypes filtering condition on existing flow log
 Set-AzNetworkWatcherFlowLog `
   -Enabled $true  -Name <FlowLog Name> `
   -NetworkWatcherName <Network Watcher Name> `
@@ -115,9 +117,10 @@ Set-AzNetworkWatcherFlowLog `
   -StorageId <Storage Account ID> `
   -TargetResourceId <Target Resource/VNet ID> `
   -RecordTypes "<Record Types>"
+```
 
-
-# Remove RecordTypes filtering condition from existing flowlog
+```azurepowershell-interactive
+# Remove RecordTypes filtering condition from existing flow log
 Set-AzNetworkWatcherFlowLog `
   -Enabled $true  -Name <FlowLog Name> `
   -NetworkWatcherName <Network Watcher Name> `
@@ -125,8 +128,10 @@ Set-AzNetworkWatcherFlowLog `
   -StorageId <Storage Account ID> `
   -TargetResourceId <Target Resource/VNet ID> `
   -RecordTypes ""
+```
 
-# Enabling RecordTypes and EnabledFilteringCriteria filtering while creating flowlog
+```azurepowershell-interactive
+# Enable RecordTypes and EnabledFilteringCriteria filtering while creating flow log
 New-AzNetworkWatcherFlowLog `
   -Enabled $true -Name <FlowLog Name> `
   -NetworkWatcherName <Network Watcher Name> `
@@ -135,7 +140,6 @@ New-AzNetworkWatcherFlowLog `
   -TargetResourceId <Target Resource/VNet ID> `
   -EnabledFilteringCriteria "<Filtering Criteria Expression>" `
   -RecordTypes "<Record Types>"
-
 ```
 
 ## Related content
