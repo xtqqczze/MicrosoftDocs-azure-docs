@@ -61,7 +61,7 @@ To view an assessment, follow these steps:
 1. Select the **Recommended path** tab or **View details** in the recommended path report to get deeper insights. This screen displays the distribution of the web apps across the Azure targets. It also provides other details such as the number of target instances (App Service instance, AKS clusters), migration strategy and readiness distribution. Select a line item to drill down further.
 **App Service Container**: The target drill down shows granular details for the web apps recommended to this target. 
 
-    :::image type="content" source="./media/review-web-app-assessment/view-recommended-path.png" alt-text="Screenshot displays recommended path for the assessment." lightbox="./media/review-web-app-assessment/view-recommended-path.png":::
+    :::image type="content" source="./media/review-web-app-assessment/recommended-path-view-details.png" alt-text="Screenshot displays recommended path or view details for the assessment." lightbox="./media/review-web-app-assessment/recommended-pathview-details.png":::
 
     1. Top level insights include the cost distribution by App Service Plan SKUs and top migration issues or warnings. 
     1. The report also shows how the web apps are packed into App Service plans. Selecting the plan brings up the plan details, rightsized based on the assessed web apps.
@@ -70,16 +70,21 @@ To view an assessment, follow these steps:
     1. Top level insights include the cost distribution by Node SKUs and top migration issues or warnings. 
     1. The report also shows how the web apps are packed into AKS node pools, the system pool and the number of nodes per pool.  
     1. Selecting the cluster brings up the cluster details, right sized based on the assessed web apps. 
-1. Select the link under **Workload to Azure Service mapping**, the **Web app to App Service Code** screen appears.
+1. Select the link under **Workload to Azure service mapping** to open the following screen.
 
- :::image type="content" source="./media/review-web-app-assessment/web-apps-to-app-service-code.png" alt-text="Screenshot displays the web apps to app service code list." lightbox="./media/review-web-app-assessment/web-apps-to-app-service-code.png":::
+  :::image type="content" source="./media/review-web-app-assessment/web-apps-to-app-service-code.png" alt-text="Screenshot displays the web apps to app service code list." lightbox="./media/review-web-app-assessment/web-apps-to-app-service-code.png":::
   
 1. Select a web app from the target drill downs opens the web app drill down. On the **Summary** tab, you can see discovered metadata such as protocols, connection strings, application directories and tags assigned to this workload.
 
- :::image type="content" source="./media/review-web-app-assessment/summary-of-web-app.png" alt-text="Screenshot displays the summary of web apps." lightbox="./media/review-web-app-assessment/summary-of-web-app.png":::
+  :::image type="content" source="./media/review-web-app-assessment/summary-of-web-app.png" alt-text="Screenshot displays the summary of web apps." lightbox="./media/review-web-app-assessment/summary-of-web-app.png":::
 
 1. On the **Readiness** tab, you can see the readiness for this web app for each Azure target, the migration issues or warnings and the recommended Azure target.
+    
+    :::image type="content" source="./media/review-web-app-assessment/default-web-site.png" alt-text="Screenshot displays the readiness for each deployment targets." lightbox="./media/review-web-app-assessment/default-web-site.png":::
+
 1. Go back to the **Overview** page. Select the **Export** option to download an excel containing the assessment details.
+
+    :::image type="content" source="./media/review-web-app-assessment/overview-export.png" alt-text="Screenshot displays the export option to download app services." lightbox="./media/review-web-app-assessment/overview-export.png":::
 
 ## Next steps 
 
