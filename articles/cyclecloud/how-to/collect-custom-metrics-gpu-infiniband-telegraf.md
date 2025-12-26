@@ -6,7 +6,7 @@ ms.author: padmalathas
 ms.reviewer: daramfon10
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 12/17/2025
+ms.date: 12/29/2025
 ---
 
 # Monitor HPC and AI workloads on Azure VMs and VMSS using Telegraf and Azure Monitor
