@@ -24,6 +24,8 @@
     href: ./concepts/clusters.md
   - name: Scheduling
     href: ./concepts/scheduling.md
+  - name: Monitoring custom metrics
+    href: ./concepts/collect-custom-metrics-gpu-infiniband-telegraf.md    
   - name: Clusters Operations
     items:
     - name: User Management
