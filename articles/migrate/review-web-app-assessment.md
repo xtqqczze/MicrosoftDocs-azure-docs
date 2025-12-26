@@ -61,7 +61,7 @@ To view an assessment, follow these steps:
 1. Select the **Recommended path** tab or **View details** in the recommended path report to get deeper insights. This screen displays the distribution of the web apps across the Azure targets. It also provides other details such as the number of target instances (App Service instance, AKS clusters), migration strategy and readiness distribution. Select a line item to drill down further.
 **App Service Container**: The target drill down shows granular details for the web apps recommended to this target. 
 
-    :::image type="content" source="./media/review-web-app-assessment/recommended-path-view-details.png" alt-text="Screenshot displays recommended path or view details for the assessment." lightbox="./media/review-web-app-assessment/recommended-pathview-details.png":::
+    :::image type="content" source="./media/review-web-app-assessment/recommended-path-view-details.png" alt-text="Screenshot displays recommended path or view details for the assessment." lightbox="./media/review-web-app-assessment/recommended-path-view-details.png":::
 
     1. Top level insights include the cost distribution by App Service Plan SKUs and top migration issues or warnings. 
     1. The report also shows how the web apps are packed into App Service plans. Selecting the plan brings up the plan details, rightsized based on the assessed web apps.
