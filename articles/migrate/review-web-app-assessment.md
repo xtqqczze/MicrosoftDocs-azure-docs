@@ -49,14 +49,14 @@ To view an assessment, follow these steps:
  
 1. The web apps can take one of the following readiness states: 
 
-      :::image type="content" source="./media/review-web-app-assessment/readiness.png" alt-text="Screenshot displays readiness for the web app for each Azure target." lightbox="./media/review-web-app-assessment/readiness.png":::
-
    | **Status**| **Definition**|
    |----------|--------|
    | Ready  | The web app is ready to be migrated.   |
    | Ready with conditions  | The web app needs minor changes to be ready for migration.  |
    | Not ready  | The web app needs major/breaking changes to be ready for migration.  |
    | Unknown  | The web app discovery data was either incomplete or corrupt to calculate readiness. |
+
+    :::image type="content" source="./media/review-web-app-assessment/readiness.png" alt-text="Screenshot displays readiness for the web app for each Azure target." lightbox="./media/review-web-app-assessment/readiness.png":::
 
 1. Select the **Recommended path** tab or **View details** in the recommended path report to get deeper insights. This screen displays the distribution of the web apps across the Azure targets. It also provides other details such as the number of target instances (App Service instance, AKS clusters), migration strategy and readiness distribution. Select a line item to drill down further.
 **App Service Container**: The target drill down shows granular details for the web apps recommended to this target. 
