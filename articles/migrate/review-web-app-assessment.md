@@ -72,11 +72,11 @@ To view an assessment, follow these steps:
     1. Selecting the cluster brings up the cluster details, right sized based on the assessed web apps. 
 1. Select the link under **Workload to Azure service mapping** to open the following screen.
 
-  :::image type="content" source="./media/review-web-app-assessment/web-apps-to-app-service-code.png" alt-text="Screenshot displays the web apps to app service code list." lightbox="./media/review-web-app-assessment/web-apps-to-app-service-code.png":::
+    :::image type="content" source="./media/review-web-app-assessment/web-apps-to-app-service-code.png" alt-text="Screenshot displays the web apps to app service code list." lightbox="./media/review-web-app-assessment/web-apps-to-app-service-code.png":::
   
 1. Select a web app from the target drill downs opens the web app drill down. On the **Summary** tab, you can see discovered metadata such as protocols, connection strings, application directories and tags assigned to this workload.
 
-  :::image type="content" source="./media/review-web-app-assessment/summary-of-web-app.png" alt-text="Screenshot displays the summary of web apps." lightbox="./media/review-web-app-assessment/summary-of-web-app.png":::
+    :::image type="content" source="./media/review-web-app-assessment/summary-of-web-app.png" alt-text="Screenshot displays the summary of web apps." lightbox="./media/review-web-app-assessment/summary-of-web-app.png":::
 
 1. On the **Readiness** tab, you can see the readiness for this web app for each Azure target, the migration issues or warnings and the recommended Azure target.
     
