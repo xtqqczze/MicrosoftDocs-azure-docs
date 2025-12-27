@@ -241,7 +241,7 @@ Configure InfiniBand monitoring by using the `Telegraf/infiniband` namespace:
 > [!NOTE]
 > When you use the `link_downed` metric with Count aggregation, use Max or Min values for accurate results.
 
-:::image type="content" source="../images/azuremon-gpu-ib.png" alt-text="Screenshot of Azure Monitor displaying GPU and InfiniBand metrics.":::
+:::image type="content" source="../images/azuremonitor-gpu-ib.png" alt-text="Screenshot of Azure Monitor displaying GPU and InfiniBand metrics.":::
 
 ### Create custom dashboards
 
