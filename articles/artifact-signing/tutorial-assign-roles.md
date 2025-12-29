@@ -19,7 +19,7 @@ Artifact Signing uses [Azure role-based access control (RBAC)](../role-based-acc
 | **Artifact Signing Certificate Profile Signer** | Required to successfully sign using Azure Artifact Signing                                        | Necessary for signing operations; works with both Azure CLI and portal                    |
 
 
-In this tutorial, you'll review the supported roles for Artifact Signing and learn how to assign them to your Artifactd Signing resources using the Azure portal.
+In this tutorial, you'll review the supported roles for Artifact Signing and learn how to assign them to your Artifact Signing resources using the Azure portal.
 
 ## Supported roles for Artifact Signing
 
