@@ -36,7 +36,7 @@ To use an Azure Function activity in a pipeline, complete the following steps:
 
 ## Azure Function linked service
 
-The return type of the Azure function has to be a valid `JObject`. (Keep in mind that [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) isn't* a `JObject`.) Any return type other than `JObject` fails and raises the user error *Response Content isn't a valid JObject*.
+The return type of the Azure function has to be a valid `JObject`. (Keep in mind that [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *isn't* a `JObject`.) Any return type other than `JObject` fails and raises the user error *Response Content isn't a valid JObject*.
 
 Function Key provides secure access to function name with each one having separate unique keys or master key within a function app. Managed identity provides secure access to the entire function app. User needs to provide key to access function name. For more information, see the function documentation for more details about [Function access key](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#configuration)
 
