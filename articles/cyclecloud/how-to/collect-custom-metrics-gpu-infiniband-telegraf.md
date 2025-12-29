@@ -1,5 +1,5 @@
 ---
-title: Monitor HPC and AI workloads on Azure VMs and VMSS using Telegraf and Azure Monitor
+title: Monitor HPC and AI workloads on Azure VMs and Virtual Machine Scale Set(s) using Telegraf and Azure Monitor
 description: Learn how to deploy and configure the InfluxData Telegraf agent on a Linux virtual machine to send GPU and InfiniBand metrics to Azure Monitor for HPC and AI workloads.
 author: vinil-v
 ms.author: padmalathas
@@ -9,13 +9,13 @@ ms.custom: linux-related-content
 ms.date: 12/29/2025
 ---
 
-# Monitor HPC and AI workloads on Azure VMs and VMSS using Telegraf and Azure Monitor
+# Monitor HPC and AI workloads on Azure VMs and Virtual Machine Scale Set(s) using Telegraf and Azure Monitor
 
-This article provides guidance for monitoring GPU and InfiniBand metrics on Azure H-series and N-series virtual machines by using the Telegraf agent and Azure Monitor. This solution enables real-time collection and visualization of critical hardware metrics for high-performance computing (HPC) and artificial intelligence (AI) workloads.
+This article provides guidance for monitoring GPU and InfiniBand metrics on Azure H-series and N-series virtual machines (VMs) by using the Telegraf agent and Azure Monitor. This solution enables real-time collection and visualization of critical hardware metrics for high-performance computing (HPC) and artificial intelligence (AI) workloads.
 
 > [!IMPORTANT]
 > InfluxData Telegraf is an open-source agent and not officially supported by Azure Monitor. For issues with the Telegraf connector, refer to the Telegraf GitHub page: [InfluxData](https://github.com/influxdata/telegraf).
-> Azure Managed Prometheus now supports virtual machines (VMs) and Virtual Machine Scale Sets (VMSS), including GPU and InfiniBand monitoring.
+> Azure Managed Prometheus now supports VMs and Virtual Machine Scale Set(s), including GPU and InfiniBand monitoring.
 For more details, see the official [announcement](https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/private-preview-azure-managed-prometheus-on-vm--vmss/4473472)
 
 ## Overview
@@ -39,9 +39,9 @@ Telegraf is a plug-in-driven agent that enables the collection of metrics from o
 ## Architecture
 
 The monitoring solution consists of:
-1. **Telegraf agent** - Collects GPU and InfiniBand metrics from the VM / VMSS
-1. **Azure Monitor** - Stores and visualizes the collected metrics
-1. **Managed Identity** - Provides secure authentication for metric transmission
+- **Telegraf agent** - Collects GPU and InfiniBand metrics from the VM / Virtual Machine Scale Set
+- **Azure Monitor** - Stores and visualizes the collected metrics
+- **Managed Identity** - Provides secure authentication for metric transmission
 
 ## Step 1: Configure Azure subscription
 
@@ -70,7 +70,7 @@ az provider show --namespace Microsoft.Insights --query "registrationState"
 ## Enable Managed Identity
 
 ### [Azure portal](#tab/portal)
-Enable Managed Service Identities to authenticate your Azure VM or Azure VMSS with Azure Monitor.
+Enable Managed Service Identities to authenticate your Azure VM or Azure Virtual Machine Scale Set with Azure Monitor.
 
 1. Navigate to your VM in the Azure portal.
 2. In the left menu under **Security**, select **Identity**.
@@ -91,9 +91,9 @@ az vm identity assign --resource-group myResourceGroup --name myVM
 az vm identity show --resource-group myResourceGroup --name myVM --query principalId --output tsv
 ```
 
-### For Virtual Machine Scale Sets
+### For Virtual Machine Scale Set(s)
 ```azurecli
-# Enable system-assigned managed identity for VMSS
+# Enable system-assigned managed identity for Virtual Machine Scale Set
 az vmss identity assign --resource-group myResourceGroup --name myVMSS
 
 # Retrieve the principal ID for role assignment
@@ -102,13 +102,13 @@ az vmss identity show --resource-group myResourceGroup --name myVMSS --query pri
 
 For more information, see:
 - [Configure managed identities on Azure VMs](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities)
-- [Configure managed identities on Azure VMSS](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities-scale-sets)
+- [Configure managed identities on Azure Virtual Machine Scale Set(s)](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities-scale-sets)
 
 ---
 
 ## Install and configure Telegraf
 
-Set up the Telegraf agent inside the VM or VMSS to send GPU and InfiniBand data to Azure Monitor.
+Set up the Telegraf agent inside the VM or Virtual Machine Scale Set to send GPU and InfiniBand data to Azure Monitor.
 
 ### Install the Telegraf agent
 
@@ -219,7 +219,7 @@ The setup script configures Telegraf with:
 
 Configure GPU monitoring by using the `Telegraf/nvidia-smi` namespace:
 
-1. Set **Scope** to your VM or VMSS.
+1. Set **Scope** to your VM or Virtual Machine Scale Set.
 1. Select **Metric Namespace**: `Telegraf/nvidia-smi`.
 1. Choose from available metrics:
    - `memory_used` - GPU memory utilization.
@@ -230,7 +230,7 @@ Configure GPU monitoring by using the `Telegraf/nvidia-smi` namespace:
 
 Configure InfiniBand monitoring by using the `Telegraf/infiniband` namespace:
 
-1. Set **Scope** to your VM or VMSS.
+1. Set **Scope** to your VM or Virtual Machine Scale Set.
 1. Select **Metric Namespace**: `Telegraf/infiniband`.
 1. Choose from available metrics:
    - `link_downed` - Link status changes.
