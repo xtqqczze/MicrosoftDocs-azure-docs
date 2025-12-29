@@ -35,23 +35,23 @@ For more information about Traffic Manager, see:
 
 ## Key features
 
-## Increase application availability
+### Increase application availability
 
 Traffic Manager monitors your endpoints and provides automatic failover when an endpoint goes down, delivering high availability for your critical applications.
     
-## Improve application performance
+### Improve application performance
 
 Traffic Manager improves your application's responsiveness by directing traffic to the endpoint with the lowest latency for each user.
 
-## Service maintenance without downtime
+### Service maintenance without downtime
 
 Perform planned maintenance on your applications without downtime. Traffic Manager directs traffic to alternative endpoints while maintenance is in progress.
 
-## Combine hybrid applications
+### Combine hybrid applications
 
 Traffic Manager supports external, non-Azure endpoints, enabling hybrid cloud and on-premises deployments including burst-to-cloud, migrate-to-cloud, and failover-to-cloud scenarios.
 
-## Distribute traffic for complex deployments
+### Distribute traffic for complex deployments
 
 Combine multiple traffic-routing methods with [nested Traffic Manager profiles](traffic-manager-nested-profiles.md) to create sophisticated and flexible rules that scale to larger, more complex deployments.
 
