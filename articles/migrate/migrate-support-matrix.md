@@ -45,6 +45,7 @@ Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Mi
 Create a key vault for VMware agentless migration | To migrate VMware VMs with the agentless Azure Migrate and Modernize tool, Azure Migrate creates a key vault to manage access keys to the replication storage account in your subscription. To create the vault, you set permissions (Owner, Contributor, and User Access Administrator) on the resource group where the project resides. | Set up [permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account).
 
 ::: moniker range="migrate-classic"
+Refer [this article](prepare-azure-accounts.md) to prepare Azure accounts.
 
 ## Supported geographies
 
