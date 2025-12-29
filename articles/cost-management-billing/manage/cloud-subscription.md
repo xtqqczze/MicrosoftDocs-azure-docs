@@ -7,7 +7,7 @@ ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 08/13/2025
+ms.date: 12/28/2025
 ms.custom:
 - build-2025
 ---
