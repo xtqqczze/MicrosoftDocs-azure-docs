@@ -26,7 +26,7 @@ particular scope. The scope can be an individual resource, a resource
 group, or across the subscription. In the next section, you learn which
 [built-in roles](#built-in-roles) Microsoft Dev Box supports.
 
-For more information, see [What is Azure role-based access control (Azure RBAC)](https://microsoft-my.sharepoint.com/azure/role-based-access-control/overview)?
+For more information, see [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)?
 
 > [!NOTE]
 > When you make role assignment changes, it can take a few minutes for these updates to propagate.
