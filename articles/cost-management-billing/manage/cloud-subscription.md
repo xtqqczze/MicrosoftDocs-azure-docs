@@ -7,16 +7,16 @@ ms.reviewer: nicholak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 12/28/2025
+ms.date: 12/29/2025
 ms.custom:
 - build-2025
 ---
 
-# What is a Cloud Subscription?
+# What is a cloud subscription?
 
-A cloud subscription is a way to manage the products and services that you buy from Microsoft. A cloud subscription is created when you acquire various Azure resources and other products including Microsoft Azure Consumption Commitment, Enterprise Support and Microsoft AI Cloud Partner Program. Over time cloud subscription scope will expand to include additional Microsoft products and services including seat-based offers like M365.
+A cloud subscription is a way to manage the products and services that you buy from Microsoft. A cloud subscription is created when you acquire various Azure resources and other products including Microsoft Azure Consumption Commitment, Enterprise Support and Microsoft AI Cloud Partner Program. Over time cloud subscription scope will expand to include additional Microsoft products and services including device or user license offers like Microsoft 365.
 
-Key aspects of a cloud subscription.
+Key aspects of a cloud subscription:
 
 - **No cost for cloud subscriptions** - Cloud subscriptions themselves don't cost any money. They're used to organize and manage the products and services you purchase. While products like virtual machines or Enterprise Support managed within a cloud subscription might incur charges, the subscription itself does not.
 - **Multiple subscriptions** - You can create multiple cloud subscriptions to delegate management to different users in your organization or to apply policies for security, budgeting, and compliance.
