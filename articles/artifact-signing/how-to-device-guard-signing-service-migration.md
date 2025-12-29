@@ -1,11 +1,11 @@
 ---
-title: Device Guard Signing Service migration to Trusted Signing
-description: Learn how to migrate from Device Guard Signing Service (DGSSv2) to Trusted Signing for code integrity policy 
+title: Device Guard Signing Service migration to Artifact Signing
+description: Learn how to migrate from Device Guard Signing Service (DGSSv2) to Artifact Signing for code integrity policy 
 author: meha 
 ms.author: mesharm 
 ms.service: trusted-signing
 ms.topic: how-to 
-ms.date: 08/19/2024
+ms.date: 12/28/2025
 ms.custom:
   - template-how-to-pattern
   - devx-track-azurepowershell
@@ -13,28 +13,28 @@ ms.custom:
 ---
 
 
-# Device Guard Signing Service (DGSSv2) migration to Trusted Signing for code integrity policy
+# Device Guard Signing Service (DGSSv2) migration to Artifact Signing for code integrity policy
 
-Device Guard Signing Service is being deprecated at the beginning of December 2024. All existing DGSSv2 customers who plan to continue using the service must transition to Trusted Signing.
-The root that issues the code signing and CI policy signing certificates remains the same between DGSSv2 and Trusted Signing. Since Trusted Signing is an Azure service, you now need to have Azure Tenant ID and Subscription ID to access signing, and a new dedicated EKU for signing. Steps you need to take include:
+Device Guard Signing Service is being deprecated at the beginning of December 2024. All existing DGSSv2 customers who plan to continue using the service must transition to Artifact Signing.
+The root that issues the code signing and CI policy signing certificates remains the same between DGSSv2 and Artifact Signing. Since Artifact Signing is an Azure service, you now need to have Azure Tenant ID and Subscription ID to access signing, and a new dedicated EKU for signing. Steps you need to take include:
 
 1. Get an Azure account
 2. Set up access to signing control (controlled through Azure portal and Azure identities)
-3. Choose a pricing tier (Trusted Signing is a paid service – learn more about pricing [here](https://azure.microsoft.com/pricing/details/trusted-signing/))
+3. Choose a pricing tier (Artifact Signing is a paid service – learn more [about pricing](https://azure.microsoft.com/pricing/details/trusted-signing/))
 4. Follow the steps dependent on your migration scenarios
 
-This guide outlines the steps needed to migrate to Trusted Signing. **Read the entirety of this document and note these steps must be followed carefully; missing a step may cause damage to the OS image.**
+This guide outlines the steps needed to migrate to Artifact Signing. **Read the entirety of this document and note these steps must be followed carefully; missing a step may cause damage to the OS image.**
 
 ## Migration scenarios
 
 - Scenario 1: Signed CI Policy Migration & Deployment
-    - You have an existing CI policy signed with DGSSv2 and now wish to migrate it to Trusted Signing.
+    - You have an existing CI policy signed with DGSSv2 and now wish to migrate it to Artifact Signing.
 - Scenario 2: Unsigned to Signed CI Policy Migration & Deployment
-    - You have an existing unsigned CI policy and now wish to migrate it to Trusted Signing with a signed CI policy. 
+    - You have an existing unsigned CI policy and now wish to migrate it to Artifact Signing with a signed CI policy. 
 - Scenario 3: Unsigned to Unsigned CI Policy Migration & Deployment     
-    - You have an existing unsigned CI policy and now wish to migrate it to Trusted Signing, maintaining it as an unsigned CI policy.
+    - You have an existing unsigned CI policy and now wish to migrate it to Artifact Signing, maintaining it as an unsigned CI policy.
 - Scenario 4: No Existing CI Policy
-    - You currently don't have a CI policy deployed in your environment and want to migrate to Trusted Signing.
+    - You currently don't have a CI policy deployed in your environment and want to migrate to Artifact Signing.
 
 
 ## Prerequisites
@@ -44,7 +44,7 @@ This guide outlines the steps needed to migrate to Trusted Signing. **Read the e
 
 
 > [!IMPORTANT] 
-> Migration isn't possible without creating a Trusted Signing account, Private Trust identity validation, and Private Trust CI policy signing certificate profile using these steps: [Quickstart: Set up Trusted Signing](/azure/trusted-signing/quickstart?tabs=registerrp-portal%2Caccount-portal%2Ccertificateprofile-portal%2Cdeleteresources-portal).
+> Migration isn't possible without creating a Artifact Signing account, Private Trust identity validation, and Private Trust CI policy signing certificate profile using these steps: [Quickstart: Set up Artifact Signing](/azure/artifact-signing/quickstart?tabs=registerrp-portal%2Caccount-portal%2Ccertificateprofile-portal%2Cdeleteresources-portal).
 
 
 ## Scenario 1: Signed CI Policy Migration and Deployment
@@ -74,7 +74,7 @@ Sample:
 ConvertFrom-CIPolicy -XmlFilePath <xmlCIPolicyFilePath> -BinaryFilePath <binaryCIPolicyFilePath>
 
 ```
-4.	Sign the generated policy .bin file with Trusted Signing using the following instructions: [Sign a CI policy](/azure/trusted-signing/how-to-sign-ci-policy).
+4.	Sign the generated policy .bin file with Artifact Signing using the following instructions: [Sign a CI policy](/azure/artifact-signing/how-to-sign-ci-policy).
 5.	Deploy this signed policy .bin file. For more information, refer to [Deploy Windows Defender Application Control polices](/windows/security/threat-protection/windows-defender-application-control/deploy-windows-defender-application-control-policies-using-group-policy).
 6.	Reboot the machine and confirm the Code Integrity event 3099 shows that the policy is activated.
     - Open Event Viewer (Select Start, type Event Viewer) &rarr; Applications and Services Logs &rarr; Microsoft &rarr; Windows &rarr; CodeIntegrity &rarr; Operational
@@ -82,7 +82,7 @@ ConvertFrom-CIPolicy -XmlFilePath <xmlCIPolicyFilePath> -BinaryFilePath <binaryC
 >[!NOTE]
 > If you don't see event 3099, DON'T proceed to step 7. Restart from No.1 and make sure your CI policy file is well formed and successfully signed. 
 >  - Well formed: Compare the xml with the [default CI policy xml](/windows/security/application-security/application-control/windows-defender-application-control/design/example-wdac-base-policies) to verify the format.
->  - Successfully signed: To verify, use SignTool; refer to this [link](/windows/win32/seccrypto/using-signtool-to-verify-a-file-signature).
+>  - Successfully signed: To verify, use SignTool; refer to this [guide](/windows/win32/seccrypto/using-signtool-to-verify-a-file-signature).
     
 7. Run the command to delete this CI policy: `del SiPolicy.p7b` from both folders: C:\Windows\System32\CodeIntegrity and S:\EFI\Microsoft\Boot.  
     1. If there's no S: drive, run the command:   
@@ -99,9 +99,9 @@ ConvertFrom-CIPolicy -XmlFilePath <xmlCIPolicyFilePath> -BinaryFilePath <binaryC
 
 ### Step 1: Determine your new EKUs 
 
-1. Since Trusted Signing is a new service it has different EKUs than DGSSv2. Therefore, you need to get the new EKUs added to your policy. You need to get your EKU from the Trusted Signing account to add to your CI policy’s EKU section. The two ways to do so are: 
-    1. Using the steps in [Sign a CI policy](/azure/trusted-signing/how-to-sign-ci-policy) run the command Get-AzCodeSigningCustomerEkuto get the customer EKU. 
-    2. Within your Trusted Signing account, select “Certificate Profiles”, then select your Private Trust certificate profile. You'll see information on the profile like the screenshot below. The ‘Enhanced key usage’ listed is your customer EKU.
+1. Since Artifact Signing is a new service it has different EKUs than DGSSv2. Therefore, you need to get the new EKUs added to your policy. You need to get your EKU from the Artifact Signing account to add to your CI policy’s EKU section. The two ways to do so are: 
+    1. Using the steps in [Sign a CI policy](/azure/artifact-signing/how-to-sign-ci-policy) run the command Get-AzCodeSigningCustomerEkuto get the customer EKU. 
+    2. Within your Artifact Signing account, select “Certificate Profiles”, then select your Private Trust certificate profile. You'll see information on the profile like the screenshot below. The ‘Enhanced key usage’ listed is your customer EKU.
     
  :::image type="content" source="media/trusted-signing-select-eku.png" alt-text="Screenshot that shows eku." lightbox="media/trusted-signing-select-eku.png":::
 
@@ -147,7 +147,7 @@ private string CalculateEkuValue(string CustomerEku)
 </Signer> 
 ```
 
-**Your Account Name Code Signing Certificate** is your Trusted Signing account name. Note that this field isn't verified in the CI policy, but we recommend you putting your Trusted signing account name in the field. To find your account name on the Azure portal navigate to [Azure portal](https://portal.azure.com/), search “Trusted Signing” in the top search bar and select your account that comes up in the search results. The screenshot below shows the account name outlined in red. 
+**Your Account Name Code Signing Certificate** is your Artifact Signing account name. Note that this field isn't verified in the CI policy, but we recommend you putting your Artifact signing account name in the field. To find your account name on the Azure portal navigate to [Azure portal](https://portal.azure.com/), search “Artifact Signing” in the top search bar and select your account that comes up in the search results. The screenshot below shows the account name outlined in red. 
 
  :::image type="content" source="media/trusted-signing-account-overview.png" alt-text="Screenshot that shows account overview." lightbox="media/trusted-signing-account-overview.png":::
 
@@ -158,35 +158,35 @@ Sample:
 ConvertFrom-CIPolicy -XmlFilePath <xmlCIPolicyFilePath> -BinaryFilePath <binaryCIPolicyFilePath> 
 ```
 
-5. If you would like to sign this policy, following these instructions [Sign a CI policy](/azure/trusted-signing/how-to-sign-ci-policy)to sign the policy using Trusted Signing. 
+5. If you would like to sign this policy, following these instructions [Sign a CI policy](/azure/artifact-signing/how-to-sign-ci-policy)to sign the policy using Artifact Signing. 
 
-6. Deploy this signed policy .bin file; refer to this [link](/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide) for instructions. 
+6. Deploy this signed policy .bin file; refer to this [guide](/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide) for instructions. 
 
 7. Reboot the machine and confirm that Code Integrity event 3099 is showing, which means the new CI policy is activated.
 > [!NOTE]
 > If you don't see event 3099, DON'T proceed to step 8. Restart from No.1 and make sure your CI policy file is well formed and successfully signed.  
         1. Well formed: Compare the xml with the default CI policy xml to verify the format. 
-        2. Successfully signed: To verify, use SignTool; refer to this [link](/windows/win32/seccrypto/using-signtool-to-verify-a-file-signature). 
+        2. Successfully signed: To verify, use SignTool; refer to this [guide](/windows/win32/seccrypto/using-signtool-to-verify-a-file-signature). 
 8. Reboot the machine again to ensure a successful boot. 
 9. Reboot the machine twice more, to ensure the CI policy is properly enabled, before moving on or deploying this change to other machines. 
 
 
 ### Step 3: Perform testing to validate that the new policy does not break any expected scenarios
 
-1. Verify that any files signed with Trusted Signing still behave as expected.  
-2. Sign a catalog file with Trusted Signing and make sure it can run on your test machine with the Trusted Signing (new) CI policy. 
-    1. To sign catalog files with Trusted Signing, refer to the steps in: 
-        1. [Quickstart: Set up Trusted Signing](/azure/trusted-signing/quickstart?tabs=registerrp-portal%2Caccount-portal%2Ccertificateprofile-portal%2Cdeleteresources-portal) to set up a Private Trust certificate profile.
-        2. [Set up signing integrations to use Trusted Signing](/azure/trusted-signing/how-to-signing-integrations) to sign the files using Private Trust in the Trusted Signing service.
+1. Verify that any files signed with Artifact Signing still behave as expected.  
+2. Sign a catalog file with Artifact Signing and make sure it can run on your test machine with the Artifact Signing (new) CI policy. 
+    1. To sign catalog files with Artifact Signing, refer to the steps in: 
+        1. [Quickstart: Set up Artifact Signing](/azure/artifact-signing/quickstart?tabs=registerrp-portal%2Caccount-portal%2Ccertificateprofile-portal%2Cdeleteresources-portal) to set up a Private Trust certificate profile.
+        2. [Set up signing integrations to use Artifact Signing](/azure/artifact-signing/how-to-signing-integrations) to sign the files using Private Trust in the Artifact Signing service.
     
-    2. To sign MSIX packages with Trusted Signing, refer to instructions on how to sign MSIX packages with [MSIX Packaging Tool](/windows/msix/packaging-tool/tool-overview) or SignTool - directly through Trusted Signing. 
-        1. To sign with Trusted Signing in the MSIX Packaging Tool you need to join the MSIX Insiders program. 
+    2. To sign MSIX packages with Artifact Signing, refer to instructions on how to sign MSIX packages with [MSIX Packaging Tool](/windows/msix/packaging-tool/tool-overview) or SignTool - directly through Artifact Signing. 
+        1. To sign with Artifact Signing in the MSIX Packaging Tool you need to join the MSIX Insiders program. 
 
 3. After confirming the CI policy is activated on this machine and all scenarios work as expected, repeat steps on the rest of the desired machines in your environment.  
 
  ## Scenario 3: Unsigned to Unsigned CI Policy Migration and Deployment 
 
-You need to add the Trusted Signing EKUs to your existing CI policy by following the steps in Scenario 2 to locate and update the EKUs. 
+You need to add the Artifact Signing EKUs to your existing CI policy by following the steps in Scenario 2 to locate and update the EKUs. 
 
  ## Scenario 4: No existing CI policy 
 
@@ -201,5 +201,5 @@ If isolation is desired, deploy a new CI policy by following steps outlined in S
 - [Use multiple Windows Defender Application Control Policies (Windows 10)](/windows/security/threat-protection/windows-defender-application-control/deploy-multiple-windows-defender-application-control-policies#deploying-multiple-policies-locally)
 - Need help with the migration: Contact us via:
     - Support + troubleshooting (on Azure portal)
-    - [Microsoft Q&A](/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) 
-    - [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).
+    - [Microsoft Q&A](/answers/tags/509/artifact-signing) (use the tag **Azure Artifact Signing**) 
+    - [Stack Overflow](https://stackoverflow.com/questions/tagged/artifact-signing) (use the tag **artifact-signing**).
