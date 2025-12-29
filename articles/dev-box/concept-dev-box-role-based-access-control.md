@@ -21,9 +21,7 @@ roles that Microsoft Dev Box supports, and how they map to
 organizational roles like platform engineer and dev manager so you can
 plan the right permissions model before you roll out Dev Box.
 
-Azure role-based access control (RBAC) specifies built-in role
-definitions that outline the permissions to be applied. Instead of
-granting granular permissions directly to individual users or groups,
+Azure role-based access control (RBAC) specifies built-in roles that define the permissions to be applied. Instead of granting granular permissions directly to individual users or groups,
 you assign roles that bundle related permissions together so you can
 apply and audit access consistently across resources. You assign a
 user or group this role definition via a role assignment for a
