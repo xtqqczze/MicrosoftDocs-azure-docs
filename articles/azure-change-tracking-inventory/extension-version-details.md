@@ -57,7 +57,7 @@ This article provides the release notes for Azure Change Tracking and Inventory 
 
 #### Known issues
 
-After you migrate from Forefront Identity Manager based on the Azure Monitor agent to change tracking based on the Azure Monitor agent, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
+After you migrate from Forefront Identity Manager based on the Azure Monitor agent to Change Tracking based on the Azure Monitor agent, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
 
 | OS | Notes |
 | --- | --- |
@@ -68,7 +68,7 @@ After you migrate from Forefront Identity Manager based on the Azure Monitor age
 
 #### Known issues
 
-After you migrate from Forefront Identity Manager based on the Azure Monitor agent to change tracking based on the Azure Monitor agent, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
+After you migrate from Forefront Identity Manager based on the Azure Monitor agent to Change Tracking based on the Azure Monitor agent, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
 
 | OS | Notes |
 | --- | --- |

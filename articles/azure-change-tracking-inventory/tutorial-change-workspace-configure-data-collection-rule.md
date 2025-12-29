@@ -97,7 +97,7 @@ To configure file content changes, follow these steps:
 
     :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/file-content-inline.png" alt-text="Screenshot that shows selecting the link option to connect with the storage account." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/file-content-expanded.png":::
 
-1. In the **Content Location for Change Tracking** pane, select your subscription and storage account to use for file content change tracking.
+1. In the **Content Location for Change Tracking** pane, select your subscription and storage account to use for file content Change Tracking.
 1. Confirm that you're using **System Assigned Managed Identity**.
 1. Select **Upload file content for all settings**. Select **Save** to ensure that the file content changes for all the files residing in this DCR are tracked.
 

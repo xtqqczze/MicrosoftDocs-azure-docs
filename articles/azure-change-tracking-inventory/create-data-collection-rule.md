@@ -13,14 +13,14 @@ ms.custom: sfi-image-nochange
 
 # Create a data collection rule for Azure Change Tracking and Inventory
 
-When you enable change tracking in the Azure portal by using the Azure Monitor agent, the process automatically creates a data collection rule (DCR). This rule appears in the resource group with a name in the format `ct-dcr-aaaaaaaaa`. After the rule is created, add the required resources.
+When you enable Change Tracking in the Azure portal by using the Azure Monitor agent, the process automatically creates a data collection rule (DCR). This rule appears in the resource group with a name in the format `ct-dcr-aaaaaaaaa`. After the rule is created, add the required resources.
 
 This article explains how to explicitly create a DCR for Azure Change Tracking and Inventory (CTI).
 
 To enable Azure CTI from the Azure portal, see [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
 
   > [!NOTE]
-  > You can associate only a single change tracking DCR with any resource. Any other change tracking DCRs are ignored.
+  > You can associate only a single Change Tracking DCR with any resource. Any other Change Tracking DCRs are ignored.
 
 ## Create a DCR
 
@@ -45,8 +45,8 @@ To create a DCR, follow these steps:
 
    - The resource group must be the same as the resource group associated with the Azure Monitor Logs workspace ID chosen here.
    - Ensure that the name of your DCR is unique in that resource group. Otherwise, the deployment overwrites the existing DCR.
-   - The Azure Monitor Logs workspace resource ID specifies the Azure resource ID of the Azure Monitor Logs workspace used to store change tracking data.
-   - Ensure that the location of the workspace is from one of the [change tracking supported regions](../automation/how-to/region-mappings.md).
+   - The Azure Monitor Logs workspace resource ID specifies the Azure resource ID of the Azure Monitor Logs workspace used to store Change Tracking data.
+   - Ensure that the location of the workspace is from one of the [Change Tracking supported regions](../automation/how-to/region-mappings.md).
 
 1. Select **Next : Review + create >**.
 1. On the **Review + create** tab, select **Create** to initiate the deployment of `CtDcrCreation`.
@@ -54,7 +54,7 @@ To create a DCR, follow these steps:
 
    :::image type="content" source="media/create-data-collection-rule/deployment-confirmation.png" alt-text="Screenshot that shows deployment notification.":::
 
-After you create the DCR by using the Azure Monitor agent change tracking schema, ensure that you don't add any data sources to this rule. Adding data sources could cause Azure CTI to fail. You must add only new resources in this section.
+After you create the DCR by using the Azure Monitor agent Change Tracking schema, ensure that you don't add any data sources to this rule. Adding data sources could cause Azure CTI to fail. You must add only new resources in this section.
 
 ## Related content
 
