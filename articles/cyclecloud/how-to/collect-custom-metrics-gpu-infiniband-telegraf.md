@@ -211,7 +211,7 @@ The setup script configures Telegraf with:
 
 ### Access Azure Monitor Metrics
 
-1. In the Azure portal, go to your VM or Virtunal Machine Scale Set.
+1. In the Azure portal, go to your VM or Virtual Machine Scale Set.
 1. Select **Metrics** from the monitoring section.
 1. Configure metric visualizations by using the collected namespaces.
 
