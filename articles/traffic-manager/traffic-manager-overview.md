@@ -49,7 +49,7 @@ Perform planned maintenance on your applications without downtime. Traffic Manag
 
 ## Combine hybrid applications
 
-Traffic Manager supports external, non-Azure endpoints, enabling hybrid cloud and on-premises deployments including [burst-to-cloud](/azure/overview/what-is-cloud-bursting), migrate-to-cloud, and failover-to-cloud scenarios.
+Traffic Manager supports external, non-Azure endpoints, enabling hybrid cloud and on-premises deployments including burst-to-cloud, migrate-to-cloud, and failover-to-cloud scenarios.
 
 ## Distribute traffic for complex deployments
 
