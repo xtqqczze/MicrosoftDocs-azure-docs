@@ -56,15 +56,13 @@ To view an assessment, follow these steps:
    | Not ready  | The web app needs to major/breaking changes to be ready for migration.  |
    | Unknown  | The web app discovery data was either incomplete or corrupt to calculate readiness. |
 
+1. Select the **Recommended path** tab or **View details** in the recommended path report to get deeper insights.
+
     :::image type="content" source="./media/review-web-app-assessment/readiness.png" alt-text="Screenshot displays readiness for the web app for each Azure target." lightbox="./media/review-web-app-assessment/readiness.png":::
-
-1. Select the **Recommended path** tab or **View details** in the recommended path report to get deeper insights. 
-
-    :::image type="content" source="./media/review-web-app-assessment/recommended-path-view-details.png" alt-text="Screenshot displays recommended path or view details for the assessment." lightbox="./media/review-web-app-assessment/recommended-path-view-details.png":::
-
+ 
 1. This screen displays the distribution of the web apps across the Azure targets. It also provides other details such as the number of target instances (App Service instance, AKS clusters), migration strategy, and readiness distribution. Select a line item to drill down further. 
 
-    :::image type="content" source="./media/review-web-app-assessment/app-service-container.png" alt-text="Screenshot displays app service container details for the web apps." lightbox="./media/review-web-app-assessment/app-service-container.png":::
+    :::image type="content" source="./media/review-web-app-assessment/recommended-path-view-details.png" alt-text="Screenshot displays recommended path or view details for the assessment." lightbox="./media/review-web-app-assessment/recommended-path-view-details.png":::
 
 1. **App Service Container**: The target drill down shows granular details for the web apps recommended to this target. 
 
@@ -82,11 +80,10 @@ To view an assessment, follow these steps:
     
     :::image type="content" source="./media/review-web-app-assessment/default-web-site.png" alt-text="Screenshot displays the readiness for each deployment targets." lightbox="./media/review-web-app-assessment/default-web-site.png":::
 
-**Azure Kubernetes Service**: The target drill down shows granular details for the web apps recommended to this target.
+1. **Azure Kubernetes Service**: The target drill down shows granular details for the web apps recommended to this target.
     1. Top level insights include the cost distribution by Node SKUs and top migration issues or warnings. 
     1. The report also shows how the web apps are packed into AKS node pools, the system pool, and the number of nodes per pool.  
     1. Selecting the cluster brings up the cluster details, right sized based on the assessed web apps. 
-1. Select a web app from the target drill downs opens the web app drill-down. On the **Summary** tab, you can see discovered metadata such as protocols, connection strings, application directories, and tags assigned to this workload.
 
 1. Go back to the **Overview** page. Select the **Export** option to download an excel containing the assessment details.
 
