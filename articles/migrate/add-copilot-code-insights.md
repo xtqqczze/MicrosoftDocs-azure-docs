@@ -41,7 +41,7 @@ With this approach, you must generate the code scan report manually and upload i
 To generate report, complete the following steps:
 
 >[!Note]
->  To upload an assessment report as a ZIP file, use reports from AppCAT CLI. Support for GitHub Copilot App Mod reports will be added soon. 
+>  To upload an assessment report as a ZIP file, use reports from GitHub Copilot App Modernization or AppCAT CLI.
 
 1. Install AppCAT:
 
