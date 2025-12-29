@@ -1,5 +1,5 @@
 ---
-title: Azure role-based access control
+title: Plan Azure role-based access control
 titleSuffix: Microsoft Dev Box
 description: Learn how Microsoft Dev Box provides protection with Azure role-based access control (Azure RBAC) integration.
 #customer intent: As a platform engineer, I want to understand how to assign Azure RBAC roles in Microsoft Dev Box so that I can manage permissions effectively across resources.
@@ -10,17 +10,22 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.reviewer: rosemalcolm
 ms.topic: concept-article
-ms.date: 07/31/2024
-#Customer intent: As a platform engineer, I want to understand how to assign permissions in Dev Box so that I can give dev managers and developers only the permissions they need.
+ms.date: 12/29/2025
 ---
 # Azure role-based access control in Microsoft Dev Box
 
-This article describes the different built-in roles that Microsoft Dev
-Box supports, and how they map to organizational roles like platform
-engineer and dev manager.
+This article is intended for platform engineers, central IT
+administrators, and other higher-level admins who plan and manage
+Microsoft Dev Box deployments. It describes the different built-in
+roles that Microsoft Dev Box supports, and how they map to
+organizational roles like platform engineer and dev manager so you can
+plan the right permissions model before you roll out Dev Box.
 
 Azure role-based access control (RBAC) specifies built-in role
-definitions that outline the permissions to be applied. You assign a
+definitions that outline the permissions to be applied. Instead of
+granting granular permissions directly to individual users or groups,
+you assign roles that bundle related permissions together so you can
+apply and audit access consistently across resources. You assign a
 user or group this role definition via a role assignment for a
 particular scope. The scope can be an individual resource, a resource
 group, or across the subscription. In the next section, you learn which
@@ -64,7 +69,7 @@ subscription, resource group, and resource. Scopes are structured in a
 parent-child relationship. Each level of hierarchy makes the scope more
 specific. You can assign roles at any of these levels of scope. The
 level you select determines how widely the role is applied. Lower levels
-inherit role permissions from higher levels. Learn more about [scope for Azure RBAC](https://microsoft-my.sharepoint.com/azure/role-based-access-control/scope-overview).
+inherit role permissions from higher levels. Learn more about [scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
 
 For Microsoft Dev Box, consider the following scopes:
 
@@ -211,7 +216,7 @@ integration (Azure RBAC) using access control (IAM) in the Azure portal:
 
 :::image type="content" source="media/concept-dev-box-role-based-access-control/access-control-page.png" alt-text="Screenshot that shows the Access control (IAM) page for a dev center.":::
 
-For detailed steps, see [Assign Azure roles using the Azure portal](https://microsoft-my.sharepoint.com/azure/role-based-access-control/role-assignments-portal).
+For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Dev center, resource group, and project structure
 
@@ -274,5 +279,5 @@ needs of each development team.
 
 ## Related content
 
--   [What is Azure role-based access control (Azure RBAC)](https://microsoft-my.sharepoint.com/azure/role-based-access-control/overview)
--   [Understand scope for Azure RBAC](https://microsoft-my.sharepoint.com/azure/role-based-access-control/scope-overview)
+-   [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)
+-   [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview)
