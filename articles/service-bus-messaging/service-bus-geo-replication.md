@@ -190,7 +190,7 @@ To switch between replication modes, or update the maximum replication lag, clic
 
 ### Delete secondary region
 
-To remove a secondary region, click on the **...**-ellipsis next to the region, and click **Delete**. To delete the region, follow the instructions in the pop-up blade. While the deletion is in progress, the region shows the **Deleting** state.
+To remove a secondary region, click on **Delete** button, and follow the instructions in the pop-up blade. While the deletion is in progress, the region shows the **Deleting** state.
 :::image type="content" source="./media/service-bus-geo-replication/delete-secondary-region-from-geo-replication.png" alt-text="Screenshot showing how to delete a secondary region.":::
 
 ### Promotion flow
