@@ -1,6 +1,6 @@
 ---
-title: Azure Traffic Manager Overview
-description: "Learn about Azure Traffic Manager: a DNS-based traffic load balancer that distributes traffic across global Azure regions with high availability and automatic failover."
+title: Azure Traffic Manager overview
+description: "Azure Traffic Manager is a DNS-based traffic load balancer that distributes traffic across global Azure regions with high availability and automatic failover."
 services: traffic-manager
 author: asudbring
 ms.service: azure-traffic-manager
@@ -12,9 +12,9 @@ ms.custom: template-overview
 # Customer intent: As an IT admin, I want to understand Azure Traffic Manager's features and capabilities, so that I can determine if it is the right solution for load-balancing traffic across my application's endpoints.
 ---
 
-# What is Traffic Manager?
+# What is Azure Traffic Manager?
 
-Azure Traffic Manager is a DNS-based traffic load balancer. By using this service, you can distribute traffic to your public-facing applications across the global Azure regions. Traffic Manager also provides your public endpoints with high availability and quick responsiveness.
+Azure Traffic Manager is a DNS-based traffic load balancer that distributes traffic to your public-facing applications across global Azure regions. Traffic Manager provides your public endpoints with high availability and quick responsiveness.
 
 Traffic Manager uses DNS to direct client requests to the appropriate service endpoint based on a traffic-routing method. Traffic Manager also provides health monitoring for every endpoint. The endpoint can be any Internet-facing service hosted inside or outside of Azure. Traffic Manager provides a range of [traffic-routing methods](traffic-manager-routing-methods.md) and [endpoint monitoring options](traffic-manager-monitoring.md) to suit different application needs and automatic failover models. Traffic Manager is resilient to failure, including the failure of an entire Azure region.
 
@@ -33,27 +33,27 @@ For more information about Traffic Manager, see:
 - [Traffic Manager profiles](traffic-manager-manage-profiles.md)
 - [Traffic Manager endpoints](traffic-manager-endpoint-types.md)
 
-**Traffic Manager offers the following features**:
+## Key features
 
 ## Increase application availability
 
-Traffic Manager delivers high availability for your critical applications by monitoring your endpoints and providing automatic failover when an endpoint goes down.
+Traffic Manager monitors your endpoints and provides automatic failover when an endpoint goes down, delivering high availability for your critical applications.
     
 ## Improve application performance
 
-Azure allows you to run cloud services and websites in datacenters located around the world. Traffic Manager can improve the responsiveness of your website by directing traffic to the endpoint with the lowest latency.
+Traffic Manager improves your application's responsiveness by directing traffic to the endpoint with the lowest latency for each user.
 
 ## Service maintenance without downtime
 
-You can have planned maintenance done on your applications without downtime. Traffic Manager can direct traffic to alternative endpoints while the maintenance is in progress.
+Perform planned maintenance on your applications without downtime. Traffic Manager directs traffic to alternative endpoints while maintenance is in progress.
 
 ## Combine hybrid applications
 
-Traffic Manager supports external, non-Azure endpoints enabling it to be used with hybrid cloud and on-premises deployments, including the "[burst-to-cloud](/azure/overview/what-is-cloud-bursting)," "migrate-to-cloud," and "failover-to-cloud" scenarios.
+Traffic Manager supports external, non-Azure endpoints, enabling hybrid cloud and on-premises deployments including [burst-to-cloud](/azure/overview/what-is-cloud-bursting), migrate-to-cloud, and failover-to-cloud scenarios.
 
 ## Distribute traffic for complex deployments
 
-When you use [nested Traffic Manager profiles](traffic-manager-nested-profiles.md), multiple traffic-routing methods can be combined to create sophisticated and flexible rules to scale to the needs of larger, more complex deployments.
+Combine multiple traffic-routing methods with [nested Traffic Manager profiles](traffic-manager-nested-profiles.md) to create sophisticated and flexible rules that scale to larger, more complex deployments.
 
 ## Pricing
 
