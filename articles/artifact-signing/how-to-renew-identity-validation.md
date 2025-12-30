@@ -10,11 +10,11 @@ ms.custom: sfi-image-nochange
 ---
 
 # Renew or delete Artifact Signing Identity Validations
-You can renew or delete your Artifact Signing Identity Validations with a Artifact Signing Identity Verifier role.
+You can renew or delete your Artifact Signing Identity Validations with an Artifact Signing Identity Verifier role.
 
 ## Renew Identity Validation
 
-You can check the expiration date of your Identity Validation on the Identity Validation page under an Artifact Signing account. You can renew your Artifact Signing Identity Validation **60 days** before the expiration. A notification emaail is sent to the primary and secondary email addresses with the reminder to renew your Identity Validation.
+You can check the expiration date of your Identity Validation on the Identity Validation page under an Artifact Signing account. You can renew your Artifact Signing Identity Validation **60 days** before the expiration. A notification email is sent to the primary and secondary email addresses with the reminder to renew your Identity Validation.
 **Identity Validation can only be completed in the Azure portal – it can not be completed with Azure CLI.**
 
 >[!Note]
@@ -27,7 +27,7 @@ You can check the expiration date of your Identity Validation on the Identity Va
 1. From either the Artifact Signing account overview page or from Objects, select **Identity Validation**.
 1. Select the Identity Validation request that needs to be renewed. Select **Renew** on the top. 
 
-:::image type="content" source="media/artifact-signing-renew-identity-validation.png" alt-text="Screenshot of artifact signing renew identity-validation button.png." lightbox="media/artifact-signing-renew-identity-validation.png":::
+    :::image type="content" source="media/artifact-signing-renew-identity-validation.png" alt-text="Screenshot of artifact signing renew identity-validation button.png." lightbox="media/artifact-signing-renew-identity-validation.png":::
 
 1. If you encounter validation errors while renewing through the renew button or if Identity Validation is Expired, you need to create a new Identity Validation. 
     - To learn more about creating new Identity Validation, see [Quickstart](quickstart.md). 
@@ -52,7 +52,7 @@ You can delete an Identity Validation that is not in "In Progress" state from th
 1. From either the Artifact Signing account overview page or from Objects, select **Identity Validation**.
 1. Select the Identity Validation request that needs to be deleted. Select **Delete** on the top. 
 
-:::image type="content" source="media/artifact-signing-delete-identity-validation.png" alt-text="Screenshot of artifact signing delete identity-validation button.png." lightbox="media/artifact-signing-delete-identity-validation.png":::
+    :::image type="content" source="media/artifact-signing-delete-identity-validation.png" alt-text="Screenshot of artifact signing delete identity-validation button.png." lightbox="media/artifact-signing-delete-identity-validation.png":::
 
 1. A blade opens on the right hand side and lists the number of associated accounts and shows the certificate profiles linked to this Identity Validation. 
     - Ensure you have read permissions at the subscription level or on all artifact signing accounts to verify the usage of the current identity validation request across all certificate profiles. 
