@@ -108,7 +108,7 @@ When you assign a region or a set of regions to an endpoint, Traffic Manager rou
 Traffic Manager reads the source IP address of the DNS query and decides which geographic region it originates from. It then looks to see if an endpoint has this geographic region mapped to it. This lookup starts at the lowest granularity level (State/Province where supported, then Country/Region level) and goes up to the highest level, which is **World**. Traffic Manager chooses the first match found using this traversal as the endpoint to return in the query response. When a query matches a Nested type endpoint, Traffic Manager returns an endpoint within that child profile, based on its routing method. The following points apply to this behavior:
 
 * A geographic region can be mapped only to one endpoint in a Traffic Manager profile when the routing type is Geographic Routing. This restriction ensures that routing of users is deterministic, and customers can enable scenarios that require unambiguous geographic boundaries.
-* If a user's region is listed under two different endpoints' geographic mapping, Traffic Manager selects the endpoint with the lowest granularity and doesn't consider routing requests from that region to the other endpoint. For example, consider a Geographic Routing type profile with two endpoints: Endpoint1 and Endpoint2. Endpoint1 is configured to receive traffic from Ireland and Endpoint2 is configured to receive traffic from Europe. If a request originates from Ireland, it's always routed to Endpoint1.
+* If a user's region is listed under two different endpoints' geographic mapping, Traffic Manager selects the endpoint with the lowest granularity and doesn't consider routing requests from that region to the other endpoint. For example, consider a Geographic Routing type profile with two endpoints: Endpoint1 and Endpoint2. Endpoint1 is configured to receive traffic from Ireland and Endpoint2 is configured to receive traffic from Europe. If a request originates from Ireland, the request is always routed to Endpoint1.
 * Since a region can be mapped only to one endpoint, Traffic Manager returns a response whether the endpoint is healthy or not.
 
     > [!IMPORTANT]
@@ -126,13 +126,13 @@ As explained in [How Traffic Manager Works](traffic-manager-how-it-works.md), Tr
 
 * [How do I decide if I should use Performance routing method or Geographic routing method?](./traffic-manager-faqs.md#how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method)
 
-* [What are the regions that are supported by Traffic Manager for geographic routing?](./traffic-manager-faqs.md#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
+* [What are the regions supported by Traffic Manager for geographic routing?](./traffic-manager-faqs.md#what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing)
 
 * [How does traffic manager determine where a user is querying from?](./traffic-manager-faqs.md#how-does-traffic-manager-determine-where-a-user-is-querying-from)
 
 * [Is it guaranteed that Traffic Manager can correctly determine the exact geographic location of the user in every case?](./traffic-manager-faqs.md#is-it-guaranteed-that-traffic-manager-can-correctly-determine-the-exact-geographic-location-of-the-user-in-every-case)
 
-* [Does an endpoint need to be physically located in the same region as the one it's configured with for geographic routing?](./traffic-manager-faqs.md#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-its-configured-with-for-geographic-routing)
+* [Does an endpoint need to be physically located in the same region as the one configured with for geographic routing?](./traffic-manager-faqs.md#does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-its-configured-with-for-geographic-routing)
 
 * [Can I assign geographic regions to endpoints in a profile that isn't configured to do geographic routing?](./traffic-manager-faqs.md#can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-isnt-configured-to-do-geographic-routing)
 
@@ -152,7 +152,7 @@ The **Multivalue** traffic-routing method allows you to get multiple healthy end
 
 * [How many endpoints are returned when MultiValue routing is used?](./traffic-manager-faqs.md#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
 
-* [Will I get the same set of endpoints when MultiValue routing is used?](./traffic-manager-faqs.md#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
+* [Do I get the same set of endpoints when MultiValue routing is used?](./traffic-manager-faqs.md#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
 
 ## <a name = "subnet"></a>Subnet traffic-routing method
 
