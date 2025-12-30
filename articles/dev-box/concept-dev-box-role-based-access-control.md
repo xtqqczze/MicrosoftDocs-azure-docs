@@ -94,7 +94,7 @@ The following table shows common Dev Box activities and the role needed for a us
 | Grant permission to create a network connection.                                                                      | Platform engineer| Owner or Contributor                      | Resource group |
 | Grant permission to assign roles to other users.                                                                      | Platform engineer| Owner                                     | Resource group |
 | Grant permission to: </br> - Create / manage dev centers. </br> - Add / remove network connections. </br> - Add / remove Azure compute galleries. </br> - Create / manage dev box definitions. </br> - Create / manage projects. </br> - Attach / manage catalog to a dev center or project (project-level catalogs must be enabled on the dev center). </br> - Configure dev box limits. | Platform engineer| Contributor                               | Resource group |
-| Grant permission to manage Dev Box resources (dev centers, projects, dev box definitions, and dev box pools) without granting access to other resource types in the resource group. | Platform engineer| DevCenter Owner                           | Dev center     |
+| Grant permission to create andmanage Dev Box resources without granting access to other resource types in the resource group. </br> - Dev centers </br> - Projects </br> - Dev box definitions </br> - Dev box pools | Platform engineer| DevCenter Owner                           | Resource group     |
 | Grant permission to add or remove a network connection for a dev center.                                              | Platform engineer| Contributor or DevCenter Owner            | Dev center     |
 | Grant permission to enable / disable project catalogs.                                                                | Dev Manager      | Contributor                               | Dev center     |
 | Grant permission to: </br> - Add, sync, remove catalog (project-level catalogs must be enabled on the dev center). </br> - Create dev box pools. </br> - Stop, start, delete dev boxes in pools. | Dev Manager      | DevCenter Project Admin                   | Project        |
@@ -130,13 +130,10 @@ activities across all resources within the resource group:
 
 -   Assign roles to platform engineers, so they can manage Dev Box
     resources.
-
 -   Create dev centers, network connections, dev box definitions, dev
     box pools, and projects.
-
 -   View, delete, and change settings for all dev centers, network
     connections, dev box definitions, dev box pools, and projects.
-
 -   Attach and detach catalogs.
 
 > [!Caution]
@@ -152,18 +149,28 @@ role has the same permissions as the Owner role, *except* for:
 
 ### DevCenter Owner role
 
-Assign the DevCenter Owner role to give a user full control over
-Microsoft.DevCenter resources without granting broader access to other
-resources in the resource group. When a user has the DevCenter Owner
-role on a dev center, they can:
+You can assign the DevCenter Owner role at either the resource group scope or the dev center scope.
+
+#### DevCenter Owner role at the resource group scope
+Assign the DevCenter Owner role to a resource group give a user full control over Microsoft.DevCenter resources without granting broader access to other resources in the resource group. 
+
+When a user has the DevCenter Owner role on a resource group, they can:
+
+- Create, update, and delete dev centers in that resource group.  
+- Create, update, and delete projects in that resource group.
+- Create, update, and delete dev box pools and dev box definitions in that resource group.
+- Manage catalogs, network connections, and compute galleries attached to dev centers in the resource group.
+- Delegate project administration by assigning DevCenter Project Admin and DevCenter Dev Box User roles at the project level.
+
+#### DevCenter Owner role at the dev center scope
+Assign the DevCenter Owner role to a dev center to give a user full control over Microsoft.DevCenter resources without granting broader access to other dev centers and their resources. Users with this role assigned to a dev center cannot create new dev centers.
+
+When a user has the DevCenter Owner role on a dev center, they can:
 
 -   Create, update, and delete projects in that dev center.
--   Create, update, and delete dev box pools and dev box definitions in
-    that dev center.
--   Manage catalogs, network connections, and compute galleries
-    attached to that dev center.
--   Delegate project administration by assigning DevCenter Project
-    Admin and DevCenter Dev Box User roles at the project level.
+-   Create, update, and delete dev box pools and dev box definitions in that dev center.
+-   Manage catalogs, network connections, and compute galleries attached to that dev center.
+-   Delegate project administration by assigning DevCenter Project Admin and DevCenter Dev Box User roles at the project level.
 
 ## Dev Manager role
 
