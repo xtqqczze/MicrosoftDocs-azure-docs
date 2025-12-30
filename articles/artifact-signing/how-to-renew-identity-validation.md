@@ -1,6 +1,6 @@
 ---
 title: Renew or delete Artifact Signing Identity Validation
-description: How-to renew and delete a Artifact Signing Identity Validation. 
+description: How-to renew and delete an Artifact Signing Identity Validation. 
 author: TacoTechSharma
 ms.author: mesharm 
 ms.service: trusted-signing 
