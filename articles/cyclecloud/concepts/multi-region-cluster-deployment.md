@@ -5,7 +5,6 @@ author: jemorey
 ms.author: padmalathas
 ms.reviewer: xpillons
 ms.date: 12/29/2025
-ms.topic: concept
 ---
 
 # Deploy a multi‑region HPC cluster
