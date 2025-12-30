@@ -9,7 +9,7 @@ ms.date: 12/29/2025
 
 # Deploy a multi‑region HPC cluster
 
-High-performance computing (HPC) clusters are typically deployed within a single Azure region to minimize network latency and keep compute resources co-located with data. However, there are scenarios where deploying a multi-region HPC cluster becomes necessary or advantageous—whether for increased capacity, access to specialized hardware, data locality requirements, or disaster recovery (DR) planning.
+High-performance computing (HPC) clusters are typically deployed within a single Azure region to minimize network latency and keep compute resources co-located with data. However, there are scenarios where deploying a multi-region HPC cluster becomes necessary or advantageous - whether for increased capacity, access to specialized hardware, data locality requirements, or disaster recovery (DR) planning.
 
 This guide provides end-to-end guidance for HPC users to understand, plan, deploy, and operate multi-region HPC clusters on Azure, with a focus on Azure CycleCloud as the orchestration platform.
 
@@ -18,18 +18,18 @@ This guide provides end-to-end guidance for HPC users to understand, plan, deplo
 
 ## Why consider a multi‑region HPC cluster?
 
-Multi-region HPC designs allow your workloads to span or switch between Azure regions, improving availability, resiliency, or scalability beyond what a single region can offer. The following table summarizes which approach may suit different requirements.
+Multi-region HPC designs allow your workloads to span or switch between Azure regions, improving availability, resiliency, or scalability beyond what a single region can offer. The following table summarizes which approach might suit different requirements.
 
 | Use Case | Description |
 |----------|-------------|
-| **Capacity and Scale** | A single region may lack sufficient cores or specific VM sizes during peak demand. Splitting loosely coupled workloads across regions provides access to more total cores or alternative VM SKUs. |
+| **Capacity and Scale** | A single region might lack sufficient cores or specific VM sizes during peak demand. Splitting loosely coupled workloads across regions provides access to more total cores or alternative VM SKUs. |
 | **Specialized Hardware Availability** | Not all Azure regions offer the same HPC VM types (for example, NDv4 GPUs, HB-series InfiniBand VMs). A secondary region can provide specialized compute resources unavailable in your primary region. |
-| **Data Localization/Proximity** | Large datasets may be tied to specific regions (for example, Azure Open Datasets in West US 2). Deploying compute in that region reduces data movement costs and latency. |
+| **Data Localization/Proximity** | Large datasets might be tied to specific regions (for example, Azure Open Datasets in West US 2). Deploying compute in that region reduces data movement costs and latency. |
 | **Disaster Recovery (DR)** | For mission-critical workloads, multi-region deployment provides higher availability and a DR path in case of regional outages. |
 
 ### When to waive a multi-region
 
-Highly tightly coupled parallel jobs (for example, MPI applications with frequent inter-node communication) may suffer significant performance degradation if spread across distant regions due to added network latency. Consider multi-region only when your workloads can tolerate increased latency and management overhead.
+Highly tightly coupled parallel jobs (for example, MPI applications with frequent inter-node communication) might suffer significant performance degradation if spread across distant regions due to added network latency. Consider multi-region only when your workloads can tolerate increased latency and management overhead.
 
 ---
 
@@ -57,7 +57,7 @@ In this option, an HPC cluster runs in a primary region with a standby environme
 
 - **Pros:** Lower cost, focuses on business continuity at a reduced overhead.
 - **Cons:** Ongoing data replication, regular DR drills and non‑zero failover time.
-- **Best for:** Mission‑critical workloads with defined recovery time objectives (RTO).
+- **Best for:** Mission‑critical workloads with defined recovery time objective (RTO).
 
 ### Option 3: Single HPC control plane across regions
 
@@ -146,7 +146,7 @@ az network private-dns link vnet create -g rg-hpc-regionA \
   -n regionB-link -z hpc.internal -v vnet-hpc-regionB -e true
 ```
 > [!NOTE]
-> In certain configurations, including Open OnDemand deployments, node‑level DNS resolution may require updating resolv.conf to query the private DNS zone resolver before the Azure resolver to support short‑name resolution. Currently, it's unclear about persistent solution.
+> In certain configurations, including Open OnDemand deployments, node‑level DNS resolution might require updating resolv.conf to query the private DNS zone resolver before the Azure resolver to support short‑name resolution. Currently, it's unclear about persistent solution.
 
 #### Step 5: Customize the CycleCloud cluster template for multi-region
 
@@ -217,9 +217,8 @@ mpirun -n $NPROCS --report-bindings echo "hello world!"
 mv slurm-${SLURM_JOB_ID}.out $HOME
 ```
 
-> [!NOTE]
+> [!TIP]
 > Set an explicit working directory local to region B (`--chdir /tmp`) since the home directory is typically in region A.
-
 
 ---
 
@@ -253,14 +252,14 @@ mv slurm-${SLURM_JOB_ID}.out $HOME
 | Configuration | Description | Recovery Speed |
 |---------------|-------------|----------------|
 | **Active/Active** | Continuous availability, duplicate all systems | Immediate |
-| **Active/Passive (Warm Standby)** | Small head node running, compute spun up on failover | Minutes to Hours |
-| **Passive/Cold** | Manual deployment from backups | Hours to Days |
+| **Active/Passive (Warm Standby)** | Small head node running, compute spun up on failover | Minutes to hours |
+| **Passive/Cold** | Manual deployment from backups | Hours to days |
 
 ### Data protection requirements
 
 - Replicate critical data (input datasets, home directories, checkpoints, results)
 - Use geo-redundant storage or custom replication with versioning
-- Match replication frequency to RPO (for example, 4-hour RPO = replicate at least every 4 hours)
+- Match replication frequency to recovery point objective (RPO) (for example, 4-hour RPO = replicate at least every 4 hours)
 
 ---
 
@@ -304,7 +303,7 @@ mv slurm-${SLURM_JOB_ID}.out $HOME
 
 | Caveat | Impact | Mitigation |
 |--------|--------|------------|
-| **No automatic job completion SLA** | Jobs may fail without automatic recovery | Implement checkpointing and retry logic |
+| **No automatic job completion SLA** | Jobs might fail without automatic recovery | Implement checkpointing and retry logic |
 | **Double management overhead** | Active/active requires managing two clusters | Use automation and infrastructure-as-code |
 | **CycleCloud UI limitations** | UI restricts single-region configuration | Use CLI with custom templates and parameters files |
 | **Name resolution complexity** | Nodes must resolve across regions | Configure private DNS zones linked to both VNets |
@@ -322,7 +321,7 @@ mv slurm-${SLURM_JOB_ID}.out $HOME
 | Caveat | Impact | Mitigation |
 |--------|--------|------------|
 | **Credential scope** | Cross-region credentials increase blast radius | Use region-specific managed identities |
-| **Data residency** | Replicating data may violate compliance | Verify regulatory requirements before replication |
+| **Data residency** | Replicating data might violate compliance | Verify regulatory requirements before replication |
 | **Network exposure** | VNet peering opens cross-region paths | Apply strict NSG rules |
 
 ---
@@ -345,7 +344,7 @@ mv slurm-${SLURM_JOB_ID}.out $HOME
     - **RPO**: Few hours (or checkpoint interval length)
     - **RTO**: 4-24 hours
 
-    For time-sensitive workloads (e.g., weather forecasting with strict deadlines), near-zero RTO may require active/active setup.
+    For time-sensitive workloads (for example, weather forecasting with strict deadlines), near-zero RTO might require active/active setup.
 
 4. Are there SLA guarantees for multi-region HPC job completion?
 
