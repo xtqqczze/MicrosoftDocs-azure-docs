@@ -62,7 +62,7 @@ To view an assessment, follow these steps:
  
 1. This screen displays the distribution of the web apps across the Azure targets. It also provides other details such as the number of target instances (App Service instance, AKS clusters), migration strategy, and readiness distribution. Select a line item to drill down further. 
 
-    :::image type="content" source="./media/review-web-app-assessment/recommended-path-view-details.png" alt-text="Screenshot displays recommended path or view details for the assessment." lightbox="./media/review-web-app-assessment/recommended-path-view-details.png":::
+    :::image type="content" source="./media/review-web-app-assessment/app-service-container.png" alt-text="Screenshot displays web app to app service code." lightbox="./media/review-web-app-assessment/app-service-container.png":::
 
 1. **App Service Container**: The target drill down shows granular details for the web apps recommended to this target. 
 
