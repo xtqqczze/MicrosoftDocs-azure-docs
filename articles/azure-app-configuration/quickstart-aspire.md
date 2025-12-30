@@ -30,7 +30,7 @@ The Aspire Starter template includes a frontend web app that communicates with a
 
 1. Run the `AppHost` project. You see the Aspire dashboard in your browser.
 
-    :::image type="content" source="media/aspire/dashboard.png" alt-text="Screenshot of the Aspire dashboard with web frontend and api service resources.":::
+    :::image type="content" source="media/aspire/dashboard.png" alt-text="Screenshot of the Aspire dashboard with web frontend and API service resources.":::
 
 1. Click the URL of the web frontend. You see a page with a welcome message.
 
@@ -112,7 +112,7 @@ Add the following key-value to your App Configuration store and leave **Label** 
     dotnet add package Aspire.Hosting.Azure.AppConfiguration
     ```
 
-1. Open the *AppHost.csproj*. Make sure that the `Aspire.Hosting.AppHost` package version is not ealier than the version you installed. Otherwise, you need to upgrade the `Aspire.Hosting.AppHost` package.
+1. Open the *AppHost.csproj*. Make sure that the `Aspire.Hosting.AppHost` package version is not earlier than the version you installed. Otherwise, you need to upgrade the `Aspire.Hosting.AppHost` package.
 
 1. Open the *AppHost.cs* file and add the following code.
 

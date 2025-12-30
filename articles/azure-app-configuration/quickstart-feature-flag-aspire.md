@@ -14,7 +14,7 @@ ms.author: zhiyuanliang
 #Customer intent: As an Aspire developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 
-# Quickstart: Add feature flags to a Aspire app
+# Quickstart: Add feature flags to an Aspire app
 
 In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control the availability of a new web page in an Aspire app without restarting or redeploying it.
 
@@ -24,7 +24,7 @@ The feature management support extends the dynamic configuration feature in App 
 
 Follow the documents to create an Aspire solution with dynamic configuration.
 
-- [Quickstart: Create an Aspire sollution with App Configuration](./quickstart-aspire.md)
+- [Quickstart: Create an Aspire solution with App Configuration](./quickstart-aspire.md)
 - [Tutorial: Use dynamic configuration in an Aspire app](./enable-dynamic-configuration-aspire.md)
 
 ## Create a feature flag
@@ -225,7 +225,7 @@ Add the following key-value through the App Configuration emulator UI.
 
 1. Refresh the page a few times. When the refresh interval time window passes, the page will show with updated content.
 
-    :::image type="content" source="media/aspire/feature-flag-disabled.png" alt-text="Screenshot of a web app with Beta button on the side bar.":::
+    :::image type="content" source="media/aspire/feature-flag-enabled.png" alt-text="Screenshot of a web app with Beta button on the side bar.":::
 
 1. Click the **Beta** button. It will bring you to the beta page that you enabled dynamically.
 
