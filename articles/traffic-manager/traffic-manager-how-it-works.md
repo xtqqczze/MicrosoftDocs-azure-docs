@@ -39,7 +39,7 @@ To achieve this configuration, they complete the following steps:
 > [!IMPORTANT]
 > Only one Azure [tenant ID] can own a given root traffic manager DNS name. Attempting to use a name that is already in use displays an error. In the following example, the root DNS name is **contoso**. Also, if a profile is created using a dot-separated name, such as **partners.contoso.trafficmanager.net**, then **contoso.trafficmanager.net** is automatically reserved.
 
-:::image type="content" source="./media/traffic-manager-how-traffic-manager-works/traffic-manager-dns-configuration.png" alt-text="Screenshot of Traffic Manager DNS configuration showing CNAME record mapping from partners.contoso.com to contoso.trafficmanager.net.":::
+:::image type="content" source="./media/traffic-manager-how-traffic-manager-works/dns-configuration.png" alt-text="Screenshot of Traffic Manager DNS configuration showing CNAME record mapping from partners.contoso.com to contoso.trafficmanager.net.":::
 
 > [!NOTE]
 > When using a vanity domain with Azure Traffic Manager, you must use a CNAME to point your vanity domain name to your Traffic Manager domain name. DNS standards don't allow you to create a CNAME at the 'apex' (or root) of a domain. Thus you can't create a CNAME for 'contoso.com' (sometimes called a 'naked' domain). You can only create a CNAME for a domain under 'contoso.com', such as 'www.contoso.com'. To work around this limitation, we recommend hosting your DNS domain on [Azure DNS](/azure/dns/dns-overview) and using [Alias records](/azure/dns/tutorial-alias-tm) to point to your traffic manager profile. Alternatively you can use a simple HTTP redirect to direct requests for 'contoso.com' to an alternative name such as 'www.contoso.com'.
@@ -48,7 +48,7 @@ To achieve this configuration, they complete the following steps:
 
 From the previous example, when a client requests the page `https://partners.contoso.com/login.aspx`, the client performs the following steps to resolve the DNS name and establish a connection:
 
-:::image type="content" source="./media/traffic-manager-how-traffic-manager-works/traffic-manager-connection-flow.png" alt-text="Screenshot of client connection flow through Traffic Manager showing DNS resolution steps from client to recursive DNS to Traffic Manager name servers to endpoint.":::
+:::image type="content" source="./media/traffic-manager-how-traffic-manager-works/flow.png" alt-text="Screenshot of client connection flow through Traffic Manager showing DNS resolution steps from client to recursive DNS to Traffic Manager name servers to endpoint.":::
 
 1. The client sends a DNS query to its configured recursive DNS service to resolve the name 'partners.contoso.com'. A recursive DNS service, sometimes called a 'local DNS' service, doesn't host DNS domains directly. Rather, the client off-loads the work of contacting the various authoritative DNS services across the Internet needed to resolve a DNS name.
 1. To resolve the DNS name, the recursive DNS service finds the name servers for the 'contoso.com' domain. It then contacts those name servers to request the 'partners.contoso.com' DNS record. The contoso.com DNS servers return the CNAME record that points to contoso.trafficmanager.net.
