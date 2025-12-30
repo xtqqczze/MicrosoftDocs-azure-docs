@@ -6,8 +6,8 @@ services: automation
 ms.date: 12/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-uhabiba
+author: habibaum
 ms.custom: sfi-image-nochange
 ---
 

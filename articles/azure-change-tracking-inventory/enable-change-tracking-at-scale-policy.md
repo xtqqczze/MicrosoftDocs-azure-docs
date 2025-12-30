@@ -6,8 +6,8 @@ services: automation
 ms.date: 12/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
-author: jasminemehndir
-ms.author: v-jasmineme
+author: habibaum
+ms.author: v-uhabiba
 ---
 
 # Enable Azure Change Tracking and Inventory at scale for Azure VMs by using Azure Policy
@@ -22,7 +22,7 @@ Before you enable Azure CTI, ensure that you [create a data collection rule (DCR
 
 ## Enable Azure Change Tracking and Inventory at scale
 
-By using the deploy-if-not-exists (DINE) policy, you can enable change tracking with the Azure Monitor agent at scale and in the most efficient manner.
+By using the deploy-if-not-exists (DINE) policy, you can enable Change Tracking with the Azure Monitor agent at scale and in the most efficient manner.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Change Tracking and Inventory**.
 
@@ -52,7 +52,7 @@ By using the deploy-if-not-exists (DINE) policy, you can enable change tracking 
 
        :::image type="content" source="media/create-data-collection-rule/enable-for-virtual-machine-inline.png" alt-text="Screenshot that shows selecting virtual machines." lightbox="media/create-data-collection-rule/enable-for-virtual-machine-expanded.png":::
 
-1. Select **Enable ChangeTracking and Inventory for virtual machines** to enable change tracking on Azure VMs. This step includes three policies. Each policy is determined by the operating system type of the selected machine:
+1. Select **Enable ChangeTracking and Inventory for virtual machines** to enable Change Tracking on Azure VMs. This step includes three policies. Each policy is determined by the operating system type of the selected machine:
 
    - **Assign Built-In User-Assigned Managed Identity to Virtual Machines**
    - **Configure ChangeTracking extension for Windows virtual machines**
@@ -63,7 +63,7 @@ By using the deploy-if-not-exists (DINE) policy, you can enable change tracking 
 1. Select **Assign initiative** to assign the policy to a resource group. An example policy is **Assign Built-In User-Assigned Managed Identity to Virtual Machines**.
 
    > [!NOTE]
-   > The resource group contains VMs. When you assign the policy, it enables change tracking at scale to a resource group. The VMs that are onboarded to the same resource group automatically have the change tracking feature enabled.
+   > The resource group contains VMs. When you assign the policy, it enables Change Tracking at scale to a resource group. The VMs that are onboarded to the same resource group automatically have Change Tracking enabled.
 
 1. On the **Enable ChangeTracking and Inventory for virtual machines** pane, enter the following options:
 

@@ -7,8 +7,8 @@ ms.custom: linux-related-content
 ms.date: 12/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-uhabiba
+author: habibaum
 ---
 
 # Disable Azure Change Tracking and Inventory by using the Azure Monitor agent
@@ -17,9 +17,9 @@ author: jasminemehndir
 
 This article describes how to disable Azure Change Tracking and Inventory (CTI) by using the Azure Monitor agent.
 
-## Disable change tracking from a VM
+## Disable Change Tracking from a VM
 
-To disable change tracking from a virtual machine (VM) by using the Azure Monitor agent, you must first disassociate the data collection rule (DCR) and then uninstall Azure CTI.
+To disable Change Tracking from a virtual machine (VM) by using the Azure Monitor agent, you must first disassociate the data collection rule (DCR) and then uninstall Azure CTI.
 
 ### Disassociate a DCR from a VM
 

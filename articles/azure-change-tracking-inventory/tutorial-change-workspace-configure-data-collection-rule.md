@@ -6,7 +6,7 @@ ms.custom: linux-related-content
 ms.date: 11/06/2025
 ms.topic: tutorial
 ms.service: azure-change-tracking-inventory
-ms.author: v-jasmineme
+ms.author: habibaum
 author: jasminemehndir
 #Customer intent: As a customer, I want to change a workspace for my virtual machine so that I can manage data collection more effectively.
 ---
@@ -106,8 +106,8 @@ To configure file content changes, follow these steps:
 When the storage account is linked by using the system-assigned managed identity, a blob is created. For system-assigned managed identity, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), go to **Storage accounts**, and select the storage account.
-1. In the **Storage accounts** pane, under **Data storage**, select **Containers** > **Changetracking blob** > **Access Control (IAM)**.
-1. In the **Changetrackingblob | Access Control (IAM)** pane, select **Add**, and then select **Add role assignment**.
+1. In the **Storage accounts** pane, under **Data storage**, select **Containers** > **changetracking blob** > **Access Control (IAM)**.
+1. In the **changetrackingblob | Access Control (IAM)** pane, select **Add**, and then select **Add role assignment**.
 
     :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/blob-add-role-inline.png" alt-text="Screenshot that shows selecting to add a role." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/blob-add-role-expanded.png":::
 
@@ -123,8 +123,8 @@ When the storage account is linked by using the system-assigned managed identity
 
 For user-assigned managed identity, follow these steps to assign the user-assigned managed identity to the VM and provide the permission.
 
-1. In the **Storage accounts** pane, under **Data storage**, select **Containers** > **Changetracking blob** > **Access Control (IAM)**.
-1. In the **Changetrackingblob | Access Control (IAM)** pane, select **Add** > **Add role assignment**.
+1. In the **Storage accounts** pane, under **Data storage**, select **Containers** > **changetracking blob** > **Access Control (IAM)**.
+1. In the **changetrackingblob | Access Control (IAM)** pane, select **Add** > **Add role assignment**.
 1. Search for **Storage Blob Data Contributor**, select the role, and assign it to your user-assigned managed identity.
 
      :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/user-assigned-add-role-inline.png" alt-text="Screenshot that shows adding the role to user-assigned managed identity." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/user-assigned-add-role-expanded.png":::
