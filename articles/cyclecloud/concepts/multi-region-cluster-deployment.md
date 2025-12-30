@@ -38,11 +38,13 @@ Highly tightly coupled parallel jobs (for example, MPI applications with frequen
 
 There are multiple architectural approaches for designing an HPC solution across regions. The best approach depends on your goals for load distribution and disaster recovery.
 
-:::image type="content" source="../images/multi-region-hpc-architecture.png" alt-text="Screenshot of portal with required fields." lightbox="../images/multi-region-hpc-architecture.png":::
+:::image type="content" source="../images/multi-region-hpc-architecture.png" alt-text="Screenshot of multi-region HPC architecture." lightbox="../images/multi-region-hpc-architecture.png":::
 
 ### Option 1: Active/Active clusters (independent clusters per region)
 
 In this option, you can deploy two or more full HPC clusters in different regions, each actively running jobs. The work is divided between regions by project or workload type.
+
+:::image type="content" source="../images/active-active-clusters.png" alt-text="Screenshot of Active/Active cluster option." lightbox="../images/active-active-clusters.png":::
 
 - **Pros:** Maximum capacity, redundancy and high availability.
 - **Cons:** Higher cost/operations overhead, separate management and complex data sync.
@@ -52,13 +54,17 @@ In this option, you can deploy two or more full HPC clusters in different region
 
 In this option, an HPC cluster runs in a primary region with a standby environment in a secondary region for disaster recovery. The secondary region is pre-provisioned but doesn't run jobs during normal operations.
 
+:::image type="content" source="../images/active-passive-disaster-recovery.png" alt-text="Screenshot of Active/Passive cluster option." lightbox="../images/active-passive-disaster-recovery.png":::
+
 - **Pros:** Lower cost, focuses on business continuity at a reduced overhead.
 - **Cons:** Ongoing data replication, regular DR drills and non‑zero failover time.
 - **Best for:** Mission‑critical workloads with defined recovery time objectives (RTO).
 
 ### Option 3: Single HPC control plane across regions
 
-In this option, one scheduler/head node manages compute in multiple regions.
+In this option, one scheduler/head node manages compute in multiple regions. 
+
+:::image type="content" source="../images/single-control‑plane-multi-region-cluster.png" alt-text="Screenshot of single control plane across regions option." lightbox="../images/single-control‑plane-multi-region-cluster.png":::
 
 - **Pros:** Unified cluster partitions, single endpoint for users and no duplicate control systems.
 - **Cons:** Requires advanced network setup and creating new partitions in the remote regions, single head node can be a single point of failure and offers complex reliability.
@@ -79,7 +85,7 @@ In this option, one scheduler/head node manages compute in multiple regions.
 
 This section outlines the process for setting up a multi-region HPC Slurm cluster using CycleCloud. In this example, the head node runs in Region A (primary), and additional compute nodes can be provisioned in Region B (secondary).
 
-![CycleCloud Multi-Region Deployment](./cyclecloud-multi-region-deployment.png)
+:::image type="content" source="../images/cyclecloud-multi-region-deployment.png" alt-text="Screenshot of Multi region cluster deployment." lightbox="../images/cyclecloud-multi-region-deployment.png":::
 
 ### Prerequisites
 
