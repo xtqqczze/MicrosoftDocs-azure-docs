@@ -52,7 +52,7 @@ You can delete an Identity Validation that is not in "In Progress" state from th
 3. From either the Artifact Signing account overview page or from Objects, select **Identity Validation**.
 4. Select the Identity Validation request that needs to be deleted. Select **Delete** on the top. 
 
-:::image type="content" source="media/artifact-signing-delete-identity-validation.png" alt-text="Screenshot of artifact signing delete identity-validation button.png." lightbox="media/artifactsigning-delete-identity-validation.png":::
+:::image type="content" source="media/artifact-signing-delete-identity-validation.png" alt-text="Screenshot of artifact signing delete identity-validation button.png." lightbox="media/artifact-signing-delete-identity-validation.png":::
 
 5. A blade opens on the right hand side and lists the number of associated accounts and shows the certificate profiles linked to this Identity Validation. 
     - Ensure you have read permissions at the subscription level or on all artifact signing accounts to verify the usage of the current identity validation request across all certificate profiles. 
