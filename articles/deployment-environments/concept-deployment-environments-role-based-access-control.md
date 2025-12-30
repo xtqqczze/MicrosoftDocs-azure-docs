@@ -12,8 +12,7 @@ ms.date: 12/30/2025
 ---
 # Plan Azure role-based access control in Azure Deployment Environments
 
-This article is for platform engineers, central IT administrators, and other higher-level admins who plan and manage Azure Deployment Environments. It describes the different built-in roles that Azure Deployment Environments supports and how they map to
-organizational roles like platform engineer and dev manager. Use this information to plan the right permissions model before you roll out Azure Deployment Environments.
+This article is for platform engineers, central IT administrators, and other higher-level admins who plan and manage Azure Deployment Environments. It describes the different built-in roles that the service supports and how they map to organizational roles like platform engineer and dev manager. Use this information to plan the right permissions model before you roll out Azure Deployment Environments.
 
 Azure role-based access control (RBAC) provides built-in role definitions that outline the permissions to apply. Assign a user or group this role definition through a role assignment for a particular scope. The scope can be an individual resource, a resource group, or across the subscription. In the next section, you learn which built-in roles Azure Deployment Environments supports.
 
@@ -36,7 +35,7 @@ The following table lists the built-in roles supported by Azure Deployment Envir
 |---|---|---|
 | Platform engineer | Owner | Has full control to create and manage dev centers, catalogs, and projects. Can grant permissions to other users. Learn more about the [Owner role](#owner-role). |
 | Platform engineer | Contributor | Has full control to create and manage dev centers, catalogs, and projects, except for assigning roles to other users. Learn more about the [Contributor role](#contributor-role). |
-| Platform engineer | DevCenter Owner | Provides access to manage all Microsoft.DevCenter resources for a dev center (including dev centers that host Azure Deployment Environments and Dev Box projects). Manages access to those resources by adding or removing role assignments for the DevCenter Project Admin and DevCenter Dev Box roles. Learn more about the [DevCenter Owner role](../dev-box/how-to-manage-dev-center.md#assign-dev-center-permissions-to-users). |
+| Platform engineer | DevCenter Owner | Provides access to manage all Microsoft.DevCenter resources for a dev center (including dev centers that host Azure Deployment Environments and Dev Box projects). Manages access to those resources by adding or removing role assignments for the DevCenter Project Admin and DevCenter Dev Box roles. Learn more about the [DevCenter Owner role](../dev-box/concept-dev-box-role-based-access-control#devcenter-owner-role). |
 | Dev Manager | DevCenter Project Admin | Has permission to manage certain aspects of projects and environments. Learn more about the [DevCenter Project Admin role](#devcenter-project-admin-role). |
 | Developer | Deployment Environments Reader | Has permission to view all environments in a project. Learn more about the [Deployment Environments Reader role](#deployment-environments-reader). |
 | Developer | Deployment Environments User | Has permission to create environments and has full control over the environments that they create. Learn more about the [Deployment Environments User role](#deployment-environments-user). |
