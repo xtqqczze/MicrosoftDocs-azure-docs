@@ -136,9 +136,6 @@ activities across all resources within the resource group:
     connections, dev box definitions, dev box pools, and projects.
 -   Attach and detach catalogs.
 
-> [!Caution]
-> When you assign the Owner or Contributor role on the resource group, then these permissions also apply to non-Dev Box related resources that exist in the resource group.
-
 ### Contributor role
 
 Assign the Contributor role to give a user full control to create or
@@ -146,6 +143,9 @@ manage dev centers and projects within a resource group. The Contributor
 role has the same permissions as the Owner role, *except* for:
 
 -   Performing role assignments.
+
+> [!Caution]
+> When you assign the Owner or Contributor role on the resource group, then these permissions also apply to non-Dev Box related resources that exist in the resource group.
 
 ### DevCenter Owner role
 
