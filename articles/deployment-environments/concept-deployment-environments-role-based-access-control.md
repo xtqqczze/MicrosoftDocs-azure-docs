@@ -35,6 +35,7 @@ The following are the built-in roles supported by Azure Deployment Environments:
 |---|---|---|
 | Platform engineer | Owner | Grant full control to create/manage dev centers, catalogs, and projects, and grant permissions to other users. Learn more about the [Owner role](#owner-role). |
 | Platform engineer | Contributor | Grant full control to create/manage dev centers, catalogs, and projects, except for assigning roles to other users. Learn more about the [Contributor role](#contributor-role). |
+| Platform engineer | DevCenter Owner | Provides access to manage all Microsoft.DevCenter resources for a dev center (including dev centers that host Azure Deployment Environments and Dev Box projects), and to manage access to those resources by adding or removing role assignments for the DevCenter Project Admin and DevCenter Dev Box roles. Learn more about the [DevCenter Owner role](../dev-box/how-to-manage-dev-center.md#assign-dev-center-permissions-to-users). |
 | Dev Manager | DevCenter Project Admin | Grant permission to manage certain aspects of projects and environments. Learn more about the [DevCenter Project Admin role](#devcenter-project-admin-role). |
 | Developer | Deployment Environments Reader | Grant permission to view all environments in a project. Learn more about the [Deployment Environments Reader role](#deployment-environments-reader). |
 | Developer | Deployment Environments User | Grant permission to create environments and have full control over the environments that they create. Learn more about the [Deployment Environments User role](#deployment-environments-user). |
@@ -68,6 +69,7 @@ The following table shows common Deployment Environments activities and the role
 | Grant permission to create environment types in a project. | Platform engineer | [Custom role](/azure/role-based-access-control/custom-roles-portal): Microsoft.Authorization/roleAssignments/write </br></br> Owner, Contributor, or Project Admin | Subscription </br></br></br> Project|
 | Grant permission to assign roles to other users. | Platform engineer | Owner | Resource group |
 | Grant permission to: </br>- Create / manage dev centers and projects.</br>- Attach / detach catalog to a dev center or project.| Platform engineer | Owner, Contributor | Resource group |
+| Grant permission to manage a specific dev center and its Microsoft.DevCenter resources, including assigning DevCenter Project Admin and DevCenter Dev Box roles. | Platform engineer | DevCenter Owner | Dev center |
 | Grant permission to enable / disable project catalogs. | Dev Manager | Owner, Contributor | Dev center |
 | Grant permission to create and manage all environments in a project. </br>- Add, sync, remove catalog (project-level catalogs must be enabled on the dev center).</br>- Configure expiry date and time to trigger automatic deletion.</br>- Update & delete environment types.</br>- Delete environments.| Dev Manager | DevCenter Project Admin | Project |
 | View all environments in a project. | Dev Manager | Deployment Environments Reader | Project |
@@ -79,7 +81,7 @@ The following table shows common Deployment Environments activities and the role
 
 ## Platform engineer roles
 
-To grant users permission to manage Azure Deployment Environments within your organization's subscription, you should assign them the [Owner](#) or [Contributor](#) role.
+To grant users permission to manage Azure Deployment Environments within your organization's subscription, you should assign them the [Owner](#owner-role) or [Contributor](#contributor-role) role at the subscription or resource group scope, or the DevCenter Owner role at the dev center scope.
 
 Assign these roles to the *resource group*. The dev center and projects within the resource group inherit these role assignments. Environment types inherit role assignments through projects.
 
@@ -102,6 +104,20 @@ Assign the Owner role to give a user full control to create or manage dev center
 Assign the Contributor role to give a user full control to create or manage dev centers and projects within a resource group. The Contributor role has the same permissions as the Owner role, *except* for:
 
 - Performing role assignments
+
+### DevCenter Owner role
+
+Use the DevCenter Owner role when you want to delegate administration for a specific dev center without granting Owner or Contributor on the entire resource group or subscription.
+
+DevCenter Owner includes:
+
+- Full management of Microsoft.DevCenter resources for that dev center (such as dev centers, projects, and catalogs).
+- Read access to role definitions and role assignments related to those resources.
+- The ability to create and delete role assignments for the DevCenter Project Admin and DevCenter Dev Box roles on Microsoft.DevCenter resources.
+
+DevCenter Owner can't grant arbitrary Azure roles; its role-assignment permissions are limited to these two dev center-specific roles.
+
+For more details about DevCenter Owner and other dev center roles, see [Manage a dev center for Dev Box](../dev-box/how-to-manage-dev-center.md#assign-dev-center-permissions-to-users).
 
 ### Custom role
 
