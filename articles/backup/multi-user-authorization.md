@@ -352,10 +352,6 @@ After the Backup admin’s request for the **Backup MUA Operator** role on the R
 >[!NOTE]
 > If the access was assigned using a JIT mechanism, the **Backup MUA Operator** role is retracted at the end of the approved period. Else, the Security admin manually removes the **Backup MUA Operator** role assigned to the Backup admin to perform the critical operation.
 
-The following screenshot shows an example of disabling soft delete for an MUA-enabled vault.
-
-:::image type="content" source="./media/multi-user-authorization/disable-soft-delete-inline.png" alt-text="Screenshot showing to disable soft delete." lightbox="./media/multi-user-authorization/disable-soft-delete-expanded.png":::
-
 ## Disable MUA on a Recovery Services vault
 
 Disabling MUA is a protected operation, so, so, vaults are protected using MUA. If you (the Backup admin) want to disable MUA, you must have the required **Backup MUA Operator** role in the Resource Guard.
