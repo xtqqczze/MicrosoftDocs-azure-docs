@@ -54,7 +54,7 @@ The following are the built-in roles supported by Microsoft Dev Box:
 | Platform engineer | Contributor | Grant full control to create/manage dev centers, catalogs, and projects, except for assigning roles to other users. Learn more about the [Contributor role](#contributor-role). |
 | Platform engineer | DevCenter Owner | Provide access to manage all Microsoft.DevCenter resources and access to them. Learn more about the [DevCenter Owner role](#devcenter-owner-role). |
 | Dev Manager | DevCenter Project Admin | Grant permission to manage certain aspects of projects and dev boxes. Learn more about the [DevCenter Project Admin role](#devcenter-project-admin-role). |
-| Developer | Dev Box User | Grant permission to create dev boxes and have full control over the dev boxes that they create. Learn more about the [Dev Box User role](#dev-box-user). |
+| Developer | Dev Box User | Grant permission to create dev boxes and have full control over the dev boxes that they create. Learn more about the [Dev Box User role](#dev-box-user-role). |
 
 ## Role assignment scope
 
