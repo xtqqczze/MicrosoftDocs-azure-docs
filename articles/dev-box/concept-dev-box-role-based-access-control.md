@@ -94,7 +94,7 @@ The following table shows common Dev Box activities and the role needed for a us
 | Grant permission to create a network connection.                                                                      | Platform engineer| Owner or Contributor                      | Resource group |
 | Grant permission to assign roles to other users.                                                                      | Platform engineer| Owner                                     | Resource group |
 | Grant permission to: </br> - Create / manage dev centers. </br> - Add / remove network connections. </br> - Add / remove Azure compute galleries. </br> - Create / manage dev box definitions. </br> - Create / manage projects. </br> - Attach / manage catalog to a dev center or project (project-level catalogs must be enabled on the dev center). </br> - Configure dev box limits. | Platform engineer| Contributor                               | Resource group |
-| Grant permission to create andmanage Dev Box resources without granting access to other resource types in the resource group. </br> - Dev centers </br> - Projects </br> - Dev box definitions </br> - Dev box pools | Platform engineer| DevCenter Owner                           | Resource group     |
+| Grant permission to create and manage Dev Box resources without granting access to other resource types in the resource group. </br> - Dev centers </br> - Projects </br> - Dev box definitions </br> - Dev box pools | Platform engineer| DevCenter Owner                           | Resource group     |
 | Grant permission to add or remove a network connection for a dev center.                                              | Platform engineer| Contributor or DevCenter Owner            | Dev center     |
 | Grant permission to enable / disable project catalogs.                                                                | Dev Manager      | Contributor                               | Dev center     |
 | Grant permission to: </br> - Add, sync, remove catalog (project-level catalogs must be enabled on the dev center). </br> - Create dev box pools. </br> - Stop, start, delete dev boxes in pools. | Dev Manager      | DevCenter Project Admin                   | Project        |
@@ -106,7 +106,7 @@ The following table shows common Dev Box activities and the role needed for a us
 > can assign the Owner or Contributor role on the subscription.
 > Typically, only Platform engineers have subscription-level access because this includes full access to all resources in the subscription.
 
-## Platform engineer roles
+## Roles for platform engineers
 
 To grant users permission to manage Microsoft Dev Box within your
 organization's subscription, you can assign them the
@@ -172,7 +172,7 @@ When a user has the DevCenter Owner role on a dev center, they can:
 -   Manage catalogs, network connections, and compute galleries attached to that dev center.
 -   Delegate project administration by assigning DevCenter Project Admin and DevCenter Dev Box User roles at the project level.
 
-## Dev Manager role
+## Roles for Dev Managers
 
 There's one dev manager role: DevCenter Project Admin. This role has
 more restricted permissions at lower-level scopes than the platform
@@ -192,14 +192,14 @@ Assign the DevCenter Project Admin to enable:
 
 -   Stop, start, delete dev boxes in pools.
 
-## Developer role
+## Roles for developers
 
 There's one developer role: Dev Box User. This role enables developers
 to create and manage their own dev boxes.
 
 :::image type="content" source="media/concept-dev-box-role-based-access-control/dev-box-user-scope.png" lightbox="media/concept-dev-box-role-based-access-control/dev-box-user-scope.png" alt-text="Diagram that shows the user role assignments at the project for Microsoft Dev Box.":::
 
-### Dev Box User
+### Dev Box User role
 
 Assign the Dev Box User role to give users permission to create dev
 boxes and have full control over the dev boxes that they create.
