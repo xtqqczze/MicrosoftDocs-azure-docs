@@ -5,7 +5,7 @@ author: jemorey
 ms.author: padmalathas
 ms.reviewer: xpillons
 ms.date: 12/29/2025
-ms.topic: conceptual
+ms.topic: concept
 ---
 
 # Deploy a multi‑region HPC cluster
@@ -58,10 +58,10 @@ In this option, an HPC cluster runs in a primary region with a standby environme
 
 ### Option 3: Single HPC control plane across regions
 
-In this option, one scheduler/head node manages compute in multiple regions (for example, CycleCloud).
+In this option, one scheduler/head node manages compute in multiple regions.
 
 - **Pros:** Unified cluster partitions, single endpoint for users and no duplicate control systems.
-- **Cons:** Requires advanced network setup, single head node can be a single point of failure and offers complex reliability.
+- **Cons:** Requires advanced network setup and creating new partitions in the remote regions, single head node can be a single point of failure and offers complex reliability.
 - **Best for:** Organizations wanting a unified management experience with regional compute pools.
 
 ### Architecture selection guide
@@ -120,7 +120,7 @@ az ad sp create-for-rbac --name "cyclecloud-regionB-sp" \
 cyclecloud account create regionB-account
 ```
 
-Set up a CycleCloud locker (blob storage container) in region B for cluster data.
+Use the same CycleCloud locker (Blob Storage container) in both regions for cluster data. Alternatively, if you set up a CycleCloud locker in region B, you must create a private endpoint in region B to access the locker in region A.
 
 #### Step 4: Connect networks and DNS across regions
 
@@ -140,10 +140,13 @@ az network private-dns link vnet create -g rg-hpc-regionA \
 az network private-dns link vnet create -g rg-hpc-regionA \
   -n regionB-link -z hpc.internal -v vnet-hpc-regionB -e true
 ```
+> [!NOTE]
+> In certain configurations, including Open OnDemand deployments, node‑level DNS resolution may require updating resolv.conf to query the private DNS zone resolver before the Azure resolver to support short‑name resolution. Currently, it's unclear about persistent solution.
 
 #### Step 5: Customize the CycleCloud cluster template for multi-region
 
 Modify your CycleCloud cluster template to define node pools for each region. Key parameters include:
+
 - `Region`
 - `VpcId` (VNET)
 - `Subnets`
@@ -220,7 +223,7 @@ mv slurm-${SLURM_JOB_ID}.out $HOME
 ### Reliability and Job Resiliency
 
 > [!IMPORTANT]
-> CycleCloud and Batch do not provide an SLA for individual job success. Implement application-level checkpoint/restart to recover from interruptions.
+> CycleCloud and Slurm do not provide an SLA for individual job success. Implement application-level checkpoint/restart to recover from interruptions.
 
 ### Capacity management
 
@@ -289,9 +292,8 @@ mv slurm-${SLURM_JOB_ID}.out $HOME
 
 | Caveat | Impact | Mitigation |
 |--------|--------|------------|
-| **Cross-region latency** | MPI applications may see significant slowdown | Use multi-region for loosely coupled workloads only |
-| **Network bandwidth limits** | Large data transfers may bottleneck | Pre-stage data, and use compression |
-| **Working directory location** | Jobs in region B may have slow access to region A home dirs | Set local working directory (`--chdir /tmp`) |
+| **Network bandwidth limits** | Large data transfers might bottleneck | Pre-stage data, and use compression |
+| **Working directory location** | Jobs in region B might have slow access to region A home dirs | Use a local working directory and mirror user home directories when required |
 
 ### Operational caveats
 
@@ -306,8 +308,8 @@ mv slurm-${SLURM_JOB_ID}.out $HOME
 
 | Caveat | Impact | Mitigation |
 |--------|--------|------------|
-| **Egress charges** | $0.02-0.05 per GB for cross-region traffic | Process data in-region, use local storage |
-| **Idle secondary resources** | DR region incurs costs even when idle | Deallocate resources until needed |
+| **Egress charges** | Cross-region traffic incur additional costs | Process data in-region, use local storage |
+| **Idle secondary resources** | DR region incurs costs even when idle | Rely on autoscaling to deallocate idle compute nodes |
 | **Quota management** | Both regions need sufficient quota | Request increases early, use capacity reservations |
 
 ### Security caveats
