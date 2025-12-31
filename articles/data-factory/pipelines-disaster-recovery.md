@@ -17,7 +17,7 @@ BCDR strategies include availability zone redundancy, automated recovery that Az
 
 ## Architecture
 
-:::image type="complex" border="false" source="media/pipeline-disaster-recovery/pipelines-disaster-recovery.svg" alt-text="Diagram that shows availability zones and regions for Azure Synapse Analytics and Azure Data Factory pipelines BCDR." lightbox="media/pipelines-disaster-recovery.svg":::
+:::image type="complex" border="false" source="media/pipelines-disaster-recovery/pipelines-disaster-recovery.svg" alt-text="Diagram that shows availability zones and regions for Azure Synapse Analytics and Azure Data Factory pipelines BCDR." lightbox="media/pipelines-disaster-recovery/pipelines-disaster-recovery.svg":::
    The image shows two regions. The first region is labeled Git repo with CI/CD. It has three availability zones. Azure Data Factory, Azure Synapse Analytics pipelines, Azure Repos, and GitHub span the three zones. The second region is an exact duplicate of the first region. An arrow labeled To meet business continuity and recovery goals points from the first region to the second region.
 :::image-end:::
 
@@ -123,7 +123,7 @@ Take the following actions to set up automated or user-managed DR for Azure Data
 
 In Azure Data Factory, you can set the Azure IR region for your activity run or dispatch in the **IR setup**. To enable automatic failover if a complete regional outage occurs, set the **Region** to **Auto Resolve**.
 
-:::image type="complex" border="false" source="media/pipeline-disaster-recovery/integration-runtime.svg" alt-text="Screenshot that shows how to select Auto Resolve to enable automatic failover in the IR setup." lightbox="media/integration-runtime.svg":::
+:::image type="complex" border="false" source="media/pipelines-disaster-recovery/integration-runtime.svg" alt-text="Screenshot that shows how to select Auto Resolve to enable automatic failover in the IR setup." lightbox="media/pipelines-disaster-recovery/integration-runtime.svg":::
    The image shows a screenshot of Auto Resolve in Azure Data Factory. The top of the page shows IR setup. There are three tabs: Settings, Virtual Network, and Data flow runtime. The page is toggled to Settings. A short description reads: The Azure Data Factory manages the IR in Azure to connect to required data source/destination or external compute in public network. The compute resource is elastically allocated based on performance requirement of activities. Beneath this short description are four fields: Name, Description, Type, and Region. The Name field is populated with integrationRuntime1. The Description field is empty. The Type field is populated with Azure. The Region field is populated with Auto Resolve and shows a drop-down menu that filters out regions.
 :::image-end:::
 
