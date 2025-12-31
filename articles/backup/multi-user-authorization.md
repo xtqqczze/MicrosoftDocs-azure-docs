@@ -20,7 +20,7 @@ ms.author: v-mallicka
 This article describes how to configure Multi-User Authorization (MUA) for Azure Backup to enhance the security of critical operations on Recovery Services vaults. It covers the creation of a Resource Guard in a separate tenant for maximum protection and demonstrates how to request and approve critical operation access using [Microsoft Entra Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) within the tenant hosting the Resource Guard. Alternatively, you can use other methods to manage just-in-time (JIT) permissions based on your organizational setup.
 
 >[!NOTE]
->- Multi-user authorization for Azure Backup is available in all public Azure regions.
+>- Multi-user authorization for Azure Backup is available in all global Azure regions.
 >- Multi-user authorization using Resource Guard for Backup vault is now generally available. [Learn more](multi-user-authorization.md?pivots=vaults-backup-vault).
 
 ## Prerequisites
@@ -422,7 +422,7 @@ This article describes how to configure Multi-User Authorization (MUA) for Azure
 
 >[!NOTE]
 >- Multi-user authorization using Resource Guard for Backup vault is now generally available.
->- Multi-user authorization for Azure Backup is available in all public Azure regions.
+>- Multi-user authorization for Azure Backup is available in all global Azure regions.
 
 ## Prerequisites
 
