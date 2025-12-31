@@ -40,23 +40,23 @@ To set a backup policy for your Azure VMs, follow these steps:
 
 1. Go to **Backup center**. On the **Overview** tab, select **+Backup**.
 
-   ![Screenshot that shows the Backup button.](./media/backup-azure-arm-vms-prepare/backup-button.png)
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/backup-button.png" alt-text="Screenshot that shows the Backup button.":::
 
 1. On the **Start: Configure Backup** pane, select **Azure Virtual machines** as the **Datasource type** value, and then select the vault that you created. Then select **Continue**.
 
-   ![Screenshot that shows the selection of a data-source type and a vault type.](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+   :::image type="content" source="./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png" alt-text="Screenshot that shows the selection of a data-source type and a vault type.":::
 
 1. Assign a backup policy:
 
     - The default policy backs up the VM once a day. The daily backups are retained for 30 days. Instant recovery snapshots are retained for 2 days.
 
-      ![Screenshot that shows options and details for a backup policy.](./media/backup-azure-arm-vms-prepare/default-policy.png)
+      :::image type="content" source="./media/backup-azure-arm-vms-prepare/default-policy.png" alt-text="Screenshot that shows options and details for a backup policy.":::
 
     - If you don't want to use the default policy, select **Create a new policy**, and then create a custom policy.
 
 1. Under **Virtual Machines**, select **Add**.
 
-    ![Screenshot that shows the button for adding virtual machines.](./media/backup-azure-arm-vms-prepare/add-virtual-machines.png)
+    :::image type="content" source="./media/backup-azure-arm-vms-prepare/add-virtual-machines.png" alt-text="Screenshot that shows the button for adding virtual machines.":::
 
 1. The **Select virtual machines** pane opens. Select the VMs that you want to back up by using the policy. Then select **OK**.
 
@@ -66,7 +66,7 @@ To set a backup policy for your Azure VMs, follow these steps:
    - You can select only VMs in the same region as the vault.
    - VMs can be backed up only in a single vault.
 
-    ![Screenshot that shows the pane for selecting virtual machines.](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+    :::image type="content" source="./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png" alt-text="Screenshot that shows the pane for selecting virtual machines.":::
 
     > [!NOTE]
     > All the VMs in the same region and subscription as that of the vault are available for configuring a backup. When you configure backup, you can browse to each VM's name and its resource group, even though you don't have the required permission on those VMs.
@@ -115,19 +115,19 @@ If you don't plan to continue, delete all resources that you created in this tut
 
 1. On the **myRecoveryServicesVault** dashboard, under **Backup items**. select **3**.
 
-    ![Screenshot that shows the number of backup items as a link on the dashboard.](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
+    :::image type="content" source="./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png" alt-text="Screenshot that shows the number of backup items as a link on the dashboard.":::
 
 1. On the **Backup items** pane, select **Azure Virtual Machine** to open the list of virtual machines associated with the vault.
 
-    ![Screenshot that shows a list of backup management types.](./media/tutorial-backup-vm-at-scale/three-virtual-machines.png)
+    :::image type="content" source="./media/tutorial-backup-vm-at-scale/three-virtual-machines.png" alt-text="Screenshot that shows a list of backup management types.":::
 
 1. In the list of backup items, select the ellipsis for the **myVM** item.
 
-    ![Screenshot that shows the ellipsis button for a backup item.](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
+    :::image type="content" source="./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png" alt-text="Screenshot that shows the ellipsis button for a backup item.":::
 
 1. On the menu that opens, select **Stop backup**.
 
-    ![Screenshot that shows the Stop backup menu.](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
+    :::image type="content" source="./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png" alt-text="Screenshot that shows the Stop backup menu.":::
 
 1. On the **Stop Backup** pane, in the uppermost box, select **Delete Backup Data**.
 
@@ -135,14 +135,14 @@ If you don't plan to continue, delete all resources that you created in this tut
 
 1. After the backup item is verified, a check mark appears. Select the **Stop backup** button to stop the policy and delete the restore points.
 
-    ![Screenshot that shows selections for stopping a backup.](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
+    :::image type="content" source="./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png" alt-text="Screenshot that shows selections for stopping a backup.":::
 
     > [!NOTE]
     > Deleted items stay in a soft-deleted state for 14 days. You can delete the vault after that period. For more information, see [Delete an Azure Backup Recovery Services vault](backup-azure-delete-vault.md).
 
 1. When no more items are in the vault, select **Delete**.
 
-    ![Screenshot that shows the Delete button in an empty vault.](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
+    :::image type="content" source="./media/tutorial-backup-vm-at-scale/deleting-the-vault.png" alt-text="Screenshot that shows the Delete button in an empty vault.":::
 
     After you delete the vault, you return to the list of Recovery Services vaults.
 
