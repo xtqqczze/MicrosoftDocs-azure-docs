@@ -509,6 +509,9 @@ az storage blob immutability-policy delete \
 
 ---
 
+
+> With version‑level immutability enabled, each blob version gets its own immutable retention at upload. Even with unlocked retention policy, changing the container’s default later does not shorten existing versions.
+
 ## Lock a time-based retention policy
 
 When you have finished testing a time-based retention policy, you can lock the policy. A locked policy is compliant with SEC 17a-4(f) and other regulatory compliance. You can lengthen the retention interval for a locked policy up to five times, but you can't shorten it.
