@@ -1,11 +1,11 @@
 ---
-title: "Quickstart: Set up Trusted Signing"
-description: This quickstart helps you get started with using Trusted Signing to sign your files.
+title: "Quickstart: Set up Artifact Signing"
+description: This quickstart helps you get started with using Artifact Signing to sign your files.
 author: TacoTechSharma
 ms.author: mesharm 
 ms.service: trusted-signing 
 ms.topic: quickstart 
-ms.date: 04/12/2024 
+ms.date: 12/31/2025 
 ms.custom:
   - references_regions
   - devx-track-azurecli
@@ -13,20 +13,20 @@ ms.custom:
 ---
 
 
-# Quickstart: Set up Trusted Signing
+# Quickstart: Set up Artifact Signing
 
-Trusted Signing is a Microsoft fully managed, end-to-end certificate signing service. In this quickstart, you create the following three Trusted Signing resources to begin using Trusted Signing:
+Artifact Signing is a Microsoft fully managed, end-to-end certificate signing service. In this quickstart, you create the following three Artifact Signing resources to begin using Artifact Signing:
 
-- A Trusted Signing account
+- An Artifact Signing account
 - An identity validation
 - A certificate profile
 
-You can use either the Azure portal or an Azure CLI extension to create and manage most of your Trusted Signing resources. (You can complete identity validation *only* in the Azure portal. You can't complete identity validation by using the Azure CLI.) This quickstart shows you how.
+You can use either the Azure portal or an Azure CLI extension to create and manage most of your Artifact Signing resources. (You can complete identity validation *only* in the Azure portal. You can't complete identity validation by using the Azure CLI.) This quickstart shows you how.
 
 ## Prerequisites
 
 > [!NOTE]
-> For Public Trust certificates, Trusted Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation is not applicable to Private Trust certificates.
+> For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation is not applicable to Private Trust certificates.
 
 To complete this quickstart, you need:
 
@@ -38,19 +38,19 @@ To complete this quickstart, you need:
 
    If you don't already have one, see [Create an Azure subscription](../cost-management-billing/manage/create-subscription.md#create-a-subscription) before you begin.
 
-## Register the Trusted Signing resource provider
+## Register the Artifact Signing resource provider
 
-Before you use Trusted Signing, you must register the Trusted Signing resource provider.
+Before you use Artifact Signing, you must register the Artifact Signing resource provider.
 
-A resource provider is a service that supplies Azure resources. Use the Azure portal or the Azure CLI to register the `Microsoft.CodeSigning` Trusted Signing resource provider.
+A resource provider is a service that supplies Azure resources. Use the Azure portal or the Azure CLI to register the `Microsoft.CodeSigning` Artifact Signing resource provider.
 
 # [Azure portal](#tab/registerrp-portal)
 
-To register a Trusted Signing resource provider by using the Azure portal:
+To register an Artifact Signing resource provider by using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In either the search box or under **All services**, select **Subscriptions**.
-3. Select the subscription where you want to create Trusted Signing resources.
+3. Select the subscription where you want to create Artifact Signing resources.
 4. On the resource menu under **Settings**, select **Resource providers**.
 
 5. In the list of resource providers, select **Microsoft.CodeSigning**.
@@ -67,7 +67,7 @@ To register a Trusted Signing resource provider by using the Azure portal:
 
 # [Azure CLI](#tab/registerrp-cli)
 
-To register a Trusted Signing resource provider by using the Azure CLI:
+To register a Artifact Signing resource provider by using the Azure CLI:
 
 1. If you're using a local installation of the Azure CLI, sign in to the Azure CLI by using the `az login` command.  
 
@@ -77,7 +77,7 @@ To register a Trusted Signing resource provider by using the Azure CLI:
 
    For more information, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-   For more information about the Trusted Signing Azure CLI extension, see [Trusted Signing service](/cli/azure/service-page/trusted%20signing%20service?view=azure-cli-latest&preserve-view=true).
+   For more information about the Artifact Signing Azure CLI extension, see [Artifact Signing service](/cli/azure/service-page/trusted%20signing%20service?view=azure-cli-latest&preserve-view=true).
 
 4. To see the versions of the Azure CLI and the dependent libraries that are installed, use the `az version` command.
 
@@ -89,7 +89,7 @@ To register a Trusted Signing resource provider by using the Azure CLI:
 
 6. To set your default subscription ID, use the `az account set -s <subscription ID>` command.
 
-7. To register a Trusted Signing resource provider, use this command:
+7. To register an Artifact Signing resource provider, use this command:
 
    ```azurecli
    az provider register --namespace "Microsoft.CodeSigning"
@@ -101,7 +101,7 @@ To register a Trusted Signing resource provider by using the Azure CLI:
    az provider show --namespace "Microsoft.CodeSigning"
    ```
 
-9. To add the extension for Trusted Signing, use this command:
+9. To add the extension for Artifact Signing, use this command:
 
    ```azurecli
    az extension add --name trustedsigning
@@ -109,13 +109,13 @@ To register a Trusted Signing resource provider by using the Azure CLI:
 
 ---
 
-## Create a Trusted Signing account
+## Create an Artifactd Signing account
 
-A Trusted Signing account is a logical container that holds identity validation and certificate profile resources.
+An Artifact Signing account is a logical container that holds identity validation and certificate profile resources.
 
-### Azure regions that support Trusted Signing
+### Azure regions that support Artifact Signing
 
-You can create Trusted Signing resources only in Azure regions where the service is currently available. The following table lists the Azure regions that currently support Trusted Signing resources:
+You can create Artifact Signing resources only in Azure regions where the service is currently available. The following table lists the Azure regions that currently support Artifact Signing resources:
 
 | Region                               | Region class fields  | Endpoint URI value                   |
 | :----------------------------------- | :------------------- |:-------------------------------------|
@@ -126,11 +126,11 @@ You can create Trusted Signing resources only in Azure regions where the service
 | North Europe                         | NorthEurope          | `https://neu.codesigning.azure.net`  |
 | West Europe                          | WestEurope           | `https://weu.codesigning.azure.net`  |
 
-### Naming constraints for Trusted Signing accounts
+### Naming constraints for Artifact Signing accounts
 
-Trusted Signing account names have some constraints.
+Artifact Signing account names have some constraints.
 
-A Trusted Signing account name must:
+An Artifact Signing account name must:
 
 - Contain from 3 to 24 alphanumeric characters.
 - Be globally unique.
@@ -138,36 +138,36 @@ A Trusted Signing account name must:
 - End with a letter or number.
 - Not contain consecutive hyphens.
 
-A Trusted Signing account name is:
+An Artifact Signing account name is:
 
 - Not case-sensitive (*ABC* is the same as *abc*).
 - Rejected by Azure Resource Manager if it begins with "one".
 
 # [Azure portal](#tab/account-portal)
 
-To create a Trusted Signing account by using the Azure portal:
+To create an Artifact Signing account by using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Search for and then select **Trusted Signing Accounts**.
 
    :::image type="content" source="media/trusted-signing-search-service.png" alt-text="Screenshot that shows searching for Trusted Signing Accounts in the Azure portal." lightbox="media/trusted-signing-search-service.png":::
-3. On the **Trusted Signing Accounts** pane, select **Create**.
+3. On the **Artifact Signing Accounts** pane, select **Create**.
 4. For **Subscription**, select your Azure subscription.
 5. For **Resource group**, select **Create new**, and then enter a resource group name.
 6. For **Account name**, enter a unique account name.
 
-   For more information, see [Naming constraints for Trusted Signing accounts](#naming-constraints-for-trusted-signing-accounts).
-7. For **Region**, select an Azure region that supports Trusted Signing.
+   For more information, see [Naming constraints for Artifact Signing accounts](#naming-constraints-for-trusted-signing-accounts).
+7. For **Region**, select an Azure region that supports Artifact Signing.
 8. For **Pricing**, select a pricing tier.
 9. Select the **Review + Create** button.
 
    :::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot that shows creating a Trusted Signing account." lightbox="media/trusted-signing-account-creation.png":::
 
-10. After you successfully create your Trusted Signing account, select **Go to resource**.  
+10. After you successfully create your Artifact Signing account, select **Go to resource**.  
 
 # [Azure CLI](#tab/account-cli)
 
-To create a Trusted Signing account by using the Azure CLI:
+To create an Artifact Signing account by using the Azure CLI:
 
 1. Create a resource group by using the following command. If you choose to use an existing resource group, skip this step.
 
@@ -175,30 +175,30 @@ To create a Trusted Signing account by using the Azure CLI:
    az group create --name MyResourceGroup --location EastUS
 ```
 
-2. Create a unique Trusted Signing account by using the following command.
+2. Create a unique Artifact Signing account by using the following command.
 
    For more information, see [Naming constraints for Trusted Signing accounts](#naming-constraints-for-trusted-signing-accounts).
 
-   To create a Trusted Signing account that has a Basic SKU:
+   To create an Artifact Signing account that has a Basic SKU:
 
 ```azurecli
   az trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Basic
 ```
 
-   To create a Trusted Signing account that has a Premium SKU:
+   To create an Artifact Signing account that has a Premium SKU:
 
    ```azurecli
   az trustedsigning create -n MyAccount -l eastus -g MyResourceGroup --sku Premium
    ```
 
-3. Verify your Trusted Signing account by using: 
+3. Verify your Artifact Signing account by using: 
 ```azurecli
 az trustedsigning show -g MyResourceGroup -n MyAccount` command.
 ```
    > [!NOTE]
-   > If you use an earlier version of the Azure CLI from the Trusted Signing private preview, your account defaults to the Basic SKU. To use the Premium SKU, either upgrade the Azure CLI to the latest version or use the Azure portal to create the account.
+   > If you use an earlier version of the Azure CLI from the Artifact Signing private preview, your account defaults to the Basic SKU. To use the Premium SKU, either upgrade the Azure CLI to the latest version or use the Azure portal to create the account.
 
-The following table lists *helpful commands* to use when you create a Trusted Signing account:
+The following table lists *helpful commands* to use when you create an Artifact Signing account:
 
 | Command                                                                                  | Description                               |  
 |:-----------------------------------------------------------------------------------------|:------------------------------------------|
@@ -214,17 +214,17 @@ The following table lists *helpful commands* to use when you create a Trusted Si
 You can complete your own identity validation by filling in the request form with the information that must be included in the certificate. Identity validation can be completed only in the Azure portal. You can't complete identity validation by using the Azure CLI.
 
 > [!NOTE]
-> You can't create an identity validation request if you aren't assigned the appropriate role. If the **New identity** button on the menu bar appears dimmed in the Azure portal, ensure that you're assigned the Trusted Signing Identity Verifier role to proceed with identity validation.
+> You can't create an identity validation request if you aren't assigned the appropriate role. If the **New identity** button on the menu bar appears dimmed in the Azure portal, ensure that you're assigned the Artifact Signing Identity Verifier role to proceed with identity validation.
 
 # [Identity Validation - Organization](#tab/orgvalidation)
 
 To create an identity validation request for an Organization or a DBA:
 
-1. In the Azure portal, go to your new Trusted Signing account.
-1. Confirm that you're assigned the Trusted Signing Identity Verifier role.
+1. In the Azure portal, go to your new Artifact Signing account.
+1. Confirm that you're assigned the Artifact Signing Identity Verifier role.
 
-   To learn how to manage, access by using role-based access control (RBAC), see [Tutorial: Assign roles in Trusted Signing](tutorial-assign-roles.md).
-1. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
+   To learn how to manage, access by using role-based access control (RBAC), see [Tutorial: Assign roles in Artifact Signing](tutorial-assign-roles.md).
+1. On the Artifact Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
 1. Select **New identity**, and then select either **Public** or **Private**.
 
    - Public identity validation applies only to these certificate profile types: Public Trust, Public Trust Test, VBS Enclave.
@@ -264,7 +264,7 @@ To create an identity validation request for an Organization or a DBA:
 
 | Requirements         | Details     |
 | :------------------- | :------------------- |
-| Onboarding           | Trusted Signing at this time can onboard only legal business entities that have verifiable tax history of three or more years. For a quicker onboarding process, ensure that public records for the legal business entity that you're validated are up to date. |
+| Onboarding           | Artifact Signing at this time can onboard only legal business entities that have verifiable tax history of three or more years. For a quicker onboarding process, ensure that public records for the legal business entity that you're validated are up to date. |
 | Accuracy             | Ensure that you provide the correct information for public identity validation. If you need to make any changes after it's created, you must complete a new identity validation request. This change affects the associated certificates that are being used for signing. |
 | Failed email verification            | If email verification fails, you must initiate a new identity validation request. |
 | Identity validation status            | You're notified through email when there's an update to the identity validation status. You can also check the status in the Azure portal at any time. |
@@ -275,12 +275,12 @@ To create an identity validation request for an Organization or a DBA:
 
  To create an Individual identity validation request for an Individual Developer:
 
-1. In the Azure portal, go to your new Trusted Signing account.
+1. In the Azure portal, go to your new Artifact Signing account.
 
-1. Confirm that you're assigned the Trusted Signing Identity Verifier role.
+1. Confirm that you're assigned the Artifact Signing Identity Verifier role.
 
-     To learn how to manage access by using role-based access control (RBAC), see [Tutorial: Assign roles in Trusted Signing](tutorial-assign-roles.md).
-1. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
+     To learn how to manage access by using role-based access control (RBAC), see [Tutorial: Assign roles in Artifact Signing](tutorial-assign-roles.md).
+1. On the Artifact Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
 1. Select **Organization**, in the dropdown select **Individual** and then select **Public**.
     - Public identity validation applies to these certificate profile types: Public Trust, Public Trust Test, VBS Enclave.
     - Private identity validation is only for Organizations.
@@ -346,8 +346,8 @@ To create an identity validation request for an Organization or a DBA:
    :::image type="content" source="media/trusted-signing-add-verified-id.png" alt-text="Screenshot that shows screen to Verified ID to their authenticator app." lightbox="media/trusted-signing-add-verified-id.png":::
 
 1. The browser screen shows Present your Verified ID. Scan the QR code.
-1. Select **Verifiable Credential** to share with Trusted Signing.
-1. Select **Share** to share the credentials with Trusted Signing.
+1. Select **Verifiable Credential** to share with Artifact Signing.
+1. Select **Share** to share the credentials with Artifact Signing.
 1. For successful completion the browser screen on your nonmobile device updates to: **Verification Successful** .
 
    :::image type="content" source="media/trusted-signing-indie-identity-validation-onevet.png" alt-text="Screenshot that shows the indie successful on onevet." lightbox="media/trusted-signing-indie-identity-validation-onevet.png":::
@@ -423,8 +423,8 @@ A certificate profile name is:
 
 To create a certificate profile in the Azure portal:
 
-1. In the Azure portal, go to your new Trusted Signing account.
-2. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Certificate profiles**.
+1. In the Azure portal, go to your new Artifact Signing account.
+2. On the Artifact Signing account **Overview** pane or on the resource menu under **Objects**, select **Certificate profiles**.
 3. On the command bar, select **Create** and select a certificate profile type.
 
    :::image type="content" source="media/trusted-signing-certificate-profile-types.png" alt-text="Screenshot that shows the Trusted Signing certificate profile types to choose from.":::
@@ -453,8 +453,8 @@ To create a certificate profile in the Azure portal:
 
 You need the identity validation ID for the entity that the certificate profile is being created for. Complete these steps find your identity validation ID in the Azure portal.
 
-1. In the Azure portal, go to your Trusted Signing account.
-2. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
+1. In the Azure portal, go to your Artifact Signing account.
+2. On the Artifact Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
 3. Select the hyperlink for the relevant entity. On the **Identity validation** pane, you can copy the value for **Identity validation Id**.
 
    :::image type="content" source="media/trusted-signing-identity-validation-id.png" alt-text="Screenshot that shows copying the identity validation ID for a Trusted Signing account." lightbox="media/trusted-signing-identity-validation-id.png":::
@@ -496,23 +496,23 @@ The following table lists *helpful commands* to use when you create a certificat
 
 # [Azure portal](#tab/deleteresources-portal)
 
-To delete Trusted Signing resources by using the Azure portal:
+To delete Artifact Signing resources by using the Azure portal:
 
 ### Delete a certificate profile
 
-1. In the Azure portal, go to your Trusted Signing account.
-2. On the Trusted Signing account **Overview** pane or on the resource menu under **Objects**, select **Certificate profiles**.
+1. In the Azure portal, go to your Artifact Signing account.
+2. On the Artifact Signing account **Overview** pane or on the resource menu under **Objects**, select **Certificate profiles**.
 3. On **Certificate profiles**, select the certificate profile that you want to delete.
 4. On the command bar, select **Delete**.
 
 > [!NOTE]
 > This action stops any signing that's associated with the certificate profile.
 
-### Delete a Trusted Signing account
+### Delete an Artifact Signing account
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. In the search box, enter and then select **Trusted Signing Accounts**.
-3. On **Trusted Signing Accounts**, select the Trusted Signing account that you want to delete.
+2. In the search box, enter and then select **Artifact Signing Accounts**.
+3. On **Artifact Signing Accounts**, select the Artifact Signing account that you want to delete.
 4. On the command bar, select **Delete**.
 
 > [!NOTE]
@@ -520,11 +520,11 @@ To delete Trusted Signing resources by using the Azure portal:
 
 # [Azure CLI](#tab/adeleteresources-cli)
 
-To delete Trusted Signing resources by using the Azure CLI:
+To delete Artifact Signing resources by using the Azure CLI:
 
 ### Delete a certificate profile
 
-To delete a Trusted Signing certificate profile, run this command:
+To delete a Artifact Signing certificate profile, run this command:
 
 ```azurecli
 az trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
@@ -533,11 +533,11 @@ az trustedsigning certificate-profile delete -g MyResourceGroup --account-name M
 > [!NOTE]
 > This action stops any signing that's associated with the certificate profile.
 
-### Delete a Trusted Signing account
+### Delete an Artifact Signing account
 
-You can use the Azure CLI to delete Trusted Signing resources.
+You can use the Azure CLI to delete Artifact Signing resources.
 
-To delete a Trusted Signing account, run this command:
+To delete a Artifact Signing account, run this command:
 
 ```azurecli
 az trustedsigning delete -n MyAccount -g MyResourceGroup
@@ -550,10 +550,10 @@ az trustedsigning delete -n MyAccount -g MyResourceGroup
 
 ## Related content
 
-In this quickstart, you created a Trusted Signing account, an identity validation request, and a certificate profile. To learn more about Trusted Signing and to start your signing journey, see these articles:
+In this quickstart, you created an Artifact Signing account, an identity validation request, and a certificate profile. To learn more about Artifact Signing and to start your signing journey, see these articles:
 
 - Learn more about [signing integrations](how-to-signing-integrations.md).
-- Learn more about the [trust models that Trusted Signing supports](concept-trusted-signing-trust-models.md).
+- Learn more about the [trust models that Artifact Signing supports](concept-trusted-signing-trust-models.md).
 - Learn more about [certificate management](concept-trusted-signing-cert-management.md).
 - Need assistance with your setup:
     - Reach out via Azure Support through Azure portal.
