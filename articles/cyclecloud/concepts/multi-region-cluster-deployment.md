@@ -62,7 +62,7 @@ In this option, an HPC cluster runs in a primary region with a standby environme
 
 In this option, one scheduler/head node manages compute in multiple regions. 
 
-:::image type="content" source="../images/single-control‑plane-multi-region.png" alt-text="Screenshot of single control plane across regions option." lightbox="../images/single-control‑plane-multi-region.png":::
+:::image type="content" source="../images/single-control-plane-multi-region.png" alt-text="Screenshot of single control plane across regions option." lightbox="../images/single-control-plane-multi-region.png":::
 
 - **Pros:** Unified cluster partitions, single endpoint for users and no duplicate control systems.
 - **Cons:** Requires advanced network setup and creating new partitions in the remote regions, single head node can be a single point of failure and offers complex reliability.
