@@ -57,7 +57,7 @@ To register a Trusted Signing resource provider by using the Azure portal:
 
    By default, the resource provider status is **NotRegistered**.
 
-:::image type="content" source="media/trusted-signing-resource-provider-registration.png" alt-text="Screenshot that shows creating a Trusted Signing account." lightbox="media/trusted-signing-resource-provider-registration.png":::
+:::image type="content" source="media/artifact-signing-resource-provider-registration.png" alt-text="Screenshot that shows creating a Trusted Signing account." lightbox="media/artifact-signing-resource-provider-registration.png":::
 
 6. Select the ellipsis, and then select **Register**.
 
