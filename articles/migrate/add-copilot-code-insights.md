@@ -123,8 +123,9 @@ Create a new **GitHub App** by following these steps:
 
 9. Under **Permissions**, select **Repository permissions** and then select the following permissions for the app. 
   
-  | Issues  | Read and write  | 
+  | Resource  | Permissions  | 
   | --- | --- | 
+  | Issues  | Read and write  | 
   | Metadata  | Read-only  |
   | Webhook   | Read and write  |
 
