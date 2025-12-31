@@ -50,7 +50,7 @@ To discover databases running on a VM, follow these steps:
 
 1. On the **Backup Goal** pane, under **Discover DBs in VMs**, select **Start Discovery** to search for unprotected VMs in the subscription. This search can take a while, depending on the number of unprotected VMs in the subscription.
 
-1. On the **Select Virtual Machine** pane, select the VMs running the SQL Server database, and then select **Discover DB's**.
+1. On the **Select Virtual Machine** pane, select the VMs running the SQL Server database, and then select **Discover DBs**.
 
    :::image type="content" source="./media/backup-azure-sql-database/discovering-sql-databases.png" alt-text="Screenshot that shows a list of virtual machines and the button for discovering databases." lightbox="./media/backup-azure-sql-database/discovering-sql-databases.png":::
 
@@ -112,7 +112,7 @@ To configure SQL Server database backups, follow these steps:
    - Choose an existing backup policy that you created for SQL Server.
    - Define a new policy based on your recovery point objective and your retention range.
 
-     :::image type="content" source="./media/backup-azure-sql-database/select-backup-policy.png" alt-text="Screenshot that shows the pane for defining a backup policy.":::
+   :::image type="content" source="./media/backup-azure-sql-database/select-backup-policy.png" alt-text="Screenshot that shows the pane for defining a backup policy.":::
 
 1. Select **Enable Backup** to submit the **Configure Protection** operation. You can track the configuration progress in the **Notifications** area of the portal.
 
@@ -141,7 +141,7 @@ To create a backup policy:
 
 1. To modify the default settings for backup frequency, select the **Edit** link that corresponds to **Full backup**.
 
-1. On the **Full Backup Policy** pane, configure the following settings for the backup schedule:
+1. On the **Full Backup Policy** pane, configure the following settings under **Backup schedule**:
 
    1. For **Frequency**, select either **Daily** or **Weekly**.
    1. In the other boxes, select the time and the time zone for when the backup job begins. You can't create differential backups for daily full backups.

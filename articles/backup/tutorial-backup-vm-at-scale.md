@@ -71,7 +71,7 @@ To set a backup policy for your Azure VMs, follow these steps:
     > [!NOTE]
     > All the VMs in the same region and subscription as that of the vault are available for configuring a backup. When you configure backup, you can browse to each VM's name and its resource group, even though you don't have the required permission on those VMs.
     >
-    > If your VM is in soft-deleted state, it isn't visible in this list. If you need to protect the VM again, wait for the soft-delete period to expire or undelete the VM from the soft-deleted list. For more information, see the [article about soft delete for VMs](soft-delete-virtual-machines.md#soft-delete-azure-vm-backups).
+    > If your VM is in soft-deleted state, it isn't visible in this list. If you need to protect the VM again, wait for the soft-delete period to expire or restore the VM from the soft-deleted list. For more information, see the [article about soft delete for VMs](soft-delete-virtual-machines.md#soft-delete-azure-vm-backups).
 
 1. In **Backup**, select **Enable backup**. This selection deploys the policy to the vault and to the VMs. It also installs the backup extension on the VM agent that runs on the Azure VM.
 
@@ -148,7 +148,7 @@ If you don't plan to continue, delete all resources that you created in this tut
 
 ## Next step
 
-Continue to the next tutorial to restore an Azure virtual machine from disk.
+Continue to the next tutorial to restore an Azure virtual machine from disk:
 
 > [!div class="nextstepaction"]
 > [Restore a VM by using the Azure CLI](./tutorial-restore-disk.md)
