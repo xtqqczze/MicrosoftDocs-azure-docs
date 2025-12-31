@@ -156,7 +156,7 @@ To create an Artifact Signing account by using the Azure portal:
 5. For **Resource group**, select **Create new**, and then enter a resource group name.
 6. For **Account name**, enter a unique account name.
 
-   For more information, see [Naming constraints for Artifact Signing accounts](#naming-constraints-for-trusted-signing-accounts).
+   For more information, see [Naming constraints for Artifact Signing accounts](#naming-constraints-for-artifact-signing-accounts).
 7. For **Region**, select an Azure region that supports Artifact Signing.
 8. For **Pricing**, select a pricing tier.
 9. Select the **Review + Create** button.
@@ -177,7 +177,7 @@ To create an Artifact Signing account by using the Azure CLI:
 
 2. Create a unique Artifact Signing account by using the following command.
 
-   For more information, see [Naming constraints for Trusted Signing accounts](#naming-constraints-for-trusted-signing-accounts).
+   For more information, see [Naming constraints for Trusted Signing accounts](#naming-constraints-for-artifact-signing-accounts).
 
    To create an Artifact Signing account that has a Basic SKU:
 
