@@ -33,7 +33,7 @@ Follow the documents to create an Aspire solution with dynamic configuration.
 
 Add a feature flag called *Beta* to the App Configuration store (created in the [Prerequisites](./quickstart-feature-flag-aspire.md#prerequisites) steps), and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
-:::image type="content" source="media/add-beta-feature-flag.png" alt-text="Screenshot of adding a feature flag called Beta.":::
+:::image type="content" source="media/add-beta-feature-flag.png" alt-text="Screenshot of adding a feature flag called Beta." lightbox="media/add-beta-feature-flag.png":::
 
 :::zone-end
 
@@ -45,7 +45,7 @@ Add the following key-value through the App Configuration emulator UI.
 |-------------------------------|-------------------------------------------------------------| --------------------------------|
 | *.appconfig.featureflag/Beta* | *application/vnd.microsoft.appconfig.ff+json;charset=utf-8* | *{"id":"Beta","enabled":false}* |
 
-:::image type="content" source="media/aspire/emulator-feature-flag.png" alt-text="Screenshot of adding a feature flag to emulator.":::
+:::image type="content" source="media/aspire/emulator-feature-flag.png" alt-text="Screenshot of adding a feature flag to emulator." lightbox="media/aspire/emulator-feature-flag.png":::
 
  Feature flags are special key-values that define Microsoft feature flags. Configuration providers identify feature flag by their specific content type and key prefix. The value of a feature flag is a json object that follows [`Microsoft Feature Flag schema`](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureFlag.v2.0.0.schema.json).
 
@@ -195,17 +195,17 @@ Add the following key-value through the App Configuration emulator UI.
 
 1. Run the `AppHost` project. Go to the Aspire dashboard and open the web app.
 
-    :::image type="content" source="media/aspire/feature-flag-disabled.png" alt-text="Screenshot of a web app with three buttons on the side bar.":::
+    :::image type="content" source="media/aspire/feature-flag-disabled.png" alt-text="Screenshot of a web app with three buttons on the side bar." lightbox="media/aspire/feature-flag-disabled.png":::
 
 1. In the Azure portal, navigate to the **Feature manager** of your App Configuration store and locate the *Beta* feature flag. Enable the flag by selecting the checkbox under **Enabled**.
 
 1. Refresh the page a few times. When the refresh interval time window passes, the page will show with updated content.
 
-    :::image type="content" source="media/aspire/feature-flag-disabled.png" alt-text="Screenshot of a web app with Beta button on the side bar.":::
+    :::image type="content" source="media/aspire/feature-flag-disabled.png" alt-text="Screenshot of a web app with Beta button on the side bar." lightbox="media/aspire/feature-flag-disabled.png":::
 
 1. Click the **Beta** button. It will bring you to the beta page that you enabled dynamically.
 
-    :::image type="content" source="media/aspire/beta-page.png" alt-text="Screenshot of the Beta page.":::
+    :::image type="content" source="media/aspire/beta-page.png" alt-text="Screenshot of the Beta page." lightbox="media/aspire/beta-page.png":::
 
 :::zone-end
 
@@ -215,7 +215,7 @@ Add the following key-value through the App Configuration emulator UI.
 
 1. Run the `AppHost` project. Go to the Aspire dashboard and open the web app.
 
-    :::image type="content" source="media/aspire/feature-flag-disabled.png" alt-text="Screenshot of a web app with three buttons on the side bar.":::
+    :::image type="content" source="media/aspire/feature-flag-disabled.png" alt-text="Screenshot of a web app with three buttons on the side bar." lightbox="media/aspire/feature-flag-disabled.png":::
 
 1. Go to the emulator, edit the value of the feature flag to enable it.
 
@@ -225,11 +225,11 @@ Add the following key-value through the App Configuration emulator UI.
 
 1. Refresh the page a few times. When the refresh interval time window passes, the page will show with updated content.
 
-    :::image type="content" source="media/aspire/feature-flag-enabled.png" alt-text="Screenshot of a web app with Beta button on the side bar.":::
+    :::image type="content" source="media/aspire/feature-flag-enabled.png" alt-text="Screenshot of a web app with Beta button on the side bar." lightbox="media/aspire/feature-flag-enabled.png":::
 
 1. Click the **Beta** button. It will bring you to the beta page that you enabled dynamically.
 
-    :::image type="content" source="media/aspire/beta-page.png" alt-text="Screenshot of the Beta page.":::
+    :::image type="content" source="media/aspire/beta-page.png" alt-text="Screenshot of the Beta page." lightbox="media/aspire/beta-page.png":::
 
 :::zone-end
 

@@ -30,11 +30,11 @@ The Aspire Starter template includes a frontend web app that communicates with a
 
 1. Run the `AppHost` project. You see the Aspire dashboard in your browser.
 
-    :::image type="content" source="media/aspire/dashboard.png" alt-text="Screenshot of the Aspire dashboard with web frontend and API service resources.":::
+    :::image type="content" source="media/aspire/dashboard.png" alt-text="Screenshot of the Aspire dashboard with web frontend and API service resources." lightbox="media/aspire/dashboard.png":::
 
 1. Click the URL of the web frontend. You see a page with a welcome message.
 
-    :::image type="content" source="media/aspire/web-app.png" alt-text="Screenshot of a web app with a welcome message.":::
+    :::image type="content" source="media/aspire/web-app.png" alt-text="Screenshot of a web app with a welcome message." lightbox="media/aspire/web-app.png":::
 
 :::zone target="docs" pivot="azure"
 
@@ -60,7 +60,7 @@ The Aspire Starter template includes a frontend web app that communicates with a
     > [!IMPORTANT]
     > When you call `AddAzureAppConfiguration`, you instruct the app to generate Azure resources dynamically during app startup. The app must configure the appropriate subscription and location. For more information, see [Local Azure provisioning](https://aspire.dev/integrations/cloud/azure/local-provisioning/#configuration).
     > If you are using the latest Aspire SDK, you can configure the subscription information through the Aspire dashboard.
-    > :::image type="content" source="media/aspire/azure-subscription.png" alt-text="Screenshot of Aspire dashboard asking for Azure Subscription information.":::
+    > :::image type="content" source="media/aspire/azure-subscription.png" alt-text="Screenshot of Aspire dashboard asking for Azure Subscription information." lightbox="media/aspire/azure-subscription.png":::
 
     > [!NOTE]
     > You must have either the **Owner** or **User Access Administrator** role assigned on the Azure subscription. These roles are required to create role assignments as part of the provisioning process.
@@ -82,15 +82,15 @@ The Aspire Starter template includes a frontend web app that communicates with a
 
 1. Run the `AppHost` project. You see the Azure App Configuration resource is provisioning.
 
-    :::image type="content" source="media/aspire/resource-provisioning.png" alt-text="Screenshot of Aspire dashboard provisioning Azure App Configuration resource.":::
+    :::image type="content" source="media/aspire/resource-provisioning.png" alt-text="Screenshot of Aspire dashboard provisioning Azure App Configuration resource." lightbox="media/aspire/resource-provisioning.png":::
 
 1. Wait for a few minutes and you see the Azure App Configuration resource is provisioned and is running.
 
-    :::image type="content" source="media/aspire/resource-provisioned.png" alt-text="Screenshot of Aspire dashboard with Azure App Configuration resource running.":::
+    :::image type="content" source="media/aspire/resource-provisioned.png" alt-text="Screenshot of Aspire dashboard with Azure App Configuration resource running." lightbox="media/aspire/resource-provisioned.png":::
 
 1. Go to the Azure portal by clicking the deployment URL on the Aspire dashboard. You see the deployment is complete and you can go to your Azure App Configuration resource.
 
-    :::image type="content" source="media/aspire/deployment-complete.png" alt-text="Screenshot of Azure portal showing the App Configuration deployment is complete.":::
+    :::image type="content" source="media/aspire/deployment-complete.png" alt-text="Screenshot of Azure portal showing the App Configuration deployment is complete." lightbox="media/aspire/deployment-complete.png":::
 
 ## Add a key-value
 
@@ -148,11 +148,11 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
 1. Run the `AppHost` project. Go to the Aspire dashboard. You see the App Configuration emulator resource is running.
 
-    :::image type="content" source="media/aspire/dashboard-emulator.png" alt-text="Screenshot of the Aspire dashboard showing the App Configuration emulator resource.":::
+    :::image type="content" source="media/aspire/dashboard-emulator.png" alt-text="Screenshot of the Aspire dashboard showing the App Configuration emulator resource." lightbox="media/aspire/dashboard-emulator.png":::
 
    A container is started to run the App Configuration emulator.
 
-   :::image type="content" source="media/aspire/docker.png" alt-text="Screenshot of the docker desktop running a container.":::
+   :::image type="content" source="media/aspire/docker.png" alt-text="Screenshot of the docker desktop running a container." lightbox="media/aspire/docker.png":::
 
 ## Add a key-value
 
@@ -170,7 +170,7 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
 1. Click the `Save` button.
 
-    :::image type="content" source="media/aspire/emulator-create-key.png" alt-text="Screenshot of the App Configuration emulator UI of creating a new key value.":::
+    :::image type="content" source="media/aspire/emulator-create-key.png" alt-text="Screenshot of the App Configuration emulator UI of creating a new key value." lightbox="media/aspire/emulator-create-key.png":::
 
 :::zone-end
 
@@ -224,11 +224,11 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
 1. **Restart** the `AppHost` project. Go to the Aspire dashboard and click the URL of the web frontend. 
 
-    :::image type="content" source="media/aspire/dashboard-updated.png" alt-text="Screenshot of Aspire dashboard showing resources.":::
+    :::image type="content" source="media/aspire/dashboard-updated.png" alt-text="Screenshot of Aspire dashboard showing resources." lightbox="media/aspire/dashboard-updated.png":::
 
 1. You see a page with a welcome message from Azure App Configuration.
 
-    :::image type="content" source="media/aspire/web-app-message.png" alt-text="Screenshot of a web app with a welcome message from Azure App Configuration.":::
+    :::image type="content" source="media/aspire/web-app-message.png" alt-text="Screenshot of a web app with a welcome message from Azure App Configuration." lightbox="media/aspire/web-app-message.png":::
 
 ## Next steps
 

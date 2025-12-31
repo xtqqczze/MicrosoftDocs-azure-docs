@@ -109,7 +109,7 @@ The configuration refresh is triggered by the incoming requests to your web app.
 
 1. Run the `AppHost` project. Go to the Aspire dashboard and open the web app.
 
-    :::image type="content" source="media/aspire/original-message.png" alt-text="Screenshot of a web app with the original message from Azure App Configuration.":::
+    :::image type="content" source="media/aspire/original-message.png" alt-text="Screenshot of a web app with the original message from Azure App Configuration." lightbox="media/aspire/original-message.png":::
 
 1. In the Azure portal, navigate to the **Configuration explorer** of your App Configuration store, and update the value of the following key.
 
@@ -119,11 +119,11 @@ The configuration refresh is triggered by the incoming requests to your web app.
 
 1. Refresh the browser a few times. When the refresh interval elapses after 30 seconds, the page shows with updated content.
 
-    :::image type="content" source="media/aspire/refreshed-message.png" alt-text="Screenshot of a web app with the updated message from Azure App Configuration.":::
+    :::image type="content" source="media/aspire/refreshed-message.png" alt-text="Screenshot of a web app with the updated message from Azure App Configuration." lightbox="media/aspire/refreshed-message.png":::
 
 1. Go to the Aspire dashboard and open the structured logs. You see that the `webfrontend` resource has a log with message "Configuration reloaded.".
 
-    :::image type="content" source="media/aspire/dashboard-logs.png" alt-text="Screenshot of the Aspire dashboard showing structured logs.":::
+    :::image type="content" source="media/aspire/dashboard-logs.png" alt-text="Screenshot of the Aspire dashboard showing structured logs." lightbox="media/aspire/dashboard-logs.png":::
 
 :::zone-end
 
@@ -133,7 +133,7 @@ The configuration refresh is triggered by the incoming requests to your web app.
 
 1. Run the `AppHost` project. Go to the Aspire dashboard and open the web app.
 
-    :::image type="content" source="media/aspire/original-message.png" alt-text="Screenshot of a web app with the original message from Azure App Configuration.":::
+    :::image type="content" source="media/aspire/original-message.png" alt-text="Screenshot of a web app with the original message from Azure App Configuration." lightbox="media/aspire/original-message.png":::
 
 1. Go to the emulator UI, edit the value of the following key.
 
@@ -143,11 +143,11 @@ The configuration refresh is triggered by the incoming requests to your web app.
 
 1. Refresh the browser a few times. When the refresh interval elapses after 30 seconds, the page shows with updated content.
 
-    :::image type="content" source="media/aspire/refreshed-message.png" alt-text="Screenshot of a web app with the updated message from Azure App Configuration.":::
+    :::image type="content" source="media/aspire/refreshed-message.png" alt-text="Screenshot of a web app with the updated message from Azure App Configuration." lightbox="media/aspire/refreshed-message.png":::
 
 1. Go to the Aspire dashboard and open the structured logs. You see that the `webfrontend` resource has a log with message "Configuration reloaded.".
 
-    :::image type="content" source="media/aspire/dashboard-logs.png" alt-text="Screenshot of the Aspire dashboard showing structured logs.":::
+    :::image type="content" source="media/aspire/dashboard-logs.png" alt-text="Screenshot of the Aspire dashboard showing structured logs." lightbox="media/aspire/dashboard-logs.png":::
 
 :::zone-end
 
