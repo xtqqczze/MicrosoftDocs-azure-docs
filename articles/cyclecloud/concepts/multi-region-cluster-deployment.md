@@ -4,7 +4,7 @@ description: Guidance to plan, deploy, operate, and recover a multi‑region HPC
 author: jemorey
 ms.author: padmalathas
 ms.reviewer: xpillons
-ms.date: 12/29/2025
+ms.date: 12/31/2025
 ---
 
 # Deploy a multi‑region HPC cluster
@@ -31,7 +31,6 @@ Multi-region HPC designs allow your workloads to span or switch between Azure re
 
 Highly tightly coupled parallel jobs (for example, MPI applications with frequent inter-node communication) might suffer significant performance degradation if spread across distant regions due to added network latency. Consider multi-region only when your workloads can tolerate increased latency and management overhead.
 
----
 
 ## Architecture comparison
 
@@ -63,7 +62,7 @@ In this option, an HPC cluster runs in a primary region with a standby environme
 
 In this option, one scheduler/head node manages compute in multiple regions. 
 
-<!-- :::image type="content" source="../images/single-control‑plane-multi-region-cluster.png" alt-text="Screenshot of single control plane across regions option." lightbox="../images/single-control‑plane-multi-region-cluster.png"::: -->
+:::image type="content" source="../images/single-control‑plane-multi-region-cluster.png" alt-text="Screenshot of single control plane across regions option." lightbox="../images/single-control‑plane-multi-region-cluster.png":::
 
 - **Pros:** Unified cluster partitions, single endpoint for users and no duplicate control systems.
 - **Cons:** Requires advanced network setup and creating new partitions in the remote regions, single head node can be a single point of failure and offers complex reliability.
@@ -220,11 +219,10 @@ mv slurm-${SLURM_JOB_ID}.out $HOME
 > [!TIP]
 > Set an explicit working directory local to region B (`--chdir /tmp`) since the home directory is typically in region A.
 
----
 
-## Day-2 Operations and Management
+## Day-2 operations and management
 
-### Reliability and Job Resiliency
+### Reliability and job resiliency
 
 > [!IMPORTANT]
 > CycleCloud and Slurm do not provide an SLA for individual job success. Implement application-level checkpoint/restart to recover from interruptions.
@@ -243,7 +241,6 @@ mv slurm-${SLURM_JOB_ID}.out $HOME
 - Maintain separate Key Vault instances per region
 - Ensure data replication compliance with residency requirements
 
----
 
 ## Disaster recovery strategy 
 
@@ -261,26 +258,25 @@ mv slurm-${SLURM_JOB_ID}.out $HOME
 - Use geo-redundant storage or custom replication with versioning
 - Match replication frequency to recovery point objective (RPO) (for example, 4-hour RPO = replicate at least every 4 hours)
 
----
 
 ## Validation and testing
 
 ### Test categories
 
-#### 1. Job submission tests
+#### Job submission tests
 
 - Submit test jobs targeting each region's resources
 - Measure job start time and network throughput
 - Run small MPI jobs across nodes in different regions
 - Note performance impact from cross-region latency
 
-#### 2. Data consistency checks
+#### Data consistency checks
 
 - Test that replicated data in Region B is usable
 - Disconnect primary storage and attempt reads from secondary
 - Verify all data and metadata (permissions) are intact
 
-#### 3. End-to-end DR test
+#### End-to-end DR test
 
 - Assume Region A is unavailable
 - Bring up HPC environment in Region B using DR procedures
@@ -288,7 +284,6 @@ mv slurm-${SLURM_JOB_ID}.out $HOME
 - Verify RPO and RTO compliance
 - Fail back to Region A and synchronize changes
 
----
 
 ## Caveats and considerations
 
@@ -324,33 +319,32 @@ mv slurm-${SLURM_JOB_ID}.out $HOME
 | **Data residency** | Replicating data might violate compliance | Verify regulatory requirements before replication |
 | **Network exposure** | VNet peering opens cross-region paths | Apply strict NSG rules |
 
----
 
 ## Frequently asked questions (FAQs)
 
-1. Do I need a separate CycleCloud server in each region?
+* Do I need a separate CycleCloud server in each region?
 
     Not necessarily. CycleCloud can manage multiple regions from one instance using multiple credentials and lockers. However, for higher availability, some organizations run distinct CycleCloud installations in each region with identical configurations.
 
-2. How can I minimize data e-gress charges?
+* How can I minimize data e-gress charges?
     - Keep shared storage synchronized using Azure backbone replication (GRS, ZRS)
     - Use region-specific CycleCloud lockers instead of a global store
     - Compress data before transfer
     - Transmit only incremental changes
     - Run jobs in the same region as their data
 
-3. What RPO/RTO should HPC workloads have?
+* What RPO/RTO should HPC workloads have?
     Typical targets:
     - **RPO**: Few hours (or checkpoint interval length)
     - **RTO**: 4-24 hours
 
     For time-sensitive workloads (for example, weather forecasting with strict deadlines), near-zero RTO might require active/active setup.
 
-4. Are there SLA guarantees for multi-region HPC job completion?
+* Are there SLA guarantees for multi-region HPC job completion?
 
     No. There is no Microsoft SLA guaranteeing individual HPC job completion—single or multi-region. Azure infrastructure services (VMs, Virtual Machine Scale Set, Storage) have availability SLAs, but job-level recovery is your responsibility.
 
-5. How do I check if a region supports my HPC needs?
+* How do I check if a region supports my HPC needs?
     - Consult [Azure regional services documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/)
     - Check Azure portal for VM sizes and quotas per region
     - Engage Azure support for capacity planning on large deployments
