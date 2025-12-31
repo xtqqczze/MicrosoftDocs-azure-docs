@@ -106,7 +106,7 @@ To configure SQL Server database backups, follow these steps:
    > [!NOTE]
    > The [auto-protection](backup-sql-server-database-azure-vms.md#enable-auto-protection) feature doesn't just enable protection on all the existing databases at once. It also automatically protects any new databases added to that instance or availability group.  
 
-1. Define the backup policy. You can do one of the following:
+1. Define the backup policy. You can take one of the following actions:
 
    - Select the default policy as **HourlyLogBackup**.
    - Choose an existing backup policy that you created for SQL Server.
@@ -180,7 +180,7 @@ To create a backup policy:
     - For the **Backup schedule** and **Retained for** controls, keep this information in mind:
       - Log backups can occur as often as every 15 minutes and can be retained for up to 35 days.
       - If the database is in the [simple recovery model](/sql/relational-databases/backup-restore/recovery-models-sql-server), the log backup schedule for that database is paused and no log backups are triggered.
-      - If the recovery model of the database changes from **Full** to **Simple**, log backups are paused within 24 hours of the change in the recovery model. Similarly, if the recovery model changes from **Simple**, implying log backups can now be supported for the database, the log backup schedules are enabled within 24 hours of the change in the recovery model.
+      - If the recovery model of the database changes from **Full** to **Simple**, log backups are paused within 24 hours of the change in the recovery model. Similarly, if the recovery model changes from **Simple** (which implies that log backups can now be supported for the database), the log backup schedules are enabled within 24 hours of the change in the recovery model.
 
     :::image type="content" source="./media/backup-azure-sql-database/sql-log-backup.png" alt-text="Screenshot that shows the pane for modifying a log backup policy." lightbox="./media/backup-azure-sql-database/sql-log-backup.png":::
 
@@ -195,7 +195,7 @@ To create a backup policy:
 >
 > Assume that you have a weekly full backup, a daily differential, and 2-hour logs. All of them are retained for 30 days. But, the weekly full backup can be cleaned up or deleted only after the next full backup is available; that is, after 30 + 7 days.
 >
-> For example, a weekly full backup happens on November 16. According to the retention policy, this backup should be retained until December 16. The last log backup happens before the next scheduled full backup, on November 22. Until this log backup is available on Dec 22, the November 16 full backup can't be deleted. So, the November 16 full backup is retained until December 22.
+> For example, a weekly full backup happens on November 16. According to the retention policy, this backup should be retained until December 16. The last log backup happens before the next scheduled full backup, on November 22. Until this log backup is available on December 22, the November 16 full backup can't be deleted. So, the November 16 full backup is retained until December 22.
 
 ## Run an on-demand backup
 
