@@ -30,8 +30,6 @@ items:
       href: policy-analytics.md
   - name: FQDN filtering
     href: domain-filtering-overview.md
-  - name: Infrastructure FQDNs
-    href: infrastructure-fqdns.md
   - name: IDPS signature rule categories
     href: idps-signature-categories.md
   - name: Web categories
