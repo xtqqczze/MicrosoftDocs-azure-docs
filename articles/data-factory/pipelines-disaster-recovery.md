@@ -9,6 +9,8 @@ ms.author: susabat
 ms.reviewer: susabat
 ---
 
+# Business continuity and disaster recovery for Azure Data Factory and Azure Synapse Analytics pipelines
+
 Disasters can be hardware failures, natural disasters, or software failures. The process of preparing for and recovering from a disaster is called disaster recovery (DR). This article describes recommended practices to achieve business continuity and disaster recovery (BCDR) for Azure Data Factory and Azure Synapse Analytics pipelines.
 
 BCDR strategies include availability zone redundancy, automated recovery that Azure DR provides, and user-managed recovery by using continuous integration and continuous delivery (CI/CD).
@@ -176,23 +178,7 @@ In general, you need to design your pipelines to include activities, like fail a
 > [!NOTE]
 > This approach introduces a dependency on the witness lookup into your pipeline. Failure to read the witness halts all pipeline runs.
 
-## Contributors
-
-*Microsoft maintains this article. The following contributors wrote this article.*
-
-Principal authors:
-
-- [Krishnakumar Rukmangathan](https://www.linkedin.com/in/krishnakumar-rukmangathan) | Senior Program Manager - Azure Data Factory team
-- [Sunil Sabat](https://www.linkedin.com/in/sunilsabat) | Principal Program Manager - Azure Data Factory team
-
-Other contributors:
-
-- [Wee Hyong Tok](https://www.linkedin.com/in/weehyongtok) | Principal Director of PM - Azure Data Factory team
-- [Mario Zimmermann](https://www.linkedin.com/in/mario-zimmermann-11614755) | Principal Software Engineering Manager - Azure Data Factory team
-
-*To see nonpublic LinkedIn profiles, sign in to LinkedIn.*
-
-## Next steps
+## Related resources
 
 - [What are business continuity, high availability, and DR?](/azure/reliability/concept-business-continuity-high-availability-disaster-recovery)
 - [Reliability in Azure](/azure/reliability/overview)
@@ -205,9 +191,3 @@ Other contributors:
 - [IR in Azure Data Factory](/azure/data-factory/concepts-integration-runtime)
 - [Pipelines and activities in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/concepts-pipelines-activities)
 - [Data integration in Azure Synapse Analytics versus Azure Data Factory](/azure/synapse-analytics/data-integration/concepts-data-factory-differences)
-- [BCDR for Azure Logic Apps](/azure/logic-apps/multi-region-disaster-recovery)
-
-## Related resources
-
-- [Baseline highly available zone-redundant web application](/azure/architecture/web-apps/app-service/architectures/baseline-zone-redundant)
-- [Choose a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
