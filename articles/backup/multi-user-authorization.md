@@ -52,7 +52,7 @@ To create the Resource Guard in a tenant different from the vault tenant, follow
    :::image type="content" source="./media/multi-user-authorization/resource-guards.png" alt-text="Screenshot shows how to search resource guards." lightbox="./media/multi-user-authorization/resource-guards.png":::
     
    - Select **Create** to start creating a Resource Guard.
-   - In the create pane, fill in the required details for this Resource Guard.
+   - On the **Create** pane, fill in the required details for the Resource Guard.
        - Make sure the Resource Guard is in the same Azure regions as the Recovery Services vault.
        - Also, it's helpful to add a description of how to get or request access to perform actions on associated vaults when needed. This description would also appear in the associated vaults to guide the backup admin on getting the required permissions. You can edit the description later if needed, but having a well-defined description at all times is encouraged.
        
@@ -153,7 +153,7 @@ To enable MUA on a vault, the admin of the vault must have **Reader** role on th
     
 1. Select **Reader** from the list of built-in roles, and select **Next**.
 
-   :::image type="content" source="./media/multi-user-authorization/demo-resource-guard-add-role-assignment.png" alt-text="Screenshot shows the demo resource guard-add role assignment." lightbox="./media/multi-user-authorization/demo-resource-guard-add-role-assignment.png":::
+   :::image type="content" source="./media/multi-user-authorization/demo-resource-guard-add-role-assignment.png" alt-text="Screenshot shows the add-role-assignment option for demo resource guard." lightbox="./media/multi-user-authorization/demo-resource-guard-add-role-assignment.png":::
 
 1. Click **Select members** and add the Backup admin’s email ID to add them as the **Reader**. As the Backup admin is in another  tenant in this case, they'll be added as guests to the tenant containing the Resource Guard.
 
@@ -494,7 +494,7 @@ To assign the **Reader** role on the Resource Guard, follow these steps:
     
 1. Select **Reader** from the list of built-in roles, and select **Next**.
 
-   :::image type="content" source="./media/multi-user-authorization/demo-resource-guard-add-role-assignment.png" alt-text="Screenshot shows the demo resource guard-add role assignment for Backup vault." lightbox="./media/multi-user-authorization/demo-resource-guard-add-role-assignment.png":::
+   :::image type="content" source="./media/multi-user-authorization/demo-resource-guard-add-role-assignment.png" alt-text="Screenshot shows the add-role-assignment option on demo resource guard for Backup vault." lightbox="./media/multi-user-authorization/demo-resource-guard-add-role-assignment.png":::
 
 1. Click **Select members** and add the Backup admin's email ID to assign the **Reader** role.
 
