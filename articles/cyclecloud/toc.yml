@@ -24,7 +24,7 @@
     href: ./concepts/clusters.md
   - name: Scheduling
     href: ./concepts/scheduling.md
-  - name: Multi Region Cluster Deployment
+  - name: Multi-region Cluster Deployment
     href: ./concepts/multi-region-cluster-deployment.md    
   - name: Clusters Operations
     items:
