@@ -1,0 +1,9 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/firewall/infrastructure-fqdns.md",
+      "redirect_url": "/azure/firewall/rule-processing#infrastructure-rule-collection",
+      "redirect_document_id": false
+    }
+  ]
+}
