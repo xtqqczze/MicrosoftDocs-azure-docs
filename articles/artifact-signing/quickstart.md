@@ -61,7 +61,7 @@ To register a Trusted Signing resource provider by using the Azure portal:
 
 6. Select the ellipsis, and then select **Register**.
 
-   :::image type="content" source="media/trusted-signing-resource-provider.png" alt-text="Screenshot that shows the Microsoft.CodeSigning resource provider as registered." lightbox="media/trusted-signing-resource-provider.png":::
+   :::image type="content" source="media/artifact-signing-resource-provider.png" alt-text="Screenshot that shows the Microsoft.CodeSigning resource provider as registered." lightbox="media/artifact-signing-resource-provider.png":::
 
    The status of the resource provider changes to **Registered**.
 
