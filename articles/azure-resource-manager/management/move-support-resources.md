@@ -1,8 +1,8 @@
----
+﻿---
 title: Azure resource types for move operations
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
-ms.topic: conceptual
 ms.date: 10/26/2025
+ms.topic: article
 ms.custom: tbd
 ---
 
@@ -2049,3 +2049,4 @@ Third-party services don't support move operations at this time.
 - For commands to move resources, see [Move Azure resources to a new resource group or subscription](move-resource-group-and-subscription.md).
 - [Learn more](../../resource-mover/overview.md) about the Azure Resource Mover service.
 - To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv) for resource group and subscription move support. If you need those properties and support for how to move regions, download [move-support-resources-with-regions.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources-with-regions.csv).
+
