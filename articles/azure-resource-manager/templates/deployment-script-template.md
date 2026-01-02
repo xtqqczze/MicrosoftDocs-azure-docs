@@ -39,7 +39,7 @@ The deployment script service creates two supporting resources - a storage accou
 In rare cases, you may encounter the error "The storage account named \<storage-account-name> is already taken." This typically occurs when a storage account created by a previous execution of the same deployment script was not cleaned up successfully.
 
 > [!WARNING]
-> Generally, the service cleans up these supporting resources after the deployment script finishes. You incur charges for these resources until they're removed. For pricing information, see [Azure Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). To learn more, see [Clean up deployment script resources](./deployment-script-develop.md#clean-up-deployment-script-resources).
+> Generally, the service cleans up these supporting resources after the deployment script finishes. You incur charges for these resources until they're removed. For pricing information, see [Azure Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
 
 > [!NOTE]
 > Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
