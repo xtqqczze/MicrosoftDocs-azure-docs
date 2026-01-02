@@ -574,6 +574,61 @@ Grants required access to the system assigned managed identity of Azure Migrate 
 }
 ```
 
+## Migrate Arc Discovery Reader - Preview
+
+Read metadata of Azure Arc enabled server resources and metadata, performance and migration suitability of Arc enabled SQL server resources. Users creating Azure Migrate project that uses Arc resource discovery require this role on Arc scope of the project. To enable periodic sync, Azure Migrate project managed identity must be assigned this role. This role is in preview and subject to change.
+
+[Learn more](/azure/migrate/concepts-arc-resource-discovery)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.AzureArcData/sqlServerInstances/read | Retrieves a SQL Server Instance resource |
+> | Microsoft.AzureArcData/sqlServerInstances/databases/read | read databases |
+> | Microsoft.AzureArcData/sqlServerInstances/availabilityGroups/read | read availabilityGroups |
+> | Microsoft.AzureArcData/sqlServerInstances/getTelemetry/action | Retrieves SQL Server instance telemetry |
+> | Microsoft.AzureArcData/sqlServerInstances/availabilityGroups/getDetailView/action | Retrieves detailed properties of the Availability Group. |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/read | Read any Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/read | Reads any Azure Arc extensions |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read metadata of Azure Arc enabled server resources and metadata, performance and migration suitability of Arc enabled SQL server resources. Users creating Azure Migrate project that uses Arc resource discovery require this role on Arc scope of the project. To enable periodic sync, Azure Migrate project managed identity must be assigned this role. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/5d5dddae-e124-4753-972d-aae60b37deb4",
+  "name": "5d5dddae-e124-4753-972d-aae60b37deb4",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.AzureArcData/sqlServerInstances/read",
+        "Microsoft.AzureArcData/sqlServerInstances/databases/read",
+        "Microsoft.AzureArcData/sqlServerInstances/availabilityGroups/read",
+        "Microsoft.AzureArcData/sqlServerInstances/getTelemetry/action",
+        "Microsoft.AzureArcData/sqlServerInstances/availabilityGroups/getDetailView/action",
+        "Microsoft.HybridCompute/machines/read",
+        "Microsoft.HybridCompute/machines/extensions/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Migrate Arc Discovery Reader - Preview",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Next steps
 
 - [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)

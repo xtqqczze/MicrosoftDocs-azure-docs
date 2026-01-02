@@ -429,6 +429,8 @@ Provides access to create and manage dev boxes.
 
 Provides access to manage all Microsoft.DevCenter resources, and to manage access to Microsoft.DevCenter resources by adding or removing role assignments for the DevCenter Project Admin and DevCenter Dev Box roles.
 
+Includes an ABAC condition to constrain role assignments.
+
 [Learn more](/azure/dev-box/how-to-manage-dev-center)
 
 > [!div class="mx-tableFixed"]
@@ -447,7 +449,7 @@ Provides access to manage all Microsoft.DevCenter resources, and to manage acces
 > | **NotDataActions** |  |
 > | *none* |  |
 > | **Condition** |  |
-> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{331c37c6-af14-46d9-b9f4-e1909e1b95a0, 45d50f46-0b78-4001-a660-4198cbe8cd05})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{331c37c6-af14-46d9-b9f4-e1909e1b95a0, 45d50f46-0b78-4001-a660-4198cbe8cd05})) |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{331c37c6-af14-46d9-b9f4-e1909e1b95a0, 45d50f46-0b78-4001-a660-4198cbe8cd05})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{331c37c6-af14-46d9-b9f4-e1909e1b95a0, 45d50f46-0b78-4001-a660-4198cbe8cd05})) | Add or remove role assignments for the following roles:<br/>DevCenter Project Admin<br/>DevCenter Dev Box User |
 
 ```json
 {
