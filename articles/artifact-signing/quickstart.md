@@ -301,68 +301,68 @@ To create an identity validation request for an Organization or a DBA:
 1. Follow the link to complete the Identity Validation process. Use the email address provided at the time of the request creation. Enter the credentials when prompted, and you'll be navigated to the next screen.
 1. Select **Get verified here through our trusted ID-verifiers**.
 
-   :::image type="content" source="media/trusted-signing-first-qr-code.png" alt-text="Screenshot that shows the first screen for Verified ID." lightbox="media/trusted-signing-first-qr-code.png":::
+   :::image type="content" source="media/artifact-signing-first-qr-code.png" alt-text="Screenshot that shows the first screen for Verified ID." lightbox="media/artifact-signing-first-qr-code.png":::
 
 1. Create verified credentials by using the trusted partners' pages. The following steps show an example walkthrough. It uses the trusted partner: AU10TIX. You're navigated to a third party website.
 
    1. Select **Let’s Begin**.
 
-   :::image type="content" source="media/trusted-signing-second-verified-id.png" alt-text="Screenshot that shows the second screen for Verified ID." lightbox="media/trusted-signing-second-verified-id.png":::
+   :::image type="content" source="media/artifact-signing-second-verified-id.png" alt-text="Screenshot that shows the second screen for Verified ID." lightbox="media/artifact-signing-second-verified-id.png":::
 
 1. Enter your primary email address from the request here.
 
-   :::image type="content" source="media/trusted-signing-enter-email-id.png" alt-text="Screenshot that shows screen to enter email address for Verified ID." lightbox="media/trusted-signing-enter-email-id.png":::
+   :::image type="content" source="media/artifact-signing-enter-email-id.png" alt-text="Screenshot that shows screen to enter email address for Verified ID." lightbox="media/artifact-signing-enter-email-id.png":::
 
     AU10TIX sends an email verification in email that includes a PIN code.
 
    1. Check your email for the verification email and enter the PIN code to verify your email account.
 
-   :::image type="content" source="media/trusted-signing-enter-pin-code.png" alt-text="Screenshot that shows screen to enter pincode for Verified ID." lightbox="media/trusted-signing-enter-pin-code.png":::
+   :::image type="content" source="media/artifact-signing-enter-pin-code.png" alt-text="Screenshot that shows screen to enter pincode for Verified ID." lightbox="media/artifact-signing-enter-pin-code.png":::
 
 1. Enter phone number when prompted on the next screen.
 
-   :::image type="content" source="media/trusted-signing-enter-phone-number.png" alt-text="Screenshot that shows screen to enter phone number for Verified ID." lightbox="media/trusted-signing-enter-phone-number.png":::
+   :::image type="content" source="media/artifact-signing-enter-phone-number.png" alt-text="Screenshot that shows screen to enter phone number for Verified ID." lightbox="media/artifact-signing-enter-phone-number.png":::
 
 1. Select **Start**.
 
-   :::image type="content" source="media/trusted-signing-begin-on-laptop.png" alt-text="Screenshot that shows screen begin Verified ID." lightbox="media/trusted-signing-begin-on-laptop.png":::
+   :::image type="content" source="media/artifact-signing-begin-on-laptop.png" alt-text="Screenshot that shows screen begin Verified ID." lightbox="media/artifact-signing-begin-on-laptop.png":::
 
 1. Use camera of your mobile device to scan the QR code. Don't close this screen on your browser.
 
-   :::image type="content" source="media/trusted-signing-scan-qr-code-on-phone.png" alt-text="Screenshot that shows screen to scan QR code on phone to begin Verified ID." lightbox="media/trusted-signing-scan-qr-code-on-phone.png":::
+   :::image type="content" source="media/artifact-signing-scan-qr-code-on-phone.png" alt-text="Screenshot that shows screen to scan QR code on phone to begin Verified ID." lightbox="media/artifact-signing-scan-qr-code-on-phone.png":::
 
 1. On your mobile device, select **Start**. Follow the steps to complete the process and present the relevant documentation when prompted.
 
 1. After the Au10TIX process is complete on your mobile device, select **Open Authenticator**.
 
-   :::image type="content" source="media/trusted-signing-open-authenticator.png" alt-text="Screenshot that shows screen to navigate to Authenticator." lightbox="media/trusted-signing-open-authenticator.png":::
+   :::image type="content" source="media/artifact-signing-open-authenticator.png" alt-text="Screenshot that shows screen to navigate to Authenticator." lightbox="media/artifact-signing-open-authenticator.png":::
 
 1. Now back on the browser, scan the QR code from your mobile device. Don't close the browser.
 
-   :::image type="content" source="media/trusted-signing-scan-qr-code-again.png" alt-text="Screenshot that shows screen to scan QR code on phone once again to being Verified ID." lightbox="media/trusted-signing-scan-qr-code-again.png":::
+   :::image type="content" source="media/artifact-signing-scan-qr-code-again.png" alt-text="Screenshot that shows screen to scan QR code on phone once again to being Verified ID." lightbox="media/artifact-signing-scan-qr-code-again.png":::
 
 1. Select **Add** to add a verified ID to the Microsoft Authenticator app.
 
-   :::image type="content" source="media/trusted-signing-add-verified-id.png" alt-text="Screenshot that shows screen to Verified ID to their authenticator app." lightbox="media/trusted-signing-add-verified-id.png":::
+   :::image type="content" source="media/artifact-signing-add-verified-id.png" alt-text="Screenshot that shows screen to Verified ID to their authenticator app." lightbox="media/artifact-signing-add-verified-id.png":::
 
 1. The browser screen shows Present your Verified ID. Scan the QR code.
 1. Select **Verifiable Credential** to share with Artifact Signing.
 1. Select **Share** to share the credentials with Artifact Signing.
 1. For successful completion the browser screen on your nonmobile device updates to: **Verification Successful** .
 
-   :::image type="content" source="media/trusted-signing-indie-identity-validation-onevet.png" alt-text="Screenshot that shows the indie successful on onevet." lightbox="media/trusted-signing-indie-identity-validation-onevet.png":::
+   :::image type="content" source="media/artifact-signing-indie-identity-validation-onevet.png" alt-text="Screenshot that shows the indie successful on onevet." lightbox="media/artifact-signing-indie-identity-validation-onevet.png":::
 
 1. It takes a couple of minutes for the Identity Validation status on Azure portal to update. For a successful Verified ID the status, on Azure portal changes to **Completed**.
 
-   :::image type="content" source="media/trusted-signing-identity-validation-indie.png" alt-text="Screenshot that shows the indie successful on Azure portal." lightbox="media/trusted-signing-identity-validation-indie.png":::
+   :::image type="content" source="media/artifact-signing-identity-validation-indie.png" alt-text="Screenshot that shows the indie successful on Azure portal." lightbox="media/artifact-signing-identity-validation-indie.png":::
 
 ### Important information for public identity validation for Individual Developers
 
 1. Minimum Requirements for Mobile OSes and supported Browsers:
 
-   :::image type="content" source="media/trusted-signing-au10tix-mobileOS-supported.png" alt-text="Screenshot that shows the mobile OSes supported for indie." lightbox="media/trusted-signing-au10tix-mobileOS-supported.png":::
+   :::image type="content" source="media/artifact-signing-au10tix-mobileOS-supported.png" alt-text="Screenshot that shows the mobile OSes supported for indie." lightbox="media/artifact-signing-au10tix-mobileOS-supported.png":::
 
-   :::image type="content" source="media/trusted-signing-au10tix-browser-supported.png" alt-text="Screenshot that shows the browsers supported for indie." lightbox="media/trusted-signing-au10tix-browser-supported.png":::
+   :::image type="content" source="media/artifact-signing-au10tix-browser-supported.png" alt-text="Screenshot that shows the browsers supported for indie." lightbox="media/artifact-signing-au10tix-browser-supported.png":::
 
 1. Types of ID Accepted:
 
@@ -445,7 +445,7 @@ To create a certificate profile in the Azure portal:
       A generated **Certificate Subject Preview** shows the preview of the certificate that will be issued.
 5. Select **Create**.
 
-   :::image type="content" source="media/trusted-signing-certificate-profile-creation.png" alt-text="Screenshot that shows the Create certificate profile pane." lightbox="media/trusted-signing-certificate-profile-creation.png":::
+   :::image type="content" source="media/artifact-signing-certificate-profile-creation.png" alt-text="Screenshot that shows the Create certificate profile pane." lightbox="media/artifact-signing-certificate-profile-creation.png":::
 
 # [Azure CLI](#tab/certificateprofile-cli)
 
@@ -457,7 +457,7 @@ You need the identity validation ID for the entity that the certificate profile 
 2. On the Artifact Signing account **Overview** pane or on the resource menu under **Objects**, select **Identity validations**.
 3. Select the hyperlink for the relevant entity. On the **Identity validation** pane, you can copy the value for **Identity validation Id**.
 
-   :::image type="content" source="media/trusted-signing-identity-validation-id.png" alt-text="Screenshot that shows copying the identity validation ID for a Trusted Signing account." lightbox="media/trusted-signing-identity-validation-id.png":::
+   :::image type="content" source="media/artifact-signing-identity-validation-id.png" alt-text="Screenshot that shows copying the identity validation ID for an Artifact Signing account." lightbox="media/artifact-signing-identity-validation-id.png":::
 
 To create a certificate profile by using the Azure CLI:
 
@@ -557,5 +557,5 @@ In this quickstart, you created an Artifact Signing account, an identity validat
 - Learn more about [certificate management](concept-trusted-signing-cert-management.md).
 - Need assistance with your setup:
     - Reach out via Azure Support through Azure portal.
-    - Post your query on Stack Overflow or Microsoft Q&A, use the tag: trusted-signing. 
+    - Post your query on Stack Overflow or Microsoft Q&A, use the tag: artifact-signing. 
         - Identity Validation issues can only be addressed with Stack Overflow or Microsoft Q&A.
