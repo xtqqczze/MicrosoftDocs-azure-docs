@@ -52,7 +52,7 @@ To access and send signing transactions to your storage account: 
 2. On the Artifact Signing account **Overview** pane, in the resource menu under **Monitoring**, select **Diagnostic settings**.
 3. On the **Diagnostic settings** pane, select **+ Add diagnostic setting**.
 
-   :::image type="content" source="media/trusted-signing-diagnostic-settings.png" alt-text="Screenshot that shows adding a diagnostic setting." lightbox="media/trusted-signing-diagnostic-settings.png":::
+   :::image type="content" source="media/artifact-signing-diagnostic-settings.png" alt-text="Screenshot that shows adding a diagnostic setting." lightbox="media/artifact-signing-diagnostic-settings.png":::
 
 1. On the **Diagnostic setting** pane:
 
@@ -61,7 +61,7 @@ To access and send signing transactions to your storage account: 
    3. Under **Destination details**, select the **Archive to a storage account** checkbox.
    4. Select the subscription and storage account that you want to use.
 
-   :::image type="content" source="media/trusted-signing-select-storage-account-subscription.png" alt-text="Screenshot that shows configuring a diagnostic setting for a storage account." lightbox="media/trusted-signing-select-storage-account-subscription.png":::
+   :::image type="content" source="media/artifact-signing-select-storage-account-subscription.png" alt-text="Screenshot that shows configuring a diagnostic setting for a storage account." lightbox="media/artifact-signing-select-storage-account-subscription.png":::
 
 2. Select **Save**. A pane displays a list of all diagnostic settings that were created for this code signing account.  
 3. After you create a diagnostic setting, wait for 10 to 15 minutes for the events to begin to be ingested in the storage account you created.  

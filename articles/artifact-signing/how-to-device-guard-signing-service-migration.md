@@ -103,7 +103,7 @@ ConvertFrom-CIPolicy -XmlFilePath <xmlCIPolicyFilePath> -BinaryFilePath <binaryC
     1. Using the steps in [Sign a CI policy](/azure/artifact-signing/how-to-sign-ci-policy) run the command Get-AzCodeSigningCustomerEkuto get the customer EKU. 
     2. Within your Artifact Signing account, select “Certificate Profiles”, then select your Private Trust certificate profile. You'll see information on the profile like the screenshot below. The ‘Enhanced key usage’ listed is your customer EKU.
     
- :::image type="content" source="media/trusted-signing-select-eku.png" alt-text="Screenshot that shows eku." lightbox="media/trusted-signing-select-eku.png":::
+ :::image type="content" source="media/artifact-signing-select-eku.png" alt-text="Screenshot that shows eku." lightbox="media/artifact-signing-select-eku.png":::
 
 2. Now that you have the customer EKU. You'll need to generate a function EKU. To do so pass the customer EKU into the code below. The output is your function EKU. 
 ```
@@ -149,7 +149,7 @@ private string CalculateEkuValue(string CustomerEku)
 
 **Your Account Name Code Signing Certificate** is your Artifact Signing account name. Note that this field isn't verified in the CI policy, but we recommend you putting your Artifact signing account name in the field. To find your account name on the Azure portal navigate to [Azure portal](https://portal.azure.com/), search “Artifact Signing” in the top search bar and select your account that comes up in the search results. The screenshot below shows the account name outlined in red. 
 
- :::image type="content" source="media/trusted-signing-account-overview.png" alt-text="Screenshot that shows account overview." lightbox="media/trusted-signing-account-overview.png":::
+ :::image type="content" source="media/artifact-signing-account-overview.png" alt-text="Screenshot that shows account overview." lightbox="media/artifact-signing-account-overview.png":::
 
 4. Convert the .xml to .bin policy file using the following command: ConvertFrom-CIPolicy 
 
