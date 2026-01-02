@@ -41,7 +41,7 @@ The Artifact Signing Identity Verifier role is *required* to manage identity val
 1. In the Azure portal, go to your Artifact Signing account. On the resource menu, select **Access Control (IAM)**.
 1. Select the **Roles** tab and search for **Artifact Signing**. The following figure shows the two custom roles.
 
-   :::image type="content" source="media/trusted-signing-rbac-roles.png" alt-text="Screenshot that shows the Azure portal UI and the Artifact Signing custom RBAC roles.":::
+   :::image type="content" source="media/artifact-signing-rbac-roles.png" alt-text="Screenshot that shows the Azure portal UI and the Artifact Signing custom RBAC roles.":::
 
 1. To assign these roles, select **Add**, and then select **Add role assignment**. Follow the guidance in [Assign roles in Azure](/azure/role-based-access-control/role-assignments-portal) to assign the relevant roles to your identities.
 
