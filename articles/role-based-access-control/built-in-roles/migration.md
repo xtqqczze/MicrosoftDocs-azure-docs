@@ -161,6 +161,8 @@ Grants restricted access on Azure Migrate project to only perform planning opera
 
 Grants restricted access on an Azure Migrate project to only perform migration related operations, including replication, execution of test migrations, tracking and monitoring of migration progress, and initiation of agentless and agent-based migrations.
 
+Includes an ABAC condition to constrain role assignments.
+
 [Learn more](/azure/migrate/prepare-azure-accounts)
 
 > [!div class="mx-tableFixed"]
@@ -230,7 +232,7 @@ Grants restricted access on an Azure Migrate project to only perform migration r
 > | **NotDataActions** |  |
 > | *none* |  |
 > | **Condition** |  |
-> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe})) |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe})) | Add or remove role assignments for the following roles:<br/>Storage Account Contributor<br/>Storage Blob Data Contributor |
 
 ```json
 {
@@ -320,6 +322,8 @@ Grants restricted access on an Azure Migrate project to only perform migration r
 
 Grants full access to create and manage Azure Migrate projects including appliance-based discovery, creation of business case & assessment report and execution of migrations; Also grants ability to assign Azure Migrate specific roles in Azure RBAC.
 
+Includes an ABAC condition to constrain role assignments.
+
 [Learn more](/azure/migrate/prepare-azure-accounts)
 
 > [!div class="mx-tableFixed"]
@@ -407,7 +411,7 @@ Grants full access to create and manage Azure Migrate projects including applian
 > | **NotDataActions** |  |
 > | *none* |  |
 > | **Condition** |  |
-> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{7859c0b0-0bb9-4994-bd12-cd529af7d646, 1cfa4eac-9a23-481c-a793-bfb6958e836b, 17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe, ba480ccd-6499-4709-b581-8f38bb215c63})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{7859c0b0-0bb9-4994-bd12-cd529af7d646, 1cfa4eac-9a23-481c-a793-bfb6958e836b, 17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe, ba480ccd-6499-4709-b581-8f38bb215c63})) |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{7859c0b0-0bb9-4994-bd12-cd529af7d646, 1cfa4eac-9a23-481c-a793-bfb6958e836b, 17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe, ba480ccd-6499-4709-b581-8f38bb215c63})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{7859c0b0-0bb9-4994-bd12-cd529af7d646, 1cfa4eac-9a23-481c-a793-bfb6958e836b, 17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe, ba480ccd-6499-4709-b581-8f38bb215c63})) | Add or remove role assignments for the following roles:<br/>Azure Migrate Decide and Plan Expert<br/>Azure Migrate Execute Expert<br/>Storage Account Contributor<br/>Storage Blob Data Contributor<br/>Azure Migrate Service Reader |
 
 ```json
 {
@@ -504,6 +508,67 @@ Grants full access to create and manage Azure Migrate projects including applian
     }
   ],
   "roleName": "Azure Migrate Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Migrate Service Reader
+
+Grants required access to the system assigned managed identity of Azure Migrate project resource.
+
+[Learn more](/azure/migrate/prepare-azure-accounts)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | Microsoft.ApplicationMigration/*/read |  |
+> | [Microsoft.Migrate](../permissions/migration.md#microsoftmigrate)/*/read |  |
+> | [Microsoft.OffAzure](../permissions/migration.md#microsoftoffazure)/*/read |  |
+> | Microsoft.MySQLDiscovery/*/read |  |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | Read any Protectable Items |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Read any Protected Items |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/read | Read any Migration Items |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants required access to the system assigned managed identity of Azure Migrate project resource.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/ba480ccd-6499-4709-b581-8f38bb215c63",
+  "name": "ba480ccd-6499-4709-b581-8f38bb215c63",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.ApplicationMigration/*/read",
+        "Microsoft.Migrate/*/read",
+        "Microsoft.OffAzure/*/read",
+        "Microsoft.MySQLDiscovery/*/read",
+        "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read",
+        "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read",
+        "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Migrate Service Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
