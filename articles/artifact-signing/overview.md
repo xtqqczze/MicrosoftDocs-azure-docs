@@ -5,7 +5,7 @@ author: TacoTechSharma
 ms.author: mesharm
 ms.topic: overview
 ms.service: trusted-signing
-ms.date: 03/21/2024
+ms.date: 01/02/2026
 ms.custom:
   - template-overview
   - sfi-image-nochange
@@ -32,7 +32,7 @@ The Artifact Signing service:
 
 The following figure shows a high-level overview of the Artifact Signing resource structure:
 
-:::image type="content" source="media/trusted-signing-resource-structure-overview.png" alt-text="Diagram that shows the Artifact Signing resource group and certificate profile structure." border="false":::
+:::image type="content" source="media/artifact-signing-resource-structure-overview.png" alt-text="Diagram that shows the Artifact Signing resource group and certificate profile structure." border="false":::
 
 You create a resource group in an Azure subscription. Then you create an Artifact Signing account inside the resource group.
 

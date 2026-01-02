@@ -57,7 +57,7 @@ To register an Artifact Signing resource provider by using the Azure portal:
 
    By default, the resource provider status is **NotRegistered**.
 
-:::image type="content" source="media/trusted-signing-resource-provider-registration.png" alt-text="Screenshot that shows creating a Trusted Signing account." lightbox="media/trusted-signing-resource-provider-registration.png":::
+:::image type="content" source="media/artifact-signing-resource-provider-registration.png" alt-text="Screenshot that shows creating an Artifact Signing account." lightbox="media/artifact-signing-resource-provider-registration.png":::
 
 6. Select the ellipsis, and then select **Register**.
 
@@ -148,9 +148,9 @@ An Artifact Signing account name is:
 To create an Artifact Signing account by using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Search for and then select **Trusted Signing Accounts**.
+2. Search for and then select **Artifact Signing Accounts**.
 
-   :::image type="content" source="media/trusted-signing-search-service.png" alt-text="Screenshot that shows searching for Trusted Signing Accounts in the Azure portal." lightbox="media/trusted-signing-search-service.png":::
+   :::image type="content" source="media/artifact-signing-search-service.png" alt-text="Screenshot that shows searching for Artifact Signing Accounts in the Azure portal." lightbox="media/artifact-signing-search-service.png":::
 3. On the **Artifact Signing Accounts** pane, select **Create**.
 4. For **Subscription**, select your Azure subscription.
 5. For **Resource group**, select **Create new**, and then enter a resource group name.
@@ -161,7 +161,7 @@ To create an Artifact Signing account by using the Azure portal:
 8. For **Pricing**, select a pricing tier.
 9. Select the **Review + Create** button.
 
-   :::image type="content" source="media/trusted-signing-account-creation.png" alt-text="Screenshot that shows creating a Trusted Signing account." lightbox="media/trusted-signing-account-creation.png":::
+   :::image type="content" source="media/artifact-signing-account-creation.png" alt-text="Screenshot that shows creating an Artifact Signing account." lightbox="media/artifact-signing-account-creation.png":::
 
 10. After you successfully create your Artifact Signing account, select **Go to resource**.  
 
@@ -177,7 +177,7 @@ To create an Artifact Signing account by using the Azure CLI:
 
 2. Create a unique Artifact Signing account by using the following command.
 
-   For more information, see [Naming constraints for Trusted Signing accounts](#naming-constraints-for-artifact-signing-accounts).
+   For more information, see [Naming constraints for Artifact Signing accounts](#naming-constraints-for-artifact-signing-accounts).
 
    To create an Artifact Signing account that has a Basic SKU:
 
@@ -256,9 +256,9 @@ To create an identity validation request for an Organization or a DBA:
    - **Completed** if the process is completed successfully.
    - **Failed** if the process isn't completed successfully.
 
-   :::image type="content" source="media/trusted-signing-identity-validation-public.png" alt-text="Screenshot that shows the Public option in the New identity validation pane." lightbox="media/trusted-signing-identity-validation-public.png":::
+   :::image type="content" source="media/artifact-signing-identity-validation-public.png" alt-text="Screenshot that shows the Public option in the New identity validation pane." lightbox="media/artifact-signing-identity-validation-public.png":::
 
-   :::image type="content" source="media/trusted-signing-identity-validation-private.png" alt-text="Screenshot that shows the Private option in the New identity validation pane." lightbox="media/trusted-signing-identity-validation-private.png":::
+   :::image type="content" source="media/artifact-signing-identity-validation-private.png" alt-text="Screenshot that shows the Private option in the New identity validation pane." lightbox="media/artifact-signing-identity-validation-private.png":::
 
 ### Important information for public identity validation
 
@@ -427,7 +427,7 @@ To create a certificate profile in the Azure portal:
 2. On the Artifact Signing account **Overview** pane or on the resource menu under **Objects**, select **Certificate profiles**.
 3. On the command bar, select **Create** and select a certificate profile type.
 
-   :::image type="content" source="media/trusted-signing-certificate-profile-types.png" alt-text="Screenshot that shows the Trusted Signing certificate profile types to choose from.":::
+   :::image type="content" source="media/artifact-signing-certificate-profile-types.png" alt-text="Screenshot that shows the Artifact Signing certificate profile types to choose from.":::
 4. On **Create certificate profile**, provide the following information:
 
    a. For **Certificate Profile Name**, enter a unique name.
@@ -487,7 +487,7 @@ The following table lists *helpful commands* to use when you create a certificat
 | Command                               | Description  |
 | :----------------------------------- | :------------------- |
 | `az trustedsigning certificate-profile create -–help`                            | Shows help for sample commands, and shows detailed parameter descriptions.              |
-| `az trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`                            | Lists all certificate profiles that are associated with a Trusted Signing account.          |
+| `az trustedsigning certificate-profile list -g MyResourceGroup --account-name MyAccount`                            | Lists all certificate profiles that are associated with an Artifact Signing account.          |
 | `az trustedsigning certificate-profile show -g MyResourceGroup --account-name MyAccount -n MyProfile`                            | Gets the details for a certificate profile.              |
 
 ---
