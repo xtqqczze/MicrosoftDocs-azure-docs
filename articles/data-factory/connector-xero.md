@@ -392,7 +392,7 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage | Change log |  
 | :----------- | :------- |:------- |
 | Version 1.0 | End of support announced | / |  
-| Version 2.0 | GA version available |• Use `table` instead of `tableName`. <br><br>• The value for `table` is the object name, for example: `Accounts`. <br><br>• The self-hosted integration runtime version should be 5.61 or above.  <br><br>• Date is read as String data type. <br><br> • In the linked service, `consumerKey` is replaced with `clientId`, and `privateKey` is replaced with `clientSecret`. <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>  • OAuth 1.0 authentication is not supported. <br><br> • Support specific Xero tables. For the supported table list, go to [Dataset properties](#dataset-properties).|
+| Version 2.0 | GA version available | • In the linked service, `consumerKey` is replaced with `clientId`, and `privateKey` is replaced with `clientSecret`. <br><br> • Use `table` instead of `tableName` in datasets. <br><br>• The value for `table` is the object name, for example: `Accounts`. <br><br>• The self-hosted integration runtime version should be 5.61 or above.  <br><br>• Date is read as String data type.  <br><br> • Support specific Xero tables. For the supported table list, go to [Dataset properties](#dataset-properties). <br><br>• `useEncryptedEndpoints`, `useHostVerification`, `usePeerVerification` are not supported in the linked service. <br><br>  • `query` is not supported. <br><br>  • OAuth 1.0 authentication is not supported. |
 
 ### Upgrade the Xero connector from version 1.0 to version 2.0
 
