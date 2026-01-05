@@ -60,9 +60,9 @@ Resource-specific mode provides:
 
 For Application Gateway, resource-specific mode creates the following tables: 
 
-- [AGWAccessLogs](../../azure-monitor/reference/tables/agwaccesslogs.md)
-- [AGWPerformanceLogs](../../azure-monitor/reference/tables/agwperformancelogs.md)
-- [AGWFirewallLogs](../../azure-monitor/reference/tables/agwfirewalllogs.md)
+- [AGWAccessLogs](azure/azure-monitor/reference/tables/agwaccesslogs.md)
+- [AGWPerformanceLogs](azure/azure-monitor/reference/tables/agwperformancelogs.md)
+- [AGWFirewallLogs](azure/azure-monitor/reference/tables/agwfirewalllogs.md)
 
 **Selecting the collection type in Log analytics**
 
@@ -99,7 +99,7 @@ Other storage locations:
 - **Azure Event Hubs**: Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources.
 - **Azure Monitor partner integrations**.
 
-Learn more about the Azure Monitor's [diagnostic settings destinations](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=portal#destinations) .
+Learn more about the Azure Monitor's [diagnostic settings destinations](azure/azure-monitor/essentials/diagnostic-settings.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=portal#destinations) .
 
 ## Enable logging through PowerShell
 
