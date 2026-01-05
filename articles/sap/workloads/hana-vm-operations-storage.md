@@ -25,10 +25,10 @@ Azure provides different types of storage that are suitable for Azure VMs that a
 To learn about these storage types for SAP HANA, see the individual articles and the overview article [Azure Storage types for SAP workload](./planning-guide-storage.md). For a list of storage types and their SLAs, IOPS and throughput, see [Select a disk type](/azure/virtual-machines/disks-types) for more details.  
 The minimum SAP HANA certified conditions for the different storage types are described in each individual document.
 
-Based on experience gained with customers, we changed the support for combining different storage types between **/hana/data** and **/hana/log**. It is supported to combine the usage of the different Azure block storages that are certified for HANA AND NFS shares based on Azure NetApp Files. For example, it's possible to put **/hana/data** onto premium SSD v1 or v2 and **/hana/log** can be placed on Ultra disk storage in order to get the required low latency. If you use a volume based on Azure NetApp Files for **/hana/data**, **/hana/log** volume can be placed on one of the HANA certified Azure block storage types as well. Using Azure NetApp Files NFS for one of the volumes (like **/hana/data**) and Azure premium SSD v1/v2 or Ultra disk for the other volume (like **/hana/log**) is **supported**.
-
 > [!IMPORTANT]
 > Independent of the Azure storage type chosen, the file system that is used on that storage needs to be supported by SAP for the specific operating system and DBMS. [SAP support note #2972496](https://launchpad.support.sap.com/#/notes/2972496) lists the supported file systems for different operating systems and databases, including SAP HANA. This applies to all volumes SAP HANA might access for reading and writing for whatever task. Specifically using NFS on Azure for SAP HANA, additional restrictions of NFS versions apply as stated later in this article 
+
+Based on experience gained with customers, we changed the support for combining different storage types between **/hana/data** and **/hana/log**. It is supported to combine the usage of the different Azure block storages that are certified for HANA AND NFS shares based on Azure NetApp Files. For example, it's possible to put **/hana/data** onto premium SSD v1 or v2 and **/hana/log** can be placed on Ultra disk storage in order to get the required low latency. If you use a volume based on Azure NetApp Files for **/hana/data**, **/hana/log** volume can be placed on one of the HANA certified Azure block storage types as well. Using Azure NetApp Files NFS for one of the volumes (like **/hana/data**) and Azure premium SSD v1/v2 or Ultra disk for the other volume (like **/hana/log**) is **supported**.
 
 In the on-premises world, you rarely had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you should be aware of some of these SAP issued requirements. Some of the minimum throughput characteristics that SAP is recommending, are:
 
@@ -47,7 +47,7 @@ Some guiding principles in selecting your storage configuration for HANA can be 
 
 
 > [!IMPORTANT]
-> The suggestions for the storage configurations in this or subsequent documents are meant as directions to start with. Running workload and analyzing storage utilization patterns, you might realize that you're not utilizing all the storage bandwidth or IOPS provided. You might consider downsizing on storage then. Or in contrary, your workload might need more storage throughput than suggested with these configurations. As a result, you might need to deploy more capacity, IOPS or throughput. In the field of tension between storage capacity required, storage latency needed, storage throughput and IOPS required and least expensive configuration, Azure offers enough different storage types with different capabilities and different price points to find and adjust to the right compromise for you and your HANA workload.
+> The suggestions for the storage configurations in this or subsequent documents are meant as directions to start with. Running workload and analyzing storage utilization patterns, you might realize that you're not utilizing all the storage bandwidth or IOPS provided. You might consider downsizing on storage then. Or in contrary, your workload might need more storage throughput than suggested with these configurations. As a result, you might need to deploy more capacity, IOPS, or throughput. In the field of tension between storage capacity required, storage latency needed, storage throughput, IOPS required and least expensive configuration, Azure offers enough different storage types with different capabilities and different price points to find and adjust to the right compromise for you and your HANA workload.
 
 
 ## Stripe sets versus SAP HANA data volume partitioning
@@ -83,10 +83,10 @@ If you're using LVM or mdadm to build stripe sets across several Azure premium d
 > [!NOTE]
 > You don't need to configure any redundancy level using RAID volumes since Azure block storage keeps three images of a VHD. The usage of a stripe set with Azure premium disks is purely to configure volumes that provide sufficient IOPS and/or I/O throughput.
 
-Accumulating multiple Azure disks underneath a stripe set, is accumulative from an IOPS and storage throughput side. So, if you put a stripe set across  over 3 x P30 Azure premium SSD v1 disks, it should give you three times the IOPS and three times the storage throughput of a single Azure premium Storage v1 P30 disk.
+Accumulating multiple Azure disks underneath a stripe set, is accumulative from an IOPS and storage throughput side. So, if you put a stripe set across over 3 x P30 Azure premium SSD v1 disks, it should give you three times the IOPS and three times the storage throughput of a single Azure premium SSD v1 P30 disk.
 
 > [!IMPORTANT]
-> In case you're using LVM or mdadm as volume manager to create stripe sets across multiple Azure premium disks, the three SAP HANA FileSystems /data, /log and /shared must not be put in a default or root volume group. It's highly recommended to follow the Linux Vendors guidance which is typically to create individual Volume Groups for /data, /log and /shared.
+> In case you're using LVM or mdadm as volume manager to create stripe sets across multiple Azure premium disks, the three SAP HANA FileSystems /data, /log, and /shared must not be put in a default or root volume group. It's highly recommended to follow the Linux Vendors guidance which is typically to create individual Volume Groups for /data, /log and /shared.
 
 ## Considerations for the HANA shared file system
 
