@@ -47,7 +47,7 @@ To enable Azure CTI for a single Azure VM by using the portal, follow these step
 
    :::image type="content" source="media/create-data-collection-rule/select-change-tracking-virtual-machine-inline.png" alt-text="Screenshot that shows how to select the Change tracking option for a single VM from the portal." lightbox="media/create-data-collection-rule/select-change-tracking-virtual-machine-expanded.png":::
 
-1. In the **Stay up-to-date with all changes** pane, select the **Enable using AMA agent (Recommended)** option and select **Enable**.
+1. In the **Stay up-to-date with all changes** pane, select the **Enable change tracking and inventory feature with AMA** option and select **Enable**.
 
    Deployment of Azure CTI gets initiated with a notification in the upper-right corner of the pane.
 
