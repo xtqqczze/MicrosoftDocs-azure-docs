@@ -83,7 +83,7 @@ If you're using LVM or mdadm to build stripe sets across several Azure premium d
 > [!NOTE]
 > You don't need to configure any redundancy level using RAID volumes since Azure block storage keeps three images of a VHD. The usage of a stripe set with Azure premium disks is purely to configure volumes that provide sufficient IOPS and/or I/O throughput.
 
-Accumulating multiple Azure disks underneath a stripe set, is accumulative from an IOPS and storage throughput side. So, if you put a stripe set across over 3 x P30 Azure premium SSD v1 disks, it should give you three times the IOPS and three times the storage throughput of a single Azure premium SSD v1 P30 disk.
+Accumulating multiple Azure disks underneath a stripe set, is accumulative from an IOPS and storage throughput side. So, if you put a stripe set over 3 x P30 Azure premium SSD v1 disks, it should give you three times the IOPS and three times the storage throughput of a single P30 disk.
 
 > [!IMPORTANT]
 > In case you're using LVM or mdadm as volume manager to create stripe sets across multiple Azure premium disks, the three SAP HANA FileSystems /data, /log, and /shared must not be put in a default or root volume group. It's highly recommended to follow the Linux Vendors guidance which is typically to create individual Volume Groups for /data, /log and /shared.
