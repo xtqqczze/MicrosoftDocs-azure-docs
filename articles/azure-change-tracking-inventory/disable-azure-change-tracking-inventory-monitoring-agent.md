@@ -1,6 +1,6 @@
 ---
 title: Disable Azure Change Tracking and Inventory by Using the Azure Monitor Agent
-description: Learn how to disable Azure Change Tracking and Inventory by using the Azure Monitor agent from your Azure virtual machines.
+description: Learn how to disable Azure Change Tracking and Inventory by using the Azure Monitor Agent from your Azure virtual machines.
 #customer intent: As a customer, I want to disassociate a data collection rule (DCR) from a virtual machine so that I can disable its association with Azure Change Tracking and Inventory.
 services: automation
 ms.custom: linux-related-content
@@ -11,15 +11,15 @@ ms.author: v-uhabiba
 author: habibaum
 ---
 
-# Disable Azure Change Tracking and Inventory by using the Azure Monitor agent
+# Disable Azure Change Tracking and Inventory by using the Azure Monitor Agent
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
-This article describes how to disable Azure Change Tracking and Inventory (CTI) by using the Azure Monitor agent.
+This article describes how to disable Azure Change Tracking and Inventory (CTI) by using the Azure Monitor Agent (AMA).
 
 ## Disable Change Tracking from a VM
 
-To disable Change Tracking from a virtual machine (VM) by using the Azure Monitor agent, you must first disassociate the data collection rule (DCR) and then uninstall Azure CTI.
+To disable Change Tracking from a virtual machine (VM) by using the AMA, you must first disassociate the data collection rule (DCR) and then uninstall Azure CTI.
 
 ### Disassociate a DCR from a VM
 
@@ -49,4 +49,4 @@ To uninstall the Change Tracking extension, follow these steps:
 
 ## Related content
 
-- To learn how to migrate from Azure CTI with the Azure Monitor Logs version to Azure CTI with the Azure Monitor agent version, see [Migration guidance for Azure CTI](../automation/troubleshoot/change-tracking.md).
+- To learn how to migrate from Azure CTI with the Azure Monitor Logs version to Azure CTI with the AMA version, see [Migration guidance for Azure CTI](../automation/troubleshoot/change-tracking.md).

@@ -57,7 +57,7 @@ This article provides the release notes for Azure Change Tracking and Inventory 
 
 #### Known issues
 
-After you migrate from Forefront Identity Manager based on the Azure Monitor agent to Change Tracking based on the Azure Monitor agent, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
+After you migrate from Forefront Identity Manager based on the Azure Monitor Agent (AMA) to Change Tracking based on the AMA, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
 
 | OS | Notes |
 | --- | --- |
@@ -68,7 +68,7 @@ After you migrate from Forefront Identity Manager based on the Azure Monitor age
 
 #### Known issues
 
-After you migrate from Forefront Identity Manager based on the Azure Monitor agent to Change Tracking based on the Azure Monitor agent, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
+After you migrate from Forefront Identity Manager based on the AMA to Change Tracking based on the AMA, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
 
 | OS | Notes |
 | --- | --- |
@@ -78,7 +78,7 @@ After you migrate from Forefront Identity Manager based on the Azure Monitor age
 
 #### Issue fixed
 
-The `SvcName` or `SoftwareName` fields are displayed as a garbled string for Japanese or Chinese language virtual machines (VMs). The issue is fixed in the latest version of the Azure Monitor agent for Windows (1.24.0). We recommend that you upgrade to the Azure Monitor agent.
+The `SvcName` or `SoftwareName` fields are displayed as a garbled string for Japanese or Chinese language virtual machines (VMs). The issue is fixed in the latest version of the AMA for Windows (1.24.0). We recommend that you upgrade to the AMA.
 
 #### Known issues
 
@@ -95,7 +95,7 @@ For Windows, the `SvcDescription` field is coming as a Base64-encoded string. As
 
 #### Issues fixed
 
-The `SvcName` or `SoftwareName` fields are displayed as a garbled string for Japanese or Chinese language VMs. The issue is fixed in the latest version of the Azure Monitor agent for Windows (1.24.0). We recommend that you upgrade to the Azure Monitor agent.
+The `SvcName` or `SoftwareName` fields are displayed as a garbled string for Japanese or Chinese language VMs. The issue is fixed in the latest version of the AMA for Windows (1.24.0). We recommend that you upgrade to the AMA.
 For Windows, the `SvcDescription` field is coming as a Base64-encoded string. As a workaround, use the `base64_decode_tostring() kql` function.
 
 ##### OS-specific issues

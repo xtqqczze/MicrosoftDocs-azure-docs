@@ -22,7 +22,7 @@ Before you enable Azure CTI, ensure that you [create a data collection rule (DCR
 
 ## Enable Azure Change Tracking and Inventory at scale
 
-By using the deploy-if-not-exists (DINE) policy, you can enable Change Tracking with the Azure Monitor agent at scale and in the most efficient manner.
+By using the deploy-if-not-exists (DINE) policy, you can enable Change Tracking with the Azure Monitor Agent at scale and in the most efficient manner.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Change Tracking and Inventory**.
 
