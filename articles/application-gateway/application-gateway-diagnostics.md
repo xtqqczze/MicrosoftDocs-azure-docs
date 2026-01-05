@@ -60,9 +60,9 @@ Resource-specific mode provides:
 
 For Application Gateway, resource-specific mode creates the following tables: 
 
-- [AGWAccessLogs](../azure/azure-monitor/reference/tables/agwaccesslogs.md)
-- [AGWPerformanceLogs](../azure/azure-monitor/reference/tables/agwperformancelogs.md)
-- [AGWFirewallLogs](../azure/azure-monitor/reference/tables/agwfirewalllogs.md)
+- [AGWAccessLogs](../azure-monitor/reference/tables/agwaccesslogs.md)
+- [AGWPerformanceLogs](../azure-monitor/reference/tables/agwperformancelogs.md)
+- [AGWFirewallLogs](../azure-monitor/reference/tables/agwfirewalllogs.md)
 
 **Selecting the collection type in Log analytics**
 
