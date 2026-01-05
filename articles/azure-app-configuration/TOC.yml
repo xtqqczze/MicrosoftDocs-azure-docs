@@ -315,6 +315,8 @@
       href: howto-set-up-private-access.md
     - name: Disable public network access
       href: howto-disable-public-access.md
+    - name: Network access errors
+      href: network-access-errors.md
   - name: Data encryption
     items:
     - name: Add Managed Identities
