@@ -21,14 +21,14 @@ This article provides the release notes for Azure Migrate application and code a
 ### 7.7.0.7
 
 This release contains the following fixes and enhancements:
-- Fixed a potential deadlock during JDTLS search.
+- Fixed a potential deadlock during Eclipse Java Development Tools Language Server (JDTLS) search.
 - Added rule support for Jakarta EE and other migration scenarios.
 - Improved XML match fallback when location resolution fails.
 
 ### 7.7.0.6
 
 This release contains the following features and fixes:
-- Add a new issue-only analysis mode that detects issues only and does not discover the technologies used by the project.
+- Add a new issue-only analysis mode that detects issues only and doesn't discover the technologies used by the project.
 - Fail fast when the underlying analysis service times out, instead of getting stuck.
 
 ### 7.7.0.4
