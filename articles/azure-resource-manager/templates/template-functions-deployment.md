@@ -188,7 +188,7 @@ When deploying a [languageVersion 2.0](./syntax.md#languageversion-20) template,
   "location": "",
   "properties": {
     "template": {
-      "contentVersion": ""
+      "contentVersion": "",
       "metadata": {}
     },
     "templateLink": {
@@ -198,6 +198,8 @@ When deploying a [languageVersion 2.0](./syntax.md#languageversion-20) template,
   }
 }
 ```
+
+The `location` property is included only for deployments at the subscription, management group, or tenant scope. The `templateLink` property is included only when the user provides a linked template rather than an inline template.
 
 ### Remarks
 

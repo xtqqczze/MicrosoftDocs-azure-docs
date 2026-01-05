@@ -3,7 +3,7 @@ title: Bicep functions - deployment
 description: Describes the functions to use in a Bicep file to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 12/04/2025
+ms.date: 12/22/2025
 ---
 
 # Deployment functions for Bicep
@@ -61,41 +61,13 @@ For more information about Azure identities, see [What is an Azure Active Direct
 
 `deployment()`
 
-Returns information about the current deployment operation.
+Returns information about the current deployment operation. 
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-This function returns the object that is passed during deployment. The properties in the returned object differ based on whether you are:
-
-- deploying a local Bicep file.
-- deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), or [tenant](deploy-to-tenant.md)).
-
-When deploying a local Bicep file to a resource group, the function returns the following format:
-
-```json
-{
-  "name": "",
-  "properties": {
-    "template": {
-      "$schema": "",
-      "contentVersion": "",
-      "metadata": {},
-      "parameters": {},
-      "variables": {},
-      "resources": [],
-      "outputs": {}
-    },
-    "templateHash": "",
-    "parameters": {},
-    "mode": "",
-    "provisioningState": ""
-  }
-}
-```
-
-When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The `location` property isn't included when deploying a local Bicep file. The format is:
+When deploying a Bicep file, the Bicep file is transpiled to a [languageVersion 2.0](./syntax.md#languageversion-20) ARM template before deployment. Therefore, the `deployment()` function returns the same properties as a languageVersion 2.0 ARM template. For more information, see [deployment() function for languageVersion 2.0](../templates/template-functions-deployment.md#deployment ).
 
 ```json
 {
@@ -103,19 +75,14 @@ When you deploy to an Azure subscription, management group, or tenant, the retur
   "location": "",
   "properties": {
     "template": {
-      "$schema": "",
       "contentVersion": "",
-      "metadata": {},
-      "resources": [],
-      "outputs": {}
-    },
-    "templateHash": "",
-    "parameters": {},
-    "mode": "",
-    "provisioningState": ""
+      "metadata": {}
+    }
   }
 }
 ```
+
+The `location` property contains a value only for deployments at the [subscription](./deploy-to-subscription.md), [management group](./deploy-to-management-group.md), or [tenant](./deploy-to-tenant.md) scope, otherwise it's an empty string.
 
 ### Example
 
