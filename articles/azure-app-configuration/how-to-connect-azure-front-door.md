@@ -16,7 +16,7 @@ Azure App Configuration supports direct integration with Azure Front Door (previ
 You can connect your App Configuration store to existing Azure Front Door profiles or create new profiles directly from the App Configuration interface for a quick start.
 
 > [!NOTE]
-> This feature is only available in the Azure public cloud. Support for other Azure clouds is planned for future releases.
+> This feature is currently available only in the Azure public cloud.
 
 ## Prerequisites
 
@@ -96,7 +96,7 @@ Create a new Azure Front Door profile and connect it to your App Configuration s
    - **Snapshot name**: Name of snapshot whose content should be accessible through this Azure Front Door endpoint. You can select one or more snapshots to restrict access to specific snapshots.
 
    > [!NOTE]
-   > If you application loads feature flags, provide ".appconfig.featureflag/{YOUR-FEATURE-FLAG-PREFIX}" filter for the Key with *Starts with* operator.
+   > If your application loads feature flags, provide ".appconfig.featureflag/{YOUR-FEATURE-FLAG-PREFIX}" filter for the Key with *Starts with* operator.
 
 
 1. Select **Create & Connect** to create the profile and establish the connection.
@@ -158,11 +158,11 @@ If you encounter issues while connecting Azure Front Door to your App Configurat
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configprovider.md)
+> [Load Configuration from Azure Front Door in Client Applications](./how-to-load-azure-front-door-configuration-provider.md)
 
 ## Related content
 
-- [Configuration Management for Client Applications](./concept-hyperscale-client-config.md)
+- [Configuration Management for Client Applications](./concept-hyperscale-client-configuration.md)
 - [Learn more about Azure Front Door](/azure/frontdoor/)
 - [Configure App Configuration feature flags](/azure/azure-app-configuration/concept-feature-management)
 - [Set up managed identities](/azure/active-directory/managed-identities-azure-resources/)

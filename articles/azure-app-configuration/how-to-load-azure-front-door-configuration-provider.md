@@ -1,6 +1,6 @@
 ---
 title: Load Configuration from Azure App Configuration via Azure Front Door (Preview) 
-description: Learn how to setup applications to connect to Azure Front Door.
+description: Learn how to set up applications to connect to Azure Front Door.
 author: avanigupta
 ms.author: avgupta
 ms.service: azure-app-configuration
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/02/2025
 ---
 
-# Load Configuration from Azure Front Door in Client Applications (Preview) 
+# Load configuration from Azure Front Door in client applications (preview) 
 
 Integrating Azure App Configuration with Azure Front Door enables your client applications to retrieve configuration from edge locations worldwide, ensuring optimal performance at any scale. The integration process involves the following steps:
 
@@ -24,7 +24,7 @@ Integrating Azure App Configuration with Azure Front Door enables your client ap
 > For a visual overview of the end‑to‑end setup, see the [configuration at scale walkthrough video](https://youtu.be/TzXvFgIAhUk).
 
 
-## Client Application Samples
+## Client application samples
 
 The following code demonstrates how to load configuration from Azure Front Door. The application retrieves all keys starting with an "App1:" prefix and checks for updates every minute. When the application requests updates, Azure Front Door returns cached values, if possible, otherwise it retrieves fresh configuration from App Configuration service.
 
@@ -94,7 +94,7 @@ For a complete sample app, refer to [JavaScript App with Azure App Configuration
 
 ### Configuration doesn't refresh
 
-- Verify that both the application refresh interval and Azure Front Door cache TTL are properly configured. For details on configuration refresh timing, see [Caching behavior in hyperscale configuration](./concept-hyperscale-client-config.md#caching).
+- Verify that both the application refresh interval and Azure Front Door cache TTL are properly configured. For details on configuration refresh timing, see [Caching behavior in hyperscale configuration](./concept-hyperscale-client-configuration.md#caching).
 
 ## Language availability
 
@@ -106,9 +106,9 @@ For a complete sample app, refer to [JavaScript App with Azure App Configuration
 | Python      | Work in progress          | N/A |
 | Go          | Work in progress          | N/A |
 
-## Related Content
+## Related content
 
-- [Hyperscale configuration for client applications](./concept-hyperscale-client-config.md)
+- [Hyperscale configuration for client applications](./concept-hyperscale-client-configuration.md)
 - [Setup Azure Front Door to connect to App Config](./how-to-connect-azure-front-door.md)
 - [Learn more about Azure Front Door](/azure/frontdoor/)
 - [Monitor Azure Front Door performance](/azure/frontdoor/front-door-diagnostics)

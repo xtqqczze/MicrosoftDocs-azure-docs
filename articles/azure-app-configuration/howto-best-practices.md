@@ -290,7 +290,7 @@ When you use App Configuration in client applications, ensure that you consider 
 
 ### Recommended approach: Azure Front Door integration
 
-App Configuration can be integrated with Azure Front Door to provide secure, scalable configuration delivery through Azure's global CDN network. Azure Front Door uses Managed Identity to authenticate with App Configuration, while millions of client application instances retrieve settings anonymously through edge servers. CDN caching reduces direct requests to App Configuration, helping prevent throttling and overage charges. It also adds resilience with automatic failover and geo-redundancy through Azure Front Door’s infrastructure. To implement this approach, see [Load Configuration from Azure Front Door in Client Applications](./concept-hyperscale-client-config.md).
+App Configuration can be integrated with Azure Front Door to provide secure, scalable configuration delivery through Azure's global CDN network. Azure Front Door uses Managed Identity to authenticate with App Configuration, while millions of client application instances retrieve settings anonymously through edge servers. CDN caching reduces direct requests to App Configuration, helping prevent throttling and overage charges. It also adds resilience with automatic failover and geo-redundancy through Azure Front Door’s infrastructure. To implement this approach, see [Load Configuration from Azure Front Door in Client Applications](./concept-hyperscale-client-configuration.md).
 
 ### Alternative approach: Custom proxy service
 
