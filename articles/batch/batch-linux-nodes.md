@@ -45,7 +45,7 @@ The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nod
 az batch pool supported-images list
 ```
 
-For more information, you can refer to [Account - List Supported Images - REST API (Azure Batch Service) | Microsoft Docs](/rest/api/batchservice/account/list-supported-images).
+For more information, you can refer to [Account - List Supported Images - REST API (Azure Batch Service) | Microsoft Docs](/rest/api/batchservice/pools/list-supported-images).
 
 
 ::: zone pivot="programming-language-python"
