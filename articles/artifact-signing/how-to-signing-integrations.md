@@ -77,7 +77,7 @@ To install the Artifact Signing Client Tools using PowerShell, start PowerShell 
 
 1. [Download and install SignTool](#download-and-install-signtool).
 1. [Download and install the .NET 8 Runtime](#download-and-install-net-80-runtime).
-1. [Download and install the dlib package](#download-and-install-the-trusted-signing-dlib-package).
+1. [Download and install the Artifact Signing dlib package](#download-and-install-the-artifact-signing-dlib-package).
 1. [Create a JSON file to provide your Artifact Signing account and a certificate profile](#create-a-json-file).
 1. [To Sign a file, Invoke SignTool](#use-signtool-to-sign-a-file).
 
