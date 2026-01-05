@@ -69,6 +69,8 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 When deploying a Bicep file, the Bicep file is transpiled to a [languageVersion 2.0](../templates/syntax.md#languageversion-20) ARM template before deployment. Therefore, the `deployment()` function returns the same properties as a languageVersion 2.0 ARM template. For more information, see [deployment() function for languageVersion 2.0](../templates/template-functions-deployment.md#deployment ).
 
+The format is as follows:
+
 ```json
 {
   "name": "",
