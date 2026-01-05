@@ -43,7 +43,7 @@ The following table shows the availability status of securing Internet access wi
 The following table shows the availability status of securing Internet access with **forced tunneling** by configuring private routing policy.
 
 >[!IMPORTANT]
-> Configuring Virtual WAN hubs in forced tunnel mode is deployed to Azure Public. Deployment is underway for Azure Government.If you have any questions regarding region availability, contact virtual-wan-forced-tunnel@microsoft.com or your Microsoft account team.
+> Configuring Virtual WAN hubs in forced tunnel mode is deployed to Azure Public. Deployment is underway for Azure Government. If you have any questions regarding region availability, contact virtual-wan-forced-tunnel@microsoft.com or your Microsoft account team.
 
  Security solution |Status|
 |--|--|
