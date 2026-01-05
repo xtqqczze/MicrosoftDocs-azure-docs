@@ -62,8 +62,7 @@ The following table shows subnet sizing examples for API Management virtual netw
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |        /27  |                 32 |                  5 |                           2 |                         1 |                          24 |                  12 |              13 |
 |        /26  |                 64 |                  5 |                           2 |                         1 |                          56 |                  28 |              29 |
-|        /25  |                128 |                  5 |                           2 |                         1 |                         120 |                 60* |             61* |
-|        /24  |                256 |                  5 |                           2 |                         1 |                         248 |                 124*|          125*|
+|        /25  |                128 |                  5 |                           2 |                         1 |                         120 |                 30* |             61* |
 
 ### Key Points
 
@@ -71,8 +70,7 @@ The following table shows subnet sizing examples for API Management virtual netw
 - **Azure reserved IPs**: 5 addresses per subnet (first and last for protocol conformance, plus 3 for Azure services)
 - **Scale-out requirement**: Each scale-out unit requires 2 IP addresses
 - **Internal load balancer**: Only required when API Management is deployed in internal virtual network mode
-- **Premium V2 limit**: * Currently supports up to 30 units maximum. If you foresee demand approaching this limit, consider the /25 subnet or /24 subnet.
-- **Recommended sizing**: For high-scale scenarios approaching the Premium V2 limit, consider /25 or /24 subnets
+- **Premium V2 limit**: * Currently supports up to 30 units maximum.
 
 > [!IMPORTANT]
 > The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning might cause a change in the private IP address.
@@ -98,8 +96,6 @@ You must have at least the following role-based access control permissions on th
 | Microsoft.Network/virtualNetworks/read | Read the virtual network definition |
 | Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
 | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
-
-
 
 ## Inject API Management in a virtual network
 
