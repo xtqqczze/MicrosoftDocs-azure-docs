@@ -199,7 +199,7 @@ When deploying a [languageVersion 2.0](./syntax.md#languageversion-20) template,
 }
 ```
 
-The `location` property is included only for deployments at the subscription, management group, or tenant scope. The `templateLink` property is included only when the user provides a linked template rather than an inline template.
+The `location` property is included only for deployments at the [subscription](./deploy-to-subscription.md), [management group](./deploy-to-management-group.md), or [tenant](./deploy-to-tenant.md) scope. The `templateLink` property is included only when the user provides a linked template rather than an inline template.
 
 ### Remarks
 
