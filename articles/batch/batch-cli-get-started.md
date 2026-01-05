@@ -97,7 +97,7 @@ When you specify a JSON file for a new resource, don't use other parameters in y
 
 The [Batch REST API reference](/rest/api/batchservice/) documentation lists any JSON syntax required to create a resource. 
 
-To see the JSON syntax required to create a resource, refer to the [Batch REST API reference](/rest/api/batchservice/) documentation. Go to the **Examples** section in the resource operation's reference page. Then, find the subsection titled **Add \<resource type>**. For example, [Add a basic task](/rest/api/batchservice/task/add#add-a-basic-task). Use the example JSON code as templates for your configuration files. 
+To see the JSON syntax required to create a resource, refer to the [Batch REST API reference](/rest/api/batchservice/) documentation. Go to the **Examples** section in the resource operation's reference page. Then, find the subsection titled **Add \<resource type>**. For example, [Add a basic task](/rest/api/batchservice/tasks/create-task). Use the example JSON code as templates for your configuration files. 
 
 For a sample script that specifies a JSON file, see [Run a job and tasks with Batch](./scripts/batch-cli-sample-run-job.md).
 
