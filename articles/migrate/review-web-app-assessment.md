@@ -53,7 +53,7 @@ To view an assessment, follow these steps:
    |----------|--------|
    | Ready  | The web app is ready to be migrated.   |
    | Ready with conditions  | The web app needs minor changes to be ready for migration.  |
-   | Not ready  | The web app needs to major/breaking changes to be ready for migration.  |
+   | Not ready  | The web app needs major/breaking changes to be ready for migration.  |
    | Unknown  | The web app discovery data was either incomplete or corrupt to calculate readiness. |
 
 1. Select the **Recommended path** tab or **View details** in the recommended path report to get deeper insights.
@@ -78,7 +78,7 @@ To view an assessment, follow these steps:
 
 1. On the **Readiness** tab, you can see the readiness for this web app for each Azure target, the migration issues, or warnings and the recommended Azure target.
     
-    :::image type="content" source="./media/review-web-app-assessment/default-web-site.png" alt-text="Screenshot displays the readiness for each deployment targets." lightbox="./media/review-web-app-assessment/default-web-site.png":::
+    :::image type="content" source="./media/review-web-app-assessment/default-web-site.png" alt-text="Screenshot displays the readiness for each deployment target." lightbox="./media/review-web-app-assessment/default-web-site.png":::
 
 1. **Azure Kubernetes Service**: The target drill down shows granular details for the web apps recommended to this target.
     1. Top level insights include the cost distribution by Node SKUs and top migration issues or warnings. 
