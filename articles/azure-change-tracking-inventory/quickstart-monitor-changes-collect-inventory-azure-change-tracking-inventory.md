@@ -66,7 +66,7 @@ To enable Azure CTI for a single Azure Arc-enabled VM by using the portal, follo
 
 1. Select the Azure Arc machine for which you want to enable Change Tracking.
 1. Under **Operations**, select **Change tracking** to view the **Change Tracking and Inventory** pane.
-1. In the **Stay up-to-date with all changes** pane, select the **Enable using AMA agent (Recommended)** option and select **Enable**.
+1. In the **Stay up-to-date with all changes** pane, select the **Enable change tracking and inventory feature with AMA** option and select **Enable**.
 
    :::image type="content" source="media/create-data-collection-rule/select-change-tracking-arc-virtual-machine.png" alt-text="Screenshot that shows how to select the Change Tracking option for a single Azure Arc VM from the portal." lightbox="media/create-data-collection-rule/select-change-tracking-arc-virtual-machine.png":::
 
