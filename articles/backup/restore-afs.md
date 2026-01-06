@@ -78,7 +78,7 @@ You can use this restore option to restore individual files or folders in the or
 
 To restore individual files or folders, follow these steps:
 
-1. Go to **Resiliency (formerly Azure Business Continuity Center).**, and then select **Protected inventory** > **Protected items** from the menu, with the datasource type selected as **Azure Storage (Azure Files)**.
+1. Go to **Resiliency**, and then select **Protected inventory** > **Protected items** from the menu, with the datasource type selected as **Azure Storage (Azure Files)**.
 1. Select the File Share for which you want to do an item-level recovery.
 
    The *backup item* menu appears with a **File Recovery** option.
