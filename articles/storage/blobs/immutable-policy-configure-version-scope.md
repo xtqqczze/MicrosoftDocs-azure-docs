@@ -509,8 +509,8 @@ az storage blob immutability-policy delete \
 
 ---
 
-
-> With version‑level immutability enabled, each blob version gets its own immutable retention at upload. Even with unlocked retention policy, changing the container’s default later does not shorten existing versions.
+> [!NOTE]
+> With version‑level immutability enabled, each blob version receives its own immutable retention period at the moment it is created. Even if the container’s default policy is unlocked, modifying the container‑level default retention policy later can never shorten, override, or reduce the retention already assigned to existing versions. When a new version is uploaded, you may optionally assign a unique retention period specifically for that version. If no unique value is assigned, the version automatically inherits the container’s current default retention policy.
 
 ## Lock a time-based retention policy
 
