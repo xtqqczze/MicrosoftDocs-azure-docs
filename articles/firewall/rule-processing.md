@@ -2,11 +2,12 @@
 title: Azure Firewall rule processing logic
 description: Azure Firewall has NAT rules, network rules, and applications rules. The rules are processed according to the rule type.
 services: firewall
-author: duongau
+author: varunkalyana
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 07/02/2024
-ms.author: duau
+ms.date: 05/07/2025
+ms.author: varunkalyana
+# Customer intent: "As a network administrator, I want to configure Azure Firewall rules and understand their processing logic, so that I can effectively manage traffic flow and maintain network security."
 ---
 
 # Configure Azure Firewall rules
@@ -126,7 +127,21 @@ In both HTTP and TLS inspected HTTPS cases, the firewall ignores the packet's de
 
 When an application rule contains TLS inspection, the firewall rules engine process SNI, Host Header, and also the URL to match the rule. 
 
-If still no match is found within application rules, then the packet is evaluated against the infrastructure rule collection. If there's still no match, then the packet is denied by default. 
+If still no match is found within application rules, then the packet is evaluated against the infrastructure rule collection. If there's still no match, then the packet is denied by default.
+
+### Infrastructure rule collection
+
+Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. The infrastructure rule collection is processed after application rules and before the final deny-all rule.
+
+The following services are included in the built-in infrastructure rule collection:
+
+- Compute access to storage Platform Image Repository (PIR)
+- Managed disks status storage access
+- Azure Diagnostics and Logging (MDS)
+
+#### Overriding the infrastructure rule collection
+
+You can override this built-in infrastructure rule collection by creating a deny all application rule collection that is processed last. It will always be processed before the infrastructure rule collection. Anything not in the infrastructure rule collection is denied by default.
 
 > [!NOTE]
 > Network rules can be configured for *TCP*, *UDP*, *ICMP*, or *Any* IP protocol. Any IP protocol includes all the IP protocols as defined in the Internet Assigned Numbers Authority (IANA) Protocol Numbers document. If a destination port is explicitly configured, then the rule is translated to a TCP+UDP rule. Before November 9, 2020, *Any* meant TCP, or UDP, or ICMP. So, you might have configured a rule before that date with **Protocol = Any**, and **destination ports = '*'**. If you don't intend to allow any IP protocol as currently defined, then modify the rule to explicitly configure the protocol(s) you want (TCP, UDP, or ICMP). 
@@ -135,7 +150,7 @@ If still no match is found within application rules, then the packet is evaluate
 
 ### DNAT rules and Network rules
 
-Inbound Internet or intranet (preview) connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal](../firewall/tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, the traffic is translated according to the DNAT rule and allowed by the firewall. So the traffic isn't subject to any further processing by other network rules. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
+Inbound Internet or intranet connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal](../firewall/tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, the traffic is translated according to the DNAT rule and allowed by the firewall. So the traffic isn't subject to any further processing by other network rules. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
 
 Application rules aren't applied for inbound connections. So, if you want to filter inbound HTTP/S traffic, you should use Web Application Firewall (WAF). For more information, see [What is Azure Web Application Firewall](../web-application-firewall/overview.md)?
 

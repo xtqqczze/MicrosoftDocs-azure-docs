@@ -1,16 +1,18 @@
 ---
-title: Workflows in Azure Container Apps
+title: Workflow in Azure Container Apps
 description: Learn about your workflow options for Azure Container Apps.
 services: container-apps, azure-functions
 author: lilyjma
 ms.service: azure-container-apps
 ms.topic: overview
-ms.date: 04/29/2025
+ms.date: 05/19/2025
 ms.author: jiayma
 ms.reviewer: cshoe, hannahhunter
+ms.custom:
+  - build-2025
 ---
 
-# Workflows in Azure Container Apps
+# Workflow in Azure Container Apps
 
 > [!NOTE]
 > The term "workflow" often has multiple meanings. In the context of Durable Functions, you might see workflows referred to as orchestrations. To avoid any confusion with container orchestrations, this article uses the term workflows instead. 
@@ -38,12 +40,12 @@ You can achieve durable execution in your workflows in Azure Container Apps usin
 ## Workflow frameworks for developers in Azure
 
 Azure provides two code-oriented workflow frameworks you can use to build apps that run on Azure Container Apps: 
-- **Durable Task SDKs** (preview)
+- **Durable Task SDKs**
 - **Durable Functions** 
 
 The Durable Task SDKs and Durable Functions workflow frameworks are designed for developers and available in multiple programming languages. 
 
-### Durable Task SDKs (preview)
+### Durable Task SDKs
 
 The Durable Task SDKs are lightweight client SDKs that provide an unopinionated programming model for authoring workflows. Unlike Durable Functions, which is tightly coupled with the Functions compute, these portable SDKs are decoupled from any compute. They allow your app to connect to a workflow engine hosted in Azure called the [Durable Task Scheduler](../azure-functions/durable/durable-task-scheduler/durable-task-scheduler.md). 
 
@@ -53,6 +55,9 @@ To ensure durable execution, the Durable Task SDKs require a storage backend to 
 - Stores and maintains workflow state.
 - Handles persistence, failures, and retries.
 - Load balances orchestration execution at scale on your container app.
+
+> [!NOTE]
+> Currently, the Durable Task Python and Java SDKs are in preview. [Learn which framework is recommended for production use.](../azure-functions/durable/durable-task-scheduler/choose-orchestration-framework.md)
 
 #### Quickstarts
 
@@ -68,10 +73,7 @@ Try out configuring the Durable Task SDKs for your container app using the follo
 As a feature of Azure Functions, [Durable Functions](../azure-functions/durable/durable-functions-overview.md) inherits many of its characteristics as a code-oriented workflow framework offering in Azure. For example, with Durable Functions, you benefit from:
 - Integrations with other Azure services through Azure Functions [triggers and bindings](../azure-functions/functions-triggers-bindings.md)
 - Local development experience
-- Serverless pricing model
-
-> [!NOTE]
-> Durable Functions with Durable Task Scheduler currently only runs in App Service and Elastic Premium SKUs. Until it's available in other SKUs (like Flex Consumption), you need to use the [Microsoft SQL backend](../azure-functions/durable/durable-functions-storage-providers.md#mssql) for state persistence when hosting a Durable Functions app in Azure Container Apps. 
+- Serverless pricing model 
 
 ## How to choose 
 
