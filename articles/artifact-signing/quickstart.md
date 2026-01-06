@@ -553,8 +553,8 @@ az trustedsigning delete -n MyAccount -g MyResourceGroup
 In this quickstart, you created an Artifact Signing account, an identity validation request, and a certificate profile. To learn more about Artifact Signing and to start your signing journey, see these articles:
 
 - Learn more about [signing integrations](how-to-signing-integrations.md).
-- Learn more about the [trust models that Artifact Signing supports](concept-trusted-signing-trust-models.md).
-- Learn more about [certificate management](concept-trusted-signing-cert-management.md).
+- Learn more about the [trust models that Artifact Signing supports](concept-trust-models.md).
+- Learn more about [certificate management](concept-cert-management.md).
 - Need assistance with your setup:
     - Reach out via Azure Support through Azure portal.
     - Post your query on Stack Overflow or Microsoft Q&A, use the tag: artifact-signing. 

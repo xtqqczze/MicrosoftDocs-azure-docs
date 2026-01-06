@@ -24,11 +24,11 @@ landingContent:
         - linkListType: concept
           links:
             - text: Artifact Signing trust models
-              url: concept-trusted-signing-trust-models.md
+              url: concept-trust-models.md
             - text: Artifact Signing resources and roles
-              url: concept-trusted-signing-resources-roles.md
+              url: concept-resources-roles.md
             - text: Artifact Signing certificate management
-              url: concept-trusted-signing-cert-management.md
+              url: concept-cert-management.md
   - title: Get started
     linkLists:
       - linkListType: quickstart
