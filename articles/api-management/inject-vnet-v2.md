@@ -59,10 +59,11 @@ If you want to enable *public* inbound access to an API Management instance in t
 The following table shows subnet sizing examples for API Management virtual network injection, illustrating how different CIDR blocks affect the number of scale-out units possible:
 
 | Subnet CIDR | Total IP addresses | Azure reserved IPs | API Management instance IPs | Internal load balancer IP | Remaining IPs for scale-out | Max scale-out units | Total max units |
-| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-|        /27  |                 32 |                  5 |                           2 |                         1 |                          24 |                  12 |              13 |
-|        /26  |                 64 |                  5 |                           2 |                         1 |                          56 |                  28 |              29 |
-|        /25  |                128 |                  5 |                           2 |                         1 |                         120 |                 30* |             61* |
+|-------------|---------------------|---------------------|------------------------------|----------------------------|-----------------------------|----------------------|------------------|
+| /27         | 32                  | 5                   | 2                            | 1                          | 24                          | 12                   | 13               |
+| /26         | 64                  | 5                   | 2                            | 1                          | 56                          | 28                   | 29               |
+| /25         | 128                 | 5                   | 2                            | 1                          | 120                         | 30*                  | 30*              |
+
 
 ### Key Points
 
@@ -73,6 +74,7 @@ The following table shows subnet sizing examples for API Management virtual netw
 - **Premium V2 limit**: * Currently supports up to 30 units maximum.
 
 > [!IMPORTANT]
+> API Management is a member of Azure Integration Services and is typically deployed as a pivotal service in enterprise architectures. It is prudent to error on the higher side of available IPs for the API Management subnet as changing it later can have far-reaching impact.
 > The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning might cause a change in the private IP address.
 
 ### Network security group
