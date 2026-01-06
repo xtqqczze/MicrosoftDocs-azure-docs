@@ -118,7 +118,7 @@ For example:
 
 To download and install the Artifact Signing dlib package (a .zip file):
 
-1. Download the [Artifactd Signing dlib package](https://www.nuget.org/packages/Microsoft.Trusted.Signing.Client).
+1. Download the [Artifact Signing dlib package](https://www.nuget.org/packages/Microsoft.Trusted.Signing.Client).
 
 1. Extract the Artifact Signing dlib zipped content and install it on your signing node in your choice of directory. The node must be the node where you use SignTool to sign files.
 
@@ -136,7 +136,7 @@ Another option is to download the [Artifact Signing dlib package](https://www.nu
 To sign by using Artifact Signing, you need to provide the details of your Artifact Signing account and certificate profile that were created as part of the prerequisites. You provide this information on a JSON file by completing these steps:
 
 1. Create a new JSON file (for example, *metadata.json*).
-1. Add the specific values for your Artifact Signing account and certificate profile to the JSON file. For more information, see the *metadata.sample.json* file that’s included in the ArtifactSigning dlib package or use the following example:
+1. Add the specific values for your Artifact Signing account and certificate profile to the JSON file. For more information, see the *metadata.sample.json* file that’s included in the Artifact Signing dlib package or use the following example:
 
    ```json
    {
