@@ -3,7 +3,7 @@ title: Bicep functions - deployment
 description: Describes the functions to use in a Bicep file to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 12/22/2025
+ms.date: 01/06/2026
 ---
 
 # Deployment functions for Bicep
@@ -67,24 +67,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-When deploying a Bicep file, the Bicep file is transpiled to a [languageVersion 2.0](../templates/syntax.md#languageversion-20) ARM template before deployment. Therefore, the `deployment()` function returns the same properties as a languageVersion 2.0 ARM template. For more information, see [deployment() function for languageVersion 2.0](../templates/template-functions-deployment.md#deployment ).
-
-The format is as follows:
-
-```json
-{
-  "name": "",
-  "location": "",
-  "properties": {
-    "template": {
-      "contentVersion": "",
-      "metadata": {}
-    }
-  }
-}
-```
-
-The `location` property contains a value only for deployments at the [subscription](./deploy-to-subscription.md), [management group](./deploy-to-management-group.md), or [tenant](./deploy-to-tenant.md) scope, otherwise it's an empty string.
+Bicep files are sometimes compiled to [languageVersion 2.0](../templates/syntax.md#languageversion-20) ARM templates. Therefore, Bicep type checking considers the `deployment()` function to return only the subset of properties as would be returned in a languageVersion 2.0 ARM template. For more information, see [deployment() function for languageVersion 2.0](../templates/template-functions-deployment.md#deployment ).
 
 ### Example
 
