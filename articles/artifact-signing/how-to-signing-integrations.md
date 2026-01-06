@@ -5,7 +5,7 @@ author: TacoTechSharma
 ms.author: mesharm 
 ms.service: trusted-signing
 ms.topic: how-to
-ms.date: 05/20/2024 
+ms.date: 01/06/2026 
 ms.custom: template-how-to-pattern 
 ---
 
@@ -140,8 +140,8 @@ To sign by using Artifact Signing, you need to provide the details of your Artif
 
    ```json
    {
-     "Endpoint": "<Trusted Signing account endpoint>",
-     "CodeSigningAccountName": "<Trusted Signing account name>",
+     "Endpoint": "<Artifact Signing account endpoint>",
+     "CodeSigningAccountName": "<Artifact Signing account name>",
      "CertificateProfileName": "<Certificate profile name>",
      "CorrelationId": "<Optional CorrelationId value>"
    }
