@@ -34,7 +34,7 @@ You can use this restore option to restore the complete File Share in the origin
 
 To restore the complete File Share, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), go to **Resiliency (formerly Azure Business Continuity Center)**. > **Protection inventory** > **Protected items**, and then select **Recover**.
+1. In the [Azure portal](https://portal.azure.com/), go to **Resiliency** > **Protection inventory** > **Protected items**, and then select **Recover**.
 1. On the **Recover** pane, select the **Azure Files (Azure Storage)** as the **Datasource type**, and then click **Select** under **Protected item**.
 
    The **Select restore point** context pane opens that lists the restore points available for the selected File Share. 
