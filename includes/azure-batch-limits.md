@@ -4,7 +4,7 @@
  services: batch
  ms.service: azure-batch
  ms.topic: include
- ms.date: 11/17/2022
+ ms.date: 01/05/2026
  ms.custom: include file
 ---
 
