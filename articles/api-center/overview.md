@@ -5,7 +5,7 @@ author: dlepow
  
 ms.service: azure-api-center
 ms.topic: overview
-ms.date: 12/22/2025
+ms.date: 01/06/2025
 ms.author: danlep 
 ms.custom: references_regions
 ---
