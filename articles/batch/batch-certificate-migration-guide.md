@@ -3,7 +3,7 @@ title: Migrate Batch account certificates to Azure Key Vault
 description: Learn how to migrate Batch account certificates to Azure Key Vault and plan for feature end of support.
 ms.service: azure-batch
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 01/05/2026
 # Customer intent: "As a cloud administrator, I want to migrate Batch account certificates to Azure Key Vault, so that I can ensure continued secure access and management of my certificates after the Batch account certificates feature is retired on February 29, 2024."
 ---
 
