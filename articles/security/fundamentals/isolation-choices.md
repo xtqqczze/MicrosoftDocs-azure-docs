@@ -73,7 +73,7 @@ The rest of the Azure roles in Azure allow management of specific Azure resource
 
 Some other capabilities for Microsoft Entra ID include:
 
-- Microsoft Entra ID enables SSO to SaaS applications, regardless of where they're hosted. Some applications are federated with Microsoft Entra ID, and others use password SSO. Federated applications can also support user provisioning and [password vaulting](https://www.techopedia.com/definition/31415/password-vault).
+- Microsoft Entra ID enables SSO to SaaS applications, regardless of where they're hosted. Some applications are federated with Microsoft Entra ID, and others use password SSO. Federated applications can also support user provisioning and [password vaulting](/entra/identity/enterprise-apps/configure-password-single-sign-on-non-gallery-applications).
 
 - Access to data in [Azure Storage](https://azure.microsoft.com/services/storage/) is controlled via authentication. Each storage account has a primary key ([storage account key](../../storage/common/storage-account-create.md), or SAK) and a secondary secret key (the shared access signature, or SAS).
 
