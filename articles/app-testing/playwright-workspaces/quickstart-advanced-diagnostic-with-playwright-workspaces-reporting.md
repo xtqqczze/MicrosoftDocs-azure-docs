@@ -48,8 +48,8 @@ To get started with Playwright Workspaces reporting, the first step is to enable
     |**Resource group**     | Select an existing resource group. Or select **Create new**, and then enter a unique name for the new resource group.        |
     |**Name**     | Enter a unique name for your workspace.<BR>The name can only consist of alphanumerical characters and hyphens, and have a length between 3 and 24 characters. |
     |**Location**     | Select a geographic location for your workspace. <BR>This location also determines where the test execution results are stored. |
-    |**Reporting**     | Toggle is set to Enabled by default to enable users to save and view their test run reports from Playwright Workspace. If you want turn off reporting, toggle the setting to Disabled. |
-    |**Storage account**     | Toggle is set to Enabled by default to enable users to save and view their test run reports from Playwright Workspace. If you want turn off reporting, toggle the setting to Disabled. |
+    |**Reporting**     | Toggle is set to Enabled by default to enable users to save and view their test run reports from Playwright Workspace. If you want to turn off reporting, toggle the setting to Disabled. |
+    |**Storage account**     | Toggle is set to Enabled by default to enable users to save and view their test run reports from Playwright Workspace. If you want to turn off reporting, toggle the setting to Disabled. |
 
     > [!NOTE]
     > Playwright Workspaces reporting uses Azure Storage to store your test reports and other artifacts. Storage costs are determined based on your storage account's data-retention settings.
@@ -272,7 +272,7 @@ To run your Playwright test suite in Visual Studio Code with Playwright Workspac
 
 1. Click **Review + assign**.
 
-#### [Only if trace is enabled] Allow list public trace viewer in the linked storage account
+#### (Only if trace is enabled) Allow list public trace viewer in the linked storage account
 
 1. Open the linked storage account in [Azure portal](https://portal.azure.com/).
 
