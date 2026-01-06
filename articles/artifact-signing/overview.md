@@ -48,6 +48,6 @@ You can choose between two types of accounts:
 
 ## Related content
 
-- Learn more about the [Artifact Signing resource structure](./concept-trusted-signing-resources-roles.md).
+- Learn more about the [Artifact Signing resource structure](./concept-resources-roles.md).
 - Learn more about [signing integrations](how-to-signing-integrations.md) for Artifact Signing.
 - Complete the quickstart to [set up Artifact Signing](quickstart.md).
