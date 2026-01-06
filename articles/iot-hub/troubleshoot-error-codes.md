@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: troubleshooting
-ms.date: 01/05/2026
+ms.date: 01/06/2026
 ms.author: cwatson
 ms.custom: [mqtt, iot]
 ai-usage: ai-assisted
@@ -120,15 +120,6 @@ You might see that your requests to IoT Hub fail with an error that begins with 
 
 In logs, you might see a pattern of devices disconnecting with `401003 IoTHubUnauthorized`, followed by `404104 DeviceConnectionClosedRemotely`, and then successfully connecting shortly after.
 
-Or, requests to IoT Hub fail with one of the following error messages:
-
-* Authorization header missing
-* IotHub '\*' does not contain the specified device '\*'
-* Authorization rule '\*' does not allow access for '\*'
-* Authentication failed for this device, renew token or certificate and reconnect
-* Thumbprint does not match configuration: Thumbprint: SHA1Hash=\*, SHA2Hash=\*; Configuration: PrimaryThumbprint=\*, SecondaryThumbprint=\*
-* Principal user@example.com is not authorized for GET on /exampleOperation due to no assigned permissions
-
 This error occurs because, for MQTT, some SDKs rely on IoT Hub to issue the disconnect when the SAS token expires to know when to refresh it. So:
 
 1. The SAS token expires
@@ -158,7 +149,6 @@ In general, the error message presented should explain how to fix the error. If 
 > Some devices might experience a time drift issue when the device time has a difference from the server time that is greater than five minutes. This error can occur when a device has been connecting to an IoT hub without issues for weeks or even months but then starts to continually have its connection refused. The error can also be specific to a subset of devices connected to the IoT hub, since the time drift can happen at different rates depending upon when a device is first connected or turned on.
 >
 > Often, performing a time sync using NTP or rebooting the device (which can automatically perform a time sync during the boot sequence) fixes the issue and allows the device to connect again. To avoid this error, configure the device to perform a periodic time sync using NTP. You can schedule the sync for daily, weekly, or monthly depending on the amount of drift the device experiences. If you can't configure a periodic NTP sync on your device, then schedule a periodic reboot.
-
 
 ## 403xxx Forbidden errors
 
