@@ -42,7 +42,7 @@ By using the deploy-if-not-exists (DINE) policy, you can enable Change Tracking 
 
    - Azure Virtual Machine Scale Sets
 
-     - Select **[Preview]: Enable ChangeTracking and Inventory for virtual machine scale sets**.
+     - Select **Enable ChangeTracking and Inventory for virtual machine scale sets**.
      
        :::image type="content" source="media/create-data-collection-rule/enable-for-virtual-machine-scale-set-inline.png" alt-text="Screenshot that shows selecting Virtual Machine Scale Sets." lightbox="media/create-data-collection-rule/enable-for-virtual-machine-scale-set-expanded.png":::
 

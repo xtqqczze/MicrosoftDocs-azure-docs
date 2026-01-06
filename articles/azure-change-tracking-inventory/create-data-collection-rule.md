@@ -54,7 +54,3 @@ To create a DCR, follow these steps:
    :::image type="content" source="media/create-data-collection-rule/deployment-confirmation.png" alt-text="Screenshot that shows deployment notification.":::
 
 After you create the DCR by using the AMA Change Tracking schema, ensure that you don't add any data sources to this rule. Adding data sources could cause Azure CTI to fail. You must add only new resources in this section.
-
-## Related content
-
-- To migrate from Azure CTI by using Azure Monitor Logs to the AMA, see [Migration guidance for Azure CTI](../automation/troubleshoot/change-tracking.md).

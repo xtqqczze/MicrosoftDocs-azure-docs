@@ -46,7 +46,3 @@ To uninstall the Change Tracking extension, follow these steps:
    :::image type="content" source="media/disable-azure-change-tracking-monitoring-agent/uninstall-extensions-inline.png" alt-text="Screenshot that shows selecting the extension for a VM already disassociated from the DCR." lightbox="media/disable-azure-change-tracking-monitoring-agent/uninstall-extensions-expanded.png":::
 
 1. Select **Uninstall**.
-
-## Related content
-
-- To learn how to migrate from Azure CTI with the Azure Monitor Logs version to Azure CTI with the AMA version, see [Migration guidance for Azure CTI](../automation/troubleshoot/change-tracking.md).

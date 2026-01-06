@@ -57,7 +57,7 @@ This article provides the release notes for Azure Change Tracking and Inventory 
 
 #### Known issues
 
-After you migrate from Forefront Identity Manager based on the Azure Monitor Agent (AMA) to Change Tracking based on the AMA, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
+After you migrate from file integrity monitoring (FIM) based on the Azure Monitor Agent (AMA) to Change Tracking based on the AMA, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
 
 | OS | Notes |
 | --- | --- |
@@ -68,7 +68,7 @@ After you migrate from Forefront Identity Manager based on the Azure Monitor Age
 
 #### Known issues
 
-After you migrate from Forefront Identity Manager based on the AMA to Change Tracking based on the AMA, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
+After you migrate from FIM based on the AMA to Change Tracking based on the AMA, the memory usage increases. To resolve this issue, we recommend that you restart the extension/machine.
 
 | OS | Notes |
 | --- | --- |

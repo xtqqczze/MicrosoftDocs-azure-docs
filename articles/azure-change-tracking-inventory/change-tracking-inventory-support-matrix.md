@@ -24,7 +24,7 @@ Azure Change Tracking and Inventory (CTI) monitors changes and provides inventor
 
 > [!NOTE]
 > Azure CTI currently doesn't support configuration to collect data from only specific services (such as selected Windows services or Linux daemons).
-> The service collects data from all services, and you can't customize this behavior. Data collection rule (DCR) transformations aren't supported for Change Tracking DCRs.
+> The service collects data from all services, and you can't customize this behavior. Additionally, DCR transformations aren't supported for Change Tracking DCRs.
 
 ## Limits
 
