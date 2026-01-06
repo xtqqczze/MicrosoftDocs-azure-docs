@@ -307,7 +307,7 @@ This example shows how to use the state store with WASM operators. The state sto
 
 ### Open the state store sample workspace
 
-Clone the [Explore IoT Operations](https://github.com/Azure-Samples/azure-iot-operations) repository if you haven't already.
+Clone the [Explore IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository if you haven't already.
 
 Open the `samples/wasm/statestore-scenario` folder in Visual Studio Code by selecting **File > Open Folder** and navigating to the `samples/wasm/statestore-scenario` folder. This folder contains the following resources:
 
@@ -416,7 +416,7 @@ The following limitations apply to the local schema file (`tk_schema_config.json
 
 Currently, the following limitations apply in the local development runtime:
 - Only one schema config file is loaded. No multi-file include or directory scanning is supported.
-- `$ref` to external files or URLs isn't supported locally. Keep the schema self‑contained. You can use internal JSON pointer refs like `{"$ref":"#/components/..."}`.
+- `$ref` to external files or URLs isn't supported locally. Keep the schema self‑contained. You can use internal JSON pointer references like `{"$ref":"#/components/..."}`.
 - Commonly used draft-07 keywords like `type`, `properties`, `required`, `enum`, `minimum`, `maximum`, `allOf`, `anyOf`, `oneOf`, `not`, and `items` all work. The underlying validator might ignore less common or advanced features like `contentEncoding` and `contentMediaType`.
 - Keep the size of your schemas to less than ~1 MB for fast cold starts.
 - Versioning and schema evolution policies aren't enforced locally. You're responsible for staying aligned with the cloud registry.

@@ -65,7 +65,7 @@ To deploy and use your connector with an Azure IoT Operations instance, you also
 
 - An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
 - Access to a container registry, such as Azure Container Registry, to publish your connector images.
-- An container registry endpoint configured in your Azure IoT Operations instance to pull your connector images. For more information, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
+- A container registry endpoint configured in your Azure IoT Operations instance to pull your connector images. For more information, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
 
 ## Author and validate an Akri connector
 
