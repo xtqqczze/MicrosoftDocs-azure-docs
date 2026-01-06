@@ -44,7 +44,7 @@ If a job preparation task fails, the triggering job task doesn't run. The job do
 
 An instance of a [job release task](batch-job-prep-release.md#job-release-task) runs when the job is being terminated on each node that ran a job preparation task. Check the job release task instances to determine if there were errors.
 
-You can use the [Job - List Preparation and Release Task Status](/rest/api/batchservice/jobs/list-job-preparation-and-release-task-status) API to list the execution status of all instances of job preparation and release tasks for a specified job. As with other tasks, [JobReleaseTaskExecutionInformation](/rest/api/batchservice/jobs/list-job-preparation-and-release-task-status#batchjobpreparationtaskexecutioninfo) is available with properties such as `failureInfo`, `exitCode`, and `result`.
+You can use the [Job - List Preparation and Release Task Status](/rest/api/batchservice/jobs/list-job-preparation-and-release-task-status) API to list the execution status of all instances of job preparation and release tasks for a specified job. As with other tasks, [JobReleaseTaskExecutionInformation](/rest/api/batchservice/jobs/list-job-preparation-and-release-task-status#batchjobreleasetaskexecutioninfo) is available with properties such as `failureInfo`, `exitCode`, and `result`.
 
 If one or more job release tasks fail, the job is still terminated and moves to a `completed` state.
 
