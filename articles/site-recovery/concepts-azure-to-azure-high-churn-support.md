@@ -163,17 +163,27 @@ Source region and target region must be in the following regions only.
 
 Enhanced churn support for 500 MB/s is currently available in the following regions: 
 
-- West Central US
+- Australia East
+- Australia Southeast
+- Central India
 - Central US
+- East Asia
+- East US 2
+- France Central
+- Germany North
+- Japan East
+- Japan West
 - North Central US
+- Norway East
+- South Africa North
+- South Central US
+- Southeast Asia
+- UAE Central
+- UK South
+- West Central US
 - West US
 - West US 2
 - West US 3
-- East US 2
-- East Asia
-- Southeast Asia
-- Australia East
-- Australia Southeast 
 
 ### Enable preview 
 
