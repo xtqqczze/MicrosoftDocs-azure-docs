@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/16/2024
+ms.date: 01/05/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -583,7 +583,7 @@ If a Service Bus trigger's polling interval is small, such as 10 seconds, update
 
 ### No session available or might be locked by another receiver
 
-Occasionally, operations such as completing a message or renewing a session produce the following error:
+Occasionally, operations such as completing a message or renewing a session produce the following error in the managed connector:
 
 ``` json
 {
@@ -594,7 +594,7 @@ Occasionally, operations such as completing a message or renewing a session prod
 }
 ```
 
-Occasionally, a session-based trigger might fail with the following error:
+Occasionally, a session-based trigger might fail with the following error in the managed connector:
 
 ``` json
 {
@@ -602,6 +602,15 @@ Occasionally, a session-based trigger might fail with the following error:
   "error": {
     "message": "Communication with the Service Bus namespace 'xxxx' and 'yyyy' entity failed. The requested session 'zzzz' cannot be accepted. It may be locked by another receiver."
   }
+}
+```
+
+Occasionally, operations such as completing a message or renewing a session produce the following error in the built-in connector:
+
+``` json
+{
+  "code": "ServiceProviderActionFailed",
+  "message": "The service provider action failed with error code 'ServiceOperationFailed' and error message 'The Service Bus session was not found to perform operation 'getMessagesFromQueueSession' on session id '11115555'.'."
 }
 ```
 
@@ -613,7 +622,7 @@ Due to reasons such as an infrastructure update, connector deployment, and so on
 
  - The new role instance tries to obtain the session, which either timed out in the old role instance or wasn't closed.
 
-As long as this error happens only occasionally, the error is expected. When the error happens, the message is still preserved in the service bus. The next trigger or workflow run tries to process the message again.
+This issue exists in both the managed connector and the built-in connector. As long as this error happens only occasionally, the error is expected. When the error happens, the message is still preserved in the service bus. The next trigger or workflow run tries to process the message again.
 
 ## Next steps
 
