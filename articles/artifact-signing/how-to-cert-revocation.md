@@ -7,7 +7,7 @@ ms.service: trusted-signing
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 04/12/2024
+ms.date: 01/06/2026
 ---
 
 

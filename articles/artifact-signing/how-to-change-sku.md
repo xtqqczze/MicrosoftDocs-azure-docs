@@ -5,7 +5,7 @@ author: TacoTechSharma
 ms.author: mesharm
 ms.service: trusted-signing
 ms.topic: how-to
-ms.date: 05/30/2024
+ms.date: 01/06/2026
 ms.custom:
   - ignite-2024
   - sfi-image-nochange
