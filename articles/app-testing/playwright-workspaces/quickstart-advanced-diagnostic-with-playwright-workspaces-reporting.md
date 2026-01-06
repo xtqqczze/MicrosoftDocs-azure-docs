@@ -7,7 +7,7 @@ ms.date: 01/06/2026
 ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
 author: Abhinav-Premsekhar
-ms.author: Abhinav-Premsekhar
+ms.author: apremsekhar
 ms.custom: playwright-workspaces
 ---
 
