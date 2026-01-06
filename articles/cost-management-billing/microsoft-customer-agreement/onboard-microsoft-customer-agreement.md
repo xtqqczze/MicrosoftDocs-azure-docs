@@ -212,7 +212,7 @@ This section of the onboarding guide describes the steps you follow to migrate f
 ### Changes after migration
 
 - **MCA remit-to information differs** - The MCA remit-to information differs from the EA remit-to information. Your accounts payable need to create two records: one for EA invoices and another for MCA invoices. For more information about MCA payment details, see [Bank details used to send wire transfer payments](../understand/pay-bill.md#wire-bank-details)
-- **Custom or shared views under Cost Management** - Custom views and shared views aren't migrated to the MCA. You need to recreate them in the new scope.
+- **Cost Management views** - Custom views and shared views aren't migrated to the MCA. You need to recreate them in the new scope.
 - **Budgets** - You need to recreate them.
 - **Azure usage file enhancement** - The MCA Azure usage file has more columns and slight changes in naming conventions compared to the EA file. For more information, see:
     - [Changes from Azure EA usage and charges](../understand/mca-understand-your-usage.md#changes-from-azure-ea-usage-and-charges)
@@ -244,7 +244,7 @@ This section of the onboarding guide describes the steps you follow to migrate f
     - Confirm that your MCA billing scope aligns with the MCA framework. For more details, refer to [Understand and work with scopes](../costs/understand-work-scopes.md).
     - To learn more about Exports data types and supported scopes, refer to the Understand export data types section in [this article](../costs/tutorial-improved-exports.md).
 - **Tax exemption certificates** - If your EA account has a tax exemption certificate, you need to create an Azure support request to have a support representative associate your existing tax exempt certificate to your new Microsoft Customer Agreement account. Create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-- **Emissions Impact Dashboard** - You must update Billing Account ID as a Billing Account Administrator with a role as Billing Account Reader/Contributor/Owner. Learn more about it here: [Connect to the Emissions Impact Dashboard for Azure - Power BI](https://learn.microsoft.com/power-bi/connect-data/service-connect-to-emissions-impact-dashboard)
+- **Emissions Impact Dashboard** - You must update Billing Account ID as a Billing Account Administrator with a role as Billing Account Reader/Contributor/Owner. Learn more about it here: [Connect to the Emissions Impact Dashboard for Azure - Power BI](/power-bi/connect-data/service-connect-to-emissions-impact-dashboard)
 
 Here are some points to consider after migration.
 
