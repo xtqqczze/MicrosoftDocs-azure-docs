@@ -34,11 +34,11 @@ To get started with Playwright Workspaces reporting, the first step is to enable
 
 1. From the portal Home page, search for and select **Azure App Testing**.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/azure-portal-search.png" alt-text="Screenshot that shows how to open azure app testing." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/azure-portal-search.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/azure-portal-search.png" alt-text="Screenshot that shows how to open azure app testing." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/azure-portal-search.png":::
 
 1. On the **Azure App Testing** hub, click on **Create** under **Playwright Workspaces**
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/app-testing-hub.png" alt-text="Screenshot that shows azure app testing home page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/app-testing-hub.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/app-testing-hub.png" alt-text="Screenshot that shows azure app testing home page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/app-testing-hub.png":::
 
 1. On the **Create a Playwright workspace resource** page, enter the following information:
     
@@ -51,17 +51,17 @@ To get started with Playwright Workspaces reporting, the first step is to enable
     |**Reporting**     | Toggle is set to Enabled by default to enable users to save and view their test run reports from Playwright Workspace. If you want turn off reporting, toggle the setting to Disabled. |
     |**Storage account**     | Toggle is set to Enabled by default to enable users to save and view their test run reports from Playwright Workspace. If you want turn off reporting, toggle the setting to Disabled. |
 
-> [!NOTE]
-> Reporting feature uses Azure Storage to store your test reports and other artifacts. Storage costs are determined based on your storage account's data-retention settings.
+    > [!CAUTION]
+    > Playwright Workspaces reporting uses Azure Storage to store your test reports and other artifacts. Storage costs are determined based on your storage account's data-retention settings.
 
-> [!NOTE]
-> Optionally, you can configure more details on the **Tags** tab. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
+    > [!NOTE]
+    > Optionally, you can configure more details on the **Tags** tab. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
 
 1. After you're finished configuring the resource, select **Review + Create**.
 
 1. Review the settings you provide, and then select **Create**. It takes a few minutes to create the workspace. Wait for the portal page to display **Your deployment is complete** before moving on.
 
-:::image type="content" source="./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png" alt-text="Screenshot that shows the deployment completion information in the Azure portal." lightbox="./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png":::
+    :::image type="content" source="./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png" alt-text="Screenshot that shows the deployment completion information in the Azure portal." lightbox="./media/how-to-manage-playwright-workspace/create-resource-deployment-complete.png":::
 
 # [Existing workspace](#tab/existingworkspace)
 
@@ -69,11 +69,11 @@ To get started with Playwright Workspaces reporting, the first step is to enable
 
 1. From the portal Home page, search for and select **Azure App Testing**.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/azure-portal-search.png" alt-text="Screenshot that shows how to open azure app testing." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/azure-portal-search.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/azure-portal-search.png" alt-text="Screenshot that shows how to open azure app testing." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/azure-portal-search.png":::
 
 1. On the **Azure App Testing** hub, click on **View resources**.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/app-testing-hub-view-resources.png" alt-text="Screenshot that shows azure app testing home page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/app-testing-hub-view-resources.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/app-testing-hub-view-resources.png" alt-text="Screenshot that shows azure app testing home page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/app-testing-hub-view-resources.png":::
 
 1. Search for and open your Playwright workspace.
 
@@ -81,9 +81,11 @@ To get started with Playwright Workspaces reporting, the first step is to enable
 
 1. Set the Reporting toggle to **Enabled** and select a storage account to link to your Playwright Workspace.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-configuration.png" alt-text="Screenshot that shows azure app testing storage configuration page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-configuration.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-configuration.png" alt-text="Screenshot that shows azure app testing storage configuration page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-configuration.png":::
 
 1. Click **Save**.
+
+---
 
 ## Add Role Based Access Control (RBAC) roles for the linked storage account
 
@@ -91,19 +93,19 @@ To get started with Playwright Workspaces reporting, the first step is to enable
 
 1. Go to **Access Control (IAM)** tab.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-iam.png" alt-text="Screenshot that shows storage account home page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-iam.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-access.png" alt-text="Screenshot that shows storage account home page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-access.png":::
 
 1. Click on **Add role assignment**.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-add-role.png" alt-text="Screenshot that shows storage account add role page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-add-role.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-add-role.png" alt-text="Screenshot that shows storage account add role page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-add-role.png":::
 
 1. Under **Job function roles**, search for/Select **Storage Blob Data Contributor** role and click **Next**.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-blob-contributor.png" alt-text="Screenshot that shows storage account job function role page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-blob-contributor.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-blob-contributor.png" alt-text="Screenshot that shows storage account job function role page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-blob-contributor.png":::
 
 1. Select and add all members who would be running tests.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-blob-contributor-add-members.png" alt-text="Screenshot that shows storage account job function role add members page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-blob-contributor-add-members.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-blob-contributor-add-members.png" alt-text="Screenshot that shows storage account job function role add members page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-blob-contributor-add-members.png":::
 
 1. Click **Review + assign**.
 
@@ -111,9 +113,9 @@ To get started with Playwright Workspaces reporting, the first step is to enable
 
 To use Playwright Workspaces, install the Playwright Workspaces package. 
 
-```npm
-npm init @azure/playwright@latest
-```
+    ```npm
+    npm init @azure/playwright@latest
+    ```
 
 This command generates a `playwright.service.config.ts` file, which serves to direct and authenticate Playwright to Playwright Workspaces.
 
@@ -123,24 +125,24 @@ If you already have this file, the package asks you to overwrite it.
 
 To use the Playwright Workspaces reporting feature, enable the html and Playwright Workspaces reporter by adding the following setting in the playwright.service.config.ts file –
 
-```playwright.service.config.ts
-reporter: [
-  ["html", { open: "never" }], // HTML reporter must come first
-  ["@azure/playwright/reporter"], // Azure reporter uploads HTML report
-]
-```
+    ```playwright.service.config.ts
+    reporter: [
+      ["html", { open: "never" }], // HTML reporter must come first
+      ["@azure/playwright/reporter"], // Azure reporter uploads HTML report
+    ]
+    ```
 ## Enable artifacts in your Playwright setup
 
 In the playwright.config.ts file of your project, make sure you are collecting all the required artifacts.
 
-```playwright.config.ts
-use: 
-{
-  trace: 'on-first-retry',
-  video:'retain-on-failure',
-  screenshot:'on'
-}
-```
+    ```playwright.config.ts
+    use: 
+    {
+      trace: 'on-first-retry',
+      video:'retain-on-failure',
+      screenshot:'on'
+    }
+    ```
 
 ## Configure the browser endpoint
 
@@ -240,6 +242,8 @@ To run your Playwright test suite in Visual Studio Code with Playwright Workspac
 
 1. You can view all test results in the **Test results** tab.
 
+---
+
 ## Debug test runs and results in the Azure portal
 
 #### Add Role Based Access Control (RBAC) roles for the linked storage account
@@ -248,19 +252,19 @@ To run your Playwright test suite in Visual Studio Code with Playwright Workspac
 
 1. Go to **Access Control (IAM)** tab.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-access.png" alt-text="Screenshot that shows storage account home page for RBAC." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-iam.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-access.png" alt-text="Screenshot that shows storage account home page for RBAC." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-access.png":::
 
 1. Click on **Add role assignment**.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-add-role.png" alt-text="Screenshot that shows storage account add role page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-add-role.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-add-role.png" alt-text="Screenshot that shows storage account add role page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-add-role.png":::
 
 1. Under **Privileged administrator roles**, search for/Select **Contributor*** role and click **Next**.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-contributor.png" alt-text="Screenshot that shows storage account administrative role page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-contributor.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-contributor.png" alt-text="Screenshot that shows storage account administrative role page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-contributor.png":::
 
 1. Select and add all members who would be viewing the test reports.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-contributor-add-members.png" alt-text="Screenshot that shows storage account administrative role add members page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-contributor-add-members.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-contributor-add-members.png" alt-text="Screenshot that shows storage account administrative role add members page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-contributor-add-members.png":::
 
 1. Click **Review + assign**.
 
@@ -270,14 +274,14 @@ To run your Playwright test suite in Visual Studio Code with Playwright Workspac
 
 1. Go to **Settings -> Resource sharing (CORS)**.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-cors.png" alt-text="Screenshot that shows storage account home page for CORS." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-cors.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-cors.png" alt-text="Screenshot that shows storage account home page for CORS." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-cors.png":::
 
 1. Under **Blob service**, add a new record:
     * Allowed origins: https://trace.playwright.dev
     * Allowed methods: GET, OPTIONS
     * Max age: Enter a value between 0 and 2147483647.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-cors-blob-service.png" alt-text="Screenshot that shows storage account cors page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-cors-blob-service.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-cors-blob-service.png" alt-text="Screenshot that shows storage account cors page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-cors-blob-service.png":::
 
 1. Click **Save**.
 
@@ -287,19 +291,19 @@ You can now troubleshoot the failed test cases in the Azure portal.
 
 1. After your test run completes, a link to the **Test runs page** in **Azure Portal** is generated. Open this link to view detailed test results and associated artifacts.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/test-runs.png" alt-text="Screenshot that shows test runs page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/test-runs.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/test-runs.png" alt-text="Screenshot that shows test runs page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/test-runs.png":::
 
 1. The **Test runs page** provides all the necessary information for troubleshooting. You can:
     * View **detailed error logs**, **test steps**, and attached artifacts such as **screenshots** or **videos**.
     * Navigate directly to the **Trace Viewer** for deeper analysis.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/test-report.png" alt-text="Screenshot that shows test report page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/test-report.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/test-report.png" alt-text="Screenshot that shows test report page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/test-report.png":::
 
 1. The **Trace Viewer** allows you to step through your test execution visually. You can:
     * Use the timeline to hover over individual steps, revealing the page state before and after each action.
     * Inspect **detailed logs**, **DOM snapshots**, **network activity**, **errors**, and **console output** for each step.
 
-:::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/trace-report.png" alt-text="Screenshot that shows trace page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/test-report.png":::
+    :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/trace-report.png" alt-text="Screenshot that shows trace page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/test-report.png":::
 
 > [!TIP]
 > For better experience, you can  open the trace viewer in a new browser tab by pressing Ctrl button and clicking on View trace.
