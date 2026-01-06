@@ -882,7 +882,7 @@
         "articles/azure-cache-for-redis/**/*.yml": "franlanglois",
         "articles/azure-fluid-relay/**/*.md": "jken",
         "articles/azure-functions/**/*.md": "glenga",
-        "articles/azure-functions/durable/**/*.md": "durablefunc",
+        "articles/azure-functions/durable/**/*.md": "jiayma",
         "articles/azure-functions/durable/durable-task-scheduler/**/*.md": "hannahhunter",
         "articles/azure-government/**/*.md": "eliotgra",
         "articles/azure-monitor/*.*": "bwren",
