@@ -24,9 +24,9 @@ This page is updated with the details about the upcoming release approximately a
 <hr width = 100%>
 
 ## December 2025
-### Reference Data Values Automatic Sync - General Availability
+### Reference Data Values Automatic Sync - Generally Available
 
-Reference Data Values (RDV) Automatic Sync is now Generally Available on all SKUs. As part of each OSDU milestone upgrade, all ADME instances will be upgraded with the latest RDVs available at that milestone. This ensures consistent, standardized reference data across all instances without requiring manual ingestion.
+Reference Data Values (RDV) Automatic Sync is now Generally Available on all SKUs. As part of each OSDU® milestone upgrade, all Azure Data Manager for Energy instances will be upgraded with the latest Reference Data Values available at that milestone. This ensures consistent, standardized reference data across all instances without requiring manual ingestion.
 
 For more details on how to work with this feature, see the official documentation: [Reference Data Values in ADME](concepts-reference-data-values.md).
 
@@ -38,7 +38,7 @@ Reservoir DDMS is now available on the standard SKU as a preview. The standard S
 ## October 2025
 ### Reference Data Values Automatic Sync
 
-With this release, all new Azure Data Manager for Energy instances provisioned automatically includes the latest set of Reference Data Values by default, ensuring out-of-the-box compliance with OSDU® standards and accelerating data onboarding workflows. The update delivers a complete library of reference values synced to the latest OSDU milestone (currently **M25**), improving interoperability, guaranteeing schema consistency, and eliminating manual setup during provisioning.  
+With this release, all new Azure Data Manager for Energy instances provisioned automatically includes the latest set of Reference Data Values by default, ensuring out-of-the-box compliance with OSDU® standards and accelerating data onboarding workflows. The update delivers a complete library of reference values synced to the latest OSDU® milestone (currently **M25**), improving interoperability, guaranteeing schema consistency, and eliminating manual setup during provisioning.  
 
 For more details on how to work with this feature, see the official documentation: [Reference Data Values in ADME](concepts-reference-data-values.md).
 
