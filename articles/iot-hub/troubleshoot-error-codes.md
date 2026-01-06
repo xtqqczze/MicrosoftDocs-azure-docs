@@ -54,7 +54,7 @@ You might see that your requests to IoT Hub fail with an error that begins with 
 | **400030 ConnectionRejectedOnFaultInjection** | New connections and immediate retry attempts will be rejected with this error during service and platform upgrades. | Retry the operation |
 | **400031 InvalidEndpointAuthenticationType** | The endpoint authentication type specified isn't valid. | Check the endpoint authentication type for correctness. |
 | **400032 ManagedIdentityNotEnabled** | The managed identity isn't enabled. | Enable the managed identity. |
- **400035 InvalidPolicyKey** | The policy key specified isn't valid. | Check the policy key for correctness. |
+| **400035 InvalidPolicyKey** | The policy key specified isn't valid. | Check the policy key for correctness. |
 | **400036 BulkRegenerateDeviceKeyOperationFailure** | The bulk regenerate device key operation failed. | Review the operation details. |
 
 ### 4001xx Routing errors
