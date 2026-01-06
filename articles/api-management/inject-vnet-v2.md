@@ -74,7 +74,7 @@ The following table shows subnet sizing examples for API Management virtual netw
 - **Premium V2 limit**: * Currently supports up to 30 units maximum.
 
 > [!IMPORTANT]
-> API Management is a member of Azure Integration Services and is typically deployed as a pivotal service in enterprise architectures. It is prudent to error on the higher side of available IPs for the API Management subnet as changing it later can have far-reaching impact.
+> API Management is a member of Azure Integration Services and is typically deployed as a pivotal service in enterprise architectures. It is prudent to err on the higher side of available IPs for the API Management subnet as changing it later can have far-reaching impact.
 > The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning might cause a change in the private IP address.
 
 ### Network security group
