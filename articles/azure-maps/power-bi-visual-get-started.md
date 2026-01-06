@@ -31,7 +31,7 @@ The Azure Maps Power BI visual provides a rich set of data visualizations for sp
 The Azure Maps Power BI visual connects to cloud service hosted in Azure to retrieve location data such as map images and coordinates that are used to create the map visualization.
 
 - Details about the area the map is focused on are sent to Azure to retrieve images needed to render the map canvas (also known as map tiles).
-- Data in the Location, Latitude, and Longitude buckets may be sent to Azure to retrieve map coordinates (a process called geocoding).
+- Data in the Location bucket may be sent to Azure to retrieve map coordinates (a process called geocoding).
 - Telemetry data may be collected on the health of the visual (for example, crash reports), if the telemetry option in Power BI is enabled.
 
 Other than the scenarios previously described, no other data overlaid on the map is sent to the Azure Maps servers. All rendering of data happens locally within the client.
@@ -91,11 +91,11 @@ Take the following steps to load the Azure Maps visual:
 
     :::image type="content" source="media/power-bi-visual/show-labels-off.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the show labels setting turned off in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/show-labels-off.png":::
 
-1. You can also show or hide country borders, state or province borders, county borders, building, and road details in the **Format** pane. The following two images show maps with the **Country borders** settings turned on and off:
+1. You can also show or hide country/region borders, state or province borders, county borders, building, and road details in the **Format** pane. The following two images show maps with the **Country/Region borders** settings turned on and off:
 
-    :::image type="content" source="media/power-bi-visual/country-borders-on.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the country borders setting turned on in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/country-borders-on.png":::
+    :::image type="content" source="media/power-bi-visual/country-region-borders-on.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the country/region borders setting turned on in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/country-region-borders-on.png":::
 
-    :::image type="content" source="media/power-bi-visual/country-borders-off.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the country borders setting turned off in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/country-borders-off.png":::
+    :::image type="content" source="media/power-bi-visual/country-region-borders-off.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the country/region borders setting turned off in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/country-region-borders-off.png":::
 
 ## Fields pane buckets
 
@@ -124,7 +124,7 @@ The following settings are available in the **Style** section:
 |-------------|--------------|
 | Style       | The style of the map. The dropdown list contains [blank and blank accessible], [grayscale dark], [grayscale light], [high contrast dark], [high contrast light], [night], [road], [road shaded relief], [satellite] and [satellite road labels]. |
 | Labels | A toggle switch that allows you to show or hide map labels. For more information, see item number five in the previous section titled [Use the Azure Maps Power BI visual](#use-the-azure-maps-power-bi-visual). |
-| Country borders | A toggle switch that controls the visibility of country borders. |
+| Country/Region borders | A toggle switch that controls the visibility of country/region borders. |
 | State or province borders | A toggle switch that controls the visibility of the borders for the first-level administrative divisions, such as state or province borders. |
 | County borders | A toggle switch that controls the visibility of the borders for the second-level administrative divisions, such as county borders. |
 | Buildings | A toggle switch that controls the visibility of building footprints |
@@ -132,7 +132,7 @@ The following settings are available in the **Style** section:
 
 The availability of the above toggles depends on the selected style. Below is a table showing the supported options for different styles:
 
-| Map styles | Labels | Country borders | State or province borders | County borders | Buildings | Road details |
+| Map styles | Labels | Country/Region borders | State or province borders | County borders | Buildings | Road details |
 |-|-|-|-|-|-|-|
 | [blank and blank accessible] | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | [grayscale dark] | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
@@ -194,7 +194,7 @@ The Azure Maps Power BI visual is available in the following services and applic
 At this time, Azure Maps is currently available in all countries and regions except:
 
 - China
-- South Korea
+- Korea
 - Azure Government (GCC + GCC High)
 
 For coverage details for the different Azure Maps services that power this visual, see [Geographic coverage information].
@@ -210,6 +210,10 @@ This visual supports up to 30,000 data points.
 **Can addresses or other location strings be used in this visual?**
 
 Yes, addresses and other location strings can be used in the Azure Maps Power BI visual. For more information on addresses and other location strings, see [The location field] in the *Geocoding in Azure Maps Power BI Visual* article.
+
+**Why I am seeing "Tenant switch not enabled" error in Power BI Desktop even when I have this switch enabled?**
+
+Please upgrade your Power BI desktop app to at least May 2025 version to resolve this issue.
 
 ## Next steps
 
