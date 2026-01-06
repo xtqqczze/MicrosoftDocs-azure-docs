@@ -51,7 +51,7 @@ To get started with Playwright Workspaces reporting, the first step is to enable
     |**Reporting**     | Toggle is set to Enabled by default to enable users to save and view their test run reports from Playwright Workspace. If you want turn off reporting, toggle the setting to Disabled. |
     |**Storage account**     | Toggle is set to Enabled by default to enable users to save and view their test run reports from Playwright Workspace. If you want turn off reporting, toggle the setting to Disabled. |
 
-    > [!CAUTION]
+    > [!NOTE]
     > Playwright Workspaces reporting uses Azure Storage to store your test reports and other artifacts. Storage costs are determined based on your storage account's data-retention settings.
 
     > [!NOTE]
@@ -83,6 +83,9 @@ To get started with Playwright Workspaces reporting, the first step is to enable
 
     :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-configuration.png" alt-text="Screenshot that shows azure app testing storage configuration page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-configuration.png":::
 
+    > [!NOTE]
+    > Playwright Workspaces reporting uses Azure Storage to store your test reports and other artifacts. Storage costs are determined based on your storage account's data-retention settings.
+
 1. Click **Save**.
 
 ---
@@ -113,9 +116,9 @@ To get started with Playwright Workspaces reporting, the first step is to enable
 
 To use Playwright Workspaces, install the Playwright Workspaces package. 
 
-    ```npm
-    npm init @azure/playwright@latest
-    ```
+```npm
+npm init @azure/playwright@latest
+```
 
 This command generates a `playwright.service.config.ts` file, which serves to direct and authenticate Playwright to Playwright Workspaces.
 
@@ -125,24 +128,25 @@ If you already have this file, the package asks you to overwrite it.
 
 To use the Playwright Workspaces reporting feature, enable the html and Playwright Workspaces reporter by adding the following setting in the playwright.service.config.ts file –
 
-    ```playwright.service.config.ts
-    reporter: [
-      ["html", { open: "never" }], // HTML reporter must come first
-      ["@azure/playwright/reporter"], // Azure reporter uploads HTML report
-    ]
-    ```
+```playwright.service.config.ts
+reporter: [
+    ["html", { open: "never" }], // HTML reporter must come first
+    ["@azure/playwright/reporter"], // Azure reporter uploads HTML report
+]
+```
+
 ## Enable artifacts in your Playwright setup
 
 In the playwright.config.ts file of your project, make sure you are collecting all the required artifacts.
 
-    ```playwright.config.ts
-    use: 
-    {
-      trace: 'on-first-retry',
-      video:'retain-on-failure',
-      screenshot:'on'
-    }
-    ```
+```playwright.config.ts
+use: 
+{
+    trace: 'on-first-retry',
+    video:'retain-on-failure',
+    screenshot:'on'
+}
+```
 
 ## Configure the browser endpoint
 
