@@ -36,7 +36,6 @@ You can develop custom solutions to address a variety of scenarios with Azure Io
     - [OPC UA sample application](../discover-manage-assets/howto-control-opc-ua.md#sample-application)
 
 - Programmatically manage devices and assets by using the Azure Device Registry service and the schema registry. To learn more, see the following samples in the SDK repository:
-    - [Service samples (Go)](https://github.com/Azure/iot-operations-sdks/blob/main/go/services/README.md)
     - [Service samples (.NET)](https://github.com/Azure/iot-operations-sdks/blob/main/dotnet/samples/README.md#services)
     - [Service samples (Rust)](https://github.com/Azure/iot-operations-sdks/blob/main/rust/azure_iot_operations_services/README.md)
 
@@ -49,7 +48,6 @@ You can develop custom solutions to address a variety of scenarios with Azure Io
 The [Azure IoT Operations SDKs](https://github.com/Azure/iot-operations-sdks/blob/main/README.md) are a suite of tools and libraries across multiple languages designed to help you develop for Azure IoT Operations. The SDKs are open source and available on GitHub:
 
 - [Azure IoT Operations .NET SDK](https://github.com/Azure/iot-operations-sdks/tree/main/dotnet/README.md)
-- [Azure IoT Operations Go SDK](https://github.com/Azure/iot-operations-sdks/tree/main/go/README.md)
 - [Azure IoT Operations Rust SDK](https://github.com/Azure/iot-operations-sdks/tree/main/rust/README.md)
 
 To learn more about the SDKs, see:
@@ -63,7 +61,7 @@ To learn more about the SDKs, see:
 The following VS Code extensions help you develop custom solutions for Azure IoT Operations:
 
 - [Azure IoT Operations Akri connectors](https://marketplace.visualstudio.com/items?itemName=ms-azureiotoperations.azure-iot-operations-akri-connectors-vscode) VS Code extension: This extension provides templates and tools to help you build custom Akri connectors for Azure IoT Operations using either .NET or the Rust programming language. To learn more, see [Build Akri connectors in VS Code](howto-build-akri-connectors-vscode.md).
-- [Azure IoT Operations WASM modules](https://marketplace.visualstudio.com/items?itemName=ms-azureiotoperations.azure-iot-operations-wasm-modules-vscode) VS Code extension: This extension provides templates and tools to help you build WebAssembly (WASM) modules for data flow graphs and connectors in Azure IoT Operations using either the Python or Rust programming language. To learn more, see [Build WASM modules for data flows in VS Code](howto-build-wasm-modules-vscode.md).
+- [Azure IoT Operations WASM modules](https://marketplace.visualstudio.com/items?itemName=ms-azureiotoperations.azure-iot-operations-data-flow-vscode) VS Code extension: This extension provides templates and tools to help you build WebAssembly (WASM) modules for data flow graphs and connectors in Azure IoT Operations using either the Python or Rust programming language. To learn more, see [Build WASM modules for data flows in VS Code](howto-build-wasm-modules-vscode.md).
 
 ## Next step
 
