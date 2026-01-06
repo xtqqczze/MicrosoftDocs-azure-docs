@@ -120,6 +120,15 @@ You might see that your requests to IoT Hub fail with an error that begins with 
 
 In logs, you might see a pattern of devices disconnecting with `401003 IoTHubUnauthorized`, followed by `404104 DeviceConnectionClosedRemotely`, and then successfully connecting shortly after.
 
+Or, requests to IoT Hub fail with one of the following error messages:
+
+* Authorization header missing
+* IotHub '\*' does not contain the specified device '\*'
+* Authorization rule '\*' does not allow access for '\*'
+* Authentication failed for this device, renew token or certificate and reconnect
+* Thumbprint does not match configuration: Thumbprint: SHA1Hash=\*, SHA2Hash=\*; Configuration: PrimaryThumbprint=\*, SecondaryThumbprint=\*
+* Principal user@example.com is not authorized for GET on /exampleOperation due to no assigned permissions
+
 This error occurs because, for MQTT, some SDKs rely on IoT Hub to issue the disconnect when the SAS token expires to know when to refresh it. So:
 
 1. The SAS token expires
