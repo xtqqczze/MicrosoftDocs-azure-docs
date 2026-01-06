@@ -152,7 +152,7 @@ After you trigger the restore operation, the backup service creates a job for tr
 
 You can also monitor restore progress from the Recovery Services vault:
 
-1. Go to **Resiliency (formerly Azure Business Continuity Center)**. and select **Monitoring + Reporting** > **Jobs** from the menu.
+1. Go to **Resiliency**. and select **Monitoring + Reporting** > **Jobs** from the menu.
 1. On the **Jobs** pane, filter the jobs for the required solution and datasource type.
 
  >[!NOTE]
