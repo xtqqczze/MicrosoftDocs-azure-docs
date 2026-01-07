@@ -20,24 +20,15 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 ## January 2026
 ### FHIR service
 
-**Enhancement to $expand operation**: Added support for "context" parameter for [$expand](./fhir/fhir-expand.md) operation for US Core 6 IG support.
+**Updates to responses for update and deletion of FHIR spec-defined search parameters**: There are a few updates to the behaviors and responses for update and deletion of FHIR spec-defined search parameters:
+  - Deletion of out-of-box FHIR spec-defined search parameters previously returned a "204 No Content" and the parameter was not deleted. The response is updated to correctly return "405 Method Not Allowed."
+  - Update of out-of-box FHIR spec-defined search parameters previously returned "201 Created", which can cause unintended behavior. The response is updated to return "405 Method Not Allowed." If you wish to update an out-of-box FHIR spec-defined search parameter, please create a new custom search parameter with a different URL.
 
-**Enhancement to SMART v2**: Enabled support for _include and _revinclude searches when using [SMART v2](./fhir/smart-on-fhir.md) granular scopes.
+**Enhanced response logging for deletion of non-existent search parameters**:  Deletion of nonexistent search parameters previously returned a "204 No Content." The response is improved to be more informative and now returns "404 Not Found."
 
 #### Bug fixes:
 
-**Bug fix for PUT request with new search parameters**: Resolved issue where PUT requests for new search parameters were failing due to validation. This issue is resolved. PUT requests for search parameters should now properly work as upserts, allowing new search parameters to be inserted using PUT if the search parameter doesn't already exist in the system.
-
-**Bug fix for PUT regression with metadata-only updates**: Resolved issue where metadata-only updates made via PATCH incremented the resource version without preserving the previous version. This issue was resolved on November 28, 2025.
-
-**Bug fix for $import with relative URL error**: Previously, using $import with a relative URL could return a 500 Internal Server Error stating `This operation is not supported for a relative URI`. This issue is fixed, and now, a relative URL can be used as the input URL.
-
-**Bug fixes for search with `_include`/`_revinclude` and `_sort`**: When executing a [search request with _include or _revinclude](./fhir/overview-of-search.md#request-parameters), if there are more than the `_includesCount` number of matched items, an include continuation link is provided, allowing you to navigate the complete result set. Previously, this particular functionality had some bugs when it was used with `_sort`. The following issues are fixed:
-- Sorting by `lastUpdated` (descending): Included resources were missing from the bundle, and no include continuation token was returned. This issue is fixed; included resources and the include continuation token are now returned correctly.
-- Sorting by any other field: If enough results existed to fill a page, it triggered a 500 error. This issue is fixed, and all results are returned correctly.
-- Partial page with sort value: If matched results didn't fill a page but generated an include continuation token, that token was lost during the second search for non-sort matches. This issue is fixed, and the include continuation token is returned correctly.
-- Include continuation link with `_sort`: The search retrieved data for both matches with and without the sort field, regardless of which type generated the token. This issue is fixed, and data is retrieved for the correct match.
-
+**Bug fix US Core profile version in capability statement**: The [capability statement](./fhir/store-profiles-in-fhir#profiles-in-the-capability-statement) lists details of the stored profiles on the FHIR server, including US Core profiles. There was a bug where the capability statement wasn't showing the US Core profile version that is currently loaded into the FHIR server. The issue is fixed, and the capability statement now correctly states the US Core profile version that is loaded on the FHIR server. 
 
 
 ## Related content
