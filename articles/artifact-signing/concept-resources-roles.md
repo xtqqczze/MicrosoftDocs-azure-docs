@@ -31,7 +31,7 @@ In the following example structure, an Azure subscription has a resource group. 
 
 :::image type="content" source="media/artifact-signing-resource-structure.png" alt-text="Diagram that shows the Artifact Signing service resource group and certificate profile structure." border="false":::
 
-The service supports Public Trust, Private Trust, code integrity (CI) policy, virtualization-based security (VBS) enclave, and Public Trust test signing types, so it's useful to have multiple Artifact Signing accounts and certificate profiles. For more information about the certificate profile types and how they're used, see [Artifact Signing certificate types and management](./concept-cert-management.md).
+The service supports Public Trust, Private Trust, code integrity (CI) policy, virtualization-based security (VBS) enclave, and Public Trust test signing types, so it's useful to have multiple Artifact Signing accounts and certificate profiles. For more information about the certificate profile types and how they're used, see [Artifact Signing certificate types and management](./concept-certificate-management.md).
 
 > [!NOTE]
 > Identity validations and certificate profiles align with either Public Trust or Private Trust. A Public Trust identity validation is used only for certificate profiles that are used for the Public Trust model. For more information, see [Artifact Signing trust models](./concept-trust-models.md).
@@ -86,4 +86,4 @@ Role-based access control (RBAC) is a cornerstone concept for all Azure resource
 
 - Complete the quickstart to [set up Artifact Signing](./quickstart.md).
 - Learn about [Artifact Signing trust models](./concept-trust-models.md).
-- Review the [Artifact Signing certificates and management](./concept-cert-management.md) concept.
+- Review the [Artifact Signing certificates and management](./concept-certificate-management.md) concept.

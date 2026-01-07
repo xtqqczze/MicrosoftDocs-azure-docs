@@ -1,6 +1,7 @@
 ---
 title: Artifact Signing trust models
 description: Learn what a trust model is, understand the two primary trust models in Artifact Signing, and learn about the signing scenarios and security features that each supports.
+titleSuffix: " - Azure"
 author: TacoTechSharma
 ms.author: mesharm
 ms.service: trusted-signing

@@ -37,7 +37,7 @@
     - name: Artifact Signing resources and roles
       href: concept-resources-roles.md
     - name: Artifact Signing certificate management
-      href: concept-cert-management.md
+      href: concept-certificate-management.md
   - name: FAQ
     items:
     - name: Frequently asked questions about Artifact Signing

@@ -28,7 +28,7 @@ landingContent:
             - text: Artifact Signing resources and roles
               url: concept-resources-roles.md
             - text: Artifact Signing certificate management
-              url: concept-cert-management.md
+              url: concept-certificate-management.md
   - title: Get started
     linkLists:
       - linkListType: quickstart

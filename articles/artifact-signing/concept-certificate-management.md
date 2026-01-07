@@ -1,6 +1,7 @@
 ---
 title: Artifact Signing certificate management
 description: Get an introduction to Artifact Signing certificates. Learn about unique certificate attributes, the service's zero-touch certificate lifecycle management process, and effective ways to manage certificates.
+titleSuffix: " - Azure"
 author: TacoTechSharma
 ms.author: mesharm
 ms.service: trusted-signing
