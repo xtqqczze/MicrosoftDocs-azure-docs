@@ -8,11 +8,11 @@ ms.custom: devx-track-bicep
 
 # Deploy Bicep files with Visual Studio Code
 
-You can use [Visual Studio Code with the Bicep extension](./visual-studio-code.md#deploy-bicep-file-command) to deploy a Bicep file. The Bicep extension provides two options for deploying Bicep files in Visual Studio Code - the [Deployment Pane](#deployment-pane) and the [Deploy Command](#deploy-command). The fast feedback, validate and what-if capabilities of the Deployment Pane are useful for quick iteration while authoring, whereas the Deploy Command is useful for a fire-and-forget deployment experience.
+You can use [Visual Studio Code with the Bicep extension](./visual-studio-code.md#deploy-bicep-file-command) to deploy a Bicep file. The Bicep extension provides two options for deploying Bicep files in Visual Studio Code - the [Deployment Pane](#deployment-pane) and the [Deploy Command](#deploy-command). The fast feedback, validate, and what-if capabilities of the Deployment Pane are useful for quick iteration while authoring, whereas the Deploy Command is useful for a fire-and-forget deployment experience.
 
 ## Deployment Pane
 
-The deployment pane provides an interactive UI in VSCode that can access your Azure account to perform validate, deploy, and what-if operations, providing instant feedback without leaving the editor.
+The deployment pane provides an interactive UI in VS Code that can access your Azure account to perform validate, deploy, and what-if operations, providing instant feedback without leaving the editor.
 
 To use the deployment pane:
 
@@ -21,7 +21,7 @@ To use the deployment pane:
 
     - Select the show deployment pane button on the upper right corner as shown in the following screenshot:  
 
-        :::image type="content" source="./media/deploy-vscode/visual-studio-code-open-deployment-pane" alt-text="Screenshot of the open deployment pane button.":::
+        :::image type="content" source="./media/deploy-vscode/visual-studio-code-open-deployment-pane.png" alt-text="Screenshot of the open deployment pane button.":::
   
         By default, VS Code opens the deployment pane on the side. To open it in a new tab, hold <kbd>Alt</kbd> while selecting the button.
   
@@ -42,7 +42,7 @@ To use the deployment pane:
 
     - **Deploy**: deploys to Azure, and the result including the defined output are shown in the deployment pane.
   
-      The following screenshot shows a successful deployment. You can click the blue globe icon to view the deployment or individual resources in the Azure Portal.
+      The following screenshot shows a successful deployment. You can select the blue globe icon to view the deployment or individual resources in the Azure portal.
 
       :::image type="content" source="./media/deploy-vscode/visual-studio-code-deployment-pane-successful-deployment.png" alt-text="Screenshot of deployment pane in Visual Studio Code.":::
   
@@ -54,7 +54,7 @@ To use the deployment pane:
 
     - **What-if**: executes a **What-If** analysis directly from the deployment pane. The pane displays the results, showing any planned changes. This performs the same function as the what-if command in Azure PowerShell and Azure CLI. For more information, see [Bicep deployment what-if operation](./deploy-what-if.md)
 
-You can keep the deployment pane open while you iterate on changes to your .bicep or .bicepparam files. If you save and re-run one of the above actions, the actions will run against your updated files.
+You can keep the deployment pane open while you iterate on changes to your .bicep or .bicepparam files. If you save and rerun one of the above actions, the actions run against your updated files.
 
 ## Deploy Command
 
