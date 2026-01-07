@@ -12,19 +12,19 @@ author: habibaum
 
 # Support matrix and regions for Azure Change Tracking and Inventory
 
-Azure Change Tracking and Inventory (CTI) monitors changes and provides inventory logs for servers across Azure, on-premises, and other cloud environments. This article summarizes support settings and limitations when you enable Azure CTI and track changes. It also provides information about the supported regions and mappings for Azure CTI by using the AMA.
+Azure Change Tracking and Inventory (CTI) monitors changes and provides inventory logs for servers across Azure, on-premises, and other cloud environments. This article summarizes support settings and limitations when you enable Azure CTI and track changes. It also provides information about the supported regions and mappings for Azure CTI by using the Azure Monitor Agent (AMA).
 
 ## Support matrix
 
 |Component| Applies to|
 |---|---|
 |Operating systems| Windows </br> Linux | 
-|Resource types | Azure virtual machines (VMs) </br> Azure Arc-enabled VMs </br> Virtual machines scale set|
+|Resource types | Azure virtual machines (VMs) </br> Azure Arc-enabled VMs </br> Virtual machine scale sets|
 |Data types | Windows registry </br> Windows services </br> Linux daemons </br> Files </br> Software
 
 > [!NOTE]
 > Azure CTI currently doesn't support configuration to collect data from only specific services (such as selected Windows services or Linux daemons).
-> The service collects data from all services, and you can't customize this behavior. Additionally, DCR transformations aren't supported for Change Tracking DCRs.
+> The service collects data from all services, and you can't customize this behavior. Additionally, data collection rule (DCR) transformations aren't supported for Change Tracking DCRs.
 
 ## Limits
 
@@ -42,13 +42,13 @@ The following table shows the tracked item limits per machine for Azure CTI.
 
 ## Supported operating systems
 
-Azure CTI is supported on all operating systems that meet Azure Monitor Agent (AMA) requirements. For a list of the Windows and Linux operating system versions that are currently supported by the AMA, see [supported operating systems](/azure/azure-monitor/agents/agents-overview#supported-operating-systems).
+Azure CTI is supported on all operating systems that meet AMA requirements. For a list of the Windows and Linux operating system versions that the AMA currently supports, see [Supported operating systems](/azure/azure-monitor/agents/agents-overview#supported-operating-systems).
 
 To understand client requirements for Transport Layer Security (TLS), see [TLS for Azure Automation](../automation/automation-managing-data.md#tls-for-azure-automation).
 
 ## Recursion support
 
-Azure CTI supports recursion, which you can use to specify wildcards to simplify tracking across directories. Recursion also provides environment variables that you can use to track files across environments with multiple or dynamic drive names. The following list includes common information you should know when configuring recursion:
+Azure CTI supports recursion, which you can use to specify wildcards to simplify tracking across directories. Recursion also provides environment variables that you can use to track files across environments with multiple or dynamic drive names. The following list includes common information that you should know when configuring recursion:
 
 - Wildcards are required for tracking multiple files.
 - Use wildcards only in the last segment of a file path, for example, *c:\folder\\file** or */etc/*.conf*.
@@ -57,7 +57,7 @@ Azure CTI supports recursion, which you can use to specify wildcards to simplify
 
 ## Change Tracking and Inventory data collection
 
-The following table shows the data collection frequency for the types of changes supported by Azure CTI. Inventory logs are populated every 10 hours by default for all data types. When a change is registered for any of the data types, the inventory and change logs are generated for this instance.
+The following table shows the data collection frequency for the types of changes that Azure CTI supports. Inventory logs are populated every 10 hours by default for all data types. When a change is registered for any of the data types, the inventory and change logs are generated for this instance.
 
 | Change type | Frequency |
 | --- | --- |
