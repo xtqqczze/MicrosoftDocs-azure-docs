@@ -39,7 +39,7 @@ The following Linux distributions and kernels are supported for trusted launch v
 
 Following are the supported distros:
 - **Ubuntu**: 18.04, 20.04, 22.04, 24.04
-- **RHEL**: 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7
+- **RHEL**: 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 10, 10.1
 - **SUSE 15**: SP3, SP4, SP5, SP6, SP7
 - **Alma Linux**: 8.10, 9.4, 9.5, 9.6, 9.7
 - **Debian**: 12
