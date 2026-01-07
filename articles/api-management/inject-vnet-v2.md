@@ -64,7 +64,7 @@ The following table shows subnet sizing examples for API Management virtual netw
 | /26         | 64                  | 5                   | 2                            | 1                          | 56                          | 28                   | 29               |
 | /25         | 128                 | 5                   | 2                            | 1                          | 120                         | 30*                  | 30*              |
 
-* Premium v2 limit
+<sup>*</sup> Premium v2 limit
 
 #### Key points
 
