@@ -6575,10 +6575,15 @@
       "redirect_url": "/azure/oracle/oracle-db/database-overview",
       "redirect_document_id": false
     },
+    { 
+      "source_path": "articles/reliability/reliability-health-insights.md",
+      "redirect_url": "/azure/azure-health-insights/reliability-health-insights",
+      "redirect_document_id": false
+    }
     {
       "source_path": "articles/reliability/migrate-load-balancer.md",
       "redirect_url": "/azure/reliability/reliability-load-balancer",
       "redirect_document_id": false
-    }    
+    }
   ]
 }
