@@ -15,7 +15,7 @@ ms.custom:
 
 # Release notes 2026: Azure Health Data Services
 
-Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
+Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
 ## January 2026
 ### FHIR service
@@ -28,18 +28,10 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 
 #### Bug fixes:
 
-**Bug fix US Core profile version in capability statement**: The [capability statement](./fhir/store-profiles-in-fhir#profiles-in-the-capability-statement) lists details of the stored profiles on the FHIR server, including US Core profiles. There was a bug where the capability statement wasn't showing the US Core profile version that is currently loaded into the FHIR server. The issue is fixed, and the capability statement now correctly states the US Core profile version that is loaded on the FHIR server. 
+**Bug fix for profile version in capability statement**: The [capability statement](./fhir/store-profiles-in-fhir#profiles-in-the-capability-statement) lists details of the stored profiles on the FHIR server. There was a bug where the capability statement wasn't showing the profile version that is currently loaded into the FHIR server. The issue is fixed, and the capability statement now correctly states the profile version that is loaded on the FHIR server. 
 
 
 ## Related content
-
-[Release notes 2021](release-notes-2021.md)
-
-[Release notes 2022](release-notes-2022.md)
-
-[Release notes 2023](release-notes-2023.md)
-
-[Release notes 2024](release-notes-2024.md)
 
 [Release notes 2025](release-notes-2025.md)
 

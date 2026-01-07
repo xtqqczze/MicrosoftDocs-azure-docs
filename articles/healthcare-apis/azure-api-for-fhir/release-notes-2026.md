@@ -30,10 +30,10 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 #### Bug fixes:
 
-**Bug fix US Core profile version in capability statement**: The [capability statement](./fhir/store-profiles-in-fhir#profiles-in-the-capability-statement) lists details of the stored profiles on the FHIR server, including US Core profiles. There was a bug where the capability statement wasn't showing the US Core profile version that is currently loaded into the FHIR server. The issue is fixed, and the capability statement now correctly states the US Core profile version that is loaded on the FHIR server. 
+**Bug fix for profile version in capability statement**: The [capability statement](./fhir/store-profiles-in-fhir#profiles-in-the-capability-statement) lists details of the stored profiles on the FHIR server. There was a bug where the capability statement wasn't showing the profile version that is currently loaded into the FHIR server. The issue is fixed, and the capability statement now correctly states the profile version that is loaded on the FHIR server. 
 
 ## Related content
 [Release notes 2025](release-notes-2025.md)
-[Release notes pre-2025](release-notes.md)
+
 
 [!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
