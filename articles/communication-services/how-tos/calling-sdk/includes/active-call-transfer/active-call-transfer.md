@@ -11,7 +11,8 @@ ms.author: dmceachern
 ## Active Call Management
 Active Call Transfer is a feature of the `CallAgent` on its `feature` API. This guide talks about how you can manage and track any ongoing calls for your users and how to transfer their client to that active call.
 
-> [!NOTE] This feature is also enabled for the `TeamsCallAgent` as this feature is supported for Teams users as well. This feature is not supported for [Teams Phone Extensibility](../../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md) users.
+> [!NOTE] 
+> This feature is also enabled for the `TeamsCallAgent` as this feature is supported for Teams users as well. This feature is not supported for [Teams Phone Extensibility](../../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md) users.
 
 This guide assumes you went through the QuickStart or that you implemented an application that is able to make and receive calls. If you didn't complete the getting starting guide, refer to our [Quickstart](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 
@@ -38,7 +39,8 @@ The function `getActiveCallDetails` is a way that you can manually query for thi
 
 Once you have your active call data, you can switch the client over to the new call. This call switching behavior can be done with the `activeCallTransfer` function. Here you can also pass in your `joinCallOptions` to choose the [device configuration](../../../../how-tos/calling-sdk/manage-video.md) of the joining client.
 
-> [!NOTE] When transferring a client that is already in a call to a different call it is important to make sure you put the ongoing call for the client on hold before initiating the transfer.
+> [!NOTE] 
+> When transferring a client that is already in a call to a different call it is important to make sure you put the ongoing call for the client on hold before initiating the transfer.
 
 ```js
 const joinCallOptions = {
