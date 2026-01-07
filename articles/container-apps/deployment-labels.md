@@ -23,7 +23,7 @@ By using deployment labels, you can:
 - Roll back to previous revisions by using label history.
 
 > [!IMPORTANT]
-> Before you can use deployment labels, you need to follow the steps to first [enable deployment](#use-deployment-labels) labels in your container app.
+> Before you can use deployment labels, you need to follow the steps to first [enable deployment](?pivots=azure-portal#use-deployment-labels) labels in the portal for your container app.
 
 ## Key features
 
