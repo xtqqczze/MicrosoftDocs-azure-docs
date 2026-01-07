@@ -50,7 +50,7 @@ Azure Site Recovery supports the same kernels for Azure Trusted VMs as for Azure
 - **SUSE 15 SP4**: 5.14.21-150400.24.141.1 and later 
 - **SUSE 15 SP5**: 5.14.21-150500.55.83.1 and later 
 - **SUSE 15 SP6**: 6.4.0-150600.23.25.1 and later
-- **SUSE 15 SP7**: 6.4.0-150700.20.15.1 and later
+- **SUSE 15 SP7**: 6.4.0-150700.18.9 and later
 
 ## Azure Site Recovery for trusted VMs 
 
