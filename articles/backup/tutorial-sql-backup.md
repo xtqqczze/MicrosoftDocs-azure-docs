@@ -40,7 +40,7 @@ To discover databases running on a VM, follow these steps:
 
 1. On the **Configure protection** pane, for **Datasource type**, select **SQL in Azure VM**. Then select **Continue**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/configure-sql-backup.png" alt-text="Screenshot that shows selection of a SQL Server database as the data source for backup.":::
+   :::image type="content" source="./media/backup-azure-sql-database/configure-sql-backup.png" alt-text="Screenshot that shows selection of a SQL Server database as the datasource for backup.":::
 
 1. On the **Start: Configure Backup** pane, under **Vault**, choose **Select vault**.
 
@@ -52,7 +52,7 @@ To discover databases running on a VM, follow these steps:
 
 1. On the **Select Virtual Machine** pane, select the VMs running the SQL Server database, and then select **Discover DBs**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/discovering-sql-databases.png" alt-text="Screenshot that shows a list of virtual machines and the button for discovering databases." lightbox="./media/backup-azure-sql-database/discovering-sql-databases.png":::
+   :::image type="content" source="./media/backup-azure-sql-database/discovering-sql-databases.png" alt-text="Screenshot that shows a list of virtual machines and the option for discovering databases." lightbox="./media/backup-azure-sql-database/discovering-sql-databases.png":::
 
    > [!NOTE]
    > Unprotected VMs should appear in the list after discovery, sorted by name and resource group. If a VM isn't listed as you expect, see whether it's already backed up in a vault.
@@ -120,7 +120,7 @@ To configure SQL Server database backups, follow these steps:
 
 ## Create a backup policy
 
-A backup policy defines when backups happen and how long they're retained. Keep these considerations in mind:
+A backup policy defines when backups run and how long they're retained. Keep these considerations in mind:
 
 - A policy is created at the vault level.
 - Multiple vaults can use the same backup policy, but you must apply the backup policy to each vault.
@@ -131,7 +131,7 @@ To create a backup policy:
 
 1. Go to **Resiliency**, and then select **Manage** > **Protection policies** > **+ Create policy** > **Create backup policy**.
 
-1. On the **Start: Create Policy** pane, select **SQL in Azure VM** as the data-source type. Select the vault under which the policy should be created, and then select **Continue**.
+1. On the **Start: Create Policy** pane, select **SQL in Azure VM** as the datasource type. Select the vault under which the policy should be created, and then select **Continue**.
 
    :::image type="content" source="./media/backup-azure-sql-database/create-sql-policy.png" alt-text="Screenshot that shows choosing a policy type for a new backup policy." lightbox="./media/backup-azure-sql-database/create-sql-policy.png":::
 
