@@ -21,7 +21,7 @@ To use the deployment pane:
 
     - Select the show deployment pane button on the upper right corner as shown in the following screenshot:  
 
-        :::image type="content" source="./media/deploy-vscode/visual-studio-code-open-deployment-pane.png" alt-text="Screenshot of the open deployment pane button.":::
+        :::image type="content" source="./media/deploy-vscode/visual-studio-code-open-deployment-pane" alt-text="Screenshot of the open deployment pane button.":::
   
         By default, VS Code opens the deployment pane on the side. To open it in a new tab, hold <kbd>Alt</kbd> while selecting the button.
   
@@ -63,6 +63,7 @@ You can deploy to any scope. This article shows how to deploy to a resource grou
 There are three ways you can find the command from an open Bicep file in Visual Studio Code:
 
 - Right-click the Bicep file name from the Explorer pane instead of the one under **OPEN EDITORS**:
+
     :::image type="content" source="./media/deploy-vscode/bicep-deploy-from-explorer.png" alt-text="Screenshot of Deploying Bicep File in the Context menu from the explorer pane.":::
 
 - Right-click anywhere inside a Bicep file, and then select **Deploy Bicep File**.
