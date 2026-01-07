@@ -67,7 +67,7 @@ To register an Artifact Signing resource provider by using the Azure portal:
 
 # [Azure CLI](#tab/registerrp-cli)
 
-To register a Artifact Signing resource provider by using the Azure CLI:
+To register an Artifact Signing resource provider by using the Azure CLI:
 
 1. If you're using a local installation of the Azure CLI, sign in to the Azure CLI by using the `az login` command.  
 
