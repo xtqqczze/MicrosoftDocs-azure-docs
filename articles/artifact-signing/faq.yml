@@ -36,7 +36,7 @@ sections:
           :::image type="content" source="media/artifact-signing-resource-provider.png" alt-text="Screenshot of registering the Microsoft.CodeSigning resource provider." lightbox="media/artifact-signing-resource-provider.png":::
       - question: What is the cost of using Artifact Signing?
         answer: | 
-          - For pricing information, see [Artifact Signing pricing](https://azure.microsoft.com/pricing/details/trusted-signing/).
+          - For pricing information, see [Artifact Signing pricing](https://azure.microsoft.com/pricing/details/artifact-signing/).
       - question: What are my support options when I set up Artifact Signing?
         answer: | 
           - You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on Microsoft Q&A (use the tag **artifact-signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
