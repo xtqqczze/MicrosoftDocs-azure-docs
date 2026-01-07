@@ -11,13 +11,13 @@ ms.author: dmceachern
 ## Active Call Management
 Active Call Transfer is a feature of the `CallAgent` on its `feature` API. This guide talks about how you can manage and track any ongoing calls for your users and how to transfer their client to that active call.
 
-**Note:** This feature is also enabled for the `TeamsCallAgent` as this feature is supported for Teams users as well. This feature is not supported for [Teams Phone Extensibility](../../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md) users.
+[!Note] This feature is also enabled for the `TeamsCallAgent` as this feature is supported for Teams users as well. This feature is not supported for [Teams Phone Extensibility](../../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md) users.
 
 This guide assumes you went through the QuickStart or that you implemented an application that is able to make and receive calls. If you didn't complete the getting starting guide, refer to our [Quickstart](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 
 ### Create CallAgentFeature for Active Call Transfer
 
-First thing you need to do when setting up Active Call Transfer is you need to create the `CallAgentFeature` for it. Creating this feature does the setup needed to start using the underlying APIs for the functionality of Active Call Transfer. It also holds all the functions and events for Active Call Transfer. 
+The first thing you need to do when setting up Active Call Transfer is you need to create the `CallAgentFeature` for it. Creating this feature does the setup needed to start using the underlying APIs for the functionality of Active Call Transfer. It also holds all the functions and events for Active Call Transfer. 
 
 ```js
 const activeCallTransferFeature = callAgent.feature(ActiveCallTransfer);
@@ -36,7 +36,7 @@ The function `getActiveCallDetails` is a way that you can manually query for thi
 
 ### Switch your Active Call
 
-Once you have your active call data, you can switch the client over to the new call. This call switching behavior can be done with the `activeCallTransfer` function. Here you can also pass in your `joinCallOptions` to choose the [device configuration](../../../../how-tos/calling-sdk/manage-video.md) of the joining client. **Note:** When transferring a client that is already in a call to a different call it is important to make sure you put the ongoing call for the client on hold before initiating the transfer.
+Once you have your active call data, you can switch the client over to the new call. This call switching behavior can be done with the `activeCallTransfer` function. Here you can also pass in your `joinCallOptions` to choose the [device configuration](../../../../how-tos/calling-sdk/manage-video.md) of the joining client. [!Note] When transferring a client that is already in a call to a different call it is important to make sure you put the ongoing call for the client on hold before initiating the transfer.
 
 ```js
 const joinCallOptions = {
