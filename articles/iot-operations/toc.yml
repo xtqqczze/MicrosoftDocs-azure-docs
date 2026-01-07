@@ -189,7 +189,7 @@ items:
                 displayName: data flow, endpoint, observability, metrics, logs, OpenTelemetry, OTLP, northbound
               - name: Local storage or ACSA
                 href: connect-to-cloud/howto-configure-local-storage-endpoint.md
-                displayName: data flow, endpoint, northbound
+                displayName: data flow, endpoint, northbound, Azure Container Storage enabled by Azure Arc
               - name: Registry endpoint
                 href: connect-to-cloud/howto-configure-registry-endpoint.md
                 displayName: data flow, endpoint, northbound, registry
@@ -237,9 +237,9 @@ items:
             displayName: container insights, prometheus, opentelemetry, otel, metrics, Azure Monitor, Grafana, Log Analytics
       - name: Develop edge applications
         items:
-          - name: Azure IoT Operations SDKs
-            href: develop-edge-apps/overview-iot-operations-sdks.md
-            displayName: MQTT, client app, developer, C#, .Net, Go, Rust
+          - name: Developer guide
+            href: develop-edge-apps/overview-iot-operations-development.md
+            displayName: MQTT, client app, developer, C#, .Net, Go, Rust, Python, SDKs, VS Code, extension
           - name: Start developing with the SDKs
             href: develop-edge-apps/quickstart-get-started-sdks.md
             displayName: MQTT, client app, developer, C#, .Net, Go, Rust, quickstart, get started
