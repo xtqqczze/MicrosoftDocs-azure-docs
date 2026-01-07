@@ -38,7 +38,7 @@ The service supports Public Trust, Private Trust, code integrity (CI) policy, vi
 
 ### Artifact Signing account
 
-A Artifact Signing account is a logical container of the resources that are used to complete certificate signing. Artifact Signing accounts can be used to define boundaries of a project or organization. For most, a single Artifact Signing account can satisfy all the signing needs for an individual or organization. You might want to sign many artifacts that are distributed by the same identity (for example, `Contoso News, LLC`), but operationally, there might be boundaries that you want to draw in terms of access to signing. You might choose to have an Artifact Signing account per product or per team to isolate how an account is used or to track signing. However, you can also achieve this isolation pattern at the certificate profile level.
+An Artifact Signing account is a logical container of the resources that are used to complete certificate signing. Artifact Signing accounts can be used to define boundaries of a project or organization. For most, a single Artifact Signing account can satisfy all the signing needs for an individual or organization. You might want to sign many artifacts that are distributed by the same identity (for example, `Contoso News, LLC`), but operationally, there might be boundaries that you want to draw in terms of access to signing. You might choose to have an Artifact Signing account per product or per team to isolate how an account is used or to track signing. However, you can also achieve this isolation pattern at the certificate profile level.
 
 ### Identity validations
 

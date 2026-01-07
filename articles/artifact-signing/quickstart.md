@@ -196,7 +196,7 @@ To create an Artifact Signing account by using the Azure CLI:
 az trustedsigning show -g MyResourceGroup -n MyAccount` command.
 ```
    > [!NOTE]
-   > If you use an earlier version of the Azure CLI from the Artifact Signing private preview, your account defaults to the Basic SKU. To use the Premium SKU, either upgrade the Azure CLI to the latest version or use the Azure portal to create the account.
+   > If you use an earlier version of the Azure CLI from the Artifact Signing preview, your account defaults to the Basic SKU. To use the Premium SKU, either upgrade the Azure CLI to the latest version or use the Azure portal to create the account.
 
 The following table lists *helpful commands* to use when you create an Artifact Signing account:
 
@@ -297,7 +297,7 @@ To create an identity validation request for an Organization or a DBA:
     - Your email address and street address aren't included in the certificate.
 1. Select the **Create** button.
 1. When the request is successfully created, the identity validation request status changes to **In Progress**.  
-1. When the status changes to **Action Required**. Click on your name, a blade opens on the right-hand side. Click on the link under "Please complete your verification here".
+1. When the status changes to **Action Required**. Select your name, a blade opens on the right-hand side. Select the link under "Please complete your verification here".
 1. Follow the link to complete the Identity Validation process. Use the email address provided at the time of the request creation. Enter the credentials when prompted, and you'll be navigated to the next screen.
 1. Select **Get verified here through our trusted ID-verifiers**.
 
