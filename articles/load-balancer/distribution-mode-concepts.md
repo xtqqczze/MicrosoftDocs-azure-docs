@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 09/25/2024
+ms.date: 01/07/2026
 #Customer intent: As a administrator, I want to learn about the different distribution modes of Azure Load Balancer so that I can configure the distribution mode for my application.
 # Customer intent: As a system administrator, I want to understand the different distribution modes of Azure Load Balancer so that I can select the appropriate routing strategy for optimizing application performance and session persistence.
 ---
@@ -28,17 +28,17 @@ There's no downtime when switching from one distribution mode to another on a lo
 Azure Load Balancer uses a five-tuple hash based distribution mode by default.  
 
 The five-tuple consists of:
-* **Source IP**
-* **Source port**
-* **Destination IP**
-* **Destination port**
-* **Protocol type**
+1. **Source IP**
+1. **Source port**
+1. **Destination IP**
+1. **Destination port**
+1. **Protocol type**
 
 The hash is used to route traffic to healthy backend instances within the backend pool. The algorithm provides stickiness only within a transport session. When the client starts a new session from the same source IP, the source port changes and causes the traffic to go to a different backend instance.
 
 In order to configure hash based distribution, you must select session persistence to be **None** in the Azure portal. This specifies that successive requests from the same client can be handled by any virtual machine.
 
-:::image type="content" source="media/load-balancer-overview/load-balancer-distribution.png" alt-text="Diagram illustrating the default five-tuple hash based distribution mode with virtual machines.":::
+:::image type="content" source="media/load-balancer-overview/load-balancer-distribution.png" alt-text="Screenshot of five-tuple hash based distribution mode diagram showing traffic routing to virtual machines.":::
 
 
 ## Session persistence 
@@ -52,9 +52,7 @@ Session persistence mode has two configuration types:
 
 The following figure illustrates a two-tuple configuration. Notice how the two-tuple runs through the load balancer to virtual machine 1 (VM1). VM1 is backed up by VM2 and VM3.
 
-![Two-tuple session affinity distribution mode](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
-
-
+:::image type="content" source="./media/load-balancer-distribution-mode/load-balancer-session-affinity.png" alt-text="Screenshot of two-tuple session affinity distribution mode diagram showing traffic routing through load balancer to virtual machines.":::
 
 ## Use cases
 
@@ -62,8 +60,8 @@ Source IP affinity with client IP and protocol (source IP affinity three-tuple),
 
 Another use case scenario is media upload. The data upload happens through UDP, but the control plane is achieved through TCP:
 
-* A client starts a TCP session to the load-balanced public address and is directed to a specific DIP. The channel is left active to monitor the connection health.
-* A new UDP session from the same client computer is started to the same load-balanced public endpoint. The connection is directed to the same DIP endpoint as the previous TCP connection. The media upload can be executed at high throughput while maintaining a control channel through TCP.
+1. A client starts a TCP session to the load-balanced public address and is directed to a specific DIP. The channel is left active to monitor the connection health.
+1. A new UDP session from the same client computer is started to the same load-balanced public endpoint. The connection is directed to the same DIP endpoint as the previous TCP connection. The media upload can be executed at high throughput while maintaining a control channel through TCP.
 
 > [!NOTE]
 > When Load Balancer backend pool members change either by removing or adding a virtual machine, the distribution of client requests is recomputed. You can't depend on new connections from existing clients to end up at the same server. Additionally, using source IP affinity distribution mode can cause an uneven distribution of traffic. Clients that run behind proxies might be seen as one unique client application.

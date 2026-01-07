@@ -1,12 +1,13 @@
 ---
 title: Azure Load Balancer concepts
-description: Overview of Azure Load Balancer concepts.
+description: Discover the concepts behind Azure Load Balancer, including its five-tuple algorithm, session affinity modes, and traffic distribution strategies.
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 06/26/2024
+ms.date: 01/07/2026
 ms.author: mbender
+ms.reviewer: mbender
 # Customer intent: As a cloud architect, I want to understand the load balancing algorithm used by Azure Load Balancer so that I can effectively distribute traffic and ensure high availability for my applications.
 ---
 
@@ -18,17 +19,17 @@ Azure Load Balancer uses a tuple-based hashing as the load-balancing algorithm.
 
 ## Load balancing algorithm
 
-By creating a load balancer rule, you can distribute inbound traffic flows from a load balancer's frontend to its backend pools. Azure Load Balancer uses a five-tuple hashing algorithm for the distribution of inbound flows (not bytes).  Load balancer rewrites the headers of TCP/UDP headers flows when directing traffic to the backend pool instances (load balancer doesn't rewrite HTTP/HTTPS headers). When the load balancer's health probe indicates a healthy backend endpoint, backend instances are available to receive new traffic flows.
+By creating a load balancer rule, you can distribute inbound traffic flows from a load balancer's frontend to its backend pools. Azure Load Balancer uses a five-tuple hashing algorithm for the distribution of inbound flows (not bytes). Load balancer rewrites the headers of TCP/UDP headers flows when directing traffic to the backend pool instances (load balancer doesn't rewrite HTTP/HTTPS headers). When the load balancer's health probe indicates a healthy backend endpoint, backend instances are available to receive new traffic flows.
 
 By default, Azure Load Balancer uses a five-tuple hash.
 
 The five-tuple includes:
 
-- **Source IP address**
-- **Source port**
-- **Destination IP address**
-- **Destination port**
-- **IP protocol number to map flows to available servers**
+1. **Source IP address**
+1. **Source port**
+1. **Destination IP address**
+1. **Destination port**
+1. **IP protocol number to map flows to available servers**
 
 You can also use session affinity [distribution mode](distribution-mode-concepts.md) which uses two-tuple or three-tuple based load balancing.
 
@@ -41,9 +42,9 @@ A response to an inbound flow is always a response from a virtual machine. When 
 
 ## Next steps
 
-- Learn more about [Azure Load Balancer](load-balancer-overview.md).
-- Learn about the [components](components.md) that make up Azure Load Balancer.
-- Learn about [Health Probes](load-balancer-custom-probe-overview.md).
-- Learn about Azure Load Balancer's traffic [distribution modes](distribution-mode-concepts.md)
-- See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer: create one, create VMs with a custom IIS extension installed, and load balance the web app between the VMs.
-- Learn about [Azure Load Balancer outbound connections](load-balancer-outbound-connections.md).
+1. Learn more about [Azure Load Balancer](load-balancer-overview.md).
+1. Learn about the [components](components.md) that make up Azure Load Balancer.
+1. Learn about [Health Probes](load-balancer-custom-probe-overview.md).
+1. Learn about Azure Load Balancer's traffic [distribution modes](distribution-mode-concepts.md)
+1. See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer: create one, create VMs with a custom IIS extension installed, and load balance the web app between the VMs.
+1. Learn about [Azure Load Balancer outbound connections](load-balancer-outbound-connections.md).

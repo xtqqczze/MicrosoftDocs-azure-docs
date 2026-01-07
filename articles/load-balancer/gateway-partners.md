@@ -4,7 +4,7 @@ description: Learn about partners offering their network appliances for use with
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 06/26/2024
+ms.date: 01/07/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to explore partner integrations with Azure Gateway Load Balancer so that I can enhance network security and optimize performance across my cloud infrastructure."
 ---
@@ -123,5 +123,5 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 
 ## Next steps
 
-* [Create a Azure Gateway Load Balancer](tutorial-create-gateway-load-balancer.md)
-* [What is Azure Gateway Load Balancer?](gateway-overview.md)
+1. [Create a Azure Gateway Load Balancer](tutorial-create-gateway-load-balancer.md)
+1. [What is Azure Gateway Load Balancer?](gateway-overview.md)
