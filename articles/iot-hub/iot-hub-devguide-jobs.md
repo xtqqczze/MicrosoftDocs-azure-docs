@@ -63,7 +63,7 @@ The query condition can also be on a single device ID or on a list of device IDs
 "queryCondition" = "deviceId IN ['MyDevice1']"
 ```
 
-[IoT Hub Query Language](iot-hub-devguide-query-language.md) covers IoT Hub query language in more detail.
+For more information about the IoT Hub query language, see [IoT Hub query language for device and module twins, jobs, and message routing](iot-hub-devguide-query-language.md).
 
 The following snippet shows the request and response for a job scheduled to call a direct method named testMethod on all devices on contoso-hub-1:
 
@@ -168,7 +168,7 @@ Content-Type: application/json; charset=utf-8
 
 The continuationToken is provided from the response.
 
-You can query for the job execution status on each device using the [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md).
+You can query for the job execution status on each device using the [IoT Hub query language for device and module twins, jobs, and message routing](iot-hub-devguide-query-language.md).
 
 ## Jobs properties
 
@@ -204,18 +204,18 @@ Other reference articles in the IoT Hub developer guide include:
 
 * [IoT Hub endpoints](iot-hub-devguide-endpoints.md) describes the various endpoints that each IoT hub exposes for run-time and management operations.
 
-* [Throttling and quotas](iot-hub-devguide-quotas-throttling.md) describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
+* [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md) describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 
-* [Azure IoT device and service SDKs](iot-hub-devguide-sdks.md) lists the various language SDKs you can use when you develop both device and service apps that interact with IoT Hub.
+* [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md) lists the various language SDKs you can use when you develop both device and service apps that interact with IoT Hub.
 
-* [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md) describes the IoT Hub query language. Use this query language to retrieve information from IoT Hub about your device twins and jobs.
+* [IoT Hub query language for device and module twins, jobs, and message routing](iot-hub-devguide-query-language.md) describes the IoT Hub query language. Use this query language to retrieve information from IoT Hub about your device twins and jobs.
 
-* [IoT Hub MQTT support](../iot/iot-mqtt-connect-to-iot-hub.md) provides more information about IoT Hub support for the MQTT protocol.
+* [Communicate with an IoT hub using the MQTT protocol](../iot/iot-mqtt-connect-to-iot-hub.md) provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
 
-To try out some of the concepts described in this article, see the following IoT Hub tutorial:
+To explore some of the concepts described in this article, see the following IoT Hub article:
 
-* [Schedule and broadcast jobs](schedule-jobs-node.md)
+* [Reliability in Azure IoT Hub](schedule-jobs-node.md)
 
 
