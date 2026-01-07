@@ -5,7 +5,7 @@ author: TacoTechSharma
 ms.author: mesharm 
 ms.service: trusted-signing
 ms.topic: how-to
-ms.date: 05/20/2024 
+ms.date: 01/06/2026 
 ms.custom: template-how-to-pattern 
 ---
 
@@ -45,7 +45,7 @@ Artifact Signing Client Tools for SignTool.exe is a library plugin that requires
 1. Microsoft Visual C++ Redistributable
 1. Artifact Signing Client Dlib
  
-To simplify this setup there is a MSI installer package that is available for download along with a Setup.exe.
+To simplify this setup there is an MSI installer package that is available for download along with a Setup.exe.
 
 > [!div class="nextstepaction"]
 > [Artifact Signing Client Tools MSI Download](https://download.microsoft.com/download/6d9cb638-4d5f-438d-9f21-23f0f4405944/TrustedSigningClientTools.msi)
@@ -140,8 +140,8 @@ To sign by using Artifact Signing, you need to provide the details of your Artif
 
    ```json
    {
-     "Endpoint": "<Trusted Signing account endpoint>",
-     "CodeSigningAccountName": "<Trusted Signing account name>",
+     "Endpoint": "<Artifact Signing account endpoint>",
+     "CodeSigningAccountName": "<Artifact Signing account name>",
      "CertificateProfileName": "<Certificate profile name>",
      "CorrelationId": "<Optional CorrelationId value>"
    }

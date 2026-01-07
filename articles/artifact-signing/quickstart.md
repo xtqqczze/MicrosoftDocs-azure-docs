@@ -67,7 +67,7 @@ To register an Artifact Signing resource provider by using the Azure portal:
 
 # [Azure CLI](#tab/registerrp-cli)
 
-To register a Artifact Signing resource provider by using the Azure CLI:
+To register an Artifact Signing resource provider by using the Azure CLI:
 
 1. If you're using a local installation of the Azure CLI, sign in to the Azure CLI by using the `az login` command.  
 
@@ -109,7 +109,7 @@ To register a Artifact Signing resource provider by using the Azure CLI:
 
 ---
 
-## Create an Artifactd Signing account
+## Create an Artifact Signing account
 
 An Artifact Signing account is a logical container that holds identity validation and certificate profile resources.
 
@@ -196,7 +196,7 @@ To create an Artifact Signing account by using the Azure CLI:
 az trustedsigning show -g MyResourceGroup -n MyAccount` command.
 ```
    > [!NOTE]
-   > If you use an earlier version of the Azure CLI from the Artifact Signing private preview, your account defaults to the Basic SKU. To use the Premium SKU, either upgrade the Azure CLI to the latest version or use the Azure portal to create the account.
+   > If you use an earlier version of the Azure CLI from the Artifact Signing preview, your account defaults to the Basic SKU. To use the Premium SKU, either upgrade the Azure CLI to the latest version or use the Azure portal to create the account.
 
 The following table lists *helpful commands* to use when you create an Artifact Signing account:
 
@@ -297,7 +297,7 @@ To create an identity validation request for an Organization or a DBA:
     - Your email address and street address aren't included in the certificate.
 1. Select the **Create** button.
 1. When the request is successfully created, the identity validation request status changes to **In Progress**.  
-1. When the status changes to **Action Required**. Click on your name, a blade opens on the right-hand side. Click on the link under "Please complete your verification here".
+1. When the status changes to **Action Required**. Select your name, a blade opens on the right-hand side. Select the link under "Please complete your verification here".
 1. Follow the link to complete the Identity Validation process. Use the email address provided at the time of the request creation. Enter the credentials when prompted, and you'll be navigated to the next screen.
 1. Select **Get verified here through our trusted ID-verifiers**.
 
@@ -524,7 +524,7 @@ To delete Artifact Signing resources by using the Azure CLI:
 
 ### Delete a certificate profile
 
-To delete a Artifact Signing certificate profile, run this command:
+To delete an Artifact Signing certificate profile, run this command:
 
 ```azurecli
 az trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
@@ -537,7 +537,7 @@ az trustedsigning certificate-profile delete -g MyResourceGroup --account-name M
 
 You can use the Azure CLI to delete Artifact Signing resources.
 
-To delete a Artifact Signing account, run this command:
+To delete an Artifact Signing account, run this command:
 
 ```azurecli
 az trustedsigning delete -n MyAccount -g MyResourceGroup
@@ -553,8 +553,8 @@ az trustedsigning delete -n MyAccount -g MyResourceGroup
 In this quickstart, you created an Artifact Signing account, an identity validation request, and a certificate profile. To learn more about Artifact Signing and to start your signing journey, see these articles:
 
 - Learn more about [signing integrations](how-to-signing-integrations.md).
-- Learn more about the [trust models that Artifact Signing supports](concept-trusted-signing-trust-models.md).
-- Learn more about [certificate management](concept-trusted-signing-cert-management.md).
+- Learn more about the [trust models that Artifact Signing supports](concept-trust-models.md).
+- Learn more about [certificate management](concept-certificate-management.md).
 - Need assistance with your setup:
     - Reach out via Azure Support through Azure portal.
     - Post your query on Stack Overflow or Microsoft Q&A, use the tag: artifact-signing. 

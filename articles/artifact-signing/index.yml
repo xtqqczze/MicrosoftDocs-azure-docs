@@ -8,8 +8,8 @@ metadata:
   description: Artifact Signing is a Microsoft fully managed end-to-end signing solution for partner developers. The service is currently in public preview.
   ms.service: trusted-signing
   ms.topic: landing-page
-  author: annilayan
-  ms.author: yanannie
+  author: TacoTechSharma
+  ms.author: mesharm
   ms.date: 01/05/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -24,11 +24,11 @@ landingContent:
         - linkListType: concept
           links:
             - text: Artifact Signing trust models
-              url: concept-trusted-signing-trust-models.md
+              url: concept-trust-models.md
             - text: Artifact Signing resources and roles
-              url: concept-trusted-signing-resources-roles.md
+              url: concept-resources-roles.md
             - text: Artifact Signing certificate management
-              url: concept-trusted-signing-cert-management.md
+              url: concept-certificate-management.md
   - title: Get started
     linkLists:
       - linkListType: quickstart

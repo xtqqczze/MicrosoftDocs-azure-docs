@@ -1,13 +1,13 @@
 ---
 title: Revoke a certificate profile in Artifact Signing
-description: Learn how to revoke a Artifact Signing certificate in the Azure portal.
+description: Learn how to revoke an Artifact Signing certificate in the Azure portal.
 author: TacoTechSharma
 ms.author: mesharm
 ms.service: trusted-signing
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 04/12/2024
+ms.date: 01/06/2026
 ---
 
 
@@ -36,7 +36,7 @@ Before you initiate a certificate revocation, it’s crucial that you verify tha
 
 Revocation can be completed only in the Azure portal. You can't revoke the certificate by using the Azure CLI.
 
-This article describes how to revoke a certificate profile in a Artifact Signing account.
+This article describes how to revoke a certificate profile in an Artifact Signing account.
 
 ## Prerequisites
 

@@ -33,11 +33,11 @@
   - name: Concepts
     items:
     - name: Artifact Signing trust models
-      href: concept-trusted-signing-trust-models.md
+      href: concept-trust-models.md
     - name: Artifact Signing resources and roles
-      href: concept-trusted-signing-resources-roles.md
+      href: concept-resources-roles.md
     - name: Artifact Signing certificate management
-      href: concept-trusted-signing-cert-management.md
+      href: concept-certificate-management.md
   - name: FAQ
     items:
     - name: Frequently asked questions about Artifact Signing
