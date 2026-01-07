@@ -118,7 +118,7 @@ sections:
         answer: |
           No, we cannot restore on to the dedicated zone.
       - question: |
-          Is there a way to delete the default Backup Policies (like HourlyBackup, DefaultPolicy, Enhanced) that automatically get created in an Azure Recovery Services Vault? We create our own policies and don’t want these defaults. Even after deleting them, they reappear the next day. Can they be permanently removed?
+          Can I permanently delete the default Backup Policies in an Azure Recovery Services Vault?
         answer: |
           No, the default backup policies cannot be permanently deleted. Azure automatically recreates them to ensure baseline backup functionality. These policies are:
           
