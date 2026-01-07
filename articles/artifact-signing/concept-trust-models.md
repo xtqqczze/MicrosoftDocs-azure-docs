@@ -51,7 +51,7 @@ Private Trust is the second trust model that's provided in Artifact Signing. It'
 - [Use signed policies to protect Windows Defender Application Control against tampering](/windows/security/application-security/application-control/windows-defender-application-control/deployment/use-signed-policies-to-protect-wdac-against-tampering)
 - [Optional: Create a code signing cert for Windows Defender Application Control](/windows/security/application-security/application-control/windows-defender-application-control/deployment/create-code-signing-cert-for-wdac)
 
-For more information about how to configure and sign WDAC policies by using a Artifact Signing reference, see the [Artifact Signing quickstart](./quickstart.md).
+For more information about how to configure and sign WDAC policies by using an Artifact Signing reference, see the [Artifact Signing quickstart](./quickstart.md).
 
 ## Next step
 

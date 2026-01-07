@@ -38,13 +38,13 @@ The service supports Public Trust, Private Trust, code integrity (CI) policy, vi
 
 ### Artifact Signing account
 
-A Artifact Signing account is a logical container of the resources that are used to complete certificate signing. Artifact Signing accounts can be used to define boundaries of a project or organization. For most, a single Artifact Signing account can satisfy all the signing needs for an individual or organization. You might want to sign many artifacts that are distributed by the same identity (for example, `Contoso News, LLC`), but operationally, there might be boundaries that you want to draw in terms of access to signing. You might choose to have a Artifact Signing account per product or per team to isolate how an account is used or to track signing. However, you can also achieve this isolation pattern at the certificate profile level.
+A Artifact Signing account is a logical container of the resources that are used to complete certificate signing. Artifact Signing accounts can be used to define boundaries of a project or organization. For most, a single Artifact Signing account can satisfy all the signing needs for an individual or organization. You might want to sign many artifacts that are distributed by the same identity (for example, `Contoso News, LLC`), but operationally, there might be boundaries that you want to draw in terms of access to signing. You might choose to have an Artifact Signing account per product or per team to isolate how an account is used or to track signing. However, you can also achieve this isolation pattern at the certificate profile level.
 
 ### Identity validations
 
 Identity validations are all about establishing the identity on the certificates that are used for signing. There are two types: Public Trust and Private Trust. What defines the two types is the level of identity validation required to complete the creation of an identity validation resource.
 
-- **Public Trust** means that all identity values must be validated in accordance to the [Microsoft PKI Services Third-Party Certification Practice Statement (CPS)](https://www.microsoft.com/pkiops/docs/repository.htm). This requirement aligns with the expectations for publicly artifact code signing certificates.
+- **Public Trust** means that all identity values must be validated in accordance to the [Microsoft PKI Services Third-Party Certification Practice Statement (CPS)](https://www.microsoft.com/pkiops/docs/repository.htm). This requirement aligns with the expectations for publicly trusted artifact signing certificates.
 
 - **Private Trust** is intended for situations in which there's an established trust in a private identity across one or many relying parties (consumers of signatures) or internally in app control or line-of-business (LOB) scenarios. With Private Trust identity validations, there's minimal verification of the identity attributes (for example, the `Organization Unit` value). Verification is tightly associated with the Azure Tenant of the subscriber (for example, `Contoso.onmicrosoft.com`). The values in Private Trust certificate profiles aren't validated beyond the Azure Tenant information.
 

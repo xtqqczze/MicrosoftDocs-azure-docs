@@ -45,7 +45,7 @@ Artifact Signing Client Tools for SignTool.exe is a library plugin that requires
 1. Microsoft Visual C++ Redistributable
 1. Artifact Signing Client Dlib
  
-To simplify this setup there is a MSI installer package that is available for download along with a Setup.exe.
+To simplify this setup there is an MSI installer package that is available for download along with a Setup.exe.
 
 > [!div class="nextstepaction"]
 > [Artifact Signing Client Tools MSI Download](https://download.microsoft.com/download/6d9cb638-4d5f-438d-9f21-23f0f4405944/TrustedSigningClientTools.msi)

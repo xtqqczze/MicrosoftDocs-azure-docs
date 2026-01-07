@@ -1,6 +1,6 @@
 ---
 title: Change the account SKU
-description: Learn how to change your SKU or pricing tier for a Artifact Signing account.
+description: Learn how to change your SKU or pricing tier for an Artifact Signing account.
 author: TacoTechSharma
 ms.author: mesharm
 ms.service: trusted-signing
@@ -12,7 +12,7 @@ ms.custom:
 ---
 
 
-# Change a Artifact Signing account SKU (pricing tier)
+# Change an Artifact Signing account SKU (pricing tier)
 
 Artifact Signing gives you a choice between two pricing tiers: Basic and Premium. Both tiers are tailored to offer the service at an optimal cost and to be suitable for any signing scenario.
 

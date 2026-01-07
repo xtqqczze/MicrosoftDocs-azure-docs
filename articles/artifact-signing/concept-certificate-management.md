@@ -38,11 +38,11 @@ To address these issues, Artifact Signing provides a durable identity value in e
 
 - **Public Trust identity validation example**
 
-   A value of `1.3.6.1.4.1.311.97.990309390.766961637.194916062.941502583` indicates a Artifact Signing subscriber that uses Public Trust identity validation. The `1.3.6.1.4.1.311.97.` prefix is the Artifact Signing Public Trust code signing type. The `990309390.766961637.194916062.941502583` value is unique to the subscriber's identity validation for Public Trust.
+   A value of `1.3.6.1.4.1.311.97.990309390.766961637.194916062.941502583` indicates an Artifact Signing subscriber that uses Public Trust identity validation. The `1.3.6.1.4.1.311.97.` prefix is the Artifact Signing Public Trust code signing type. The `990309390.766961637.194916062.941502583` value is unique to the subscriber's identity validation for Public Trust.
 
 - **Private Trust identity validation example**
 
-   A  value of `1.3.6.1.4.1.311.97.1.3.1.29433.35007.34545.16815.37291.11644.53265.56135` indicates a Artifact Signing subscriber that uses Private Trust identity validation. The `1.3.6.1.4.1.311.97.1.3.1.` prefix is the Artifact Signing Private Trust code signing type. The `29433.35007.34545.16815.37291.11644.53265.56135` value is unique to the subscriber's identity validation for Private Trust.
+   A  value of `1.3.6.1.4.1.311.97.1.3.1.29433.35007.34545.16815.37291.11644.53265.56135` indicates an Artifact Signing subscriber that uses Private Trust identity validation. The `1.3.6.1.4.1.311.97.1.3.1.` prefix is the Artifact Signing Private Trust code signing type. The `29433.35007.34545.16815.37291.11644.53265.56135` value is unique to the subscriber's identity validation for Private Trust.
   
    Because you can use Private Trust identity validations for Windows Defender Application Control (WDAC) code integrity (CI) policy signing, they have a different EKU prefix: `1.3.6.1.4.1.311.97.1.4.1.`. But the suffix values match the durable identity value for the subscriber's identity validation for Private Trust.  
 

@@ -109,7 +109,7 @@ To register a Artifact Signing resource provider by using the Azure CLI:
 
 ---
 
-## Create an Artifactd Signing account
+## Create an Artifact Signing account
 
 An Artifact Signing account is a logical container that holds identity validation and certificate profile resources.
 
@@ -524,7 +524,7 @@ To delete Artifact Signing resources by using the Azure CLI:
 
 ### Delete a certificate profile
 
-To delete a Artifact Signing certificate profile, run this command:
+To delete an Artifact Signing certificate profile, run this command:
 
 ```azurecli
 az trustedsigning certificate-profile delete -g MyResourceGroup --account-name MyAccount -n MyProfile
@@ -537,7 +537,7 @@ az trustedsigning certificate-profile delete -g MyResourceGroup --account-name M
 
 You can use the Azure CLI to delete Artifact Signing resources.
 
-To delete a Artifact Signing account, run this command:
+To delete an Artifact Signing account, run this command:
 
 ```azurecli
 az trustedsigning delete -n MyAccount -g MyResourceGroup
@@ -554,7 +554,7 @@ In this quickstart, you created an Artifact Signing account, an identity validat
 
 - Learn more about [signing integrations](how-to-signing-integrations.md).
 - Learn more about the [trust models that Artifact Signing supports](concept-trust-models.md).
-- Learn more about [certificate management](concept-cert-management.md).
+- Learn more about [certificate management](concept-certificate-management.md).
 - Need assistance with your setup:
     - Reach out via Azure Support through Azure portal.
     - Post your query on Stack Overflow or Microsoft Q&A, use the tag: artifact-signing. 
