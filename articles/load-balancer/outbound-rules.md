@@ -5,7 +5,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 04/11/2024
+ms.date: 01/08/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to configure outbound rules for Azure Load Balancer, so that I can manage and optimize outbound internet connectivity for backend VMs while ensuring efficient SNAT port allocation and control over allowed protocols."
 ---

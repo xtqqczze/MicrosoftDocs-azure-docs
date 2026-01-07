@@ -4,7 +4,7 @@ description: Azure Load Balancer health probes and configuration for detecting a
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 12/06/2024
+ms.date: 01/08/2026
 ms.author: mbender
 # Customer intent: As a network engineer, I want to understand how to configure health probes for Azure Load Balancer so that I can detect application failures, manage load, and plan for downtime.
 ---
