@@ -17,7 +17,7 @@ This article shows you how to sign new code integrity (CI) policies by using the
 
 To complete the steps in this article, you need:
 
-- A Artifact Signing account, identity validation, and certificate profile.
+- An Artifact Signing account, identity validation, and certificate profile.
 - Individual or group assignment of the Artifact Signing Certificate Profile Signer role.
 - [Azure PowerShell in Windows](/powershell/azure/install-azps-windows) installed.
 - [Az.TrustedSigning](/powershell/module/az.trustedsigning/) module downloaded.

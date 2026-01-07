@@ -16,7 +16,7 @@ ms.custom:
 
 Artifact Signing gives you a choice between two pricing tiers: Basic and Premium. Both tiers are tailored to offer the service at an optimal cost and to be suitable for any signing scenario.
 
-For more information, see [Trusted Signing pricing](https://azure.microsoft.com/pricing/details/trusted-signing/).
+For more information, see [Trusted Signing pricing](https://azure.microsoft.com/pricing/details/artifact-signing/).
 
 ## SKU (pricing tier) overview
 
