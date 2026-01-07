@@ -43,7 +43,7 @@ Following are the supported distros:
 - **SUSE 15**: SP3, SP4, SP5, SP6, SP7
 - **Alma Linux**: 8.10, 9.4, 9.5, 9.6, 9.7
 - **Debian**: 12
-- **Oracle Linux**: 8, 9 
+- **Oracle Linux**: 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5 
 
 Azure Site Recovery supports the same kernels for Azure Trusted VMs as for Azure Standard VMs across the listed Linux distributions. For SUSE, however, Azure Site Recovery support only the following kernels for Azure Trusted launch VMs, provided these kernels are also supported for Azure Standard VMs by Azure Site Recovery:
 - **SUSE 15 SP3**: 5.3.18-150300.59.179.1 and later 
