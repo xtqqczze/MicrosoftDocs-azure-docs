@@ -7,7 +7,7 @@ ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: reference
 ms.date: 1/1/2026
-ms.author: evachen96
+ms.author: evach
 ms.custom:
   - references_regions
   - build-2026
@@ -28,7 +28,7 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 
 #### Bug fixes:
 
-**Bug fix for profile version in capability statement**: The [capability statement](./fhir/store-profiles-in-fhir#profiles-in-the-capability-statement) lists details of the stored profiles on the FHIR server. There was a bug where the capability statement wasn't showing the profile version that is currently loaded into the FHIR server. The issue is fixed, and the capability statement now correctly states the profile version that is loaded on the FHIR server. 
+**Bug fix for profile version in capability statement**: The [capability statement](./fhir/store-profiles-in-fhir.md#profiles-in-the-capability-statement) lists details of the stored profiles on the FHIR server. There was a bug where the capability statement wasn't showing the profile version that is currently loaded into the FHIR server. The issue is fixed, and the capability statement now correctly states the profile version that is loaded on the FHIR server. 
 
 
 ## Related content

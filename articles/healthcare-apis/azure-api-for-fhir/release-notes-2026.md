@@ -10,7 +10,7 @@ ms.date: 1/1/2026
 ms.custom:
   - references_regions
   - build-2026
-ms.author: evachen96
+ms.author: evach
 ---
 
 # Release notes 2026: Azure API for FHIR
@@ -30,7 +30,7 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 #### Bug fixes:
 
-**Bug fix for profile version in capability statement**: The [capability statement](./fhir/store-profiles-in-fhir#profiles-in-the-capability-statement) lists details of the stored profiles on the FHIR server. There was a bug where the capability statement wasn't showing the profile version that is currently loaded into the FHIR server. The issue is fixed, and the capability statement now correctly states the profile version that is loaded on the FHIR server. 
+**Bug fix for profile version in capability statement**: The [capability statement](store-profiles-in-fhir.md#profiles-in-the-capability-statement) lists details of the stored profiles on the FHIR server. There was a bug where the capability statement wasn't showing the profile version that is currently loaded into the FHIR server. The issue is fixed, and the capability statement now correctly states the profile version that is loaded on the FHIR server. 
 
 ## Related content
 [Release notes 2025](release-notes-2025.md)
