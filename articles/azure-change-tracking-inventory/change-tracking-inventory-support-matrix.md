@@ -122,23 +122,26 @@ The default collection frequency for Windows services is 30 minutes. To configur
 
 ## Current limitations
 
-Change Tracking and Inventory using the AMA doesn't support the following processes or has the following limitations:
+Change Tracking and Inventory using the AMA doesn't support the following capabilities:
 
 - Recursion for Windows registry tracking.
-- Currently, only `HKEY_LOCAL_MACHINE` is supported. You encounter this limitation whenever you add the registry key manually.
+- Anything other than `HKEY_LOCAL_MACHINE`. You encounter this limitation whenever you add the registry key manually.
 - Network file systems.
 - Different installation methods.
 - The `*.exe` files stored on Windows.
-- The **Max File Size** column and values are unused in the current implementation.
+- The **Max File Size** column and values in the current implementation.
+- Collecting hotfix updates on Windows Server 2016 Core RS3 machines.
+- Any hardening standards for any Linux operating systems or distributions.
+- Inventory for Microsoft store applications for any Windows operating systems or distributions.
+
+Change Tracking and Inventory using the AMA has the following limitations:
+
 - If your tracking file changes, it's limited to a file size of 5 MB or less.
 - If the file size appears >1.25MB, then `FileContentChecksum` is incorrect because of memory constraints in the checksum calculation.
 - If you try to collect more than 2,500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
 - If network traffic is high, change records can take up to six hours to display.
 - If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
-- Collecting hotfix updates on Windows Server 2016 Core RS3 machines.
-- Linux daemons might show a changed state even though no change occurred. This issue arises because of how the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) table is written.
-- The Change Tracking extension doesn't support any hardening standards for any Linux operating systems or distributions.
-- The Change Tracking extension doesn't support inventory for Microsoft store applications for any Windows operating systems or distributions.
+- Even if no change occurred, Linux daemons might show a changed state. This issue arises because of how the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) table is written.
 
 ## Support for alerts on configuration state
 
