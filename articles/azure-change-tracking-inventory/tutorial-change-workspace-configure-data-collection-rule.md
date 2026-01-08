@@ -56,7 +56,7 @@ On the **Windows Files** tab, select **+ Add** > **Add Windows file setting**. E
 |Enabled | True if the setting is applied, and false otherwise.|
 |Item name | The friendly name of the file to be tracked. | 
 |Group | A group name to group files logically.| 
-|Path | The path to check for the file, for example, *c:\temp\*.txt*. You can also use environment variables, such as *%winDir%\System32\\\*.*.*. |
+|Path | The path to check for the file, for example, `c:\temp\*.txt`. You can also use environment variables, such as `%winDir%\System32\*.*.` |
 |Path type | The type of path. Possible values are File and Folder.|
 |Recursion | True if recursion is used when you look for the item to be tracked, and false otherwise. |
 
@@ -69,9 +69,9 @@ On the **Linux Files** tab, select **+ Add** > **Add Linux file setting**. Ent
 |Enabled | True if the setting is applied, and false otherwise.|
 |Item name | The friendly name of the file to be tracked. | 
 |Group | A group name to group files logically.| 
-|Path | The path to check for the file, for example, */etc/*.conf*.
+|Path | The path to check for the file, for example, `/etc/*.conf`.
 |Path type | The type of path. Possible values are file and folder.|
-|Recursion | True if recursion is used when you look for the item to be tracked, and false otherwise. |
+|Recursion | True, if recursion is used when you look for the item to be tracked, and false otherwise. |
 
 #### [Windows Registry](#tab/windows-registry)
 
@@ -154,9 +154,9 @@ The extension for Windows is `Vms - ChangeTracking-Windows`. The extension for L
 To configure the monitoring of files and folders by using wildcards, consider the following points:
 
 - Wildcards are required for tracking multiple files.
-- Wildcards can be used only in the last segment of a path, such as *C:\folder\file or /etc/.conf**.
+- Wildcards can be used only in the last segment of a path, such as `C:\folder\file` or `/etc/.conf*`.
 - If an environment variable includes a path that isn't valid, validation succeeds but the path fails when inventory runs.
-- When you set the path, avoid general paths such as C:\, which results in too many folders being traversed.
+- When you set the path, avoid general paths such as `*C:\*`, which results in too many folders being traversed.
 
 ## Related content
 

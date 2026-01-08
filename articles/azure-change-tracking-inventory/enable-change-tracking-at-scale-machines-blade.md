@@ -15,7 +15,7 @@ ms.custom: sfi-image-nochange
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
-This article provides procedures that show how you can enable Azure Change Tracking and Inventory (CTI) at scale by using the Azure portal **Machines** pane.
+This article provides procedures that show how you can enable Azure Change Tracking and Inventory at scale by using the Azure portal **Machines** pane.
 
 ## At-scale deployment
 
@@ -23,28 +23,28 @@ This article provides procedures that show how you can enable Azure Change Track
 
     :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/portal-discoverability.png" alt-text="Screenshot that shows selecting Change Tracking and Inventory in the Azure portal." lightbox="media/enable-change-tracking-at-scale-machines-blade/portal-discoverability.png":::
 
-1. On the **Resources** tab, select **Machines**. Based on the selected subscription, the machines that are enabled for Azure CTI appear in the **Enabled** column.
+1. On the **Resources** tab, select **Machines**. Based on the selected subscription, the machines that are enabled for Change Tracking and Inventory appear in the **Enabled** column.
 
      :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/select-subscription.png" alt-text="Screenshot that shows the Machines pane and subscriptions." lightbox="media/enable-change-tracking-at-scale-machines-blade/select-subscription.png":::
 
-    At the top of the pane, you also see a banner that shows the total number of machines in the selected subscription that are enabled for Azure CTI.
+    At the top of the pane, you also see a banner that shows the total number of machines in the selected subscription that are enabled for Change Tracking and Inventory.
 
 1. In the filters, select **Enabled** to view the options:
-   - Select **Yes** to view the machines that are enabled with Azure CTI.
-   - Select **No** to view the machines that aren't enabled with Azure CTI.
-   - Choose **Select all** to view all the machines in the selected subscription with or without Azure CTI enabled.
+   - Select **Yes** to view the machines that are enabled with Change Tracking and Inventory.
+   - Select **No** to view the machines that aren't enabled with Change Tracking and Inventory.
+   - Choose **Select all** to view all the machines in the selected subscription with or without Change Tracking and Inventory enabled.
 
      :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/filters-enabled.png" alt-text="Screenshot that shows selecting the Enabled filter." lightbox="media/enable-change-tracking-at-scale-machines-blade/filters-enabled.png":::
 
-1. To enable Azure CTI at scale, do the following steps:
+1. To enable Change Tracking and Inventory at scale, do the following steps:
 
     1. In the **Enabled** filters column, select **No**.
     1. In the **Machine Status** filters column, select **VM running** and **Connected**.
     1. In the **Name** column, select all the machines to view which ones are ready to be enabled.
-    1. Select all the machines for which you intend to enable Azure CTI, and then select **Enable Change Tracking and Inventory**.
+    1. Select all the machines for which you intend to enable Change Tracking and Inventory, and then select **Enable Change Tracking and Inventory**.
 
     :::image type="content" source="media/enable-change-tracking-at-scale-machines-blade/bulk-deployment.png" alt-text="Screenshot that shows selecting machines to enable Change Tracking and Inventory at scale." lightbox="media/enable-change-tracking-at-scale-machines-blade/bulk-deployment.png":::
 
 ## Related content
 
-- Learn [how to enable Azure CTI at scale by using an Azure policy](enable-change-tracking-at-scale-policy.md).
+- Learn how to [enable Change Tracking and Inventory at scale by using an Azure policy](enable-change-tracking-at-scale-policy.md).

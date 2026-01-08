@@ -14,11 +14,11 @@ ms.author: v-uhabiba
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: Windows Registry :heavy_check_mark: Windows Files :heavy_check_mark: Linux Files :heavy_check_mark: Windows Software
 
-This article provides detailed procedures on how to enable Azure Change Tracking and Inventory (CTI) at scale by using Azure Policy.
+This article provides detailed procedures on how to enable Azure Change Tracking and Inventory at scale by using Azure Policy.
 
 ## Prerequisite
 
-Before you enable Azure CTI, ensure that you [create a data collection rule (DCR)](create-data-collection-rule.md) or use an existing one.
+Before you enable Change Tracking and Inventory, ensure that you [create a data collection rule (DCR)](create-data-collection-rule.md) or use an existing one.
 
 ## Enable Azure Change Tracking and Inventory at scale
 
@@ -70,9 +70,9 @@ By using the deploy-if-not-exists (DINE) policy, you can enable Change Tracking 
    1. On the **Basics** tab, you can define the scope. Select the ellipsis to configure a scope.
    1. On the **Scope** pane, enter **Subscription** and **Resource Group** values.
    1. On the **Parameters** tab, select the option in **Bring Your Own User-Assigned Managed Identity**.
-   1. Enter the **Data Collection Rule Resource Id** value. Learn more about [how to obtain the data collection rule resource ID after you create the data collection rule](create-data-collection-rule.md).
+   1. Enter the **Data Collection Rule Resource Id** value. Learn more about how to [obtain the data collection rule resource ID after you create the data collection rule](create-data-collection-rule.md).
    1. Select **Review + create**.
 
 ## Related content
 
-- Learn more about [how to enable Azure CTI at scale by using the Azure portal](enable-change-tracking-at-scale-machines-blade.md).
+- Learn more about how to [enable Change Tracking and Inventory at scale by using the Azure portal](enable-change-tracking-at-scale-machines-blade.md).
