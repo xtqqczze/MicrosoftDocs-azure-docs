@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 01/05/2026
+ms.date: 01/08/2026
 ms.author: danlep
 ---
 # Deploy your Azure API Management instance to a virtual network - external mode
@@ -18,9 +18,9 @@ You can deploy Azure API Management inside an Azure virtual network to access ba
 * [Using a virtual network with Azure API Management](virtual-network-concepts.md)
 * [Network resource requirements for API Management injection into a virtual network](virtual-network-injection-resources.md)
 
-This article explains how to set up virtual network connectivity for your API Management Developer tier or Premium tier instance in the *external* mode. In this mode, the developer portal, API gateway, and other API Management endpoints are accessible from the public internet, and backend services are located in the network.
+This article explains how to set up virtual network connectivity for your API Management Developer tier or Premium tier instance in the *external* mode. In this mode, the developer portal, API gateway, and other API Management endpoints are accessible from the public internet, and backend services can be located in the network.
 
-:::image type="content" source="media/api-management-using-with-vnet/api-management-vnet-external.png" alt-text="Connect to external virtual network":::
+:::image type="content" source="media/api-management-using-with-vnet/api-management-vnet-external.png" alt-text="Diagram showing API Management in an external virtual network.":::
 
 For configurations specific to the *internal* mode, where the endpoints are accessible only within the virtual network, see [Deploy your Azure API Management instance to a virtual network - internal mode](./api-management-using-with-internal-vnet.md).
 
@@ -45,7 +45,7 @@ For configurations specific to the *internal* mode, where the endpoints are acce
     1. Select **Virtual network**, **Subnet**, and (optionally) **Public IP address**.
     * The virtual network list is populated with virtual networks available in your Azure subscriptions, set up in the region you're configuring.
 
-        :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Screenshot of virtual network settings in the portal.":::
+        :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="Screenshot showing virtual network configuration in the portal.":::
 
 1. Select **Apply**. The **Network** page of your API Management instance is updated with your new virtual network and subnet choices.
 
@@ -67,7 +67,7 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
 After you connect your API Management service to the virtual network, you can access backend services within the virtual network just as you do public services. When creating or editing an API, type the local IP address or the host name (if a DNS server is configured for the virtual network) of your web service into the **Web service URL** field.
 
-:::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-add-api.png" alt-text="Add API from virtual network":::
+:::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-add-api.png" alt-text="Screenshot showing how to dd API from virtual network in the portal.":::
 
 ## Custom DNS server setup
 
@@ -79,7 +79,7 @@ The API Management service depends on several Azure services. When API Managemen
 * Outbound network access on port `53` is required for communication with DNS servers. For more settings, see [Virtual network configuration reference](virtual-network-reference.md).
 
 > [!IMPORTANT]
-> If you plan to use custom DNS servers for the virtual network, set them up **before** deploying an API Management service into the virtual network. Otherwise, you need to update the API Management service each time you change the DNS servers by running the [Apply Network Configuration Operation](/rest/api/apimanagement/current-ga/api-management-service/apply-network-configuration-updates). You an also apply a network configuration on the **Network/Network status** blade in the Azure portal.
+> If you plan to use custom DNS servers for the virtual network, set them up **before** deploying an API Management service into the virtual network. Otherwise, you need to update the API Management service each time you change the DNS servers by running the [Apply Network Configuration Operation](/rest/api/apimanagement/current-ga/api-management-service/apply-network-configuration-updates). You can also apply a network configuration on the **Network/Network status** blade in the Azure portal.
 
 ## Routing
 
