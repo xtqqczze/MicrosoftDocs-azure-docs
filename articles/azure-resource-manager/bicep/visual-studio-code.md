@@ -197,7 +197,7 @@ When your Bicep file uses modules that are published to a registry, the `restore
 
 ### Show Deployment Pane command
 
-The deployment pane provides an interactive UI in VSCode that can access your Azure account to perform validate, deploy, and what-if operations, providing instant feedback without leaving the editor.
+The deployment pane provides an interactive UI in VS Code that can access your Azure account to perform validate, deploy, and what-if operations, providing instant feedback without leaving the editor.
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-deployment-pane.png" alt-text="Screenshot of deployment pane in Visual Studio Code.":::
 
