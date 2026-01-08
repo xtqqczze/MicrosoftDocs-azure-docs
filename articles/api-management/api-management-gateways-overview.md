@@ -198,6 +198,19 @@ For estimated maximum gateway throughput in the API Management service tiers, se
 
 Scale capacity by adding and removing scale [units](upgrade-and-scale.md) in the workspace gateway.
 
+## Gateway health check endpoint (/status-0123456789abcdef)
+
+In all tiers except the Consumption tier, Azure API Management provides a built-in gateway health check endpoint at path `/status-0123456789abcdef`. This endpoint helps confirm that the API gateway is available and functioning correctly. It doesn't test backend APIs, only the gateway itself.
+
+This endpoint verifies availability of the API Management gateway for both internal Azure checks and customer monitoring. A request to the endpoint returns a `200 OK` HTTP response when the gateway is healthy; failures indicate networking or gateway issues.  
+
+* Azure uses this endpoint for continuous SLA monitoring and gateway health validation.
+* Customers can integrate it into their own monitoring tools and probes.
+* The endpoint is available for managed, regional, and self-hosted gateways. 
+
+> [!TIP]
+> When you [integrate Azure Application Insights](api-management-howto-app-insights.md) with API Management, you can optionally enable availability monitoring of the gateway. This setting regularly polls the gateway health check endpoint and reports results no the **Availability** tab in Application Insights.
+
 ## Related content
 
 Learn more about:
