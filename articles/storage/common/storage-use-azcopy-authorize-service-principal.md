@@ -78,10 +78,11 @@ $Env:AZCOPY_TENANT_ID="<tenant-id>"
 
 Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the application ID and the tenant ID, see [Sign into the application](/entra/identity-platform/howto-create-service-principal-portal#sign-in-to-the-application).
 
-Replace the `<client-secret>` placeholder with the client secret. To obtain a client secret, see [Create a new client secret](/entra/identity-platform/howto-create-service-principal-portal#option-3-create-a-new-client-secret).
+Replace the `<client-secret>` placeholder with the client secret. To obtain a client secret, see [Create a new client secret](/entra/identity-platform/howto-create-service-principal-portal#option-3-create-a-new-client-secret). Consider using a prompt to set the `AZCOPY_SPA_CLIENT_SECRET` variable as shown in the following example. That way, your password won't appear in your console's command history.
 
-> [!NOTE]
-> Consider using a prompt to collect the password from the user. That way, your password doesn't appear in your command history.
+```azcopy
+$env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
+```
 
 Then, run any AzCopy command (for example: `azcopy list https://contoso.blob.core.windows.net`).
 
@@ -117,10 +118,11 @@ $Env:AZCOPY_TENANT_ID="<tenant-id>"
 
 Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the application ID and the tenant ID, see [Sign into the application](/entra/identity-platform/howto-create-service-principal-portal#sign-in-to-the-application).
 
-Replace the `<path-to-certificate-file>` placeholder with the relative or fully qualified path to the certificate file. AzCopy saves the path to this certificate but doesn't save a copy of the certificate, so make sure to keep that certificate in place. Replace the `<certificate-password>` placeholder with the password of the certificate. 
+Replace the `<path-to-certificate-file>` placeholder with the relative or fully qualified path to the certificate file. AzCopy saves the path to this certificate but doesn't save a copy of the certificate, so make sure to keep that certificate in place. Replace the `<certificate-password>` placeholder with the password of the certificate. Consider using a prompt to set the `AZCOPY_SPA_CERT_PASSWORD` variable as shown in the following example. That way, your password won't appear in your console's command history.
 
-> [!NOTE]
-> Consider using a prompt to collect the password from the user. That way, your password doesn't appear in your command history.
+```azcopy
+$env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
+```
 
 Then, run any AzCopy command (for example: `azcopy list https://contoso.blob.core.windows.net`).
 
@@ -148,14 +150,11 @@ Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the clie
 > [!NOTE]
 > Set this value from your command prompt, and not in the environment variable settings of your operating system. That way, the value is available only to the current session.
 
-This example shows how you could do this in PowerShell.
+This example shows how you could do this in PowerShell. Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history.
 
 ```azcopy
 $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
-
-> [!NOTE]
-> Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history.
 
 Next, type the following command, and then press the ENTER key.
 
@@ -164,7 +163,6 @@ azcopy login --service-principal  --application-id application-id --tenant-id=te
 ```
 
 Replace the `application-id` placeholder with the application ID of your service principal's app registration. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the application ID and the tenant ID, see [Sign into the application](/entra/identity-platform/howto-create-service-principal-portal#sign-in-to-the-application).
-
 
 #### Authorize a service principal by using a certificate
 
@@ -177,7 +175,7 @@ Next, set the `AZCOPY_SPA_CERT_PASSWORD` environment variable to the certificate
 > [!NOTE]
 > Set this value from your command prompt, and not in the environment variable settings of your operating system. That way, the value is available only to the current session.
 
-This example shows how you could do this task in PowerShell.
+This example shows how you could do this task in PowerShell. Consider using a prompt as shown in this example. That way, your password doesn't appear in your console's command history.
 
 ```azcopy
 $env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
@@ -192,9 +190,6 @@ azcopy login --service-principal --application-id application-id --certificate-p
 Replace the `application-id` placeholder with the application ID of your service principal's app registration. Replace the `tenant-id` placeholder with the tenant ID of the organization to which the storage account belongs. To find the application ID and the tenant ID, see [Sign into the application](/entra/identity-platform/howto-create-service-principal-portal#sign-in-to-the-application).
 
 Replace the `<path-to-certificate-file>` placeholder with the relative or fully qualified path to the certificate file. AzCopy saves the path to this certificate but it doesn't save a copy of the certificate, so make sure to keep that certificate in place.  
-
-> [!NOTE]
-> Consider using a prompt as shown in this example. That way, your password doesn't appear in your console's command history.
 
 ## Authorize by using Azure CLI
 

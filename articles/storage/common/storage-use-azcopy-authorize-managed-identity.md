@@ -168,7 +168,7 @@ Instead of using in-memory variables, authorize access by using the `azcopy logi
 
 The azcopy login command retrieves an OAuth token and then places that token into a secret store on your system. If your operating system doesn't have a secret store such as a Linux keyring, the azcopy authentication login command doesn't work because there's nowhere to place the token.
 
-### Authorize by using a system-wide managed identity
+### Authorize with a system-wide managed identity
 
 First, make sure that you enable a system-wide managed identity on your VM. For more information, see [System-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
@@ -178,7 +178,7 @@ Then, in your command console, type the following command, and then press the EN
 azcopy login --identity
 ```
 
-### Authorize by using a user-assigned managed identity
+### Authorize with a user-assigned managed identity
 
 First, make sure that you enable a user-assigned managed identity on your VM. For more information, see [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Then, sign in by using either the client ID, object ID, or resource ID of the user-assigned managed identity. 
 
