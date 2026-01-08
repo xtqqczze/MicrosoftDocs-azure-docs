@@ -4,7 +4,7 @@ description: Plan for an Azure Elastic SAN deployment. Learn about storage capac
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: concept-article
-ms.date: 08/04/2025
+ms.date: 01/08/2026
 ms.author: rogarana
 ms.custom:
   - ignite-2023-elastic-SAN
