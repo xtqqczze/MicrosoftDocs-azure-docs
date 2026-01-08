@@ -33,7 +33,7 @@ A general migration journey includes the following phases. Azure Migrate provide
 
 ::: moniker range="migrate"
 
-Watch this video to learn how Azure Migrate provides enhanced capabilities for complex, multi-year migration projects. It helps you identify and visualize workloads, create high-fidelity migration plans, and migrate intricate environments with confidence. The service streamlines planning and execution to ensure clarity, precision, and reliability throughout your migration journey.
+Watch this video to learn how Azure Migrate delivers enhanced experiences. It helps you identify and visualize workloads, estimate cost savings, create high-fidelity migration plans, and confidently migrate complex environments.
 
 > [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed-one-stream.html?id=08b50a5e-0ee6-4dc5-91d8-9e55350547c6]
 ::: moniker-end
