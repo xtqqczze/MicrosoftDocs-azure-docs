@@ -11,25 +11,7 @@ ms.date: 01/08/2026
 
 # Cloud feature availability for commercial and US Government customers
 
-This article describes feature availability in the Microsoft Azure and Azure Government clouds. Features are listed as **GA** (Generally Available), **Public Preview**, or **Not Available** for the following security services:
-
-- [Cloud feature availability for commercial and US Government customers](#cloud-feature-availability-for-commercial-and-us-government-customers)
-  - [Azure Government](#azure-government)
-  - [Microsoft 365 integration](#microsoft-365-integration)
-  - [Azure Information Protection](#azure-information-protection)
-    - [Office 365 features](#office-365-features)
-  - [Microsoft Defender for Cloud](#microsoft-defender-for-cloud)
-  - [Microsoft Sentinel](#microsoft-sentinel)
-    - [Microsoft Purview Data Connectors](#microsoft-purview-data-connectors)
-  - [Microsoft Defender for IoT](#microsoft-defender-for-iot)
-    - [For organizations](#for-organizations)
-    - [For device builders](#for-device-builders)
-  - [Azure Attestation](#azure-attestation)
-  - [Next steps](#next-steps)
-
-> [!NOTE]
-> Additional security services will be added to this article soon.
->
+This article describes feature availability in the Microsoft Azure and Azure Government clouds. Features are listed as **GA** (Generally Available), **Public Preview**, or **Not Available**. The tables in this article are updated regularly to reflect the current state of feature availability.
 
 ## Azure Government
 
@@ -157,7 +139,7 @@ The following table displays the current Defender for Cloud feature availability
 | **Microsoft Defender for Cloud free features**                                                                                                                                       |                |                                |
 | <li> [Continuous export](/azure/defender-for-cloud/continuous-export)                                                                                                                 | GA             | GA                             |
 | <li> [Workflow automation](/azure/defender-for-cloud/workflow-automation)                                                                                                             | GA             | GA                             |
-| <li> [Recommendation exemption rules](/azure/defender-for-cloud/exempt-resource)                                                                                                      | Preview        | Not Available                  |
+| <li> [Recommendation exemption rules](/azure/defender-for-cloud/exempt-resource)                                                                                                      | Public Preview | Not Available                  |
 | <li> [Alert suppression rules](/azure/defender-for-cloud/alerts-suppression-rules)                                                                                                    | GA             | GA                             |
 | <li> [Email notifications for security alerts](/azure/defender-for-cloud/configure-email-notifications)                                                                               | GA             | GA                             |
 | <li> [Auto provisioning for agents and extensions](/azure/defender-for-cloud/monitoring-components)                                                                                   | GA             | GA                             |
