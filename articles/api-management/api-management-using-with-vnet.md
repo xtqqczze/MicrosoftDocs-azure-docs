@@ -67,7 +67,7 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
 After you connect your API Management service to the virtual network, you can access backend services within the virtual network just as you do public services. When creating or editing an API, type the local IP address or the host name (if a DNS server is configured for the virtual network) of your web service into the **Web service URL** field.
 
-:::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-add-api.png" alt-text="Screenshot showing how to dd API from virtual network in the portal.":::
+:::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-add-api.png" alt-text="Screenshot showing how to add API from virtual network in the portal.":::
 
 ## Custom DNS server setup
 
