@@ -1,18 +1,18 @@
 ---
-title: Access signed transactions in Trusted Signing 
-description: Learn how to access signed transactions in Trusted Signing in the Azure portal. 
+title: Access signed transactions in Artifact Signing 
+description: Learn how to access signed transactions in Artifact Signing in the Azure portal. 
 author: meha 
 ms.author: mesharm 
 ms.service: trusted-signing 
 ms.topic: how-to 
-ms.date: 04/12/2024 
+ms.date: 12/28/2025
 ---
 
-# Access signed transactions in Trusted Signing
+# Access signed transactions in Artifact Signing
 
-You can use diagnostic settings to route your Trusted Signing account platform metrics, resource logs, and activity log to various destinations. For each Azure resource that you use, you must configure a separate diagnostic setting. Similarly, each Trust Signing account should have its own settings configured.
+You can use diagnostic settings to route your Artifact Signing account platform metrics, resource logs, and activity log to various destinations. For each Azure resource that you use, you must configure a separate diagnostic setting. Similarly, each Artifact Signing account should have its own settings configured.
 
-Currently, you can choose from three log routing options for Trusted Signing in Azure:
+Currently, you can choose from three log routing options for Artifact Signing in Azure:
 
 - **Azure Storage account**: An Azure Storage account houses all your Storage data objects, including blobs, files, queues, and tables. It offers a unique namespace for your Storage data, and it's accessible globally via HTTP or HTTPS.
 
@@ -39,20 +39,20 @@ This article demonstrates an example of how to view signing transactions by usin
 To complete the steps in this article, you need:
 
 - An Azure subscription.
-- A Trusted Signing account.
-- The ability to create a storage account in an Azure subscription. (Note that billing for storage accounts is separate from billing for Trusted Signing resources.)  
+- An Artifact Signing account.
+- The ability to create a storage account in an Azure subscription. (Note that billing for storage accounts is separate from billing for Artifact Signing resources.)  
 
 ## Send signing transactions to a storage account
 
-[Create a storage account](/azure/storage/common/storage-account-create?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) guides you through the steps to create a storage account in the same region as your Trusted Signing account. (A basic storage account is sufficient.)
+[Create a storage account](/azure/storage/common/storage-account-create?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) guides you through the steps to create a storage account in the same region as your Artifact Signing account. (A basic storage account is sufficient.)
 
 To access and send signing transactions to your storage account:  
 
-1. In the Azure portal, go to your Trusted Signing account.
-2. On the Trusted Signing account **Overview** pane, in the resource menu under **Monitoring**, select **Diagnostic settings**.
+1. In the Azure portal, go to your Artifact Signing account.
+2. On the Artifact Signing account **Overview** pane, in the resource menu under **Monitoring**, select **Diagnostic settings**.
 3. On the **Diagnostic settings** pane, select **+ Add diagnostic setting**.
 
-   :::image type="content" source="media/trusted-signing-diagnostic-settings.png" alt-text="Screenshot that shows adding a diagnostic setting." lightbox="media/trusted-signing-diagnostic-settings.png":::
+   :::image type="content" source="media/artifact-signing-diagnostic-settings.png" alt-text="Screenshot that shows adding a diagnostic setting." lightbox="media/artifact-signing-diagnostic-settings.png":::
 
 1. On the **Diagnostic setting** pane:
 
@@ -61,7 +61,7 @@ To access and send signing transactions to your storage account: 
    3. Under **Destination details**, select the **Archive to a storage account** checkbox.
    4. Select the subscription and storage account that you want to use.
 
-   :::image type="content" source="media/trusted-signing-select-storage-account-subscription.png" alt-text="Screenshot that shows configuring a diagnostic setting for a storage account." lightbox="media/trusted-signing-select-storage-account-subscription.png":::
+   :::image type="content" source="media/artifact-signing-select-storage-account-subscription.png" alt-text="Screenshot that shows configuring a diagnostic setting for a storage account." lightbox="media/artifact-signing-select-storage-account-subscription.png":::
 
 2. Select **Save**. A pane displays a list of all diagnostic settings that were created for this code signing account.  
 3. After you create a diagnostic setting, wait for 10 to 15 minutes for the events to begin to be ingested in the storage account you created.  
