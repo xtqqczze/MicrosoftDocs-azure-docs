@@ -53,7 +53,8 @@ Session persistence mode has two configuration types:
 
 The following figure illustrates a two-tuple configuration. Notice how the two-tuple runs through the load balancer to virtual machine 1 (VM1). VM1 is backed up by VM2 and VM3.
 
-:::image type="content" source="./media/load-balancer-distribution-mode/load-balancer-session-affinity.png" alt-text="Screenshot of two-tuple session affinity distribution mode diagram showing traffic routing through load balancer to virtual machines.">:::
+:::image type="content" source="./media/load-balancer-distribution-mode/load-balancer-session-affinity.png" alt-text="Screenshot of two-tuple session affinity distribution mode diagram showing traffic routing through load balancer to virtual machines.":::
+
 ## Use cases
 
 Source IP affinity with client IP and protocol (source IP affinity three-tuple), solves an incompatibility between Azure Load Balancer and Remote Desktop Gateway (RD Gateway). 
