@@ -20,7 +20,7 @@ High Bandwidth tunnels provide end-to-end encryption to meet security compliance
 :::image type="content" source="media/site-to-site-high-bandwidth-tunnel/transit-high-bandwidth-tunnels.png" alt-text="Diagram showing Transit High Bandwidth IPsec tunnels architecture.":::
 
 > [!IMPORTANT]
-> There are know issues and regional limitations with this VPN Gateway. Please ensure you are familiar with these listed at the end of this document!
+> There are know issues and regional limitations with this VPN Gateway. Ensure you're familiar with the limitations listed at the end of this document!
 
 ## Prerequisites
 
@@ -290,7 +290,7 @@ If you no longer need the resources you created, you can delete them to avoid un
 This action permanently removes the resource group and all resources it contains.
 
 ## Unsupported Regions
-The advanced functionality of this gateway require some of the latest hardware components. These components are available in most but not all Azure Regions. As of January 8th, 2026, the Advanced Connectivity VPN Gateway WILL NOT deploy in the following regions:
+The advanced functionality of this gateway requires some of the latest hardware components. These components are available in most but not all Azure Regions. As of January 8, 2026, the Advanced Connectivity VPN Gateway WILL NOT deploy in the following regions:
  - Australia Central
  - Brazil South
  - Central US
@@ -311,9 +311,9 @@ The advanced functionality of this gateway require some of the latest hardware c
  - West US 3
 
 ## Known Issues
-The first release of the Advanced Connectivity VPN Gateway doesn't support some of the basic VPN Gateway functions, these are on our backlog and will be delivered as quickly as possible. The currently unsupported functions are:
+The first release of the Advanced Connectivity VPN Gateway doesn't support some VPN Gateway functions. This list is on our backlog and will be delivered as quickly as possible. The currently unsupported functions are:
  - Internet based VPN, currently this Gateway is only available over ExpressRoute Private Peering
- - IKEv1 and P2S are not supported
+ - IKEv1 and P2S aren't supported
  - No migration path from existing gateways
  - No APIPA support for BGP sessions
  - No NAT support
