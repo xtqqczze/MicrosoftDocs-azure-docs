@@ -571,6 +571,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/trusted-signing/how-to-sign-ci-policy.md",
+      "redirect_url": "/azure/artifact-signing/how-to-sign-ci-policy",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/trusted-signing/quickstart.md",
       "redirect_url": "/azure/artifact-signing/quickstart",
       "redirect_document_id": false
