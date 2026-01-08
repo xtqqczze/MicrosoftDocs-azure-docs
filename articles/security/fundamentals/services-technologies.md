@@ -45,7 +45,7 @@ For detailed identity security capabilities and best practices, see [Azure ident
 |[Azure Key Vault](/azure/key-vault/general/overview)| Secure storage for keys, secrets, and certificates with FIPS 140-2 Level 1 (Standard tier) or FIPS 140-3 Level 3 (Premium tier with HSM) validation.|
 |[Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview)| Single-tenant, FIPS 140-2 Level 3 validated HSM service offering full control with confidential key support.|
 
-For comprehensive key management options including Azure Dedicated HSM and Azure Payment HSM, see [Key management in Azure](/azure/security/fundamentals/key-management).
+For comprehensive key management options including Azure Payment HSM, see [Key management in Azure](/azure/security/fundamentals/key-management).
 
 ## Data encryption
 
