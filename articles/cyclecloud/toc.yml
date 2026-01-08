@@ -261,7 +261,7 @@
   - name: Release Notes - CycleCloud Workspace for Slurm
     items:
       - name: Current Release - 2025.12.01
-        href: ./release-notes/ccws/2025-12-01-release-notes.md
+        href: ./release-notes/ccws/2025-12-01.md
       - name: All Releases
         href: ./release-notes/ccws/release-notes.md
   - name: Service Policy
