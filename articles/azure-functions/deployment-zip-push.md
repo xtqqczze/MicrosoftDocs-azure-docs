@@ -146,5 +146,3 @@ You can also download a .zip file from a GitHub repository. When you download a 
 
 > [!div class="nextstepaction"]
 > [Run your functions from a package file in Azure](run-functions-from-deployment-package.md)
-
-[.zip push deployment reference topic]: https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url
