@@ -121,7 +121,7 @@ Conditions help run specific actions after passing that specific condition. For 
 
 1. In your condition, change **And** to **Or**, since we want to capture either connection events or disconnection events in a single parse.
 
-1. Select inside the **Choose a value** box and a pop-up appears, showing the **Dynamic content—the fields that can be selected. 
+1. Select inside the **Choose a value** box and a pop-up appears, showing the **Dynamic content**—the fields that can be selected. 
 
    * Choose **eventType**. The popup closes and you see **Body** is placed in **Select an output from previous steps**, automatically. Select **Condition** to reopen your conditional statement.
    * Keep the **is equal to** value.
