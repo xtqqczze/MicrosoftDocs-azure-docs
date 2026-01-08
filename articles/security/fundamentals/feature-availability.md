@@ -320,7 +320,7 @@ For more information, see Azure Attestation [public documentation](/azure/attest
 | [Immutable log storage](/azure/attestation/view-logs) | GA | GA |
 | Network isolation using private link | Public Preview | - |
 | [FedRAMP High certification](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) | GA | GA |
-| Customer lockbox | GA | - |
+| Microsoft Purview Customer Lockbox | GA | - |
 
 ## Next steps
 
