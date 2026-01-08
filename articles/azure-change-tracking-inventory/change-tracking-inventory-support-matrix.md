@@ -12,11 +12,7 @@ author: habibaum
 
 # Support matrix and regions for Azure Change Tracking and Inventory
 
-<<<<<<< HEAD
 Azure Change Tracking and Inventory monitors changes and provides inventory logs for servers across Azure, on-premises, and other cloud environments. This article summarizes support settings and limitations when you enable Change Tracking and Inventory and track changes. It also provides information about the supported regions and mappings for Change Tracking and Inventory by using the Azure Monitor Agent (AMA).
-=======
-Azure Change Tracking and Inventory (CTI) monitors changes and provides inventory logs for servers across Azure, on-premises, and other cloud environments. This article summarizes support settings and limitations when you enable Azure CTI and track changes. It also provides information about the supported regions and mappings for Azure CTI by using the Azure Monitor Agent (AMA).
->>>>>>> d1f286253ce02d28ef064ad31f4085f6ad12afd4
 
 ## Support matrix
 
@@ -27,13 +23,8 @@ Azure Change Tracking and Inventory (CTI) monitors changes and provides inventor
 |Data types | Windows registry </br> Windows services </br> Linux daemons </br> Files </br> Software
 
 > [!NOTE]
-<<<<<<< HEAD
 > Change Tracking and Inventory currently doesn't support configuration to collect data from only specific services (such as selected Windows services or Linux daemons).
 > The service collects data from all services, and you can't customize this behavior. Additionally, DCR transformations aren't supported for Change Tracking DCRs.
-=======
-> Azure CTI currently doesn't support configuration to collect data from only specific services (such as selected Windows services or Linux daemons).
-> The service collects data from all services, and you can't customize this behavior. Additionally, data collection rule (DCR) transformations aren't supported for Change Tracking DCRs.
->>>>>>> d1f286253ce02d28ef064ad31f4085f6ad12afd4
 
 ## Limits
 
@@ -51,21 +42,13 @@ The following table shows the tracked item limits per machine for Change Trackin
 
 ## Supported operating systems
 
-<<<<<<< HEAD
-Change Tracking and Inventory is supported on all operating systems that meet AMA requirements. For a list of the Windows and Linux operating system versions that are currently supported by the AMA, see [supported operating systems](/azure/azure-monitor/agents/agents-overview#supported-operating-systems).
-=======
-Azure CTI is supported on all operating systems that meet AMA requirements. For a list of the Windows and Linux operating system versions that the AMA currently supports, see [Supported operating systems](/azure/azure-monitor/agents/agents-overview#supported-operating-systems).
->>>>>>> d1f286253ce02d28ef064ad31f4085f6ad12afd4
+Change Tracking and Inventory is supported on all operating systems that meet AMA requirements. For a list of the Windows and Linux operating system versions that are currently supported by the AMA, see [Supported operating systems](/azure/azure-monitor/agents/agents-overview#supported-operating-systems).
 
 To understand client requirements for Transport Layer Security (TLS), see [TLS for Azure Automation](../automation/automation-managing-data.md#tls-for-azure-automation).
 
 ## Recursion support
 
-<<<<<<< HEAD
 Change Tracking and Inventory supports recursion, which you can use to specify wildcards to simplify tracking across directories. Recursion also provides environment variables that you can use to track files across environments with multiple or dynamic drive names. The following list includes common information that you should know when you configure recursion:
-=======
-Azure CTI supports recursion, which you can use to specify wildcards to simplify tracking across directories. Recursion also provides environment variables that you can use to track files across environments with multiple or dynamic drive names. The following list includes common information that you should know when configuring recursion:
->>>>>>> d1f286253ce02d28ef064ad31f4085f6ad12afd4
 
 - Use wildcards to track multiple files.
 - Use wildcards only in the last segment of a file path, for example, `c:\folder\\file*` or `/etc/*.conf`.
@@ -74,11 +57,7 @@ Azure CTI supports recursion, which you can use to specify wildcards to simplify
 
 ## Change Tracking and Inventory data collection
 
-<<<<<<< HEAD
-The following table shows the data collection frequency for the types of changes supported by Change Tracking and Inventory. Inventory logs are populated every 10 hours by default for all data types. When a change is registered for any of the data types, the inventory and change logs are generated for this instance.
-=======
-The following table shows the data collection frequency for the types of changes that Azure CTI supports. Inventory logs are populated every 10 hours by default for all data types. When a change is registered for any of the data types, the inventory and change logs are generated for this instance.
->>>>>>> d1f286253ce02d28ef064ad31f4085f6ad12afd4
+The following table shows the data collection frequency for the types of changes Change Tracking and Inventory supports. Inventory logs are populated every 10 hours by default for all data types. When a change is registered for any of the data types, the inventory and change logs are generated for this instance.
 
 | Change type | Frequency |
 | --- | --- |
