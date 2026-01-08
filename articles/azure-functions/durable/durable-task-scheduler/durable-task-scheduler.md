@@ -163,6 +163,8 @@ Stale orchestration data should be purged periodically to ensure efficient stora
      - [When using the Dedicated SKU,](./durable-task-scheduler-dedicated-sku.md#dedicated-sku) task hubs are limited to 15. 
      - [When using the Consumption SKU,](./durable-task-scheduler-dedicated-sku.md#consumption-sku-preview) task hubs are limited to 5. 
 
+    For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
+
 ## Next steps
 
 > [!div class="nextstepaction"]
