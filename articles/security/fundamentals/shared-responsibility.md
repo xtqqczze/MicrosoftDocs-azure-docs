@@ -12,7 +12,13 @@ ms.author: mbaldwin
 ---
 # Shared responsibility in the cloud
 
-As you consider and evaluate public cloud services, it's critical to understand the shared responsibility model and which security tasks the cloud provider handles and which tasks you handle. The workload responsibilities vary depending on whether the workload is hosted on Software as a Service (SaaS), Platform as a Service (PaaS), Infrastructure as a Service (IaaS), or in an on-premises datacenter.
+As you consider and evaluate public cloud services, it's critical to understand the shared responsibility model and which security tasks the cloud provider handles and which tasks you handle. The workload responsibilities vary depending on whether the workload is hosted on Software as a Service (SaaS), Platform as a Service (PaaS), Infrastructure as a Service (IaaS), or in an on-premises datacenter:
+
+- **[IaaS](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-iaas)** (Infrastructure as a Service): You manage virtual machines, operating systems, and applications. Examples include Azure Virtual Machines, Azure Disk Storage, and virtual networks.
+- **[PaaS](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-paas)** (Platform as a Service): You deploy applications without managing VMs or operating systems. Examples include Azure App Service, Azure Functions, Azure SQL Database, and Azure Storage.
+- **[SaaS](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-saas)** (Software as a Service): You use ready-made applications. Examples include Microsoft 365, Dynamics 365, and other cloud applications.
+
+Many Azure solutions use a combination of service models. For more detailed guidance on choosing compute services, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## Division of responsibility
 
