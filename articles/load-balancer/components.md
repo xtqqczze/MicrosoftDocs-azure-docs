@@ -49,9 +49,9 @@ A health probe is used to determine the health status of the instances in the ba
 
 You can define the unhealthy threshold for your health probes. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy instances. A probe failure doesn't affect existing connections. The connection continues until the application:
 
-1. Ends the flow
-1. Idle timeout occurs
-1. The VM shuts down
+- Ends the flow
+- Idle timeout occurs
+- The VM shuts down
 
 Load balancer provides different health probe types for endpoints: TCP, HTTP, and HTTPS. [Learn more about Load Balancer Health probes](load-balancer-custom-probe-overview.md).
 
@@ -73,11 +73,11 @@ A load balancer rule configured with **'protocol - all and port - 0'** is known 
 
 The load-balancing decision is made per flow. This action is based on the following five-tuple connection: 
 
-1. source IP address
-1. source port
-1. destination IP address
-1. destination port
-1. protocol
+- source IP address
+- source port
+- destination IP address
+- destination port
+- protocol
 
 The HA ports load-balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can help when a large number of ports must be load-balanced.
 
@@ -109,13 +109,13 @@ Basic load balancer doesn't support outbound rules.
 
 ## Limitations
 
-1. Learn about load balancer [limits](../azure-resource-manager/management/azure-subscription-service-limits.md) 
-1. Load balancer provides load balancing and port forwarding for specific TCP or UDP protocols. Load-balancing rules and inbound NAT rules support TCP and UDP, but not other IP protocols including ICMP.
-1. Load Balancer backend pool can't consist of a [Private Endpoint](../private-link/private-endpoint-overview.md).
-1. Outbound flow from a backend VM to a frontend of an internal Load Balancer will fail.
-1. A load balancer rule can't span two virtual networks. All load balancer frontends and their backend instances must be in a single virtual network. 
-1. Forwarding IP fragments isn't supported on load-balancing rules. IP fragmentation of UDP and TCP packets isn't supported on load-balancing rules. 
-1. You can only have one Public Load Balancer (NIC based) and one internal Load Balancer (NIC based) per availability set. However, this constraint doesn't apply to IP-based load balancers. 
+- Learn about load balancer [limits](../azure-resource-manager/management/azure-subscription-service-limits.md) 
+- Load balancer provides load balancing and port forwarding for specific TCP or UDP protocols. Load-balancing rules and inbound NAT rules support TCP and UDP, but not other IP protocols including ICMP.
+- Load Balancer backend pool can't consist of a [Private Endpoint](../private-link/private-endpoint-overview.md).
+- Outbound flow from a backend VM to a frontend of an internal Load Balancer will fail.
+- A load balancer rule can't span two virtual networks. All load balancer frontends and their backend instances must be in a single virtual network. 
+- Forwarding IP fragments isn't supported on load-balancing rules. IP fragmentation of UDP and TCP packets isn't supported on load-balancing rules. 
+- You can only have one Public Load Balancer (NIC based) and one internal Load Balancer (NIC based) per availability set. However, this constraint doesn't apply to IP-based load balancers. 
 
 ## Next step
 

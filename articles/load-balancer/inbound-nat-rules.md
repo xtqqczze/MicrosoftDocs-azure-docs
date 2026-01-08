@@ -58,12 +58,12 @@ You can use the portal to retrieve the port mappings for virtual machines in the
 
 For more information about Azure Load Balancer inbound NAT rules, see:
 
-1. [Manage inbound NAT rules](manage-inbound-nat-rules.md)
+- [Manage inbound NAT rules](manage-inbound-nat-rules.md)
 
-1. [Tutorial: Create a multiple virtual machines inbound NAT rule using the Azure portal](tutorial-nat-rule-multi-instance-portal.md)
+- [Tutorial: Create a multiple virtual machines inbound NAT rule using the Azure portal](tutorial-nat-rule-multi-instance-portal.md)
 
-1. [Tutorial: Create a single virtual machine inbound NAT rule using the Azure portal](tutorial-load-balancer-port-forwarding-portal.md)
+- [Tutorial: Create a single virtual machine inbound NAT rule using the Azure portal](tutorial-load-balancer-port-forwarding-portal.md)
 
-1. [Tutorial: Migrate from Inbound NAT Pools to NAT Rules](load-balancer-nat-pool-migration.md)
+- [Tutorial: Migrate from Inbound NAT Pools to NAT Rules](load-balancer-nat-pool-migration.md)
 
 

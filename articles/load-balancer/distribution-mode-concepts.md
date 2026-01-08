@@ -28,11 +28,11 @@ There's no downtime when switching from one distribution mode to another on a lo
 Azure Load Balancer uses a five-tuple hash based distribution mode by default.  
 
 The five-tuple consists of:
-1. **Source IP**
-1. **Source port**
-1. **Destination IP**
-1. **Destination port**
-1. **Protocol type**
+- **Source IP**
+- **Source port**
+- **Destination IP**
+- **Destination port**
+- **Protocol type**
 
 The hash is used to route traffic to healthy backend instances within the backend pool. The algorithm provides stickiness only within a transport session. When the client starts a new session from the same source IP, the source port changes and causes the traffic to go to a different backend instance.
 
@@ -47,21 +47,21 @@ Session persistence is also known session affinity, source IP affinity, or clien
 
 Session persistence mode has two configuration types:
 
-* **Client IP (2-tuple)** - Specifies that successive requests from the same client IP address are handled by the same backend instance.
-* **Client IP and protocol (3-tuple)** - Specifies that successive requests from the same client IP address and protocol combination are handled by the same backend instance.
+- **Client IP (2-tuple)** - Specifies that successive requests from the same client IP address are handled by the same backend instance.
+
+- **Client IP and protocol (3-tuple)** - Specifies that successive requests from the same client IP address and protocol combination are handled by the same backend instance.
 
 The following figure illustrates a two-tuple configuration. Notice how the two-tuple runs through the load balancer to virtual machine 1 (VM1). VM1 is backed up by VM2 and VM3.
 
-:::image type="content" source="./media/load-balancer-distribution-mode/load-balancer-session-affinity.png" alt-text="Screenshot of two-tuple session affinity distribution mode diagram showing traffic routing through load balancer to virtual machines.":::
-
+:::image type="content" source="./media/load-balancer-distribution-mode/load-balancer-session-affinity.png" alt-text="Screenshot of two-tuple session affinity distribution mode diagram showing traffic routing through load balancer to virtual machines.">:::
 ## Use cases
 
 Source IP affinity with client IP and protocol (source IP affinity three-tuple), solves an incompatibility between Azure Load Balancer and Remote Desktop Gateway (RD Gateway). 
 
 Another use case scenario is media upload. The data upload happens through UDP, but the control plane is achieved through TCP:
 
-1. A client starts a TCP session to the load-balanced public address and is directed to a specific DIP. The channel is left active to monitor the connection health.
-1. A new UDP session from the same client computer is started to the same load-balanced public endpoint. The connection is directed to the same DIP endpoint as the previous TCP connection. The media upload can be executed at high throughput while maintaining a control channel through TCP.
+- A client starts a TCP session to the load-balanced public address and is directed to a specific DIP. The channel is left active to monitor the connection health.
+- A new UDP session from the same client computer is started to the same load-balanced public endpoint. The connection is directed to the same DIP endpoint as the previous TCP connection. The media upload can be executed at high throughput while maintaining a control channel through TCP.
 
 > [!NOTE]
 > When Load Balancer backend pool members change either by removing or adding a virtual machine, the distribution of client requests is recomputed. You can't depend on new connections from existing clients to end up at the same server. Additionally, using source IP affinity distribution mode can cause an uneven distribution of traffic. Clients that run behind proxies might be seen as one unique client application.
