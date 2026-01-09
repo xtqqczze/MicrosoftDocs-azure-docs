@@ -66,6 +66,8 @@ nodepool1   standard_l8s_v3
 
 ## Create a storage class for local NVMe
 
+If you haven't already done so, [install Azure Container Storage.](install-container-storage-aks.md) 
+
 Azure Container Storage (version 2.x.x) presents local NVMe as a standard Kubernetes storage class. Create the `local` storage class once per cluster and reuse it for both generic ephemeral volumes and persistent volume claims.
 
 1. Use your favorite text editor to create a YAML manifest file such as `storageclass.yaml`, then paste in the following specification.
