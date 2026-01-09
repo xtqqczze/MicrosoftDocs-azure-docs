@@ -60,7 +60,7 @@ For worst and best case availability scenarios, you should use the **Min** and *
  
 1. In the **Condition** tab, select the **Availability** metric.
  
-1. In the **Alert logic** tab, select the following attribute variable values from the drop down menu: 
+1. In the **Alert logic** tab, select the following attribute variable values from the drop-down menu: 
    
    | Field             | Description  |
    |------------------|--------------|
@@ -70,7 +70,7 @@ For worst and best case availability scenarios, you should use the **Min** and *
    | Threshold value   | 99.9         |
 
  
-1. In the **When to evaluate** tab, select the following variable values from the drop down menu:
+1. In the **When to evaluate** tab, select the following variable values from the drop-down menu:
    
    | Field             | Description  |
    |------------------|--------------|
