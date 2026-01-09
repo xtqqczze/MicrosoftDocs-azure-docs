@@ -166,11 +166,11 @@ Ready to build custom applications beyond the Explorer? Here are some recommende
 > [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md)
 
 > [!div class="nextstepaction"]
-> [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md)
+> [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md)
 
 ## Related content
 
-* [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md)
+* [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md)
 * [Configure application authentication for Microsoft Planetary Computer Pro](./application-authentication.md)
 * [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md)
 * [Create a GeoCatalog](./deploy-geocatalog-resource.md)

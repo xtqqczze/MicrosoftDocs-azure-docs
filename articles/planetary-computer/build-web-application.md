@@ -82,6 +82,8 @@ After registration, note the following values from the **Overview** page:
 - **Application (client) ID**
 - **Directory (tenant) ID**
 
+For more information, [review quickstart app registration](/entra/identity-platform/quickstart-register-app). 
+
 ### Grant API permissions
 
 Your application needs permission to call the GeoCatalog API on behalf of signed-in users:
@@ -596,6 +598,9 @@ const response = await fetch('/api/proxy-asset', {
 const data = await response.json(); // Works!
 ```
 
+> [!NOTE]
+> The following code is a simplified example to illustrate the proxy pattern. For production applications, your proxy endpoint should authenticate requests (for example, by forwarding the user's Bearer token or using session authentication) and validate that the user is authorized to access the requested resources.
+
 Your backend can fetch the blob using the SAS token and return processed results.
 
 ---
@@ -660,7 +665,7 @@ Handle common error scenarios:
 
 ## Related content
 
-- [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md)
+- [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md)
 - [Use the GeoCatalog Explorer](./use-explorer.md)
 - [GeoCatalog REST API reference](/rest/api/planetarycomputer)
 - [MapLibre GL JS documentation](https://maplibre.org/maplibre-gl-js/docs/)

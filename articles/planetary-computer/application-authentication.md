@@ -19,6 +19,18 @@ This article provides step-by-step guidance for developers and administrators to
 > [!NOTE]
 > For applications that use Azure AD B2C or Microsoft Entra External ID supporting features like social identity providers, the applications need to continue using these identity solutions to proxy authentication traffic since Planetary Computer Pro doesn't support alternatives to Microsoft Entra ID authentication.  
 
+## Authentication options and recommendations
+
+The following table summarizes the recommended authentication approach based on where your application runs and how it accesses resources:
+
+| Application Hosting Environment | Access Type Required | Recommended Identity Type        | Explanation                                                                                                                               |
+| :------------------------------ | :------------------- | :------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Running on Azure** (VM, App Service, Functions, Container Apps, etc.) | App-Only (Application acts as itself) | Managed Identity (User-assigned recommended) | **Security & Manageability:** Eliminates the need to store and manage credentials (secrets or certificates) in code or configuration. Azure handles credential rotation automatically. User-assigned is preferred for sharing across multiple resources. |
+| **Running on Azure** (VM, App Service, Functions, Container Apps, etc.) | Delegated (Application acts on behalf of a user) | Managed Identity (User-assigned recommended) | **Leverages Azure Integration:** Combines the security benefits of Managed Identity for the application itself with standard user authentication flows. Simplifies infrastructure setup within Azure. |
+| **Running Outside Azure** (On-premises, other cloud, developer machine) | App-Only (Application acts as itself) | Service Principal | **Standard for External Apps:** The established method for non-Azure applications to authenticate with Microsoft Entra ID. Requires managing credentials (secrets or certificates) securely. |
+| **Running Outside Azure** (On-premises, other cloud, developer machine) | Delegated (Application acts on behalf of a user) | Service Principal | **Standard for External Apps:** Enables standard OAuth 2.0 flows for user sign-in and consent for applications outside Azure, using the application's registered identity in Entra ID. |
+| **Running Outside Azure (Alternative)** | App-Only or Delegated | Managed Identity | **Brings Azure Benefits:** By hosting the application in an Azure compute service (like a VM or Container App), it can use the enhanced security and manageability of Managed Identities, avoiding credential management even though the *origin* might be considered non-Azure. |
+
 ## Prerequisites
 
 - Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
@@ -119,7 +131,7 @@ If you can't use `DefaultAzureCredentials()` and instead use other methods such 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md)
+> [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md)
 
 ## Related content
 

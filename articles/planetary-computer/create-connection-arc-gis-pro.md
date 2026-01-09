@@ -510,7 +510,7 @@ There are two easy ways to discover the storage account and blob container for a
 
 ## Related content
 
-- [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md)
+- [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md)
 - [Configure application authentication for Microsoft Planetary Computer Pro](./application-authentication.md)
 - [Configure QGIS to access a GeoCatalog resource](./configure-qgis.md)
 - [Use the Microsoft Planetary Computer Pro Explorer](./use-explorer.md)

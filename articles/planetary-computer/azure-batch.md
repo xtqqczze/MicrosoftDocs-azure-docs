@@ -25,7 +25,7 @@ Azure Batch is a cloud-based job scheduling service that enables you to run larg
 This quickstart demonstrates how to set up a Batch pool with a user-assigned managed identity, configure permissions to access your GeoCatalog, and run jobs that query the STAC API.
 
 > [!TIP]
-> For an overview of application development options with Microsoft Planetary Computer Pro, see [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md).
+> For an overview of application development options with Microsoft Planetary Computer Pro, see [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md).
 
 ## Prerequisites
 
@@ -224,7 +224,7 @@ az batch task file download \
 
 ## Related content
 
-- [Building applications with Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md)
+- [Connect and build applications with your data](./build-applications-with-planetary-computer-pro.md)
 - [Configure application authentication for Microsoft Planetary Computer Pro](./application-authentication.md)
 - [Build a web application with Microsoft Planetary Computer Pro](./build-web-application.md)
 - [Use the Microsoft Planetary Computer Pro Explorer](./use-explorer.md)
