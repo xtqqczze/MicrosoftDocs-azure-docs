@@ -93,7 +93,7 @@ Alternatively, you can create the storage class using Terraform.
 
 1. Use Terraform to manage the storage class by creating a configuration like the following `main.tf`. Update the provider version or kubeconfig path as needed for your environment.
 
-    ```terraform
+    ```tf
     terraform {
       required_version = ">= 1.5.0"
       required_providers {
