@@ -3,12 +3,16 @@ title: Template syntax and expressions
 description: Describes the declarative JSON syntax for Azure Resource Manager templates (ARM templates).
 ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 01/08/2026
+ms.date: 01/09/2026
 ---
 
 # Syntax and expressions in ARM templates
 
 The basic syntax of the Azure Resource Manager template (ARM template) is JavaScript Object Notation (JSON). However, you can use expressions to extend the JSON values available within the template.  Expressions start and end with brackets: `[` and `]`, respectively. The value of the expression is evaluated when the template is deployed. An expression can return a string, integer, boolean, array, or object.
+
+A template expression can't exceed 24,576 characters.
+
+## Compile-time constrains
 
 Template expressions are evaluated at runtime, but some properties in ARM templates and Bicep files must be known at compile time and therefore can't use expressions. These properties include:
 
@@ -18,7 +22,44 @@ Template expressions are evaluated at runtime, but some properties in ARM templa
 
 These properties must be provided as literal strings because the deployment engine and compiler need to validate resource schemas, dependencies, and properties before evaluating expressions.
 
-A template expression can't exceed 24,576 characters.
+The following ARM template failed becasue the `type` property of the resource uses an expression:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "type": "string",
+      "defaultValue": "[format('storage{0}', uniqueString(resourceGroup().id))]"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "resourceProvider": {
+      "type": "string",
+      "defaultValue": "Microsoft.Storage"
+    },
+    "resourceType": {
+      "type": "string",
+      "defaultValue": "storageAccounts"
+    }
+  },
+  "resources": [
+    {
+      "type": "[format('{0}/{1}', parameters('resourceProvider'), parameters('resourceType'))]",
+      "apiVersion": "2025-06-01",
+      "name": "[parameters('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2"
+    }
+  ]
+}
+```
 
 ## Use functions
 
