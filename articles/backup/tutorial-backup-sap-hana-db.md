@@ -35,7 +35,7 @@ Before you configure backups for SAP HANA databases running on Azure VMs, ensure
   * It should have credentials to add and delete users
   * Note that this key can be deleted after running the pre-registration script successfully
 * You could also choose to create a key for the existing HANA SYSTSEM user in **hdbuserstore** instead of creating a custom key as listed in the step above.
-* Run the SAP HANA backup configuration script (pre-registration script) in the virtual machine where HANA is installed, as the root user. [This script](https://aka.ms/ScriptForPermsOnHANA) gets the HANA system ready for backup and requires the key you have created in the above steps to be passed as input. To understand how this input is to be passed as a parameter to the script, refer to the [What the pre-registration script does](#what-the-pre-registration-script-does) section. It also details about what the pre-registration script does.
+* Run the SAP HANA backup configuration script (pre-registration script) in the virtual machine where HANA is installed, as the root user. [This script](https://aka.ms/ScriptForPermsOnHANA) gets the HANA system ready for backup and requires the key you have created in the above steps to be passed as input. To understand how this input is to be passed as a parameter to the script, refer to the [What the pre-registration script does](#preregistration-script-functionality-for-sap-hana-database-backup) section. It also details about what the pre-registration script does.
 * If your HANA setup uses Private Endpoints, run the [pre-registration script](https://aka.ms/ScriptForPermsOnHANA) with the *-sn* or *--skip-network-checks* parameter.
 
 >[!NOTE]
@@ -54,11 +54,11 @@ Since the streams primarily deal with disks, you need to understand the disk per
 - Maximum Uncached disk throughput of the VM – read from data or log area.
 - Underlying disk type and its throughput – read from data or log area.
 - VM’s maximum network throughput – write to Recovery Services vault.
-- If the VNET has NVA/firewall, it's network throughput
+- If the virtual network has NVA/firewall, it's network throughput
 - If the data/log on Azure NetApp Files – both read from ANF and write to Vault consume VM’s network.
 
 > [!IMPORTANT]
-> In smaller VMs, where the uncached disk throughput is very close to or lesser than 400 MBps, you may be concerned that the entire disk IOPSs are consumed by the backup service which may affect SAP HANA's operations related to read/write from the disks. In that case, if you want to throttle or limit the backup service consumption to the maximum limit, you can refer to the next section.
+> In smaller VMs, where the uncached disk throughput is very close to or lesser than 400 MBps, you might be concerned that the entire disk IOPSs are consumed by the backup service which might affect SAP HANA's operations related to read/write from the disks. In that case, if you want to throttle or limit the backup service consumption to the maximum limit, you can refer to the next section.
 
 ### Limiting backup throughput performance
 
@@ -138,7 +138,7 @@ Here's a summary of steps required for completing the pre-registration script ru
 | Azure Contributor  |   Azure portal    |    Recovery Service vault – Backup Items – SAP HANA     |   Check backup jobs (Azure Workload).    |
 | HANA Admin    | HANA Studio   | Check Backup Console, Backup catalog, backup.log, backint.log, and globa.ini   |    Both SYSTEMDB and Tenant database.   |
 
-After running the pre-registration script successfully and verifying, you can then proceed to check [the connectivity requirements](backup-azure-sap-hana-database.md#establish-network-connectivity) and then [configure backup](#discover-the-databases) from Recovery services vault
+After running the pre-registration script successfully and verifying, you can then proceed to check [the connectivity requirements](backup-azure-sap-hana-database.md#establish-network-connectivity) and then [configure backup](#discover-the-sap-hana-databases-for-backup) from Recovery services vault
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -146,7 +146,7 @@ The Recovery Services vault is now created.
 
 ## Enable Cross Region Restore for SAP HANA databases
 
- Cross Region Restore (CRR) allows you to restore your backups to a secondary region in case of a regional outage. This feature enhances the resilience of your backup strategy by providing an additional layer of protection against regional failures.
+ Cross Region Restore (CRR) allows you to restore your backups to a secondary region during a regional outage. This feature enhances the resilience of your backup strategy by providing an additional layer of protection against regional failures.
 
 At the Recovery Services vault, you can enable Cross Region Restore. Learn about [how to turn on Cross Region Restore](./backup-create-rs-vault.md#set-cross-region-restore).
 
@@ -154,11 +154,11 @@ At the Recovery Services vault, you can enable Cross Region Restore. Learn about
 
 ## Discover the SAP HANA databases for backup
 
-1. In the Azure portal, go to **Backup center** and click **+Backup**.
+1. In the Azure portal, go to **Backup center** and select **+Backup**.
 
    :::image type="content" source="./media/backup-azure-sap-hana-database/backup-center-configure-inline.png" alt-text="Screenshot showing to start checking for SAP HANA databases." lightbox="./media/backup-azure-sap-hana-database/backup-center-configure-expanded.png":::
 
-1. Select **SAP HANA in Azure VM** as the datasource type, select a Recovery Services vault to use for backup, and then click **Continue**.
+1. Select **SAP HANA in Azure VM** as the datasource type, select a Recovery Services vault to use for backup, and then select **Continue**.
 
    :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-vault.png" alt-text="Screenshot showing to select an SAP HANA database in Azure VM.":::
 
