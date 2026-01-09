@@ -7,8 +7,8 @@ ms.custom: linux-related-content
 ms.date: 12/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
-ms.author: v-uhabiba
-author: habibaum
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Disable Azure Change Tracking and Inventory by using the Azure Monitor Agent

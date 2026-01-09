@@ -6,8 +6,8 @@ services: automation
 ms.date: 12/03/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
-ms.author: v-uhabiba
-author: habibaum
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Azure Change Tracking and Inventory extension version details and known issues
