@@ -6,8 +6,8 @@ services: automation
 ms.date: 12/03/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ms.custom: sfi-image-nochange
 ---
 
@@ -18,6 +18,9 @@ When you enable Change Tracking in the Azure portal using the Azure Monitor Agen
 This article explains how to explicitly create a Data Collection Rule for Azure Change Tracking and Inventory (CTI).
 
 To enable Azure CTI from the Azure portal, see [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
+
+  >[!NOTE]
+  >Only a single change tracking DCR can be associated with any resource. Any additional change tracking DCRs will be ignored.
 
 ## Create DCR
 
