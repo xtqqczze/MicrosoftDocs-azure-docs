@@ -20,7 +20,9 @@ Azure Migrate is a service that helps you decide on, plan, and execute your migr
 > *Azure Migrate Classic* is the classic Azure Migrate experience where you can discover, plan, and migrate workloads. This view doesn't support application and cross-workload views.
 
 ::: moniker range="migrate"
+
 For more information on migrating or modernizing multi-tier applications using Azure Migrate and how it simplifies planning and execution, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azuremigrationblog/migrate-or-modernize-your-applications-using-azure-migrate/4468587).
+
 ::: moniker-end
 
 ## Migration phases
@@ -37,7 +39,6 @@ Watch this video to learn how Azure Migrate delivers enhanced experiences. It he
 
 > [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed-one-stream.html?id=08b50a5e-0ee6-4dc5-91d8-9e55350547c6]
 ::: moniker-end
-
 
 ### Decide
 
