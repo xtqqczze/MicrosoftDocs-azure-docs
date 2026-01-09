@@ -7,7 +7,6 @@ ms.topic: how-to
 ms.date: 09/10/2025
 ms.author: kendownie
 ms.custom: references_regions
-zone_pivot_groups: azure-cli-or-terraform
 # Customer intent: "As a Kubernetes administrator, I want to configure Azure Container Storage to use local NVMe for ephemeral volumes, so that I can optimize storage performance for my applications requiring low latency that don't require data durability using standard Kubernetes patterns."
 ---
 
@@ -69,8 +68,6 @@ nodepool1   standard_l8s_v3
 
 Azure Container Storage (version 2.x.x) presents local NVMe as a standard Kubernetes storage class. Create the `local` storage class once per cluster and reuse it for both generic ephemeral volumes and persistent volume claims.
 
-::: zone pivot="azurecli"
-
 1. Use your favorite text editor to create a YAML manifest file such as `storageclass.yaml`, then paste in the following specification.
 
     ```yaml
@@ -90,9 +87,7 @@ Azure Container Storage (version 2.x.x) presents local NVMe as a standard Kubern
     kubectl apply -f storageclass.yaml
     ```
 
-::: zone-end
-
-::: zone pivot="terraform"
+Alternatively, you can create the storage class using Terraform.
 
 1. Use Terraform to manage the storage class by creating a configuration like the following `main.tf`. Update the provider version or kubeconfig path as needed for your environment.
 
@@ -130,8 +125,6 @@ Azure Container Storage (version 2.x.x) presents local NVMe as a standard Kubern
     terraform plan
     terraform apply
     ```
-
-::: zone-end
 
 ## Verify the storage class
 
