@@ -145,9 +145,7 @@ local   localdisk.csi.acstor.io    Delete          WaitForFirstConsumer   true  
 
 ## Create and attach generic ephemeral volumes
 
-If you haven't already done so, [install Azure Container Storage.](install-container-storage-aks.md) 
-
-Follow these steps to create and attach a generic ephemeral volume using Azure Container Storage. Make sure the `local` storage class exists before you continue.
+Follow these steps to create and attach a generic ephemeral volume using Azure Container Storage. Make sure Azure Container Storage is [installed](install-container-storage-aks.md) and the `local` storage class exists before you continue.
 
 ### Deploy a pod with generic ephemeral volume
 
@@ -212,7 +210,7 @@ While generic ephemeral volumes are recommended for ephemeral storage, Azure Con
 > [!NOTE]
 > Azure Container Storage (version 2.x.x) uses the new annotation `localdisk.csi.acstor.io/accept-ephemeral-storage: "true"` instead of the previous `acstor.azure.com/accept-ephemeral-storage: "true"`.
 
-Make sure the `local` storage class you created earlier is available before deploying workloads that use it.
+Make sure Azure Container Storage is [installed](install-container-storage-aks.md) and the `local` storage class you created earlier is available before deploying workloads that use it.
 
 ### Deploy a stateful set with persistent volumes
 
