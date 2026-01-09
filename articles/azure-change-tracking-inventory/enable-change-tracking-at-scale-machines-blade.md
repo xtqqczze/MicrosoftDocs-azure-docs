@@ -6,13 +6,8 @@ services: automation
 ms.date: 11/06/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
-<<<<<<< HEAD
-author: habibaum
-ms.author: v-uhabiba
-=======
 author: RochakSingh-blr
 ms.author: v-rochak2
->>>>>>> 23fbb864c5203d2b632370e0ae49d7ae2b513c52
 ms.custom: sfi-image-nochange
 ---
 
