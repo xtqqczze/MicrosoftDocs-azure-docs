@@ -624,7 +624,7 @@ Due to reasons such as an infrastructure update, connector deployment, and so on
 
 This behavior can happen in both the managed connector and the built-in connector. As long as this error happens only occasionally, the error is expected. When the error happens, the message is still preserved in the service bus. The next trigger or workflow run tries to process the message again.
 
-## Next steps
+## Related content
 
 * [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 * [Built-in connectors for Azure Logic Apps](built-in.md)
