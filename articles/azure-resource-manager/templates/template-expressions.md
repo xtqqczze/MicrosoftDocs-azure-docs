@@ -14,15 +14,15 @@ A template expression can't exceed 24,576 characters.
 
 ## Compile-time constrains
 
-Template expressions are evaluated at runtime, but some properties in ARM templates and Bicep files must be known at compile time and therefore can't use expressions. These properties include:
+Template expressions are evaluated at runtime, but certain properties in ARM templates must be known at compile time and therefore cannot use expressions. These properties must be specified as literal strings so the deployment engine and compiler can validate resource schemas, dependencies, and supported properties before any expressions are evaluated.
+
+Properties that must be compile-time literals include:
 
 - The `type` and `apiVersion` of a resource.
 - The `name` of variables, parameters, and outputs.
 - Extension references.
 
-These properties must be provided as literal strings because the deployment engine and compiler need to validate resource schemas, dependencies, and properties before evaluating expressions.
-
-The following ARM template failed becasue the `type` property of the resource uses an expression:
+The following ARM template failed because the `type` property of the resource uses an expression:
 
 ```json
 {
