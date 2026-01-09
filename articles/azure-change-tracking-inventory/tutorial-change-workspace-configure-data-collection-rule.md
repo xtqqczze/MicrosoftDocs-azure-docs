@@ -93,11 +93,11 @@ You can now view the VMs configured to the DCR from the **Data collection rules*
 To configure file content changes, follow these steps:
 
 1. In your VM, under **Operations**, select **Change tracking** > **Settings**.
-1. In the **Data Collection Rule Configuration** pane, select **File Content** > **Link** to link the storage account.
+1. On the **Data Collection Rule Configuration** pane, select **File Content** > **Link** to link the storage account.
 
     :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/file-content-inline.png" alt-text="Screenshot that shows selecting the link option to connect with the storage account." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/file-content-expanded.png":::
 
-1. In the **Content Location for Change Tracking** pane, select your subscription and storage account to use for file content Change Tracking.
+1. On the **Content Location for Change Tracking** pane, select your subscription and storage account to use for file content Change Tracking.
 1. Confirm that you're using **System Assigned Managed Identity**.
 1. Select **Upload file content for all settings**. Select **Save** to ensure that the file content changes for all the files residing in this DCR are tracked.
 
@@ -106,12 +106,12 @@ To configure file content changes, follow these steps:
 When the storage account is linked by using the system-assigned managed identity, a blob is created. For system-assigned managed identity, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), go to **Storage accounts**, and select the storage account.
-1. In the **Storage accounts** pane, under **Data storage**, select **Containers** > **changetracking blob** > **Access Control (IAM)**.
-1. In the **changetrackingblob | Access Control (IAM)** pane, select **Add**, and then select **Add role assignment**.
+1. On the **Storage accounts** pane, under **Data storage**, select **Containers** > **changetracking blob** > **Access Control (IAM)**.
+1. On the **changetrackingblob | Access Control (IAM)** pane, select **Add**, and then select **Add role assignment**.
 
     :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/blob-add-role-inline.png" alt-text="Screenshot that shows selecting to add a role." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/blob-add-role-expanded.png":::
 
-1. In the **Add role assignment** pane, enter **Blob Data contributor** in search to assign an Azure Blob Storage contributor role for the specific VM. This permission provides access to read, write, and delete access to Blob Storage containers and data.
+1. On the **Add role assignment** pane, enter **Blob Data contributor** in search to assign an Azure Blob Storage contributor role for the specific VM. This permission provides access to read, write, and delete access to Blob Storage containers and data.
 
     :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/blob-contributor-inline.png" alt-text="Screenshot that shows selecting the contributor role for Blob Storage." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/blob-contributor-expanded.png":::
 
@@ -123,15 +123,15 @@ When the storage account is linked by using the system-assigned managed identity
 
 For user-assigned managed identity, follow these steps to assign the user-assigned managed identity to the VM and provide the permission.
 
-1. In the **Storage accounts** pane, under **Data storage**, select **Containers** > **changetracking blob** > **Access Control (IAM)**.
-1. In the **changetrackingblob | Access Control (IAM)** pane, select **Add** > **Add role assignment**.
+1. On the **Storage accounts** pane, under **Data storage**, select **Containers** > **changetracking blob** > **Access Control (IAM)**.
+1. On the **changetrackingblob | Access Control (IAM)** pane, select **Add** > **Add role assignment**.
 1. Search for **Storage Blob Data Contributor**, select the role, and assign it to your user-assigned managed identity.
 
      :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/user-assigned-add-role-inline.png" alt-text="Screenshot that shows adding the role to user-assigned managed identity." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/user-assigned-add-role-expanded.png":::
 
 1. Go to your VM, and under **Settings**, select **Identity**. Under the **User assigned** tab, select **+ Add**.
 
-1. In the **Add user assigned managed identity** pane, select the subscription, and add the user-assigned managed identity.
+1. On the **Add user assigned managed identity** pane, select the subscription, and add the user-assigned managed identity.
 
      :::image type="content" source="media/tutorial-change-workspace-configure-data-collection-rule/user-assigned-assign-role-inline.png" alt-text="Screenshot that shows assigning the role to user-assigned managed identity." lightbox="media/tutorial-change-workspace-configure-data-collection-rule/user-assigned-assign-role-expanded.png":::
 ---
