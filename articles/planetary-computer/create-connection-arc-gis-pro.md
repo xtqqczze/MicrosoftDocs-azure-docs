@@ -5,7 +5,7 @@ author: aloverro
 ms.author: adamloverro
 ms.service: planetary-computer-pro
 ms.topic: how-to
-ms.date: 05/08/2025
+ms.date: 01/09/2026
 
 ms.custom:
   - build-2025

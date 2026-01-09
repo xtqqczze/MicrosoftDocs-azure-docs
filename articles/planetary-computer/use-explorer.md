@@ -5,7 +5,7 @@ author: beharris
 ms.author: brentharris
 ms.service: planetary-computer-pro
 ms.topic: quickstart
-ms.date: 05/08/2025
+ms.date: 01/09/2026
 #customer intent: As a Microsoft Planetary Computer Pro user, I want to navigate through the Explorer so that I can visualize my SpatioTemporal Access Catalog (STAC) data.
 ms.custom:
   - build-2025

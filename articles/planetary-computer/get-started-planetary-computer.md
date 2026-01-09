@@ -5,7 +5,7 @@ author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer-pro
 ms.topic: get-started
-ms.date: 12/01/2025
+ms.date: 01/09/2026
 #customer intent: As a new customer, I want to learn how to use Microsoft Planetary Computer Pro to solve my geospatial data management challenges.
 ms.custom:
 ---

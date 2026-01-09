@@ -5,7 +5,7 @@ author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer-pro
 ms.topic: how-to #Don't change
-ms.date: 04/23/2025
+ms.date: 01/09/2026
 
 #customer intent: As a developer or administrator, I want to set up application authentication and access to Microsoft Planetary Computer Pro so that my applications can securely interact with its resources.
 ms.custom:
@@ -73,7 +73,7 @@ In this access scenario, a user signed into a client application. The client app
 1. Select **Add a permission**
 1. Select the **APIs my organization uses** tab
 1. Type **Azure Orbital Planetary Computer** in the search field
-1. Select on the matching entry (app ID should be 6388acc4-795e-43a9-a320-33075c1eb83b). It shows up as **Azure Orbital Microsoft Planetary Computer Pro**.
+1. Select the matching entry (app ID should be 6388acc4-795e-43a9-a320-33075c1eb83b). It shows up as **Azure Orbital Microsoft Planetary Computer Pro**.
 1. Select on **Delegated permissions** box. Check the box next to **user_impersonation**.
 1. Select **Add permissions**
 1. Select the "Grant admin consent" link (assuming your intent is to grant admin consent in the tenant for this permission)

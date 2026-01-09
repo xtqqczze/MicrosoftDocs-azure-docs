@@ -4,7 +4,7 @@ description: This quickstart shows you how to use Microsoft Planetary Computer P
 author: meaghanlewis
 ms.topic: quickstart
 ms.service: planetary-computer-pro
-ms.date: 04/24/2025
+ms.date: 01/09/2026
 ms.author: emiliod
 #customer intent: I want to use Microsoft Planetary Computer Pro GeoCatalog in Azure Batch to process geospatial data.
 ms.custom:
@@ -37,7 +37,7 @@ Before you begin, ensure you meet the following requirements to complete this qu
     - [Azure CLI](/cli/azure/install-azure-cli)
     - `perl` package.
 
-## Create a batch account
+## Create a Batch account
 
 Create a resource group:
 
@@ -98,7 +98,7 @@ az identity create \
     --resource-group spatiobatchdemo
 ```
 
-Create a pool of compute nodes using the Azure Portal:
+Create a pool of compute nodes using the Azure portal:
 
 1. In the Azure portal, navigate to your Batch account and select **Pools**:
     [ ![Screenshot of the Azure portal showing the Pools section of a Batch account, with options to add and manage pools.](media/batch-pools-overview.png) ](media/batch-pools-overview.png#lightbox)
@@ -112,7 +112,7 @@ Create a pool of compute nodes using the Azure Portal:
     [ ![Screenshot of the Start Task configuration page for a Batch pool. The page includes fields to specify a command line script, elevation level, and other settings for initializing compute nodes.](media/start-task-configuration-page.png) ](media/start-task-configuration-page.png#lightbox)
 1. Select **OK** to create the pool.
 
-## Assign Permissions to the Managed Identity
+## Assign permissions to the managed identity
 
 You need to provide the managed identity access to the GeoCatalog. Go to your GeoCatalog, select on **Access control (IAM)** and select **Add role assignment**:
 
@@ -126,7 +126,7 @@ Select the managed identity you created and then select **Review + assign**.
 
 [ ![Screenshot of the Azure portal showing the Select identity page. The page includes a list of available managed identities, allowing users to choose the identity they want to assign to the Batch pool.](media/select-review-assign.png) ](media/select-review-assign.png#lightbox)
 
-## Prepare the Batch Job
+## Prepare the Batch job
 
 Create a container in the storage account:
 
@@ -146,11 +146,11 @@ az storage blob upload \
     --account-name spatiobatchstorage
 ```
 
-## Run the Batch Jobs
+## Run the Batch jobs
 
 There are two examples in this quickstart: a **Python script**, and a **Bash script**. You can use either of them to create a job.
 
-### Python Script Job
+### Python script job
 
 To execute the Python script job, execute the following commands:
 
@@ -194,7 +194,7 @@ az batch task file download \
     --destination /dev/stdout
 ```
 
-### Bash Job
+### Bash job
 
 To execute the Bash script job, run the following commands:
 

@@ -5,7 +5,7 @@ author: prasadko
 ms.author: prasadkomma
 ms.service: azure
 ms.topic: quickstart
-ms.date: 12/08/2024
+ms.date: 01/09/2026
 
 #customer intent: As a web developer, I want to build a browser application that can authenticate users and display geospatial data from Microsoft Planetary Computer Pro so that I can create custom visualization and analysis tools.
 
@@ -27,38 +27,18 @@ The code patterns work with any modern JavaScript framework (React, Vue, Angular
 
 You can download and test this code from the [Microsoft Planetary Computer Pro public GitHub repository](https://github.com/Azure/microsoft-planetary-computer-pro/tree/main/tools/javascript-sample).
 
-## Table of contents
-
-- [Architecture overview](#architecture-overview)
-- [Prerequisites](#prerequisites)
-- Setup
-  - [Register your application in Microsoft Entra ID](#register-your-application-in-microsoft-entra-id)
-  - [Configure your application](#configure-your-application)
-  - [Install dependencies](#install-dependencies)
-  - [Implement MSAL authentication](#implement-msal-authentication)
-- API examples
-  - [STAC API: Query collections and items](#stac-api-query-collections-and-items)
-  - [Tile URLs: Build URLs for map visualization](#tile-urls-build-urls-for-map-visualization)
-  - [Map integration: Display tiles with MapLibre GL](#map-integration-display-tiles-with-maplibre-gl)
-  - [Mosaic tiles: Display collection-wide imagery](#mosaic-tiles-display-collection-wide-imagery)
-  - [SAS tokens: Download raw assets](#sas-tokens-download-raw-assets)
-- [Development considerations](#development-considerations)
-- [Troubleshooting](#troubleshooting)
-- [Next steps](#next-steps)
-
-## Architecture overview
-
-A typical GeoCatalog web application follows this architecture:
-
-[ ![Diagram showing the architecture of a GeoCatalog web application with a browser client connecting to Microsoft Entra ID for authentication and to GeoCatalog APIs for data access.](media/web-application-architecture.png) ](media/web-application-architecture.png#lightbox)
-
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed [GeoCatalog resource](./deploy-geocatalog-resource.md) with at least one collection containing items.
 - Your user identity must have **GeoCatalog Reader** (or higher) access to the GeoCatalog resource. See [Manage access to a GeoCatalog resource](./manage-access.md).
 - [Node.js](https://nodejs.org/) version 18 or later.
+
+## Architecture overview
+
+A typical GeoCatalog web application follows this architecture:
+
+[ ![Diagram showing the architecture of a GeoCatalog web application with a browser client connecting to Microsoft Entra ID for authentication and to GeoCatalog APIs for data access.](media/web-application-architecture.png) ](media/web-application-architecture.png#lightbox)
 
 
 ## Register your application in Microsoft Entra ID
@@ -127,7 +107,7 @@ npm install @azure/msal-browser maplibre-gl
 
 ## Implement MSAL authentication
 
-[ ![Screenshot showing the authentication flow in a sample web application.](media/sample-authentication.gif) ](media/sample-authentication.gif#lightbox)
+[ ![Screenshot showing the authentication flow in a sample web application.](media/sample-authentication.png) ](media/sample-authentication.png#lightbox)
 
 
 Configure MSAL for browser authentication. The following example shows the key configuration and token acquisition pattern:
@@ -296,7 +276,7 @@ The GeoCatalog Tiler API serves raster data as map tiles. Construct tile URLs wi
 
 [ ![Screenshot showing how to display tiles for a single item.](media/tile-single-image.gif) ](media/tile-single-image.gif#lightbox)
 
-```
+```http
 {catalogUrl}/data/collections/{collectionId}/items/{itemId}/tiles/{z}/{x}/{y}@1x.png
   ?api-version=2025-04-30-preview
   &tileMatrixSetId=WebMercatorQuad
@@ -585,6 +565,9 @@ Browser downloads work because navigation (clicking links) bypasses CORS. Howeve
 
 If your application needs to read and process raw asset data in the browser, implement a server-side proxy:
 
+> [!NOTE]
+> The following code is a simplified example to illustrate the proxy pattern. For production applications, your proxy endpoint should authenticate requests (for example, by forwarding the user's Bearer token or using session authentication) and validate that the user is authorized to access the requested resources.
+
 ```javascript
 // ❌ Browser: This fails due to CORS
 const response = await fetch(signedUrl);
@@ -597,9 +580,6 @@ const response = await fetch('/api/proxy-asset', {
 });
 const data = await response.json(); // Works!
 ```
-
-> [!NOTE]
-> The following code is a simplified example to illustrate the proxy pattern. For production applications, your proxy endpoint should authenticate requests (for example, by forwarding the user's Bearer token or using session authentication) and validate that the user is authorized to access the requested resources.
 
 Your backend can fetch the blob using the SAS token and return processed results.
 

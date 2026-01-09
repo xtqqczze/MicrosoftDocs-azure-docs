@@ -5,7 +5,7 @@ author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer-pro
 ms.topic: concept-article #Don't change.
-ms.date: 04/29/2025
+ms.date: 01/09/2026
 
 #customer intent: As a user, I want to understand how to connect to and use my geospatial data in Microsoft Planetary Computer Pro so that I can choose the right tool for my needs.
 ms.custom:

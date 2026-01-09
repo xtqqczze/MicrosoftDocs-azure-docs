@@ -5,7 +5,7 @@ author: prasadko
 ms.author: prasadkomma
 ms.service: planetary-computer-pro
 ms.topic: how-to
-ms.date: 10/15/2025
+ms.date: 01/09/2026
 
 # customer intent: As a GeoCatalog user, I want to configure and authenticate QGIS to operate with Microsoft Planetary Computer Pro so that I can view imagery stored in my GeoCatalog within the QGIS tool.
 ---
