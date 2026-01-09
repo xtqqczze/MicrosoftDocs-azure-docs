@@ -13,35 +13,10 @@ ms.topic: concept-article
 This article describes reliability support in Azure Deployment Environments. It covers intra-regional resiliency with availability zones and inter-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/well-architected/reliability/).
 
 ## Availability zone support
-[Availability zones](/azure/reliability/availability-zones-overview?tabs=azure-cli) are physically separate groups of datacenters within an Azure region. When one zone fails, services can fail over to one of the remaining zones.
+[Availability zones](/azure/reliability/availability-zones-overview?tabs=azure-cli) are physically separate groups of datacenters within an Azure region. When one zone fails, services can fail over to one of the remaining zones. To improve the availability of your applications, architect your solutions to use multiple availability zones within a region. For more information about Azure regions where availability zones are available, see [Azure regions list](../reliability/regions-list.md).
 
-Azure Deployment Environments automatically support availability zones for all resources. You don't need to take any action.
+When you deploy Azure Deployment Environments in a region that supports availability zones, the environments automatically support availability zones for all resources. Check the regions that support Deployment Environments by using the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=deployment-environments) page.
 
-The following regions support both Deployment Environments and availability zones:
-
-- Australia East
-- Brazil South
-- Canada Central
-- Central India
-- Central US
-- East Asia
-- East US
-- East US 2
-- Germany West Central
-- Italy North
-- Japan East
-- Korea Central
-- North Europe
-- Spain Central
-- South Africa North
-- South Central US
-- Southeast Asia
-- Sweden Central
-- Switzerland North
-- UK South
-- West Europe
-- West US 2
-- West US 3
 
 ## Cross-region disaster recovery and business continuity
 Disaster recovery (DR) refers to practices that organizations use to recover from high-impact events, such as natural disasters or failed deployments that result in downtime and data loss. Regardless of the cause, the best remedy for a disaster is a well-defined and tested DR plan and an application design that actively supports DR. Before you start creating your disaster recovery plan, see [Recommendations for designing a disaster recovery strategy](/azure/well-architected/reliability/disaster-recovery).
