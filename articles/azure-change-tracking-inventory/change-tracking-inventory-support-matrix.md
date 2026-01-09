@@ -137,7 +137,7 @@ Change Tracking and Inventory using the AMA doesn't support the following capabi
 Change Tracking and Inventory using the AMA has the following limitations:
 
 - If your tracking file changes, it's limited to a file size of 5 MB or less.
-- If the file size appears >1.25MB, then `FileContentChecksum` is incorrect because of memory constraints in the checksum calculation.
+- If the file size appears >1.25 MB, then `FileContentChecksum` is incorrect because of memory constraints in the checksum calculation.
 - If you try to collect more than 2,500 files in a 30-minute collection cycle, Change Tracking and Inventory performance might be degraded.
 - If network traffic is high, change records can take up to six hours to display.
 - If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
