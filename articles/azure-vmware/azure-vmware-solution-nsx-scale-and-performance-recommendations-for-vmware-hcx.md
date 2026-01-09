@@ -74,7 +74,7 @@ NSX Edge performance can be monitored and identified by using the built-in NSX a
 
 ## How to fix the NSX Edge resource constraints
 
-To validate the issue, check Historic/Realtime traffic throughput at the alarm time for the correlation. 
+To validate the issue, check Historic/Real time traffic throughput at the alarm time for the correlation. 
 
 :::image type="content" source="media/nsxt/nsx-edge-performance-charts.png" alt-text="Diagram showing NSX Edge VM performance charts." border="false" lightbox="media/nsxt/nsx-edge-performance-charts.png":::
 
@@ -97,7 +97,7 @@ Mitigation options:
      * More details in the next section with an example of HCX migration use case. 
   
  >[!NOTE]
- > Tier-1 topology change options works for all use case where one of the NSX Edge being over utilized.
+ > Tier-1 topology change options work for all use case where one of the NSX Edge being over utilized.
 
 
 
@@ -109,7 +109,7 @@ Mitigation options:
 
 ### Default and configuration recommendations to the NSX Edge data path performance
 
-Here are a few configuration recommendations to mitigate an NSX Edge VMs performance challenges.
+Here are a few configuration recommendations to mitigate NSX Edge VMs performance challenges.
 
 1. By default, Edge VMs are part of Azure VMware Solution management resource pool on vCenter. All appliances in the management resource pool have dedicated computing resources assigned.  
 
@@ -164,7 +164,7 @@ Active/Standby Option:
 
 3. Select the **Edge VM** that is not currently active as the preferred option.
 
-4. For the **Fail Over** setting, select **Preemptive**, this ensures that traffic will always failback to the preferred Edge VM selected in Step 3.
+4. For the **Fail Over** setting, select **Preemptive**, this ensures that traffic always failback to the preferred Edge VM selected in Step 3.
 
 5. Select **All Connected Segments and Service Ports** to be advertised.
 
@@ -184,7 +184,7 @@ For detailed instructions on NSX Segment creation. [NSX Segment Creation](tutori
 Select the newly created Tier-1 Gateway when creating your new NSX Segment. 
 
 >[!NOTE]
->When creating a new NSX Segment, customers cannot utilize the Azure VMware Solution reserved IP space.
+>Customers cannot utilize the Azure VMware Solution reserved IP space, when creating a new NSX Segment.
  
 :::image type="content" source="media/nsxt/nsx-segment-creation.png" alt-text="Diagram showing the creation of an NSX segment." border="false" lightbox="media/nsxt/nsx-segment-creation.png":::
 
