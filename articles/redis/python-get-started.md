@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a Python app with Azure Managed Redis"
 description: In this quickstart, you learn how to create a Python app that uses Azure Managed Redis.
-ms.date: 07/29/2025
+ms.date: 01/09/2026
 ms.topic: quickstart
 ms.custom:
 - mode-api
@@ -68,7 +68,6 @@ r = redis.Redis(
 )
 
 ```
-
 
 Before you can run this code, you must add yourself as a Redis user to the cache.
 
