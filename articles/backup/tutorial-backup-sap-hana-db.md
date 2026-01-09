@@ -2,7 +2,7 @@
 title: Tutorial - Back up SAP HANA databases in Azure VMs 
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
 ms.topic: tutorial
-ms.date: 01/15/2025
+ms.date: 01/09/2026
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -24,7 +24,7 @@ This tutorial shows you how to back up SAP HANA databases running on Azure VMs t
 
 ## Prerequisites
 
-Make sure you do the following before configuring backups:
+Before you configure backups for SAP HANA databases running on Azure VMs, ensure that the following prerequisites are met:
 
 * Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region and subscription as the VM running SAP HANA.
 * Allow connectivity from the VM to the internet, so that it can reach Azure, as described in the [set up network connectivity](backup-azure-sap-hana-database.md#establish-network-connectivity) section.
@@ -41,7 +41,7 @@ Make sure you do the following before configuring backups:
 >[!NOTE]
 >The preregistration script installs the **compat-unixODBC234** for SAP HANA workloads running on RHEL (7.4, 7.6 and 7.7) and **unixODBC** for RHEL 8.1. [This package is located in the RHEL for SAP HANA (for RHEL 7 Server) Update Services for SAP Solutions (RPMs) repo](https://access.redhat.com/solutions/5094721).  For an Azure Marketplace RHEL image the repo would be **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
 
-## Understanding the backup and restore throughput performance
+## Backup and restore throughput performance for SAP HANA databases
 
 The backups (log and non-log) in SAP HANA Azure VMs provided via Backint are streams to Azure Recovery Services vaults (which internally use Azure Storage Blob) and so it's important to understand this streaming methodology.
 
@@ -86,7 +86,7 @@ If you want to throttle backup service disk IOPS consumption to a maximum value,
 >[!Note]
 > If the changes aren't applied, restart the databases.
 
-## What the pre-registration script does
+## Preregistration script functionality for SAP HANA database backup
 
 Running the pre-registration script performs the following functions:
 
@@ -144,13 +144,15 @@ After running the pre-registration script successfully and verifying, you can th
 
 The Recovery Services vault is now created.
 
-## Enable Cross Region Restore
+## Enable Cross Region Restore for SAP HANA databases
+
+ Cross Region Restore (CRR) allows you to restore your backups to a secondary region in case of a regional outage. This feature enhances the resilience of your backup strategy by providing an additional layer of protection against regional failures.
 
 At the Recovery Services vault, you can enable Cross Region Restore. Learn about [how to turn on Cross Region Restore](./backup-create-rs-vault.md#set-cross-region-restore).
 
 [Learn more](./backup-azure-recovery-services-vault-overview.md) about Cross Region Restore.
 
-## Discover the databases
+## Discover the SAP HANA databases for backup
 
 1. In the Azure portal, go to **Backup center** and click **+Backup**.
 
@@ -175,7 +177,7 @@ At the Recovery Services vault, you can enable Cross Region Restore. Learn about
 
    :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-virtual-machines-inline.png" alt-text="Screenshot showing the discovered SAP HANA databases." lightbox="./media/backup-azure-sap-hana-database/hana-select-virtual-machines-expanded.png":::
 
-## Configure backup
+## Configure backup for SAP HANA databases
 
 Now enable backup.
 
@@ -195,7 +197,7 @@ Now enable backup.
 
     ![Screenshot showing how to enable backup.](./media/backup-azure-sap-hana-database/enable-backup.png)
 
-## Creating a backup policy
+## Create a backup policy for SAP HANA databases
 
 A backup policy defines when backups are taken, and how long they're retained.
 
