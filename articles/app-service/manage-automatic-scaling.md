@@ -47,7 +47,7 @@ Only one scaling method should be active for an App Service plan.
 | Always-ready instances | No | No | Yes (minimum 1) |
 | Prewarmed instances | No | No | Yes (default 1) |
 | Per-app maximum | No | No | Yes |
-| ARR affinity behavior | On by default | On unless manually disabled | [Disable manually](#How-does-ARR-Affinity-affect-automatic-scaling) |
+| ARR affinity behavior | On by default | On unless manually disabled | [Should be disabled manually](#arr-affinity) |
 
 ## How automatic scaling works
 
@@ -193,7 +193,7 @@ If your web app returns a 5xx status, these endpoint pings might result in inter
 ### How do I track the number of scaled-out instances during the automatic scaling event?
 
 The `AutomaticScalingInstanceCount` metric reports the number of virtual machines on which the app is running, including the prewarmed instance if it's deployed. This metric can also be used to track the maximum number of instances your web app scaled out during an automatic scaling event. This metric is available only for the apps that have **Automatic Scaling** enabled.
-
+<a name='arr-affinity'></a>
 ### How does ARR Affinity affect automatic scaling?
 
 > [!NOTE]
