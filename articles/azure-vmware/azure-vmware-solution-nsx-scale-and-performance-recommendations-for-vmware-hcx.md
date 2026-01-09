@@ -62,7 +62,7 @@ Using the built-in NSX alarm framework is recommended to monitor and identify ke
 
 ### How to Monitor and Identify NSX Edge Data Path Resource Constraints
 
-NSX Edge performance can be monitored and identified by using the built-in NSX alarm framework. Customer can use the NSX UI or API to monitor alarms, or utilize Azure VMware Solution Resource Health notifications to alert customers when Edge resource constraint alarms are triggered.  More information on the resource health feature is documented [here](https://learn.microsoft.com/en-us/azure/azure-vmware/resource-health-for-azure-vmware-solution-overview). The following critical NSX Edge alarms identify the NSX Edge data path resource constraints. 
+NSX Edge performance can be monitored and identified by using the built-in NSX alarm framework. Customer can use the NSX UI or API to monitor alarms, or utilize Azure VMware Solution Resource Health notifications to alert customers when Edge resource constraint alarms are triggered.  More information on the resource health feature is documented [here](resource-health-for-azure-vmware-solution-overview.md). The following critical NSX Edge alarms identify the NSX Edge data path resource constraints. 
 
 1. Edge NIC Out of Transmit/Receive buffer.
 
