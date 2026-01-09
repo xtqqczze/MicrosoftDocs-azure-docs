@@ -61,7 +61,7 @@ The following table summarizes port requirements for assessment.
 Device | Connection
 --- | ---
 Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app by using the URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Outbound connections on ports 443 (HTTPS) to send discovery and performance metadata to Azure Migrate and Modernize.
-Hyper-V host/cluster | Inbound connection on WinRM port 5986 (HTTPS) by default, if HTTPS prerequisites aren't configured on the target servers, communication falls back to WinRM port 5985 (HTTP) to pull metadata and performance data for servers on Hyper-V by using a Common Information Model (CIM) session.
+Hyper-V host/cluster | Inbound connection uses WinRM port 5986 (HTTPS) by default. If HTTPS prerequisites aren't configured on the target servers, the communication falls back to WinRM port 5985 (HTTP) to collect metadata and performance data for Hyper‑V servers by using a Common Information Model (CIM) session.
 Servers | Windows servers need access on port 5986 (HTTPS) or port 5985 (HTTP). Linux servers need access on port 22 (TCP) to perform software inventory and agentless dependency analysis.
 
 ## Software inventory requirements
