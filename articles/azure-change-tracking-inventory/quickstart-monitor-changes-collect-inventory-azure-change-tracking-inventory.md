@@ -23,13 +23,13 @@ This article describes how you can enable [Azure Change Tracking and Inventory](
 - An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A [VM](/azure/virtual-machines/windows/quick-create-portal) configured in the specified region.
 
-## Enable Change Tracking and Inventory for single and multiple Azure Arc-enabled VMs from the Azure portal
+## Enable Change Tracking and Inventory for single and multiple Azure VMs and Azure Arc-enabled VMs from the Azure portal
 
-This section provides detailed procedures on how you can enable Change Tracking on a single Azure VM and an Azure Arc-enabled VM.
+The following sections show how you can enable Change Tracking and Inventory on single and multiple Azure VMs and Azure Arc-enabled VMs from the Azure portal.
 
-### Enable Change Tracking and Inventory for single and multiple Azure Arc-enabled VMs from the Azure portal
+### Enable Change Tracking and Inventory for single Azure VMs and single Azure Arc-enabled VMs from the Azure portal
 
-This section provides detailed procedures on how you can enable Change Tracking on a single Azure VM and an Azure Arc-enabled VM.
+This section provides detailed procedures on how you can enable Change Tracking on a single Azure VM and a single Azure Arc-enabled VM.
 
 ::: zone pivot="single-portal"
 
@@ -47,7 +47,7 @@ To enable Change Tracking and Inventory for a single Azure VM by using the porta
 
    :::image type="content" source="media/create-data-collection-rule/select-change-tracking-virtual-machine-inline.png" alt-text="Screenshot that shows how to select the Change tracking option for a single VM from the portal." lightbox="media/create-data-collection-rule/select-change-tracking-virtual-machine-expanded.png":::
 
-1. In the **Stay up-to-date with all changes** pane, select the **Enable change tracking and inventory feature with AMA** option and select **Enable**.
+1. In the **Stay up-to-date with all changes** pane, select the **Enable change tracking and inventory feature with AMA** option, and select **Enable**.
 
    Deployment of Change Tracking and Inventory gets initiated with a notification in the upper-right corner of the pane.
 
@@ -66,7 +66,7 @@ To enable Change Tracking and Inventory for a single Azure Arc-enabled VM by usi
 
 1. Select the Azure Arc machine for which you want to enable Change Tracking.
 1. Under **Operations**, select **Change tracking** to view the **Change Tracking and Inventory** pane.
-1. In the **Stay up-to-date with all changes** pane, select the **Enable change tracking and inventory feature with AMA** option and select **Enable**.
+1. In the **Stay up-to-date with all changes** pane, select the **Enable change tracking and inventory feature with AMA** option, and select **Enable**.
 
    :::image type="content" source="media/create-data-collection-rule/select-change-tracking-arc-virtual-machine.png" alt-text="Screenshot that shows how to select the Change Tracking option for a single Azure Arc VM from the portal." lightbox="media/create-data-collection-rule/select-change-tracking-arc-virtual-machine.png":::
 
@@ -80,7 +80,7 @@ To enable Change Tracking and Inventory for a single Azure Arc-enabled VM by usi
 
 This section provides detailed procedures on how you can enable Change Tracking and Inventory on multiple Azure VMs and Azure Arc-enabled VMs.
 
-#### Multiple Azure VMs by using the portal
+#### Enable Change Tracking and Inventory for multiple Azure VMs by using the portal
 
 To enable Change Tracking and Inventory for multiple Azure VMs by using the portal, follow these steps:
 
@@ -103,9 +103,9 @@ To enable Change Tracking and Inventory for multiple Azure VMs by using the port
 
 A notification appears in the upper-right corner of the pane that indicates the status of the Change Tracking and Inventory deployment.
 
-#### Multiple Azure Arc-enabled VMs by using the CLI
+#### Enable Change Tracking and Inventory for multiple Azure Arc-enabled VMs by using the CLI
 
-To enable the Change Tracking and Inventory on Azure Arc-enabled servers, ensure that the custom Change Tracking DCR is associated to the Azure Arc-enabled VMs.
+To enable Change Tracking and Inventory on Azure Arc-enabled servers, ensure that the custom Change Tracking DCR is associated to the Azure Arc-enabled VMs.
 
 To associate the DCR to the Azure Arc-enabled VMs, follow these steps:
 
