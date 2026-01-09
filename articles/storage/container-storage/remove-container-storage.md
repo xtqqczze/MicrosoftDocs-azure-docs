@@ -28,7 +28,7 @@ Follow these steps to remove Azure Container Storage from your AKS cluster.
    az aks update -n <cluster-name> -g <resource-group> --disable-azure-container-storage
    ```
 
-### Remove the extension by using Terraform
+### Remove the extension with Terraform
 
 If you provisioned Azure Container Storage with Terraform, remove the corresponding extension resource from your configuration and apply the change so the result matches the CLI workflow.
 
