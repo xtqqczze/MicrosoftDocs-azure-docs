@@ -25,16 +25,16 @@ Change Tracking and Inventory enhances the auditing and governance for in-guest 
 
 - Monitors changes, including modifications to files, registry keys, software installations, and Windows services or Linux daemons.</br>
 - Provides detailed logs of what and when the changes were made so that you can quickly detect configuration drifts or unauthorized changes. </br>
-Change tracking metadata gets ingested into the `ConfigurationChange` table in the connected Azure Monitor Logs workspace. For more information, see [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange).
+Change tracking metadata gets ingested into the `ConfigurationChange` table in the connected Log Analytics workspace. For more information, see [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange).
 
 > [!NOTE]
 > Change Tracking and Inventory data is logged for both system-level and user-level applications. System-level data is always logged, but user-level applications appear only when a user signs in to a machine. If the user signs out, those applications are marked as **Removed**.
 
 ### Inventory
 
-- Collects and maintains an updated list of installed software, operating system details, and other server configurations in linked Azure Monitor Logs workspaces. </br>
+- Collects and maintains an updated list of installed software, operating system details, and other server configurations in linked Log Analytics workspaces. </br>
 - Helps create an overview of system assets, which is useful for compliance, audits, and proactive maintenance.</br>
-- Ingests inventory metadata into the `ConfigurationData` table in the connected Azure Monitor Logs workspace. For more information, see [ConfigurationData](/azure/azure-monitor/reference/tables/configurationdata).
+- Ingests inventory metadata into the `ConfigurationData` table in the connected Log Analytics workspace. For more information, see [ConfigurationData](/azure/azure-monitor/reference/tables/configurationdata).
 
 ## Key benefits of Azure Change Tracking and Inventory
 
@@ -84,8 +84,8 @@ Change Tracking and Inventory allows monitoring of changes to Windows registry k
 > |`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitors for new browser helper object plugins for Internet Explorer. Used to access the DOM of the current pane and to control navigation for 32-bit applications running on 64-bit computers.
 > |`HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Monitors for new Internet Explorer extensions, such as custom tool menus and custom toolbar buttons.
 > |`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Monitors for new Internet Explorer extensions, such as custom tool menus and custom toolbar buttons for 32-bit applications running on 64-bit computers.
-> |`HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitors 32-bit drivers associated with wavemapper, wave1 and wave2, msacm.imaadpcm, .msadpcm, .msgsm610, and vidc. Similar to the [drivers] section in the `system.ini` file.
-> |`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitors 32-bit drivers associated with wavemapper, wave1 and wave2, msacm.imaadpcm, .msadpcm, .msgsm610, and vidc for 32-bit applications running on 64-bit computers. Similar to the [drivers] section in the `system.ini` file.
+> |`HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitors 32-bit drivers associated with wavemapper, wave1 and wave2, msacm.imaadpcm, .msadpcm, .msgsm610, and vidc. Similar to the `[drivers]` section in the `system.ini` file.
+> |`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitors 32-bit drivers associated with wavemapper, wave1 and wave2, msacm.imaadpcm, .msadpcm, .msgsm610, and vidc for 32-bit applications running on 64-bit computers. Similar to the `[drivers]` section in the `system.ini` file.
 > |`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitors the list of known or commonly used system DLLs. Monitoring prevents people from exploiting weak application directory permissions by dropping in Trojan horse versions of system DLLs.
 > |`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitors the list of packages that can receive event notifications from `winlogon.exe`, the interactive sign-in support model for Windows.
 
