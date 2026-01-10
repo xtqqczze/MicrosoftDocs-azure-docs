@@ -37,7 +37,7 @@ This section provides detailed procedures on how you can enable Change Tracking 
 
 To enable Change Tracking and Inventory for a single Azure VM by using the portal, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Virtual machines**.
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to **Virtual machines**.
 
    :::image type="content" source="media/create-data-collection-rule/select-virtual-machine-portal-inline.png" alt-text="Screenshot that shows how to select a VM from the portal." lightbox="media/create-data-collection-rule/select-virtual-machine-portal-expanded.png":::
 
@@ -84,7 +84,7 @@ This section provides detailed procedures on how you can enable Change Tracking 
 
 To enable Change Tracking and Inventory for multiple Azure VMs by using the portal, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Virtual machines**.
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to **Virtual machines**.
 
    :::image type="content" source="media/create-data-collection-rule/select-virtual-machine-portal-inline.png" alt-text="Screenshot that shows how to select a VM from the portal." lightbox="media/create-data-collection-rule/select-virtual-machine-portal-expanded.png":::
 
@@ -110,7 +110,7 @@ To enable Change Tracking and Inventory on Azure Arc-enabled servers, ensure tha
 To associate the DCR to the Azure Arc-enabled VMs, follow these steps:
 
 1. [Create a Change Tracking DCR](create-data-collection-rule.md). You can also use an existing DCR that collects data for Change Tracking and Inventory. These rules are part of Azure Monitor, which helps you manage and monitor your systems.
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Monitor**. Under **Settings**, select **Data Collection Rules**.
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to **Monitor**. Under **Settings**, select **Data Collection Rules**.
       
    :::image type="content" source="media/create-data-collection-rule/monitor-menu-data-collection-rules.png" alt-text="Screenshot that shows the menu option to access data collection rules from Azure Monitor." lightbox="media/create-data-collection-rule/monitor-menu-data-collection-rules.png":::
 
