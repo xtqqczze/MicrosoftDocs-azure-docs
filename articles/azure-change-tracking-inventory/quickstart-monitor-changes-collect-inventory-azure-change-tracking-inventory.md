@@ -4,7 +4,7 @@ description: In this quickstart, learn how to enable Azure Change Tracking and I
 services: automation
 ms.date: 12/09/2025
 ms.topic: quickstart
-#Customer intent: As a customer, I want to enable Azure Change Tracking and Inventory so that I can further use the Change Tracking and Inventory services.
+#Customer intent: As a customer, I want to enable Azure Change Tracking and Inventory so that I can further use Azure Change Tracking and Inventory.
 ms.service: azure-change-tracking-inventory
 ms.author: v-rochak2
 author: RochakSingh-blr
